@@ -1,0 +1,106 @@
+<style>
+.btn-group, .btn-group-vertical {
+  display:none;
+}
+
+.chk {
+  overflow:scroll;
+  height:500px;
+}
+</style>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+        <h2 class="page-header">Employee Lucky Draw</h2>
+    </div>
+
+    <div class="row">
+      <div >
+         <label class="col-lg-12" style= "text-align:center">Select Date</label>
+          <div class="col-lg-12" >
+              <div class ='col-lg-offset-2 col-lg-6 col-md-offset-2 col-md-8'>
+              <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dateSelected"  is-open="popup2.opened" ng-disabled="true" ng-change='selectParlor()'  datepicker-options="dateOptions" ng-required="true" min-date="minDate" max-date="maxDate"   close-text="Close" /></div>
+              <div class ='col-lg-2'>
+                         <button type="button" class="btn btn-default" ng-click="open2()" style="margin-left: -50%;"><i class="glyphicon glyphicon-calendar" ></i></button>
+                 </div>
+                <div class="col-lg-2">
+                  <button type="button" name="button" class="btn btn-default" ng-click="exportToExcel('#myTable')">Export to Excel</button>
+
+                </div>
+
+              </div>
+     </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-lg-offset-2 col-lg-7 col-md-offset-2 col-md-7">
+                    <label>Parlor List</label>
+                     <span >
+                          <select class="form-control" name="category" ng-options="p.name for p in parlorList" ng-change='selectParlor()' ng-model="parlorSelected">
+                             </select>
+                      </span>
+      </div>
+    </div> -->
+
+<div class="row"  >
+  <div class="chk col-md-12  col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 ">
+
+    <table id="myTable" ng-table="tableParams" class="table table-striped" style="margin-top:2em;">
+
+                <tr ng-repeat="user in $data ">
+                  <td title="'Date'"     sortable="'date'"  onmouseover="this.title='';">
+                                {{user.date |date:medium}}
+                        </td>
+
+
+                  <td title="'Salon Name'" sortable="'parlorName'"  onmouseover="this.title='';">
+                          {{user.parlorName}}
+                  </td>
+                        <td title="'Employee Name'" sortable="'employeeName'"  onmouseover="this.title='';">
+                                {{user.employeeName}}
+                        </td>
+                        <td title="'Draw Amount'" onmouseover="this.title='';">
+                           {{user.amount}}</td>
+                        <td title="'Category'"  onmouseover="this.title='';">
+                          {{user.reason}}
+                        </td>
+                        <td title="'Client Name'"  onmouseover="this.title='';">
+                          {{user.clientName}}
+                        </td>
+                        <td title="'IFSC Code'"  onmouseover="this.title='';">
+                          {{user.ifscCode}}
+                        </td>
+
+                        <td title="'Account Number'"  onmouseover="this.title='';"  style="font-size: 12px;">
+
+                       <span >  <span  ng-if="user.accountNo!='N/A'"></span> {{user.accountNo}}  <span  ng-if="user.accountNo!='N/A'"></span></span>
+
+                        </td>
+                        <td title="'Status'"  onmouseover="this.title='';" ng-style="(user.status=='Claimed'?greenBG:redBG)">
+                            {{user.status}}</td>
+                            <td title="'Bank Name'"  onmouseover="this.title='';" >
+                              {{user.ifsc.BANK}}</td>
+                              <td title="'Bank Branch'"  onmouseover="this.title='';" >
+                                {{user.ifsc.BRANCH}}</td>
+                               <td title="'Payment Status'"  onmouseover="this.title='';" >
+                                  <button class="btn btn-primary" ng-if="user.paid" ng-click="paidOrUnpaid(user,false)">Paid</button>
+                                   <button class="btn btn-primary" ng-if="user.paid==false" ng-click="paidOrUnpaid(user,true)">UnPaid</button>
+                            </td>
+
+      </table>
+
+  </div>
+</div>
+
+
+<div class="col-md-12" style="margin-top:10px;">
+  <div class="col-md-4 col-md-offset-2">Select Settlement Period</div>
+  <div class="col-md-4">
+    <select class="setelment-report" ng-model="selectedPeriod" ng-options="period as period.date for period in periods">
+      
+    </select>
+  </div>
+  <button class="btn btn-primary" ng-click="periodChanged(selectedPeriod)">Load Data</button>
+  <button class="btn btn-primary" ng-click="sendSMS(selectedPeriod)">Send SMS</button>
+  
+  <button ng-csv="finalData"  csv-header="['Date','Salon Name','Employee Name','Draw Amount','IFSC Code','Account Number','Status','Bank Name','Bank Branch']" filename="file.csv">Full Data</button>
+</div>
+  

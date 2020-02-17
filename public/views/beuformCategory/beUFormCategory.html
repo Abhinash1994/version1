@@ -1,0 +1,118 @@
+
+<style>
+    h3{
+
+        text-align:center;
+    }
+
+    .row{
+        margin-top:6px;
+    }
+
+        td {
+            padding:4px;
+        }
+</style>
+
+
+
+<div class ="container">
+    <h3>Create Category & Sub Category (Be U Form)</h3>
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Category" active="tabs[0].active">
+            <form ng-submit='createCategory()'>
+            <div class="row" style="background-color: white;">
+                <div class="row">
+                <div class="col-md-11">
+                <label>Category</label>
+                <input type="text"  class="form-control"  ng-model="category.categoryName"  required/>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-11">
+                 <label>Sort Order</label>
+                  <input type="number"  class="form-control"  ng-model="category.sortOrder"  required />
+                  </div>
+                  </div>
+                <button type="submit"   class="btn btn-primary"  >Create</button>
+            </div>
+
+            </form>
+
+
+
+
+        </uib-tab>
+
+        <uib-tab index="1" heading="Sub Category" active="tabs[1].active">
+            <div class="form">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Select Category</label>
+                    </div>
+
+                    <div class="col-md-offset-2 col-md-4">
+                        <select  ng-change="changing()" ng-options="i as i.name for i in categories track by i._id" ng-model="cat.select" class="form-control">
+                            <option ></option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="row">
+
+
+                    <div class="col-md-3">
+                        <label>Enter SubCategory</label>
+                    </div>
+
+                    <div class="col-md-offset-2 col-md-4"  >
+                       <input type="text"  ng-model="subCategory.subCategoryName" ng-disabled="!cat.select"/>
+                    </div>
+
+                </div>
+            <div class="col-md-offset-3">
+                <button class="btn btn-primary"  ng-click="submitsubCategory()">Create Subcategory</button>
+            </div>
+
+
+
+            </div>
+
+
+
+
+        </uib-tab>
+        <uib-tab index="2" heading="View Categories" active="tabs[2].active">
+                    <table class="table table-striped">
+                                    <thead>
+                                                <tr>
+                                                        <td>Category Name</td>
+                                                        <td>Delete</td>
+
+                                                </tr>
+
+                                    </thead>
+                                    <tbody>
+                                                <tr ng-repeat="category in categories">
+                                                        <td>
+                                                                    {{category.name}}             
+                                                        </td>
+                                                        <td><button  class="btn btn-primary" ng-click="deleteCategory(category)">Delete</button></td>
+
+                                                </tr>
+
+                                    </tbody>
+
+                    </table>
+
+
+        </uib-tab>
+
+
+    </uib-tabset>
+
+
+
+
+
+</div>

@@ -1,0 +1,107 @@
+<style type="text/css">
+	table,th{
+		text-align: center;
+	}
+	.newcustomer{
+		padding-left: 30px;
+	}
+
+</style>
+
+<div class="row"><h3 class="newcustomer">New Customer Report</h3></div>
+
+<div class="row">
+	<div class="col-md-12">
+        <div  class="col-md-3 col-lg-3 col-md-offset-2">
+            <h4>Select Date</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+            <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+                   ng-model="dateRangeSelected" ng-change="dateSelected()">
+        </div>
+    </div
+</div>
+
+  <div class="row">
+        <div class="col-md-12 col-lg-12 col-md-offset-2">
+            <button class="btn btn-primary" id="apply-btn" ng-click="newCustomer()">Apply</button>
+        </div>
+    </div>
+<div class="row">
+	
+<div class="col-md-12">
+	<div  class="table-responsive">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th style="width:100px;">S-no</th>
+
+				<th>Name</th>
+				<th>City</th>
+				<th>Send Whats App</th>
+				<th>Source</th>
+				<th>Campaign</th>
+				<th>Subscriber</th>
+				<th>Phone Number</th>
+				<th>Date</th>
+				<th>App User</th>
+				<th>Free Service</th>
+				<th>Appointment Details</th>
+				<th>Salon Name</th>
+				<th style="width: 95px;">Services</th>
+				
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="x in customerDetails | orderBy:'isAppUser':true:localeSensitiveComparator track by $index">
+				<td style="width:100px;">{{$index+1}}</td>
+				<td>{{x.userName}}</td>
+				<td>{{x.city}}</td>
+				<td><a class="btn btn-primary"  ng-href="https://api.whatsapp.com/send?phone=91{{x.phoneNumber}}&text=Hi%2C%0D%0A%0D%0AThis%20is%20Pooja%20from%20%2ABe%20U%20Salons%2A%20%28India%E2%80%99s%201st%20Subscription%20based%20salon%20chain%29%2C%20this%20is%20regarding%20your%20recent%20registration%20with%20Be%20U%20Salons.%0D%0A%0D%0AYour%20registration%20qualifies%20for%20an%20%2AEarly%20Bird%20Subscription%20Offer%20for%20Rs%201699%2A%20where%20you%20%2Aget%20services%20worth%20Rs%20500%2Fmonth%20for%20free%2C%20for%201%20full%20year%2A.%0D%0A%0D%0APlease%20call%20back%20once%20you%20get%20a%20chance.%20%0D%0ACustomer%20Care%2C%20Be%20U%20Salons%0D%0A%0D%0A%2ADownload%20our%20APP%20and%20experience%20quality%20services%20at%20unbeatable%20prices%20at%20our%20100%2B%20outlets%20in%20Delhi%20%26%20Bangalore" target="_blank">Send Whatsapp</a></td>
+				<td>{{x.marketingSource.source}}</td>
+				<td>{{x.marketingSource.campaignName}}</td>
+				<td>{{x.isSubscriber}}</td>
+				<td>{{x.phoneNumber}}</td>
+				<td>{{x.userCreatedDate}}</td>
+				<td>{{x.isAppUser }}</td>
+				<!-- <td><span ng-repeat="z in x.freeService track by $index">{{z}}</span</td> -->
+				<td>{{x.freeService}}</span</td>
+				<td>{{x.firstApptDate}}</td>
+				<td>{{x.apptSalonName}}</td>
+				<td style="width: 95px;"><span ng-repeat="y in x.apptServices track by $index">{{y}}</span></td>
+			</tr>
+
+		</tbody>
+	</table>
+</div>
+</div>
+
+<div ng-if="userId=='5bee5024dbb11c1dce8d80be' ||userId=='5bf2a9e5763c341ccbc86fee' || role==1">
+	<div class="row2">
+		<ul id="selectable" selectable="selection" selectable-list="allotData" selectable-out="selected" selectable-events="{ stop:'selectionStop($selected)'}">
+			  <li ng-repeat="x in allotData">{{$index+1}}. {{x.firstName}}---{{x.phoneNumber}}
+			  </li>
+		</ul>
+				
+	</div>
+</div>
+<div class="modal fade" id="allotData" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+				<div class="modal-header">
+					Allot {{selectedCustomers.length}} Customers To
+				</div>
+				<div class="modal-body text-center">
+					<div class="row">
+						   Select Customer Care Name <select name="mySelect" id="mySelect"
+							ng-options="option.customerCareId as option.firstName for option in customerCareMembers"
+							ng-model="selectedCustomerCare"></select>
+					</div>
+				
+						<button ng-disabled="!selectedCustomerCare" type="submit" ng-click="allotCustomers(selectedCustomerCare)" class="btn btn-success">Submit</button>
+				</div>
+		</div>
+	</div>
+</div>
+</div>

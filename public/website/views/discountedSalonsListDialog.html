@@ -1,0 +1,27 @@
+<md-dialog ng-cloak="" style="width:32%;background-color: #f1f1f3;">
+    <md-content >
+        <div layout="row" flex="100" style="padding-left: 2%;font-size: 20px;padding-top: 1%;padding-bottom: 1%;background-color:#d2232a;color: white;">
+            <span>Choose your salon</span>
+        </div>
+        <div layout="column" flex="100" style="padding-left: 3%;padding-top: 7%;padding-right: 7%;background-color: white;">
+            <span><b>Deal Name</b></span>
+            <span style="font-size: 14px;">Deal Details for the selection of salon deal details for the selection 20% off upto of salon deal details for the selection of 50%  salon deal  details for.</span>
+        </div>
+        <div ng-repeat="list in newDiscountedSalonsList" ng-click="parlorDetails(list.parlorID)">
+
+            <div layout="column" flex="100" style="margin-top: 1%;">
+                 <md-card md-theme-watch  >
+                        <md-card-content layout="row" flex="100">
+                            <div layout="column" flex="50">
+                                <span>{{list.name}}</span>
+                                <span>{{list.address}}</span>
+                             </div>
+                             <div layout="column" flex="50" layout-align="center end">
+                                <span style="color:green;">{{list.distance}} kms</span>
+                             </div>
+                        </md-card-content>
+                 </md-card>
+            </div>
+        </div>
+    </md-content>
+</md-dialog>

@@ -1,0 +1,103 @@
+<div class="row"><h3 class="newcustomer">Conversion Summary</h3></div>
+
+<div class="row">
+	<div class="col-md-12">
+        <div  class="col-md-3 col-lg-3 col-md-offset-2">
+            <h4>Select Date</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+            <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+                   ng-model="dateRangeSelected" ng-change="dateSelected()">
+        </div>
+    </div
+</div>
+
+<div class="row" class="col-md-12">
+    <div class="col-md-3 col-lg-3 col-md-offset-2" style="display:inline" isteven-multi-select input-model="teamMembers" output-model="selectedMembers" button-label="name"
+    item-label="name" tick-property="isSelected" output-properties="name userId"
+    on-close="teamMembersSelected(selectedMembers)"></div>
+
+    <div><button ng-click="dataAttempted()">Apply</button></div>
+</div>
+
+<div>
+    <table>
+        <thead>
+            <th>Fields</th>
+            <th ng-repeat="date in attemptedData">{{date.date | date:'fullDate'}}</th>
+        </thead>
+        <tbody>
+
+       
+        <tr>
+                <th>Unique Clients</th>
+                <th ng-repeat="row in attemptedData">{{row.data.uniqueClient}}</th>
+            </tr>
+        <tr>
+            <th>New Clients Attempted</th>
+            <th ng-repeat="row in attemptedData">{{row.data.newClientAttempt}}</th>
+        </tr>
+        <tr>
+            <th>Follow Ups</th>
+            <th ng-repeat="row in attemptedData">{{row.data.followUps}}</th>
+        </tr>
+        <tr>
+                <th>Not Interested</th>
+                <th ng-repeat="row in attemptedData">{{row.data.notInterested}}</th>
+        </tr>
+        <tr>
+                <th>Follow Up</th>
+                <th ng-repeat="row in attemptedData">{{row.data.followUp}}</th>
+        </tr>
+        <tr>
+                <th>Number Not Reachable</th>
+                <th ng-repeat="row in attemptedData">{{row.data.numberNotReachable}}</th>
+        </tr>
+        <tr>
+                <th>Whats App Dropped</th>
+                <th ng-repeat="row in attemptedData">{{row.data.whatsAppDrop}}</th>
+        </tr>
+        <tr>
+                <th>Subscription Sold/Appointment Booked</th>
+                <th ng-repeat="row in attemptedData">{{row.data.subscriptionSold}}</th>
+        </tr>
+    </tbody>
+        
+    </table>
+</div>
+<div class="row" class="col-md-12">
+        <select class="col-md-3 col-lg-3 col-md-offset-2" name="mySelect" id="mySelect"
+        ng-options="option.userId as option.name for option in teamMembers"
+        ng-model="data.selectedOption"></select>
+
+        <div><button ng-click="attemptReport()">Apply</button></div>
+</div>
+<div >
+        <table>
+            <thead>
+                <th>Fields</th>
+                <th colspan="3" ng-repeat="date in conversionData">{{date.date  | date:'fullDate'}}</th>
+            </thead>
+            <tbody>
+            <tr>
+                <th></th>
+                <th ng-repeat="x in middleLayer track by $index">{{x}}</th>
+            </tr>
+           
+            <tr>
+                <th>Date Wise Conversion</th>
+                <th ng-repeat-start="data in conversionData">
+                    {{data.data.attempted }}
+                </th>
+                <th >
+                    {{data.data.linkSent }}
+                </th>
+                <th ng-repeat-end>
+                    {{data.data.converted }}
+                </th>
+            </tr>
+
+        </tbody>
+            
+        </table>
+    </div>

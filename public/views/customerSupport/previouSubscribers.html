@@ -1,0 +1,113 @@
+
+<style media="screen">
+.table-responsive{
+  height: 70%;
+}
+  .ng-scope th,td{
+  padding:3px;
+  margin:0px;
+}
+  #start{
+    margin-top: 9px;
+    height: 43px;
+  }
+input[type=text]{
+  border:1px solid black;
+  color:white;
+  height: 30px;
+  margin-left: 30px;
+  text-align: center;
+  height: 42px;
+}
+.line{
+	border:0.3px solid #00000021;
+	width: 70%
+  text-align:center;
+}
+.Lucky{
+	color:white;font-weight: 400;text-align: center;
+}
+
+#apply{
+      margin-left: 105px;
+    width: 100px;
+}
+table{
+  margin-left:13px;
+}
+.whatsapp{
+  text-align: center;
+}
+</style>
+
+<div  class="row">
+	<div class="col-lg-2 col-md-2"></div>
+  <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12"
+  style="border-radius:4px;margin: 20px;padding: 20px;background-color: #185149d6">
+      	<h3 class="Lucky"> Month Selector Report </h3>
+      	<div class="line"></div>
+          <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-1">
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dts"  is-open="popup1.opened" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button id="start" type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+    </div>
+    <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-1">
+    <!--        <div class="col-md-3" >-->
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dte"  is-open="popup2.opened" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button id="start" type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6 col-md-offset-2" >
+                <button id="apply"class="btn" id="branchfilter" ng-click = "applyFilter()">Apply</button>
+            </div>           
+  </div> 
+
+      <!--table in -->
+           
+                   
+  </div>
+
+<div  class="table-responsive">
+<table class="table" id="tableToExport">
+    <thead>
+            <tr>
+                            <th><center>Client Name</center></th>
+                            <th><center>Phone Number</center></th>
+                            <th><center>Subscription Renewed</center></th>
+                            <th><center>WhatsApp Link</center></th>
+                            <th><center>Price Paid</center></th>
+                            <th><center>Subscription Type</center></th>
+                            <th><center>Subscripion Buy Date</center></th>
+                            <th><center>Total Redemption Till Date</center></th>
+                            <th ng-repeat="month in months"><center> Month {{month}}</center></th>
+                          </tr>
+
+    </thead>
+    <tbody>
+         <tr ng-repeat="customer in stats">
+                            <td>{{customer.clientName}}</td>
+                            <td>{{customer.phoneNumber}}</td>
+                            <td>{{customer.renewed}}</td>
+                            <td class="whatsapp"><a class="btn btn-primary"  ng-href="https://api.whatsapp.com/send?phone=91{{customer.phoneNumber}}&text=Hi%20{{customer.clientName}}%2C%0AThis%20is%20Pooja%20from%20Be%20U%20Salons.%20You%20have%20been%20a%20SalonPass%20subscriber%20since%20February%202018%20and%20have%20saved%20%E2%82%B9{{customer.totalRedemption}}%20over%20the%20last%2012%20months.%20Hence%20we%20wanted%20to%20make%20sure%20that%20you%20continue%20with%20your%20saving%20spree%20without%20a%20break.%20%0ARenew%20your%20subscription%20before%2031st%20January%20and%20get%201%20extra%20month%20added%20to%20your%20subscription.%20Let%20me%20know%20and%20I%20can%20share%20the%20details%20for%20your%20renewal" target="_blank">Send Whatsapp</a></td>                                                               
+                            <td>{{customer.actualPricePaid}}</td>
+                            <td>{{customer.subscriptionType}}</td>
+                            <td>{{customer.createdAt | date:'short'}}</td>
+                            <td>{{customer.totalRedemption}}</td>
+                            <td ng-repeat="month in customer.clientRevenueTillNow">{{month.loyalitySubscription}} on {{month.date[0]}}</td>
+                           
+                          </tr>
+    </tbody>
+</table>
+</div>
+
+</div>

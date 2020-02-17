@@ -1,0 +1,526 @@
+<style>
+.col-md-2,
+ul {
+    padding: 0px;
+}
+
+
+
+.row button {
+    margin: -3px;
+}
+
+th,
+td {
+    width: 200px !important;
+    text-align: center;
+}
+
+thead {
+
+
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+
+.table_to_show_excel {
+    width: 100%;
+    height: 400px;
+    overflow: scroll;
+}
+
+.row .closing_icon {
+    background-color: black !important;
+}
+
+.row .closing_icon:hover {
+    background-color: black !important;
+}
+
+.scroll {
+    border: 0;
+    border-collapse: collapse;
+}
+
+.scroll tr {
+    display: flex;
+}
+
+.scroll td {
+    padding: 3px;
+    flex: 1 auto;
+    border: 1px solid #aaa;
+    width: 1px;
+    word-wrap: break;
+}
+
+.scroll thead tr:after {
+    content: '';
+    visibility: hidden;
+    height: 0;
+}
+
+.scroll thead th {
+    flex: 1 auto;
+    display: block;
+    border: 1px solid #000;
+}
+
+.scroll tbody {
+    display: block;
+    width: 100%;
+    overflow-y: auto;
+    height: 500px;
+}
+
+
+
+
+.panel {
+    margin: 4px;
+}
+
+.row {
+    margin: 0px;
+    padding-top: 4px;
+}
+
+
+
+
+/*.nv-controlsWrap{*/
+
+
+/*display:none;*/
+
+
+/*}*/
+
+.btn-floating .col-md-2 {
+    border-style: none;
+}
+
+p {
+    margin: 0 0 10px;
+    margin-top: 10px;
+    font-size: initial;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.row .button-excel {
+    background-color: #448aff;
+
+    box-shadow: 1px 1px 1px 1px gainsboro;
+    margin: 3px;
+    margin-bottom: 6px;
+    padding: 10px;
+}
+
+.row .button-close {
+    background-color: #1e88e5;
+    padding: 5px;
+    box-shadow: 1px 1px 1px 1px gainsboro;
+}
+
+.row .button-close:hover {
+    background-color: #448aff;
+}
+
+.row .button-excel:hover {
+    background-color: #1e88e5;
+}
+
+.w3-circle:hover {
+    background-color: #0d47a1 !important;
+}
+
+
+.w3-black,
+.w3-hover-black:hover {
+    color: #fff!important;
+    margin: 0px;
+}
+
+.excelDiv {
+
+    margin: 20px;
+}
+
+.w3-circle {
+    border-radius: 50%;
+    background-color: #2196f3 !important;
+}
+
+.w3-xlarge {
+    font-size: 24px!important;
+    height: 60px;
+    width: 62px;
+}
+
+
+.btn-md {
+    border-radius: 6px;
+    background-color: #81bcff;
+    color: white;
+    padding: 10px;
+}
+
+
+div.outer {
+    overflow: auto;
+    width: 100%;
+    height: 590px;
+    padding-left: 4%;
+}
+
+div.outer .inner {}
+
+.nv-multiBarHorizontalChart .nv-controlsWrap {
+    display: inline-block;
+    flaot: left;
+}
+
+.nvd3 text {
+    font: normal 12px Arial;
+}
+
+.nav>li.active>a {
+    text-decoration: none;
+    background-color: #40c4ff;
+    color: #fff!important;
+}
+
+
+.panel li {
+    list-style-type: none;
+    text-align: center;
+    display: block;
+    margin-top: 4px;
+    min-height: 25px;
+    min-width: 100px;
+    padding: 4px;
+    padding-top: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 20px;
+    font-weight: 100;
+    background-color: dodgerblue;
+}
+
+.nv-x.nv-axis.nvd3-svg {
+    transform: translate(-20px, 450px);
+}
+
+.nv-multiBarHorizontalChart .nv-x.nv-axis.nvd3-svg {
+    transform: translate(-20px, 0px);
+}
+
+.nv-multiBarHorizontalChart .nv-x>g>g>g>text {
+    transform: rotateZ(-0deg);
+}
+
+
+
+.col_row .border_col,
+.col-md-7 {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #2979ff;
+    padding: 0px;
+    margin-bottom: 5px;
+    min-height: 34px;
+    /*border-radius:10px;*/
+    margin-left: 4px;
+    color: saddlebrown;
+}
+
+.nv-x>g>g>g>text {
+    transform: rotateZ(-90deg);
+    font-size: 13px;
+}
+
+td {
+    padding: 5px;
+}
+
+#style-2::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    background-color: white;
+}
+
+#style-2::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #337ab7;
+}
+
+
+
+
+
+.col_row .col-md-7 .label-success {
+    text-align: center;
+    width: 150px;
+    display: inline-block;
+    float: left;
+    margin-top: 4px;
+    min-height: 25px;
+    padding: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    font-weight: 100;
+    background-color: lightskyblue;
+    border-radius: 20px;
+}
+
+.label {
+    white-space: normal;
+}
+
+.col_row .col-md-7 .glyphicon {
+    float: right;
+}
+
+.nv-bar text {
+    display: none;
+}
+
+svg:not(:root) {
+    overflow: visible;
+}
+
+.dimension_and_measure {
+
+    height: 550px;
+    overflow-y: auto;
+}
+</style>
+<div class="row" style="background-color:white;padding-bottom:35px;margin-top:5%">
+    <div class="col-md-2 col-sm-3 col-xs-6 dimension_and_measure" id="style-2">
+        <div class="panel panel-primary">
+            <div class="panel-heading" data-toggle="collapse" data-target="#dimension">Dimension</div>
+            <div id="dimension" class="collapse">
+                <uib-accordion ng-repeat="l in keys">
+                    <div uib-accordion-group class="panel-default">
+                        <uib-accordion-heading>
+                            {{l}}
+                        </uib-accordion-heading>
+                        <ul>
+                            <li ng-repeat="f in dataD[l]" class="label label-success" ui-draggable="true" drag="f">{{f.name}}</li>
+                        </ul>
+                    </div>
+                </uib-accordion>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading" data-toggle="collapse" data-target="#measure">Measures</div>
+            <div id="measure" class="collapse">
+                <uib-accordion ng-repeat="l in keys2">
+                    <div uib-accordion-group class="panel-default">
+                        <uib-accordion-heading>
+                            {{l }}
+                        </uib-accordion-heading>
+                        <ul>
+                            <li ng-repeat="f in dataM[l]" class="label label-success" ui-draggable="true" drag="f">{{f.name}}</li>
+                        </ul>
+                    </div>
+                </uib-accordion>
+                <!--<ul>-->
+                <!--<li class="label label-success" ui-draggable="true" drag="fact" ng-repeat="fact in measure">{{fact.name}}</li>-->
+                <!--</ul>-->
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10 col-sm-7 col-xs-12">
+        <div class="row col_row">
+            <div class=row>
+                <div class="col-md-2 border_col col-sm-4 axis" style="border-top-left-radius: 10px;text-align:center;padding-top:5px;border-bottom-left-radius: 10px">
+                    Dimension
+                </div>
+                <div id="x" class="col-md-7  col-sm-6 axis" style="border-top-right-radius: 10px;border-bottom-right-radius: 10px" ui-on-Drop="onDrop($event,$data,fact,axis_name)">
+                    <a class="label label-success" ng-repeat="dat in x">
+                        {{dat.name}}<span class="glyphicon glyphicon-remove" ng-click="pop_obj(x,'X',$index)"></span>
+                    </a>
+                </div>
+            </div>
+            <div class=row>
+                <div class="col-md-2 border_col col-sm-4 axis" style="border-top-left-radius: 10px;text-align:center;padding-top:5px;border-bottom-left-radius: 10px">
+                    Measures
+                </div>
+                <div id="y" class="col-md-7 col-sm-6 axis" style="border-top-right-radius: 10px;border-bottom-right-radius: 10px" ui-on-Drop="onDrop($event,$data,fact,axis_name)">
+                    <div class="label label-success" ng-if="y" ng-repeat="obj in y track by $index">
+                        {{obj.name}} <span class="glyphicon glyphicon-remove" ng-click="pop_obj(obj,'Y',$index)"></span>
+                    </div>
+                </div>
+     
+                <div class="btn-floating col-md-2">
+                    <button data-toggle="modal" title="Filter Graph" ng-click="amazing()" class="w3-button w3-xlarge w3-circle w3-black" data-target="#filter"><i class="fa fa-filter" aria-hidden="true"></i>
+
+                    </button>
+                    <p>Filter</p>
+                </div>
+            </div>
+            <span ng-if="graphLoader"> <i class="fa fa-spinner" aria-hidden="true"></i> <p > Loading...</p></span>
+            <div class="row outer" ng-if="!graphLoader" id="style-2">
+                <div class="inner">
+                    <nvd3 options="options" legendColor="colorDefault()" id="nvd3" data="finalGraph" class="inner" events="events" on-ready="callback"></nvd3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="filter" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="closing_icon close" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+                </div>
+                <div class="modal-body">
+                    <uib-tabset active="active">
+                        <uib-tab index="0" heading="Filter" active="tabs[0].active">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <label for="daterange1" class="control-label">Date Range Picker</label>
+                                        <input date-range-picker id="daterange1" name="daterange1" class="form-control date-picker" type="text" ng-model="dates.date" required/>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <label for="multiselect"> Select Salon </label>
+                                        <div style="display:inline" isteven-multi-select input-model="multisalonsObject.multisalons" output-model="multisalonsObject.multisalonsFilter" on-item-click="itemsSelected(this)" button-label="name" item-label="name" tick-property="isSelected" output-properties="id"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <label>Salon Type</label>
+                                        <input type="radio" ng-model="salonType.type" value="0">Red
+                                        <input type="radio" ng-model="salonType.type" value="1">Blue
+                                        <input type="radio" ng-model="salonType.type" value="2">Green
+                                        <input type="radio" ng-model="salonType.type" value="3">All
+                                    </div>
+                                </div>
+                            </div>
+                        </uib-tab>
+                        <uib-tab index="1" heading="Sort" active="tabs[1].active">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        Range :
+                                        <input type="radio" ng-model="range.val" ng-change="radioselect()" value="high">High To Low
+                                        <input type="radio" ng-model="range.val" value="low" ng-change="radioselect()">Low To High
+                                    </div>
+                                </div>
+                            </div>
+                        </uib-tab>
+                        <uib-tab index="2" heading="Limit" active="tabs[2].active">
+                            <div class="row">
+                                <div class="form-group">
+                                    <input type="radio" ng-model="salon.range" ng-change="check()" value="all">
+                                    <label>All</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="radio" ng-change="check()" ng-model="salon.range" value="bottom">
+                                    <label> Bottom </label>
+                                    <input type="number" ng-change="limitRange()" ng-model="limit.bottom " ng-disabled="salon.range!='bottom'" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="radio" ng-change="check()" ng-model="salon.range" value="top">
+                                    <label>
+                                        Top
+                                    </label>
+                                    <input type="number" ng-change="limitRange()" ng-model="limit.top" ng-disabled="salon.range!='top'" />
+                                </div>
+                            </div>
+                        </uib-tab>
+                        <uib-tab index="3" heading="Graph Type" active="tabs[3].active">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <label for="sel1" class="control-label">Select Graph:</label>
+                                        <select class="form-control" ng-model="graphObject.graph" ng-change="graphLoad()">
+                                            <option value="">----Please Select-----</option>
+                                            <option value="MultiBarGraph">MultiBarGraph</option>
+                                            <option value="DiscreteBarGraph" ng-if="graphToShow.length<=1">Discrete Bar Graph</option>
+                                            <option value="PieChart" ng-if="graphToShow.length<=1">PieChart</option>
+                                            <option value="AverageLineBar" ng-if="graphToShow.length<=1">Average Line Bar</option>
+                                            <option value="MultiBarHorizontalChart">MultiBar Horizontal Chart</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </uib-tab>
+                    </uib-tabset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="button-close" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="form-inline   col-md-12 excelDiv">
+            <div class="col-md-4 col-md-offset-2">
+                <div class="form-group">
+                    <label>Select Excel Style</label>
+                    <select class="form-control" ng-model="excelStyle" ng-change="graphLoad()">
+                        <option value="dimension_vertical">Dimension Vertical </option>
+                        <option value="dimension_horizontal">Dimension Horizontal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <!--<button  class="button-excel" ng-json-export-excel data="datalist" data-dismiss="modal" report-fields="mydata"  >-->
+                    <!--<span class="glyphicon glyphicon-share"></span>-->
+                    <!--Export to Excel-->
+                    <!--</button>-->
+                    <button ng-json-export-excel class=" btn-md" data="datalist" report-fields=mydata>
+                        <span class="glyphicon glyphicon-share"></span> Export to Excel
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="table_to_show_excel" id="style-2" ng-if="excelStyle=='dimension_horizontal'">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th style="width:200px" ng-repeat="(key, value) in mydata">
+                            {{value}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="d in datalist">
+                        <td class="empsenment" style="width:200px;padding:5px" ng-repeat="(key, value) in d ">{{value}}</td>
+                        <!--<td class="empsenment" style="width:200px;padding:5px" ng-repeat="(key, value) in d "  ng-if="value==undefined">this is undefined</td>-->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table_to_show_excel" id="style-2" ng-if="excelStyle=='dimension_vertical'">
+            <table class="scroll table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th style="width:200px" ng-repeat="(key, value) in mydata">
+                            {{value}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="style-2">
+                    <tr ng-repeat="d in datalist">
+                        <td class="empsenment" style="width:200px;padding:5px" ng-repeat="(key, value) in d ">{{value }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

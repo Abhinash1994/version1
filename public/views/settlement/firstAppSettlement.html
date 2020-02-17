@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2 id="tables">First App Settlement</h2>
+    </div>
+  </div>
+  <div class="col-md-12">
+        <div class="col-md-2 col-md-offset-2" style="margin-top: 1em;">
+          <label style="margin-left: 1em">Select Date Range:</label>
+        </div>
+        <div class="col-md-3">
+          <input date-range-picker class="date-picker form-control" type="text" id="inputbox-servicereport"
+                 ng-model="dateRangeSelected" ng-change="dateSelected()" readonly="readonly" required/>
+        </div>
+        <div class="col-md-2"><button class="btn btn-primary" id="apply-btnservice"  ng-click="submitButton();" >Submit</button></button></div>
+    </div>
+</div>

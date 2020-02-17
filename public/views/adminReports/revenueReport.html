@@ -1,0 +1,80 @@
+<style media="screen">
+  .range_inputs{
+    display:none;
+  }
+  .dropdown-menu{
+    width: 486px;
+    min-width: 486px;
+
+  }
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2 id="tables">Revenue Report</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+      <div class="col-md-2 col-md-offset-2" style="margin-top: 1em;">
+        <label style="margin-left: 1em">Select Date Range:</label>
+      </div>
+      <div class="col-md-3" style="padding-right:0">
+        <input style="margin-left: 0;" class="form-control" date-range-picker  ng-initname="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+               ng-model="dateRangeSelected" ng-change="dateChange(dateRangeSelected)" readonly="readonly" required/>
+      </div>
+      <div class="col-md-1" style="padding-left: 0;margin-top: 0.4em;">
+        <button class="btn btn-primary" id="apply-btnservice"  ng-click="dateSelected()" >Submit</button></button>
+      </div>
+  </div>
+</div>
+<div class="row" style="margin-top:1em;margin-bottom:1em;">
+  <div class="form-inline col-md-offset-5 col-md-2" >
+      <button class="btn btn-link btn-md" ng-click="exportToExcel('#selector')" style="margin-left: -10px;border: 0;background: #148F76;color: white;">
+              <span class="glyphicon glyphicon-share"></span>
+              Export to Excel
+      </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-11" style="width: 97%;overflow-x: auto;padding-right:1em;overflow-y: auto; height: 494px;">
+    <table class="table" id="selector">
+        <thead>
+          <tr>
+            <th rowspan="2">Parlor</th>
+            <th rowspan="2">Parlor ID</th>
+            <th rowspan="2">Live Date</th>
+            <th ng-repeat="data in revenue[0].monthlyData" colspan="3">
+              <span>{{data.month | date: 'MMM/yy'}}</span><span ng-if="$first">({{dateRangeSelected.startDate._d |date:"yyyy-MM-dd"}})</span>
+              <span ng-if="$last">({{dateRangeSelected.endDate._d | date:"yyyy-MM-dd"}})</span>
+            </th>
+          </tr>
+          <tr>
+            <th ng-repeat-start="data in revenue[0].monthlyData">Product</th>
+            <th>Service</th>
+            <th ng-repeat-end>Total</th>
+          </tr>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="data in revenue">
+            <td>{{data.name}}</td>
+            <td>{{data.parlorId}}</td>
+            <td>{{data.parlorLiveDate | date: 'dd/MM/yyyy'}}</td>
+            <td ng-repeat-start="m in data.monthlyData">
+              <span>{{m.productRevenue | number:0}}</span>
+            </td>
+            <td>
+              <span>{{m.serviceRevenue | number:0 }}</span>
+            </td>
+            <td ng-repeat-end>
+              <span>{{m.totalRevenue | number:0}}</span>
+            </td>
+
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+
+
+<div class="panel panel-default">
+    <div class="row">
+        <h2>Upload GST Amount</h2>
+        <ng-csv-import content="csv.content"
+        material
+        md-button-class="md-icon-button md-raised md-accent"
+        md-svg-icon="file:ic_file_upload_24px"
+        header="csv.header"
+        separator="seperator"
+        result="csv.result"
+        accept="csv.accept"></ng-csv-import>
+
+</div>
+<div class="row"><button class="btn btn-primary" ng-click="apply(csv.result)">Upload Data</button></div>
+</div>
+

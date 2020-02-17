@@ -1,0 +1,1041 @@
+<script type="text/javascript">
+    function print() {
+        alert("hi");
+        var printContents = document.getElementById("printContents").innerHTML;
+        w = window.open();
+        w.document.write(printContents);
+        w.print();
+        w.close();
+    }
+</script>
+<style>
+    table,
+    th,
+    td {
+        text-align: center;
+    }
+
+    #new-select .checkboxLayer {
+        right: 0px;
+    }
+
+    .crm-service {
+        border-bottom: 1px solid gray;
+        padding: 2% 1% 2% 1%;
+    }
+    .add-btn-box{
+        width: 84px;
+    border: 1px solid gray;
+    margin: 0 auto;
+    border: 1px solid green;
+    border-radius: 4px;
+    }
+    .glyphicon{
+        font-size:9px!important;
+    }
+    .multiSelect > button{
+    background-image: linear-gradient(#fff, #e9e9e9);
+    width:150px;
+    font-size: 13px;
+    min-height: 21px !important;
+
+}
+.row input, select {
+    background-color: transparent;
+    margin: 0px 10px 10px 10px!important;
+    border-color: #E7E7E7!important;
+    outline: none !important;
+    box-shadow: none!important;
+}
+</style>
+
+<div class="col-lg-12">
+    <h1 class="page-header">Appointment</h1>
+   
+    <button class="btn btn-primary" style="position: absolute; right:10px;" ng-click="refreshServices()"> Refresh Services</button>
+
+</div>
+<div class="card">
+    <div class="container-fluid">
+        <uib-tabset active="active">
+            <uib-tab index="0" heading="Current Appointments" active="tabs[0].active" ng-click="uibTabSelected('currentAppointments')">
+                <div class="card">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-12">
+
+                                    
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                                <div class="row">
+          <div class="col-md-offset-10 col-md-2">
+                 <button class="btn  btn-primary" ng-click="refreshIt()">Refresh Appointment</button>
+          </div>
+      </div>
+                            <div class="table-responsive" style="overflow-x: initial">
+                                <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+                                    <div class="panel-heading">
+                                        <h2>Upcoming Appointments</h2>
+                                    </div>
+                                    <tr ng-repeat="appt in appointments">
+                                        <td title="'Customer Name'" filter="{ name: 'text'}" sortable="'name'">
+                                            {{appt.client.name}}({{appt.client.phoneNumber}})({{appt.client.subscriptionLoyality ? appt.client.subscriptionLoyality>=250?"Gold Subscriber":"Silver Subscriber" : ""}})
+                                        </td>
+                                        <td title="'Services'" filter="{ id: 'number'}" sortable="'id'">
+                             <!-- ============================Decides wether the appointment has normal services or combo new combo to show the required names -->
+                                <span ng-repeat="service in appt.services">
+
+		                        <span ng-if='service.type!= "combo" && service.type!= "newCombo" '>
+		                            	{{service.serviceName}}*{{service.quantity}}<span></span><span ng-if='service.brandProductDetail!="" '>({{service.brandProductDetail}})</span><br/>
+                                <span ng-if='!$last'>,</span>
+                                </span>
+                                <!-- This is for normal services with or without product and brands -->
+
+                                <span ng-if='service.type== "combo" || service.type == "newCombo" '>
+	                            		{{service.name}}*{{service.quantity}}(<span ng-repeat='c in service.comboServices'>{{c.name}}<span ng-if='!$last'>,</span></span>)
+                                </span>
+                                <!-- This is for combo new combo -->
+
+                                </span>
+
+                                <!---my code-------->
+
+                                <span ng-repeat="service1 in appt.products">
+
+	                        	<span ng-if='service.type!= "combo" && service.type!= "newCombo" '>
+	                        		{{service1.name}}*{{service.quantity}}<span></span><span ng-if='service.brandProductDetail!="" '>({{service1.brandProductDetail}})</span><br/>
+                                <span ng-if='!$last'>,</span>
+                                </span>
+                                <!-- This is for normal services with or without product and brands -->
+
+                                <span ng-if='service.type== "combo" || service.type == "newCombo" '>
+	                        		{{service1.name}}*{{service.quantity}}(<span ng-repeat='c in service.comboServices'>{{c.name}}<span ng-if='!$last'>,</span></span>)
+                                </span>
+                                <!-- This is for combo new combo -->
+
+                                </span>
+                                <!-- ============================================================================================================================ -->
+
+                                </td>
+                                <td title="'Start Time'" filter="{ sp: 'number'}" sortable="'sp'">
+                                    {{appt.startsAt | date:'short' }}
+                                </td>
+                                <td title="'Total Amount'" filter="{ id: 'number'}" sortable="'id'">
+                                    {{appt.payableAmount+appt.subscriptionAmount}}
+                                    <button class="btn btn-primary" ng-click="showDetails(appt)">Show Details</button>
+                                </td>
+
+                                <td title="'Enter OTP'">
+                                    <input type="text" class="form-control" ng-model="myOtp">
+                                    <button ng-hide="appt.resend==1" ng-click="caOtp(appointments[$index])" class="btn btn-primary appointment-page-btn" ng-disabled="appt.isPaid">Send OTP</button>
+                                    <span ng-show="appt.resend==1"><span ng-show="countDown">Resend OTP in {{countDown}} sec. </span>
+                                    <button ng-show="countDown==0" ng-click="resendOtp(appointments[$index],'text')" class="btn btn-primary appointment-page-btn"
+                                        ng-disabled="appt.resendText">Resend OTP(text)</button>
+                                    <button ng-show="countDown==0" ng-click="resendOtp(appointments[$index],'voice')" class="btn btn-primary appointment-page-btn"
+                                        ng-disabled="appt.resendVoice">Resend OTP(Voice)</button>
+                                    </span>
+                                </td>
+                                <td title="'Action'">
+                                    <button ng-click="caClick1($index);caClick($index)" ng-disabled="appt.bookingMethod==2" class="btn btn-primary">Edit</button>
+                                    <button ng-if="appt.bookingMethod==2 && appt.services.length>0" ng-click="allotEmployees(appt,'true')" class="btn btn-primary">Allot Employees</button>
+                                    <button ng-disabled="appt.paymentMethod==5" ng-click="changeStatus($index, 2);cancelMessage($index)" class="btn btn-primary">Cancel</button>
+                                    <button ng-click="print($index)" ng-disabled="checkApptStatus(appt,myOtp)" class="btn btn-primary">Print</button>
+                                    <!-- <button ng-click="openPDF($index)" ng-disabled="checkApptStatus1(appt,myOtp)" class="btn btn-primary appointment-page-btn">Print without closing</button> -->
+                                    <button ng-click="statusChanged(appt.appointmentId)" ng-style="appt.status === 4 && {'background-color':'#ffbf00'}" class="btn btn-primary appointment-page-btn">Start Appt.</button>
+                                    <button ng-click="paymentNotification(appt.appointmentId)" class="btn btn-primary appointment-page-btn">Pay Not.</button>
+                                    <button ng-click="sendSubOTP(appt.client,appt.appointmentId)" ng-if="appt.client.subscriptionLoyality" class="btn btn-primary appointment-page-btn">Subscription OTP </button>
+                                    <!--  <button ng-click="modifyServicesPopUp(appt)" ng-if="appt.superSetServices.length" class="btn btn-primary appointment-page-btn">Edit Services</button> -->
+                                </td>
+
+                                <td title="'Payment Method'">
+                                    <div id="new-select" isteven-multi-select input-model="p[$index]" output-model="appt.allPaymentMethods" ng-hide="appt.isPaid"
+                                        button-label="name" item-label="name" tick-property="isSelected" output-properties="value name amount"
+                                        on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div>
+                                </td>
+                                </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="table-responsive" style="overflow-x: initial">
+                                <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+                                    <div class="panel-heading">
+                                        <h2>Allot Employees</h2>
+                                    </div>
+                                    <tr ng-repeat="appt in appWithoutEmp | filter: {employees:'!'}">
+                                        <td title="'Customer Name'" filter="{ name: 'text'}" sortable="'name'">
+                                            {{appt.client.name}}
+                                        </td>
+                                        <td title="'Services'" filter="{ id: 'number'}" sortable="'id'">
+                                            <span ng-repeat="service in appt.services">{{service.serviceName || service.name}} * {{service.quantity}}({{service.brandProductDetail}}) </span>
+                                        </td>
+                                        <td title="'Phone Number'">
+                                            <span>{{appt.client.phoneNumber}}</span>
+                                        </td>
+                                        <td title="'Start Time'" filter="{ sp: 'number'}" sortable="'sp'">
+                                            {{appt.startsAt | date:'short' }}
+                                        </td>
+                                        <td title="'Total Amount'" filter="{ id: 'number'}" sortable="'id'">
+                                            {{appt.payableAmount+appt.subscriptionAmount}}
+                                        </td>
+                                        <td title="'Payment Status'">
+                                            <span ng-if="appt.paymentMethod==5"> Be U (Paid)</span> <span ng-if="appt.paymentMethod!=5"> Cash</span>
+                                        </td>
+
+                                        <td title="'Action'">
+                                            <button ng-click="allotEmployees($index)" class="btn btn-primary">Edit</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- <uib-tab index="2" heading="Membership">
+	Purchase <select ng-options="membership as membership.name for membership in memberships" ng-model="mem"> </select>
+	For Discount of {{mem.discount}} and {{mem.credits}} credits. Your membership will expire on
+	<div> <button class="btn btn-primary" ng-click="updateMembership(mem.membershipId,newApp.user.userId)" >Purchase {{mem.name}} Membership</button></div>
+	</uib-tab> -->
+                        <div class="form-actions"> <button class="btn btn-primary center-block row-centered" ng-click="tabs[1].active = true">New Appointment</button>                            </div>
+                    </div>
+
+                </div>
+                <div class="modal fade" id="showDetailsModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" style="text-align:center;">Appointment Details</h4>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Particulars</th>
+                                            <th>Amount</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-if="temporary.subtotal">
+                                            <td>SubTotal</td>
+                                            <td>{{temporary.subtotal |number:0}}</td>
+                                        </tr>
+
+                                        <tr ng-if="temporary.loyalityOffer- temporary.loyalitySubscription">
+                                            <td>Free Service Loyalty</td>
+                                            <td>(-){{(temporary.loyalityOffer- temporary.loyalitySubscription)}}</td>
+                                        </tr>
+                                        <tr ng-if="temporary.loyalityPoints-(temporary.loyalityOffer+temporary.couponLoyalityPoints)">
+                                            <td>Loyalty On B-Cash</td>
+                                            <td>(-){{temporary.loyalityPoints-(temporary.loyalityOffer+temporary.couponLoyalityPoints)}}</td>
+                                        </tr>
+                                        <tr ng-if="temporary.couponLoyalityPoints">
+                                            <td>Coupon Loyalties</td>
+                                            <td>(-){{temporary.couponLoyalityPoints}}</td>
+                                        </tr>
+                                        <tr ng-if="temporary.creditUsed!='0.00'">
+                                            <td>Family Wallet/MemberShip Redeemption</td>
+                                            <td>(-){{temporary.creditUsed}}</td>
+                                        </tr>
+                                        <tr ng-if="temporary.subscriptionAmount">
+                                            <td>Subscription Purchase Amount</td>
+                                            <td>(-){{temporary.subscriptionAmount}}</td>
+                                        </tr>
+
+                                        <tr ng-if="temporary.tax || temporary.loyalitySubscription">
+                                            <td>Tax</td>
+                                            <td>(+){{temporary.tax+ceilFunction(temporary.loyalitySubscription*.152542372) |number:0}}</td>
+                                        </tr>
+
+                                        <tr ng-if="temporary.loyalitySubscription">
+                                            <td>Subscription Loyalty</td>
+                                            <td>(-){{ceilFunction(temporary.loyalitySubscription)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color:gainsboro">Total Amount To be Paid</td>
+                                            <td style="background-color:gainsboro">{{temporary.payableAmount + temporary.subscriptionAmount |number:0}}</td>
+                                        </tr>
+
+                                    </tbody>
+
+
+                                </table>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal fade" id="modifyServices" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form role="form" name="customerDetails">
+                                <div>
+                                    <h4>Availing Services</h4>
+                                    <table>
+                                        <thead>
+                                            <th>Service Name</th>
+                                            <th>Ordered Quantity</th>
+                                            <th>Availing Quantity</th>
+                                        </thead>
+                                        <tr ng-repeat="pm in editApptServicesAppt.superSetServices">
+                                            <td>{{pm.name}}</td>
+                                            <td><input type="number" class="form-control" readonly ng-init="pm.oldQuantity = pm.quantity"
+                                                    ng-model="pm.oldQuantity" /></td>
+                                            <td><input type="number" class="form-control" required ng-model="pm.quantity" ng-max="pm.oldQuantity"
+                                                /></td>
+                                        </tr>
+                                    </table>
+                                    <button type="submit" ng-click="modifyServices(editApptServicesAppt)" class="btn btn-success">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="paymentDistribution" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="height:90%">
+                        <div class="modal-content" style="height: 60%;">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Payment Distribution of Rs {{appointments[payModalVar].payableAmount}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form role="form" name="revenueDD">
+                                    <table style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Payment Method</th>
+                                                <th>Distribution</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr ng-repeat="pay in appointments[payModalVar].allPaymentMethods">
+                                                <td><input class="form-control" ng-model="pay.name" readonly style="margin-top: 2%"></td>
+                                                <td><input type="number" class="form-control" ng-model="pay.amount" style="margin-top: 2%"
+                                                    /></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                                <button class="btn btn-md btn-success col-md-4" type="submit" ng-click="paymentModal(appointments[payModalVar],payModalVar)"
+                                    style="margin-top: 2%;">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="availSubscription" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form role="form" name="customerDetails">
+                                <div>
+                                    <h4>Enter OTP</h4>
+                                    <input type="text" ng-model="subOTP">
+                                    <button type="submit" ng-click="applySubOTP(subOTP)" class="btn btn-success">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="allotEmp2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Allot Employees</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+
+                                        <form role="form" name="revenueDD">
+                                            <table style="width:91%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Service Name</th>
+                                                        <th>Select Employee</th>
+                                                        <th>Distribution</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <tr ng-repeat-start="list in modalObjAppWithoutEmp" ng-style=" (list.type!='combo' && list.type!='newCombo') && {'border-bottom':'1px solid #e6e6e6'} ">
+                                                        <td>{{list.name}} * {{list.quantity}}</td>
+                                                        <td>
+                                                            <div style="display:inline" isteven-multi-select input-model="duplicateEmployeesToBeSelected[$index]" output-model="modalObjAppWithoutEmp[$index].employees"
+                                                                button-label="name" item-on-click="check()" item-label="name"
+                                                                tick-property="isSelected" output-properties="name userId" on-close="(list.type=='combo' || list.type=='newCombo') && displayComboAllotEmployees(list)"></div>
+                                                        </td>
+
+                                                        <td ng-if='modalObjAppWithoutEmp[$index].type!="combo" && modalObjAppWithoutEmp[$index].type!="newCombo" '><span ng-if="modalObjAppWithoutEmp[$index].employees.length==1">
+
+<span ng-init="distributionToBeAssigned=100"></span>
+                                                            <span ng-repeat="list2 in modalObjAppWithoutEmp[$index].employees">{{list2.name}}
+
+<input    type="text" style="width:20%;"   ng-init='distributionOfWork(list2,$index,distributionToBeAssigned,modalObjAppWithoutEmp.employees)' ng-model="distributionToBeAssigned" ng-change="distributionOfWork(list2,$index,distributionToBeAssigned,modalObjAppWithoutEmp.employees)" ><br>
+
+
+
+</span>
+
+
+                                                            </span>
+                                                            <span ng-if="modalObjAppWithoutEmp[$index].employees.length>1">
+
+<span ng-init="distributionToBeAssigned=''"></span>
+                                                            <span ng-repeat="list2 in modalObjAppWithoutEmp[$index].employees">{{list2.name}}
+
+<input    type="text"  ng-init='distributionOfWork(list2,$index,distributionToBeAssigned,modalObjAppWithoutEmp.employees)' style="width:20%;" ng-model="distributionToBeAssigned" ng-change="distributionOfWork(list2,$index,distributionToBeAssigned,modalObjAppWithoutEmp.employees)" ><br>
+
+
+
+</span>
+
+
+                                                            </span>
+                                                        </td>
+
+                                                        <td ng-if='modalObjAppWithoutEmp[$index].type=="combo" || modalObjAppWithoutEmp[$index].type=="newCombo" '>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr ng-repeat-end ng-if='list.showComboNewComoServicesFlag && list.employees.length>0' style='border-bottom: 1px solid #e6e6e6;'>
+                                                        <td colspan="3">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Service Name</th>
+                                                                        <th>Employees</th>
+                                                                        <th>Distribution</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr ng-repeat='serviceComboList in list.services'>
+                                                                        <td>{{serviceComboList.name}}</td>
+                                                                        <td>
+                                                                            <div style="display:inline" isteven-multi-select input-model="serviceComboList.employee1" output-model="serviceComboList.employees"
+                                                                                button-label="name" item-label="name" tick-property="isSelected"
+                                                                                output-properties="name userId"></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span ng-repeat='distList in serviceComboList.employees'>
+								{{distList.name}}
+								<input type="text" style="width:20%;" ng-model="distList.dist"  >
+								<br/>
+							</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <button class="btn btn-md btn-success " type="submit" ng-click="updateEmployeeDistributionForApp()">Update</button>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <button class="btn btn-md btn-success " type="submit" ng-click="rescheduleCancelAppointmentForApp()">Reschedule/Cancel</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="rescheduleCancel2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Reschedule/Cancel Appointment</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <form role="form" name="revenueDD">
+                                            <table style="width:91%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Client Name</th>
+                                                        <th>Client Phone Number</th>
+                                                        <th>Services</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <tr>
+                                                        <td>{{rescheduleCancelDataObject.client.name}}</td>
+                                                        <td>{{rescheduleCancelDataObject.client.phoneNumber}}</td>
+                                                        <td>
+                                                            <span ng-repeat="servicesList in rescheduleCancelDataObject.services">{{servicesList.name}}</span>
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+                                    <div class="col-lg-12 col-md-2">
+                                        <div class="col-md-12 ">
+                                            <div class="col-md-12">
+                                                <p class="input-group">
+                                                    <input type="text" class="form-control appointment-page-input" ng-disabled="true" min-date="minDateDatepicker" ng-model="dateTimeObjAppWidtEmp.aptDate"
+                                                        uib-datepicker-popup is-open="popup1.open1" datepicker-options="dateOptions"
+                                                        ng-required="true" close-text="Close" ng-change="dateWithoutAppChangedFn(dateTimeObjAppWidtEmp.aptDate)"
+                                                    />
+                                                    <span class="input-group-btn">
+	<button type="button" class="btn btn-default appointment-page-input" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+	</span>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div style="width:200px;margin-top: -14px;" uib-timepicker ng-model="dateTimeObjAppWidtEmp.aptTime" min="minTimeTimepicker"
+                                                    hour-step="1" minute-step="1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <button class="btn btn-md btn-success " type="submit" ng-if="rescheduleCancelDataObject.services.length==0" ng-click="cancelAppt(rescheduleCancelDataObject.appointmentId,rescheduleCancelDataObject.client.id,2)">Cancel Appointment</button>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <button class="btn btn-md btn-success " type="submit" ng-click="rescheduleAppBookedAppointment()">Reschedule</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="1" heading="Services" active="tabs[1].active" ng-click="uibTabSelected('services')">
+                <div class="modal fade" id="allotEmp3" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Allot Employees</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <form role="form" name="revenueDD">
+                                            <table style="width:91%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Service Name</th>
+                                                        <th>Select Employee</th>
+                                                        <th>Distribution</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <tr ng-repeat="list in modalObjAppWithoutEmp">
+                                                        <td>{{list.name}}</td>
+                                                        <td>
+                                                            <div style="display:inline" isteven-multi-select input-model="duplicateEmployeesToBeSelected[$index]" output-model="modalObjAppWithoutEmp[$index].employees"
+                                                                button-label="name" item-label="name" tick-property="isSelected"
+                                                                output-properties="name userId"></div>
+                                                        </td>
+
+                                                        <td><span ng-repeat="list2 in modalObjAppWithoutEmp[$index].employees"
+                                                                style="display: inline-grid;"><span>{{list2.name}}</span>
+                                                            <input type="text" style="width:20%;" ng-model="distributionToBeAssigned" ng-change="distributionOfWork(list2,$index,distributionToBeAssigned,modalObjAppWithoutEmp.employees)"><br></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <button class="btn btn-md btn-success " type="submit" ng-click="updateEmployeeDistributionForApp()">Update</button>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <button class="btn btn-md btn-success " type="submit" ng-click="rescheduleCancelAppointmentForApp()">Reschedule/Cancel</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="rescheduleCancel3" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Reschedule/Cancel Appointment</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <form role="form" name="revenueDD">
+                                            <table style="width:91%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Client Name</th>
+                                                        <th>Client Phone Number</th>
+                                                        <th>Services</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <tr>
+                                                        <td>{{rescheduleCancelDataObject.client.name}}</td>
+                                                        <td>{{rescheduleCancelDataObject.client.phoneNumber}}</td>
+                                                        <td><span ng-repeat="servicesList in rescheduleCancelDataObject.services">{{servicesList.name}}</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+                                    <div class="col-lg-12 col-md-2">
+                                        <div class="col-md-12 ">
+                                            <div class="col-md-12">
+                                                <p class="input-group">
+                                                    <input type="text" class="form-control appointment-page-input" min-date="minDateDatepicker" ng-model="dateTimeObjAppWidtEmp.aptDate"
+                                                        uib-datepicker-popup is-open="popup1.open1" datepicker-options="dateOptions"
+                                                        ng-required="true" close-text="Close" />
+                                                    <span class="input-group-btn">
+	                                                    <button type="button" class="btn btn-default appointment-page-input" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+	                                                </span>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div style="width:200px;margin-top: -14px;" uib-timepicker ng-model="dateTimeObjAppWidtEmp.aptTime" min="minTimeTimepicker"
+                                                    hour-step="1" minute-step="1"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <button class="btn btn-md btn-success " ng-if="rescheduleCancelDataObject.services.length>0" type="submit" ng-click="cancelAppBookedAppointment()">Cancel</button>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <button class="btn btn-md btn-success " type="submit" ng-click="rescheduleAppBookedAppointment()">Reschedule</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            <div class="col-md-12" style="padding-top:10px;">
+                <div class="row">
+                    
+                    <div class="col-md-6" style="padding:5px 0px 1px 16px;box-shadow: 0px 1px 13px #82868a;">
+                    <form>
+                    <fieldset>
+                    <legend>Services:</legend>                   
+                        <div class="row ">
+                            <div class="col-md-3">
+                                    <select class="form-control"  style="width:100%;height: 30px;" ng-options="option as option.name for option in newServices.categories" ng-model="selectedCategory" placeholder="sellect"/>
+                            </div>
+                            <div class="col-md-3">
+                                   <input class="form-control" style="width:100%;height: 30px;" type="text" name="name" ng-model="searchText" />
+                            </div>
+                            <div class="col-md-5">
+                                <input type="radio" ng-model="s.gender" value="M">Male
+                                <input type="radio" ng-model="s.gender" value="F">Female
+                            </div>
+                        </div>
+                       
+                            <div class="row" style="height: 390px;overflow: auto;margin-right: 5px;">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <th style="background:#fbe498;color:#000;font-weight:500;    width: 33px;">Id</th>
+                                        <th style="background:#fbe498;color:#000;font-weight:500;width: 254px;">Name</th>
+                                        <th style="background:#fbe498;color:#000;font-weight:500;    width: 74px;">Price</th>
+                                        <th style="background:#fbe498;color:#000;font-weight:500;    width: 133px;">Add to Cart</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr  ng-repeat="service in selectedCategory.services  | filter:{ gender: s.gender,name:searchText } ">
+                                            <td>{{$index+1}}</td>
+                                            <td><span>{{service.name}}</span></td>
+                                            <td> 
+                                                    <span ng-if="user.useOldCredits">{{sendDisplayPriceForMember(service)}}</span>
+                                                 <span ng-if="!user.useOldCredits">{{sendDisplayPrice(service)}}</span>
+                                                 <span ng-if="service.prices[0].brand.brands.length>1 || (service.prices[0].additions[0].types.length>0 && service.dealId==null )">+</span>
+                                            </td>
+                                            <td>
+                                                <div class="add-btn-box" ng-if="service.quantity>=1">
+                                                       
+                                                        <div style="width: 25px;float:left;padding-top: 6px;" class="glyphicon glyphicon-minus" ng-disabled="service.quantity==undefined || service.quantity==0" ng-click="addService(service,-1)" >
+                                                            
+                                                        </div>
+                                                        <div style="border-left:1px solid;border-right:1px solid;float:left;width:30px;background:#669a35;color:#fff">
+                                                                {{service.quantity?service.quantity :0 }}
+                                                        </div>
+                                                        <div  class="glyphicon glyphicon-plus"  ng-click="addService(service,1)"></div>
+                                                       
+                                                </div>
+                                                <div class="add-btn-box"ng-if="service.quantity==undefined || service.quantity==0" ng-click="addService(service,1)">
+                                                       
+                                                  
+                                                    <div style="border-left:1px solid;border-right:1px solid #4e6539;float:left;width:55px;color:#4e6539;">
+                                                            ADD
+                                                    </div>
+                                                    <div style="background:#c2d8aa;color:#4e6539;    padding: 6px 6px 4px 12px;" class="glyphicon glyphicon-plus"  ></div>
+                                                   
+                                                </div>
+
+                                               
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <!-- <span ng-if="service.prices[0].brand.brands.length>1 || (service.prices[0].additions[0].types.length>0 && service.dealId==null )">+</span>
+                                    <button class="btn btn-primary" ng-disabled="service.quantity==undefined || service.quantity==0" ng-click="addService(service,-1)"> Substract</button>
+                                    <span>{{service.quantity?service.quantity :0 }}</span>
+                                    <button class="btn btn-primary" ng-click="addService(service,1)">Add </button> -->
+
+                                </table> 
+                            </div>
+                        
+                    </fieldset>
+                    </form>
+                </div>
+                    <div class="col-md-6">
+                        <div class="row" class="row" style="padding: 0% 0% 0% 6%;">
+                       
+                            <form>
+                                <div >
+                                    <div class="col-md-12" style="box-shadow: 0px 1px 13px #82868a;">
+                                        <div class="row">
+                                            <h4 style="text-align:left;padding-left: 22px;">Customer Details</h4>
+                                              <div ng-if="showCustomerDetailsError" style="color: red">Please Enter Customer Details</div>
+                                              <div ng-if="!showCustomerDetailsError" style="color: green"> Customer Details Entered</div>
+
+                                              <div ng-show="user.hasOldCredits==true || editCRM==true || chargeMainMenu==true || user.membership[0].membershipId == '5c14cf5ca94e5e7ebc0a33c7' || user.membership[0].membershipId == '5c14d1fba94e5e7ebc0ad358'|| user.membership[0].membershipId == '5c209894a94e5e7ebc00933a'|| user.membership[0].membershipId == '5c20add9a94e5e7ebc066d36'|| user.membership[0].membershipId == '5c46eecea94e5e7ebcee9395'|| user.membership[0].membershipId == '5c46eeb3a94e5e7ebcee8a18'|| user.membership[0].membershipId == '5c58273457d8f3d8d69c609e'|| user.membership[0].membershipId == '5c58276857d8f3d8d69c6cde' || user.membership[0].membershipId == '5c8268ae3915b40d7538581d'" name="myForm" >
+                                                <label>Charge Main Menu Price(<span ng-if="user.membership[0].membershipId != '5c209894a94e5e7ebc00933a' ">{{user.membership[0].creditsLeft}}</span>):
+                                                  <input type="checkbox" ng-model="user.useOldCredits"
+                                                          ng-change="useOldCreditsFunction()">
+                                                 </label><br/>
+                                                 <button ng-if="(user.membership[0].membershipId==user.membership[1].membershipId || user.membership[0].creditsLeft<200) && user.membership.length>1" ng-click="mergeMembership()">Merge Membership</button>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-md-4">
+                                                <select class="form-control" id="gender" ng-model="user.gender">
+                                                                <option  name="gender" value="M">Male</option>
+                                                                <option  name="gender" value="F">Female</option>
+                                                              </select>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" placeholder="Enter Name" id="last-name" name="last-name" ng-model="user.name" ng-blur="customerNameChanged()"
+                                                uib-typeahead="customer.name as (customer.name ) for customer in customers | filter:$viewValue | limitTo:10 "
+                                                required>
+                                        </div>
+                                        <div class=" col-md-4">
+                                            <input type="text" class="form-control" placeholder="Enter Phone Number" name="mobNo" id="mobNo" ng-model="user.phoneNumber"
+                                                ng-blur="phoneNumberChanged()" required ng-minlength=10 ng-maxlength=10 ng-pattern="/^[6789]\d{9}$/">
+                                            <span ng-show="customerDetails.mobNo.$dirty && customerDetails.mobNo.$error.pattern">Invalid mobile number.</span>
+                                            <span ng-show="customerDetails.mobNo.$dirty && customerDetails.mobNo.$error.required">This field is required.</span>
+                                            <span ng-show="customerDetails.mobNo.$dirty && customerDetails.mobNo.$error.minlength">Customer mobile should have 10 digits</span>
+                                        </div>
+                                        </div>
+                                    
+                                    </div>
+                                  
+                                 
+                                    
+                                </div>
+
+                            </form>
+                        </div>
+                        <div>
+                           
+                           
+                            <div class="row" style="padding: 0% 0% 0% 6%;">
+                                <div class="col-md-12" style="box-shadow: 0px 1px 13px #82868a;padding-top: 10px;margin-top: 10px;">
+                                    <div class="row">
+                                       <div class="col-md-6">
+                                            Cart
+                                       </div>
+                                        <div class="col-md-6">
+                                            <button class="btn btn-primary" ng-click="openNearBuyModal()">
+                                                Apply Coupon
+                                            </button>
+                                        </div> 
+                                    </div>
+                                    <div class="row" style="padding-left:10px;padding-right:10px;">
+                                            <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="background:#fbe498;color:#000;">Name</th>
+                                                            
+                                                            <th style="background:#fbe498;color:#000;">Employee</th>
+                                                            <th style="background:#fbe498;color:#000;">Price</th>
+                                                            <th style="background:#fbe498;color:#000;">Quantity</th>
+                                                            <th style="background:#fbe498;color:#000;">Total</th>
+                                                            
+                                                           
+                                                        </tr>
+                                                        
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="service in cart">
+                                                            <td> <span>{{service.name}}-{{service.gender}}</span></td>
+                                                            
+                                                            <td> 
+                                                                <div class="form-control" style="display:inline" isteven-multi-select input-model="service.employees" output-model="service.employee1" button-label="name" item-label="name" tick-property="isSelected" output-properties="userId name dist employeeId" on-close="isteveClick(service.employee1,$index)">
+                                                                </div>
+                                                            </td>
+                                                            <td> <span>{{service.price  | number:0 }}</span></td>
+                                                            
+                                                            <td>
+                                                                    <div class="add-btn-box">
+                                                                   
+                                                                            <div style="width: 25px;float:left;padding-top: 6px;" class="glyphicon glyphicon-minus" ng-click="removeServiceCart(service,$index)">
+                    
+                                                                            </div>
+                                                                            <div style="border-left:1px solid;border-right:1px solid;float:left;width:30px;background:#669a35;color:#fff">
+                                                                                    {{service.quantity?service.quantity :0 }}
+                                                                                </div>
+                                                                            <div  class="glyphicon glyphicon-plus"  ng-click="addServiceCart(service,$index)"></div>
+                                                                           
+                                                                    </div>
+                                            
+                                                            </td>
+                                                            <td>{{service.price*service.quantity}}</td>
+                                                        </tr>
+                                                        <tr ng-show="user.useOldCredits && !personalCouponApplied">
+                                                            <td colspan="3">Service Total After Discount Without Tax</td>
+                                                            <td colspan="2">{{ ((cartTotal/1.18)  + creditsUsed)  | number:0}}</td>
+                                                        </tr>
+                                                        <tr ng-show="user.useOldCredits">
+                                                            <td colspan="3">Credits Used</td>
+                                                            <td colspan="2">(-){{(creditsUsed) | number:0}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3"> Amount Payable for {{numberOfServices}} Services is Rs</td>
+                                                            <td colspan="2" ng-show="!user.useOldCredits"> 
+                                                                <!-- {{numberOfServices}} Services is Rs  -->
+                                                                {{cartTotal | number:0}}
+                                                            </td>
+                                                            <td colspan="2" ng-show="user.useOldCredits"> 
+                                                                <!-- {{numberOfServices}} Services is Rs  -->
+                                                                {{(newPayableAmount) | number:0}}
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                              <div ng-if="showEmployeeError">Employee Not Selected</div>    
+                                              <div ng-if="showPaymentError">Payment Method Not Selected</div>   
+                                                <button  ng-disabled="numberOfServices==0 || showEmployeeError || showPaymentError || showCustomerDetailsError" style="width: 100%" class="btn btn-primary" ng-click="bookAppointment()">
+                                            Book Appointment
+                                                </button>
+                                        </div>
+                                        <div class="col-md-6" >
+                                                <!-- <button class="btn btn-primary" ng-click="completeAppointment()">Complete Appointment</button> -->
+                                                <button ng-if="(user.useOldCredits && paymentLeftAfterMembership) || personalCouponApplied"   ng-disabled="numberOfServices==0" style="width: 100%" class="btn btn-primary" ng-click="selectPayment()">
+                                                    {{paymentButtonText}}
+
+                                                </button>
+                                                <button ng-click="applyMembershipCredits(1)" style="width: 100%" class="btn btn-primary" ng-show="user.useOldCredits && !personalCouponApplied">Apply Membership</button>
+                                        
+                                    </div>
+                               
+                                   
+<!--                                  
+                            Cart Area <button class="btn btn-primary" ng-click="openNearBuyModal()">Redeem Nearbuy Coupon</button> -->
+                       <!--      
+                            <div>
+                                <div ng-repeat="service in cart">
+                                    <span>{{service.name}}</span>
+                                    <span>{{service.quantity?service.quantity :0 }}</span>
+                                    <span>xxx{{service.price }}</span>
+                                    <span><div style="display:inline" isteven-multi-select input-model="service.employees" output-model="service.employee1" button-label="name" item-label="name" tick-property="isSelected" output-properties="userId name dist employeeId" on-close="isteveClick(service.employee1,$index)"></div></span>
+                                    <button class="btn btn-primary" ng-click="removeServiceCart(service,$index)"> Subsctract</button>
+                                    <button class="btn btn-primary" ng-click="addServiceCart(service,$index)">Add </button>
+                                </div>
+                            </div> -->
+                          
+                       
+                           
+                               
+                            </div>
+
+                        </div>
+                        <div>
+                        <!-- <div class="col-md-12 text-center"><button class="btn btn-md btn-success" ng-click="next1()">Next</button></div>
+                        </div> -->
+                        <div class="modal fade" id="revenueDistribution" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="myModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                                        <h4 class="modal-title" id="myModalLabel">Revenue Distribution</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form role="form" name="revenueDD">
+                                            <table style="width:100%" ng-if='availEmployeesServiceObject.type!="combo" && availEmployeesServiceObject.type!="newCombo"'>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Employee Name</th>
+                                                        <th>Distribution</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="emp in multipleEmployees">
+                                                        <td><input class="form-control" ng-model="emp.name" readonly></td>
+                                                        <td><input type="number" class="form-control" ng-model="emp.dist" /></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </form>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-md btn-success col-md-4" type="submit" ng-click="submitMultipleEmployeeRevenue()">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="selectBrandOrAddition" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">Select Brand Or Addition </h4>
+                                    </div>
+                                    <form role="form" ng-if=" (modalService.prices[0].additions.length>0 && modalService.dealId==null) || user.useOldCredits">
+                                        <div>
+                                            <h4>Select Addition</h4>
+                                            <ul>
+                                                <li ng-repeat="addition in modalService.prices[0].additions[0].types">
+                                                    <label>{{addition.name}} Addition is {{addition.additions*(1 + parlorTax/100) | number:0}}
+                                                            <input type="radio" ng-model="s.selectedAddition" name="name" value="{{addition.additions}}" required />
+                                                        </label>
+                                                </li>
+                                            </ul>
+
+
+                                        </div>
+                                    </form>
+                                    <form role="form" ng-if="modalService.prices[0].brand.brands.length>1">
+                                        <div>
+                                            <h4>Select Brand</h4>
+                                            <ul>
+                                                <li ng-repeat="brand in modalService.prices[0].brand.brands">
+                                                    <label>{{brand.name}} Price is {{brand.price*(1 + parlorTax/100) | number:0}}
+                                                    <input type="radio" ng-model="s.selectedBrand" name="name" value="{{brand}}" required />
+                                                </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </form>
+                                    <button type="submit" ng-click="addModalService(modalService)" class="btn btn-success">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="paymentMethod" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">Select Payment Method </h4>
+                                    </div>
+                                    <form role="form" name="customerDetails">
+                                        <div class="modal-body text-center">
+                                            <div style="display:inline" isteven-multi-select input-model="paymentOptions" output-model="selectedPaymentMethod" button-label="name"
+                                                item-label="name" tick-property="isSelected" output-properties="value name amount"
+                                                on-close="checkPaymentMethod(selectedPaymentMethod)"></div>
+                                        </div>
+                                        <div>
+                                            <h4>Payment Distribution of Rs in cart total {{cartTotal}}</h4>
+                                            <table>
+                                                <tr class="col-md-12" ng-repeat="pm in selectedPaymentMethod">
+                                                    <td class="col-md-4">{{pm.name}}</td>
+                                                    <td class="col-md-4"><input type="number" class="form-control" ng-model="pm.amount" /></td>
+                                                </tr>
+                                            </table>
+                                            <button type="submit" ng-click="submitPaymentMethod(selectedPaymentMethod)" class="btn btn-success">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="nearBuyModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">Enter Coupon Code </h4>
+                                    </div>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Enter Coupon Code</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" ng-model="nearBuyCode" aria-describedby="emailHelp" placeholder="Enter coupon code">                                            </div>
+                                        <button type="submit" ng-click="submitNearBuyCoupon(nearBuyCode)" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            </uib-tab>
+            <!-- <div class="modal fade" id="allotEmp" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Allot employees </h4>
+                        </div>
+                        <form role="form" name="customerDetails">
+                            <div class="modal-body text-center">
+                                <div style="display:inline" isteven-multi-select input-model="MemPaymentOptions" output-model="MemPaymentMethod" button-label="name"
+                                    item-label="name" tick-property="isSelected" output-properties="value name" on-close="MembershipPD(MemPaymentMethod)"></div>
+                            </div>
+                            <div>
+                                <h4>Payment Distribution</h4>
+                                <table>
+                                    <tr ng-repeat="pm in MemPaymentMethod">
+                                        <td>{{pm.name}}</td>
+                                        <td><input type="number" class="form-control" ng-model="pm.amount" /></td>
+                                    </tr>
+                                </table>
+                                <button type="submit" ng-click="printMembership(MemPaymentMethod,mem,newApp.user.userId)" class="btn btn-success">Print Bill</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> -->
+
+
+
+        </uib-tabset>
+        </div>
+        </div>

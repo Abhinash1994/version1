@@ -1,0 +1,63 @@
+<style>
+			.container{
+				background-color:white;
+			}
+			h2{
+				text-align:center;
+			}
+
+			.row{
+				background-color: white;
+				padding:10px;
+				margin:0px;
+			}
+</style>
+ <uib-tabset active="active">
+<uib-tab index="0" heading="Create Corporate">
+
+				<h2>Corporate Company</h2>
+<!-- <form >
+						<div class="row">     <br>Photo:
+      <input type="file" ngf-select ng-model="picFile" name="file"
+             accept="*" ngf-max-size="2MB"></div>
+
+						<div class="row">Upload Service
+			<button   ng-click="uploadPic(picFile)">Submit</button>
+
+						</div>
+</form> -->
+<div class="row">
+			<div class="col-md-6">
+					<label>Corporate Company</label>
+					<input type="text" class="form-control" placeholder="Corporate Company" ng-model="data.companyName"/>
+
+			</div >
+			<div class="col-md-6">
+				<label>Extension</label>
+				<input type="text"  class="form-control" placeholder="Extension" ng-model="data.extension"/>
+			</div >
+			<div class="row">
+
+<button class ='btn btn-primary'  ng-click="call()">Submit</button>
+</div>
+
+</div>
+
+
+
+
+</uib-tab>
+<uib-tab index="1" heading="View Corporate">
+
+			 <table ng-table="tableParams" class="table" show-filter="true">
+        <tbody>
+          <tr ng-repeat="row in $data">
+            <td data-title="'Name'" filter="{name: 'text'}" filter-data="name" sortable="'name'">{{ row.name }}</td>
+            <td data-title="'Extension'" filter="{extension: 'text'}" sortable="'extension'">{{ row.extension }}</td>
+             <td data-title="'Delete'" ><button class="btn btn-primary"  ng-click="edit(row)" >Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+</uib-tab>
+</uib-tabset>

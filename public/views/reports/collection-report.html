@@ -1,0 +1,130 @@
+<style>
+    .multiSelect > button {
+        width:100%;
+    }
+
+    th{
+        height:auto;
+        padding: 3px !important;
+        max-width: 429px !important;
+        font-size:12px;
+    }
+    .setelment-report{
+        height: 40px;
+        background-color: #fff;
+    }
+    .revenue-report-page-inputdate{width:100%;height: 30px;}
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">Day-Wise Collection Report</h2>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="container">
+        <div class="col-md-12"><h4 style="text-align: center;">Filters:</h4></div>
+        <!--<div class="col-md-12 dailysummary">
+            <div class="col-md-4"><h4>Employee</h4></div>
+            <div class="col-md-4"style="display:inline" isteven-multi-select input-model="employees" output-model="filter.employees" button-label="name " item-label="name" orientation="horizontal" tick-property="active"></div>
+        </div>-->
+    <div class="col-md-12 dailysummary">
+        <div class="col-md-4"><h4>Select Date Range</h4></div>
+            <div class="col-md-4"><input date-range-picker id="daterange1" name="daterange1" class="date-picker revenue-report-page-inputdate" type="text" ng-model="filter.date" required/></div>
+    </div>
+
+     <div class="col-md-12 dailysummary" ng-if="role==7">
+        <div class="col-md-4"><h4>Select Salon</h4></div>
+            <div class="col-md-4">
+              <select  class="setelment-report selectsalon"  ng-model="selectedParlorId"  ng-options="parlor.parlorId as (parlor.name + ' '+parlor.address1) for parlor in allParlors |orderBy:'name'" ng-change="changeParlor(selectedParlorId)">
+              </select>
+            </div>
+    </div>
+   <!-- <div class="col-md-12 dailysummary">
+        <div class="col-md-4"><h4>Department</h4></div>
+        <div class="col-md-4"><div style="display:inline" isteven-multi-select input-model="superCategory" output-model="filter.superCategory" on-close="superCat()" button-label="name " item-label="name" orientation="horizontal" tick-property="active"></div></div>
+    </div>
+    <div class="col-md-12 dailysummary">
+        <div  class="col-md-4" ><h4>Category</h4> </div>
+        <div class="col-md-4"><div style="display:inline" isteven-multi-select input-model="serv" output-model="filter.categories" button-label="name " item-label="name" orientation="horizontal" tick-property="active"></div></div>
+    </div>-->
+    <div class="row">
+        <div class="col-md-4 col-md-offset-5"><button class="btn btn-primary" id="collection-btn" ng-click="filterApplied()"> Apply Filters</button></div>
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="container-fluid">
+        <div class="form-inline row" style="text-align:right">
+            <input type="text" ng-model="query" class="form-control" placeholder="Search">
+            <button type="button" class="btn" ng-csv="data" csv-column-order="order" csv-header="['Date','No of Appointments','Total Collection', 'Advance Received', 'Family Wallet Collection','Family Wallet Sold By Salon','Family Wallet Sold By Beu','Service Collection','Product Collection','Cash','Card','Be U','Affiliates','AMEX','Family Wallet Redemption','Advance Redemption','Freebie Points Redeemed']" filename="Revenue Report.csv">Export as CSV</button>
+        </div>
+        <div class="table-responsive">
+             <table class="table" >
+                    <thead>
+                          <tr>
+                              <th class="head-color-universal" >Date</th>
+                              <th class="head-color-universal" >Appointments</th>
+                              <th class="head-color-universal" >Total Collection</th>
+                              <th class="head-color-universal"  >Advance Received</th>
+                              <th class="head-color-universal" colspan="2" >Family Wallet Collection</th>
+                              <th class="head-color-universal" >Service Collection</th>
+                              <th class="head-color-universal">Product Collection</th>
+                              <th class="head-color-universal" >Cash</th>
+                              <th class="head-color-universal" >Card</th>
+                              <th  class="head-color-universal">BeU</th>
+                              <th class="head-color-universal" >Affiliates</th>
+                              <th  class="head-color-universal">Amex</th>
+                              <th class="head-color-universal" >Family Wallet Redemption</th>
+                              <th class="head-color-universal" >Advance Redemption</th>
+                              <th  class="head-color-universal">Freebie Points Redeemed <span style="font-size:0.8em;">(This is 50% of the Total Freebie Points)</span> </th>
+                            
+                          </tr>
+                          <tr>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal">At Salon</th>
+                                <th class="head-color-universal">BeU</th>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal"></th>
+                                <th class="head-color-universal"></th>
+                                 <!-- <th class="head-color-universal"></th> -->
+                        </tr>
+                         
+                    </thead>
+                    <tbody>
+                        <tr  ng-repeat="m in dummy">
+                            <td>{{m.date |date:'mediumDate'}}</td>
+                            <td>{{m.noOfAppointments |number:0}}</td>
+                            <td>{{m.totalCollection |number:0}}</td>
+                            <td>{{m.totalAdvance |number:0}}</td>
+                            <td>{{m.walletSoldBySalon |number:0}}</td>
+                            <td>{{m.walletSoldByBeu |number:0}}</td>
+                            <td>{{m.serviceCollection |number:0}}</td>
+                            <td>{{m.productCollection |number:0}}</td>
+                            <td>{{m.cashPayment |number:0}}</td>
+                            <td>{{m.cardPayment  | number:0}}</td>
+                            <td>{{m.beU |number:0}}</td>
+                            <td>{{m.affiliates |number:0}}</td>
+                            <td>{{m.amex |number:0}}</td>
+                            <td>{{m.membershipUsed |number:0}}</td>
+                            <td>{{m.advanceUsed |number:0}}</td>
+                            <td>{{m.loyaltyUsed |number:0}}</td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+  <pagination total-items="totalItems" ng-model="currentPage"  max-size="maxSize"  ng-change="pageChanged(currentPage)"></pagination>
+

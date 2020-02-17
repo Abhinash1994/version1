@@ -1,0 +1,192 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Create Parlor</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<br/>
+<button class="btn"><a ui-sref="dashboard.parlors">Back to parlors</a></button>
+	
+
+<br/>
+<br/>
+
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <form role="form" ng-submit="createParlor()" id="formDetails">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Parlor Detail
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Parlor Name</label>
+                                <input ng-model="data.name" class="form-control" name="name" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Parlor Address(Shop Number and Complex)</label>
+                                <input ng-model="data.address" class="form-control" required>
+                            </div>
+                        </div>
+                          <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Select City</label>
+                               <select ng-model="data.cityId" class="form-control"  ng-options="a.cityId as a.cityName for a in cities"></select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Parlor Address 2(City and Pin Code)</label>
+                                <input ng-model="data.address2" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Landmark</label>
+                                <input ng-model="data.landmark" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>SMS Code</label>
+                                <input ng-model="data.smscode" class="form-control" value="BEUSLN" required >
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Sms Credits</label>
+                                <input ng-model="data.smsCredits" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                        <div class="form-group">
+                                <label>Parlor Gender</label>
+                                <select class="form-control" ng-model="data.parlorGender" required>
+                                    <option value="1" selected>UNISEX</option>
+                                    <option value="2">MALE</option>
+                                    <option value="3">FEMALE</option>
+                                </select>
+                            </div>
+                            </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Latitude</label>
+                                <input ng-model="data.latitude" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Longitude</label>
+                                <input ng-model="data.longitude" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Owner (required)</label>
+                                <select class="form-control" required ng-model="data.ownerId">
+                                    <option value="{{owner.userId}}" selected ng-repeat="owner in owners">{{owner.name}} - {{owner.phoneNumber}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    <div class="col-lg-12"><label >Salon Images Url</label></div>
+                    <div class="col-lg-12" ng-repeat="i in data.images">
+                     <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Website Url</label>
+                                <input ng-model="data.images[0].imageUrl" class="form-control" required>
+                            </div>
+                        </div>
+                    <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>App Url</label>
+                                <input ng-model="data.images[0].appImageUrl" class="form-control" required>
+                            </div>
+                        </div>
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Manager's Detail
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input ng-model="data.firstName" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email Id</label>
+                                <input ng-model="data.emailId" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input ng-model="data.password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Copy Deals From</label>
+                                 <select class="form-control" ng-model="data.dealsFrom" selected="selected" ng-options="parlor.parlorId as parlor.name +' '+ parlor.address for parlor in parlorss">
+                                </select>
+                            </div>
+                            
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input ng-model="data.lastName" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input ng-model="data.phoneNumber" class="form-control">
+                            </div>
+
+                             <div class="form-group">
+                                <label>Daily Parlor Hour</label>
+                                <input ng-model="data.dailyParlorHour" class="form-control" required>
+                            </div>
+                             <div class="form-group">
+                                <label>Copy Service From</label>
+                                 <select class="form-control" ng-model="data.serviceFrom" ng-options="parlor.parlorId as parlor.name +' '+ parlor.address for parlor in parlorss" selected>
+                                </select>
+                            </div>
+<!--
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <select class="form-control" ng-model="data.gender">
+                                    <option value="M">M</option>
+                                    <option value="F">F</option>
+                                </select>
+                            </div>
+-->
+                            
+                        </div>
+                    
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <button type="submit" class="btn btn-default btn-lg btn-block">Create New</button>
+    </form>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>

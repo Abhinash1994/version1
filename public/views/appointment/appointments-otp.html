@@ -1,0 +1,161 @@
+<script type="text/javascript">
+  function print() {
+    alert("hi");
+    var printContents = document.getElementById("printContents").innerHTML;
+    w=window.open();
+    w.document.write(printContents);
+    w.print();
+    w.close();
+  }
+</script>
+
+<div class="col-lg-12">
+  <h1 class="page-header">Appointment</h1>
+</div>
+<div class="card">
+	<div class="container-fluid">
+		<uib-tabset active="active">
+			<uib-tab index="0" heading="Current Appointments" active="true">
+				<div class="card">
+					<div class="container-fluid">
+					<div class="col-md-12 col-sm-12">
+						<div class="table-responsive" style="overflow-x: initial">
+							<table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+								<div class="panel-heading">
+									<h2>Upcoming Appointments</h2>
+								</div>
+								<tr ng-repeat="appt in appointments | filter : query">
+								<td title="'Customer Name'" filter="{ name: 'text'}" sortable="'name'">
+									{{appt.client.name}}
+								</td>
+								<td title="'Services'" filter="{ id: 'number'}" sortable="'id'">
+									<span ng-repeat="service in appt.services">{{service.name}}, </span>
+								</td>
+								<td title="'Start Time'" filter="{ sp: 'number'}"  sortable="'sp'">
+									{{appt.startsAt  | date:'short' }}
+								</td>
+								<td title="'Total Amount'" filter="{ id: 'number'}"  sortable="'id'">
+								{{appt.payableAmount}}
+								</td>
+								<td title="'Enter OTP'">
+								<input type="text" class="form-control" ng-model="myOtp">
+								<button ng-click="caOtp(appointments[$index])" class="btn btn-primary">Send OTP</button>
+								</td>
+								<td title="'OTP'">
+								<input type="text" class="form-control" ng-model="appt.otp" readonly>
+								</td>
+								<td title="'Action'">
+									<button ng-click="caClick($index)" class="btn btn-primary">Edit</button>
+									<button ng-click="changeStatus($index, 2);cancelMessage($index)" class="btn btn-primary">Cancel</button>
+									<button ng-click="print($index)" ng-disabled="!(appointments[$index].otp == myOtp)" class="btn btn-primary">Print</button>
+								</td>
+								</tr>
+							</table>
+						</div>
+</div>	<!-- <uib-tab index="2" heading="Membership">
+			Purchase <select ng-options="membership as membership.name for membership in memberships" ng-model="mem"> </select>
+				For Discount of {{mem.discount}} and {{mem.credits}} credits. Your membership will expire on
+				<div> <button class="btn btn-primary" ng-click="updateMembership(mem.membershipId,newApp.user.userId)" >Purchase {{mem.name}} Membership</button></div>
+			</uib-tab> -->
+<div class="form-actions"> <button class="btn btn-primary center-block row-centered"  ng-click="active = 1" >New Appointment</button> </div>
+</div>
+
+				</div>
+			</uib-tab>
+			
+		</uib-tabset>
+	</div>
+</div>
+<!--<div class="col-md-9 ">
+      Packages Suggestion
+      <table>
+      <tr ng-repeat="c in packagesAvailable">
+                <td>{{c.packageId}}</td>
+                <td >{{c.name}}</td>
+                <td >{{getServiceInText(c.services)}}</td>
+                <td >{{c.price}}</td>
+                <td ><button type="submit" class="btn btn-primary" ng-click="addThisPackage($index)">Add</button></td>
+            </tr>
+            </table>
+      <hr>
+    </div>
+
+
+	  <span type="button" type="submit" class="btn btn-primary" ng-click="isReplyFormOpen = !isReplyFormOpen" >Add Product<span>
+    </div>
+
+    <div class="table-responsive" style="display:inline"  ng-show="isReplyFormOpen" id="replyForm">
+
+
+    <div class="table-responsive" style="display:inline">
+      <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+        <tr ng-repeat="p in newApp.products">
+          <td title="'S No.'">
+            {{p.pcount}}
+          </td>
+          <td title="'Product Code'">
+            {{p.code}}
+          </td>
+          <td title="'Product Name'">
+            {{p.name}}
+          </td>
+          <td title="'Employee Name'">
+            Employee
+          </td>
+          <td title="'Product Price'" filter="{ sp: 'number'}"  sortable="'sp'">
+            {{p.price}}
+          </td>
+		  <td title="'Available Quantity'" filter="{ sp: 'number'}"  sortable="'sp'">
+            {{p.availquantity}}
+          </td>
+          <td title="'Quantity'" filter="{ sp: 'number'}"  sortable="'sp'">
+            {{p.quantity}}
+          </td>
+          <td title="'Amount Payable'">
+            (Rs {{p.quantity * p.price}})
+          </td>
+          <td title="'Action'">
+            <input type="button"  class="btn col-xs-12" ng-click="removeProduct($index)" value="Remove">
+          </td>
+        </tr>
+
+        <form role="form">
+          <tr ng-form name="serviceDetails">
+            <td title="'S No'">
+              {{pcount}}
+            </td>
+            <td title="'Product Code'">
+              <input class="form-control" type="text" ng-model="currProduct.code" ng-blur="productCodeChanged()" uib-typeahead="product.code as (product.code ) for product in products | filter:$viewValue" required>
+            </td>
+            <td title="'Product Name'">
+              <input class="form-control" type="text" ng-model="currProduct.name" ng-blur="productNameChanged()" uib-typeahead="product as (product.name ) for product in products | filter:$viewValue" required>
+            </td>
+            <td title="'Employee Name'">
+              <select class="form-control col-xs-12" ng-model="currProduct.employee" ng-options="i.userId as (i.name) for i in employees" required>
+              </select>
+            </td>
+            <td title="'Product Price'" filter="{ sp: 'number'}"  sortable="'sp'">
+              <input class="form-control" type="text" ng-model="currProduct.price" required>
+            </td>
+			<td title="'Available Quantity'" filter="{ sp: 'number'}"  sortable="'sp'" >
+              <input class="form-control" type="text" ng-model="currProduct.availquantity" ng-readonly="true" required>
+            </td>
+            <td title="'Quantity'" filter="{ sp: 'number'}"  sortable="'sp'">
+              <input class="form-control" type="text" ng-model="currProduct.quantity" required>
+            </td>
+            <td title="'Amount Payable'" >
+              {{currProduct.quantity ? currProduct.quantity * currProduct.price: '0'}}
+            </td>
+            <td title="'Action'">
+              <button type="submit" class="btn btn-primary col-xs-12" ng-click="addNewProduct()">Add
+              </button>
+            </td>
+          </tr>
+        </form>
+      </table>
+    </div>
+	</div>-->
+
+
+
+<!-- ng-disabled="customerDetails.$invalid" -->

@@ -1,0 +1,78 @@
+<style>
+    md-input-container {
+        display: inline-block;
+        position: relative;
+        padding: 2px;
+        margin: 0px 0;
+        vertical-align: middle;
+    }
+</style>
+<!--<md-dialog ng-cloak="" style="width:60%" >
+    <md-content>
+        <div layout="column" flex="100">
+                <div layout="row" flex="100" >
+                    <span>Enter OTP:</span>
+                </div>
+                <div layout="column" flex="100" >
+                    <md-input-container class="md-block" flex-gt-sm="" ng-show="forgetPasswordFlag">
+                        <label>Enter New Password</label>
+                        <input  ng-model="newPassword">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>Enter OTP</label>
+                        <input  ng-model="otpEntered">
+                    </md-input-container>
+                </div>
+            <div layout="row">
+                <div layout="row" flex="100" layout-align="center" style="padding-top: 2%;">
+                    <md-button class="md-raised md-primary" style="background-color: rgb(63,81,181);padding-top: 6px;" ng-click="verifyOtp()">Verify OTP</md-button>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</md-dialog>-->
+
+
+<md-dialog ng-cloak=""  style="width:40%" >
+
+    <md-content>
+        <div>
+            <h3 class="otpVerificationDialog-content">Enter OTP:</h3>
+
+        </div>
+
+        <div layout="row" layout-align="center" flex="100" class="otpVerificationDialog-margin-top">
+            <div layout="column" flex="70">
+                <div layout="column" flex="100" ng-form name="verifyOtpForm"  layout-align="center">
+                    <div flex="100" layout="row" ng-show="socialLoginType==2">
+                        <div flex="15" style="padding-top: 19px;">Gender</div>
+                        <div flex="30">
+                            <md-switch ng-model="userGenderGoogle" aria-label="Switch 2" ng-true-value="'M'" ng-false-value="'F'" class="md-warn">
+                                : <span ng-if="userGenderGoogle=='M'">Male</span><span ng-if="userGenderGoogle=='F'">Female</span>
+                            </md-switch>
+                        </div>
+                    </div>
+
+                    <md-input-container  flex="70" class="md-block " flex-gt-sm="">
+                        <label class="otpVerificationDialog-Password">Enter Phone Number</label>
+                        <input   ng-model="phoneNumberFbGoogleLogin"   ng-keypress="filterValue($event)" my-enter="registerUserFbGoogleLogin($event)" required>
+                    </md-input-container>
+                </div>
+                <div layout="row" flex="100" ng-show="invalidOtpPhoneNumberFlag">
+                    <span class="otpVerificationDialog-InvalidPhone">Invalid Phone Number or OTP</span>
+                </div>
+                <div layout="row" flex="100" layout-align="center">
+                    <div flex="40" layout="row" layout-align="center" style="padding-bottom: 8%;">
+                        <md-button class="md-raised md-primary" ng-click="registerUserFbGoogleLogin($event)" id="opt-btn-send" style="margin-left: 4%;">Submit</md-button >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </md-content>
+</md-dialog>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+-->

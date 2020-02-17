@@ -1,0 +1,162 @@
+<style type="text/css">
+
+.controlsOuter {
+    position: absolute;
+    width: 50%;
+    height: 70px;
+    bottom: 0%;
+    top:53%;
+}
+
+#timer {
+
+    left: 10%;
+}
+  #waveform{
+    margin:-190px  auto!important;
+  }
+  .main-container{
+    height: 656px;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left: 0;
+    right:0;
+    background: -moz-linear-gradient(-45deg, #bb71f3 0%, #3d4d91 100%);
+    background: -webkit-linear-gradient(-45deg, #bb71f3 0%, #3d4d91 100%);
+    background: linear-gradient(135deg, #bb71f3 0%, #3d4d91 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bb71f3', endColorstr='#3d4d91', GradientType=1);
+    font-family: "Helvetica Neue", "Futura", "Trebuchet MS", Arial;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  }
+.left-music-list{
+  position: absolute;top: 74%;left: 15px;right:0;
+    background: -moz-linear-gradient(-45deg, #bb71f3 0%, #3d4d91 100%);
+    background: -webkit-linear-gradient(-45deg, #bb71f3 0%, #3d4d91 100%);
+    background: linear-gradient(86deg, #bb71f3 0%, #3d4d91 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bb71f3', endColorstr='#3d4d91', GradientType=1);
+    font-family: "Helvetica Neue", "Futura", "Trebuchet MS", Arial;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  
+}
+
+</style>
+
+
+
+
+<div style="position: relative;">
+<div class="main-container">
+<div class="row">
+    <div id="title">
+    <span id="track"></span>
+    <div id="timer">0:00</div>
+    <div id="duration">0:00</div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controlsOuter">
+    <div class="controlsInner">
+      <div id="loading"></div>
+      <div class="btn1" id="playBtn"></div>
+      <div class="btn1" id="pauseBtn"></div>
+      <div class="btn1" id="prevBtn"></div>
+      <div class="btn1" id="nextBtn"></div>
+    </div>
+    <div class="btn1" id="playlistBtn"></div>
+    <div class="btn1" id="volumeBtn"></div>
+  </div>
+
+  <!-- Progress -->
+  <div id="waveform"></div>
+  <div id="bar"></div>
+  <div id="progress"></div>
+
+  <!-- Playlist -->
+  <div id="playlist">
+    <div id="list"></div>
+  </div>
+
+  <!-- Volume -->
+  <div id="volume" class="fadeout">
+    <div id="barFull" class="bar"></div>
+    <div id="barEmpty" class="bar"></div>
+    <div id="sliderBtn"></div>
+  </div>
+</div>
+<!-- <div class ="row">
+        <div> <button ng-click="" class="btn btn-primary">Save Playlist</button> </div>
+         <div>   <button ng-click="" class="btn btn-primary">Load My Playlist</button> </div>
+             <div>    <button ng-click="" class="btn btn-primary">Clear All Songs</button></div>
+ </div> -->
+ <!-- position: absolute;top: 74%;left:10%;right: 0; -->
+
+     <div class="row left-music-list">
+        <div class="col-md-6">
+           
+            <div  style="padding:1%;font-size: 13px;">
+                   
+            </div>
+            <button ng-click="transferToPlaylist()">ADD TO PLAYLIST</button>
+            <button ng-click="selectAll()">Select All</button>
+
+           <table class="table">
+        
+                  <tr>
+                 <td style="text-align: center;background-color:#d9edf7" colspan="2">All Song</td>
+                 
+                 
+               </tr>
+              
+          
+                  <tr ng-repeat="song in allSongs" ng-click="song.transfer=!song.transfer">
+                    <td>{{song.name}} </td>
+                    <td><input type="checkbox" ng-init="song.transfer=false" ng-model="song.transfer"></td>
+               </tr>
+         
+            
+           </table>
+        </div>
+        <div class="col-md-6" style="padding-top:5%">
+            <button ng-click="deletePlaylist()">Delete Playlist</button>
+            <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-info" style="width: 200%;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">CURRENT PLAYLIST</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul dnd-list="models.list" style="text-align: left;">
+                                            <!-- The dnd-draggable directive makes an element draggable and will
+                                                 transfer the object that was assigned to it. If an element was
+                                                 dragged away, you have to remove it from the original list
+                                                 yourself using the dnd-moved attribute -->               
+                                  <li style="border-bottom: 1px solid #E1E1E1;padding: 4% 0% 7% 0%;list-style:none;
+                                          margin-left: -33px" ng-repeat="item in models.list"
+                                          dnd-draggable="item"
+                                          dnd-moved="models.list.splice($index, 1)"
+                                          dnd-effect-allowed="move"
+                                          dnd-selected="models.selected = item"
+                                          ng-class="{'selected': models.selected === item}"
+                                          >
+                                          <div style="width:70%;float: left;"><img ng-if="$index==songIndex.index" src="../img/Media_player_icons-12-256.png" alt="playlist" style="width: 16px;margin-right: 9px;">{{item.name}}</div>
+                                          <div style="width: 15%;float: left;">Requested By</div>
+                                          <div style="width: 15%;float: left;">{{item.requestedBy}}</div>
+                                      </li>
+                                  </ul>
+                                
+                                 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+        </div>
+    </div>
+ </div>
+</div>
+

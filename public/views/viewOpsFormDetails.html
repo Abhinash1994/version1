@@ -1,0 +1,253 @@
+<style media="screen">
+
+  .rzslider .rz-pointer{
+    background-color:#2980b9;
+  }
+  .nav-tabs {
+     border-bottom: 0px solid #ddd;
+     margin:0.5em;
+     margin-bottom:0;
+}
+hr{
+    border: 1px solid #ccc;
+    background: #7f8c8d;
+}
+.nav-tabs.nav-justified>li>a {
+    border-bottom: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.5em;
+    margin: 0.2em;
+}
+.nav-tabs.nav-justified {
+    width: 100%;
+    padding: 0 1em;
+}
+</style>
+
+<div class="row">
+
+  <div class="col-md-12" style="padding-top:0.5em;">
+     <!-- <select class="form-control">
+       <option ng-repeat="data in formJSON.questionsData" ng-click="categoryButton(data.categoryName,$index)" ng-model="data.categoryName">{{data.categoryName}}</option>
+     </select> -->
+    <!-- <button ng-repeat="data in formJSON.questionsData" type="button" name="button" ng-click='categoryButton(data.categoryName)'>{{data.categoryName}}</button> -->
+    <div class="col-md-12" justified="true">
+      <uib-tabset active="active">
+        <uib-tab ng-click='categoryButton(data.categoryName,$index)' ng-repeat="data in formJSON.questionsData" index="$index" heading="{{data.categoryName}}"></uib-tab>
+      </uib-tabset>
+    </div>
+
+        <div class="row"  ng-if="hasSubcat">
+          <div class="col-md-12">
+            <br>
+            <uib-tabset active="active" justified="true">
+              <br>
+                <uib-tab style="padding"ng-repeat="data in subcategory" ng-click="subCatTab($index)" index="$index" heading="{{data.name}}"></uib-tab>
+                <br>
+            </uib-tabset>
+          </div>
+            </div>
+
+
+            <div ng-if="hasSubcat" class="col-md-12" ng-show="showData" ng-repeat="data in showDataOfEmployee.questions">
+              <br>
+                <hr>
+              <div class="row"  ng-if="data.formType=='range'">
+                <div class="col-md-8" style="padding-top:1.7em;">
+                    {{data.question}}
+                </div>
+                <div class="col-md-4">
+                  <rzslider rz-slider-model="color_slider_bar.value" rz-slider-options="color_slider_bar.options"></rzslider>
+                </div>
+              </div>
+              <div class="row"  ng-if="data.formType=='radio'">
+                <div class="col-md-8">
+                    {{data.question}}
+                </div>
+                <div class="col-md-4">
+                  <label><input type="radio" name="optradio">{{s.options[0].option}}</label>
+                  <label><input type="radio" name="optradio">{{s.options[1].option}}</label>
+                </div>
+              </div>
+              <div class="row"  ng-if="data.formType=='checkbox'">
+                <div class="col-md-8">
+                    {{data.question}}
+                </div>
+                <div class="col-md-4">
+                  <label><input type="checkbox" value="">Option 1</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="row"> -->
+              <div class="col-md-12" ng-hide="hasSubcat" ng-repeat="data in subcategory.questions">
+                <br>
+                  <hr>
+                <div class="row"  ng-if="data.formType=='range'">
+                  <div class="col-md-8" style="padding-top:1.7em;">
+                    {{$index}}
+                      {{data.question}}
+                  </div>
+                  <div class="col-md-4">
+                    <rzslider rz-slider-model="color_slider_bar.value" rz-slider-options="color_slider_bar.options"></rzslider>
+                  </div>
+                </div>
+                <div class="row"  ng-if="data.formType=='radio'">
+                  <div class="col-md-8">
+                    <br>
+                      {{$index}}
+                      {{data.question}}
+                      <br>
+                  </div>
+                  <div class="col-md-4">
+                    <br>
+                    <label><input type="radio" name="optradio">{{data.options[0].option}}</label>
+                    <label><input type="radio" name="optradio">{{data.options[1].option}}</label>
+                    <br>
+                  </div>
+
+                  <div class="row"  ng-if="data.formType=='checkbox'">
+                    <div class="col-md-8">
+                        {{data.question}}
+                    </div>
+                    <div class="col-md-4">
+                      <label><input type="checkbox" value="">Option 1</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- </div> -->
+
+          </div>
+          </div>
+
+        </div>
+
+        <!-- <div class="row" ng-if='employeeFlag' ng-repeat="value in employeeData">
+
+        </div> -->
+
+
+        <!-- <div class="row" ng-repeat="s in ownerData.questions" ng-if="s.formType=='radio'">
+          <div class="col-md-12" >
+            {{s.question}}
+            <br>
+            <label><input type="radio" name="optradio">{{s.options[0].option}}</label>
+            <label><input type="radio" name="optradio">{{s.options[1].option}}</label>
+            <hr>
+          </div>
+        </div> -->
+
+        <!-- <div ng-repeat="s in ownerData.questions" ng-if="s.formType=='range'">
+          <div class="col-md-12" >
+            <br>
+            {{s.question}}
+            <br>
+            <div class="col-md-6 col-md-offset-3">
+              <rzslider rz-slider-model="color_slider_bar.value" rz-slider-options="color_slider_bar.options"></rzslider>
+            </div>
+
+          </div>
+        </div> -->
+
+
+        <!-- <div ng-repeat="s in ownerData.questions" ng-if="s.formType=='checkbox'">
+          <div class="col-md-12" >
+
+            {{s.question}}
+            <br>
+            <label><input type="checkbox" value="">Option 1</label>
+            <br>
+
+          </div>
+        </div> -->
+
+        <!-- <div ng-repeat="s in ownerData.questions" ng-if="s.formType=='dropDown'">
+          <div class="col-md-12" >
+
+            {{s.question}}
+          </div>
+        </div> -->
+      </div>
+
+    </div>
+
+
+
+                <!-- <div class="row" ng-if='branchFlag'  ng-repeat="value in branchData">
+                  <div ng-repeat="s in branchData.questions" ng-if="s.formType=='radio'">
+                    <div class="col-md-12" >
+                      {{s.question}}
+                      <br>
+                      <label><input type="radio" name="optradio">{{s.options[0].option}}</label>
+                      <label><input type="radio" name="optradio">{{s.options[1].option}}</label>
+                      <hr>
+                    </div>
+                  </div>
+                  <div ng-repeat="s in branchData.questions" ng-if="s.formType=='range'">
+                    <div class="col-md-12" >
+                      {{s.question}}
+                      <br>
+                        <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
+                    </div>
+                  </div>
+                  <div ng-repeat="s in branchData.questions" ng-if="s.formType=='checkbox'">
+                    <div class="col-md-12" >
+
+                      {{s.question}}
+                      <br>
+                      <label><input type="checkbox" value="">Option 1</label>
+                      <br>
+
+                    </div>
+                  </div>
+                  <div ng-repeat="s in branchData.questions" ng-if="s.formType=='dropDown'">
+                    <div class="col-md-12" >
+
+                      {{s.question}}
+                    </div>
+                  </div>
+                </div> -->
+
+
+
+                <!-- <div class="row" ng-if='managerFlag'  ng-repeat="value in managerData">
+
+                  <div ng-repeat="s in managerData.questions" ng-if="s.formType=='radio'">
+                    <div class="col-md-12" >
+                      {{s.question}}
+                      <br>
+                      <label><input type="radio" name="optradio">{{s.options[0].option}}</label>
+                      <label><input type="radio" name="optradio">{{s.options[1].option}}</label>
+                      <hr>
+                    </div>
+                  </div>
+                  <div ng-repeat="s in managerData.questions" ng-if="s.formType=='range'">
+                    <div class="col-md-12" >
+                      {{s.question}}
+                      <br>
+                        <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
+                    </div>
+                  </div>
+                  <div ng-repeat="s in managerData.questions" ng-if="s.formType=='checkbox'">
+                    <div class="col-md-12" >
+
+                      {{s.question}}
+                      <br>
+                      <label><input type="checkbox" value="">Option 1</label>
+                      <br>
+
+                    </div>
+                  </div>
+                  <div ng-repeat="s in managerData.questions" ng-if="s.formType=='dropDown'">
+                    <div class="col-md-12" >
+
+                      {{s.question}}
+                    </div>
+                  </div>
+                </div> -->
+
+
+  </div>
+
+</div>

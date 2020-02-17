@@ -1,0 +1,45 @@
+<div ng-if="logginRequired && pages.length==0">
+	<button class="btn btn-primary" ng-click="redirectToLoginPage()">Login To Facebook Page</button>
+</div>
+
+
+<div ng-if="!logginRequired || pages.length!=0">
+	<div ng-if="pages.length>0">
+		<h1>Select your page from following list</h1>
+		<form ng-submit="pageSelected()">
+			<div class="row">
+                                          <div class="col-lg-12">
+                                              <div class="form-group">
+                                                  <label>Select one page</label>
+                                                  <div class="radio" ng-repeat="p in pages">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" ng-model="selectedPage.page" value="{{p}}" checked>{{p.name}} - {{p.category}}
+                                    </label>
+                                </div>
+                                              </div>
+                                          </div>
+                                          </div>
+
+                                  <button type="submit" class="btn btn-primary">Select this Page</button>
+
+		</form>
+	</div>
+	<div ng-if="pages.length==0">
+		<h1>Post Content</h1>
+	
+
+	<form ng-submit="postContent()">
+			<div class="row">
+                                          <div class="col-lg-12">
+                                              <div class="form-group">
+                                                   <label>Your Content</label>
+                                <textarea class="form-control" ng-model="content.message" rows="3"></textarea>
+                                              </div>
+                                          </div>
+                                          </div>
+
+                                  <button type="submit" class="btn btn-primary">Post</button>
+
+		</form>
+	</div>
+</div>

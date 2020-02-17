@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>eKyc Failed</title>
+<script type="text/javascript">
+function ePayLaterResult(){
+    if (typeof EpayLater !== "undefined"){
+        EpayLater.failure(); //If payment was failure
+    }
+    setTimeout(function(){ window.location = 'https://www.beusalons.com/' }, 1000);
+}
+          
+ePayLaterResult();
+</script>
+</head>
+<body>
+<h2>eKyc Failed</h2>
+</body>
+</html>

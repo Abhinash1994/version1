@@ -1,0 +1,119 @@
+<style>
+	h3{
+		text-align: center;
+		margin:15px;
+	}
+	.tabs{
+		background-color:white;
+		padding:15px;
+	}
+
+	 label {
+		margin-top: 15px;
+	}
+	.notifications{
+		    background-color:#f5f5f5;
+    padding: 30px;
+	}
+
+	.row{
+		margin:0px;
+		margin:4px;
+	}
+</style>
+<h3>Notification Or Sms to Salon</h3>
+<div class="row notifications">
+
+<div class="row">
+		<div class="col-md-offset-2 col-md-2">
+
+				<label>Select Salon</label>
+
+		</div>
+		<div class="col-md-4">
+
+					<div style="display:inline" isteven-multi-select input-model="parlors" output-model="parlor.copiedParlor" on-select-all="onselectAll()"  on-select-none="onselectNone()" on-item-click="optionsChanged(this)" button-label="name" item-label="name" tick-property="isSelected" output-properties="_id" ></div>
+		</div>
+
+
+</div>
+<div class="row">
+	<div class="col-md-offset-2 col-md-2">
+				<label>Select Role</label>
+	</div>
+	<div class="col-md-4">
+				<div style="display:inline" isteven-multi-select input-model="role" output-model="copiedRoles.role" on-select-all="onselectAll()"  on-select-none="onselectNone()" on-item-click="roleChanged(this)" button-label="name" item-label="name" tick-property="isSelected" output-properties="role" ></div>
+
+	</div>
+
+</div>
+
+<div class="row">
+			<div class="col-md-offset-1 col-md-2 ">
+						<span  style="font-size:16px;font-weight: 400;">Send</span>
+			</div>
+
+		<div class="col-md-3">
+					<input type="checkbox"   ng-model="checkBox.sms"/>	<span  style="font-size:16px;font-weight: 400;"> Sms</span>
+		</div>
+		<div class=" col-md-3">
+					<input type="checkbox"   ng-model="checkBox.notification"/> 	<span  style="font-size:16px;font-weight: 400;">Notification</span>
+		</div>
+
+
+</div>
+
+<div class="row">
+<div class="tabs col-md-offset-2  col-md-8">
+
+<uib-tabset active="active">
+ <uib-tab index="0" heading="Notification" active="tabs[0].active">
+ 			<div class="row">
+ 						<div class=" col-md-offset-2 col-md-3">
+ 							<label>Notification Title</label>
+ 						</div>
+ 						<div class="col-md-6">
+ 							<input type="text" ng-model="notification.title" class="form-control"/>
+ 						</div>
+ 						<div class="row">
+ 						<div class="col-md-offset-2 col-md-3">
+ 							<label>Notification Message</label>
+ 						</div>
+ 						<div class="col-md-6">
+ 								<input type="text" ng-model="notification.message" class="form-control"/>
+ 						</div>
+
+					</div>
+
+ 			</div>
+ 		
+ </uib-tab>
+ <uib-tab index="1" heading="Message" active="tabs[1].active">
+	
+ 			<div class="row">
+ 						<div class="col-md-offset-2 col-md-3">
+ 							<label>Text Message</label>
+ 						</div>
+ 						<div class="col-md-6">
+ 									<input type="text" ng-model="message.message" class="form-control"/>
+ 						</div>
+
+ 			</div>
+ </uib-tab>
+</uib-tabset>
+
+
+</div>
+</div>
+
+
+
+
+
+<div class="row">
+
+	<button class="btn btn-primary" ng-disabled="buttonDisable" ng-click="submitNow()">Submit</button>
+</div>
+
+
+</div>

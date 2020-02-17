@@ -1,0 +1,87 @@
+<div class="row">
+	<h3>Create Flash Coopon</h3>
+
+</div>
+<div class="row">
+	<form class="form-inline"  ng-submit="SubmitCouponCode()">
+		<!-- <div class="col-md-3">
+			  <div class="form-group">
+			    <label>Service Code</label>
+			    <input type="" class="form-control" ng-model="coupon.serviceCode">
+			  </div>
+		</div> -->
+		<div class="col-md-3">
+			<div class="form-group">
+				<label>Select Parlor</label>
+			 	<div style="display:inline" isteven-multi-select input-model="parlorList" output-model="coupon.parlors" button-label="name" item-label="name" tick-property="isSelected" output-properties="parlorId name" on-close="updateParlorsSelected()">
+			 		
+			 	</div>
+			 </div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+			    <label>Select Date</label>
+			    <input type="date" name="" ng-model="coupon.dateRangeSelected">
+        	<!--  <input date-range-picker  name="daterange1" class="date-picker form-control" type="" id="inputbox-servicereport1" ng-model="coupon.dateRangeSelected"  required/> -->
+        	</div>
+		</div>
+		<div class="col-md-3">
+			  <div class="form-group">
+			    <label>Code</label>
+			    <input type="" class="form-control" ng-model="coupon.code">
+			  </div>
+		</div>
+		<div class="col-md-3">
+			  <div class="form-group">
+			    <label>Menu Price</label>
+			    <input type="" class="form-control" ng-model="coupon.menuPrice">
+			  </div>
+		</div>
+		<div class="col-md-3">
+			  <div class="form-group">
+			    <label>Coupon Title</label>
+			    <input type="" class="form-control" ng-model="coupon.couponTitle">
+			  </div>
+		</div>
+
+		<div class="col-md-3">
+			  <div class="form-group">
+			    <label>Description</label>
+			    <input type="" class="form-control" ng-model="coupon.description">
+			  </div>
+		</div>
+		<div class="col-md-3">
+			  <div class="form-group">
+			     <input type="radio" ng-model="coupon.active" value="Male">
+  				<input type="radio" ng-model="coupon.active" value="Female">
+			   
+			  </div>
+		</div>
+		<div class="col-md-3">
+			  <div class="form-group">
+			    <label>Maximum Acount</label>
+			    <input type="number"    class="form-control" ng-model="coupon.maximumCount">
+			  </div>
+		</div>
+		<div class="col-md-3">
+			  <div class="form-group">
+			    <label>Current Count</label>
+			    <input type="number" class="form-control" ng-model="coupon.currentCount">
+			  </div>
+		</div>
+		<div class="col-md-3">
+			  <div class="form-group">
+			    <label>OFF Persentage</label>
+			    <input type=""    class="form-control" ng-model="coupon.offPercentage">
+			  </div>
+		</div>
+		<div class="col-md-3">
+			  <div class="form-group">
+			    <label>Images Url</label>
+			    <input type="" form-control"  class="form-control" ng-model="coupon.imageUrl">
+			  </div>
+		</div>
+	 <input type="submit"   class="form-control">
+	 
+	</form>
+</div>

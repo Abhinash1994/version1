@@ -1,0 +1,43 @@
+  <div class="input-group" style="margin-bottom:-4px;margin-top:6px;"><input type="searchbox" ng-model="search" placeholder="search all.." style="padding:5px;"></div>
+  <div style="float:right;margin-bottom: 10px;margin-top: -20px;"><button class="btn btn-default" onClick ="$('#tablewala').tableExport({type:'csv',escape:'false'});">CSV</button> <button class="btn btn-default" onClick ="$('#tablewala').tableExport({type:'pdf',escape:'false'});">PDF</button>
+   <button class="btn btn-default" onClick ="$('#tablewala').tableExport({type:'excel',escape:'false'});">EXCEL</button></div>
+  <table id="tablewala" ng-table="tableParams"  class="table table-bordered" >
+        <thead>
+            <tr style="color:#fff;background-color: #6c9fcb;" rowspan="2">
+                <th colspan="2">Invoice number</th>
+                <th colspan="2">Invoice name</th>
+                <th colspan="2">Bill to name</th>
+                <th colspan="2">Source</th>
+                <th colspan="2">Payment mode</th>
+                <th colspan="2">Amount</th>
+                <th colspan="2">Action</th>
+            </tr>
+         
+        </thead>
+        <tbody>
+            <tr ng-repeat="dhinchek in $data | filter:search" style="text-align: center;">
+                <td colspan="2">
+                    {{dhinchek.invoiceNumber}}
+                </td>
+                <td colspan="2">
+                    {{dhinchek.invoiceName}}
+                </td>
+                <td colspan="2">
+                    {{dhinchek.invoiceDate}}
+                </td>
+                <td colspan="2">
+                    {{dhinchek.source}}
+                </td>
+                <td colspan="2">
+                    {{dhinchek.paymentmode}}
+                </td>
+                <td colspan="2">
+                    {{dhinchek.amount}}
+                </td>
+                <td colspan="2"><a href="#">
+                    {{dhinchek.action}}</a>
+                </td>
+            </tr>
+        </tbody>
+       
+    </table>

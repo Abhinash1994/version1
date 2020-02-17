@@ -1,0 +1,64 @@
+
+	<section layout="row" flex>
+
+    <md-sidenav style="margin-top:2em;"class="md-sidenav-left  md-whiteframe-4dp" md-component-id="left" md-whiteframe="4">
+      <md-content layout-margin style="margin:0;">
+        <div layout-align="end center" layout="row" flex="100">
+          <md-button style="right:0;margin-top:1em;"ng-click="toggleLeft()" class="md-accent">
+          <ng-md-icon icon="close" style="fill: #d2d4d5" size="20"></ng-md-icon>
+          </md-button>
+        </div>
+				<md-divider ></md-divider>
+				<ul layout="column" flex="100" style="padding-top:0;margin-left: 0;">
+          <div class="sidenav-list-div">
+              <a href="/" style="color:#000;"><li class="sidenav-list" style="margin-top:1em;" ng-click="toggleLeft()" style="cursor: pointer;padding-left: 0px;"><span style=>Home</span></li></a>
+          </div>
+          <md-divider ></md-divider>
+						<div class="sidenav-list-div">
+								<li class="sidenav-list" style="margin-top:1em;" ng-click="goToAboutUs();toggleLeft()" style="cursor: pointer;padding-left: 0px;"><span >About Us</span></li>
+						</div>
+						 <md-divider ></md-divider>
+						<div class="sidenav-list-div">
+								<li class="sidenav-list" style="margin-top:1em;" ng-click="goToNews();toggleLeft()" style="cursor: pointer;padding-left: 0px;"><span>News and Media</span></li>
+						</div>
+						<md-divider ></md-divider>
+<!--
+						<div class="sidenav-list-div">
+							<li  class="sidenav-list"   style="margin-top:1em;" ng-click="goToOffers();toggleLeft()" style="cursor: pointer;padding-left: 0px;"><span>Offers</span></li>
+						</div>
+-->
+						<div class="sidenav-list-div">
+							<li  class="sidenav-list"   style="margin-top:1em;" ng-click="goToSubscription();toggleLeft()" style="cursor: pointer;padding-left: 0px;"><span>Buy Subscription</span></li>
+						</div>
+						<md-divider ></md-divider>
+						<div class="sidenav-list-div">
+							<li  class="sidenav-list"   style="margin-top:1em;" ng-click="goToDeals();toggleLeft()" style="cursor: pointer;padding-left: 0px;"><span>Deals</span></li>
+						</div>
+						<md-divider ></md-divider>
+						<div class="sidenav-list-div">
+								<a href="http://35.154.125.175/blog/look-flawless-at-your-workplace/" style="color:#000;"><li  class="sidenav-list"   style="margin-top:1em;"  ng-click="toggleLeft()" style="cursor: pointer;padding-left: 0px;"><span style="">Blogs</span></li></a>
+						</div>
+						<md-divider ></md-divider>
+						<div class="sidenav-list-div">
+								<li  class="sidenav-list"  style="margin-top:1em;"  ng-click="goToContactUs();toggleLeft()" style="cursor: pointer;padding-left: 0px;"><span>Contact Us</span></li>
+						</div>
+							<md-divider ></md-divider>
+							<div class="sidenav-list-div">
+								<li  class="sidenav-list"  style="margin-top:1em;"   ng-click="goToWebsiteQuery();toggleLeft()" style="cursor: pointer;padding-left: 0px;"><span>Appointment Query</span></li>
+						</div>
+								
+						</div>
+						</div>
+						<md-divider ></md-divider>
+
+
+
+
+
+
+					</ul>
+
+      </md-content>
+
+    </md-sidenav>
+  </section>

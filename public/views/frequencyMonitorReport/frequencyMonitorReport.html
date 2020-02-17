@@ -1,0 +1,126 @@
+<style>
+    .row{
+        background-color: white;
+        padding:15px;
+        height: 100%;
+    }
+    .scroll{
+        height:500px;
+        overflow-y: scroll;
+    }
+
+   .scroll  th {
+        text-align: center;
+       font-size: 16px;
+
+    }
+    h3{
+        text-align:center;
+    }
+    h4{
+        text-align:center;
+    }
+
+
+
+
+</style>
+<h3>Frequency Monitor Report</h3>
+<div class="row">
+<head-directive data="multisalonsObject.multisalons" date="dates.date"  output="multisalonsObject.multi">
+</head-directive>
+
+
+
+ <div class="row">
+     <div class="col-md-offset-10 col-md-2">
+         <button class="btn btn -primary" ng-click="exportToExcel('#tableToExport')" ><i class="fa fa-sign-out" aria-hidden="true"></i> Export Excel</button>
+     </div>
+     <h4>Frequencies</h4>
+     <table id="tableToExport" class="scroll table table-striped table-hover">
+         <thead>
+                <tr>
+                        <th style="background-color: #FAE596;" rowspan="2" col-span="2">Salon Name</th>
+                        <th ng-repeat="(key,value) in tableHeading" style="background-color: #FAE596;" colspan="2">{{key}}</th>
+                        <!--<th style="background-color: #FAE596;" colspan="2">2</th>-->
+                        <!--<th style="background-color: #FAE596;" colspan="2">3</th>-->
+                        <!--<th style="background-color: #FAE596;" colspan="2">4</th>-->
+                        <!--<th style="background-color: #FAE596;" colspan="2">5</th>-->
+                          <!--<th style="background-color: #FAE596;" colspan="2">Above 5</th>-->
+
+                </tr>
+                <tr>
+
+                        <th>Count</th>
+                        <th>Percentage</th>
+                         <th>Count</th>
+                        <th>Percentage</th>
+                        <th>Count</th>
+                        <th>Percentage</th>
+                          <th>Count</th>
+                        <th>Percentage</th>
+                        <th>Count</th>
+                        <th>Percentage</th>
+                        <th>Count</th>
+                        <th>Percentage</th>
+
+
+                </tr>
+
+         </thead>
+         <tbody>
+                    <tr ng-repeat="report in frequencyReport.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+                        <td>{{report.parlorName}}</td>
+                        <td>{{report.one}} </td><td> {{report.one1||0}}%</td>
+                        <td>{{report.two}}</td><td>{{report.two1||0}}%</td>
+                        <td>{{report.three}}</td><td>{{report.three1||0}}%</td>
+                        <td>{{report.four}}</td><td>{{report.four1||0}}%</td>
+                        <td>{{report.five}}</td><td>{{report.five1||0}}%</td>
+                        <td>{{report.moreThanFive}}</td><td>{{report.moreThanFive1||0}}%</td>
+                    </tr>
+
+         </tbody>
+
+
+     </table>
+
+     <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
+
+
+     <div class="row">
+
+     <h3>Frequency Monitor Report(Be U)</h3>
+
+     <table  id="tableToExport2" class="scroll table table-striped table-hover">
+        <thead >
+        <tr>
+            <th  style="background-color: #FAE596;"  >Salon Name</th>
+            <th  style="background-color: #FAE596;"  >1</th>
+            <th  style="background-color: #FAE596;"  >2</th>
+            <th  style="background-color: #FAE596;"  >3</th>
+            <th  style="background-color: #FAE596;"  >4</th>
+            <th  style="background-color: #FAE596;"  >5</th>
+            <th  style="background-color: #FAE596;"  >Above 5</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+        <td>{{beu.parlorName}}</td>
+        <td>{{beu.one}}</td>
+        <td>{{beu.two}}</td>
+        <td>{{beu.three}}</td>
+        <td>{{beu.four}}</td>
+        <td>{{beu.five}}</td>
+        <td>{{beu.moreThanFive}}</td>
+        </tr>
+        </tbody>
+
+     </table>
+
+     </div>
+
+ </div>
+
+
+</div>

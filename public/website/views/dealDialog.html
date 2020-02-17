@@ -1,0 +1,74 @@
+<style>
+
+   
+</style>
+
+
+<md-dialog aria-label="Mango (Fruit)" style="" class="deel-dialog-container">
+    <form ng-cloak>
+        <md-toolbar>
+            <div flex class="md-toolbar-tools dealDialog-page-Service" style="">
+               <div flex="90"> <h1 style="">Select Service</h1></div>
+				<div flex="10"  ng-click="cancel()" style="" class="deal-cancel-icon"><ng-md-icon icon="close" style="fill: #d2d4d5" size="20"></ng-md-icon></div>
+
+
+            </div>
+        </md-toolbar>
+        <md-dialog-content  flex>
+           <div flex class="dealDialog-page-content">
+               <div layout="row" flex class="dealDialog-page-font">
+              
+                        <md-radio-group flex layout="column" ng-model="dealServiceI" style=""class="deel-sevice-box">
+                            <div flex>
+                            <div layout="row" flex="100" class="appointment-dialog" ng-repeat="list in filteredDealServiceArray | filter:{gender: gend}">
+								<md-radio-button layout="row" class="appontment-review  deeldialobtn deeldialo-page-btn deeldialog-pageoff deeldialogLabel "  value="{{$index}}"  flex="100" style="border-bottom:1px solid #e2e2e2; padding-bottom:20px;">
+								    <div layout="row" flex="100" >
+										<div flex-xs="40" flex-sm="40" flex="50" class="deeldialog-listname123">{{list.name}}</div>
+										<div flex="15" style="" class="dealDialog-page-Save deeldialog-listname123"> Save:{{((list.menuPrice-list.dealPrice)/list.menuPrice)*100  | number:0}}%</div>
+										<div flex="15" style="" class="dealDialog-page-menuprice deeldialog-listname123"><strike style="color:#dfe0e1"><i class="fa fa-inr " aria-hidden="true"></i> {{list.menuPrice}}</strike></div>
+										<div flex="20" flex-xs="20" flex-sm="20" style="" class="dealDialog-page-deelprice deeldialog-listname123"> <i class="fa fa-inr " aria-hidden="true"></i> {{list.dealPrice}}</div>
+
+									</div>
+								</md-radio-button>
+							</div>
+                            </div>
+						</md-radio-group>
+              </div>
+
+			   <div layout="row" flex="100" ng-show="filteredDealServiceArray[dealServiceI].options.length" style="" class="dealDialog-page-Exclusive">Exclusive Offers For You</div>
+               <div layout="column" flex style="padding-left:50px;font-weight: 700;color:#58595b;font-size: 13px;" >
+                   <div flex>
+				   <div ng-repeat="option in filteredDealServiceArray[dealServiceI].options"  layout="row" style="" class="dealDialog-page-dealServiceI" flex>
+					   <div layout="row" flex="50" style="font-size: 12px;">
+					   {{option.message}}
+					   </div>
+					   <div flex="15" style="" class="dealDialog-page-optionmenuPrice"> Save:{{(((option.menuPrice/2)-(option.dealPrice-filteredDealServiceArray[dealServiceI].dealPrice))/(option.menuPrice/2))*100  | number:0}}%</div>
+						<div  class="dealDialog-page-addCombo" layout="row" flex="35" ng-click="addCombo($event,filteredDealServiceArray[dealServiceI],$index,0,0,'deal')"><i class="fa fa-plus-circle" aria-hidden="true"></i><!--<md-button class="md-raised md-primary"ng-click="addCombo($event,filteredDealServiceArray[dealServiceI],$index,0,0,'deal')">Add</md-button></div>-->
+                       </div>
+			       </div>
+                  </div>
+           </div>
+		   </div>
+
+        </md-dialog-content>
+
+		<md-dialog-actions layout="column" layout-align="end end" flex="100">
+
+			<!-- <span flex style="padding-top:20px;padding-bottom:20px;font-weight: 700;color:#58595b;font-size: 13px;"> -->
+				<!-- Service final price{{displayDealPrice.dealType.price }}----{{filteredDealServiceArray[dealServiceI].prices[dealServicePI].price+ filteredDealServiceArray[dealServiceI].prices[dealServicePI].additions[0].types[dealServiceTI].additions}} -->
+			<!-- </span> -->
+				<div layout="row"   flex="30">
+				<!--<md-button ng-click="cancel()"  style="background-color:#e6e6e6;margin-bottom:15px;">-->
+				<!--Cancel-->
+				<!--</md-button>-->
+					<md-button ng-click="serviceSelected(filteredDealServiceArray[dealServiceI],dealServicePI,dealServiceTI)" id="dealDialog-page-btn">
+						Select
+					</md-button>
+				</div>
+		</md-dialog-actions>
+    </form>
+</md-dialog>
+
+
+
+

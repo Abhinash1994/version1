@@ -1,0 +1,68 @@
+<div class="row">
+	<div class="col-md-12"><h3>Redeem Subscription Near Buy</h3></div>
+</div>
+<form ng-submit="Submit()">
+<div class="row">
+	<div class="col-md-6">
+
+	<div class="form-group">
+      <label class="control-label col-md-3" for="email">First Name:</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" id="email" ng-model="form.firstName" placeholder="Frist Nmae" name="email" ng-required="true">
+      </div>
+		
+    </div>
+	</div>
+	<div class="col-md-6">
+	<div class="form-group">
+      <label class="control-label col-md-3" >Last Name:</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" ng-model="form.lastName" placeholder="Last Name" name="lastname" >
+      </div>
+    </div>
+	</div>
+
+</div>
+<div class="row">
+	<div class="col-md-6">
+	<div class="form-group">
+      <label class="control-label col-md-3" for="email">Email Id:</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" ng-model="form.emailId"  id="email" placeholder="Enter email">
+      </div>
+    </div>
+	</div>
+	<div class="col-md-6">
+		<div class="radio col-md-3">
+  <label><input type="radio" name="optradio" ng-model="form.gender" value="M">Male</label>
+</div>
+<div class="radio col-md-3">
+  <label><input type="radio" ng-model="form.gender" name="optradio"  value="F">Female</label>
+</div>
+	
+	</div>
+
+</div>
+<div class="row">
+	<div class="col-md-6">
+	<div class="form-group">
+      <label class="control-label col-md-3" for="email">Phone Number:</label>
+      <div class="col-md-9">
+        <input type="number" class="form-control" ng-model="form.phoneNumber"  id="number" placeholder="Enter email" required>
+      </div>
+    </div>
+	</div>
+	<div class="col-md-6">
+	<div class="form-group">
+      <label class="control-label col-md-3" for="email">Cupon Code:</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" ng-model="form.couponCode" placeholder="Enter cupon code" name="email" required>
+      </div>
+    </div>
+	</div>
+
+</div>
+<div class="row">
+	<button type="submit" >Submit</button>
+</div>
+</form>

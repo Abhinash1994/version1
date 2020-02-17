@@ -1,0 +1,6241 @@
+body {
+	height:100%;
+	min-height:100%;
+	font-family: 'latoRegular';
+	color:#58595b;
+	}
+	/**********salon-partner***************/
+	   .websiteFormQuery-head{    
+    color:#58595b;
+    text-align: center;
+    font-family:latoBold;
+    font-size: 20px;
+}
+ .service-details-new-payment-page{text-align:left;margin-left:0.5em;}
+  .new-digital-payment md-label {color: #7D7D7D;font-size:1.2em;padding-left:7%;}
+	#contactSubmit-1{
+    width:40%;
+    background-color: #d2232a;
+    margin-bottom: 1%;
+    color: white;
+    text-transform: capitalize;
+    border: none;
+    border-radius: 4px;
+    padding: 2% 4% 1% 4%;
+}
+	.salon-pass-appdown {
+    text-align: center;
+    padding-bottom: 8%;
+    font-weight: 700;
+    color: #58595b;
+    font-size: 20px;
+    font-family: 'LatoBold'
+}
+	.specTwo-1{
+	padding-top: 2em;
+    padding-bottom: 2em;
+	}
+
+ .salon-partner-schedule{text-align:center;color:#fff;font-family: 'latoBold';padding-top:  2%;padding-bottom:1%;font-size: 22px;}
+.salon-partner-within-48{ margin-left: 1%;margin-right: 1%;font-size:80px;}
+.salon-partner-livenow {
+    font-size:100px;
+    font-weight: 700;
+    font-family: 'latoBold';
+    color: #58595b;
+}
+.salon-partner-meeting{
+    font-size:32px;
+    line-height:0px;
+    color: #58595b;
+}
+.salon-partner-growth{    
+    font-size: 36px;
+    padding: 2% 0 0% 0;
+    color: #58595b;
+  }
+  .partner-salon-form{
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
+    border: none;
+    height: 33px;
+    background: rgb(228, 228, 228);
+    width:  100%;
+}
+.parner-salon-common-text-color{
+  color: #58595b;
+}
+.partner-salon-call-us{
+    padding: 4% 0% 3% 0%;
+    font-size: 18px;
+    font-family: latoBold;
+     color: #58595b;
+}
+.salon-parner-3step {
+   text-align: center;
+    font-size: 45px;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    font-weight: 700;
+    color: #58595b;
+    font-family: 'LatoBold';
+    line-height: 55px;
+}
+.hero {
+    min-height: 37.5rem;
+    max-height: 115vh;
+
+}
+
+.hero-box{
+	    min-height: 17.5rem;
+	    max-height: 115vh;
+	}
+	.hero-salon-pasbox {
+    	min-height: 17.5rem;
+	    max-height: 115vh;
+}
+/****************affiliate page************/
+ .salon-partner-startdate{font-family: latoBold;font-size:22px;}
+ .salon-partner-enddatecontainer-1{font-size:20px;padding-top:2%}
+  .salon-partner-enddatecontainer-2{font-size:20px;}
+.salon-affilaite-hundredby{font-size:19px;padding: 7px;}
+.salo-affiliate-your-outlate{font-size: 26px;padding-top:1%;}
+ .salon-affiliate-average{text-align: center;font-size:20px;font-family: 'LatoBold'}
+.affiliate-salon-pass-reg{
+                font-size: 70px;
+                font-family: latoBold;
+           }
+.affilate-salon-pass-3month-1{
+    font-size:50px;
+    font-family: latoBold;
+    line-height: 28px;
+  }
+
+.affiliate-page{
+    margin-left: 1%;
+    font-weight: 700;
+    font-family: latoBold;
+}
+.affiliate-list-with-us {
+    width: 47%;
+    background-color: #fdc533;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5%;
+    height: 36px;
+    line-height: 36px;
+    font-weight: 700;
+    box-shadow: 0px 2px 8px 0px #680004;
+    font-weight: 700;
+    font-family: 'LatoBold';
+}
+.affiliate-list-with-us-now{
+	 width: 47%;
+    background-color: #fdc533;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5%;
+    height: 36px;
+    line-height: 36px;
+    font-weight: 700;
+    box-shadow: 0px 3px 8px -2px #715c5c;
+    font-weight: 700;
+    font-family: 'LatoBold';
+}
+.affiliate-salon-pass{
+  font-size: 70px;
+}
+.affilate-salon-pass-opendoor {
+    font-size:50px;
+
+}
+.affiliate-media{
+    padding-top: 2px;
+    width: 141px;
+    height: 60px;
+    padding-left: 6%;
+}
+
+/********************************salonPass css start *************/
+ .salon-pass-becoming-salon{font-size:37px;padding: 3% 0 1% 0;}
+.download-salon-pass-b{padding-top:13%;width:253px;height: 267px;}
+ .salon-pass-areyou{
+  font-size:20px;
+}
+
+ .salon-pass-3step{
+    text-align: center;
+    font-size: 45px;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    font-weight: 700;
+    color: #58595b;
+    font-family: 'LatoBold';
+  }
+   .salon-pass-ser-fre{color:#58595b;font-size:24px;padding-bottom: 5%;text-align: center;padding-top: 1%;}
+ 
+  .img-content-pass{
+    width: 100%;
+    height: auto;
+
+  }
+  .salon-pass-logo{    
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+  .salon-pass-card{
+    background-color: #ededed;
+  }
+ 
+   	.salon-pass-appdown {
+	    text-align: center;
+	    padding-bottom: 8%;
+	    font-weight: 700;
+	    color: #58595b;
+	    font-size:20px;
+	    font-family: 'LatoBold';
+	}
+  
+
+.app-salon-pass-get{
+    line-height:77px;
+    padding-top:5%;
+    text-align: center;
+    color: #e73934;
+    font-size:55px;
+    font-weight: 700;
+  }
+  .salon-pass-subnow{
+  	width: 43%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #fdc533;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5%;
+    box-shadow: 0 8px 6px -6px #715c5c;
+    font-weight: 700;
+    font-family: 'LatoBold';
+    font-size: 15px;
+  }
+  .salon-pass-opendoor{font-size:35px;padding-top:1%;}
+  .salon-pass-fiveplus{font-size:80px;font-weight: 700}
+  .salon-pass-enjory{font-size:50px;line-height: 32px;}
+  .salon-pass-affiliated-enjory{font-size:27px;line-height: 32px;}
+   .salon-pass-registernow{
+   width: 45%;
+    background-color: #fdc533;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10%;
+    height: 40px;
+    line-height:40px;
+    font-weight: 700;
+    font-family: 'LatoBold';
+    font-size: 15px;
+    box-shadow: 0 2px 5px 0px #680004;
+   }
+	/********************************salonPass css end *************/
+
+	.icon-padding{
+	padding-left:6%;
+	}
+	.infolist{padding-left:2%;padding-bottom:2%;font-size:13px;color: #424242;}
+	.fgh{
+   	float: left;
+    width: 30%;
+    padding-top: 6%;
+   }
+   .reting-salon-deal-d{border-radius: 50%;height: 26px;width: 100%;text-align: center;line-height: 26px;color: #fff;margin-left: 10px;font-size: 13px;}
+   .parlor-bannerImge{
+		  width: 100%;
+		  height:400px;
+		}
+.parlor-bannerImge img{
+    width: 100%;
+    height:98%;
+}
+	.paynow-main{padding-top:2%}
+	.paymenr-option{padding: 0% 2% 0% 2%;color: #9c9c9c;font-size:13px}
+.m-t-l{padding-top:5%;}
+.salon-pass-m{padding-top:4%;}
+	.digital-main{padding-left: 2%;font-size: 13px;}
+	.enter-coupon{height:26px;width: 100%;background: none;font-size: 13px;color:rgb(101, 101, 111);border-top: none;border-right: none;border-left: none;border-image: initial;border-bottom: 2px solid rgb(221, 221, 221);}
+	.subCode-page{margin-left: 1%;cursor: pointer;padding-top:0px;}
+	.cuopon-codeapp{text-align: right;color:#9e9a97;font-size:12px;}
+	/***************** servicesDetails Page ********************/
+	.radio-subpages{float:left;width:27%;padding-top:0%;}
+	.back-subpage-btn{color:#b4b4b4;margin-top: -3px;cursor: pointer; margin-left: 17px;}
+	.back-subpage{padding-left: 2%;margin-left: -26px;cursor: pointer;}
+.span-gold{color:#b98d00;font-size:15px;font-weight: 600;}
+.main-container-sub-d{background-color: #F2F2F2;
+    padding-top:5%;}
+
+.card-container{
+	    padding: 4% 9% 4% 9%;background-color:#ffeae9;
+}
+
+ .card-btn-sub{
+      	border-radius:5px;height:35px;font-size:12px;background-color: #64a422;text-align: center;line-height:35px;color: #fff;cursor:pointer;font-weight: 600;
+      }
+.subscription-btn-info{height: 30px;width:40%;opacity: .5;}
+	.subscription-apply{padding-bottom: 1%;padding-left: 28%;background: #fff;padding-top: 1%;border-radius: 2%;}
+	.schedule-datetime{margin-top: 1em;cursor:pointer;padding-bottom:3%;}
+  .otp{
+    width: 30%;
+  }
+.locateme{min-width: 60px;font-size:7px;margin-left: -170px;}
+.billsummar-con{padding-top: 8.5em;margin-bottom: 1em;}
+.newpayment-con{padding-top:4.5em;margin-bottom: 1em;}
+.beu-small{
+	margin-top:1px;
+	background-color: white;
+    height:45px;
+	}
+.new-deal-container-pages-main{background-color: rgb(250,250,250);}
+.beu-small-1{
+	margin-top:5px;
+	background-color: white;
+    height:35px;
+	}
+.beu-small-2 {
+    margin-top: 5px;
+    background-color: white;
+    height: 46px;
+}
+	.switchMF{
+    margin-top: 1.5em;
+		margin-left: 0.5em;
+	}
+	.textMaleFemale{
+		    margin-top: 2.5em;
+				font-size: 1em;
+				margin-right: 1em;
+	}
+	.serviceDetailDeptName{
+		font-size: 1em;
+	}
+	.servicesDetailsTabImage{
+		margin-top: -5.5em;
+	}
+	.servicesDetailsCatName{
+		font-size:0.8em;
+	}
+	.servicesDetailsCatDesc{
+		font-size:0.8em;
+
+	}
+	.serviceDetailsPageHeading{
+		padding-top: 4em;padding-bottom:0;
+	}
+	.serviceDetailsPageContent{
+		margin-top: 2em;
+	}
+	.serviceDetailsTab{
+		margin-top: 2em;
+	}
+	.switchGend {
+		margin-top: 2.5em;
+	}
+	.deptMAinDiv{
+		height: auto;
+		width: auto;
+		position: relative;
+		padding-left:1em;
+		padding-right:1em;
+	}
+	.deptMAinDiv:after {
+	content : "";
+	position: absolute;
+	right  : 0;
+	bottom  : 0;
+	width  : 1px;
+	height   : 40%;  /* or 100px */
+	background: #FDABAD;
+}
+.deptMAinDivSelected{
+	height: auto;
+	width: auto;
+	position: relative;
+	padding-left:1em;
+	padding-right:1em;
+}
+.deptMAinDivSelected:after {
+content : "";
+position: absolute;
+right    : 0;
+bottom  : 1.1em;
+width  : 1px;
+height   : 31%;  /* or 100px */
+background: #FDABAD;
+}
+	/***************** servicesDetails Page ********************/
+
+	/***************** newSalonDeal Page ********************/
+	.newSalonDealShowCart{
+		font-size: 0.7em;
+		color: white;
+
+	}
+	.loaderNewSalonDeal{
+		height:400px;margin-top: 20%;
+	}
+	/* salonBillSummaryPage */
+	.payNowButtonBillSummary{
+		min-height: 37px;
+	}
+	.menuPrice{
+		color: #787878;text-decoration: line-through;font-size: .9em;padding-top: 18%;
+	}
+	/* salonBillSummaryPage */
+
+  .content-center-page{border-style: dotted;border-color: #a9a9ab;border-width:1px;margin-left: 1%;padding: 5px 0px 2px 5px;}
+.solon-list-k{margin-top: 13em;background-color:transparent;height:  375px;}
+.view-cart-dialog{width:30%;}
+	.newSalondealPageTop{
+		padding-top: 6em;
+	}
+    .total-price-cupon{
+	border: 1px solid #d2232a;
+    text-align: center;
+    width: 71%;
+    font-size: .7em;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 3px;
+}
+.startAtPrice{
+	font-size: 1em;
+}
+.sendOTPButton{
+	min-height: 30px;line-height: 25px;margin:2px;color:white;background:#D2232A;margin:0px;font-size:.6em;
+}
+
+	/***************** newSalonDeal Page ********************/
+
+	/***************** subscriber Page ********************/
+.payout-btnfixe-small{    color: white;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    position: fixed;
+    font-size:1.3em;
+    background-color: rgb(62, 120, 0);
+    margin: 2%;
+    z-index: 99999;}
+.SubscribeNow{background: #3e7800;margin-top: 4%;font-size: .7em;padding-top: 5%;padding-bottom: 5%;margin-bottom: 5%; margin-left:32%; color: #fff;border-radius: 3px;width:68%}
+.salon-list-details-show{font-size:12px;padding-top: 2%;padding-bottom: 2%;border-radius: 2px;font-weight: bold;}
+.salon-deal-detals-1{font-size:12px;padding-top: 2%;padding-bottom: 2%;border-radius: 2px;color:#1da7eb;padding-left: 6%;}
+.salon-deal-detals-1:hover{
+    text-decoration: underline;
+    color:#1da7eb;
+	cursor: pointer;
+}
+     .loc-iconw{padding-left:75%;}
+.subscriberDetails{
+	font-size:0.8em;
+}
+	/***************** subscriber Page ********************/
+
+	/************************subscription page css**********************/
+.sub-t{text-align: left;color:#000;font-size: 0.8em !important;font-weight: 600;padding-left: 3%;}
+	.subscription-pane{margin: 1%;color:#58595b;font-size: 12px;font-weight:800;}
+	.subscription-Recommended{padding-top: 1%;padding-bottom: 7%;margin-left:7px;font-size:13px;}
+	.subscription-gold-1{
+		background-image:url('http://res.cloudinary.com/dyqcevdpm/image/upload/v1516696725/female_recommended_doy0te.png');
+		background-repeat: no-repeat;
+		background-size:18%;
+		margin-top:1%;
+		margin-left: -4px;
+}
+	.subscription-gold-2{
+		background-image:url('http://res.cloudinary.com/dyqcevdpm/image/upload/v1516696725/male_recommended_vgz3vm.png');
+		background-repeat: no-repeat;
+		background-size:18%;
+		margin-top:1%;
+		margin-left: -4px;
+}
+	.subscription-head-32{text-align:center;color:#fff;font-size:13px;padding-top: 1%;padding-bottom:4%;}
+	.subscription-title{text-align: center;color:#58595b;font-size: 20px;}
+	.subscription-desc-1{font-size:11px;padding-top:1%;color:#58595b;color: gray;padding-top:5px;}
+	.subscription-buy-title{font-size:18px;font-weight:700;margin-top:0%;color:#58595b}
+	.subscription-font-1{
+    color:#fff;
+    text-align: center;
+    font-size: 1.2em;
+
+    }
+    .subscription-font-2{
+      color:#fff;
+      text-align: center;
+      font-size:.7em;
+
+      }
+
+
+	.subscription-circle{width:62%;border:1px solid #d8d8d8;border-radius:50%;height:32px;background:#d8d8d8;}
+	.ifClass{
+		background-color: #BC9100;
+		text-align:left;
+		width:56%;
+		margin-left:44%;
+		margin-top:0%;
+		font-size: 12px;
+		font-weight: bold;
+		background-image:url('http://res.cloudinary.com/dyqcevdpm/image/upload/v1516701219/GOLD_SUBSCRIPTION_TAG_a8yumg.png');
+		background-repeat: no-repeat;
+		background-size:100%;
+		height:15px;
+
+	}
+	.elseClass{
+		background-color: #B8B8B8;
+		text-align:left;
+		width:56%;
+		margin-left:44%;
+		margin-top:0%;
+		font-size: 12px;
+		font-weight: bold;
+		height:15px;
+		background-size:100%;
+		background-image:url('http://res.cloudinary.com/dyqcevdpm/image/upload/v1516701219/SILVER_SUBSCRIPTION_TAG_ngpmwl.png');
+		background-repeat: no-repeat;
+	}
+
+	.subscrition-gradent{background: linear-gradient(0deg, #F2F2F2 30%, white 30%);}
+	.subscription-line-head{margin-top:-5% ;color:#b98d00;}
+	.subscription-line-left{border-top:1px solid #b98d00;margin-top:1%;}
+	.subscription-line-mid{border: 1px solid #b98d00;border-radius: 50%;height:7px;width:27%;margin-top: 17%;margin-left:24%;background: #b98d00;}
+	.subscription-line-right{border-top:1px solid #b98d00;margin-top: 1%;}
+	.subscription-card-m{color:#fff;padding-top: 1%;}
+	.subscription-card-line-left{border-top:1px solid #fff;margin-top:1%;}
+	.subscription-card-mid{border: 1px solid #b98d00;border-radius: 50%;height: 10px;width: 44%;margin-top: 17%;margin-left:24%;background: #fff;}
+	.subscription-card-p{
+	  padding-top: 3%;
+	    padding-bottom: 0%;
+	    padding-left: 2%;
+	}
+	.suscription-disk{
+	  padding-top: 4%;
+	    border-top: 1px solid #b98d00;
+	    margin-top: 2%;
+	}
+	.subscription-valid{font-size:13px;color:#fff;padding-top: 2%;}
+/******************************new salon page csss**********************/
+.offerPage-pages-salon-list{margin-left: 20px; margin-right: 20px;;margin-top: 5px;border-bottom: 1px solid #f1f1f1;font-size: 13px;cursor: pointer;    padding-bottom: 5px;font-family:latoLight;color:#58595b;}
+.offerPage-pages-salon-list::selection{
+	background-color: #d2232a!important;
+	color:red;
+}
+#cnf-btn{background:#d2232a;color:#fff;font-size:.6em}
+.payment-optiont{color: #d2232a;font-size: 1em;font-family: latoRegular;text-align: left;padding-left: 3%;font-weight: 600;}
+
+.radioin .md-label {
+    margin-left:0px;
+    padding-bottom: 0.3em;
+}
+
+.padd-bill{
+	padding-bottom:2%;
+}
+.palortype{margin-left: 0.5em;}
+.last-rate{text-align:center;color:green;font-size:.9em;}
+.salon-img-car{height:18px;width:29px;margin-top: 3px;}
+.diolog-12-w{width:40%;}
+.save-newdealpersentage{border:1px solid #b2232a;border-radius: 3px;text-align: center;font-size:8px;width:62%;margin-left:11px;padding-top:2%;padding-bottom:2%;margin-top:4%;}
+#seabackcolor-newsalondeal {
+    background-color: #fff;
+    border-radius: 0;
+    height: 29px;
+    color: #000;
+    font-size: 12px;
+    width: 100%;
+    border: chocolate;
+    border: 0px;
+    margin-left: -197px;
+    margin-top: 4px;
+}
+.allpadding{padding:4px}
+#seabackcolor-newsalondeal:hover {
+background-color: gainsboro;
+color:dimgrey;
+
+
+}
+.new-dealsalon-searchbar{background: #ecf0f1;margin-top:2em;margin-left: 33.8%;position: fixed;width: 100%;z-index: 9;}
+.salon-img-mid{margin-left:3px;height:18px;width:29px;margin-top: 3px;}
+
+.new-dealfooter-page{background:#d2232a;width: 50%;margin-left:50%;border-radius: 5px;}
+.Newsalondeallogin{
+	padding-top: 12em;
+    margin-bottom:9em;
+}
+.scheduleAppointment-date{text-align:center;font-size:1.5em;border:1px solid gray;margin:0.3em;border-radius: 5px;padding: 0.3em;}
+.scheduleAppointment-time{text-align:center;font-size:1em;border: 1px solid gray;margin:0.3em;border-radius: 5px;padding: 0.5em;}
+.scheduleAppointment-page-container{padding-top:6.8em;margin-right: 6em;margin-bottom:1em;padding-top:6.8em;margin-right: 6em;margin-bottom:1em}
+.scheduleAppointment-page{text-align:center;background-color:#888;padding-top:1%;padding-bottom:1%;color:#fff;margin-top: 7%;}
+.loc-new-weal{margin-right: 4%;}
+.list-parlor-img-new {
+
+    height: 10.9em;
+    padding: 2%;
+}
+.primium-new-llis-deal {
+  /*  position: absolute;*/
+    width: 6em;
+    margin-top: -91px;
+    margin-top: -10.7em;
+    margin-left: -0.4em;
+}
+.common-page-newdeal{padding-left:0px;margin-left:0%;}
+.new-cartpage-mid{margin: 0 auto;}
+.department-description{
+	padding-left:1%;
+	font-weight: bold;
+	font-size: .8em
+}
+.new-salon-list-page-1{
+    padding-bottom: 2%;
+    max-width: 100%;
+    margin-left: 0%;
+    margin-right: 0em;
+}
+.sidebar-left-page-newsalondeal{position:fixed;height:550px;overflow:auto;width:18%}
+.new-dealsalon-progressbar{background: #f1f1f1;margin-top: 4em;margin-left:0%;position: fixed;width:71%;z-index: 9;}
+.new-salon-middle-content{padding-left:20px;margin-left:22%;height:450px;overflow-y:scroll;}
+
+.new-salon-middle-content::-webkit-scrollbar {
+    width:12px;
+
+}
+.new-salon-middle-content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+.new-salon-middle-content::-webkit-scrollbar-thumb {
+    background:#d2232a;
+    border-radius: 10px;
+}
+.cart-footer-newsalondeal{margin-left:0%;position: sticky;bottom:3%;z-index: 6;width:98%;background-color:#f1f1f1;color:#000;height: 72px;}
+/******************************new salon page csss end**********************/
+.toplistsearch{margin-top: 6%!important;}
+.card-top-s{
+	margin: 0em 0em .3em .7em;
+}
+ .sortlist{
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      margin: 20px 0 26px;
+      padding-left:17px;
+  }
+
+.list-parlor-img{
+			width: 12em;
+			height: 8.9em;
+		}
+.ratimh{
+			width:56px;height:13px;padding-left: 4%;
+		}
+.adree-d{
+	color: #7a7c82;
+    font-size: 11px;
+    padding-top: 2%;
+    padding-left: 1%;
+	width: 100%;
+		}
+.srating{border:1px solid green; border-radius: 4px;height: 21px;text-align: center;    background: green;color: #fff;width: 25px;padding-top: 1px;width: 25px; font-size: 13px; padding-top: 1px;
+		}
+.primium{
+			position:absolute;width: 6em;margin-top: 0em;
+		}
+
+ .list-address-head{
+        font-size:15px;color: #000;font-weight: bold;text-align:left;
+    }
+.specTwo{
+	padding-top:2em;
+	padding-bottom: 2em;
+	}
+	#parlor-toplist-flag{
+	height: 1.5em;width: 50%;top:0px;left:0px;position:relative;
+	}
+	#parlor-toplist-image{
+	margin-top: -24px;margin-left: 0px;height:113px; width:100%;
+	}
+	.beUPromiseContent{
+	margin-top: -21px;
+	margin-bottom: -12px;
+	}
+	.show.jk-carousel .slides-container .slide .ng-scope img:first-child{
+
+	}
+	.header-page-phonenumberBold{
+	margin-top: 0.2em;
+	}
+	/*************************offerPageNew********************************/
+
+	.chatWindowText{
+	margin:0;
+	width:14em;
+	}
+
+	.dealsCard{
+	width: 100%;height: 90%;
+	}
+	.searchTextboxOfferPageNew{
+	margin-top: 0;
+	}
+	.searchButtonOfferPageNew{
+	margin-top: 0;
+	}
+
+	/*************************offerPageNew********************************/
+
+	/*************************salonDeals1********************************/
+	.bannerSize{
+	margin: 0 auto;
+	width:100%;
+	}
+	#bookThroughApp{
+	width: 80%
+	}
+	.pageTitle{
+	margin-top:6em;
+	}
+	#stampImage{
+	width:30%
+	}
+
+	.titleUnderline{
+	margin-left: 2.5em;
+	}
+	.bookUs{
+	font-weight: bold;font-family:impact;font-size:2.5em;line-height:1.2em;
+	}
+	.bookUsText{
+	font-size: 1em;
+	color: #6F6F6F;
+	}
+	.titleText{
+	margin-bottom:0;
+	}
+	.titleLine{
+	width:44%;
+	}
+	.contactFormLeft{
+	width: 100%;
+	}
+	#phoneImage{
+	margin:8em auto;
+	}
+	/*************************salonDeals1********************************/
+
+	/**********************parlordetails css start***********/
+
+	.listing-page-card-modify{
+	height:275px;
+	max-height:300px;
+	}
+	.listing-page-card-modify {
+	    height: 275px;
+	    max-height: 300px;
+	}
+	.plus-icon-homepage{font-size: 11px;}
+	.parlor-details-page-cart-right{position: relative;z-index:10;}
+	#parlor-details-page-cart-btn{background-color:#d2232a;color:white;width:100%;position: fixed;bottom: 3px;z-index:100000;font-family: latoLight;}
+	.parlor-details-pageshow{position: fixed;top: 31%;width: 100%;background-color: #fbfafa;box-shadow: -3px 0 5px rgba(2,2,2,.05);}
+	.parlor-detail-page-currentDateContainer{background-color: #f5f5f5;margin-left: 2%;margin-right: 2%;margin-top: 2%;}
+	.parlor-detail-page-showDatePicker{padding-top: 5%;padding-bottom: 6%;}
+	.parlor-detail-pageevent{width: 80%;}
+	.parlor-detail-page-currentTime{padding-bottom: 5%;}
+	.parlor-detail-page-fontcolor{color:#d2232a;font-family: latoLight;}
+	.parlor-detail-page-xsyourcart{background:#fbfafa;padding:5px;font-size:14px;color:#d2232a;}
+	.parlor-detail-page-cartScrollBarStyleXs{max-height: 150px;overflow-y:scroll;}
+	.parlor-detail-page-serviceName{width:50%;font-size:11px;}
+	.parlor-details-page-cartsave{font-family:latoLight;border: 1px solid #f1f1f1;height: 20px;color:#d2232a;font-size: 14px;text-align: center;padding-top:2px;padding-bottom:23px;}
+	.parlor-details-page-cart-xs-servquantity{width:7%;padding-left:2px;padding-right:2px; font-size:13px;}
+	.parlor-details-page-content-1{margin-top: 102px;}
+	.parlor-details-page-content-1234{margin-top:0px;}
+	.parlor-detail-page-headingContainer{padding-top:10px;padding-left:20px;padding-bottom: 20px;}
+	.parlor-detail-page-headingParlorName{font-size: 18px;font-family: latoLight;color: #58595b;}
+	.parlor-detail-page-headingParlorAddress1{font-family: latoLight;font-size: 13px;color: #58595b;}
+	.parlor-detail-page-ParlorAddress2{font-family: latoLight;font-size: 13px;color: #58595b;}
+	.parlor-detail-page-rating{padding-top:10px;}
+	.parlor-detail-page-rating-content{font-family: latoLight;font-size: 18px;color:#58595b;}
+	.parlor-detail-page-ratingText{font-family: latoLight;font-size: 13px;color:#58595b;}
+	.parlor-detail-page-ratingContainer{margin-top: 45px}
+	.parlor-detail-page-sm-cart-container{position: absolute;z-index: 10;right: 31px;top: 60%;width: 270px;text-align: right;}
+	.parlor-detail-page-sm-cart-ContainerDate{background-color: #f5f5f5;margin-left: 2%;margin-right: 2%;margin-top: 2%;}
+	.parlor-detail-page-sm-cart-Container-1{padding-top: 10%;padding-bottom: 6%;}
+	.parlor-detail-page-sm-cart-cDtae{width: 80%;}
+	.parlor-detail-page-sm-cart-currentDate{padding-bottom:10%;}
+	.parlor-detail-page-sm-cart-heading{background:#fbfafa;padding:16px;font-size:14px;color:#d2232a;}
+	.parlor-detail-page-sm-cart-servprice{font-family:latoLight;border: 1px solid #f1f1f1;height: 20px;color:#d2232a;font-size: 14px;text-align: center;padding-top:2px;padding-bottom:23px;}
+	.parlor-detail-page-sm-cartservquantity{width:7%;padding-left:2px;padding-right:2px; font-size:13px;}
+	.parlor-detail-page-cartStrikeColor{color:#a1a1a1}
+	.parlor-detail-page-cart-xs-dropdown{position: absolute;z-index: 10;left: 0px;top: 100%;width: 100%;cursor: pointer;}
+	.parlor-detail-page-cart-xs-Services{background-color: white;padding-top: 8px;padding-bottom: 8px;color: #d2232a;text-align: center;}
+	/*********************leftsidebar*******************/
+	.parlor-detail-page-leftsidebar-container{font-size:15px;background:#fff;}
+	.parlor-detail-page-leftsidebar-mdswitch{padding-top:10px;font-size:15px;}
+	.parlor-detail-page-leftsidebar-servicefor{color:#58595b;font-size:16px;font-family:latoLight;}
+	.parlor-detail-page-leftsidebar-mf{color:#58595b;font-size:16px;font-family:latoLight;}
+	.parlor-detail-page-leftsidebar-deptname{font-size: 16px;font-family:latoLight;color:#58595b;}
+	.parlor-detail-page-leftsidebar-catname{font-size: 13px;font-family:latoLight;color:#58595b;}
+	.parlor-detail-page-leftsidebar-catnameContainer{margin-top:3px;border-bottom: 1px solid #f1f1f1;padding-bottom:3px;}
+	#parlor-detail-page-leftsidebar-servicehead{padding: 0px 0px;margin-bottom: 0px; font-size:16px;font-family:latoLight;}
+	#parlor-detail-page-leftsidebar-serviceheadvAccordion{background-color:#fff;padding-left:10px;padding-right:10px;margin-right:10px;font-size:11px;font-weight:700;color: #58595b;}
+	.parlor-detail-page-leftsidebar-deptname-1{font-size: 13px;color: #58595b;font-family:latoLight;}
+	.parlor-detail-page-leftsidebar-deptname-2{margin-top:5px;border-bottom: 1px solid #f1f1f1;padding-bottom:5px;}
+	/**************parlor middle content css****************/
+	.parlor-detail-page-middlecontainer{margin-top: 30px;}
+	.parlor-detail-page-middlecatservices{background-color:#fff;margin-top:-8px;font-size:16px;color:#58595b;font-family:latoLight;}
+	.parlor-detail-page-middlecat-save{font-size:13px;border: 1px solid #a7a9ac;color:#d2232a;text-align: center;font-family:latoLight;height:38px;text-transform: capitalize;}
+	.parlor-detail-page-middlecatbookdate{padding-left:5px;font-size: 13px;color: #58595b;font-family:latoLight;}
+	.parlor-page-middleservdescription{padding-left:5px;color:#a7a9ac;font-size: 13px;font-family:latoLight;}
+	.parlor-page-middle-dealavailabe{color:#a7a9ac;font-size: 12px;padding-left:5px;font-family:latoLight;}
+	.parlor-page-middle-serviceprice1{font-family:latoLight;color:#58595b;font-size:14px;}
+	/***************************rightsidebar css **************************/
+	.parlor-page-rightsidebarContainer{background-color: #f5f5f5;margin-left: 2%;margin-right: 2%;margin-top: 2%;}
+	.parlor-page-rightsidebar-currentdate{padding-top: 10%;padding-bottom: 6%;}
+	#parlor-page-rightsidebar-btn{width: 80%;text-transform: capitalize;font-family: latoLight;font-size: 13px;}
+	#parlor-page-rightsidebar-btn-2{width: 80%;text-transform: capitalize;font-family: latoLight;font-size: 13px;}
+	.parlor-page-rightsidebaryourcart{padding:16px;font-size:20px;color:#58595b;font-family:latoLight;text-align:center;}
+	#cartScrollBarStyleMdSm::-webkit-scrollbar {
+	width: 12px;
+
+	}
+
+	/* new header */
+
+	.header-download-app{
+	font-size:0.6em;padding-bottom: 0.5em;text-align: center;
+	}
+	.header-logo{
+	height:34px;
+	width:129px;
+	}
+	/*header*/
+
+	.fa-phone:before{
+	color:white;
+	font-size:0.8em;
+	}
+	.fa-android:before{
+	color:white;
+	font-size:0.8em;
+	}
+	.fa-apple:before {
+	color:white;
+	font-size:0.8em;
+	padding:0.2em;
+	}
+	/*main page dialog css*/
+	.search-location-image{
+	height: 35px;width:35px;position: relative;right: 10px;top: 5px;
+	}
+
+	.why_download>span{
+	color: #D83C44;
+	font-family: 'Lato', sans-serif;
+	font-size: 1em;
+	text-align: center;
+	font-weight: bold;
+	text-align: center;
+	}
+	.why_download{
+	color: #999999;
+	font-family: 'Lato', sans-serif;
+	font-size: 0.9em;
+	font-weight:600;
+	margin-bottom: 0;
+	margin-top: 9px;
+	text-align: center;
+	}
+	.p_app_button{
+	padding-bottom:1%;
+	margin-bottom: 0;
+	padding-left: 1em;
+	}
+	.md-dialog .md-dialog-content {
+	     padding:0px;
+	}
+	.facebook_like{
+	font-family: 'Roboto', sans-serif;
+	font-size: 0.8em;
+	font-weight: bolder;
+	color: #757575;
+	padding-bottom: 0;
+	padding-left:0.9em;
+	}
+	#app_store{
+	   height:1.5em;
+	   width: 4em;
+	   padding: 0 0.3em;
+	 margin-right: 0.5em;
+	 margin-bottom: 0.5em;
+
+	}
+	.highlights{
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+	line-height: 0.5em;
+	padding:0;
+	}
+	.terms{
+	line-height: 0;
+	font-size:0.6em;
+	padding:0;
+	margin: 0.5em;
+	}
+	/*dialog*/
+
+	/* Track */
+	#cartScrollBarStyleMdSm::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background-color:#d2232a;
+	}
+	#cartScrollBarStyleMdSm::-webkit-scrollbar-thumb {
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background: rgb(255, 246, 247);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+	}
+
+
+
+	#cartScrollBarStyleXs::-webkit-scrollbar {
+	width: 12px;
+
+	}
+
+	/*home-page see more button*/
+	.parlor-see-more{
+	/*padding-left:3em;*/
+	}
+	/*home-page see more button*/
+
+	/* Track */
+	/*******companyinfo css strt*****************/
+	.companyinfo-page-container{padding-top:3%;}/*12px*/
+	.companyinfo-page-heading{padding-top: 2%;}
+	#cartScrollBarStyleXs::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background-color:#d2232a;
+	}
+	#cartScrollBarStyleXs::-webkit-scrollbar-thumb {
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background: rgb(255, 246, 247);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+	}
+	/**********************parlor details css stop**********/
+	/****************dialog1 page css start**************/
+	.vAccordion--default v-pane-header {
+	padding: 0px 0;
+	margin-bottom:0px;
+	border-bottom:none;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+	}
+	.dialog1-page-btn .md-off, .dialog1-page-btn .md-on {
+	box-sizing: border-box;
+	position: absolute;
+	top:0px;
+	left: 0;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	}
+	.dialog1-page-normal >.md-label {
+	box-sizing: border-box;
+	position: relative;
+	display: inline;
+	margin-left:20px;
+	margin-right: 0;
+	vertical-align: middle;
+	white-space: normal;
+	pointer-events: none;
+	width: auto;
+	width: 100%;
+	font-size: 13px;
+	margin-top:0px;
+	font-weight: 700;
+	color: #58595b;
+	}
+	.dialog-normal-1 >.md-label {
+	box-sizing: border-box;
+	position: relative;
+	display: inline;
+	margin-left:20px;
+	margin-right: 0;
+	vertical-align: middle;
+	white-space: normal;
+	pointer-events: none;
+	width: auto;
+	width: 100%;
+	margin-top: -6px;
+	}
+	.style-type>.md-container {
+	position: absolute;
+	top: 46%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	box-sizing: border-box;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	left: 0;
+	right: auto;
+	}
+	.delhiNCR{
+	position: relative;right: 10px;top: -7px;font-family: latoRegular;color:#808285;font-size: 13px;margin-left: 10px;
+	}
+	.hairtype>.md-container {
+	position: absolute;
+	top: 66%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	box-sizing: border-box;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	left: 0;
+	right: auto;
+	}
+	.vAccordion--default v-pane-content > div {
+	padding-bottom:0px;
+	opacity: 0;
+	-webkit-transform: translate3d(0, 30px, 0);
+	transform: translate3d(0, 30px, 0);
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	}
+
+	#dialog1-page-container{background-color:#fff;color:#58595b;border-bottom: 1px solid #e2e2e2;}
+	.dialog1-page-heading{padding-left:15px;font-size:15px;font-family:latoLight;color:#58595b;}
+	.dialog1-page-content-1{padding-left:30px;padding-right:20px;padding-top:10px;}
+	.dialog1-page-header-container{padding-left:10px; padding-bottom:10px;font-size:13px;color:#58595b;}
+	.dialog1-page-chooseyour{width:21%;padding-left: 23px;color:#58595b;font-family:latoLight;font-size:15px;}
+	.dialog1-page-arrowicon{width:20%;}
+	.dialog1-page-pricecontainer{padding-left: 17px;}
+	.dialog1-page-pricename{border-bottom:1px solid #e2e2e2;padding-bottom:10px;margin-right:20px;font-family: latoLight;font-size: 13px;}
+	.dialog1-page-priceprice{padding-top:10px;font-size:13px;font-family:latoLight;color:#58595b;}
+	.dialog1-page-vpcontainer{padding-left:10px;padding-bottom:0px;font-size:13px;color:#58595b;font-size:13px;}
+	.dialog1-page-hairtype{width: 11%;padding-top: 15px;padding-left: 27px;color:#58595b;font-family:latoLight;font-size:15px;}
+	.dialog1-page-normalcontainer{padding-left: 40px;}
+	#dialog1-page-lenghtcontainer{padding-left:38px;padding-bottom:0px;font-size:13px;font-weight:500;color:#58595b;border-top:1px solid #e2e2e2;padding-top: 10px;}
+	.dialog1-page-lenght{width:9%;color:#58595b;font-size: 15px;font-family:latoLight}
+	.dialog1-page-Groupcontainer{width:100%;padding-left:0px;padding-top:0px;font-size:13px;font-weight:500;color:#58595b;}
+	.dialog1-page-btn-group{padding-top:0em;font-size:13px;font-weight:500;color:#58595b;}
+	.dialog1-page-additionContainer{border-bottom: 1px solid #e2e2e2;padding-bottom: 10px;margin-top: 10px;margin-right: 45px;}
+	.dialog1-page-additionname{font-family:latoLight;font-size: 13px;color:#58595b}
+	.dialog1-page-addition{text-align: right;font-family:latoLight;font-size: 13px;color:#58595b}
+	.dialog1-page--optionContainer{padding-left:50px;font-weight:500;color:#58595b;font-size: 13px;}
+	.dialog1-page-optionMessage{padding-top: 2%;font-family: latoLight;font-size: 13px;}
+	.dialog1-page-optionMessage-icon{text-align: right;padding-left: 30px;font-size: 20px;}
+	.dialog1-page-MenuContainer{padding-top:15px; padding-bottom:4px;}
+	.dialog1-page-menuPrice{border-right: 1px solid #A1A1A1;color: #58595b;font-family: latoSemiBold;}
+	.dialog1-page-menuPriceFont{font-size:13px;color:#58595b; font-family: latoLight;}
+	.dialog1-page-menuPriceIcon{text-align: right; margin-right: 45px;font-size:13px;font-family: LatoMedium;}
+	.dialog1-page-menuPriceicon2{color:#58595b;padding-top:10px;text-align: right;font-size:13px;font-family:latoLight;}
+
+	.dialog1-page-btn-container{padding-top:0.7em;padding-bottom:0.7em;}
+	#dialog1-page-btn{background-color:#d2232a;color:#fff;margin: 0px 0px;font-size:13px;margin-right:19px; text-transform: capitalize;font-family: latoLight}
+
+	/************header css start*************/
+	.header-search md-autocomplete-wrap {
+	height: 50px;
+	background-image: url(../images/search-1-.png);
+	background-repeat: no-repeat;
+	background-size: 23px 23px;
+	background-position: 8px 13px;
+	padding: 10px 25px;
+	margin-top: 8px;
+	border: 1px solid #ccc;
+	}
+
+
+	#new:hover , #myAppointmentsDropDown:hover , #myLoyaltyDropDown:hover , #mySignoutDropDown:hover ,#myProfileDropDown:hover {
+	color: #d2232a;
+	}
+	a {
+	color:#689f38;
+	}
+	#header-page-container{background-color:#fff;cursor: pointer;}
+	.header-page-all{cursor: pointer;}
+	.header-page-appicon-container{position:fixed;top:0px;left: 0px;right: 0px;}
+	.header-page-app{z-index: 4;background-color: #fff; margin-top: 60px;padding-bottom: 20px;}
+	.header-page-app-download{text-align:right;margin-right:-45px;}
+	.header-page-app-color{font-family: latoLight;color: #58595b;}
+	.header-page-app-androidicon{padding-left:0px;color:#fff;}
+	.header-page-phoneicon {
+	/*padding-left:1.2em;*/
+	margin-top:0.3em;
+	padding-right:0em;}
+	.header-page-phonenumber{padding-left:4px;font-size: 12px;font-family:latoLight;color:#fff;padding-top: 0.5em;}
+	#header-page-profilecontainer{position: absolute; width: 130px;z-index: 14;height: 157px;top: 8px;}
+	.header-page-hide{padding-top: 15%;font-size: 12px;text-align: center;border-bottom: 1px solid #C3C3C3;padding-bottom: 0%;cursor: pointer;}
+	#header-page-show{position: relative;background-color: #F2F2F2;height: 145px;width: 130px;border:1px solid #C3C3C3;z-index:10000;top: 38px;}
+	#header-page-signin{border-radius: 0px;line-height: 20px;min-height: 34px;min-width: 128px;background-color: #d2232a;color: white;font-size: 12px;}
+	.header-page-myprofile{padding-top: 20%;font-size: 12px;text-align: center;border-bottom: 1px solid #C3C3C3;padding-bottom: 4%;cursor: pointer;color:black;}
+	.header-page-new{padding-top: 6%;font-size: 12px;text-align: center;border-bottom: 1px solid #C3C3C3;padding-bottom: 4%;cursor: pointer;color: black;}
+	.header-page-myappointment{padding-top: 6%;font-size: 12px;text-align: center;border-bottom: 1px solid #C3C3C3;padding-bottom: 4%;cursor: pointer;color:black;}
+	.header-page-myloyality{padding-top: 6%;font-size: 12px;text-align: center;border-bottom: 1px solid #C3C3C3;padding-bottom: 4%;cursor: pointer;color:black;}
+	.header-page-signout{padding-top: 0%;font-size: 12px;text-align: center;border-bottom: 1px solid #C3C3C3;padding-bottom: 10%;cursor: pointer;}
+	#header-page-signout-content{line-height: 20px;min-height: 38px;min-width: 130px;background-color: #d2232a;color: white;font-size: 12px;position: relative;left:-1px;}
+	.header-toolbar-list{
+	margin:0;padding-left:6.2em;padding-top:3em;max-width: 40em;
+	}
+	.header-li-item{
+	margin-left: 3px;
+	}
+	/*******************forgotPasswordDialog css start*****************/
+	.forgotPasswordDialog-container{width:40%;}
+	.forgotPasswordDialog-forgetpassword{text-align:center;font-family: latoLight;color: #58595b}
+	.forgotPasswordDialogPhone{padding-top:30px;}
+	.forgotPasswordDialogInvalidnumber{color:red;}
+	.forgotPasswordDialog-circular{margin-bottom: 1em;}
+	.forgotPasswordDialogContainer{padding-bottom:2%;}
+	.forgotPasswordDialog-btn{padding-bottom:8%;}
+
+	/**********otpVerificationDialog css start*****************/
+	.otpVerificationDialog-content{text-align:center;font-family: latoLight;font-size: 15px;}
+	.otpVerificationDialog-margin-top{margin-top: 30px;}
+	.otpVerificationDialog-Password{padding-top:30px;font-family: latoLight;color: #58595b;font-size: 13px;}
+	.otpVerificationDialog-InvalidPhone{color: red;padding-top: 2%;}
+
+	/*************************ListngPage new  css start*********************/
+	.listing-page-filtercontaoiner{background-color: #fff;z-index: 2;position: relative;
+	/*margin-top: 5em;*/
+	}
+	.listing-page-sortedDistance{padding-right: 12%;margin-right: 13px;}
+	.listing-page-listingBuffer{background-color: white;z-index: 4;position: relative;padding-bottom: 50px;}
+	.listing-page-listingBuffercircular{position: relative;z-index: 100;top: 65%;left: 46%;}
+	.listing-page-listing-page-Sorrynoresult{position: absolute;top: 75%;left: 44%;z-index: 2;}
+	.listing-page-cart-container{overflow:hidden;background-color: #fff;z-index: 2;position: relative;}
+	.listing-page-cartSalonname{color: #d2232a;font-size: 15px;}
+	.listing-page-salonprice{border-bottom:1px solid #f2f2f2;margin-top:0.3em;padding-bottom:0.3em;}
+	listing-page-actionContainer{height:100px;}
+	/*************************ListngPage new  css start*********************/
+	/*************************offerPage css start*********************/
+	.offerPage-container-back{background-color: white;}
+	.offerPage-pages-padding{padding-left: 14px;}
+	.offerPage-pages-border{border:1px solid #f2f2f2;margin-top: 1%;}
+	.offerPage-pages-Servicesfor{color:#58595b;font-size:16px;font-family:latoLight;}
+	.offerPage-pagesDealsNear{background-color: #f1f2f3;padding-top: 4%;padding-bottom: 4%;padding-left: 14px;font-size: 17px;font-family:latoLight;font-size: 16px;color:#58595b}
+	#offerPage-pages-dealsList{margin-top: 7px;margin-bottom: 7px;padding-top:0px; font-size:13px;padding-left:14px;font-family:latoLight;font-size:13px;color:#58595b}
+	#offerPage-pages-newSalonDeal{margin-top: 7px;margin-bottom: 7px;padding-top:0px;padding-left:14px;font-family:latoLight;font-size:16px;color:#58595b}
+#offerPage-pages-newSalonDeal-1{margin-top:0px;margin-bottom: 7px;padding-top:0px;padding-left:14px;font-family:latoLight;font-size:16px;color:#58595b}
+	.offerPage-pages-dealsServicesList{margin-left: 20px; margin-right: 20px;;margin-top: 5px;border-bottom: 1px solid #f1f1f1;font-size: 12px;cursor: pointer;    padding-bottom: 5px;font-size: 11px;font-family:latoLight;color:#58595b;}
+
+	.offerPage-pages-newDealsServicesList{margin-left: 20px; margin-right: 20px;;margin-top: 5px;border-bottom: 1px solid #f1f1f1;font-size: 13px;cursor: pointer;    padding-bottom: 5px;font-family:latoLight;color:#58595b;}
+
+
+#offerPage-pages-Detect{width: 100%;min-width: 10px;min-height:47px;background-color: white;border: 1px solid #C1C2C4;text-transform: capitalize;font-family: latoRegular;font-size: 13px;color:#808285;}
+	.offerPage-pages-search-btn-container{right:88px;background-color: white; border-left: 1px solid #CBCCCE;}
+	#offerPage-pages-search-btn{width: 100%;min-width: 100px;min-height:47px;background-color: #d2232A;color:white;font-family:latoLight;}
+	.offerPage-pages-Chips-contaner{margin-top: 3em;margin-bottom: 3em;}
+	.offerPage-pages-Chips{margin-top:-3vh;background-color: white;border: 1px solid #f1f2f3;padding-top:0.5em;padding-bottom:0.5em;}
+	.offerPage-pages-Chips-font{font-size: 13px;color: #58595b;}
+	.offerPage-pages-cart-container{overflow:hidden;background-color: #fff;z-index: 2;position: relative;}
+	.offerPage-pages-cart-main{background-color: #fff;padding-bottom: 6px;}
+	.offerPage-pages-cart-content{background-color: #fff;padding:0px;}
+	.offerPage-pages-cart-action{height:120px;}
+	.offerPage-pages-cart-actioncontainer{padding-left: 2%;padding-right: 2%;}
+	.offerPage-pages-cart-right{padding-left:1em;}
+	.offerPage-pages-cart-right-name{color: #d2232a;font-size: 15px;}
+	.offerPage-pages-cart-right-plus-icon{text-align:right;padding-right: 43px;}
+	#offerPage-pages-cart-right-watchicon{margin-top: 15px;border-bottom: 1px solid #f2f2f2;padding-bottom: 15px;}
+	.offerPage-pages-cart-service{margin-left: 3%;margin-right: 3%;}
+	.offerPage-pages-cart-service-name{padding-left: 2px;}
+	.offerPage-pages-cart-service-menuprice{text-align: right;padding-right: 30px;}
+	.offerPage-pages-cart-salondeals{padding-left: 2px;}
+	.offerPage-pages-cart-sevice-price{color:#A1A1A1;font-size: 13px;}
+	.offerPage-pages-cart-salondealPrice{border: 1px solid #f2f2f2;color: #d2232a;font-size: 13px;padding: 5px 5px 5px 5px;}
+	.offerPage-pages-cart-GrandTotal{font-family:latoLight;font-size:13px;color:#58595b;padding-left: 17px;}
+	.bufferColor.md-accent path{
+	stroke: #d2232a;
+	}
+	.removeBelowBorder.md-default-theme .md-chips, .removeBelowBorder .md-chips {
+	box-shadow: 0 0px rgba(0,0,0,0);
+	}
+	.removeBelowBorder.md-default-theme .md-chips, .removeBelowBorder .md-chips {
+	box-shadow: 0 0px rgba(0,0,0,0);
+	}
+	.removeBelowFocusBorder.md-default-theme .md-chips.md-focused, .removeBelowFocusBorder .md-chips.md-focused {
+	box-shadow: 0 0px rgba(0,0,0,0);
+	}
+	.crossSizeMdChip .md-chips md-chip .md-chip-remove md-icon {
+	height: 16px;
+	min-height: 16px;
+	min-width: 24px;
+	color: #acb3b9;
+	padding-left: 3px;
+	padding-top: 1px;
+
+	}
+	.offerPageAutoComplete.md-whiteframe-1dp, .offerPageAutoComplete .md-whiteframe-z1{
+	box-shadow: 0 0px rgba(0,0,0,0);
+	border: 1px solid #C1C2C4;
+	}
+	.mdChipsColor .md-chips.md-removable md-chip{
+	background-color: #f1f2f3;
+	border-radius: 8px;
+	}
+	.offerPage-pagesAutocomplate md-autocomplete-wrap {
+	height:47px;
+	padding: 4px 7px 6px 32px;
+	background-position: 7px 8px;
+
+	}
+	.switchColorChangeClassFemale.md-default-theme .md-bar, .switchColorChangeClassFemale .md-bar{
+	background-color: #fff;
+	border: 1px solid #d6d9dc;
+	}
+
+
+	/*************************offerPage css stop*********************/
+	/***************************DeelPagedialogcss start********************/
+	.DeelPagedialog-container{width:30%;max-height: 100%;max-width:30%;}
+	#DeelPagedialog-toolbar{background-color: #fff;color: #58595b;border-bottom: 1px solid #f1f1f1;}
+	.DeelPagedialog-Service{font-family:latoLight;font-size:15px;}
+	.DeelPagedialog-container-3{padding-top: 20px;padding-left:20px;}
+	.DeelPagedialog-dialog-content{padding-left:20px;padding-right:20px;padding-top:10px;}
+	.DeelPagedialog-dialog-SubServiceList{border-bottom: 1px solid #f2f2f2;padding-top: 15px;}
+	.DeelPagedialog-dialog-name{font-family:latoLight;color:#58595b;font-size: 13px;}
+	.DeelPagedialog-dialog-container{padding-top:0.7em;padding-bottom:0.7em;}
+	.DeelPagedialog-dialog-btn{margin-right: 20px;}
+	#DeelPagedialog-dialog-btn-Select{background-color:#d2232a;color:#fff;margin: 0px 0px;font-size:13px;font-family: latoRegular;text-transform: capitalize;}
+	.filter-radio-container-1 {
+	padding-top: 0vh;
+	padding-bottom: 0vh;
+	font-size: 10px;
+	border-bottom: 1px solid #e6e6e6;
+	}
+	.Deelpagebtnpage.md-default-theme.md-checked .md-off, .Deelpagebtnpage.md-checked .md-off {
+	border-color:gray;
+	}
+	.Deelpagebtn.md-default-theme .md-on, .Deelpagebtn .md-on {
+	background-color:gray;
+	}
+	.deelPageDialog-btn .md-off, .deelPageDialog-btn .md-on {
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	}
+	/***************************dealDialog css start********************/
+	.deeldialogLabel .md-label {
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block;
+	margin-left: 30px;
+	margin-right: 0;
+	vertical-align: middle;
+	white-space: normal;
+	pointer-events: none;
+	width:100%;
+
+	}
+	.deeldialog-pageoff .md-off, .deeldialog-pageoff .md-on {
+	box-sizing: border-box;
+	position: absolute;
+	top: -8px;
+	left: 0;
+	width: 15px;
+	height:15px;
+	border-radius: 50%;
+	}
+	.deal-cancel-icon{
+	cursor: pointer;color:#d2d4d5;text-align:right;margin-right: 15px;
+	}
+	.deal-cancel-icon{
+	color:red;
+	}
+	.deeldialobtn.md-default-theme .md-on, .deeldialobtn .md-on {
+	background-color: gray;
+	}
+	.deeldialo-page-btn.md-checked .md-off {
+	border-color: gray;
+	}
+	.dealDialog-page-Service{background-color:#fff;border-bottom: 1px solid #e2e2e2;font-size: 15px; color:#58595b;font-family: latoLight;}
+	.dealDialog-page-content{font-size:13px;font-weight:500;font-family:latoLight;color:#58595b;}
+	.dealDialog-page-font{padding-left:20px;padding-top:10px;font-weight:500;color:#58595b;font-size: 13px;font-family: latoLight;}
+	.dealDialog-page-Save{border:1px solid #f2f2f2;text-align: center;color:red;font-size: 12px;height:20px;}
+	.dealDialog-page-menuprice{text-align: right;margin-left:12px}
+	.dealDialog-page-deelprice{text-align: right;color:#58595b;margin-left:20px}
+	.dealDialog-page-Exclusive{font-size:13px;border-bottom: 1px solid #e2e2e2;padding-bottom: 20px;padding-left: 15px;color:#d2232a}
+	.dealDialog-page-dealServiceI{margin-top:10px;}
+	.dealDialog-page-optionmenuPrice{border:1px solid #f2f2f2;text-align: center;color: red;font-size: 12px;}
+	.dealDialog-page-addCombo{padding-left:125px;color: #58595b;font-size: 20px;}
+	#dealDialog-page-btn{background-color:#d2232a;color:#fff;margin-bottom:15px;font-size: 13px;margin-top: 30px;text-transform: capitalize;height: 35px;}
+	/***************************dealDialog css stop********************/
+	/***************************clearCartDialog css start*******************/
+	.clearCartDialog-page{border-bottom:1px solid #f2f2f2;height: 40px;padding-top: 10px;padding-left:10px;}
+	.clearCartDialog-page-Itseems{padding-top: 10px;padding-left:10px;}
+	.clearCartDialog-page-fromanother{font-size: 13px;color:#58595b;padding-top: 10px;padding-left:10px;}
+	.clearCartDialog-page-back{margin-top: 60px;border-top:1px solid #f2f2f2;padding-top: 10px;padding-bottom:10px;}
+	#clearCartDialog-page-back-btn{background: #d2232a;color:#fff;text-transform: capitalize;padding-left: 15px; padding-right: 15px;}
+	#clearCartDialog-page-back-btn-2{background: #d2232a;color:#fff;text-transform: capitalize;padding-left: 15px; padding-right: 15px;}
+	/***************************clearCartDialog.html css start*******************/
+
+
+	/***************************appointmentBookedSuccessful css start*******************/
+	.appointmentBookedSuccessful-page-container{height:23%;width:32%;padding-right:20px;}
+	.appointmentclearful-page-container{height:33%;width:32%;padding-right:20px;}
+	.appointmentBookedSuccessful-page-content{padding-top: 10px;padding-left:10px;}
+	.appointmentBookedSuccessful-page-booked{font-size: 13px;color:#58595b;padding-top: 10px;padding-left:10px;}
+	.appointmentBookedSuccessful-page-ok{margin-top: 60px;border-top:1px solid #f2f2f2;padding-top: 10px;}
+	.appointmentBookedSuccessful-page-Okay{text-align: left;padding-left: 20px;}
+	#appointmentBookedSuccessful-page-btn{background: #d2232a;color:#fff;text-transform: capitalize;padding-left: 15px; padding-right: 15px;}
+	/***************************appointmentBookedSuccessful css stop*******************/
+	/******************addReviewDialog css start***********************/
+	.addReviewDialog-page-container{width:50%;background-color: #f1f1f3;  height:auto;}
+	.addReviewDialog-page-AddReview{padding-left: 2%;font-size: 20px;padding-top: 2%;padding-bottom: 2%;background-color:#f2f2f2;color:#58595b;font-size: 15px;font-family: latoLight;}
+	.addReviewDialog-page-margin{margin-top: 1%;}
+	.addReviewDialog-page-Submit{width:13%;background-color: #d2232a;margin-bottom: 1%;color: white;text-transform: capitalize;}
+	#contactSubmit{width:13%;background-color: #d2232a;margin-bottom: 1%;color: white;text-transform: capitalize;}
+	/******************addReviewDialog css stop***********************/
+
+	/****************************userInformation css start***************/
+	.information-pageheading{padding-left: 12px;padding-top: 10px;color: #58595b;}
+	.information-page-firstName{height:40px;text-transform: capitalize;}
+	.information-page-Number{height:40px;}
+	.information-page-Save{padding-top: 5em;width:100%;}
+	.user-information-sv-btn{text-transform: capitalize;}
+	/****************************userInformation css stop***************/
+
+	/************************myReviews css start********************/
+	.myReviews-page-container{padding-left: 1%;font-size: 24px;padding-top: 1%;}
+	.myReviews-page-MyReviews{padding-top: 2%;color: #58595b;}
+	.myReviews-page-name{padding-left: 2%;padding-top: 3px;color:#58595b;font-size: 13px;}
+	.myReviews-page-reviewPostDate{padding-top: 1%;padding-bottom: 1%;border-bottom: 1px solid #D3DFDF;font-size: 14px; color:#58595b;}
+	.myReviews-page-reviewContent{padding-top: 3%;font-size: 13px;color:#58595b;}
+	.myReviews-page-showReadMore{padding-top: 1%;}
+	.myReviews-page-Readmore{color:red;cursor: pointer;font-size:13px;}
+	/************************myReviews css stop********************/
+	/************************myLoyaltyPoints css start********************/
+	.myLoyaltyPoints-page-netbanking{color: #D4E0E0;padding-top: 3%;padding-bottom: 3%;}
+	.myLoyaltyPoints-page-color{text-align: center;border-bottom: 1px solid #D3DFDF;}
+	.myLoyaltyPoints-page-container{background-color: #F2F2F2;margin-top:.3em;}
+	.myLoyaltyPoints-page-Loyalty{padding-left:2%;padding-top: 1%;}
+	.myLoyaltyPoints-page-MyLoyalty{padding-top: 2%;padding-left: 2%;color: #58595b;}
+	/************************myLoyaltyPoints css End********************/
+	/********************************myAppointments css start*****************************************/
+	.myAppointments-page-container{padding-top: 2%;padding-left: 3%;padding-bottom: 2%; color: #58595b;}
+	.myAppointments-page-content{margin-left: 1.4em;}
+	.myAppointments-page-background{background: #fff;}
+	.myAppointments-page-progress{position: relative;z-index: 1;left: 46%;}
+	/********************************myAppointments css End*****************************************/
+	/**********************previousAppointmentsDialog css start***************/
+	.previousAppointmentsDialog-page{width:30%;}
+	.previousAppointmentsDialog-page-Summary{background-color: rgb(210, 35, 42);color: white;height: 23%;padding-top: 4%;padding-bottom: 4%;padding-left: 2%;}
+	.previousAppointmentsDialog-page-listprice{padding-right: 6%;}
+	.previousAppointmentsDialog-page-Total{padding-left: 4%;padding-top: 2%;background-color: rgb(241, 241, 241);}
+	.previousAppointmentsDialog-page-subtotal{padding-right: 6%;}
+	.previousAppointmentsDialog-GrandTotal{padding-left: 4%;padding-top: 2%;background-color: rgb(241, 241, 241);padding-bottom: 5%;}
+	/**********************previousAppointmentsDialog css end***************/
+	/******************serviceNotForThisDay css start*********************/
+	.serviceNotForThisDay-page-container{height:30%;width:35%;}
+	.serviceNotForThisDay-page-content{border-bottom:1px solid #f2f2f2;height: 40px;padding-top: 10px;padding-left:10px;font-family: latoLight}
+	.serviceNotForThisDay-page-deal{padding-top: 10px;padding-left:10px;font-size: 13px;color:#58595b;padding-top: 10px;padding-left:10px;font-family: latoLight}
+	.serviceNotForThisDay-page-btn-container{margin-top: 60px;border-top:1px solid #f2f2f2;padding-top: 10px;}
+	.serviceNotForThisDay-page-margin{text-align: left;padding-left:329px;}
+	.serviceNotForThisDay-page-okay{background: #d2232a;color:#fff;text-transform: capitalize;padding-left: 15px; padding-right: 15px;font-family: latoLight;font-size: 13px;}
+	/******************serviceNotForThisDay css end*********************/
+	/******************userProfile css start*********************/
+	.UserProfile-page-container{padding-top:65px;}
+	.UserProfile-page-marginTop{margin-top:42px;}
+	.UserProfile-page-content{background-color:#FFF6F7;padding-top:0.5em}
+	.UserProfile-page-image{width: 50%;height:50%;border-radius: 50%;}
+	.UserProfile-page-userName{text-transform: capitalize;}
+	.UserProfile-background{background-color: #fff}
+	/******************userProfile css End*********************/
+
+	/*************weekdayToWeekendSwitching css start*****************/
+	.weekdayToWeekendSwitching-page-container{height:30%;width:35%;}
+	.weekdayToWeekendSwitching-page-Cart{border-bottom:1px solid #f2f2f2;height: 40px;padding-top: 10px;padding-left:10px;}
+	.weekdayToWeekendSwitching-page-Clear{color: #58595b;font-family: latoLight;font-size: 15px;padding-top: 10px;padding-left: 18px;}
+	.weekdayToWeekendSwitching-page-message{padding-top: 10px;padding-left:10px;}
+	.weekdayToWeekendSwitching-page-weekend{font-size: 13px;color:#58595b;padding-top: 10px;padding-left:10px;font-family: latoLight;}
+	.weekdayToWeekendSwitching-page-ok{margin-top: 60px;border-top:1px solid #f2f2f2;padding-top: 10px;}
+	.weekdayToWeekendSwitching-page-btn{text-align: left;text-align: right;padding-left:329px;}
+	.weekdayToWeekendSwitching-page-okay{background: #d2232a;color:#fff;text-transform: capitalize;padding-left: 15px; padding-right: 15px;}
+	/*************weekdayToWeekendSwitching css end*****************/
+	/**********************weekdayWeekendDiaolog css start********************/
+	.weekdayWeekendDiaolog-container{width:40%;max-height: 100%;max-width: 100%;}
+	.weekdayWeekendDiaolog-Deal-message{background-color:#d2232a;color:#fff;font-size: 13px;font-family: latoLight}
+	.weekdayWeekendDiaolog-content{padding-left:20px;padding-right:20px;padding-top:10px;font-family: latoLight;}
+	.weekdayWeekendDiaolog-price{font-family: latoLight;color:#58595b;font-size: 13px;}
+	.weekdayWeekendDiaolog-Discard{padding: 0px 0px; font-family: latoLight;font-size: 13px;}
+	/**********************weekdayWeekendDiaolog css end********************/
+
+	/**********************WeekendToweekdayswitch css start********************/
+	.clearcart-page{padding-top: 10px; padding-left: 16px;}
+	.weekendToweekday-page-container{height:30%;width:35%;}
+	.weekendToweekdaypage-Clear-Cart{border-bottom:1px solid #f2f2f2;height: 40px;padding-top: 10px;padding-left:10px;font-size: 15px;color: #58595b;font-family: latoLight;}
+	.weekendToweekdaypage-weekday{padding-top: 10px;padding-left:10px;font-size: 13px;color:#58595b;padding-top: 10px;padding-left:10px;font-family: latoLight}
+	.weekendToweekdaypage-btn-container{margin-top: 60px;border-top:1px solid #f2f2f2;padding-top: 10px;}
+	.weekendToweekdaypage-btn-div{text-align: left;padding-left:329px;}
+	.weekendToweekdaypage-Okay-btn{background: #d2232a;color:#fff;text-transform: capitalize;padding-left: 15px; padding-right: 15px;font-family: latoLight;font-size: 13px;}
+	/**********************WeekendToweekdayswitch css start********************/
+	/*****************start checkout page css**************/
+	.checkout-customer-container {
+	    background-color: #fafafa;
+	    padding-top: 3em;
+	    padding-bottom: 2em;
+	}
+	.Payment-through{width: 90%;min-height: 38px;color: #fff;font-family:latoLight;font-size: 11px; text-transform: capitalize;}
+	.checkoutpage-payableAmount{padding-right: 28px;color:#58595b;font-family:latoLight;}
+	.checkoutPageTotal{color:#58595b;font-family:LatoMedium;font-size:16px;}
+	.checkout-total-3{padding-left: 3%;padding-right: 3%;padding-top: 4%;padding-bottom: 4%;}
+	.checkoutappObj-subtotal{padding-right: 28px;font-family:latoLight;font-size: 16px;color:#58595b;}
+	.checkSubtotal{font-family:latoLight;font-size:16px;color:#58595b;}
+	.Subtotal-checkout{padding-left:0%;padding-right: 2%;padding-top:0%;}
+	.checkout-service-additions{font-family:latoLight;font-size:15px;color:#58595b;text-align: right;}
+	.service-quantity{font-family: latoLight;font-size: 15px;}
+	.service-name{font-family: latoLight;font-size: 14px;}
+	.checkout-page-service{padding-top: 2em;padding-bottom: 1em;}
+	.Your-Cart{padding-top: 2%;color: #58595b;font-size:20px;font-family:latoLight;padding-top:1em;}
+	.checkout-page-cart{padding-left: 2%;padding-right: 2%;}
+	.checkout-container{margin-left: 3%; border: 1px solid #fafafa;margin-top: 18px;}
+	.user-loyality-point{padding-top:10px;font-family: latoLight;color: #58595b;font-size:15px;}
+	.LoyaltyPoints{padding-left: 4%;padding-bottom:2em;font-family: latoLight;color: #58595b;font-size:15px;}
+	.Cash-Your-Loyality{padding-left: 4%;font-size: 17px;font-family:latoLight;font-size:15px;color:#58595b;}
+	.Promo-Code{background-color: white;padding-left: 4%}
+	.promo-code-container{display: block;width:35%;margin-left: 4%;margin-top:0.8em;}
+	.payment-icon-container{padding-left: 4%;}
+	.payment-icon{position: relative;top: 7px;}
+	.po-name{padding-bottom:0em;padding-top:0em;color:#58595b;font-family: latoLight;font-size: 15px;}
+	.Select-Payment-Mode{padding-top: 2em;padding-bottom: 1em;color:#58595b;font-size:15px;font-family:latoLight; padding-left: 4%;}
+	.Payment-Mode-container{border: 1px solid #F2F2F2;margin-top: 20px;}
+	.Payment-Mode-box1{background-color:#fff;padding-left: 30px;padding-right: 30px;margin-top: 18px;}
+	.Payment-Mode-box{margin-bottom: 25px ;margin-left: 30px;margin-right: 30px}
+	.Customer-Details{color: #58595b;font-size:18px;font-family: latoLight;padding-left: 4%;}
+	.checkout-customer-container{background-color: #fafafa;padding-top:3em;padding-bottom: 2em;}
+	.Phone-Number{color:#58595b;font-size: 14px;font-family:latoLight;padding-left: 4%;}
+	.appObj-parlorName{color:#58595b;font-size: 15px;font-family:latoRegular;padding-left: 4%;}
+	.appObj-salonparlorName{color:#58595b;font-size: 15px;font-family:latoRegular;padding-left: 8%;}
+	.Salon-Details{color:#58595b;font-size:18px;font-family:latoLight;padding-left: 8%;}
+	.checkout-parlor-container{padding-top: 3em;padding-bottom: 2em;}
+	.checkout-page-parlor{background-color: #fafafa;}
+	.checkout-page-container{padding-top: 5em;background-color: white!important;padding-left: 30px;padding-right: 30px}
+	.checkBoxPosition .md-container{
+	top:18px;
+	}
+	/*****************end checkout page css**************/
+	.radioActiveColor .md-container{
+	margin-top: 2px;
+	}
+
+	.radioActiveColor .md-on {
+	background-color: #818286;
+	}
+	.radioActiveColor .md-off, .radioActiveColor .md-on {
+	width: 15px;
+	height: 15px;
+
+	}
+	.radioActiveColor.md-checked .md-on {
+	-webkit-transform: scale(.9);
+	transform: scale(.9);
+	}
+	.radioActiveColor.md-default-theme .md-checked .md-ink-ripple, .radioActiveColor .md-checked .md-ink-ripple {
+	color: transparent;
+	background-color: transparent;
+	}
+	.radioActiveColor.md-default-theme.md-checked .md-off, .radioActiveColor.md-checked .md-off {
+	border-color: #818286;
+	}
+	.radioActiveColor.md-default-theme.md-checked .md-ink-ripple, .radioActiveColor.md-checked .md-ink-ripple {
+	color:transparent;
+	}
+
+	.activeCheckboxColor.md-default-theme.md-checked .md-icon, .activeCheckboxColor.md-checked .md-icon{
+	background-color: #818286;
+	}
+	.activeCheckboxColor.md-default-theme.md-checked .md-ink-ripple, .activeCheckboxColor.md-checked .md-ink-ripple {
+	color: #818286;
+	}
+	.buttonAnimation{
+	-webkit-animation: mymove 0.2s 1; /* Safari 4.0 - 8.0 */
+	animation: mymove 0.5s 1;
+	}
+	@keyframes mymove {
+	0%   {width: 80%;min-height: 32px;}
+	/*  50%  {width: 100%;}*/
+	100% {width: 100%;min-height: 32px;}
+	}
+	.disabledCheckoutButtonColor.md-button.md-default-theme:not([disabled]):hover, .disabledCheckoutButtonColor.md-button:not([disabled]):hover {
+	background-color:#d2232a;
+	}
+	.disabledCheckoutButtonColor.md-button.md-default-theme[disabled], .disabledCheckoutButtonColor.md-button[disabled]{
+	background-color:#f0a8aa;
+	}
+	/* md-radio-button .md-off, md-radio-button .md-on {
+	     width: 15px;
+	     height: 15px;
+	     transform: scale(.9);
+	 }*/
+	.checkout-pages .md-icon {
+	width: 15px;
+	height: 15px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 2px;
+	margin-top: 5px;
+	}
+	.checkout-page-1 .md-label {
+	margin-left: 26px;
+	margin-top: 0.5em;
+	}
+	.bufferColor.md-accent path{
+	stroke: #d2232a;
+	}
+
+	/*****************start checkout page css**************/
+	.dialog2-page-container{width:50%;max-height: 100%;}
+	.dialog2-page-WelcometoBeU{text-align:center;color:#58595b;}
+	.dialog2-page-PhoneNocontainer{margin-top: 20px;}
+	.dialog2-page-color{color: red;}
+	.dialog2-page-Incorrect{color:red;padding-left: 36%;padding-bottom: 1%;}
+	.dialog2-page-email-container{margin-top:-20px;}
+	.dialog2-page-inputtype-universal{margin:0px 0px;}
+	.dialog2-page-username54{text-transform: capitalize;}
+	/****************listing-filter diaolog page  css start**********************/
+	.filter-dialog-container{height:90%;width:100%;}
+	.filter-service-container{border-bottom:1px solid #e6e6e6}
+	.bufferColor.md-accent path{
+	stroke: #d2232a;
+	}
+	.filter-crs-icon{margin-left: 741px;cursor: pointer;color:gray; font-size: 20px;}
+	.filter-crs-icon:hover{color:#999}
+	#listing-filter-1 {
+	margin-top: 10px;
+	color: #fff;
+	background-color: #d2232a;
+	/* margin-left: 10px; */
+	height: 34px;
+	border: none;
+	border-radius: 2px;
+	}
+	md-radio-group.md-default-theme .md-checked .md-ink-ripple, md-radio-group .md-checked .md-ink-ripple{
+	color: transparent;
+	}
+
+	.checkBoxTickColor.md-default-theme:not([disabled]).md-warn.md-checked .md-icon, .checkBoxTickColor:not([disabled]).md-warn.md-checked .md-icon {
+	background-color: #d2232a;
+	}
+	.checkBoxTickPostion.md-checked .md-icon:after {
+	left: 3.66667px;
+	}
+
+	.innerCircleRadioButton.md-checked .md-on {
+	-webkit-transform: scale(.5);
+	transform: scale(.8);
+	position: relative;
+	top: 0px;
+	background-color: #818286;
+	}
+	.radioButtonBorderColor.md-default-theme.md-checked .md-off, .radioButtonBorderColor.md-checked .md-off{
+	border-color: #818286;
+	}
+	/****************listing-filter diaolog css end**********************/
+	
+	/****************offer pages css***************/
+	.offer-pages-parlor-time{padding-bottom: 15px;margin-top:14px;border-bottom:1px solid #f2f2f2;}
+	.offer-price-save{text-align: right;padding-right: 15px;}
+	/******************dialog css******************/
+	.deel-dialog-container{
+	    width:45%;max-height:100%;
+	}
+	.deal-service-btn{margin-right: -408px;}
+	.sevice-dialo{width:45%;max-height: 100%;max-width: 100%;color:#58595b;}
+	.deel-sevice-box{display: inline-flex;width:100%;padding-left:20px;padding-top:10px;font-size:13px;font-weight: 500;font-family:latoLight;color:#58595b;}
+	/***********opt css*************/
+	#opt-btn{
+	background-color: #d2232a;
+	text-transform: capitalize;
+	}
+	#opt-btn-send{
+	background-color: #d2232a;
+	text-transform: capitalize;
+	height: 20px;
+	}
+	.parler-switch-deal{
+	width: 14%;
+	/* border: 1px solid red; */
+	margin: auto;
+	}
+	/****************** home slider css **********************/
+	.home-page-jk-carrosal-container {
+    background-color: #fff;
+    margin-top: 4.5em;
+}
+
+	.arrowBackgroundColor.jk-carousel .md-icon-button md-icon{
+	background-color: #E3E3E3;
+	}
+
+	.rightArrowPosition.jk-carousel .right-arrow-button {
+	right: 3%;
+	top:10px;
+	}
+	.leftArrowPosition.jk-carousel .left-arrow-button {
+	left: 3%;
+	top: 10px;
+	}
+	.sliderCircleOff.jk-carousel .radio-buttons-container md-radio-button .md-off{
+	height: 10px;
+	width: 10px;
+	margin-top:0px;
+	background-color: #A8A9AD;
+	margin-left:-5px;
+	}
+	.sliderCircleOn.jk-carousel .radio-buttons-container md-radio-button .md-on{
+	height: 20px;
+	width: 20px;
+	margin-top:-5px;
+	margin-left:-10px;
+
+	}
+
+
+	/******************home stop slider css***********/
+	/***********************home page css start***************/
+	.home-delhi-ncr-search{
+	background-color: white;width: 100%;height:52px;text-transform: capitalize;color:#58595b;
+	}
+	.home-page-heading{
+	/*padding-top:10px;*/
+	font-size:24px;font-family:latoLight;color:#58595b}
+	.home-neardeals{width:19%;}
+	.home-oursalonpartner{width:24%;}
+	.home-beuclint{width: 16%; text-align: center;}
+	.home-beutrends{width: 15%;}
+	.home-beforafter{width: 24%;padding-left: 14px;}
+	.home-about{width:15%;text-align: center;}
+	#home-seemorebtns{padding-left: 4px;color:#fff;background-color:#d2232a;border:none;padding-bottom:6px; border-radius: 3px;height:30px;}
+	
+
+	/***********************home page css stop**************/
+
+	.listing{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin: 20px 0 26px;
+	padding-left: 17px;
+	color:#fff;
+	}
+
+	#ex3::-webkit-scrollbar-thumb{
+	background-color:gray;
+	border-radius:10px;
+	}
+	.md-select span {
+	color: blue;
+	}
+	@font-face {
+	font-family: 'impact';
+	src: url('../font/lato/Impact.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/Impact.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	@font-face {
+	font-family: 'latoBlackItalic';
+	src: url('../font/lato/Lato-BlackItalic.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/Lato-BlackItalic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	@font-face {
+	font-family: 'LatoBold';
+	src: url('../font/lato/Lato-Bold.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('/public/website/font/lato/Lato-Bold.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	@font-face {
+	font-family: 'latoHairLineItalic';
+	src: url('../font/lato/Lato-HairlineItalic.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/Lato-HairlineItalic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	@font-face {
+	font-family: 'latoHeavyItalic';
+	src: url('../font/lato/Lato-HeavyItalic.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/Lato-HeavyItalic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	@font-face {
+	font-family: 'latoLight';
+	src: url('../font/lato/latoLight.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/latoLight.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	@font-face {
+	font-family: 'latoMediumItalic';
+	src: url('../font/lato/Lato-MediumItalic.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/Lato-MediumItalic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+
+
+
+	}
+	@font-face {
+	font-family: 'latoRegular';
+	src: url('../font/lato/Lato-Regular.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/Lato-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	@font-face {
+	font-family: 'latoSemiBold';
+	src: url('../font/lato/Lato-Semibold.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/Lato-Semibold.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	@font-face {
+	font-family: 'latoSemiBoldItalic';
+	src: url('../font/lato/Lato-SemiboldItalic.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/Lato-SemiboldItalic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	@font-face {
+	font-family: 'latoThin';
+	src: url('../font/lato/Lato-Thin.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/Lato-Thin.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	@font-face {
+	font-family: 'latoThinItalic';
+	src: url('../font/lato/Lato-ThinItalic.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/Lato-ThinItalic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	@font-face {
+	font-family: 'LatoMedium';
+	src: url('../font/lato/Lato-Medium.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/Lato-Medium.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	@font-face {
+	font-family: 'LatoBold';
+	src: url('../font/lato/Lato-Bold.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('../font/lato/Lato-Bold.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+	}
+	.why_download_image{
+	height: 15em;
+	}
+
+	.downUpArrowClass svg{
+	transform: rotate(-90deg);
+	top: -3px;
+	}
+	.dropDownArrowClassBefore svg{
+	float: right;
+	position: relative;
+	top: -4px;
+	}
+	/*homepage topsalon list css*/
+	.parlor-toplist-name{font-size:16px;color:#58595b;}
+	.topsalon-list{
+	line-height: 1em;
+	color:#58595b;
+	font-family: latoLight;
+	font-size: 12px;
+	word-break: break-all;
+	margin: 8px;
+	}
+	.topsalon-list-1{
+
+	color: #58595b;
+	font-family: latoLight;
+	line-height: 1em;
+	font-size: 12px;
+	padding-bottom: 10px;
+	word-break: break-all;
+	margin-left: 8px;
+	}
+	.topsalon-list:hover{
+	transition: linear all .2s;
+	top: 0;
+	cursor: pointer;
+	border-radius: 3px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.15);
+
+	}
+
+	md-list-item.md-2-line, md-list-item.md-2-line>.md-no-style {
+	height:auto;
+	min-height:60px;
+	padding-top:15px;
+	}
+	.floatingDrodown  {
+	width: 200%;
+	top: 100px;
+	left: -150px;
+	background-color: white;
+	color:red;
+	}
+
+	/*#sk-wrapper{
+	display: none;
+	}
+	#sk-container{
+	display: none;
+	}*/
+	.sideMenuAbsolute{
+	position: fixed;
+	left: 7%;
+	top: 10px;
+	height: 4%;
+
+	}
+	.servicesTurnArrowClassBefore{
+	fill:#58595b;
+	position: absolute;
+	right: 1px;
+	transform: rotate(-90deg);
+	}
+	.servicesTurnArrowClass{
+	transform: rotate(0deg);
+	top: -3px;
+	}
+	.downUpArrowClass{
+	transform: rotate(-90deg);
+	top: -3px;
+	}
+	/* Let's get this party started */
+	#cartScrollBarStyle::-webkit-scrollbar {
+	width: 12px;
+
+	}
+
+
+	/* Track */
+	#cartScrollBarStyle::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background-color:#fff;
+	}
+
+	/* Handle */
+	/*.home-parlor-top{margin-top:25px;}*/
+	.home-parlor-top-1:hover{
+	box-shadow: 0px 0px 7px #000000;
+	z-index: 2;
+
+	-webkit-transition: all 400ms ease-in;
+	-webkit-transform: scale(1.1);
+	-ms-transition: all 400ms ease-in;
+	-ms-transform: scale(1.1);
+	-moz-transition: all 400ms ease-in;
+	-moz-transform: scale(1.1);
+	transition: all 400ms ease-in;
+	transform: scale(1.1);
+	}
+	#cartScrollBarStyle::-webkit-scrollbar-thumb {
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background:#f2f2f2;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+	}
+/*	.cartScrollBarStyle ::-webkit-scrollbar-thumb::window-inactive {
+	background: rgb(255, 246, 247);
+	}*/
+	/*.switchColorChangeClass > md-switch .md-default-theme.md-checked .md-bar, .switchColorChangeClass > md-switch .md-checked .md-bar {
+	    background-color: transparent;
+	}*/
+
+	.switchColorChangeClassMale>.md-default-theme.md-checked .md-bar, .switchColorChangeClassMale.md-checked .md-bar {
+	background-color: #fff;
+	border: 1px solid #d6d9dc;
+	}
+	.md-padding{padding:16px;}
+	.parlor-userinformation .md-input {
+	border-color: red;
+	}
+	md-progress-linear.md-default-theme .md-bar, md-progress-linear .md-bar {
+
+	background-color:#f2f2f2;
+
+	}
+	md-progress-linear.md-default-theme .md-container, md-progress-linear .md-container {
+
+	background-color:rgb(192,192,192);
+	}
+	.dialobox-b{
+	width:27%;
+	height:27%;
+	}
+	.autocomplete-custom-template li {
+	border-bottom: 1px solid #f2f2f2;
+	height: auto;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	white-space: normal;
+	}
+	.listing-box-effect:hover{
+
+	box-shadow: 0px 0px  11px #c8ccd0;
+	/*z-index: 2;*/
+	
+	}
+
+
+	.user-list12{
+	border-bottom: 1px solid #F2F2F2;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	height: 50px;
+	}
+	.user-list12:hover{
+	background-color: #ddd;
+	color:#000;
+	}
+	.userinformation-container{background-color: #ffffff;border:1px solid red;margin-top: .3em;width:60%;}
+
+	md-radio-button.md-default-theme.md-checked .md-off, md-radio-button.md-checked .md-off {
+	border-color:#d2232a;
+	}
+	md-radio-button.md-default-theme .md-on, md-radio-button .md-on {
+	background-color:#d2232a;
+	}
+	md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon {
+	color:#d2232a;
+	}
+	md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar{
+	background-color:#d2232a;
+	}
+	/********outline css start***************/
+	md-card-actions:focus {
+	outline: none;
+	}
+	md-card-title-media:focus {
+	outline: none;
+	}
+	md-card-content:focus {
+	outline: none;
+	}
+	img:focus {
+	outline: none;
+	}
+	span:focus {
+	outline: none;
+	}
+	li:focus{
+	outline: none;
+	}
+
+	div:focus {
+	outline: none;
+	}
+	md-radio-button:focus{
+	outline: none;
+	}
+
+	/*********outline css end************/
+	.radioButtonTextGap .md-label{
+	margin-left: 23px;
+	margin-top: -6px;
+
+	}
+	md-checkbox .md-label {
+	margin-left:20px;
+	margin-top: 0.3em;
+
+	}
+	.list-srcbox{
+	height: 57px;
+	}
+	.list-inputbox-1{
+	margin-top: 8em;
+	}
+	/*****header css******/
+	#listing-filter-2{
+	margin-top:20px;
+	color: #fff;
+	background-color:#d2232a;
+	margin-left:10px;
+	height:20px;
+	text-transform: capitalize;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-family: latoLight;
+	font-size: 13px;
+	height: 36px;
+
+	}
+	.appointment-tab .md-tab.md-active, .md-icon{color:#d2232a;}
+	.beu-header-pro-icon{
+	position: relative;
+	right: 3px;
+	}
+	.beu-header-profile{
+	color: #58595b;
+	font-size: 0.6em;
+	line-height: 1em;
+	}
+	.beu-header-cart-icon{
+	padding-right:30px;
+	padding-top:3px;
+	}
+	.beu-header-hello{
+	color:#A1A1A1;
+	}
+	.beuheader-pro{
+	color:#fff;
+	margin-left: 0.7em;
+	margin-top: 0.2em;
+	}
+	.home-primum{
+	text-align: center;
+	font-size:15px;
+	}
+	/***********deal dialog css***********/
+	.dealdialog-12 >.md-label {
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block;
+	margin-left:20px;
+	margin-right: 0;
+	vertical-align: middle;
+	white-space: normal;
+	pointer-events: none;
+	width: auto;
+	width:100%;
+	margin-top:-1px;
+	}
+	.dealdialog-normal >.md-label {
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block;
+	margin-left:20px;
+	margin-right: 0;
+	vertical-align: middle;
+	white-space: normal;
+	pointer-events: none;
+	width: auto;
+	width:100%;
+	font-size:13px;
+	margin-top:-7px;
+	font-weight: 700;
+	color:#58595b;
+	}
+	.flyIcon md-autocomplete-wrap{
+
+	height: 57px;
+	background-image: url('../images/locationArrow.png');
+	background-repeat: no-repeat;
+	background-size:20px 20px;
+	background-position: 10px 19px;
+	padding: 10px 25px;
+	}
+	.beu-header-delhincr{
+	color:#000;
+	font-size: 0.7em;
+	margin-left: -14px;
+	}
+	.beu-icon{
+	zoom: 1.1;
+	}
+	.home-line-right{
+	margin-left:-1.2em;
+	}
+	.home-line-left{
+	margin-right:-1.2em;
+	}
+	.list-cover {
+	width: 100%!important;
+	margin-top: 60px;
+	background-size: contain;
+	height: 270px;
+	background-image: url(../images/home-cover.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+
+
+	}
+	.listing-container{
+	background-color:white;
+	max-height: 60px!important;
+	margin-top:5%!important;
+	margin-bottom: 5vh;
+	border-radius:4px;
+	}
+	.listing-male-female{
+	width: 3em;
+	height: 2em;
+	}
+	/* YOUR CUSTOM STYLES */
+	.cart_logo img{width:20%;height:20%;}
+	.autocomplete-custom-template li {
+	padding-top:0px;
+	padding-bottom:0px;
+	}
+	/*.md-virtual-repeat-container .md-virtual-repeat-scroller {
+	  bottom: 0;
+	  box-sizing: border-box;
+	  left: 0;
+	  margin: 0;
+	  overflow-x: hidden;
+	  overflow-y: hidden;
+	  padding: 0;
+	  position: absolute;
+	  right: 0;
+	  top: 5px;
+	  -webkit-overflow-scrolling: touch;
+	}*/
+	/*.beu-home-searchbox{
+	margin-top:23em!important;
+	color:#fff;
+	}*/
+	.back-cover{
+	background-image: url('../images/HEADER.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 65%!important;
+	height:auto;
+	}
+	.offer-more-btn{
+	padding: 10px 10px 10px 10px;
+	border: 1px solid red;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 4px;
+	margin-top: 4vh;
+	background: #d2232a;
+	}
+	/***********beauty talk ***********/
+	.beauty-talk-icon{padding-left: 36%;padding-top:1%;padding-bottom:1%;}
+	.beauty{
+	box-sizing: border-box;
+	width:97.5%!important;
+	height:96%!important;
+	}
+	.beauty img{
+	height:100%!important;
+	width:100% !important;
+	}
+	#header-fixed{
+	position:fixed;
+	background:#fff;
+	width:100%;
+	left:0;
+	z-index:10;
+	}
+	.fade-in{
+	display:none;
+	}
+	.card_icon img{
+	width:150px;
+	height:auto;
+	}
+
+	.search-container{
+	/*margin-top:16em !important;*/
+	background-color: white;
+	max-height: 72px !important;
+	border-radius: 4px;
+	}
+	md-autocomplete md-autocomplete-wrap {
+	height: 50px;
+	background-image: url(../images/location.svg);
+	background-repeat: no-repeat;
+	background-size: 35px 35px;
+	background-position: 7px 10px;
+	/* padding: 7px 25px; */
+	padding: 7px 7px 12px 35px;
+	color: #58595b;
+
+	}/*......searc icon.......*/
+	.search_con{
+	background-image: url('../images/ic_account_box_black_24dp_2x.png');
+	}
+	/*......................*/
+	.listing-cover{
+
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 65%!important;
+	height: auto;
+	}
+
+	.md-button {
+	margin: 0px 0px;
+
+	}
+	.md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab {
+	background-color:#d2232a;
+	}
+
+	.box{
+	/*margin-top:1em!important;*/
+	box-shadow: none;
+	background: none;
+	padding-right: 10px;
+
+
+	}
+	.offer_background{
+	background-color:#fff;
+	margin:0px;
+	padding:0px;
+
+	}
+
+
+	.md-bacolor{
+	background-color:#fff;
+	}
+	.headbg{
+	background-color:#fff;
+	height: 96px;
+	max-height: 60px;
+	}
+	#seabackcolor-head{
+	background-color: #d2232a;
+	height: 51px;
+	color: #fff;
+	width: 100%;
+	margin-top: 10px;
+	}
+	#seabackcolor{
+	background-color:#D2232A;
+	border-radius: 0;
+	height: 52px;
+	color:#fff;
+	width:100%;
+	}
+	#seabackcolor-1{
+	background-color:#d2232a;
+	color:#fff;
+	text-transform: capitalize;
+	font-size:15px;
+	font-family:latoLight;
+
+	}
+	#seabackcolor-1-login{
+	background-color:#d2232a;
+	color:#fff;
+	text-transform: capitalize;
+	font-size:15px;
+	font-family: LatoBold;
+	text-transform: capitalize;
+
+	}
+	#seabackcolor-2{
+	background-color:#d2232a;
+	color:#fff;
+	text-transform: capitalize;
+	}
+	.md-toolbar-tools span img{
+	height:55px;
+	width:200px;
+	}
+	.blog{
+	margin-top:20px;
+
+	}
+
+	.tweeter_icon{
+	border: 1px solid #888;
+	height: 18px;
+	padding-top: 5px;
+	background: #888;
+	border-radius: 3px;
+	margin-top: 2px;
+	}
+	.md-select-value{
+	border:none;
+	}
+	.offer{
+	color:#6f7072;
+	}
+	.offer_header{
+	color:#000;
+	padding-top:15px;
+
+	}
+	.md-headline{
+	color:#888888;
+	margin-right:20px;
+	padding-right:10px;
+	}
+	.offer-icon{
+	margin-left: 5px;
+	}
+
+	.box1{
+	height:320px;
+	}
+	.box1 img{
+	height:320px;
+	}
+	.md-unstyled-image{
+	width:100%;
+	height:100%;
+	}
+	.md-unstyled-image img{
+	max-width: 100%;
+	width:100%;
+	/* height: auto !important; needs to be important because md-card also sets it that way */
+	height:100%;
+	}
+	.md-unstyled-image-deal{
+	width:100%;
+	height:100%;
+	}
+	.md-unstyled-image-deal img{
+	max-width: 100%;
+	width:100%;
+	/* height: auto !important; needs to be important because md-card also sets it that way */
+	height:86%;
+	}
+	.varyingMenuDropdownRightProperty{
+	right: 2%;
+	}
+	.varyingMenuDropdownTopProperty{
+	top: 22px;
+
+	}
+
+	.beu-header-cart-logo{
+	position: relative;
+	height: 15px;
+	width: 15px;
+	border-radius: 50%;
+	top: -6px;
+	color: rgb(255, 255, 255);
+	font-size: 9px;
+	line-height: 17px;
+	/* right: 125px; */
+	right: 39px;
+	text-align: center;
+	/*background: rgb(210, 35, 42);*/
+	background: #fff;
+	color: #000;
+	left: -13px;
+	color: rgb(210, 35, 42);
+	z-index: 20;
+	padding: 0px 4px;
+	}
+
+	.log-line{
+	border-top:1px solid rgba(0,0,0,0.12);
+	margin-top:2%;
+	}
+
+
+	table {
+	border-collapse: collapse;
+	}
+
+	table, th, td {
+	border: 1px solid #d6d7d7;
+	padding-left:10px;
+	padding-right:10px;
+	width:10%;
+	}
+	#tb_box{
+
+	padding-top: 52px;
+	padding-bottom:52px;
+
+	}
+	#table_inbox{
+	margin:0px;
+	filter: invert(56%);
+	}
+	.md-subhead{
+	font-size:13px;
+	padding-left: 15px;
+	}
+	#box-h{
+	height: 200px;
+
+	}
+	#loc_icon{
+	font-size:20px;
+	color:#999;
+	}
+	/*......menu;;*/
+	.md-select-menu-container.md-active{
+	z-index:99999999999;
+	}
+	#box-h img{
+	height: 120px;
+	padding: 24px 24px 0px 24px;
+	}
+	.home-card{
+	max-height:20%;
+	height:20%;
+
+	}
+	.home-card img{
+	width:100%;
+	height:auto;
+	padding-top:20px;
+	padding-bottom:10px;
+	}
+	.card-title{
+	font-size: 14px;
+	color: #000;
+	font-family: 'Roboto', sans-serif;
+	padding: 18px 0px 0px 2px;
+
+	}
+	/*...............offer pages css.......*/
+	.offer-content{
+	font-size:13px;
+	font-family: 'Open Sans', sans-serif;
+	}
+	/*...............parler detail pages.............*/
+
+	.quantity{
+	font-size: 13px;
+	padding-left: 5px;
+	}
+	.price-card{
+	width: 7%;
+	border: 1px solid #f2be80;
+	height: 17px;
+	}
+	/*.price{*/
+	/*color:#d2232a;*/
+	/*}*/
+	.male-service{
+	color:#d2232a;
+	padding-top:5px;
+	text-align:center;
+	}
+	#parler_p_container{
+
+	border-bottom:none;
+	padding-bottom:10px;
+	}
+	.mood-awesome{
+	padding-top: 4px;
+	padding-left: 15px;
+	padding-left: 10px;
+	font-family:latoLight;
+	color: #58595b;
+	font-size: 13px;
+
+	}
+	/**.plus-icon{
+	width: 5%;
+	    border: 1px solid #f2be80;
+	height: 18px;
+	}**/
+	#parler_right{
+	border-bottom:1px solid #f6f6f6;
+	padding-bottom:20px;
+	width:25%;
+	font-size:13px;
+	position:fixed;
+	right:0px;
+
+	}
+	.accordatio_left{
+	width:20%;
+	background-color:#fff;
+	font-size:13px;
+	position:fixed;
+	left: 7em;
+	/**border: 1px solid #f2be80;**/
+	padding: 0px 15px 0px 15px;
+	margin-top:10px;
+	top:195px;
+	height: 100%;
+	/*z-index:1;*/
+	border: 1px solid #f2f2f2;
+	border-radius: 6px;
+	}
+	.menu-wrapper{
+
+	background-color: #fff;
+	width: 100%;
+	overflow: hidden;
+	min-height: 50vh;
+	font-size: 1.083em
+	}
+	.parler-princes{
+	padding: 0px 28px 25px 28px;
+	font-size: 15px;
+	color:#58595b;
+	font-family: latoLight;
+	}
+	.parler-bg-left{
+	background:#fff;
+	padding: 2%;
+	}
+	.parler-bg{
+	background:#fff;
+
+	}
+	.middle_search{
+	margin-left: 80px;
+	}
+	.miidle-list{
+	/*border-top: 1px solid #f2be80;
+	    border-radius: 10px;
+	    border-bottom: 1px solid #f2be80
+	    */
+	box-shadow: -3px 0px 5px rgba(2,2,2,.05);
+	margin: 184px 10px 10px -4px;
+	}
+	.right-box{
+	position: fixed;
+	margin-top: 10px;
+	width:27%;
+	right:0px;
+	top:195px;
+	z-index:1;
+	background-color:#fff;
+	box-shadow: -3px 3px 5px rgba(2,2,2,.05);
+	}
+
+
+	.card-btn-bg{
+	background-color: #FFF6F7;
+	text-align: center;
+
+	}
+	.parler-service-header{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	}
+	/**.cart-btn{
+	margin-top:10px;
+	}**/
+	.cart-tatol{
+	color:green;
+
+	}
+	.cart-tatol-1{
+	color:green;
+	text-align:right;
+	}
+
+	.parler-container{
+	margin-top: 12vh;
+	padding-left: 28px;
+	padding-top: 2vh;
+	}
+	.parler-service-search{
+	background: #fff;
+	height: 40px;
+	padding-bottom: 10px;
+	margin:0px;
+	}
+	.parler-service-box{
+	margin-top:20px;
+	}
+	.parler-checkout-btn{
+	width:20%;
+	color:#fff;
+	font-family:LatoBold;
+	font-size: 14px;
+	text-transform: capitalize;
+	}
+	.parler-switch{
+	width: 19%;
+	/* border: 1px solid red; */
+	margin: auto;
+	}
+	.parler-checkout-btn{
+	background-color: #d2232a;
+	    margin-top: 20px;
+
+	}
+	.middle-price{
+	text-align: right;
+	}
+	.parler-head-container{
+	left: 0px;
+	right: 0px;
+	z-index: 2;
+	position:fixed;
+	width:100%;
+	background-color: #FAFAFA;
+	box-shadow: 0 2px 1px rgba(0,0,0,.1);
+	}
+	.lipClass>.md-default-theme .md-thumb, .lipClass .md-thumb {
+	background-image: url("../images/Red Female.png");
+	background-size: 20px 21px;
+	background-repeat: no-repeat;
+	}
+
+	.moustacheClass>.md-default-theme .md-thumb, .moustacheClass .md-thumb{
+
+	background-image: url("../images/Red Male.png");
+	background-size: 20px 21px;
+	background-repeat: no-repeat;
+
+	}
+	.highlight{
+	cursor: pointer;
+	}
+	/******** End parler details pages css ********/
+	.autocompletedemoCustomTemplate .autocomplete-custom-template li {
+	border-bottom: 1px solid #ccc;
+	height: auto;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	white-space: normal; }
+
+	.autocompletedemoCustomTemplate .autocomplete-custom-template li:last-child {
+	border-bottom-width: 0; }
+
+	.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title,
+	.autocompletedemoCustomTemplate .autocomplete-custom-template .item-metadata {
+	display: block;
+	line-height: 2;
+	}
+	.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title md-icon {
+	height: 18px;
+	width: 18px; }
+
+	.highlight.active{
+	color:#d2232a;
+	background: none;
+	cursor: pointer;
+	}
+
+	.vAccordion--default v-pane.is-expanded > v-pane-header {
+	border-bottom-color: red;
+	padding-left:10px;
+	font-size:13px;
+	}
+	vAccordion--default v-pane-header:hover, .vAccordion--default v-pane-header:focus{
+	color:red;
+	}
+
+	/* Styling for the ngProgress itself */
+	#ngProgress {
+	margin: 0;
+	padding: 0;
+	z-index: 99998;
+	background-color: green;
+	color: green;
+	box-shadow: 0 0 10px 0; /* Inherits the font color */
+	height: 2px;
+	opacity: 0;
+
+	/* Add CSS3 styles for transition smoothing */
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	}
+
+	/* Styling for the ngProgress-container */
+	#ngProgress-container {
+	position: fixed;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 99999;
+	}
+	/********************Deal near you remove hover effect*******/
+	.hovereffect-deal {
+	box-sizing: border-box;
+	width:100%!important;
+	height:100%!important;
+	float:left;
+	overflow:hidden;
+	position:relative;
+	text-align:center;
+	cursor:default;
+	}
+	.hovereffect-deal  img{
+	width:100%!important;
+	height:100%!important;
+	}
+
+	/*************Hover Effect On beauty Talk************/
+	.hovereffectTraind {
+	box-sizing: border-box;
+	width:100%!important;
+	height:100%!important;
+	float:left;
+	overflow:hidden;
+	position:relative;
+	text-align:center;
+
+	}
+	.hovereffectTraind  img{
+	width:100%!important;
+	height:100%!important;
+	}
+
+	.hovereffect {
+	box-sizing: border-box;
+	width:100%!important;
+	height:100%!important;
+	float:left;
+	overflow:hidden;
+	position:relative;
+	text-align:center;
+	cursor:pointer;
+	}
+	.hovereffect  img{
+	width:100%!important;
+	height:100%!important;
+	}
+	.hovereffect .overlay {
+	width:100%;
+	height:100%;
+	position:absolute;
+	overflow:hidden;
+	top:0;
+	left:0;
+	opacity:0;
+	background-color:rgba(0,0,0,0.5);
+	-webkit-transition:all .4s ease-in-out;
+	transition:all .4s ease-in-out
+	}
+
+	.hovereffect img {
+	display:block;
+	position:relative;
+	-webkit-transition:all .4s linear;
+	transition:all .4s linear;
+	}
+
+	.hovereffect h2 {
+	text-transform:uppercase;
+	color:#fff;
+	text-align:center;
+	position:relative;
+	font-size:11px;
+	background:rgba(0,0,0,0.6);
+	-webkit-transform:translatey(-100px);
+	-ms-transform:translatey(-100px);
+	transform:translatey(-100px);
+	-webkit-transition:all .2s ease-in-out;
+	transition:all .2s ease-in-out;
+	padding:10px;
+	}
+
+	.hovereffect a.info {
+	text-decoration:none;
+	display:inline-block;
+	text-transform:uppercase;
+	color:#fff;
+	border:1px solid #fff;
+	background-color:transparent;
+	opacity:0;
+	filter:alpha(opacity=0);
+	-webkit-transition:all .2s ease-in-out;
+	transition:all .2s ease-in-out;
+	margin:20px 0 0;
+	padding:7px 14px;
+	}
+
+	.hovereffect a.info:hover {
+	box-shadow:0 0 5px #fff;
+	}
+
+	.hovereffect:hover img {
+	-ms-transform:scale(1.2);
+	-webkit-transform:scale(1.2);
+	transform:scale(1.2);
+	}
+
+	.hovereffect:hover .overlay {
+	opacity:1;
+	filter:alpha(opacity=100);
+	}
+
+	.hovereffect:hover h2,.hovereffect:hover a.info {
+	opacity:1;
+	filter:alpha(opacity=100);
+	-ms-transform:translatey(0);
+	-webkit-transform:translatey(0);
+	transform:translatey(0);
+	}
+
+	.hovereffect:hover a.info {
+	-webkit-transition-delay:.2s;
+	transition-delay:.2s;
+	}
+
+	/**************dialog box..........css*/
+
+	.btn_facepad{
+	padding-top: 4%;
+	padding-left: 6%;
+	padding-right: 6%;
+	}
+
+	.btn_facegoogle {
+	padding-top: 0.5em;
+	padding-left: 1em;
+	padding-right: 1em;
+	}
+
+	.md-tab.md-active{
+	cursor: default;
+	background: #FEF8F3;
+	}
+	.btn_face{
+	border-left: 1px solid #fff;
+	padding-top: 11px;
+	padding-left: 17px;
+	color: #fff;
+	margin-left: 5px;
+	font-size: 13px;
+	padding-right: 8px;
+	}
+	.btn-goole{
+	border-left: 1px solid #fff;
+	padding-top: 11px;
+	padding-left:17px;
+	color: #fff;
+	margin-left: 5px;
+	font-size:13px;
+	padding-right: 8px;
+	}
+	.customCheckClass > md-tabs-wrapper
+	{
+
+	background-color: transparent;
+	border-color: rgba(0,0,0,0.12);
+	width: 209px;
+	margin: auto;
+	}
+	.tab-pad{
+	padding-left:20%;padding-right:20%;
+	}
+
+	/***********footer menu start*****************/
+	.footer-container {
+	color:#58595b;
+	position: absolute;
+	right: 0;
+	left: 0;
+	z-index:4;
+	margin-top:0px;
+	}
+	#footer-page-main{background-color: white;text-align: center;margin-top: 9px;;
+	/*padding-top: 80px;*/
+	padding-bottom:20px;color:#58595b;}
+	.footer-page-morebeuon{color: #d2232a;}
+	.footer-page-listingpadding{
+	/*font-size: 18px;*/
+	padding-right: 11px;border-left:0	;}
+	.calculateHeightNgView {
+	min-height: calc(100vh - 180px);
+	/*min-height: 100vh;*/
+	/* 80px header + 40px footer = 120px  */
+	}
+	ul{
+	padding-top:30px;
+	padding-bottom:30px;
+	width: 100%;
+	list-style-type: none;
+	}
+	.footer-list ul li{
+	font-size:12px;
+	float:left;
+	margin-top:0px;
+	    float: left;
+	}
+	.icon-padding{
+		
+	margin-left:15px;
+	}
+	/*************uuser profile ************/
+	.userpro{
+	border: 1px solid white;
+	background-color: white;
+	height: 44px;
+	border-radius:5px;
+	}
+	.profile_pic {
+	padding-left: 52px;
+	padding-top: 22px;
+	}
+	.profile_pic img{
+	width: 50%;
+	height:50%;
+	border-radius: 50%;
+	}
+	.userName{
+	padding-top: 7%;
+	padding-bottom: 10%;
+	color:#A1A1A1;
+	}
+	.user-review-img{
+	width:100%;height: 55px;
+	}
+
+	/************checkbox*****************/
+	md-checkbox {
+	margin-bottom:-3px;
+	}
+	md-checkbox .md-container {
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	box-sizing: border-box;
+	display: inline-block;
+	/* width: 11px; */
+	/* height: 20px; */
+	left: 0;
+	right: auto;
+	}
+	md-checkbox .md-icon {
+	width: 15px;
+	height:15px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 2px;
+	}
+
+
+	/************radio button*****************/
+
+
+	.polygonClass{
+	-webkit-clip-path:polygon(0% 13%, 50% 13%, 58% 1%, 66% 13%, 100% 13%, 100% 100%, 0% 100%,0% 0%);
+	}
+	/*************listing pages ....css***********/
+	.salons_container{
+	padding-top: 3%;
+	}
+	.salon_dis{
+	color:#58595b;
+	font-size:12px;
+	font-family: LatoMedium;
+	}
+	.listin-font-size-name{
+	font-size:13px;
+	color:#58595b;
+	font-family:latoLight;
+	font-weight: 700;
+
+	}
+	.listin-font-size{
+	font-size:12px;
+	font-family:latoLight;
+	color:#58595b;
+	font-weight: 600;
+
+	}
+
+	.listing-deal-font{
+	font-size:12px;
+	padding-left:.4em;
+	line-height:25px;
+	color:#58595b;
+	font-family:latoLight;
+	font-weight: 600;
+
+	}
+	.list-deal-r{
+	font-size:12px;
+	line-height:25px;
+	color:#58595b;
+	font-family:latoLight;
+	font-weight: 600;
+
+	}
+	.female{
+	padding-left: 4px;
+	}
+	.list-border{
+	border-bottom:1px solid #C3C3C3;
+	height: 35px;
+	font-size: 14px;
+	color:#58595b;
+	font-family: latoLight;
+	}
+	.heading-mobile-info{border-left:1px solid #e2e2e2;text-align: left;padding-left:0px;margin-right:23px;}
+	.filter-search-container{
+	background-color: #f2f2f2;
+	padding: 15px  30px  0px  30px;
+	}
+	.filter-search-option{
+	font-size: 11px;
+	padding-top: 5%;
+	}
+	.filter-search-header{
+	font-size: 14px;
+	padding-top:5px;
+	color:#58595b;
+	font-family: latoLight;
+
+
+	}
+	.filter-radio-btn{
+	margin:0px;
+	font-size:11px;
+	}
+	.filter-radio-container{
+	padding-top:2vh;
+	padding-bottom:2vh;
+	font-size:10px;
+	border-top:1px solid #e6e6e6;
+	}
+	.filter-btn{
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
+	background-color: #d2232a;
+	text-align: center;
+	color: #fff;
+	margin-top: 2px;
+	margin-bottom: 5px;
+	font-size: 13px;
+	cursor: pointer;
+	/* width: 20%; */
+	padding-left: 12px;
+	}
+	.filter-cancile-btn{
+	padding-top: 1%;
+	padding-bottom: 1%;
+	background-color: #e6e6e6;
+	text-align: center;
+	color: #58595b;
+	margin-top: 2px;
+	margin-bottom: 5px;
+	font-size: 13px;
+	margin-left: 5px;
+	cursor:pointer;
+	}
+	.fiter-radion-deading{
+	font-size: 14px;
+	margin-top: 3px;
+	padding-bottom: 3px;
+	color: #58595b;
+	font-family: latoLight;
+	}
+	.service-border{
+	border-top:1px solid #f2f2f2;
+	}
+	.listing-sorting{
+	display: block;
+	left: 780px;
+	top: 340px;
+	min-width: 124.95px;
+	font-size: 16px;
+	}
+	/********************offer filter dialog css ***********/
+	.offer-filter-btn{
+	border: 1px solid red;
+	background-color:#d2232a;
+	text-align: center;
+	padding-bottom: 1%;
+	padding-top: 1%;
+	border-radius: 2px;
+	color: #fff;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	}
+	.offer-filter-cancile{
+	text-align: center;
+	padding-bottom: 1%;
+	padding-top: 1%;
+	border-radius: 2px;
+	color: #000;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	}
+	.offer-filter-container{
+	background-color: #F2F2F2;
+	padding: 15px  30px  0px  30px;
+	}
+	.offer-filter-heading{
+	padding-bottom: 6px;
+	}
+	/*********User information css**********/
+	.user-save-btn{
+	background:#d2232a;;
+	margin-right:3%;
+	color:#fff;
+	}
+	.user-change{
+	background:#d2232a;
+	color:#fff;
+
+	}
+	#user-change{
+	background-color:#d2232a;
+	color:#fff;
+	}
+	#user-change-1{
+	background-color:#d2232a;
+	color:#fff;
+	margin-left:5px;
+
+	}
+	md-select-menu {
+	margin-top: 57px;
+	}
+	.user-btn-container{
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 30%;
+	padding-top: 4%;
+	}
+	/*****************dialog2 css************/
+	.dialog-google-btn{
+	border:1px solid #dd4b39;
+	border-radius:4px;
+	margin-left: 20px;
+	background:#dd4b39;
+	cursor: pointer;
+	}
+	.dialog-facebook-btn{
+	border:1px solid #3b8;
+	border-radius:4px;
+	background:#3b8;
+	cursor: pointer;
+	}
+	.dialog-text{
+	text-align:center;
+	font-size:10px;
+	color:#58595b;
+	}
+	.dialog-sign{
+	margin-left: 4%;
+	color:#fff;
+	padding-left:10%;
+	padding-right:10%;
+	background-color:#d2232a;
+	}
+	.log-cancile{font-size: 13px;padding-left:4%;padding-top: 6%;color:#58595b;}
+	/*************+ sign of accordion ************/
+	.vAccordion--default v-pane-header {
+	padding: 5px 0;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #D8D8D8;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+	}
+	.vAccordion--default v-pane-header::before {
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+	}
+	.vAccordion--default v-pane-header::after{
+	content:"";
+	display: block;
+	position: absolute;
+	top: 30%;
+	right: 0;
+	width: 10px;
+	height: 10px;
+	background-color:transparent;
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+	will-change: transform;
+	-webkit-transition: all 0.25s;
+	transition: all 1.0s;
+	}
+	.vAccordion--default v-pane-header::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 30%;
+	right: 0;
+	width: 10px;
+	height: 10px;
+	background-color:transparent;
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+	will-change: transform;
+	-webkit-transition: all 0.25s;
+	transition: all 1.0s;
+	font-size:17px;
+	}
+	.vAccordion--default v-pane-header:hover, .vAccordion--default v-pane-header:focus {
+	color: #d2231a;
+	}
+	/*************userinformation***********/
+	.user-profile-main-container{background-color: #FFF6F7; min-height: 90vh;margin-top: .3em;margin-left: 1em; border: 1px solid #f2f2f2;}
+	.location-icon{
+	color:#58585A;
+	}
+	.user-profile-container-1{
+	padding-left: 10%;
+	padding-top: 8%;
+	background-color:#fff;
+	}
+	.user-information{
+	margin-left:2%;
+	margin-right:10%;
+	height:55px;
+	margin-top: 10px;
+	width:95%;
+	}
+	.user-information-1{
+	margin-left:2%;
+	margin-right:10%;
+	height:55px;
+	width:95%;
+	}
+	.user-informarion-btn{
+	padding-left:10%;
+	padding-right:10%;
+	padding-bottom:30%;
+	padding-top:10%;
+	margin-top: -32px;
+	}
+	#user-information-sv-btn{
+	background:#d2232a;
+	margin-right:3%;
+	color:#fff;
+	}
+	.user-review{
+	color:#A1A1A1;
+	font-size: 11px;
+	}
+	.user-parlor-name{
+	color: #000;
+	margin-right:0px;
+	padding-right:0px;
+	font-size: 13px;
+	}
+	.user-parlor-address{
+	font-size: 12px;
+	}
+	.user-parlor-chait{width: 50%;height: 50%;}
+	.user-parlor-date{font-style: italic;font-size:12px;}
+	.user-upcoming-date{ font-style: italic;font-size:13px;width: 40%; text-align: right;}
+	.user-profile-small{width:74%;height:74%;}
+	.user-profile-icon-box{padding-left:0.5em;padding-top:0.5em;}
+	/*************My appointment*********/
+	.mdp-datepicker .md-hue-1:not(.md-menu-toolbar) {
+	background-color: rgb(210, 35, 42);
+	}
+
+	.mdp-datepicker .md-button.md-default-theme.md-primary, .md-button.md-primary{
+	color: rgb(210, 35, 42);
+	}
+
+	.mdp-datepicker .md-button.md-default-theme.md-accent.md-raised:not([disabled]):hover, .mdp-datepicker .md-button.md-accent.md-raised:not([disabled]):hover, .mdp-datepicker .md-button.md-default-theme.md-accent.md-fab:not([disabled]):hover, .mdp-datepicker .md-button.md-accent.md-fab:not([disabled]):hover{
+	background-color: rgb(210, 35, 42);
+	}
+	.mdp-datepicker .md-button.md-default-theme.md-accent.md-raised,.mdp-datepicker .md-button.md-accent.md-raised,.mdp-datepicker .md-button.md-default-theme.md-accent.md-fab, .mdp-datepicker   .md-button.md-accent.md-fab{
+	background-color: rgb(210, 35, 42);
+	}
+
+	.mdp-timepicker .md-hue-1:not(.md-menu-toolbar) {
+	background-color: rgb(210, 35, 42);
+	}
+	.myappoitment-heading{
+	padding-top: 2%;
+	padding-left: 3%;
+	padding-bottom: 2%;
+	}
+	.myappoitment-parlername{
+	color: #000;
+	margin-right: 28px;
+	padding-right: 10px;
+	}
+
+	/***************appointment Dialog***********/
+	.appointment-dialog{
+	padding-right:7%;
+	}
+	.appointment-review{
+	padding-left: 3%;
+	padding-top:4%;
+	background-color: white;
+	padding-bottom:4%;
+	font-size: 14px;
+	    font-family: latoLight;
+	    color: #58595b;
+	}
+	.appontment-details-dialog{
+	 background-color: #F1F1F1;
+	 padding-top: 4%;
+	 color:#58595b;
+	 padding-bottom: 4%;
+	 padding-left: 2%;
+	 padding-right: 6px;
+	 font-size: 13px;
+	 }
+	.appointment-detail-head{
+	background-color:#e6e6e6;
+	padding-top: 4%;
+	padding-bottom: 4%;
+	padding-left: 2%;
+	color:#58595b;
+	font-size: 15px;
+	}
+	.appontment-list{
+	font-size: 13px;
+	background-color: #F1F1F1;
+	padding-top: 2%;
+	padding-left: 4%;
+	color:#58595b;
+	}
+	.appointment-total{
+	font-size: 15px;
+	color:#58595b;
+	}
+	/***********checkout css*********************/
+	.customisedCheckoutChecbox .md-icon{
+	height: 20px;
+	width: 21px;
+	border: 1px solid grey;
+
+
+	}
+	.customisedCheckoutChecbox .md-label{
+	padding-left: 24px;
+	font-size: 0.9em;
+	font-weight: 600;
+	}
+
+	.checkout-total{
+	padding-left: 0.5em;
+	background-color: white;
+	padding-right: 0.8em;
+	padding-bottom: 0.2em;
+	}
+	.checkout-btn{
+	background-color: #d2232a;
+	color: white;
+	width: 100%;
+	font-size:1em;
+	margin-top: 0.5em;
+	}
+	.checkout-bill-information{
+	border-bottom: 1px solid #f2f2f2;
+	padding-bottom: 0.3em;
+	margin-top: 0.5em;
+	font-size: 0.8em;
+	padding-left: .7em;
+	}
+	.checkout-bill-information-1{
+	border-bottom: 1px solid #f2f2f2;
+	padding-bottom: 0.3em;
+	margin-top: 0.5em;
+	font-size: 0.8em;
+	padding-right: .9em;
+	}
+	.summary{
+	margin-top: 0.5em;
+	background-color: white;
+	border-top: 1px solid #F1F1F1;
+	border-bottom: 1px solid #F1F1F1;
+	}
+	.checkout-summary-details{
+	padding-bottom: 4em;
+	font-size: 0.8em;
+	}
+	.checkout-summary-text{
+	padding-bottom: 0.3em;
+	}
+	.checkout-personal{
+	padding-top: 1em;
+	font-size: 0.9em;
+	}
+	.checkout-address{
+	font-size: 0.9em;
+	}
+	.checkout-loyality{padding-left: 0.3em;}
+	.rupees-1{
+
+	padding-top: 0.5em;
+	text-align: right;
+	}
+	.rupees{
+	padding-top: 0.5em;
+	}
+	.checkout-payment{
+	background-color: #F1F1F1;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	padding-left: .2em;
+	font-weight: 600;
+	font-size: 0.9em;
+	color:#58595b;
+	}
+	.checkout-container-1{
+	padding-left: 1%;
+	padding-top: 1em;
+	font-size: 1.2em;
+	padding-bottom: 1%;
+	}
+	.checkout-container-2{
+	padding-left: 1%;
+	padding-top: 0.3em;
+	font-size: 1.2em;
+	padding-bottom:0.2em;
+	}
+	.beuty-talk-img{
+	width:45%;
+	height:30%;
+	}
+	.beu-home-searchbox {
+	color: #777;
+	}
+	/****************about us css***************/
+	.beu-about{font-size: 13px;font-weight: 200;color:#58595b;font-family: latoLight}
+	.beu-ques{font-size:15px;font-weight: 200;color:#58595b;font-family: latoLight}
+	.beu-company-heading{
+	color:#58595b;text-align: center;
+	font-family: latoLight;
+	}
+	.beu-company-sub-heading{color:#58595b;font-family: latoLight;}
+	.user-myloyality-point{
+	width: 10%;
+	height: 10%;
+	}
+	.user-profile-list{
+	cursor: pointer;
+	padding-top:5px;
+	}
+	/*parlor detail small device*/
+	#parlor-details-smdevice{
+	color: #fff;
+	border-top: 2px solid #f2f2f2;
+	border-bottom-left-radius: 0px;
+	border-left: 2px solid #f2f2f2;
+	border-bottom-right-radius: 0px;
+	border-right: 2px solid #f2f2f2;
+	background-color:#d2232a;
+	text-transform: capitalize;
+	}
+	.parlor-detailbox-smdevice{
+	position: absolute;
+	z-index: 100;
+	right: 31px;
+	top: 82%;
+	width: 350px;
+	background-color: #fbfafa;
+	border: 2px solid #f2f2f2;
+	border-radius: 3px;
+	border-top-right-radius: 2px;
+	box-shadow: -3px 0 5px rgba(2,2,2,.05);
+
+	}
+	/*media quary ****************/
+	@media screen and (min-width:1482px) and (max-width:1980px){
+	/***************************salonDeals1***************************/
+		.new-salon-middle-content{padding-left:20px;margin-left:28%;height:701px;overflow-y:scroll;}
+		.solon-list-k{margin-top: 12em;background-color:transparent;height:701px;}
+
+
+	#stampImage{
+	width:30%
+	}
+	.pageTitle{
+	margin-top:6em;
+	}
+	.titleLine{
+	width:27%;
+	}
+	/***************************salonDeals1***************************/
+
+	.dealsCard{
+	width: 100%;height: 90%;
+	}
+	.dealsCard{
+	width: 100%;height: 90%;
+	}
+	.chatWindowText{
+	margin:0;
+	width:20em;
+	}
+	.beUPromiseContent{
+	margin-top: -9px;
+	margin-bottom: -12px;
+	}
+	#parlor-toplist-image{
+	margin-top: -25px;margin-left: 0px;height:113px; width:100%;
+	}
+	#parlor-toplist-flag{
+	height: 1.5em;width:50%;top:0px;left:0px;position:relative;
+	}
+	.specTwo{
+	padding-top:0.5em;
+	padding-bottom: 1em;
+	}
+	#header-page-show{position: relative;background-color: #F2F2F2;height: 145px;width: 130px;border:1px solid #C3C3C3;z-index:10000;top: 38px;}
+	.search-location-image{
+	height: 35px;width:35px;position: relative;right: 10px;top: 6px;
+	}
+	.delhiNCR{
+	position: relative;right: 10px;top: -5px;font-family: latoRegular;color:#808285;font-size: 13px;
+	}
+	.bannerSizeHome img{
+	width:100%;height:76%;margin-bottom:-1em
+	}
+	.parlor-toplist-name{font-size:16px;color:#58595b;}
+	.topsalon-list{
+	line-height: 1em;
+	color:#58595b;
+	font-family: latoLight;
+	font-size: 12px;
+	word-break: break-all;
+	margin: 8px;
+	}
+	.topsalon-list-1{
+
+	color: #58595b;
+	font-family: latoLight;
+	line-height: 1em;
+	font-size: 12px;
+	padding-bottom: 10px;
+	word-break: break-all;
+	margin-left: 8px;
+	}
+
+	.parlor-see-more{
+	/*padding-left:3em;*/
+	}
+	.header-li-item{
+	margin-left: 3px;
+	}
+	.footer-page-listingpadding{font-size: 14px;padding-right: 3px;border-left:0	;}
+	.home-page-heading{
+	/*padding-top:10px;*/
+	font-size:32px;font-family:latoLight;color:#58595b}
+	.header-logo{
+	height:25px;
+	width:85px;
+	}
+	.header-border-line {
+	font-size:1em;
+	color: #ffffff !important;
+	font-family: latoRegular;
+	}
+	.header-toolbar-list{
+	margin:0;padding-left:20em;padding-top:3em;max-width: 40em;
+	}
+	.header-download-app{
+	font-size:0.8em;padding-bottom: 0.5em;text-align: center;
+	}
+	.header-page-phonenumber{
+	color: white;
+	font-size:0.65em;
+	padding-left:0px;
+	margin-top: 0em;
+	}
+	.header-page-phoneicon {
+	padding-left:1.2em;
+	margin-top:0.5em;
+	padding-right:0.2em;}
+	.fa-phone:before{
+	color:white;
+	font-size:1em;
+	}
+	.fa-android:before{
+	color:white;
+	font-size:1.5em;
+	}
+	.fa-apple:before {
+	color:white;
+	font-size:1em;
+	padding:0.2em;
+	}
+	.font_why_download{
+	font-size:0.8em;
+	line-height: 0.8em;
+	}
+	.jk-carousel .radio-buttons-container{
+	    margin-bottom: 35px !important;
+	}
+	.deal-service-btn{margin-right: -730px;}
+	.beu-home-searchbox {
+	margin-top: 22em!important;
+	color: #fff;
+	}
+	.user-review-img{
+	width:100%;height:90px;
+	}
+	.user-myloyality-point{
+	width: 5%;
+	height: 5%;
+	}
+	.btn_face {
+	border-left: 1px solid #fff;
+	padding-top: 6px;
+	padding-left: 41px;
+	color: #fff;
+	margin-left: 4px;
+	font-size: 20px;
+	padding-right: 2px;
+	}
+	.btn-goole {
+	border-left: 1px solid #fff;
+	padding-top: 6px;
+	padding-left: 41px;
+	color: #fff;
+	margin-left: 4px;
+	font-size: 20px;
+	padding-right: 2px;
+	}
+	.box {
+	margin-top: 1em!important;
+	box-shadow: none;
+	background: none;
+	padding-right: 10px;
+	}
+	.search-container{
+	/*margin-top:24em !important;*/
+	background-color: white;
+	max-height: 52px !important;
+	border-radius: 4px;
+	}
+	}
+	@media screen and (min-width:800px) and (max-width:1280px){
+	/*header pg*/
+
+	/* .new-salon-middle-content{padding-left:20px;margin-left:28%;height:600px;overflow-y:scroll;} */
+
+
+	.header-page-phonenumberBold{
+	margin-top: 0.3em;
+	}
+	/*header pg*/
+	/***************************homePageChatBox***************************/
+
+	/***************************homePageChatBox***************************/
+
+	.dealsCard{
+	width: 100%;height: 90%;
+	}
+	.chatWindowText{
+	margin:0;
+	width:14em;
+	}
+	.beUPromiseContent{
+	margin-top: -9px;
+	margin-bottom: -12px;
+	}
+	#parlor-toplist-image{
+	margin-top: -25px;margin-left: 0px;height:113px; width:100%;
+	}
+	#parlor-toplist-flag{
+	height: 1.5em;width: 6em;top:0px;left:0px;position:relative;
+	}
+	.specTwo{
+	padding-top:0.5em;
+	padding-bottom: 1em;
+	}
+	#header-page-show{position: relative;background-color: #F2F2F2;height: 145px;width: 130px;border:1px solid #C3C3C3;z-index:10000;top: 38px;}
+
+	.search-location-image{
+	height: 35px;width:35px;position: relative;right: 10px;top: 6px;
+	}
+	.delhiNCR{
+	position: relative;right: 10px;top: -5px;font-family: latoRegular;color:#808285;font-size: 13px;
+	}
+	.bannerSizeHome  img{
+
+	width:100%;height:76%;margin-bottom:-1em
+	}
+	.parlor-toplist-name{font-size:16px;color:#58595b;}
+	.topsalon-list{
+	line-height: 1em;
+	color:#58595b;
+	font-family: latoLight;
+	font-size: 12px;
+	word-break: break-all;
+	margin: 8px;
+	}
+	.topsalon-list-1{
+
+	color: #58595b;
+	font-family: latoLight;
+	line-height: 1em;
+	font-size: 12px;
+	padding-bottom: 10px;
+	word-break: break-all;
+	margin-left: 8px;
+	}
+	.parlor-see-more{
+	/*padding-left:3em;*/
+	}
+	.header-li-item{
+	margin-left: 3px;
+	}
+	.footer-page-listingpadding{font-size: 14px;padding-right: 3px;border-left:0	;}
+	.home-page-heading{
+	/*padding-top:10px;*/
+	font-size:23px;font-family:latoLight;color:#58595b}
+	.header-logo{
+	height:25px;
+	width:85px;
+	}
+	.header-download-app{
+	font-size:0.6em;padding-bottom: 0.5em;text-align: center;
+	}
+	.header-toolbar-list{
+	margin:0;padding-left:6.2em;padding-top:3em;max-width: 40em;
+	}
+	.header-page-phonenumber{
+	color: white;
+	font-size:0.65em;
+	padding-left:0px;
+	margin-top: 0.3em;
+	}
+	.header-page-phoneicon {
+	padding-left:1.2em;
+	margin-top:0.5em;
+	padding-right:0.2em;}
+	.fa-phone:before{
+	color:white;
+	font-size:0.8em;
+	}
+	.fa-android:before{
+	color:white;
+	font-size:0.8em;
+	}
+	.fa-apple:before {
+	color:white;
+	font-size:0.8em;
+	padding:0.2em;
+	}
+	.header-border-line {
+	font-size:0.9em;
+	color: #ffffff !important;
+	font-family: latoRegular;
+	}
+	.jk-carousel .radio-buttons-container{
+	    margin-bottom: 30px;
+	}
+	.font_why_download{
+	font-size:0.8em;
+	line-height: 0.8em;
+	}
+	.deal-service-btn{margin-right: -468px;}
+	.beu-home-searchbox {
+	margin-top:12em!important;
+	color: #fff;
+
+	}
+
+	.listing-male-female{
+	width: 1.4em;
+	height: 1.4em;
+	}
+	.list-cover {
+	width: 100%!important;
+	margin-top: 60px;
+	-webkit-background-size: contain;
+	height: 270px;
+	background-image: url(../images/home-cover.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+
+
+	}
+
+	}
+
+	@media screen and (min-width:768px) and (max-width:1024px){
+	/***************************salonDeals1***************************/
+	.salon-affilaite-hundredby{font-size:13px;}
+	.affiliate-media {
+		    width: 106px;
+		}
+	.affiliate-salon-pass {
+	    font-size: 41px;
+	}
+	.salo-affiliate-your-outlate{font-size:16px;}
+	.affilate-salon-pass-opendoor {
+	    font-size: 35px;
+	}
+	.salon-pass-affiliated-enjory {
+    font-size: 20px;
+    line-height: 32px;
+}
+.affiliate-list-with-us {
+    width: 100%;
+
+}
+.affiliate-salon-pass-reg {
+    font-size: 40px;
+}
+.affilate-salon-pass-3month-1 {
+    font-size: 36px;
+
+}
+.affiliate-list-with-us-now {
+    width: 100%;
+
+}
+	.salon-partner-livenow {
+    font-size: 71px;
+    font-weight: 700;
+    font-family: 'latoBold';
+    color: #58595b;
+}
+.hero-box {
+    min-height: 49.5rem;
+    max-height: 115vh;
+}
+.salon-partner-within-48 {
+    margin-left: 1%;
+    margin-right: 1%;
+    font-size: 57px;
+}
+.salon-partner-meeting {
+    font-size: 20px;
+    line-height: 0px;
+    color: #58595b;
+}
+.salon-partner-growth {
+    font-size: 26px;
+    padding: 2% 0 0% 0;
+    color: #58595b;
+}
+	.contactFormLeft{
+	width: 70%;
+	}
+.sidebar-left-page-newsalondeal {
+    position: fixed;
+    height: 550px;
+    overflow: auto;
+    width: 32%;
+}
+
+	/***************************salonDeals1***************************/
+
+	.dealsCard{
+	width: 100%;height: 90%;
+	}
+	.chatWindowText{
+	margin:0;
+	width:25em;
+	}
+	.beUPromiseContent{
+	margin-top: -9px;
+	margin-bottom: -12px;
+	}
+	#parlor-toplist-image{
+	margin-top: -23px;margin-left: 0px;height:113px; width:100%;
+	}
+	#parlor-toplist-flag{
+	height: 1.5em;width: 50%;top:1px;left:0px;position:relative;
+	}
+	.specTwo{
+	padding-top:0.5em;
+	padding-bottom: 1em;
+	}
+	#header-page-show{position: relative;background-color: #F2F2F2;height: 145px;width: 130px;border:1px solid #C3C3C3;z-index:10000;top: 38px;}
+
+	.search-location-image{
+	height: 35px;width:35px;position: relative;right: 10px;top: 6px;
+	}
+	.delhiNCR{
+	position: relative;right: 10px;top: -5px;font-family: latoRegular;color:#808285;font-size: 13px;
+	}
+	.bannerSizeHome  img{
+	width:100%;height:76%;margin-bottom:-1em
+	}
+	.parlor-toplist-name{font-size:16px;color:#58595b;}
+	.topsalon-list{
+	line-height: 1em;
+	color:#58595b;
+	font-family: latoLight;
+	font-size: 12px;
+	word-break: break-all;
+	margin: 8px;
+	}
+	.topsalon-list-1{
+
+	color: #58595b;
+	font-family: latoLight;
+	line-height: 1em;
+	font-size: 12px;
+	padding-bottom: 10px;
+	word-break: break-all;
+	margin-left: 8px;
+	}
+	.companyinfo-page-heading {
+	    padding-top: 3%;
+	}
+	.beuheader-pro{
+	color:#fff;
+	margin-left: 0.7em;
+	margin-top: 0.2em;
+	}
+	
+	.header-download-div{
+	margin-left:0em;
+	font-size: 35px;
+    margin-top: -15px;
+	}
+	.parlor-see-more{
+	/*padding-left:3em;*/
+	}
+	.sidenav-list{
+	margin:1em;text-align: center;font-size:1em;font-family: 'Lato', sans-serif;
+	}
+	.sidenav-list-div:hover{
+	background: #D2232A;
+	color: #fff;
+	}
+	.header-cart{
+	padding-top: 25px;
+	}
+	.header-android{
+	 margin-right: 0;
+	}
+	.parlor-toplist-flag{
+	height: 1em;
+	z-index: 2;
+	width: 3em;
+	}
+	.header-li-item{
+	margin-left: 3px;
+	}
+	.footer-page-listingpadding{font-size: 10px;padding-right: 3px;border-left:0	;}
+	.home-page-heading{
+	/*padding-top:10px;*/
+	font-size:23px;font-family:latoLight;color:#58595b}
+	.header-logo{
+	height:25px;
+	width:85px;
+	}
+	.header-toolbar{
+	padding-left: 0;
+	}
+	.header-download-app{
+	font-size:0.6em;
+	/*margin-left: 1em;*/
+	padding-bottom: 0.5em;
+	text-align: center;
+	}
+	.header-toolbar-list{
+	margin:0;padding-left:6.2em;padding-top:3em;max-width: 40em;
+	}
+	.header-page-phonenumber{
+	color: white;
+	font-size:0.6em;
+	padding-left:0px;
+	/*margin-top: 0.5em;*/
+	margin-left: 0.5em;
+	}
+	.header-page-phoneicon {
+	/*padding-left:0.7em;*/
+	margin-top:0.2em;
+	/*padding-right:0.3em;*/
+	}
+	.fa-phone:before{
+	color:white;
+	font-size:0.7em;
+	}
+	.fa-android:before{
+	color:white;
+	font-size:0.8em;
+	margin-left: 0.5em;
+	}
+	.fa-apple:before {
+	color:white;
+	font-size:0.8em;
+	padding:0.2em;
+	}
+	.header-border-line {
+	font-size:0.8em;
+	color: #ffffff !important;
+	font-family: latoRegular;
+	}
+	.jk-carousel .radio-buttons-container{
+	    margin-bottom: -30px;
+	}
+	.font_why_download{
+	font-size:0.8em;
+	line-height: 0.8em;
+	}
+	.highlights{
+	font-size:0.8em;
+	}
+	.terms{
+	font-size: 0.8em;
+	}
+	.why_download_image{
+	height: auto;
+	}
+
+	.facebook_like{
+	font-size:0.6em;
+	padding-bottom: 1.5em;
+	 	padding-left:0.9em;
+	}
+	.header-page-app-download {
+	    text-align: right;
+	    margin-right: -92px;
+	}
+	    .home-neardeals {
+	        width: 29%;
+	    }
+	    .home-oursalonpartner {
+	        width: 35%;
+	    }
+	    .home-beuclint {
+	        width: 23%;
+	        /*text-align: center;*/
+	    }
+	    .parlor-toplist-name {
+	font-size: 10px;
+	color: #58595b;
+	}
+	.sevice-dialo {
+	width: 80%;
+	max-height: 100%;
+	max-width: 100%;
+	color: #58595b;
+	}
+	.deel-dialog-container {
+	width:100%;
+	max-height: 100%;
+	}
+
+	.home-about {
+	width:20%;
+	/* padding-left: 14px; */
+	text-align: center;
+	}
+	.card-title{
+	font-size: 11px;
+
+	}
+	.listing-male-female{
+	width: 1.4em;
+	height: 1.4em;
+	}
+	    .sliderCircleOff.jk-carousel .radio-buttons-container md-radio-button .md-off{
+	height: 10px;
+	width: 10px;
+	margin-top:-50px;
+	background-color: #A8A9AD;
+	margin-left:-5px;
+	}
+	.sliderCircleOn.jk-carousel .radio-buttons-container md-radio-button .md-on{
+	height: 20px;
+	width: 20px;
+	margin-top:-55px;
+	margin-left:-10px;
+
+	}
+
+
+
+	.varyingMenuDropdownTopProperty{
+	top: 20px;
+
+	}
+	.btn-goole {
+	border-left: 1px solid #fff;
+	padding-top: 11px;
+	padding-left: 4px;
+	color: #fff;
+	margin-left: 5px;
+	font-size: 13px;
+	padding-right: 8px;
+	}
+	.salon-pass-becoming-salon {
+    font-size: 27px;
+    padding: 3% 0 1% 0;
+}
+
+	.salon-pass-opendoor {
+    font-size: 30px;
+    padding-top: 1%;
+}
+.salon-pass-registernow {
+    width: 91%;
+  
+}
+	.salon-pass-fiveplus {
+    font-size: 45px;
+    font-weight: 700;
+}
+	.salon-pass-fiveplus {
+    font-size: 45px;
+    font-weight: 700;
+}
+.salon-pass-enjory {
+    font-size: 29px;
+    line-height: 32px;
+}
+	.salon-pass-ser-fre {
+    font-size: 12px;
+}
+.download-salon-pass-b {
+    padding-top: 13%;
+    width: 185px;
+    height: 202px;
+}
+	.app-salon-pass-get {
+    line-height: 33px;
+    font-size: 24px;
+  
+}
+.app-salon-pass-get {
+    line-height: 38px;
+    font-size: 28px;
+    padding-top:16%;
+}
+	.salon-pass-subnow {
+    width: 80%;
+}
+.salon-pass-appdown {
+    font-size: 18px;
+
+}
+.hero-salon-pasbox {
+    min-height: 44.5rem;
+    max-height: 115vh;
+}
+
+
+	}
+
+	/*@media screen and (max-width:992px){
+	.varyingMenuDropdownLeftProperty{
+	left: 74%;
+
+	}
+	.varyingMenuDropdownTopProperty{
+	top: 41px;
+
+	}
+
+	}*/
+	@media screen and (min-width:642px) and (max-width:768px){
+	/***************************salonDeals1***************************/
+
+	/***************************salonDeals1***************************/
+
+.sidebar-left-page-newsalondeal {
+    position: fixed;
+    height: 550px;
+    overflow: auto;
+    width: 32%;
+}
+
+	.dealsCard{
+	width: 100%;height: 100%;
+	}
+	.chatWindowText{
+	margin:0;
+	width:25em;
+	}
+	.beUPromiseContent{
+	margin-top: -9px;
+	margin-bottom: -12px;
+	}
+	#parlor-toplist-image{
+	margin-top: -29px;margin-left: 0px;height:113px; width:170px;
+	}
+	#parlor-toplist-flag{
+	height: 1.5em;width: 6em;top:0px;left:0px;position:relative;
+	}
+	.specTwo{
+	padding-top:0.5em;
+	padding-bottom: 1em;
+	}
+	.cart-mobile{
+	right: 77px;
+	}
+	#header-page-show{
+    position: relative;background-color: #F2F2F2;height: 145px;width: 130px;border:1px solid #C3C3C3;z-index:10000;top: 10px;
+
+	}
+	.search-location-image{
+	height: 35px;width:35px;position: relative;right: 10px;top: 6px;
+	}
+	.delhiNCR{
+	position: relative;right: 10px;top: -5px;font-family: latoRegular;color:#808285;font-size: 13px;
+	}
+	.bannerSizeHome  img{
+	width:100%;height:100%;margin-bottom:-1em
+	}
+	.parlor-toplist-name{font-size:11px;color:#58595b;}
+	.topsalon-list{
+	line-height: 1em;
+	color:#58595b;
+	font-family: latoLight;
+	font-size: 10px;
+	word-break: break-all;
+	margin: 8px;
+	}
+	.topsalon-list-1{
+
+	color: #58595b;
+	font-family: latoLight;
+	line-height: 1em;
+	font-size: 10px;
+	padding-bottom: 10px;
+	word-break: break-all;
+	margin-left: 8px;
+	}
+	.companyinfo-page-heading {
+	    padding-top: 15%;
+	}
+	
+	.header-download-div{
+	margin-left:0em;
+	font-size: 35px;
+    margin-top: -15px;
+	}
+	.parlor-see-more{
+	/*padding-left:3em;*/
+	}
+	.sidenav-list{
+	margin:1em;text-align: center;font-size:1em;font-family: 'Lato', sans-serif;
+	}
+	.sidenav-list-div:hover{
+	background: #D2232A;
+	color: #fff;
+	}
+	.header-android{
+	 margin-right: 0px;
+	}
+	.header-cart{
+	padding-top: 25px;
+	}
+	.header-li-item{
+	margin-left: 3px;
+	}
+	.footer-page-listingpadding{font-size: 10px;padding-right: 3px;border-left:0	;}
+	.home-page-heading{
+	/*padding-top:10px;*/
+	font-size:30px;font-family:latoLight;color:#58595b}
+	.header-logo{
+	height:25px;
+	width:85px;
+	}
+	.header-download-app{
+	font-size:0.5em;padding-bottom: 0.5em;text-align: center;
+	}
+
+	.header-toolbar-list{
+	margin:0;padding-left:2.2em;padding-top:0em;max-width: 40em;
+	}
+	.fa-phone:before{
+	display: none;
+	color:white;
+	font-size:0.5em;
+	}
+	.fa-android:before{
+	color:white;
+	font-size:0.5em;
+	}
+	.fa-apple:before {
+	color:white;
+	font-size:0.5em;
+	padding:0.2em;
+	}
+	.highlights{
+	font-size:0.8em;
+	}
+	.terms{
+	font-size:0.8em;
+	}
+	.header-border-line {
+	font-size:0.4em;
+	color: #ffffff !important;
+	font-family: latoRegular;
+	}
+	.header-page-phonenumber{
+	display: none;
+	color: white;
+	font-size:0.65em;
+	padding-left:0px;
+	margin-top: 3em;
+	}
+	.header-page-phoneicon {
+	padding-left:1.2em;
+	margin-top:2em;
+	padding-right:0.2em;}
+	.jk-carousel .radio-buttons-container{
+	display: none;
+	    margin-bottom: 35px;
+	}
+	.font_why_download{
+	font-size:0.8em;
+	}
+
+	.why_download_image{
+	height: auto;
+	}
+	.home-about {
+	width: 23%;
+	text-align: center;
+	}
+	.header-page-app-download {
+	text-align: right;
+	margin-right: -41px;
+	}
+	.jk-carousel .md-icon-button md-icon {
+	color: #ffffff;
+	width: 30px;
+	height: 30px;
+	font-size: 27px;
+	cursor: pointer;
+	outline: none !important;
+	border-radius: 50%;
+	}
+	.sliderCircleOff.jk-carousel .radio-buttons-container md-radio-button .md-off{
+	height: 10px;
+	width: 10px;
+	margin-top:15px;
+	background-color: #A8A9AD;
+	margin-left:-5px;
+	}
+	.sliderCircleOn.jk-carousel .radio-buttons-container md-radio-button .md-on{
+	height: 10px;
+	width: 10px;
+	margin-top:15px;
+	margin-left:-5px;
+
+	}
+	.listing-male-female{
+	width: 1.4em;
+	height: 1.4em;
+	}
+	.back-cover {
+	background-image: url(../images/HEADER.jpg);
+
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 32%!important;
+	height: auto;
+	}
+	.home-primum {
+	text-align: center;
+	font-size: 16px;
+	}
+	.beu-home-searchbox {
+	margin-top: 9em!important;
+	color: #fff;
+	}
+
+	.search-container {
+	/*margin-top:18%!important;*/
+	background-color: white;
+	max-height: 58px !important;
+	border-radius: 4px;
+	}
+	.varyingMenuDropdownTopProperty{
+	top: 20px;
+
+	}
+
+	/*.search-container {
+	margin-top: 6em !important;
+	}*/
+	.beu-small {
+	margin-top:0px;
+	background-color: white;height:30px;
+	}
+	md-autocomplete input:not(.md-input) {
+	font-size: 14px;
+	box-sizing: border-box;
+	border: none;
+	box-shadow: none;
+	outline: none;
+	background: transparent;
+	width: 100%;
+	padding: 0 15px;
+	line-height: 20px;
+	height:19px;
+	}
+	md-autocomplete md-autocomplete-wrap {
+	background-position: 5px 15px;
+	padding: 14px 25px;
+	}
+	.dialog-google-btn {
+	border: 1px solid #dd4b39;
+	border-radius: 4px;
+	margin-left:6px;
+	margin-right:0px;
+	background: #dd4b39;
+	cursor: pointer;
+	margin-top: 4px;
+	}
+
+	.box{
+	margin-top:1%!important;
+	}
+
+	.search_sm{
+	background: #fff;
+	padding-top: 8px;
+	padding-bottom: 7px;
+
+	}
+	.home-card {
+	height: 20%!important;
+	margin:auto;
+
+
+	}
+	#pnnel-right{
+	width:100%;
+	padding:10px;
+	font-size:13px;
+
+	}
+	.home-line-right{
+	margin-right: -10px;
+	}
+	.home-line-left{
+	margin-right: -10px;
+	}
+	.beauty-talk-icon {
+	padding-left: 36%;
+	padding-top:2%;
+	padding-bottom:2%;
+	}
+	.btn_facepad{
+	padding-top: 4%;
+	padding-left:0%;
+	padding-right:0%;
+	}
+
+	.btn_facegoogle {
+	padding-top: 0.5em;
+	padding-left:0em;
+	padding-right:0em;
+	}
+	.btn_face {
+	border-left: 1px solid #fff;
+	padding-top: 11px;
+	padding-left: 10px;
+	color: #fff;
+	margin-left: 5px;
+	font-size: 13px;
+	padding-right: 8px;
+	}
+	.btn_facegoogle {
+	padding-top: 0.5em;
+	padding-left: 0.3em;
+	padding-right: .5em;
+	}
+	.btn-goole {
+	border-left: 1px solid #fff;
+	padding-top: 11px;
+	padding-left: 4px;
+	color: #fff;
+	margin-left: 5px;
+	font-size: 13px;
+	padding-right: 8px;
+	}
+
+	.beauty {
+	box-sizing: border-box;
+	width: 97.5%!important;
+	height: 93%!important;
+	}
+	.sevice-dialo {
+	width:90%;
+
+	}
+	.hero {
+	    min-height: 30.5rem;
+	    max-height: 115vh;
+
+	}
+	.hero-box {
+	    min-height:46.5rem;
+	    max-height: 115vh;
+	}
+	.salon-partner-livenow {
+		    font-size: 57px;
+		}
+		.salon-partner-growth {
+		    font-size: 18px;
+		}
+		.salon-partner-meeting {
+		    font-size: 20px;
+		}
+		.salon-partner-within-48 {
+		    font-size: 48px;
+		}
+		.salon-parner-3step {
+		    font-size: 43px;
+		    padding-top: 0%;
+		    line-height: 40px;
+		}
+		.salon-affilaite-hundredby{font-size:13px;}
+	.affiliate-media {
+		    width: 106px;
+		}
+	.affiliate-salon-pass {
+	    font-size: 41px;
+	}
+	.salo-affiliate-your-outlate{font-size:16px;}
+	.affilate-salon-pass-opendoor {
+	    font-size: 35px;
+	}
+	.salon-pass-affiliated-enjory {
+    font-size: 20px;
+    line-height: 32px;
+}
+.affiliate-list-with-us {
+    width: 100%;
+
+}
+.affiliate-salon-pass-reg {
+    font-size: 40px;
+}
+.affilate-salon-pass-3month-1 {
+    font-size: 36px;
+
+}
+.affiliate-list-with-us-now {
+    width: 100%;
+
+}
+.salon-pass-becoming-salon {
+    font-size: 27px;
+    padding: 3% 0 1% 0;
+}
+
+	.salon-pass-opendoor {
+    font-size: 30px;
+    padding-top: 1%;
+}
+.salon-pass-registernow {
+    width: 91%;
+  
+}
+	.salon-pass-fiveplus {
+    font-size: 45px;
+    font-weight: 700;
+}
+	.salon-pass-fiveplus {
+    font-size: 45px;
+    font-weight: 700;
+}
+.salon-pass-enjory {
+    font-size: 29px;
+    line-height: 32px;
+}
+	.salon-pass-ser-fre {
+    font-size: 12px;
+}
+.download-salon-pass-b {
+    padding-top: 13%;
+    width: 185px;
+    height: 202px;
+}
+	.app-salon-pass-get {
+    line-height: 33px;
+    font-size: 24px;
+  
+}
+.app-salon-pass-get {
+    line-height: 38px;
+    font-size: 28px;
+    padding-top:16%;
+}
+	.salon-pass-subnow {
+    width: 80%;
+}
+.salon-pass-appdown {
+    font-size: 18px;
+
+}
+.hero-salon-pasbox {
+    min-height: 44.5rem;
+    max-height: 115vh;
+}
+ .home-delhi-ncr-search {
+	 height: 50px;
+
+	}
+	#seabackcolor {
+    height: 50px;
+}
+}
+	@media screen and (min-width:568px) and (max-width:642px){
+	/***************************salonDeals1***************************/
+		.home-page-jk-carrosal-container {
+    background-color: #fff;
+    margin-top: 2.5em;
+}
+	.salon-pass-becoming-salon {
+    font-size: 27px;
+    padding: 3% 0 1% 0;
+}
+
+	.salon-pass-opendoor {
+    font-size: 30px;
+    padding-top: 1%;
+}
+.salon-pass-registernow {
+    width: 91%;
+  
+}
+	.salon-pass-fiveplus {
+    font-size: 45px;
+    font-weight: 700;
+}
+	.salon-pass-fiveplus {
+    font-size: 45px;
+    font-weight: 700;
+}
+.salon-pass-enjory {
+    font-size: 29px;
+    line-height: 32px;
+}
+	.salon-pass-ser-fre {
+    font-size: 12px;
+}
+.download-salon-pass-b {
+    padding-top: 13%;
+    width: 185px;
+    height: 202px;
+}
+	.app-salon-pass-get {
+    line-height: 33px;
+    font-size: 24px;
+  
+}
+.app-salon-pass-get {
+    line-height: 38px;
+    font-size: 28px;
+    padding-top:16%;
+}
+	.salon-pass-subnow {
+    width: 80%;
+}
+.salon-pass-appdown {
+    font-size: 18px;
+
+}
+.hero-salon-pasbox {
+    min-height: 44.5rem;
+    max-height: 115vh;
+}
+	.salon-affilaite-hundredby{font-size:13px;}
+	.affiliate-media {
+		    width: 106px;
+		}
+	.affiliate-salon-pass {
+	    font-size: 41px;
+	}
+	.salo-affiliate-your-outlate{font-size:16px;}
+	.affilate-salon-pass-opendoor {
+	    font-size: 35px;
+	}
+	.salon-pass-affiliated-enjory {
+    font-size: 20px;
+    line-height: 32px;
+}
+.affiliate-list-with-us {
+    width: 100%;
+
+}
+.affiliate-salon-pass-reg {
+    font-size: 40px;
+}
+.affilate-salon-pass-3month-1 {
+    font-size: 36px;
+
+}
+.affiliate-list-with-us-now {
+    width: 100%;
+
+}
+	.hero {
+	    min-height: 27.5rem;
+	    max-height: 115vh;
+	}
+	.partner-salon-call-us {
+    font-size: 13px;
+ 
+}
+	.hero-box {
+    min-height: 53.5rem;
+    max-height: 115vh;
+}
+.salon-partner-livenow {
+    font-size: 57px;
+}
+.salon-partner-growth {
+    font-size: 18px;
+}
+.salon-partner-meeting {
+    font-size: 20px;
+}
+.salon-partner-within-48 {
+    font-size: 48px;
+}
+	.titleText{
+	margin-bottom:0;
+	margin:0 auto;
+	font-size: 1.2em;
+	}
+	#stampImage {
+	    width: 70%;
+	}
+	.titleLine{
+	width:30%;
+	margin-left:-2em;
+	}
+	.contactFormLeft{
+	width: 80%;
+	}
+	#phoneImage{
+	margin:1em auto;
+	}
+	.bannerSize{
+	margin: 0 auto;
+	width:90%;
+	}
+	/***************************salonDeals1***************************/
+	.listing-container {
+	background-color: white;
+	max-height: 52px!important;
+	margin-top:7vh!important;
+	margin-bottom: 5vh;
+	border-radius: 4px;
+	}
+	.dealsCard{
+	width: 100%;height: 100%;
+	}
+	.beUPromiseContent{
+	margin-top: -21px;
+	margin-bottom: -12px;
+	}
+	#parlor-toplist-image{
+	margin-top: -29px;margin-left: 0px;height:113px; width:170px;
+	}
+	#parlor-toplist-flag{
+	height: 1.5em;width: 6em;top:0px;left:0px;position:relative;
+	}
+	.specTwo{
+	padding-top:0.5em;
+	padding-bottom: 1em;
+	}
+	.cart-mobile{
+	right: 77px;
+	}
+	#header-page-show{position: relative;background-color: #F2F2F2;height: 145px;width: 130px;border:1px solid #C3C3C3;z-index:10000;top: 38px;}
+	.header-download-div{
+	margin-left:0em;
+	}
+	.parlor-see-more{
+	padding-left: 3em;
+	}
+	.sidenav-list{
+	margin:1em;text-align: center;font-size:1em;font-family: 'Lato', sans-serif;
+	}
+	.sidenav-list-div:hover{
+	background: #D2232A;
+	color: #fff;
+	}
+	.header-android{
+	 margin-right: -12px;
+	}
+
+	.header-cart{
+	padding-top: 25px;
+	}
+	.header-li-item{
+	margin-left: 3px;
+	}
+	.footer-page-listingpadding{font-size: 10px;padding-right: 3px;border-left:0	;}
+	.home-page-heading{
+	/*padding-top:10px;*/
+	font-size:32px;font-family:latoLight;color:#58595b}
+	.header-logo{
+		height: 17px;
+	    width: 65px;
+	    margin-top: 7px;
+	}
+	.header-download-app{
+	font-size:0.6em;padding-bottom: 0.5em;text-align: center;
+	}
+	.header-page-phonenumber{
+	color: white;
+	font-size:0.65em;
+	padding-left:0px;
+	margin-top: 3em;
+	}
+	.header-toolbar-list{
+	margin:0;padding-left:2.2em;padding-top:0.5em;max-width: 40em;
+	}
+	.header-page-phoneicon {
+	padding-left:1.2em;
+	margin-top:2em;
+	padding-right:0.2em;}
+	.fa-phone:before{
+	color:white;
+	font-size:0.5em;
+	}
+	.fa-android:before{
+	color:white;
+	font-size:0.7em;
+	margin-right: 1em;
+	}
+	.fa-apple:before {
+	color:white;
+	font-size:0.7em;
+	padding:0.2em;
+	}
+	.header-border-line {
+	font-size:0.5em;
+	color: #ffffff !important;
+	font-family: latoRegular;
+	}
+	.jk-carousel .radio-buttons-container{
+	display: none;
+	    margin-bottom: 35px;
+	}
+	.font_why_download{
+	font-size:.7em;
+	}
+	.highlights{
+	font-size: .7em;
+	}
+	.terms{
+	font-size:0.7em;
+	}
+	.why_download_image{
+	height: auto;
+	}
+	.facebook_like{
+	font-size:0.6em;
+	padding-bottom: 1.5em;
+	padding-left:0.9em;
+	}
+	.home-about {
+	width:30%;
+	text-align: center;
+	}
+	.header-page-app-download {
+	text-align: right;
+	margin-right: 0px;
+	}
+	.news-box{padding-left:10%;}
+	.user-profile-icon-box{padding-left:0.5em;padding-top:0.2em;}
+	.topsalon-list-1 {
+	margin-top: -0.5rem;
+	color: #58595b;
+	font-family: latoLight;
+	line-height: 12px;
+	font-size: 13px;
+	padding-bottom: 10px;
+	}
+	.beauty {
+	box-sizing: border-box;
+	width: 97.5%!important;
+	height: 91%!important;
+	}
+	.user-profile-small {
+	width: 80%;
+	height: 60%;
+	}
+	.listing-male-female{
+	width: 1.4em;
+	height: 1.4em;
+	}
+	.beu-home-searchbox {
+	margin-top: 5em!important;
+	color: #fff;
+	}
+	.btn_face {
+	padding-left: 4px;
+	margin-left: 5px;
+	padding-right:0px;
+	}
+	.btn-goole {
+	padding-left: 5px;
+	margin-left: 5px;
+	padding-right:0px;
+	}
+	md-autocomplete {
+	border-radius: 2px;
+	display: block;
+	height: 58px;
+	position: relative;
+	overflow: visible;
+	min-width: 190px;
+	}
+
+
+	.search-container {
+	/*margin-top:19%!important;*/
+	background-color: white;
+	max-height: 58px !important;
+	border-radius: 4px;
+	}
+
+	/*.search-container {
+	margin-top: 6em !important;
+	}*/
+	.beu-small{
+	margin-top:0px;
+	}
+	.beu-small-button {
+	margin-top:0px;
+	}
+	md-autocomplete input:not(.md-input) {
+	font-size: 14px;
+	box-sizing: border-box;
+	border: none;
+	box-shadow: none;
+	outline: none;
+	background: transparent;
+	width: 100%;
+	padding: 0 15px;
+	line-height: 20px;
+	height: 25px;
+	}
+	md-autocomplete md-autocomplete-wrap {
+	background-position: 5px 17px;
+	padding: 15px 22px;
+	}
+	.dialog-google-btn {
+	border: 1px solid #dd4b39;
+	border-radius: 4px;
+	margin-left:5px;
+	margin-right:0px;
+	background: #dd4b39;
+	cursor: pointer;
+	margin-top: 4px;
+	}
+	.box{
+	margin-top:1em!important;
+	}
+
+	.search_sm{
+	background: #fff;
+	padding-top: 8px;
+	padding-bottom: 7px;
+
+	}
+	.home-card {
+	height: 20%!important;
+	margin:auto;
+
+
+	}
+	#pnnel-right{
+	width:100%;
+	padding:10px;
+	font-size:13px;
+
+	}
+	.home-line-right{
+	margin-left:-0.2em;
+	}
+	.home-line-left{
+	margin-right:-0.2em;
+	}
+	.beauty-talk-icon{padding-left: 36%;padding-top: 8%;padding-bottom: 8%;}
+
+
+	.varyingMenuDropdownTopProperty{
+	top: 20px;
+
+	}
+	/*********listing-cover************/
+	.list-src-container {
+	margin-top: 8em !important;
+	background-color: transparent;
+	}
+	.list-cover {
+	background-size:contain;
+	height: 216px;
+
+
+	}
+	.list-inputbox-1{
+	margin-top: 0em;
+	}
+	.parlor-toplist-name {
+	font-size: 10px;
+	color: #58595b;
+	}
+	.topsalon-list {
+	margin-top: 0.5rem;
+	color: #58595b;
+	font-family: latoLight;
+	font-size: 11px;
+	word-break: break-all;
+	}
+	.topsalon-list-1 {
+	margin-top: -0.5rem;
+	color: #58595b;
+	font-family: latoLight;
+	line-height: 12px;
+	font-size: 9px;
+	padding-bottom: 10px;
+	}
+	.sevice-dialo {
+	width:90%;
+	}
+ .home-delhi-ncr-search {
+	 height: 50px;
+
+	}
+	#seabackcolor {
+    height: 50px;
+}
+
+	}
+	@media screen and (min-width:320px) and (max-width:567px) {
+		.offerPage-pages-Servicesfor{color:#58595b;font-size:11px;font-family:latoLight;margin-left: 0.5em;margin-top: 0.45em;}
+
+		md-toolbar {
+				min-height:20px;
+			}
+		/***************** servicesDetails Page ********************/
+		.deptMAinDiv{
+			height: auto;
+			width: auto;
+			position: relative;
+			padding-left:1em;
+			padding-right:1em;
+		}
+		.deptMAinDiv:after {
+		content : "";
+		position: absolute;
+		right    : 0;
+		bottom  : 0;
+		width  : 0px;
+		height   : 40%;  /* or 100px */
+		background: #FDABAD;
+	}
+	.deptMAinDivSelected{
+		height: auto;
+		width: auto;
+		position: relative;
+		padding-left:1em;
+		padding-right:1em;
+	}
+	.deptMAinDivSelected:after {
+	content : "";
+	position: absolute;
+	right    : 0;
+	bottom  : 0.6em;
+	width  : 0px;
+	height   : 33%;  /* or 100px */
+	background: #FDABAD;
+	}
+		.serviceDetailDeptName{
+			font-size: 0.5em;
+		}
+		.serviceDetailsPageHeading{
+			padding-top: 1em;padding-bottom:0;
+		}
+		.serviceDetailsPageContent{
+			margin-top: 0.5em;
+		}
+		.serviceDetailsTab{
+			margin-top: 0.5em;
+		}
+
+		.textMaleFemale{
+			margin-top: 4em;
+			font-size: 0.7em;
+			margin-right: 0.5em;
+		}
+		.switchGend {
+			margin-top: 2.5em;
+		}
+		/***************** servicesDetails Page ********************/
+		/***************** newSalonDeal Page ********************/
+		.newSalonDealShowCart{
+			font-size: 0.7em;
+			color: white;
+		}
+		.loaderNewSalonDeal{
+			height:400px;margin: 20% auto;
+		}
+		.sendOTPButton{
+			min-height: 37px;line-height: 25px;margin:2px;color:white;background:#D2232A;margin:0px;font-size:0.7em;min-width: 194px;
+		}
+		.newSalondealPageTop{
+			padding-top: 1.5em;
+		}
+		.parler-switch{
+		width: 10%;
+		/* border: 1px solid red; */
+		margin: auto;
+		}
+		.startAtPrice{
+			font-size: 1.5em;
+		}
+		/*  view cart */
+		.cartWidth{
+			width: 100%;
+		}
+		/*  view cart */
+		/* salonBillSummaryPage */
+		.payNowButtonBillSummary{
+			min-height: 47px;
+		}
+		.menuPrice{
+			color: #787878;text-decoration: line-through;font-size: .7em;padding-top: 21%;
+		}
+		/* salonBillSummaryPage */
+
+		/***************** newSalonDeal Page ********************/
+		/* subscriber page */
+		.subscriberDetails{
+			font-size:0.6em;
+		}
+		/* subscriber page */
+
+
+	/*************************salonDeals1********************************/
+	#phoneImage{
+	margin:1em auto;
+	}
+	.appleAppStore{
+	margin-top:0.5em;
+	}
+	.androidAppStore{
+	margin-top:0.5em;
+
+	}
+	#bookThroughApp{
+	width: 100%;
+	}
+
+	#stampImage{
+	width:25%
+	}
+	.pageTitle{
+	margin-top: 5em;
+	}
+	.titleUnderline{
+	margin-left: 2.5em;
+	}
+	.bookUs{
+	font-weight: bold;font-family:impact;font-size:1.5em;line-height:1.2em;
+	}
+	.bookUsText{
+	font-size: 0.8em;
+	color: #6F6F6F;
+	}
+	.titleText{
+	margin-bottom:0;
+	margin:0 auto;
+	font-size: 1.2em;
+	}
+	.titleLine {
+	    width: 30%;
+	    margin-left: -2.5em;
+	}
+	/*************************salonDeals1********************************/
+	/***************************homePageChatBox***************************/
+
+	/***************************homePageChatBox***************************/
+
+	.searchTextboxOfferPageNew{
+	margin-top: -0.7em;
+	z-index:888;
+	}
+	.searchButtonOfferPageNew{
+	margin-top:-2.3em;
+	z-index:888;
+
+	}
+	.dealsCard{
+	width: 100%;height: 100%;
+	}
+	.moreOnBeTitle{
+	padding-top: 2em;
+	}
+	.beUPromiseContent{
+	margin-top: -21px;
+	margin-bottom: -3px;
+	}
+	.bestParlorsTitle{
+	margin-top: 1em;
+	}
+	.dealsContent{
+	margin-top: -9px;
+	}
+	.dealsMobile{
+	padding-top: 1.3em;
+	}
+	#parlor-toplist-image{
+	margin-top: -29px;margin-left: 0px;height:113px; width:170px;
+	}
+	#parlor-toplist-flag{
+	height: 1.5em;width: 6em;top:0px;left:0px;position:relative;
+	}
+	.cart-mobile{
+	right: 74px;
+	}
+	#header-page-show{position: relative;background-color: #F2F2F2;height: 145px;width: 130px;border:1px solid #C3C3C3;z-index:10000;top: 3px;
+	/*left: 17px;*/
+	}
+	.specTwo{
+	padding-top:0.5em;
+	padding-bottom: 1em;
+	}
+	.specTwo-1{
+	padding-top:36.5em;
+	padding-bottom: 1em;
+	}
+	.see-more-top-parlor{
+	padding-left: 0em;
+	}
+	.search-location-image{
+	height: 35px;width:35px;position: relative;right: 10px;top: 0px;
+	}
+	.delhiNCR{
+	position: relative;right: 10px;top: -12px;font-family: latoRegular;color:#808285;font-size: 13px;
+	}
+	.bannerSizeHome  img{
+	width:100%;height:100%;margin-bottom:-1em
+	}
+	.parlor-toplist-name{font-size:11px;color:#58595b;}
+	.topsalon-list{
+	line-height: 1em;
+	color:#58595b;
+	font-family: latoLight;
+	font-size: 10px;
+	word-break: break-all;
+	margin: 8px;
+	}
+
+	.header-download-div{
+	margin-left:0em;
+	font-size: 35px;
+    margin-top: -15px;
+	}
+	
+	#home-seemorebtns {
+	    padding-left: 4px;
+	    color: #fff;
+	    background-color: #d2232a;
+	    border: none;
+	    padding-bottom: 6px;
+	    border-radius: 3px;
+	    height: 22px;
+	}
+
+	.parlor-see-more{
+	/*padding-left: 3em;*/
+	}
+	.sidenav-list{
+	margin:1em;text-align: left;font-size:1em;font-family: 'Lato', sans-serif;
+	}
+	.sidenav-list-div:hover{
+	background: #D2232A;
+	color: #fff;
+	}
+	.search-container{
+	/*margin-top:33% !important;*/
+	background-color:transparent;
+	margin-bottom:4em;
+	}
+	.header-android{
+	 margin-right: -12px;
+	}
+	.parlor-toplist-flag{
+	height: 1em;
+	width: 3em;
+	z-index: 2;
+	}
+	.fa-phone:before{
+	color:white;
+	font-size:1em;
+	}
+	.fa-android:before{
+	color:white;
+	font-size:0.5em;
+	}
+	.fa-apple:before {
+	color:white;
+	font-size:0.5em;
+	padding:0.2em;
+	}
+	.header-cart{
+	padding-top: 25px;
+	}
+	.header-li-item{
+	margin-left: 3px;
+	}
+	.footer-page-listingpadding{font-size: 10px;padding-right: 3px;border-left:0	;}
+	.home-page-heading{
+	/*padding-top:10px;*/
+	font-size:17px;font-family:latoLight;color:#58595b}
+	.header-logo{
+    height: 12px;
+    width: 49px;
+    margin-left: 0.5em;
+	}
+	.header-download-app{
+	font-size:0.55em;padding-bottom: 0.5em;text-align: center;
+	}
+	.header-page-phonenumber{
+	color: white;
+	font-size:0.65em;
+	padding-left:0px;
+	margin-top: 3em;
+	}
+	.header-toolbar-list{
+	margin:0;padding-left:0.5em;padding-top:0.5em;max-width: 40em;
+	}
+	.header-page-phoneicon {
+	padding-left:1.2em;
+	margin-top:2em;
+	padding-right:0.2em;}
+	.varyingMenuDropdownRightProperty{
+	right:5%;
+	}
+
+	.back-cover {
+
+	background-size: 100% 320px!important;
+	background-image: url('../images/3.jpg');
+	}
+	.beuty-talk-img {
+	width: 83%;
+	height: 100%;
+	}
+	.user-myprofile{
+	border: 1px solid #d2232a;
+	border-radius: 2px;
+	background-color: #d2232a;
+	margin: 2px;
+	color: #fff;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	cursor: pointer;
+	font-size: 13px;
+	padding-left: 4%;
+	text-align: center;
+	}
+
+	.beu-header-profile {
+	color: #000;
+	font-size: 0.5em;
+	}
+
+	.tab-pad{
+	padding-left:0%;padding-right:0%;
+	}
+	.log-cancile{font-size: 13px;padding-left:0%;padding-top: 6%;}
+	.dialog-sign{
+	margin-left: 4%;
+	color:#fff;
+	padding-left:0px;
+	padding-right:0px;
+	background-color: #d2232a;
+	}
+	.log-line{
+	border-top: 1px solid rgba(0,0,0,0.12);
+	margin-top: 2%;
+	}
+	.beu-header-delhincr{
+	color:#000;
+	font-size: 0.6em;
+	margin-left: -14px;
+	}
+	.beu-header-cart-icon{
+	padding-right:10px;
+	padding-top:3px;
+	}
+	.beu-header-cart-logo{
+	position: relative;
+	height: 15px;
+	width: 15px;
+	border-radius: 50%;
+	top: -8px;
+	background: #fff;
+	color: rgb(210, 35, 42);
+	font-size: 9px;
+	left: -12px;
+	line-height: 17px;
+	z-index: 20;
+	/* right: 125px; */
+	right: 39px;
+	text-align: center;
+	padding: 0px 6px;
+	}
+	.beu-icon{
+	zoom: 0.8;
+	}
+	/*******home css for small devices********/
+
+	.search-container{
+	/*margin-top:33% !important;*/
+	background-color:transparent;
+	}
+
+
+	.beu-small{
+	margin-top:5px;
+	background-color: white;
+    height: 36px;
+	}
+	md-autocomplete input:not(.md-input) {
+	font-size:9px;
+	box-sizing: border-box;
+	border: none;
+	box-shadow: none;
+	outline: none;
+	background: transparent;
+	width: 100%;
+	padding: 0 15px;
+	line-height: 20px;
+	height:20px;
+	}
+
+
+	md-autocomplete md-autocomplete-wrap {
+	background-position: 5px 7px;
+	padding: 5px 25px;
+	}
+	.dialog-google-btn {
+	border: 1px solid #dd4b39;
+	border-radius: 4px;
+	margin-left:4px;
+	margin-right:0px;
+	background: #dd4b39;
+	cursor: pointer;
+	margin-top:0px;
+	}
+	.dialog-facebook-btn {
+	border: 1px solid #3b8;
+	border-radius: 4px;
+	background: #3b8;
+	cursor: pointer;
+	margin-left:0px;
+	margin-right:0px;
+	}
+	.home-primum {
+	text-align: center;
+	font-size: 11px;
+	}
+	/*.back-cover{
+	background-size: 100% 57%!important;
+
+	}*/
+	.home-icon-123{
+	margin-top: -25px;
+	/*margin-top: 14vh;*/
+	}
+	/*.card_icon img{
+	width:100%;
+	height: auto;
+	margin-bottom: 0;
+
+	}*/
+	.box {
+	/*margin-top: 2em!important;*/
+	margin: auto;
+	width:100%;
+	}
+
+	.home-line-right{
+	margin-left:0.2em;
+	}
+	.home-line-left{
+	margin-right:0.2em;
+	}
+	.beu-home-searchbox {
+	margin-top: 7em!important;
+	color: #fff;
+	}
+	.beauty-talk-icon{padding-left: 3%;
+	padding-top: 20%;
+	padding-bottom: 10%;
+	margin-left: 3em;
+	}
+	.user-profile-container-1 {
+	padding-top: 8%;
+	/* background-color: #fff; */
+	padding-left: 2%;
+	padding-right: 2%;
+	}
+	.appontment-review .md-label {
+	margin-left: 18px;
+	font-size: 10px;
+	margin-top: -15px
+	}
+	.appointment-dialog {
+	padding-right:0%;
+	}
+	.dealdaiol-small-device{
+	border-bottom: 1px solid #e2e2e2;
+	padding-bottom:0px;
+	}
+	/*************userProfile css start***************/
+
+	.user-profile-tab{
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	}
+	/*************userProfile css end***************/
+	.varyingMenuDropdownTopProperty{
+	top: 20px;
+
+	}
+	#parler_right{
+
+	width:90%;
+
+
+	}
+	.header-border-line {
+	font-size:0.5em;
+	color: #ffffff !important;
+	font-family: latoRegular;
+	}
+	.jk-carousel .radio-buttons-container{
+	display: none;
+	    margin-bottom: 35px;
+	}
+	.font_why_download{
+	font-size:0.6em;
+	}
+	.highlights{
+	font-size:0.6em;
+	padding: 0 3em;
+	line-height: 1.5em;
+	text-align: center;
+	}
+	.terms{
+	font-size:0.6em;
+	padding: 0 3em;
+	/*line-height: 1.5em;*/
+	text-align: center;
+	}
+	.why_download_image{
+	height: auto;
+	}
+	/*.font_why_download>span{
+	font-size:.7em;
+	}*/
+	.facebook_like{
+	font-size:0.6em;
+	/*padding-bottom: 1.5em;*/
+	padding-left:0.9em;
+	}
+	ul {
+	list-style: none;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	}
+	.checkbox-smdevice{
+	margin-top: 1em;
+	}
+	/***************listing container*****************/
+	.list-src-container {
+	margin-top: 1em !important;
+	background-color: transparent;
+	}
+
+	.list-cover {
+	background-size:contain;
+	height:122px;
+
+	}
+	.list-srcbox{
+	height: 40px;
+	}
+	.list-inputbox-1{
+	margin-top: 0em;
+	}
+	.listing-male-female{
+	width:70%;
+	height: 70%;
+	}
+	.btn_facepad{
+	padding-top: 4%;
+	padding-left:0%;
+	padding-right:0%;
+	}
+
+	.btn_facegoogle {
+	padding-top: 0.5em;
+	padding-left:0em;
+	padding-right:0em;
+	}
+	.user-profile-main-container{background-color: #FFF6F7; min-height: 40vh;margin-top: .3em;margin-left: 1em; border: 1px solid #f2f2f2;}
+	.userinformation-container{width:100%;}
+	ul li{
+	font-family: MyWebFont;
+	font-size:12px;
+	float:none;
+	margin-top:0px;
+	margin-left:15px;
+	}
+	/*****header info media query start*****/
+	.heading-mobile-info{border-left:1px solid #e2e2e2;text-align: left;padding-left:0px;margin-right:50px;}
+	md-autocomplete md-autocomplete-wrap {
+	height: 39px;
+    background-image: url(../images/location.svg);
+    background-repeat: no-repeat;
+    background-size: 21px 23px;
+    background-position: 3px 3px;
+    padding: 8px 19px;
+	}
+	.home-delhi-ncr-search{
+	background-color: white;width: 100%;height:0px;text-transform: capitalize;color:#58595b;border:1px solid #e2e2e2;background: transparent;
+	}
+	#seabackcolor {
+	background-color: #d2232a;
+	height: 42px;
+	color: #fff;
+	width: 100%;
+	margin-top: -0.4em;
+	}
+	.home-neardeals{width:100%;padding-left:0px;text-align: center;}
+	.home-beforafter{ width:100%;padding-left:0px;text-align: center;}
+	.home-about{width:50%;padding-left: 14px;}
+	.home-oursalonpartner{width:100%;padding-left: 11px;}
+	    .home-beuclint {
+	        width: 100%;
+	        text-align: center;
+	    }
+	.jk-carousel .md-icon-button md-icon {
+	color: #ffffff;
+	width: 30px;
+	height: 30px;
+	font-size: 27px;
+	cursor: pointer;
+	outline: none !important;
+	border-radius: 50%;
+	}
+	/*.rightArrowPosition.jk-carousel .right-arrow-button {
+	right:1%;
+	top: 13px;
+	}
+	.leftArrowPosition.jk-carousel .left-arrow-button {
+	left:1%;
+	top: 13px;
+	}*/
+
+	.footer-list ul li{
+
+	font-size:12px;
+	float:left;
+	margin-top:10px;
+	margin-left:15px;
+
+	}
+	/*********************listing pages responsive css **********************/
+	.listing-search-btn{
+	margin-top: 10px;
+	}
+	.sliderCircleOff.jk-carousel .radio-buttons-container md-radio-button .md-off{
+	height: 10px;
+	width: 10px;
+	margin-top:10px;
+	background-color: #A8A9AD;
+	margin-left:-5px;
+	}
+	.sliderCircleOn.jk-carousel .radio-buttons-container md-radio-button .md-on{
+	height: 10px;
+	width: 10px;
+	margin-top:10px;
+	margin-left:-5px;
+
+	}
+	.topsalon-list-1 {
+	margin-top: -0.5rem;
+	color: #58595b;
+	font-family: latoLight;
+	line-height: 15px;
+	font-size: 10px;
+	padding-bottom: 10px;
+	word-break: break-all;
+	}
+	    .listing-container {
+	        background-color: white;
+	        max-height: 52px!important;
+	        margin-top:14vh!important;
+	        margin-bottom: 5vh;
+	        border-radius: 4px;
+	    }
+	    .deel-dialog-container{
+	        width:100%;
+	        max-height:100%;
+	    }
+	.listin-font-size-name{
+	font-size:11px;
+	color:#58595b;
+	font-family:latoLight;
+	font-weight: 700;
+
+	}
+	.listin-font-size{
+	font-size:11px;
+	font-family:latoLight;
+	color:#58595b;
+	font-weight: 600;
+
+	}
+	.offer-price-save{text-align: right;padding-right:0px;}
+	.offer-pages-parlor-time{padding-bottom:0px;margin-top:3px;border-bottom:1px solid #f2f2f2;}
+	.filter-search-container {
+	background-color: #f2f2f2;
+	padding: 5px 5px 0px 5px;
+	}
+	.filter-radio-btn {
+	margin: 0px;
+	font-size:8px;
+	}
+	.radioButtonTextGap .md-label {
+	margin-left: 12px;
+	margin-top:0px;
+	}
+	    .checkout-customer-container {
+	        background-color: #fafafa;
+	        padding-top:3.5em;
+	        padding-bottom: 2em;
+	    }
+	    .promo-code-container{display: block;width:100%;margin-left: 4%;margin-top:0.8em;}
+	.home-page-jk-carrosal-container{background-color: #fff;margin-top:1em;}
+	.md-unstyled-image img {
+	max-width: 100%;
+	width: 100%;
+	height: 100%;
+	}
+	.deel-sevice-box {
+	padding-left:5px;
+	}
+	.dealDialog-page-font {
+	padding-left:2px;
+	}
+	.deeldialog-listname123{padding-top: 15px;}
+	.sevice-dialo {
+	width: 100%;
+	}
+	.dialog1-page-chooseyour {
+	width: 42%;
+	}
+	.dialog1-page-lenght {
+	width: 16%;
+	}
+	.dialog1-page-hairtype {
+	width: 19%;
+	}
+	.parlor-detail-page-middlecatbookdate{word-break: break-all;}
+	.apple-icon{margin-right: 9px;}
+		.list-parlor-img{
+			width:7.9em;
+			height: 7em;
+		}
+		.list-address-head {
+			    font-size: 13px;
+				color: #000;
+				font-weight: bold;
+				text-align: left;
+				padding-top: 2%;
+		}
+		 .addbordersave{
+			    border: 1px solid #d2232a;
+				font-size: 10px;
+				padding: 1px 4px 1px 4px;
+				border-radius: 3px;
+			}
+		.adree-d{
+			color:#7a7c82;
+			font-size: 11px;
+			padding-top: 2%;
+			padding-left: 1%;
+		}
+		.ratimh{
+			    width: 37px;
+				height: 10px;
+		}
+		.srating{
+			    border: 1px solid green;
+			border-radius: 4px;
+			height: 16px;
+			text-align: center;
+			background: green;
+			color: #fff;
+			width: 25px;
+			padding-top: 1px;
+			width: 20px;
+			font-size: 11px;
+			padding-top: 1px;
+ 		}
+		.mai-p{
+			    margin-top: -3px;
+		}
+		.primium{
+			position:absolute;width: 5em;margin-top: 0em;
+		}
+		.card-top-s{
+				  margin: -0.5em 0em .3em .7em;
+			}
+		.logde{
+			    margin-top: -13px;
+		}
+        .loc-iconw{padding-left:75%;}
+        .toplistsearch{margin-top:22%!important;}
+        #listing-filter-2 {
+            margin-top: 0px;
+            color: #fff;
+            background-color: #d2232a;
+            margin-left: 10px;
+            height: 20px;
+            text-transform: capitalize;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-family: latoLight;
+            font-size: 13px;
+            height: 36px;
+        }
+        .sortlist{
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: flex;
+          margin:0px 0 26px;
+          padding-left:17px;
+      }
+			/*********************************new salons deal page css********************/
+			.sidebar-left-page-newsalondeal{position:relative;height:70px;overflow:auto;width:100%;margin-top: 3%;}
+			.new-dealsalon-progressbar{background: #ecf0f1;margin-top:1.4em;margin-left:0;position: fixed;width: 100%;z-index: 9;}
+			.new-salon-middle-content{padding-left:0px;margin-left:0%;height:454px;overflow:auto;}
+			.cart-footer-newsalondeal{margin-left:0%;position: fixed;bottom:0%;z-index: 6;width:100%;background-color:#f1f1f1;color:#000;height:60px;padding: 0;}
+			.department-description {
+	padding-left: 5%;
+	font-weight: bold;
+	font-size: .8em;
+}
+.new-salon-list-page{padding-bottom: 2%;max-width: 100%;margin-left:0em;margin-right: 0em;}
+.new-cartpage-mid{margin:0px;}
+.common-page-newdeal{padding-left:0px;margin-left:0%;}
+.list-parlor-img-new {
+
+    height:11em;
+    padding: 2%;
+}
+.primium-new-llis-deal {
+   /* position: absolute;*/
+    width: 6em;
+    margin-top: -10.2em;
+    margin-left: -0.4em;
+}
+.new-dealfooter-page{background:#d2232a;width: 100%;z-index: 11;margin-left:0;border-radius: 5px;}
+.loc-new-weal{margin-right: 4%;padding-top: 6%;}
+.Newsalondeallogin{
+	padding-top: 9em;
+    margin-bottom: 11em;
+		}
+.scheduleAppointment-time{text-align:center;font-size:.6em;border: 1px solid gray;margin:0.3em;border-radius: 5px;padding-top: 0.5em;}
+.scheduleAppointment-page{text-align:center;background-color:#888;padding-top:1%;padding-bottom:1%;color:#fff;}
+.scheduleAppointment-page-container{padding-top:2.8em;margin-right: 6em;margin-bottom:1em;margin-right:0em;margin-bottom:1em}
+.scheduleAppointment-date{text-align:center;font-size:1em;border:1px solid gray;margin:0.3em;border-radius: 5px;padding: 0.3em;}
+#seabackcolor-newsalondeal {
+    background-color: #ccc;
+    border-radius: 0;
+    height:35px;
+    color: #000;
+    font-size: 9px;
+    width: 100%;
+    border: chocolate;
+    border: 0px;
+    margin-left: -82px;
+    margin-top: 4px;
+}
+.allpadding{padding:0px}
+.diolog-12-w{width:100%;}
+.last-rate{text-align:center;color:green;font-size:.4em;}
+.salon-img-car{height:13px;width:22px;margin-top: 3px;}
+.salon-img-mid{
+	margin-left:3px;
+    height: 13px;
+    width:18px;
+    margin-top: 3px;
+}
+.palortype{margin-left:0em;}
+.new-dealchip{font-size:12px;color: #58595b;}
+.radioin .md-label {
+
+    margin-left: 28px;
+    padding-bottom: 0.3em;
+    font-size: 1em;
+    width: 100%;
+}
+
+.padd-bill{
+	padding-bottom:2%;
+	padding-left: 2%;
+	font-size: .8em;
+	padding-top: 2%;
+}
+#cnf-btn{background:#d2232a;color:#fff;font-size:.6em}
+.payment-optiont{color:#d2232a;font-size:.9em;font-family: latoRegular;text-align: left;    padding-left: 3%;}
+.save-newdealpersentage{border:1px solid #b2232a;border-radius: 3px;text-align: center;font-size: .3em;width:70%;margin-left:11px;padding-top: 2%;padding-bottom:1%;}
+
+/**********************subscription page********************/
+.subscription-line-mid {
+
+    height: 4px;
+    width: 29%;
+
+}
+.subscription-valid {
+    font-size: 9px;
+}
+
+	.ifClass{
+		background-color: #BC9100;
+		text-align:left;
+	    width: 69%;
+        margin-left: 31%;
+		margin-top:0%;
+		font-size: 12px;
+		font-weight: bold;
+		background-image:url('http://res.cloudinary.com/dyqcevdpm/image/upload/v1516701219/GOLD_SUBSCRIPTION_TAG_a8yumg.png');
+		background-repeat: no-repeat;
+		background-size:100%;
+		height:15px;
+
+	}
+.elseClass{
+		background-color: #B8B8B8;
+		text-align:left;
+	    width: 69%;
+        margin-left: 31%;
+		margin-top:0%;
+		font-size: 12px;
+		font-weight: bold;
+		height:15px;
+		background-size:100%;
+		background-image:url('http://res.cloudinary.com/dyqcevdpm/image/upload/v1516701219/SILVER_SUBSCRIPTION_TAG_ngpmwl.png');
+		background-repeat: no-repeat;
+	}
+
+
+.subscription-circle{width:81%;height:27px;}
+.subscription-font-1{
+	color:#fff;
+	text-align: center;
+	font-size: 1.2em;
+
+	}
+	.subscription-font-2{
+		color:#fff;
+		text-align: center;
+		font-size:.7em;
+
+		}
+		.subscription-gold-1{
+			margin-top: 1%;
+	    margin-left: -5%;
+		}
+		.subscription-gold-2{
+			margin-top: 1%;
+	    margin-left:-5%;
+}
+.subscription-card-mid {
+		height: 7px;
+    width: 48%;
+		}
+.subscription-Recommended {
+
+    margin-left:0px;
+    font-size: 12px;
+}
+.subscription-pane{font-size:10px;}
+.md-chips md-chip {
+    cursor: default;
+    border-radius:6px;
+    display: block;
+    height: 25px;
+    line-height: 22px;
+    margin: 8px 8px 0 0;
+    padding: 0 12px;
+    float: left;
+    box-sizing: border-box;
+    max-width: 100%;
+    position: relative;
+}
+		.new-salon-middle-content::-webkit-scrollbar {
+    width:8px;
+
+}
+.new-salon-middle-content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius:5px;
+}
+.new-salon-middle-content::-webkit-scrollbar-thumb {
+    background:#d2232a;
+    border-radius:5px;
+}
+.sub-t {
+    text-align: left;
+    color: #000;
+    font-size: 0.6em !important;
+    font-weight: 600;
+    padding-left: 3%;
+}
+.SubscribeNow{
+	    background: #3e7800;
+		margin-top: 4%;
+		font-size: .7em;
+		padding-top: 3%;
+		padding-bottom: 4%;
+		margin-bottom: 5%;
+		margin-left: 12%;
+		color: #fff;
+		border-radius: 3px;
+		width: 88%;
+
+
+		}
+		.view-cart-dialog{width:100%;}
+		    .total-price-cupon{border: 1px solid #d2232a;
+				width:90%;
+		}
+		.salon-list-details-show {
+    font-size:12px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 2px;
+    font-weight: bold;
+}
+		.billsummar-con{padding-top: 4.5em;
+    margin-bottom: 1em;}
+		.padd-reduce{padding-bottom: 0px;padding-top:0px;}
+		.new-salon-list-page-1{padding-bottom: 2%;max-width:97%;margin-left:1%;margin-right: 0em;height: 503px;}
+		.solon-list-k{height:500px;margin-top:5em;}
+		  .content-center-page{border-style: dotted;border-color: #a9a9ab;border-width:1px;margin-left:0%;padding: 2px 0px 2px 0px;}
+   .otp{
+    width:100%;
+  }
+      .new-deal-container-pages-main{background-color: rgb(250,250,250);margin-right:0em;}
+      .schedule-datetime{margin-top: 1em;cursor:pointer;padding-bottom:21%;}
+      .salon-deal-billsummary{padding-bottom:75%;}
+      .schedule-datetime-container{padding-bottom: 60%;}
+      .newpayment-con {
+    padding-top: 2.5em;
+    margin-bottom: 1em;
+}
+ .new-digital-payment md-label {color: #7D7D7D;font-size:1.2em;padding-left:7%;}
+      .subscription-apply{padding-bottom: 1%;padding-left:19%;background: #fff;padding-top: 1%;border-radius: 2%;}
+      .subscription-btn-info{height: 30px;width:57%;opacity: .5}
+      .card-container{padding: 4% 0% 9% 0%;}
+      .card-btn-sub{
+      	border-radius:5px;height:29px;font-size:10px;background-color: #64a422;text-align: center;line-height:29px;color: #fff;cursor:pointer;
+      }
+      .main-container-sub-d{background-color: #F2F2F2;
+    padding-top: 9%;}
+    .span-gold{color:#b98d00;font-size:13px;font-weight: 600;}
+    .subscription-desc-1{font-size:9px;padding-top:1%;color:#58595b;color: gray;
+    padding-top: 3%;}
+    .back-subpage{
+   	padding-left: 2%;
+    margin-left: 4px;
+    cursor: pointer;
+    }
+    .back-subpage-btn{
+    color: #b4b4b4;
+    margin-top: -1px;
+    cursor: pointer;
+    margin-left: 7px;
+    }
+    .radio-subpages{
+    float: left;
+    width: 27%;
+    padding-top:0%;
+    }
+    .cuopon-codeapp{
+	text-align: right;
+    color: #9e9a97;
+    font-size: 12px;
+    padding-top: 2px;
+}
+   .subCode-page{
+	margin-left: 1%;
+    cursor: pointer;
+    padding-top: 0px;
+
+   }
+   .enter-coupon{height:26px;width: 100%;background: none;font-size: 13px;color:rgb(101, 101, 111);border-top: none;border-right: none;border-left: none;border-image: initial;border-bottom: 2px solid rgb(221, 221, 221);}
+
+   .digital-main{padding-left: 2%;font-size: 13px;}
+   .paymenr-option{padding: 0% 2% 0% 2%;color: #9c9c9c;font-size: 11px;}
+   .fgh{
+   	float: left;
+    width: 30%;
+    padding-top: 5%;
+   }
+   .m-t-l{padding-top:11%;}
+   .parlor-bannerImge{
+	  width: 100%;
+	  height:200px;
+	}
+	.parlor-bannerImge img{
+	    width: 100%;
+	    height:98%;
+	}
+	.reting-salon-deal-d{
+	 border-radius: 100%;
+    height: 37px;
+    width: 67%;
+    text-align: center;
+    line-height: 37px;
+    color: #fff;
+    margin-left: 10px;
+    font-size: 13px;
+	}
+	/***************salonPass***********/
+	.salon-pass-fiveplus {
+	    font-size: 25px;
+	}
+	.salon-pass-opendoor {
+    	font-size: 22px;
+	}
+	.salon-pass-enjory {
+    	font-size: 15px;
+	}
+	.salon-pass-registernow {
+    width: 46%;
+	}
+	.salon-pass-subnow {
+	    width:86%;
+
+	
+	}
+
+	.app-salon-pass-get {
+	    line-height: 38px;
+	    font-size: 30px;
+	    padding-top: 0px;
+	  
+	}
+	.salon-pass-ser-fre {
+	    font-size: 13px;
+	    padding-bottom: 5%;
+	    text-align: center;
+	}
+	/***************affiliate page***************/
+	.affiliate-salon-pass{
+	  font-size:25px;
+	}
+	.affilate-salon-pass-opendoor {
+	    font-size:25px;
+	}
+	.affiliate-media{
+	    padding-top: 2px;
+	    width: 80%;
+    	height: 37px;
+	    padding-left: 3%;
+	}
+	/**************salon-partner*********/
+	.hero {
+	    min-height: 17.5rem;
+	    max-height: 115vh;
+	}
+	.hero-box {
+	    min-height: 133.5rem;
+	    max-height: 115vh;
+	}
+	.salon-parner-3step {
+	    font-size: 28px;
+	    line-height: 32px;
+	}
+
+	.salon-partner-livenow{
+	    font-size: 36px;
+	    font-weight: 700;
+	    font-family: 'latoBold';
+	    color: #58595b;
+	}
+	.salon-partner-meeting {
+	    font-size: 18px;
+	    line-height: 8px;
+	
+	}
+	.salon-partner-growth {
+	    font-size: 13px;
+	    padding: 3% 0 4% 0;
+	    color: #58595b;
+	}
+	.salon-partner-within-48{
+		margin-left: 1%;
+	    margin-right:1%;
+	    font-size: 28px;
+	}
+	 .salon-partner-schedule{
+	 	font-size: 18px;
+	 	}
+	 	.salon-affiliate-average {
+	    	font-size: 15px;
+	    
+	}
+	.salon-affilaite-hundredby{font-size:13px;}
+	.affiliate-media {
+		    width:67px;
+		}
+	.affiliate-salon-pass {
+	    font-size:25px;
+	}
+	.salo-affiliate-your-outlate{font-size:10px;}
+	.affilate-salon-pass-opendoor {
+	    font-size:20px;
+	}
+	.salon-pass-affiliated-enjory {
+    font-size:15px;
+    line-height: 32px;
+}
+.affiliate-list-with-us {
+    width:56%;
+
+}
+.affiliate-salon-pass-reg {
+    font-size:25px;
+}
+.affilate-salon-pass-3month-1 {
+    font-size:20px;
+
+}
+.affiliate-list-with-us-now {
+    width:56%;
+
+}
+.salon-partner-enddatecontainer-1{
+    font-size: 15px;
+}
+.salon-partner-startdate {
+    font-size: 18px;
+}
+ .salon-partner-enddatecontainer-2{font-size:20px;}
+ .hero-salon-pasbox {
+    min-height:108.5rem;
+    max-height: 115vh;
+}
+ .service-details-new-payment-page{text-align:left;margin-left:0.5em;}
+#contactSubmit-1{
+    width:40%;
+    background-color: #d2232a;
+    margin-bottom: 1%;
+    color: white;
+    text-transform: capitalize;
+    border: none;
+    border-radius: 4px;
+    padding: 2% 4% 1% 4%;
+}
+.salon-pass-logo {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.payout-btnfixe-small{    color: white;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    position: fixed;
+    font-size:1.2em;
+    background-color: rgb(62, 120, 0);
+    margin: 2%;
+    z-index: 99999;
+  }
+  .temrConditon-padd-small{
+    padding:4%;
+  }
+}
+

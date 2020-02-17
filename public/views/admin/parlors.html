@@ -1,0 +1,207 @@
+<style>
+          .dataTable_wrapper
+        {
+                height:700px;
+                width:100%;
+                overflow: scroll;
+        }
+  
+
+</style>
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Parlors</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <a class="btn btn-default btn-lg btn-block" ui-sref="dashboard.create-parlor">Add New Parlor</a>
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Current parlors registered
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="dataTable_wrapper table-responsive">
+                    <table class="table table-striped table-bordered" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Salon Id</th>
+                                <th>Name</th>
+                                 <th>Active</th>
+                                <th>Address</th>
+                                <th>Owner(phone number)</th>
+                                <th>Manager Name</th>
+                                <th>Manager Phone</th>
+                                <th>Manager Email</th>
+                                <th>Manager Password</th>
+                                <th>Parlor sms credits</th>
+                                <th>Action</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="" ng-repeat="parlor in parlors">
+                                <td>{{parlor.id}}</td>
+                                <td>{{parlor.name}}</td>
+                                <td>{{parlor.active}}</td>
+                                <td>{{parlor.address}}</td>
+                                <td>{{parlor.ownerName}}({{ parlor.ownerEmailId }}) - {{parlor.ownerPhoneNumber}}, password - {{parlor.password}}</td>
+                                <td>{{parlor.managerName}}</td>
+                                <td>{{parlor.managerPhone}}</td>
+                                <td>{{parlor.managerEmail}}</td>
+                                <td>{{parlor.managerPassword}}</td>
+                                <td>{{parlor.smsCredits}}</td>
+                                <td><button class="btn" ng-click="updateParlor($index)" ng-disabled="role!=1 && role!=11">Edit</button> <button ng-if="parlor.ownerPhoneNumber==''" class="btn" ng-click="showOwners($index)">Add Owner</button> <button class="btn" ng-click="showAddCredit($index)">Add SMS Credit</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+
+<div class="modal fade" id="editParlor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Edit Parlor Detail</h4>
+                              </div>
+                              <form role="form" ng-submit="editParlor()" name="customerDetails">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Tax</label>
+                                                  <input ng-model="p.tax" class="form-control" >
+                                              </div>
+                                          </div>
+                                           <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>SMS Code</label>
+                                                  <input ng-model="p.smscode" class="form-control" >
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Latitude</label>
+                                                  <input ng-model="p.latitude" class="form-control" >
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Longitude</label>
+                                                  <input ng-model="p.longitude" class="form-control" >
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-12">
+                                              <div class="form-group">
+                                                  <label>Logo Url</label>
+                                                  <input ng-model="p.logo" class="form-control" >
+                                              </div>
+                                          </div>
+                                           <div class="col-lg-12">
+                                              <div class="form-group">
+                                                  <label>Gender</label>
+                                                  <select class="form-control" ng-model="p.gender" name="gender">
+                                                      <option value="1">Unisex</option>
+                                                      <option value="2">Male</option>
+                                                      <option value="3">Female</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+
+
+                                          
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Update</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>
+
+
+<div class="modal fade" id="addSmsCredit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Add Parlor SMS Credit</h4>
+                              </div>
+                              <form role="form" ng-submit="addSmsCredit()" name="customerDetails">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Enter Credit</label>
+                                                  <input ng-model="sms.credit" type="number" class="form-control" required>
+                                              </div>
+                                          </div>
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Add</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>
+
+
+<div class="modal fade" id="owners" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Add Parlor SMS Credit</h4>
+                              </div>
+                              <form role="form" ng-submit="addOwner()" name="customerDetails">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                   <label>Select Owner</label>
+                                                  <select class="form-control" ng-model="newOwner" name="gender" required>
+                                                      <option value="{{o.userId}}" ng-repeat="o in owners">{{o.name + " " + o.phoneNumber}}</option>
+                                                      <option value="F">Female</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Add</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>

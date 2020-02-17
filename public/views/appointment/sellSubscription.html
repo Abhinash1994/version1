@@ -1,0 +1,38 @@
+<h2>Sell Subscription</h2>
+        <div class="container-fluid">
+            <div class="table-responsive">
+                <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+                    <div class="panel-heading">
+                        <h3>Subscription Price - {{subscriptionAmount}}</h3>
+                        <h3 ng-if="user.clientHasApp">Client already has an app</h3>
+                        <h3 ng-if="!user.clientHasApp">Client doesnt have an app</h3>
+                    </div>
+                    <tr ng-form name="customerDetails">
+                        <td title="'Customer Mobile'">
+                            <input class="form-control" type="text" name="mobNo" id="mobNo" ng-model="user.phoneNumber" ng-blur="phoneNumberChanged()" required ng-minlength=10 ng-maxlength=10 ng-pattern="/^[6789]\d{9}$/">
+                            <span ng-show="customerDetails.mobNo.$dirty && customerDetails.mobNo.$error.pattern">Invalid mobile number.</span>
+                            <span ng-show="customerDetails.mobNo.$dirty && customerDetails.mobNo.$error.required">This field is required.</span>
+                        </td>
+                        <td title="'Customer Email Id'">
+                            <input class="form-control" type="text" name="customerEmailId" ng-model="user.emailId" ng-blur="customerEmailIdChanged()" uib-typeahead="customer.emailId as (customer.emailId ) for customer in customers | filter:$viewValue | limitTo:10 " required>
+                        </td>
+                        <td title="'Customer Name'">
+                            <input class="form-control" type="text" id="last-name" name="last-name" ng-model="user.name" ng-blur="customerNameChanged()" uib-typeahead="customer.name as (customer.name ) for customer in customers | filter:$viewValue | limitTo:10 " required>
+                        </td>
+                        <td title="'Payment Method'">
+                                <select class="form-control" ng-options="option.name for option in paymentOptions" ng-model="user.paymentOption"></select>
+                        </td>
+                        <td title="'Select Employees'">
+                            <div style="display:inline" isteven-multi-select input-model="employees" output-model="selectedEmployees" button-label="name" item-label="name" tick-property="isSelected" output-properties="userId name" on-close="employeesSelected(selectedEmployees)"></div>
+                        </td>
+                        <td title="'Gender'">
+                            <select class="form-control" id="gender" ng-model="user.gender">
+                                <option  name="gender" value="M">Male</option>
+                                <option  name="gender" value="F">Female</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <button class="btn btn-md btn-success col-md-12" type="submit" ng-click="buySubscription()" ng-disabled="buttonDisabled">Buy Subscription</button>
+        </div>

@@ -1,0 +1,76 @@
+<style type="text/css">
+	table,th{
+		text-align: center;
+	}
+	.newcustomer{
+		padding-left: 30px;
+	}
+
+	.row1{
+		background:#fff;
+	}
+	.row1 .additionreport{
+			text-align: center;
+			font-size: 50px;	
+	}
+
+</style>
+
+<div class="row row1"><h3 class="additionreport">Additions Report</h3></div>
+
+<<<<<<< HEAD
+<div class="row">
+=======
+<div class="row" ng-if="editPriceAtBooking">
+>>>>>>> 4e9cbd12fd9f9c9f3104390c5e261d0a54ccdf2e
+	<div class="col-md-12">
+        <div  class="col-md-3 col-lg-3 col-md-offset-2" >
+            <h4 style="text-align: right;padding-top: 10px;">Select Date</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+            <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+                   ng-model="dateRangeSelected" ng-change="dateSelected()">
+        </div>
+    </div>
+</div>
+
+  <div class="row row3" ng-if="editPriceAtBooking">
+        <div class="col-md-12 col-lg-6 col-lg-offset-2">
+            <button class="btn btn-primary" id="apply-btn" ng-click="apply()">Apply</button>
+        </div>
+    </div>
+<div class="row" ng-if="editPriceAtBooking">
+	
+<div class="col-md-12">
+	<div  class="table-responsive">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th style="width:100px;padding-left: 15px">AppointmentDate</th>
+				<th>Name</th>
+				<th>PhoneNumber</th>
+				<th>Services</th>
+				<th>Total Additions</th>
+				<th>Payable Amount</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="x in additionData">
+				<td style="padding-left: 15px">{{x.appointmentDate | date:'MM/dd/yyyy'}}</td>
+				<td>{{x.name}}</td>
+				<td>{{x.phoneNumber}}</td>
+				<td >	
+					<span ng-repeat="y in x.services">
+              				{{y.name}}({{y.addtions  | number:3}}),
+           			 </span>
+				</td>
+				<td>{{x.totalAdditions | number:3}}</td>
+				<td>{{x.payableAmount}}</td>
+			</tr>
+
+		</tbody>
+	</table>
+</div>
+</div>
+</div>
+</div>

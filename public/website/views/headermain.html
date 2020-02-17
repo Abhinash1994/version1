@@ -1,0 +1,131 @@
+<style>
+	.fade-in{
+		diplay:none;
+	}
+</style>
+<div layout="row" flex="100" layout-align="center center"  id="header-fixed" ng-hide='hideHeaderFlag'>
+
+	<div  flex="75" flex-xs="100" layout-align="center center" ng-style=" vanishHeader&& {'display':'none'}">
+		<div>
+		<md-content layout="row">
+
+			<md-toolbar  class="headbg" id="header-page-container">
+
+				<div layout="row"  class="md-toolbar-tools  headbg"  class="header-page-all">
+
+					  <img ng-click="returnToHome()"  src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1492582484/Be_U_SALONS_19_April_trial_svg_turm0r.svg" >
+
+							<!--<div ng-if="showSearchBoxVariable.getFlag()" hide-xs layout-align="center center" class="list-inputbox-1" layout-xs="column" layout-sm="row" layout-md="row" layout-lg="row" layout-xl="row" flex="60" style="margin-top: 0em;">
+								<div class="list-src-container" layout-align="center center"  layout-sm="row" layout-md="row" layout-lg="row" layout-xl="row" flex-xs="75" flex-sm="75" flex-md="80" flex-lg="75" flex-xl="75">
+									<md-autocomplete  class="beu-small list-srcbox header-search" md-selected-item="selectedItem" md-search-text-change="searchTextChange(searchText)" md-search-text="searchText" md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)" md-item-text="item.name" md-min-length="0" placeholder="{{myPositionName}}" md-menu-class="autocomplete-custom-template" flex-sm="70" flex-md="75" flex-lg="80" flex-xl="80">
+										<md-item-template>
+                                <span class="item-title" style="padding-top:0.3em;color: #33373D;font-size:15px;">
+
+                                    <span> {{item.name}} </span>
+                                </span>
+											<span class="item-metadata" style="margin-top: -11px;">
+                                    <span class="item-metastat" >
+                                      <strong style="color: #89959B;font-size:11px;">{{item.type}}</strong>
+                                    </span>
+                                </span>
+										</md-item-template>
+									</md-autocomplete>
+									<md-button id="seabackcolor-head" class="md-raised beu-small beu-small-button" ng-click="go('/salon-listing')" flex-xs="100" flex-sm="20" flex-md="20" flex-lg="20" flex-xl="20">
+										Search
+									</md-button>
+
+								</div>
+							</div>-->
+
+					<span flex></span>
+				<span ng-click="goToCartParlor()" class="beu-header-cart-icon" ><ng-md-icon style="fill:#777" icon="shopping_cart" size="27"></ng-md-icon></span>
+
+					<span ng-if="cartValue.getNumber()!=0" class="beu-header-cart-logo">{{cartValue.getNumber()}}</span>
+					<md-menu   >
+						<div class="beu-header-profile"  ng-mouseover="menuShow()" ng-click="menuShowClick()" >
+							<span class="beu-header-hello">Hello,&nbsp;{{userNameAfterLogIn | capitalize}}</span>
+							<br><b class="beuheader-pro">My Profile</b> <ng-md-icon icon="arrow_drop_down" style="fill:#58595b" class="beu-header-pro-icon" size="15"></ng-md-icon>
+						</div>
+						<md-menu-content>
+							<md-menu-item>
+								<md-button ng-click="goToProfileOrLogin()">Your Orders</md-button>
+
+							</md-menu-item>
+							<md-menu-divider></md-menu-divider>
+							<md-menu-item>
+								<md-button  >
+									<span class="md-alt-text" >{{loginLogout}}</span>
+								</md-button>
+							</md-menu-item>
+						</md-menu-content>
+					</md-menu>
+
+				</div>
+
+			</md-toolbar>
+			<section flex="100" layout="row" layout-align="center center" class="header-page-appicon-container">
+				<div layout="column" class="header-page-app" flex="100">
+					<div layout-align=" end" layout="row">
+						<div layout="row" flex="75">
+							<div  layout-align="end end" layout-xs="column" layout-sm="row" layout-md="row" layout-lg="row" layout-xl="row"  layout-xs="100" flex-sm="100" flex-md="100" flex-lg="100" flex-xl="100" >
+								<div layout="row" flex-xs="60" flex-sm="30" flex-md="30" flex-lg="15" flex-xl="15" class="header-page-app-download"><!--ng-click="goToFreeBees()"-->
+									<a href="https://play.google.com/store/apps/details?id=com.beusalons.android&hl=en" target="_blank">
+										<!-- <span class="header-page-app-color">Download App</span> -->
+										<span class="header-page-app-androidicon"><i  class="fa fa-android apple-icon" aria-hidden="true"></i></span>
+									</a>
+									<a hide-sm hide-md hide-lg hide-xl href="https://itunes.apple.com/app/id1206326408?mt=8" target="_blank">
+										<i class="fa fa-apple header-page-app-color" aria-hidden="true"></i>
+									</a>
+								</div>
+								<div flex-xs="30" flex="5" style="text-align:right;margin-right: 17px;">
+									<a  hide-xs  href="https://itunes.apple.com/app/id1206326408?mt=8" target="_blank">
+									<i class="fa fa-apple header-page-app-color" aria-hidden="true"></i>
+									</a>
+								</div>
+								<!--<div flex="5" style="text-align:right;padding-right:5px;"><i class="fa fa-windows" aria-hidden="true"></i></div>-->
+								<div layout="row"  flex="25" flex-xs="100" class="heading-mobile-info" >
+									<span class="header-page-phoneicon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+									<span class="header-page-phonenumber">91-8077190338</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</md-content>
+
+	</div>
+
+</div>
+	<div layout="column"  ng-if="showLoginDropdown" class="varyingMenuDropdownRightProperty varyingMenuDropdownTopProperty" id="header-page-profilecontainer"  ng-mouseover="menuShow()" ng-mouseleave="menuHide()">
+		<div flex  class="polygonClass varyingMenuDropdownTopProperty" id="header-page-show"  ng-mouseleave="menuHide()">
+
+			<div flex   ng-if="loginLogout=='New?'" ng-click="showalert();menuHide()" class="header-page-hide">
+				<md-button   id="header-page-signin">Sign in</md-button>
+				<!--<span >Sign in</span>-->
+			</div>
+
+			<div flex id="myProfileDropDown" ng-if="loginLogout=='Logout'"  ng-click="goToProfileOrLogin('My Profile');menuHide()" class="header-page-myprofile">
+				<span>My profile</span>
+				<!--<span >Sign in</span>-->
+			</div>
+
+			<div flex ng-if="loginLogout=='New?'" id="new" class="header-page-new" ng-click="newUserFlagSet();goToProfileOrLogin('New');menuHide()" >
+				<span ng-if="loginLogout=='New?'" class="md-alt-text" >New?</span>
+				<!--<span ng-if="loginLogout=='Logout'" class="md-alt-text" ng-click="goToProfileOrLogin();menuHide()">My Profile</span>-->
+			</div>
+			<div flex id="myAppointmentsDropDown" class="header-page-myappointment" ng-click="goToProfileOrLogin('My Appointments');menuHide()" >
+				<span >My appointments</span>
+			</div>
+			<div flex id="myLoyaltyDropDown" class="header-page-myloyality" ng-click="goToProfileOrLogin('My Loyalty Points');menuHide()" >
+				<span  >My loyalty</span>
+			</div>
+			<div flex id="mySignoutDropDown" ng-if="loginLogout=='Logout'" flex ng-click="showalert();menuHide()" class="header-page-signout" >
+				<md-button ng-if="loginLogout=='Logout'" id="header-page-signout-content">Sign out</md-button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--<div layout="column"   class="varyingMenuDropdownLeftProperty " style="position: absolute;width: 140px;z-index: 9;top: 21px;height: 47px;left: 80%;background-color: green" ng-mouseenter="menuShow()" ng-mouseleave="menuHide()">
+</div>-->

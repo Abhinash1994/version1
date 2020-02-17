@@ -1,0 +1,75 @@
+<style>
+.multiSelect>button {
+    width: 100%;
+}
+
+.row input,
+select {
+    margin: 0px;
+}
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <h3>Lucky Draw</h3></div>
+    </div>
+    <div class="row" style="padding-top: 2%;">
+        <div class="col-md-4" style="text-align: right">Week </div>
+        <div class="col-md-4">
+            <input class="form-control" type="text" value="{{initData.weekweekData.name1}}" />
+        </div>
+    </div>
+    <div class="row" style="padding-top: 2%;">
+        <div class="col-md-4" style="text-align: right">Amount this week </div>
+        <div class="col-md-4">
+            <input type="text" ng-model="amount" class="form-control"> </input>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 2%;">
+        <div class="col-md-4" style="text-align: right">Select Salon</div>
+        <div class="col-md-4">
+            <select style="width:100%;height: 30px;" class="form-control" ng-model="selectedParlor" ng-options="parlor._id as parlor.name for parlor in initData.parlorList" ng-change="getEmployee()">
+                <option style="display:none" value="">select a Parlor</option>
+            </select>
+        </div>
+    </div>
+    <div style="padding-top: 2%">
+        <div class="col-md-4 col-lg-4" style="text-align: right;"> Select Employee Name</div>
+        <div class="col-md-4 col-lg-4">
+            <div style="display:inline" isteven-multi-select input-model="employee" output-model="selectedEmployee" button-label="name" item-label="name" tick-property="isSelected" on-close="changeParlor()"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <button ng-click="add()" style="padding-left: 4%;padding-right: 5%;margin-top: 2%;" ng-disabled="!addFlag">Add</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div>
+                <table class="table table-bordered" ng-repeat="data in finalData track by $index">
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;text-align: center;background-color: lightseagreen;color:#fff;">Salon Name</th>
+                            <th style="width: 50%;text-align: center;background-color: lightseagreen;color:#fff;">Week</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 50%;text-align: center;">{{data.parlorName}}</td>
+                            <td style="width: 50%;text-align: center">{{data.weekNumber}}</td>
+                        </tr>
+                        <tr ng-repeat="e in data.employees">
+                            <td colspan="2">{{e.name}} {{e.lastName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <button ng-click="submit()">Submit</button>
+        </div>
+    </div>
+</div>

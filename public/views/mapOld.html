@@ -1,0 +1,166 @@
+<style media="screen">
+  .gm-svpc{
+    display:none;
+  }
+  .ng-table-pager {
+    display: none;
+}
+p {
+    margin: 0px;
+}
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">Map Travellers</h2>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <div  class="col-md-3 col-lg-3 col-md-offset-2">
+          <h4>Select Date Range</h4>
+      </div>
+      <div class="col-md-6  col-lg-3" style="display: inline-flex;">
+          <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+                 ng-model="dateRangeSelected" ng-change="dateSelected()" readonly="readonly" required/>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 col-lg-3 col-md-offset-2"> <h4></h4></div>
+    <div class="col-md-6 col-lg-6 " >
+    <div style="display:inline-flex" isteven-multi-select input-model="travellerlist" output-model="selectedTravellerlist" button-label="travellerName" item-label="travellerName" tick-property="isSelected" output-properties="_id" on-close="changeTravellerlist()" ></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-md-offset-2"><button class="btn btn-primary" id="apply-btnservice"  ng-click="selectEmployee()">Select Employees</button></div>
+    </div>
+</div>
+<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+  <ng-map style="width:100%; height:35em;position: relative;"zoom="12" center="{{center}}" map-type-id="TERRAIN">
+     <shape ng-init="pathColorGeneratorfunction()"ng-repeat="data in mapDataMultiple"
+       name="polyline"
+       path="{{data.path}}"
+       geodesic="true"
+       stroke-color="{{pathColorGenerator}}"
+       stroke-opacity="1.0"
+       stroke-weight="3"
+       icons="[{
+              icon: {
+                <!-- path: 'FORWARD_CLOSED_ARROW' -->
+              },
+              offset: '100%'
+            }]">
+     </shape>
+     <!-- <marker ng-repeat="data in mapDataMultiple" position="{{data.path}}"></marker> -->
+     <div ng-repeat="data in mapDataMultiple">
+       <marker icon="{{pathMarkerProperties}}" ng-repeat="value in data.path.slice(1,data.path.length-2)" position="{{value}}" on-click="map.showInfoWindow('infoWindow');" title="Location Index: {{$index+1}}"></marker>
+     </div>
+     <custom-marker position="{{data.point}}" ng-repeat="data in parlorMarkers">
+      <div style="border-style:solid;border-color:#000;border-width:0.05em;margin-bottom:1.7em;padding:0.3em;padding-bottom:0;background:#fff;text-align:center;font-size:1em;">
+        {{data.name}}
+      </div>
+    </custom-marker>
+      <marker ng-repeat="data in mapDataMultiple" position="{{data.path[0]}}" on-click="map.showInfoWindow('infoWindow');" title="Start: {{data.firstName}} {{data.lastName}}"></marker>
+      <marker ng-repeat="data in mapDataMultiple" position="{{data.path[data.path.length-1]}}" title="End: {{data.firstName}} {{data.lastName}}"></marker>
+      <marker icon="{{parlorMarkerProperties}}" ng-repeat="data in parlorMarkers" position="{{data.point}}" title="{{data.name}}"></marker>
+      <!-- <info-window ng-repeat="data in mapDataMultiple" id="infoWindow" max-width="200"> -->
+        <!-- <div> -->
+          <!-- <p>
+            {{data.opsActivity}}
+          </p> -->
+        <!-- </div> -->
+
+      <!-- </info-window> -->
+   </ng-map>
+</div>
+<div class="row">
+<!-- <div class="col-md-10 col-lg-10 col-xs-10 col-sm-10 col-md-offset-1 col-lg-offset-1 col-sm-offset-1 col-xs-offset-1"> -->
+
+<!--
+  <table ng-table="tableParams" class="table table-striped" style="margin-top:2em;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Number of salons visited</th>
+        <th>Salons names</th>
+        <th>Time spent in salons</th>
+        <th>Time spent in Travelling</th>
+      </tr>
+
+
+          <tr ng-repeat="data in tableData">
+            <td title="Name" sortable="'name'">
+                {{data.name}}</td>
+            <td sortable="'date'">
+                {{data.date | date:'dd-MM-yyyy'}}</td>
+            <td>
+                {{data.parlorsVisited}}</td>
+            <td title="'Salons names'">
+              <p ng-repeat="s in data.visitedParlors">
+                {{s}}
+              </p>
+
+              </td>
+            <td>
+                {{data.timeSpentInParlors}}</td>
+            <td>
+                {{data.timeSpentOutsideParlors}}</td>
+          </tr>
+
+
+</table> -->
+
+<div class="col-md-10 col-md-offset-1">
+  <table ng-table="tableParams" class="table table-striped" style="margin-top:2em;">
+
+              <tr ng-repeat="user in $data">
+                      <td title="'Name'" sortable="'name'"  onmouseover="this.title='';">
+                              {{user.name}}
+                      </td>
+                      <td title="'Date'" sortable="'date'"  onmouseover="this.title='';">
+                         {{user.date | date:'dd-MM-yyyy'}}</td>
+                      <td title="'Number of salons visited'"  onmouseover="this.title='';">
+                          {{user.parlorsVisited}}</td>
+                      <td title="'Salon Names'"  onmouseover="this.title='';">
+                        <p ng-repeat="s in user.visitData">
+                          {{s.parlorName}}
+
+                        </p>
+                      </td>
+                      <td title="'Check-In'"  onmouseover="this.title='';">
+                        <p ng-repeat="s in user.visitData">
+                        <span ng-if="s.checkIn!=null" >{{s.checkIn | date:'HH:mm'}}</span>
+                        <span ng-if="s.checkIn==null">-</span>
+                        </p>
+                      </td>
+                      <td title="'Check-Out'"  onmouseover="this.title='';">
+                        <p ng-repeat="s in user.visitData">
+
+                        <span ng-if="s.checkOut!=null"> {{s.checkOut | date:'HH:mm'}}</span>
+                        <span ng-if="s.checkOut==null">-</span>
+                        </p>
+                      </td>
+                      <!-- <td title="'Salons names'">
+                         {{user.timeSpentInParlors}}</td> -->
+                     <!-- <td title="'Time spent in salons'">
+                        {{user.timeSpentOutsideParlors}}</td> -->
+                      <!-- <td title="'Time spent in Travelling'">
+                         {{user.date}}</td> -->
+              </tr>
+
+    </table>
+</div>
+
+
+<!-- <div ng-repeat="data in mapDataMultiple">
+  <div ng-repeat="data in data.path">
+{{data}}
+  </div>
+
+
+</div> -->
+<!-- </div> -->
+
+
+</div>

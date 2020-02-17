@@ -1,0 +1,95 @@
+<style>
+    .cartDialog{
+            margin-top:2%!important;
+            margin-bottom:4%!important;
+            color: #58595b;
+    }
+    .cartRows{
+        margin:2px !important;
+        padding-left:3%;
+        border-bottom: 1px solid #f2f2f2;
+        padding-bottom: 2%;
+        color: #58595b;
+    }
+    .shortDescription{
+        font-size: 12px;
+        color: #58595b;
+    }
+    .newdetail-footer-card{
+      padding-top: 2%;
+    padding-left: 4%;
+        padding-bottom: 2%;
+    }
+    
+   
+
+
+</style>
+
+
+<md-dialog aria-label="Mango (Fruit)" class="view-cart-dialog">
+  <form ng-cloak>
+
+      <div layout="row" style="color:##58595b;border:1px solid #f2f2f2">
+        <div flex-xs='90' class="newdetail-footer-card" flex='90' style="font-size: 1.2em">Cart</div>
+        <div flex-xs='10' flex='5' style="padding-top: 2%;">
+
+            <md-icon ng-click="cancel()" md-svg-src="img/icons/ic_close_24px.svg" style="fill:#d2d4d5;" size="15" aria-label="Close dialog" ></md-icon>
+
+        </div>
+      </div>
+      <md-dialog-content>
+        <div class="cartDialog" layout="column">
+            <div layout="row" class="cartRows">
+
+                <div flex-xs="55" flex="55">Total Price:</div>
+                <div flex-xs="30" flex="25">
+                    <div class="total-price-cupon">Saved:{{((totalMenuPrice-totalPrice)/totalMenuPrice)*100 |number:0}}%</div>
+                </div>
+                <div flex-xs="20" flex="20" style="color: green;font-weight: 600;">&#x20B9;{{totalPrice}}</div>
+
+            </div>
+             <div layout="row" class="cartRows">
+                <div flex="100" style="font-size: 1.1em;">Service Details</div>
+                    
+            </div>
+<!--
+            <div layout="row" class="cartRows"   ng-if="checkFlag" >
+<!--                <div flex="100" style="font-size:0.7em;text-align: center">One quantity must be there for particular Service</div>-->
+            </div>
+
+            <div class="cartRows" flex ng-repeat="cart in cartProducts"  layout="row">
+                <div flex="80">
+                        <span ng-if="cart.name" style="font-weight:600;font-size:13px">{{cart.name}}</span>
+                        <span ng-if="!cart.name"  style="font-weight:600;font-size:13px">{{cart.services[0].name}}</span>
+                        <br>
+                        <span ng-if="cart.shortDescription" class="shortDescription">{{cart.shortDescription}}</span>
+                        <span ng-if="!cart.shortDescription" class="shortDescription">
+                        <span ng-if="cart.services[0].brandName" >
+                            {{cart.services[0].brandName}}
+                        </span>
+                        <span ng-if="cart.services[0].productId">
+                            - {{cart.services[0].productName}}
+                        </span>
+                        </span>
+                     <div  layout="row"   ng-hide="progress.determinateValue>34"  style="width:20%;font-size:.8em;border:1px solid green;border-radius:3px;text-align: center;margin-top: 5px;">
+                          <div flex="33">  <span ><ng-md-icon icon="remove" style="fill: #3e780a;cursor:pointer"  size="15" ng-click="substractIt($index)"></ng-md-icon></span></div>
+                          <div flex="33" style="background:green;color:#fff;">{{cart.quantity}}</div>
+                          <div  flex="33">  <span ><ng-md-icon icon="add" style="fill: #3e780a;cursor:pointer;" size="15" ng-click="myFunction($index)"></ng-md-icon>
+
+                          </span>
+                          </div>
+                      </div>
+
+                </div>
+                <div flex="20" flex-offset="15" flex-offset-xs="0" style="color:green">
+                       &#x20B9; {{cart.price * cart.quantity}}
+                </div>
+            </div>
+     
+
+
+    </md-dialog-content>
+
+  </form>
+</md-dialog>

@@ -1,0 +1,39 @@
+<style>
+    th{
+        text-align: center;
+    }
+</style>
+
+<div class="row">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">Reopen Appointment</h3>
+        </div>
+    </div>
+    
+    <div>
+        <p>Enter Client Phone Number
+            <span>
+        <input type = "text" ng-model= "client.phoneNumber"/>
+        <button ng-click= "searchId(client.phoneNumber)">Search</button>
+                </span></p>
+       
+    </div>
+<div class="card">
+  <div class="container-fluid">
+      <div class="table-responsive" style="overflow-x: initial">
+      <table  class="col-lg-12 table table-striped table-hover" ng-table="tableParams">
+        <tr ng-repeat="row in datas" >
+           <td title="'Appointment ID'">{{row._id}} </td>
+           <td title="'Parlor Name'">{{row.parlorName}}-{{row.parlorAddress}} </td>
+           <td title="'Client Name'">{{row.client.name}}</td>
+           <td title="'Client No.'">{{row.client.phoneNumber}}</td>    
+           <td title="'Status'">{{statusOfAppointment[row.status-1].name}}<span ng-if="row.status==3">Completed</td>    
+           <td title="'Payable Amount'">{{row.payableAmount|number:0}}</td>
+           <td title="'Date'">{{row.appointmentStartTime|date:'yyyy-MM-dd'}}</td>
+            <td title="'Reopen'"><span> <button  class="btn btn-lg"  ng-click="objectToBePicked(row)">Reopen</button></span> </td>
+        </tr>
+       </table>      
+      </div></div></div></div>
+<div class="container-fluid">
+</div>

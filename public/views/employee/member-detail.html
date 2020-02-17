@@ -1,0 +1,481 @@
+<style>
+    .redClassLessWorkingHours {
+        background-color: red;
+    }
+    
+    .greenClassLessWorkingHours {
+        background-color: green;
+    }
+    
+    .yellowClassLessWorkingHours {
+        background-color: yellow;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{{userName}}</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card profilecard">
+                        <span style="float:right" class="glyphicon glyphicon-edit" ng-click="openEditEmployee()">
+										 Edit &nbsp;
+								</span>
+                        <div class="cardheader">
+                        </div>
+
+                        <div class="avatar">
+                            <img alt="" src="http://lorempixel.com/100/100/people/9/">
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a> {{userName}}</a>
+                            </div>
+                            <div class="desc">
+                                <span>Job Title : {{employeeData.position}} </span>
+                            </div>
+                            <div class="desc">
+                                <span>Employee ID: {{employeeData._id}} <button clipboard supported="supported" text="employeeData._id" on-copied="successCopy()" on-error="failCopy(err)" style='font-size: 10px;height: 24px;width: 40px;' >Copy</button></span>
+                            </div>
+                            <div class="desc">
+                                Rating :
+                                <i class="fa fa-star" style=" vertical-align: middle;margin-right: 5%;" aria-hidden="true"></i>
+                                <i class="fa fa-star" style=" vertical-align: middle;margin-right: 5%;" aria-hidden="true"></i>
+                                <i class="fa fa-star" style=" vertical-align: middle;margin-right: 5%;" aria-hidden="true"></i>
+                                <i class="fa fa-star" style=" vertical-align: middle;margin-right: 5%;" aria-hidden="true"></i>
+                                <i class="fa fa-star" style=" vertical-align: middle;margin-right: 5%;" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="contact-info info">
+                            <div class="desc">
+                                <span>Contact Info : {{employeeData.phoneNumber}}</span>
+                            </div>
+                            <div class="desc">
+                                <span>Email : {{employeeData.emailId}}</span>
+                            </div>
+                        </div>
+                        <div class="contact-info info">
+                            <div class="desc"><i class="fa fa-facebook fa-2x fa-fw text-color-green" aria-hidden="true"></i> <i class="fa fa-twitter fa-2x text-color-green" aria-hidden="true"></i></div>
+                            <div class="desc">
+                                <span><span class="heading">Age : </span>{{employeeData.age}}</span>
+                            </div>
+                            <div class="desc">
+                                <div class="heading">Earning Info:</div>
+                                <div>Salary: {{employeeData.salary}}</div>
+                                <div>Commission: {{commission}}</div>
+                                <div>Total Salary: {{totalSalary}}</div>
+                            </div>
+                            <div class="desc">
+                                <span><span class="heading">Total Leaves:</span><span class="text-color-green">   {{leaveCount}}</span></span>
+                            </div>
+                            <div class="desc">
+                                <div class="heading">Bank Info:</div>
+                                <div>Account Holder Name: {{employeeData.firstName + " "+ employeeData.lastName}}</div>
+                                <div>Account No.: {{employeeData.accountNo}}</div>
+                                <div>IFSC Code: {{employeeData.ifscCode}}</div>
+                                <div>Transfer Account Id: {{employeeData.razorPayAccountId}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="container-fluid">
+                    <div class="panel-heading">
+                        <h2>Recent Customers</h2>
+                    </div>
+                    <div class="row">
+                        <div class="form-inline">
+                            <input type="text" ng-model="query" class="form-control" placeholder="Search here">
+                            <button type="button" class="btn" ng-csv="makeCSVData()" filename="data.csv">Export as CSV</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table ng-table="tableParams" class="table" show-filter="false">
+                            <tr ng-repeat="appt in appointments | filter : query">
+                                <td title="'Customer Name'" filter="{ name: 'text'}" sortable="'name'">
+                                    {{appt.client.name}}
+                                </td>
+                                <td title="'Services'" filter="{ id: 'number'}" sortable="'id'">
+                                    <span ng-repeat="service in appt.services">{{service.name}}, </span>
+                                </td>
+                                <td title="'Start Time'" filter="{ sp: 'number'}" sortable="'sp'">
+                                    {{appt.startsAt | date:'short' }}
+                                </td>
+                                <td title="'Sub Total'" filter="{ sp: 'number'}" sortable="'sp'">
+                                    {{appt.subtotal}}
+                                </td>
+                                <td title="'Discount'" filter="{ sp: 'number'}" sortable="'sp'">
+                                    {{appt.discount + appt.membershipDiscount}}
+                                </td>
+                                <td title="'Tax'" filter="{ sp: 'number'}" sortable="'sp'">
+                                    {{appt.tax}}
+                                </td>
+                                <td title="'Amount Payable'">
+                                    (Rs {{appt.payableAmount}})
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--	<div class="col-md-6">
+
+						<h5>Services Assigned to {{userName}}</h5>
+						<div class="col-lg-4" ng-repeat="cat in categories">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									{{cat.name}}
+								</div>
+								<div class="panel-body">
+									<ul>
+										<li ng-repeat="service in cat.services" ng-if="service.isAssigned">{{service.serviceName}} <span ng-if="service.isSpecialist">(specialist)</span></li>
+									</ul>
+								</div>
+								<div class="panel-footer">
+									<button ng-click="editService($index)">Edit</button>
+								</div>
+							</div>
+						</div>
+
+					</div>-->
+        </div>
+        <div class="col-md-8" >
+            <div class="card"style="padding:10px;">
+                <h5>Employee Post in </h5>
+                <div>
+                    Hair Department
+                    <label ng-repeat="h in hd">
+								<input type="radio" name="hair dep"  ng-model="s.hair" ng-value="h.value" />{{h.name}}
+							</label>
+                </div>
+                <div>
+                    Makeup Department
+                    <label ng-repeat="m in md">
+								<input type="radio" name="make up dep"   ng-model="s.makeup" ng-value="m.value" />{{m.name}}
+							</label>
+                </div>
+                <div class="container-fluid">
+                    <h5>Services Assigned to {{userName}} is a </h5>
+                    <div>
+
+                    </div>
+                    <div>
+                        <h5>Add Services</h5>
+                        <div isteven-multi-select input-model="empServices" orientation="horizontal" output-model="selectedSuperCat" button-label="superCategory" item-label="superCategory" tick-property="isPresent" on-close="fClose()"></div>
+                        <div isteven-multi-select input-model="serv" orientation="horizontal" output-model="selectedSer" button-label="name" item-label="name" tick-property="isPresent" on-close="fCloses()"></div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn" ng-click="updateEmployeeServices()">Update</button>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================employee image upload starts================================ -->
+    <div class=" container-fluid">
+        <div class="col-lg-12 col-md-12 card">
+            <div class='row'>
+                <div class='col-lg-12 col-md-12 col-sm-12'>
+                    <div class="col-lg-12 col-md-12">
+                        <h3>Upload Images</h3>
+                    </div>
+                    <div class='row'>
+                        <div class='col=lg-6 col-md-6 col-sm-6'>Choose your multiple images</div>
+                        <div class='col=lg-6 col-md-6 col-sm-6'>
+                            <button ngf-select="uploadFiles($files)" multiple accept="image/*">Select Files</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ========================employee image upload stops================================ -->
+
+    <div class=" container-fluid">
+        <div class="col-lg-12 col-md-12 card">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h3>Employee Day Wise Attendance</h3>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 dailysummary">
+                <div class="col-lg-2 col-md-2 col-md-offset-2">
+                    <span>From date</span>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-change="updateFromTime()" ng-model="fromDate" uib-datepicker-popup is-open="popup1.open1" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                </div>
+                <div clas="col-md-2">
+                    <span class="input-group-btn">
+						        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+					        </span>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 dailysummary">
+                <div class="col-lg-2 col-md-2 col-md-offset-2">
+                    <span>To date</span>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-change="updateToTime()" ng-model="toDate" uib-datepicker-popup is-open="popup2.open2" datepicker-options="dateOptions1" ng-required="true" close-text="Close" />
+                </div>
+                <div clas="col-lg-2">
+                    <span class="input-group-btn">
+					        	<button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+					        </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-inline row col-md-12 col-lg-12 col-md-offset-4">
+
+                    <button class="btn btn-link btn-md" ng-click="exportToExcel('#attendanceTable')" style="margin-left: -10px;border: 0;">
+                             <span class="glyphicon glyphicon-share"></span>
+                            Export to Excel
+                     </button>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-12 dailysummary">
+                    <div class="table-responsive">
+                        <table ng-table-dynamic="tableParams1 with columns" show-filter="true" class="table" id="attendanceTable">
+                            <thead>
+                                <tr>
+                                    <th style="background-color: #FAE596;" ng-repeat="column in columns" ng-show="column.visible" class="text-center sortable" ng-class="{'sort-asc': tableParams1.isSortBy(column.field, 'asc'),'sort-desc': tableParams1.isSortBy(column.field, 'desc')}" ng-click="tableParams1 .sorting(column.field, tableParams1.isSortBy(column.field, 'asc') ? 'desc' : 'asc')">
+                                        <span>{{column.title}}</span>
+                                    </th>
+                                    <th style="background-color: #FAE596;">
+                                        <span>Total</span>
+                                    </th>
+                                    <th style="background-color: #FAE596;">
+                                        <span>Difference</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="user in $data">
+                                    <td ng-repeat="column in columns" ng-if="user.dateFlag" ng-show="column.visible" sortable="column.field" ng-style="{'background-color': user.rowColor}">
+                                        <span style="color:white">{{(user[column.field][column.subfield1] |date:'h:mma')||  (user[column.field] | date)}}<span ng-if="user[column.field][column.subfield1]!=undefined"> to </span> {{ user[column.field][column.subfield2]
+                                        |date:'h:mma'}}
+                                        </span>
+                                    </td>
+                                    <td ng-if="user.dateFlag" ng-style="{'background-color': user.rowColor}">
+                                        <span style="color: white;">{{user.workingHours}}</span>
+                                    </td>
+                                    <td ng-if="user.dateFlag" ng-style="{'background-color': user.rowColor}">
+                                        <span style="color: white;">{{user.hoursDifference}}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="editMemberService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">{{currentCategory.name}} services for {{userName}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6" ng-repeat="service in currentCategory.services">
+                        <div class="form-group">
+                            <label></label>
+                            <label class="checkbox-inline bold">
+												<input type="checkbox" ng-model="service.isAssigned">{{service.serviceName}}
+											</label>
+                            <label class="checkbox-inline">
+												<input type="checkbox" ng-model="service.isSpecialist">Is Specialist
+											</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" ng-click="update()">Update</button>
+            </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="editEmployee" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Add New Team Member</h4>
+            </div>
+            <form role="form" ng-submit="editEmployee()">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input ng-model="newUser.firstName" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input ng-model="newUser.lastName" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Email Id</label>
+                                <input ng-model="newUser.emailId" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input ng-model="newUser.phoneNumber" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input ng-model="newUser.password" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <select class="form-control" required ng-model="newUser.gender">
+                                                      <option value="M">M</option>
+                                                      <option value="F">F</option>
+                                                  </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Break Interval (in hrs) </label>
+                                <input ng-model="newUser.breakHr" type="number" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-lg-6">
+	                                              <div class="form-group">
+	                                                  <label>Age</label>
+	                                                  <input ng-model="newUser.age" class="form-control" required>
+	                                              </div>
+	                                          </div> -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Position</label>
+                                <input ng-model="newUser.position" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Type</label>
+                                <select class="form-control" required ng-model="newUser.type">
+                                                      <option value="1">Employee</option>
+                                                      <option value="2">Commission Based Only</option>
+                                                  </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Commission if any</label>
+                                <input ng-model="newUser.employeeFixedCommission" class="form-control" required>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Salary</label>
+                                <input ng-model="newUser.salary" class="form-control" required>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Street Line 1</label>
+                                <input ng-model="newUser.streetLine1" class="form-control" required>
+                            </div>
+                        </div>
+                        <!-- <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Bank Account Number</label>
+                                <input ng-model="newUser.accountNo" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Bank IFSC Code</label>
+                                <input ng-model="newUser.ifscCode" class="form-control" required>
+                            </div>
+                        </div> -->
+                        <!-- <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Street Line 2</label>
+                                                  <input ng-model="newUser.streetLine2" class="form-control" required>
+                                              </div>
+                                          </div> -->
+
+                        <!-- <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>City</label>
+                                                  <input ng-model="newUser.city" class="form-control" required>
+                                              </div>
+                                          </div> -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Joining Date</label>
+                                <input type="date" ng-model="newUser.joiningDate" value="2016-06-01">
+                            </div>
+                        </div>
+
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

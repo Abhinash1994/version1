@@ -1,0 +1,40 @@
+<style type="text/css">
+	h2{
+		text-align: center;
+	}
+</style>
+<div class="row">
+		<h2>Salon Details</h2>
+	<div class="table-responsive" style="padding:2%;">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Salon ID</th>
+					<th style="border:1px solid #fff;text-align: center;" > Salon Name </th>
+					<th style="border:1px solid #fff;text-align: center;" >Status</th>
+					<th   style="border:1px solid #fff;text-align: center;" >GST Number</th>
+					<!-- <th   style="border:1px solid #fff;text-align: center;" ng-repeat-end >Royality</th> -->
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="salon in data">
+
+					<td>{{salon._id}}</td>
+					<td>{{salon.name}}</td>
+					<td>{{salon.status}}</td>
+					<td>{{salon.gstNumber}}</td>
+					<!-- <td>{{salon.royality}}</td> -->
+					
+				</tr> 
+				
+			
+			
+	
+		
+			</tbody>
+
+		</table>
+	
+	</div>
+
+</div>

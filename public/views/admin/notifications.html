@@ -1,0 +1,71 @@
+
+<style>
+    table, th{
+        text-align: center; 
+    }
+    #branchfilter{margin-top: 0px;}
+</style>
+<div class="col-lg-12">
+    <h2 class="page-header">Send Notification</h2>
+</div>
+
+
+
+<form ng-submit="sendNotification()">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-3">
+                <label>Testing Phone Number</label>
+            </div>
+            <div class="col-md-3">
+                <input type="number"   ng-model="not.testingPhoneNumber"/>
+            </div>
+        
+        </div>
+        <div class="row">
+             <div class="col-lg-6">
+                <div class="form-group">
+                    <label></label>
+                    <select class="form-control"  ng-model="not.type" ng-options="cat.val as (cat.name) for cat in categories" required>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Deal Title</label>
+                    <input ng-model="not.title" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Deal Text for Android</label>
+                    <input ng-model="not.androidText" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Deal Text for IOS</label>
+                    <input ng-model="not.iosText" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Small Image</label>
+                    <input ng-model="not.simage" ng-init=" " class="form-control" >
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Large Image</label>
+                    <input ng-model="not.limage" ng-init=" " class="form-control" >
+                </div>
+            </div>
+            <!-- /.col-lg-6 (nested) -->
+        </div>
+        <!-- /.row (nested) -->
+    </div>
+    <button class="btn btn-primary" type="submit">Send Notification</button>
+</form>
+
+
+

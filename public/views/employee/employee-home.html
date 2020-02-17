@@ -1,0 +1,39 @@
+<div class="container-fluid">
+	<div>
+	<!-- <select class="form-control" id="sel1">
+        <option>Yesterday</option>
+        <option>This Week</option>
+        <option>This Month</option>
+      </select> -->
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+			      <select class="form-control" style="margin-top:20px"
+			      ng-model="selected_period"
+			      ng-options="obj.period as obj.name for obj in time"
+			      ng-change="change()">
+			    </select>
+				</div>
+			</div>
+		</div>
+
+	<div class="row padding-t20">
+        <stats number="{{attendance}}" comments="Today's Attendance" colour="lightblue" type="comments"></stats>
+        <stats number="{{mostProductiveEmployee}}" comments="Most Popular Employee" colour="lightsalmon" type="user"></stats>
+		<stats number="{{avgService}}" comments="Average Services/Employee" colour="lightyellow" type="user"></stats>
+        <stats number="{{leastProductiveEmployee}}" comments="Least Man Hour" colour="darkseagreen" type="support"></stats>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="graph-container">
+				<h2>Employee Appointment Trend</h2>
+				<nvd3 options="EAoptions" data="EAdata"></nvd3>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="graph-container">
+				<h2>Total Unproductive Hours</h2>
+				<nvd3 options="EFHoptions" data="EFHdata"></nvd3>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,73 @@
+
+<style type="text/css">
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        height: 70%;
+    }
+    h3{
+        text-align: center;
+    }
+</style>
+<div class="row row1">
+    <div class="col-lg-12">
+                <br />
+        <div class="panel panel-default">
+            
+            <div class="panel-heading">
+               <h3>Edit Royalty Amount in Salons </h3>
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered" id="dataTables-example">
+                        <thead>
+
+                            <tr>
+                                <th>Salon Name</th>
+                                <th>Save</th>
+                                <th>Salon Minimum Guarantee</th>
+                                <th>For Salon Support Report</th>
+                                <!-- <th>Salon Minimum Gurantee</th> -->
+                                <th>Hold Payment</th>
+
+                                <th>Bank Name</th>
+                                <th>Account No</th>
+                                <th>Account Holder Name</th>
+                                <th>IFSC</th>
+                                <th>razorpay Fund Account</th>
+                                <th>SignUp fees</th>
+                                <th>SignUp Received On</th>
+                                <th>Reverse Charge Multiple</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="" ng-repeat="list in salonData | orderBy:'name'">
+                                <td>{{list.name }}-{{list.address2}}</td>
+                                <td><button ng-click=saveSalon(list.avgRoyalityAmount,list._id,list.mainMinimumGuarantee,list.holdPayment,list.bankName,list.accountNo,list.bankBeneficiaryName,list.ifscCode,list.signUpFees,list.signUpFeesReceivedOn,list.reverseChargeMultiple)>Update Salon</button></td>
+                                <td><input type="number" ng-model="list.minimumGuarantee"/></td>
+                                <td><input type="number" ng-model="list.avgRoyalityAmount"/></td>
+                                <!-- <td>{{list.minimumGuarantee}}</td> -->
+                                <td><input type="checkbox" ng-model="list.holdPayment"></td>
+                                
+                                <th><input type="string" ng-model="list.bankName"/></th>
+                                <th><input type="string" ng-model="list.accountNo"/></th>
+                                <th><input type="string" ng-model="list.bankBeneficiaryName"/></th>
+                                <th><input type="string" ng-model="list.ifscCode"/></th>
+                                <th><input type="string" disabled ng-model="list.fundAccountIdRazorPay"/></th>
+                                  <th><input type="string" ng-model="list.signUpFees"/></th>
+                                <th><input type="string" disabled ng-model="list.signUpFeesReceivedOn"/></th>
+                                <th><input type="string" ng-model="list.reverseChargeMultiple"/></th>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>

@@ -1,0 +1,32 @@
+<style type="">
+	table ,th{
+		text-align: center;
+	}
+
+</style>
+
+<div class="row">
+	<h3>salon Pass Payment</h3>
+
+</div>
+<div class="row">
+	<table class="table">
+		<tr>
+			<th>Date</th>
+			<th>Phone Number</th>
+			<th>Status</th>
+			<th>Otp</th>
+			<th>Email Id</th>
+			
+		</tr>
+		<tr ng-repeat="data in salonPassData">
+			<td> {{data.createdAt}}</td>
+			<td>{{data.phoneNumber}}</td>
+			<td>{{data.status}}</td>
+			<td>{{data.otp}}</td>
+			<td>{{data.emailId}}</td>
+
+		</tr>
+	</table>
+
+</div>

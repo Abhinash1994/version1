@@ -1,0 +1,191 @@
+<style type="text/css">
+	.selectsalon{
+		    height: 33px;
+    		background: #fff;
+	}
+	.monthselect{
+	width: 123%;
+    height: 33px;
+    background: #fff;
+	}
+	.multiSelect > button {
+   width: 124%;
+}
+
+</style>
+
+
+<div class="container">
+
+<div class="row"> 
+	<h3>Salon Report</h3> 
+</div>
+<div class="row" ng-if="userType==1" style="padding-bottom:2%;">
+   <div class="col-md-3" style="text-align: right;font-size: 17px;padding-top: 1%">Select Salon</div>
+    <div class="col-md-4">
+        <select  class="setelment-report selectsalon"  ng-model="selectedParlor.selectedParlor"  ng-options="parlor.parlorId as parlor.name for parlor in parlors |orderBy:'name'" ng-change="changeParlor(selectedParlor)">
+        </select>
+    </div>
+    {{parlor}}
+</div>
+<div class="row" style="padding-bottom:2%;">
+     <div class="col-md-3" style="text-align: right;font-size: 17px;padding-top: 1%">Select Month</div>
+      <div class="col-md-4">
+
+
+ <!--        <select class="setelment-report monthselect"ng-model="item"  ng-options="item.name for item in month" multiple>
+        </select> -->
+        	   <div style="display:inline" isteven-multi-select input-model="month" output-model="selectedMonth" button-label="name" item-label="name" tick-property="isSelected" output-properties='value'"  ></div>
+
+    </div>
+</div>
+<div class="row" style="padding-bottom:2%;">
+     <div class="col-md-3" style="font-size: 17px;padding-top: 1%;text-align: right;">
+     Select Year</div>
+      <div class="col-md-4">
+        <select class="setelment-report monthselect"   ng-model="item1"  ng-options="item1 for item1 in year">
+        </select>
+    </div>
+</div>
+<div class="row"><button class="btn btn-sm" ng-click="parlorChanged(selectedParlor)" style="width:20%;margin-left: 7%;">Submit</button></div>
+<div style="width: 70%;margin:auto;">
+ <div style="float:left;width:48%;">
+  <h5 style="text-align:center;font-size:13px;">Used Support</h5>
+   <div style="height:80px;background: linear-gradient(to top,#59a22f 0%, #9bcb5b 90%)!important;border-radius: 6px!important;"> 
+
+<div style="color:#fff;font-size: 10px;float:left;width:100%;padding-top:12%;text-align: center;">
+	<b style="font-size: 16px;">{{parlorsdata.currentAmountUsage|number:0}}</b>
+</div>
+</div>
+</div>
+
+<div style="float:left;width:48%;margin-left:2%;margin-bottom: 2%;"> 
+	<h5 style="text-align:center;font-size:13px;">Budgeted Support</h5> <div style="height:80px;background: linear-gradient(to top,#f08c52 0%, #fbc066 90%);border-radius: 6px;">
+<div style="color:#fff;padding-top: 7%;font-size: 10px;text-align:center;float:left;width:100%;"><br><b style=" font-size:16px;font-weight: bold;
+">{{parlorsdata.currentMonthUsageAllowed|number:0}}</b></div>
+</div>
+</div>
+</div>
+<table style="border-collapse: collapse;border:1px solid #000!important;clear:both!important;width: 100%;text-align: center;font-size: 13px;margin-top: 20%;"> 
+	<tbody>
+		<tr>
+			<td colspan="6" style="border:1px solid #000;"> <b style=" font-size: 16px;">Be U Salon Support</b><br><b style=" font-size: 14px;"></b> 
+		 	</td>
+	 	</tr>
+		 	<tr> 
+				<td style="border:1px solid #000;height: 45px;">Support Category</td>
+				<td class="home-table" style="border:1px solid #000;height: 45px;">Support Type</td>
+				<td class="home-table" style="border:1px solid #000;height: 45px;">Budget</td>
+				<td class="home-table" style="border:1px solid #000;height: 45px;">Previous Balance</td>
+				<td class="home-table" style="border:1px solid #000;height: 45px;">Usage</td>
+		    </tr>
+		<tr>
+			
+			<td style="border:1px solid #000; color:#b87036;height: 45px;">Salon Driven:<br>
+			{{d1.totalUsageAllowed|number:0}}</td>
+			<td class="home-table" style="border:1px solid #000;height: 45px;">{{d2.supportTypeName}}</td>
+			<td class="home-table" style="border:1px solid #000;height: 45px;">{{d2.totalUsageAllowed|number:0}}</td>
+			<td class="home-table" style="border:1px solid #000;height: 45px;">{{d1.previousBalance|number:0}}</td>
+			<td class="home-table" style="border:1px solid #000;height: 45px;">{{d2.usageThisMonth|number:0}}</td>
+
+		</tr>
+		<tr>
+			
+			<td rowspan="2" style="border:1px solid #000;color:#6f8b41;height: 45px;">Be U Driven:<br>{{2*d2.totalUsageAllowed|number:0}}</td>
+			<td class="home-table" style="border:1px solid #000;height: 45px;">{{d1.supportTypeName}}</td>
+			<td class="home-table" style="border:1px solid #000;height: 45px;">{{d2.totalUsageAllowed|number:0}}</td>
+			<td class="home-table" style="border:1px solid #000;height: 45px;">{{d2.previousBalance|number:0}}</td>
+			<td class="home-table" style="border:1px solid #000;height: 45px;">{{d1.usageThisMonth|number:0}}</td>
+
+		</tr>
+		<tr>
+			
+			<td style="border:1px solid #000;height: 45px;">{{d3.supportTypeName}}</td>
+			<td class="home-table" style="border:1px solid #000;height: 45px;">{{d3.totalUsageAllowed|number:0}}</td>
+			<td class="home-table" style="border:1px solid #000;height: 45px;">{{d3.previousBalance|number:0}}</td>
+			<td class="home-table" style="border:1px solid #000;height: 45px;">{{d3.usageThisMonth|number:0}}</td>
+			
+
+		</tr>
+		<tr>
+			
+			<td style="border:1px solid #000;height: 45px;"></td>
+			<td class="home-table" style="border:1px solid #000;height: 45px;">Total</td>
+			<td style="color:#b87036;border:1px solid #000;height: 45px;">{{(parlorsdata.royalityAmount+parlorsdata.royalityAmount+parlorsdata.royalityAmount|number:0)}}
+			</td>
+			<td class="home-table" style="color:#b87036;border:1px solid #000;height: 45px;">{{3*d3.previousBalance}}</td>
+			<td class="home-table" style="color:#b87036;border:1px solid #000;height: 45px;">{{parlorsdata.currentAmountUsage|number:0}}</td>
+
+		</tr>
+ 
+
+	</table>
+	<div class="row" style="padding-top: 3%;">
+		<div class="col-md-6">
+			<table class="table" style="border: 1px solid #000!important;">
+					<tr>
+						<td style="border:1px solid #000;height:30px;width:50%;"><b>Support Category</b></td>
+						<td style="border:1px solid #000;height:30px;width: 250%;"><b>Balance</b></td>
+						<td style="border:1px solid #000;height: 30px;width: 250%;"><b>Execess/Short</b></td>
+					</tr>
+					 <tr ng-if="(parlorsdata.supportTypes[1].usageThisMonth-parlorsdata.supportTypes[1].totalUsageAllowed)>0">
+						<td style="color:#b87036;border:1px solid #000;height:30px;width:40%;">Salon Driven</td>
+						<td style="color:#b87036;border:1px solid #000;height:30px;width: 30%;"> {{parlorsdata.supportTypes[1].usageThisMonth-parlorsdata.supportTypes[1].totalUsageAllowed | number:0}}</td>
+						<td style="border:1px solid #000;height:30px;width: 30%;">Excess</td>
+					</tr>
+					 <tr>
+						<td style="color:#b87036;border:1px solid #000;height:30px;width:40%;">Be U Driven</td>
+						<td style="color:#b87036;border:1px solid #000;height:30px;width: 30%;">{{parlorsdata.supportTypes[2].usageThisMonth-parlorsdata.supportTypes[2].totalUsageAllowed+parlorsdata.supportTypes[0].usageThisMonth-parlorsdata.supportTypes[0].totalUsageAllowed | number:0}}</td>
+						<td style="border:1px solid #000;height:30px;width: 30%;">{{shortOrExcess(parlorsdata.supportTypes[0].totalUsageAllowed+parlorsdata.supportTypes[2].totalUsageAllowed,parlorsdata.supportTypes[0].usageThisMonth+parlorsdata.supportTypes[2].usageThisMonth)}}</td>
+					</tr>
+					 <tr>
+						<td style="color:#b87036;border:1px solid #000;height:30px;width:40%;">Balance</td>
+						<td style="color:#b87036;border:1px solid #000;height:30px;width: 30%;"> {{balance | number:0}}</td>
+						<td style="border:1px solid #000;height:30px;width: 30%;"></td>
+					</tr>
+					 <tr>
+						<td style="color:#b87036;border:1px solid #000;height:30px;width:40%;">As per 3x Support</td>
+						<td style="color:#b87036;border:1px solid #000;height:30px;width: 30%;">{{balance/3 | number:0}}</td>
+						<td style="border:1px solid #000;height:30px;width: 30%;">{{finalBalanceText}}</td>
+					</tr>
+
+				
+			</table>
+		</div>
+		<div class="col-md-6">
+			<table style="border: 1px solid #000!important;" class="table">
+			
+					<tr>
+						<td style="border:1px solid #000;height:30px;width: 50%;"><b>Loyalty Breakup</b></td>
+						<td style="border:1px solid #000;height:30px;width: 50%;">{{parlorsdata.supportTypes[2].usageThisMonth | number:0}}</td>
+					
+					</tr>
+					<tr>
+						<td style="border:1px solid #000;height:30px;width: 50%;">Redemptions</td>
+						<td style="border:1px solid #000;height:30px;width: 50%;">{{parlorsdata.supportTypes[2].usageThisMonth-parlorsdata.trainingSupport-parlorsdata.hrSupport-parlorsdata.earlyBirdSupport | number:0}}</td>
+					</tr>
+					<tr>
+						<td style="border:1px solid #000;height:30px;width: 50%;">Training</td>
+						<td style="border:1px solid #000;height:30px;width: 50%;">{{parlorsdata.trainingSupport}}</td>
+					</tr>
+					<tr>
+						<td style="border:1px solid #000;height:30px;width: 50%;">Recruitment</td>
+						<td style="border:1px solid #000;height:30px;width: 50%;">{{parlorsdata.hrSupport}}</td>
+					</tr>
+					<tr>
+						<td style="border:1px solid #000;height:30px;width: 50%;">Early Bird</td>
+						<td style="border:1px solid #000;height:30px;width: 50%;">{{parlorsdata.earlyBirdSupport}}</td>
+					</tr>
+
+			
+			</table>
+			
+		</div>
+	</div>
+		<div class="row">
+			<p style="padding: 1%;text-align: left;padding-left: 2%;padding-right: 1%;">
+			* All Support are interchangable width each other *Salon Driven support balance expires at the end of every quater from live date * Unused Be U  Driven Support balance will be refunded at the end of every quater from live date, as per royalty reverse multiple * Training can be availed at 3k per session from Salon Driven Support * If salon requires any support beyond budgeted amout, it can be purchased on reversed support multiple
+			</p>
+		</div>
+
+	</div>

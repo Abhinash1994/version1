@@ -1,0 +1,50 @@
+
+<div class="row">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Quarterly Settlement Report</h1>
+        </div>
+        
+    </div>
+</div>
+ <h2> -ve Amount show excess consumption or amount to be charged from salon</h2>
+<div class="row">
+  <div class="table-responsive" style="padding:2%;">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th   style="border:1px solid #fff;text-align: center;" > Salon Id </th>
+          <th   style="border:1px solid #fff;text-align: center;width: 100px" > Salon Name </th>
+          <th   style="border:1px solid #fff;text-align: center;" >Period</th>
+          <th   style="border:1px solid #fff;text-align: center;" >Discount</th>
+          <th   style="border:1px solid #fff;text-align: center;" >Be U Client </th>
+          <th   style="border:1px solid #fff;text-align: center;" > Loyality </th>
+          <th   style="border:1px solid #fff;text-align: center;" >Total</th>
+          <th   style="border:1px solid #fff;text-align: center;" >Usage Allowed</th>
+          <th   style="border:1px solid #fff;text-align: center;" >Salon Driven</th>
+           <th   style="border:1px solid #fff;text-align: center;" >Be U Driven</th>
+          <th   style="border:1px solid #fff;text-align: center;" >Final Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="x in quartlyData">
+          <td>{{x.parlorId}}</td>
+          <td >{{x.parlorName}} {{" , "+x.address2}}</td> 
+          <td>{{x.quarterDate | date : 'sort'}}</td>
+          <td >{{x.supportTypes[0].usageThisMonth}}</td>
+          <td >{{x.supportTypes[1].usageThisMonth}}</td>
+          <td >{{x.supportTypes[2].usageThisMonth}}</td>
+            <td >{{x.supportTypes[0].usageThisMonth+x.supportTypes[1].usageThisMonth+x.supportTypes[2].usageThisMonth}}</td> 
+        <td >{{x.currentQuarterUsageAllowed*3}}</td>
+         <td >{{x.differenceInSalonDriven}}</td>
+          <td >{{x.differenceInBeuDriven}}</td>
+           <td >{{x.amountToBeCharged}}</td>
+
+        </tr>
+      </tbody>
+
+    </table>
+  
+  </div>
+
+</div>

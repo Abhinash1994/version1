@@ -1,0 +1,42 @@
+<div  class="companyinfo-page-container" flex>
+    <div  flex>
+        <div layout="row" layout-align="center" flex class="companyinfo-page-heading">
+            <h2 class="beu-company-heading">Franchise Enquiry Form</h2>
+        </div>
+        <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center">
+            <div flex-xs flex-gt-xs="80" layout="column">
+                <div flex>
+                    <div layout="row">
+                        <div  flex-xs="100" flex-sm="50" flex-md="50" flex-lg="50" flex-xl="50" flex-offset='25' flex-offset-xs='0'>
+                        <md-card>
+                            <md-card-content>
+                                     <form name="myForm" ng-submit="myForm.$valid && submit()">
+                                    <md-input-container class="md-icon-float md-block">
+                                        <!-- Use floating label instead of placeholder -->
+                                        <label>Name</label>
+                                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                                        <input ng-model="formData.name"  type="text"  ng-required="true">
+
+                                    </md-input-container>
+
+                                    <md-input-container md-no-float class="md-block">
+                                        <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                                        <input ng-model="formData.phoneNumber" type="number" placeholder="Phone Number" ng-minlength="10" ng-maxlength="10" ng-required="true" ng-required="true">
+                                    </md-input-container>
+
+                                    <div layout="column" flex="100" class="addReviewDialog-page-margin" layout-align="center center">
+                                        <input type="submit" name="" value="Submit" style="background: #d2232a;width:26%;padding:2% 1% 2% 1%;text-align: center;color: #fff;border-radius: 3px;cursor: pointer;border:none;">
+                                    </div>
+
+                                <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
+                            </form>
+                            </md-card-content>
+                        </md-card>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>

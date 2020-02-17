@@ -1,0 +1,159 @@
+<!-- Hiding the camera scale controls STARTS-->
+<style>
+	.dg,ac{
+		display: none;
+	}
+    /* Put your css in here */
+
+/*[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide {
+    display: none !important;
+}*/
+
+/*ng\:form {
+    display: block;
+}*/
+
+/*.ng-animate-block-transitions {
+    transition:0s all!important;
+    -webkit-transition:0s all!important;
+}*/
+
+/*.ng-hide-add-active, .ng-hide-remove {
+    display: block!important;
+}*/
+
+
+.ui-notification
+{
+    position: fixed;
+    z-index: 9999;
+
+    width: 300px;
+
+    cursor: pointer;
+    -webkit-transition: all ease .5s;
+    -o-transition: all ease .5s;
+    transition: all ease .5s;
+
+    color: #fff;
+    border-radius: 0;
+    background: #337ab7;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+}
+/*.ui-notification.killed
+{
+    -webkit-transition: opacity ease 1s;
+    -o-transition: opacity ease 1s;
+    transition: opacity ease 1s;
+
+    opacity: 0;
+}*/
+.ui-notification > h3
+{
+    font-size: 14px;
+    font-weight: bold;
+
+    display: block;
+
+    margin: 10px 10px 0 10px;
+    padding: 0 0 5px 0;
+
+    text-align: left;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+}
+.ui-notification a
+{
+    color: #fff;
+}
+.ui-notification a:hover
+{
+    text-decoration: underline;
+}
+.ui-notification > .message
+{
+    margin: 10px 10px 10px 10px;
+}
+.ui-notification.warning
+{
+    color: #fff;
+    background: #f0ad4e;
+}
+.ui-notification.error
+{
+    color: #fff;
+    background: #d9534f;
+}
+.ui-notification.success
+{
+    color: #fff;
+    background: #5cb85c;
+}
+.ui-notification.info
+{
+    color: #fff;
+    background: #5bc0de;
+}
+.ui-notification:hover
+{
+    opacity: .7;
+}
+
+</style>
+<!-- Hiding the camera scale controls STOPS-->
+
+
+<div id="wrapper">
+
+        <!-- Navigation -->
+
+        <header></header>
+        <!-- /.navbar-top-links -->
+
+
+        <!-- /.navbar-static-side -->
+
+            <div id="page-wrapper" style="min-height: 561px;">
+
+                <div ui-view autoscroll="true"></div>
+
+            </div>
+            <!-- /#page-wrapper -->
+    </div>
+    <!-- <div class="demo-title">
+    <p><a href="http://trackingjs.com" target="_parent">tracking.js</a> － get user's webcam and detect faces</p>
+</div> -->
+<!-- ------------------------------Face detection ui STARTS------------------------------------------------------------- -->
+<div class="demo-frame" >
+    <div class="demo-container" style='position: absolute;z-index: -1;margin-left: -1000px;'>
+        <video  id="video" width="320" height="240" preload autoplay loop muted></video>
+        <canvas id="canvas" width="420" height="240"></canvas>
+    </div>
+</div>
+
+<a  id="testLink" >
+</a>
+<div id="thumbs" style='display: none;' >
+
+</div>
+<!-- ------------------------------Face detection ui STOPS------------------------------------------------------------- -->
+
+<!-- customer irrelvant notification starts -->
+<script type="text/ng-template" id="custom_template.html">
+    <div class="ui-notification custom-template">
+        <div class="message" ng-bind-html="message | filterOutCustomerWord: 13"></div>
+        <div class="message">
+            <img data-ng-src="{{getImage(message)}}" ng-bind-html="message" height='100'/>
+            <ul>
+                <li ng-repeat="el in nElements">{{el}}{{$index}}</li>
+            </ul>
+        </div>
+        <div class="message">
+            <a class="btn btn-small btn-primary close-notification" ng-click="customerOrIrrelevant('customer',message)" ng-bind-html="message | filterOutNotificationWord: 10 ">Customer</a>
+            <a class="btn btn-small btn-primary close-notification" ng-click="customerOrIrrelevant('irrelevant',null)">Irrelevant</a>
+        </div>
+    </div>
+</script>
+<!-- customer irrelvant notification stops -->

@@ -1,0 +1,78 @@
+<style>
+    h2 {
+        text-align: center;
+    }
+    
+    .table {
+        height:auto;
+    }
+    
+    th {
+        text-align: center;
+        background-color: #880e4f !important;
+        color: white;
+    }
+    
+    td {
+        text-align: center;
+    }
+</style>
+
+<h2>Parlor Data</h2>
+<div class="row">
+
+    <div class="col-md-8 col-md-offset-0">
+    
+    <div class="row">
+            <div class="col-md-3" style="text-align: right"><b>Select Report Type</b></div>
+            <div class="col-md-9">
+                <input type="radio" ng-model="selectedData.myVar" value="1"> 
+                Month Wise 
+                <input type="radio" ng-model="selectedData.myVar" value="2"> This Month
+                <input type="radio" ng-model="selectedData.myVar" value="3"> Last Three Months
+            </div>  
+  </div>
+      <button ng-click="sumitData()">Submit</button>
+
+
+  
+    </div>
+</div>
+<table class="table" fixed-header ng-if="data.length>0">
+    <!-- <thead> -->
+    <thead>
+        <th>Salon Id</th>
+        <th>Salon Name</th>
+        <th>Parlor type</th>
+        <th>Parlor Live Date</th>
+        <th>Discount EndTime</th>
+         <th>Revenue Given By Be u</th>
+        <th>Royalty Amount</th>
+        <th>No of Days Calculated</th>
+        <th>No of Days Left</th>
+        <th>Revenue Required</th>
+        <th>% of Business Provided</th>
+
+    </thead>
+    <!-- </thead> -->
+    <tbody>
+        <tr ng-repeat="m in data " >
+            <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}} >{{m._id}}</td>
+            <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}} >{{m.name}} - {{m.address2}}</td>
+            <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}}>{{salonType(m.parlorType)}}</td>
+            <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}}>{{m.parlorLiveDate | date:'d,MMM,y '}}</td>
+            <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}}>{{m.discountEndTime | date:'d,MMM,y '}}</td>
+            <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}}>{{m.appDistanceRevenueFirstTime|number:0}}</td>
+            <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}}>{{m.avgRoyalityAmount}}</td>
+            <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}}>{{m.daysDifference}}</td>
+            <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}}>{{m.daysLeft}}</td>
+            <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}}>{{m.avgPerDayRevenue}}</td>
+            <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}} ng-if="m.appDistanceRevenueFirstTime!=0 && m.avgRoyalityAmount!=0">{{(m.appDistanceRevenueFirstTime/m.avgRoyalityAmount)*100 |number:0}}%</td>
+             <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}} ng-if="m.appDistanceRevenueFirstTime==0 && m.avgRoyalityAmount!=0">0%</td>
+             <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}} ng-if="m.appDistanceRevenueFirstTime!=0 && m.avgRoyalityAmount==0">0%</td>
+            <td ng-style={{getStyle(m.appDistanceRevenueFirstTime,m.avgRoyalityAmount)}} ng-if="m.appDistanceRevenueFirstTime==0 && m.avgRoyalityAmount==0">0%</td>
+           
+        </tr>
+    </tbody>
+
+</table>

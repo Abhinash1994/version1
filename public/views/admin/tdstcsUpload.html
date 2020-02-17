@@ -1,0 +1,19 @@
+<style type="text/css">
+	h2{
+		text-align: center;
+	}
+</style>
+<div class="row">
+		<h2>Upload TDS/TCS </h2>
+		<ng-csv-import content="csv.content"
+		material
+		md-button-class="md-icon-button md-raised md-accent"
+		md-svg-icon="file:ic_file_upload_24px"
+		header="csv.header"
+		separator="seperator"
+		result="csv.result"
+		accept="csv.accept"></ng-csv-import>
+
+</div>
+<div class="row"><button class="btn btn-primary" ng-click="uploadData(csv.result)">Upload Data</button></div>
+<div class="row">{{csv.result}}</div>

@@ -1,0 +1,46 @@
+<style type="text/css">
+	
+	table,td, th{
+		text-align: center;
+	}
+</style>
+
+<div class="row">
+	<h3>Affiliate Salon Appointment</h3>
+	
+
+</div>
+
+<div class="row">
+	<div class="table-responsive" style="padding-left: 1%;padding-right:  1%;">
+		<table class="table table-bordered">
+			<tr>
+				<th>Name</th>
+				<th>Phone Number</th>
+				<th>Salon Name</th>
+				<th>Status</th>
+				<th>Service</th>
+				<th>Payable Amount</th>
+				<th>Service Revenue</th>
+				<th>Loyalty Points</th>
+				<th>Subscription Loyality</th>
+				<th>Appointment Date</th>
+			</tr>
+			<tr ng-repeat="data in salonAffilateData">
+				<td>{{data.clientName}}</td>
+				<td>{{data.clientPhoneNumber}}</td>
+				<td>{{data.parlorName}}</td>
+				<td>{{data.status}}</td>
+				<td>{{data.services}}</td>
+				<td>{{data.payableAmount}}</td>
+				<td>{{data.serviceRevenue}}</td>
+				<td>{{data.totalLoyalityPoints}}</td>
+				<td>{{data.loyalitySubscription}}</td>
+				<td>{{data.apptDate}}</td>
+			</tr>
+			
+
+		</table>
+
+	</div>
+</div>

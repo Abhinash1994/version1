@@ -1,0 +1,6 @@
+<ul class="dropdown-menu dropdown-user" >
+    <li ng-style="!list.seenFlag && {'background-color':'gray'}" ng-repeat="list in arrayOfNotifications track by $index" ng-if="list.type=='P'"><a style='cursor: pointer;' ng-click="list.seenFlag=true;decreaseNotificationCount()">Payment has been received from {{list.name}}.Total amount received is {{list.amount}} <span ng-if="list.seenFlag" style='color:lightblue;font-size: 8px;' class="glyphicon glyphicon-ok"></span><span ng-if="list.seenFlag" style='color:lightblue;font-size: 8px;' class="glyphicon glyphicon-ok"></span></a>
+    </li>
+    <li  ng-style="!list.seenFlag && {'background-color':'gray'}" ng-repeat="list in arrayOfNotifications track by $index" ng-if="list.type=='A'"><a style='cursor: pointer;' ng-click="list.seenFlag=true;decreaseNotificationCount()">Appointment has been booked by {{list.name}}.AppointmentId- {{list.appointmentId}} <span ng-if="list.seenFlag" style='color:lightblue;font-size: 8px;' class="glyphicon glyphicon-ok"></span><span ng-if="list.seenFlag" style='color:lightblue;font-size: 8px;' class="glyphicon glyphicon-ok"></span></a>
+    </li>
+</ul>

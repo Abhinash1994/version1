@@ -1,0 +1,134 @@
+<style media="screen">
+  .row .button {
+  	font-weight: 400;
+  border-radius: 4px;
+  background-color: #092721;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: auto;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+input[type=checkbox] {
+
+ -ms-transform: scale(1); /* IE */
+ -moz-transform: scale(1); /* FF */
+ -webkit-transform: scale(1.5); /* Safari and Chrome */
+ -o-transform: scale(2); /* Opera */
+  padding: 5px;
+}
+</style>
+
+<div  class="row">
+	<div class="col-lg-2 col-md-2"></div>
+  <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12"
+  style="border-radius:4px;margin: 20px;padding: 20px;background-color: #185149d6">
+      <ul>
+      	<h3 style="color:white;font-weight: 400;text-align: center;">Marketing DashBoard </h3>
+      	<div class="line"style="border:0.5px solid #00000021;width: 100%"></div>
+
+		      	<li style="list-style: none;color:white;font-weight: 400;">  
+		      		Gender : <label>
+					   			 <input type="radio" ng-model="gender" value="M" ng-click="getRequest()"/>
+					    			Male
+					 		 </label>
+					  		<label >
+					    		<input type="radio" ng-model="gender"  value="F" ng-click="getRequest()"/ />
+					    			Female
+					 		</label>
+
+					  		<label>
+				    			<input type="radio" ng-model="gender" value="all" ng-click="getRequest()"//>
+				    				All
+				 		 </label><br/>
+				 		 
+				  			<!--<tt>color = {{gender.name | json}}</tt><br/> -->
+		      	</li >
+      	<li style="list-style: none;">
+      		<label for="Message"style="color:white;font-weight: 400;">Select option: (optional) </label>
+      		<select class="form-control" name="singleSelect" id="singleSelect" ng-model="data.singleSelect">
+			    <option value="1" selected>All customer</option>
+          <option value="2">Last 2 months appointment</option>
+			</select>
+      	</li>
+
+      	<li style="list-style: none;">
+      		<div class="form-group"style="margin-top: 10px;">
+				  <label for="Message"style="color:white;font-weight: 400;">Message : 
+				  </label>
+				  <label for="Message" style="color:white;font-weight: 400;padding-left: 316px;
+				  text-align: center; ">Character Count : {{0 + data.message.length}}
+				  </label>
+				  <textarea ng-model="data.message" ng-trim="false" class="form-control" rows="5" id="Message" maxlength="1000">
+				  </textarea>
+			</div>
+      	</li>
+      	<li style="list-style: none;">
+      		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="border:0px solid white">
+      			<label for="Discount"style="color:white;font-weight: 400;"> Discount %:</label>
+				  <input type="text" ng-model="data.offPercentage" style="border:0px solid white;color:black;padding:0 5px 0 5px;
+				  	width: 122px;background-color: #FFFFFF;border-radius: 4px;height: 30px;">
+				  	<span style="color:white;margin-left:-8px;">%</span>
+      		</div>
+      		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"style="border:0px solid white">
+      			<label for="Discount"style="color:white;font-weight: 400;margin-left: -13px"> Max Discount Limit :</label>
+				  <input type="text" ng-model="data.limit" style="border:0px solid white;color:black;padding:0 5px 0 5px;
+				  	width: 122px;background-color: #FFFFFF;border-radius: 4px;height: 30px;">
+      		</div>
+      	</li>
+      	<!-- <li style="list-style: none;">
+      			<label for="Discount"style="color:white;font-weight: 400;padding-left: 13px">
+      			 Coupon code:</label>
+				 <input type="text" style="border:0px solid white;color:black;padding:0 5px 0 5px;
+				  	width: 180px;background-color: #FFFFFF;border-radius: 4px;height: 30px;">
+      	</li> -->
+      	<li style="list-style: none;">
+      		<h4 style="color:white;font-weight: 400;"> {{stats}} customer selected
+      		</h4>
+      	</li>
+      	<li style="list-style: none;">
+      		<h4 style="-webkit-text-stroke: 0.3px #b52525b8;
+      		color:#f7f2f3;font-weight: 500;">{{credite}} SMS Credits Left </h4>
+      	</li>
+      	
+      <li style="list-style: none;">
+        <button class="col-md-4 button" ng-click="getRequest2()"><span> Check Customers Count </span></button>
+
+
+      	<button class="col-md-4 text-center button" ng-click="sendSms()" ng-disabled="sendBtn"><span> Send SMS to Selected contacts </span></button>
+      </li>
+     </ul>  
+  </div>
+
+  <div class="col-lg-3 col-md-3 col-sm-10 col-xs-12"></div>
+
+</div>

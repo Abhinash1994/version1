@@ -1,0 +1,25 @@
+<md-dialog style="width:50%;">
+  <form ng-cloak>
+       <md-toolbar>
+           <h3 style="text-align:center;">Remove item in the cart</h3>
+      </md-toolbar>
+      <md-dialog-content>
+            <div class="md-dialog-content">
+              <div style="padding:12px;" ng-repeat="x in cart">
+                 <div layout="row">
+                      <div flex="30">
+                          fsdgf{{x.totalQuantity}}
+                      </div>
+                      <div flex="30">
+                      djsgfjdsf
+                      </div>
+                      <div flex="30">
+                        jfjsdgf
+                      </div>
+                </div>
+              </div>
+          </div>
+          <md-button class="md-raised"  ng-click="closeDialog()">Button</md-button>
+      </md-dialog-content>
+    </form>
+</md-dialog>

@@ -1,0 +1,165 @@
+<style>
+    th{
+        text-align: center;
+    }
+</style>
+
+<div class="row">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">Edit Appointment</h3>
+        </div>
+    </div>
+    
+    <div>
+        <p>Enter Client Phone Number
+            <span>
+        <input type = "text" ng-model= "apptId.parlorAppointmentId"/>
+        <button ng-click= "searchId(apptId.parlorAppointmentId)">Search</button>
+                </span></p>
+       
+    </div>
+<div class="card">
+  <div class="container-fluid">
+      <div class="table-responsive" style="overflow-x: initial">
+      <table  class="col-lg-12 table table-striped table-hover" ng-table="tableParams">
+        <tr ng-repeat="row in datas" >
+           <td title="'Invoice ID'">{{row.parlorAppointmentId}} </td>
+           <td title="'Appointment ID'">{{row.invoiceId}} </td>
+           <td title="'Parlor Name'">{{row.parlorName}}-{{row.parlorAddress}} </td>
+           <td title="'Client Name'">{{row.client.name}}</td>
+           <td title="'Client No.'">{{row.client.phoneNumber}}</td>    
+           <td title="'Status'">{{statusOfAppointment[row.status-1].name}}<span ng-if="row.status==3">Completed</td>    
+           <td title="'Payable Amount'">{{row.payableAmount|number:0}}</td>
+           <td title="'Date'">{{row.appointmentStartTime|date:'yyyy-MM-dd'}}</td>
+            <td title="'Edit'"><span> <button  class="btn btn-lg" data-toggle="modal" data-target="#editAppt" ng-click="objectToBePicked(row._id)">Edit</button></span> </td>
+        </tr>
+       </table>      
+      </div>
+    </div>
+</div>
+</div>
+<div class="container-fluid">
+<div class="modal fade" id="editAppt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+              <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                     <h4 class="modal-title" id="myModalLabel">Edit Appointment</h4>
+              </div>
+<div class="modal-body">
+    <div class="row"> <div class="col-lg-12"><label>Client Details</label></div></div>
+    <div class="row">
+<!--         <div class="table-responsive">-->
+         <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Name</label>
+                               <input type = "text" class="form-control" ng-model ="modalPopUpObject.client.name"  disabled/>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                               <input type = "text" class="form-control" ng-model = "modalPopUpObject.client.phoneNumber"  disabled/>
+                            </div>
+                        </div>
+    </div>
+        
+            <div class="form-group">
+                <div class="row">
+                    <div class="table-responsive">
+                <label>Services</label>
+                      <table class="col-lg-12">
+                           <tr>
+                              <th>Service</th>
+                              <th>
+                                  Employees Details
+                               </th>
+                          </tr>
+                           <tr ng-repeat = "i in modalPopUpObject.services">
+
+                               <td>
+                                    <span>{{i.name}}</span>
+                               </td>
+                               <td >
+                                    <span ng-repeat = "emp in i.employees">{{emp.name}}-{{emp.distribution}}, </span>
+                               </td>
+
+
+                           </tr>
+                        </table>
+                    </div>
+                </div>   
+                <!-- ng-hide="modalPopUpObject.status===3" removed                           -->
+ <div > 
+    <label class="col-lg-12" style= "text-align:center">Appointment Date</label>
+     <div class="col-lg-12" >
+         <div class ='col-lg-offset-2 col-lg-7'>
+         <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="date"  is-open="popup2.opened" ng-disabled="true"   datepicker-options="dateOptions"    ng-required="true" min-date="minDate" max-date="maxDate"   close-text="Close" /></div>
+         <div class ='col-lg-2'>
+                    <button type="button" class="btn btn-default" ng-click="open2()" style="margin-left: -50%;"><i class="glyphicon glyphicon-calendar" ></i></button>
+            </div>
+   
+         </div>
+</div>
+<div class="row" ng-hide="modalPopUpObject.status==3"> 
+     <label class="col-lg-12" style= "text-align:center">Appointment Time</label>
+     <div class="col-lg-2 col-md-2 col-md-offset-3">
+        <div uib-timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"  style ="width:15%" ></div>
+     </div>  
+</div>
+ 
+              
+<div class="row">
+<div class="col-lg-12"> 
+    <label>Status</label>
+   <span >
+        <select class="form-control" name="category" ng-options="status.value as status.name for status in statusOfAppointment" ng-change='valueOfStatus()' ng-model="statusChanged" >          
+           </select>
+    </span>
+</div>
+<div class="row">
+  <div class="col-lg-6">        
+                   <label class="col-lg-12">Payment Distribution</label>
+                   <div class="col-md-12 col-lg-12">
+                       <div style="display:inline-flex;" isteven-multi-select input-model="MemPaymentOptions" output-model="paymentMethodsSelected" button-label="name" item-label="name" tick-property="isSelected" output-properties="amount name value " on-close='finalPaymentMethodsList();' ></div></div>
+    </div>
+    <div class="col-lg-6">        
+                   <label class="col-lg-12">Payable Amount</label>
+                   <div class="col-md-12 col-lg-12">
+                    <span ng-repeat="method in paymentMethodsOld">{{method.amount}}-{{method.name}},</span>
+                  </div>
+    </div>
+</div>
+    <div class = "row">
+    <div class="col-md-12 col-lg-12">
+    <div class="table-responsive">
+    <table style=" width: 99%;">
+           <tr>
+             <th style="width: 49%;">Payment Mode</th>
+             <th style="width: 50%;">Amount</th>
+            </tr>
+            <tr ng-repeat = "chgMethod in paymentMethodsSelected">
+                <td style="width: 49%;">{{chgMethod.name}}</td>
+                <td style="width: 50%;">
+                    <input type="number" class="form-control" ng-model = "chgMethod.amount" style="width: 80%; margin-left: 10%;"/>
+                </td>
+            </tr> 
+    </table>
+    </div>
+        </div></div>
+    <div class = "row">
+     <div class="col-md-12 col-lg-12" ng-show = "show" style= "margin-top:20px">
+                <span  class=" alert {{ msg == 'Successfully Updated'? 'alert-success': 'alert-danger'}}">{{msg}}</span>
+     </div>
+</div>
+
+
+</div>    
+</div>
+                              
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" ng-click="editAppointment()" class="btn btn-primary">Submit</button>
+                </div>
+</div></div></div></div>

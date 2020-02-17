@@ -1,0 +1,11 @@
+
+       { categoryId: $stateParams.categoryId, 
+       serviceId : $scope.services[$scope.index].serviceId, 
+       price1 : {
+       price : "23", 
+       estimatedTime : "23", 
+       employees : [{ id : "ads", isSpecialist : true, commission : "0" }, { id : "ads", isSpecialist : true, commission : "0" },{ id : "ads", isSpecialist : true, commission : "0" } ]},
+        price2 : {price : "23", estimatedTime : "23", 
+        employees : [{ id : "ads", isSpecialist : true, commission : "0" }, { id : "ads", isSpecialist : true, commission : "0" },{ id : "ads", isSpecialist : true, commission : "0" } ]}, 
+        price3 : {price : "23", estimatedTime : "23", 
+        employees : [{ id : "ads", isSpecialist : true, commission : "0" }, { id : "ads", isSpecialist : true, commission : "0" }, { id : "ads", isSpecialist : true, commission : "0" }] } };

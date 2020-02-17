@@ -1,0 +1,108 @@
+<style type="text/css">
+  th, td {
+    padding: 7px !important;
+    color: black;
+}
+	.table-responsive{
+    overflow: hidden;
+  }
+	h2{
+		text-align: center;
+	}
+  h4{
+    font-size: 20px;
+    text-align: center;
+    
+  }
+ div.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.main-container{
+    background: blanchedalmond;
+    margin-top: 5%;
+}
+</style>
+<h2>My Conversions</h2>
+
+<div class="row row1">
+    
+        <div class="col-md-3 ">
+           <div class="card"> 
+              <h4> Total New Leads This Month </h4>
+              <h4 style="padding-bottom: 10px">{{newLeads}}</h4>
+           </div>   
+        </div>
+        <div class="col-md-3 ">
+            <div class="card"> 
+               <h4>New Leads Converted</h4>
+               <h4 style="padding-bottom: 10px">{{newLeadsConverted}}</h4>
+            </div>
+         </div>
+      <div class="col-md-3">
+         <div class="card"> 
+            <h4>Total Self Leads</h4>
+            <h4 style="padding-bottom: 10px">{{selfLeads}}</h4>
+        </div>
+      </div>
+
+      <div class="col-md-3 ">
+           <div class="card"> 
+              <h4>Self Leads Conversion</h4>
+              <h4 style="padding-bottom: 10px"> {{selfLeadsConverted}}</h4>
+           </div>
+      </div>
+    
+    </div>
+
+    <div class="row">
+         <div class="card" >
+            <div style="text-align: center;">
+                <input type="text" ng-model="phonenumbersearch" placeholder="phone number">
+                <button type="submit" ng-click="search()">Search</button>
+            </div>
+             
+                <table>
+                          <tr>
+                            <th><center>Status</center></th>
+                            <th><center>Name</center></th>
+                            <th><center>Phone Number</center></th>
+                            
+                          </tr>
+                          <tr ng-repeat="data in searchdata">
+                            <td><center>{{data.statusString}}</center></td>
+                            <td><center>{{data.name}}</center></td>
+                            <td><center>{{data.phoneNumber}}</center></td>
+                          </tr>
+                    </table>
+       </div>
+    </div>
+
+    <div class="row" style="text-align: center;">
+      <select  class="setelment-report selectsalon"  ng-model="selectedMonth"  ng-options="month.id as  month.value for month in months " ></select>
+      <button ng-click="submit(selectedMonth)">Show Conversions</button>
+
+      
+    </div>
+
+
+<uib-accordion close-others="oneAtATime">
+<div uib-accordion-group class="panel-default" heading="{{record.date}}({{record.data.length}})" ng-repeat="record in finalArray">
+  <table ng-if="customerCareUserType=='2'">
+    <tr ng-repeat="conversion in record.data">
+        <td>{{$index}}</td>
+        <td>{{conversion.phoneNumber}}</td>
+        <td>{{conversion.name}}</td>
+    </tr>
+  </table>
+  <table ng-if="customerCareUserType=='3'">
+      <tr ng-repeat="conversion in record.data">
+          <td>{{$index+1}}</td>
+          <td>{{conversion.appointmentDetail.client.name}}</td>
+        <td>{{conversion.phoneNumber}}</td>
+        <td>{{conversion.appointmentDetail.appointmentStartTime | date:"fullDate"}}</td>
+        <td>{{conversion.appointmentDetail.subtotal}}</td>
+      </tr>
+    </table>
+  <!-- {{record.data.length}} -->
+</div>
+</uib-accordion>

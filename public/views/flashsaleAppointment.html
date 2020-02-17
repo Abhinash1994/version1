@@ -1,0 +1,77 @@
+
+<style>
+    .text-center{
+        
+        text-align: center;
+    }
+
+</style>
+<div class="row">
+
+<h3>Flash Sale Appointment</h3>
+</div>
+<div class="row">
+    
+     <div class="col-md-4 col-lg-4" style="text-align: right;"> Select flash coupon </div>
+        <div class="col-md-4 col-lg-4">
+            <div style="display:inline" isteven-multi-select input-model="flashSales" output-model="parlorName1" button-label="couponTitle" item-label="couponTitle" tick-property="isSelected" output-properties="_id" ></div>
+        
+        </div>
+</div>
+<div class="row">
+    <button class="btn" ng-click= "changeParlor()">Submit</button>
+</div>
+<div class="row">
+    <div  class="table-responsive">
+        <table class="table table-bordered" style="height: 600px">
+            
+            <thead>
+                <tr>
+                    <th class="head-color-universal text-center">
+                        Flash Coupon
+                    </th>
+                    <th class="head-color-universal text-center">
+                        Booking Date
+                    </th>
+                    <th class="head-color-universal text-center">
+                        Appointment Date
+                    </th>
+                    <th class="head-color-universal text-center">
+                        Parlor Name
+                    </th>
+                    <th class="head-color-universal text-center">
+                        Status
+                    </th>
+                    <th class="head-color-universal text-center">
+                        Payable Amount 
+                    </th>
+                    <th class="head-color-universal text-center">
+                        Client details
+                    </th>
+                    <th class="head-color-universal text-center">
+                        New Client
+                    </th>
+                    <th class="head-color-universal text-center">
+                        Distance from Salon
+                    </th>
+                </tr>
+            
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in flashSaleAppointment">
+                    <td>{{x.flashCouponCode}}</td>
+                    <td>{{x.bookingDate}}</td>
+                     <td>{{x.appointmentDate}}</td>
+                     <td>{{x.parlorName}}</td>
+                     <td>{{x.status}}</td>
+                     <td>{{x.payableAmount}}</td>
+                     <td>{{x.clientName}}{{x.clientPhoneNumber}}</td>
+                     <td>{{x.newClient}}</td>
+                     <td>{{x.distanceData}}</td>
+                 </tr>
+            
+            </tbody>
+        
+        </table>
+    </div>
+</div>

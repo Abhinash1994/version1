@@ -1,0 +1,38 @@
+<style media="screen">
+  .red{
+    background-color:red!important;
+  }
+  
+  .orange{
+    background-color:orange!important;
+  }
+  .green{
+    background-color:green!important;
+  }
+  </style>
+<div  class="row">
+  <div class="col-lg-1 col-md-1"></div>
+  <div class="col-lg-10 col-md-10 col-sm-6 col-xs-12"
+    style="border-radius:4px;margin: 20px;background-color: #185149d6">
+        <h3 style="color:white;font-weight: 400;text-align: center;">Cross Sell and Upsell Report</h3>
+        <div class="line"style="border:0.5px solid #00000021;width: 100%"></div>
+
+      <table class="table table-dark">
+        <thead>
+          <tr>
+          	<th scope="col"id="name">Salon Name</th>
+            <th ng-repeat="category in report[0].data">{{category.name}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="salon in report">
+        	<td>{{salon.name}} -{{salon.address}}</td>
+        	<td ng-repeat="category in salon.data" ng-class="{ 'red': category.color=='red','orange': category.color=='orange','green': category.color=='green' }">{{category.ratio}}</td>
+            <!-- <td >{{category.ratio}}</td> -->
+          </tr>
+       
+        </tbody>
+      </table>
+  </div>
+
+</div>

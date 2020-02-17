@@ -1,0 +1,94 @@
+<style>
+  .activateClass{
+    background-color: #337ab7;
+  }
+  span:focus {
+    outline: none;
+    border: 0;
+  }
+  .gray{
+    background-color: #eee;
+  }
+  .appointmentIdSearchBox{
+     background-color: white;
+     margin: 0px;
+     border-color: black;
+
+  }
+
+</style>
+<div class="col-lg-12">
+  <h1 class="page-header">Authorized Appointments</h1>
+</div>
+<div class="row">
+  <div class="col-lg-offset-5 col-lg-4" style="display:inline-flex;"><button class="btn btn-primary" id="collection-btn" ng-click="refreshAuthorizedAppointments()">Refresh</button></div>
+</div>
+<div class="card" >
+  <div class="container-fluid">
+    <div class="table-responsive">
+      <table  class="table table-striped table-hover" >
+        <thead>
+        <tr>
+          <th  style="background-color: #FAE596;" >
+            <span>Customer Name</span>
+          </th>
+          <th  style="background-color: #FAE596;" >
+            <span>Amount</span>
+          </th>
+          <th  style="background-color: #FAE596;" >
+            <span>Services</span>
+          </th>
+          <th  style="background-color: #FAE596;" >
+            <span>Appointment Date</span>
+          </th>
+          <th  style="background-color: #FAE596;" >
+            <span>Appointment Time</span>
+          </th>
+          <th  style="background-color: #FAE596;" >
+            <span>Phone No.</span>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user  in authorizedAppts">
+          <td >
+            {{user.client.name}}
+          </td>
+          <td >
+            {{user.payableAmount}}
+          </td>
+          <td >
+            <span ng-repeat="serviceName in user.services">
+              {{serviceName.name}}<span ng-if="!$last">,</span>
+            </span>
+          </td>
+          <td >
+            <span>
+             {{user.appointmentStartTime  | date:'d/M/yyyy' }}
+            </span>
+          </td>
+          <td >
+            <span>
+             {{user.appointmentStartTime  | date:'h:mm:a' }}
+            </span>
+          </td>
+          <td >
+            <span>
+              {{user.client.phoneNumber}}
+            </span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- <div style="display:inline-flex;">
+  <span  style="padding-left: 5px;padding-right: 5px;border: 1px solid #ddd;height: 32px;cursor: pointer;text-align: center;padding-top: 5px;margin-top: -6px;padding-bottom: 7px;" ng-disabled="disablePreviousFlag" ng-click="goToPrevious()">Previous</span>
+  <span style="padding-top: 1px;padding-left: 3px;padding-right:3px;" ng-repeat="list in buttonArray" ng-if="list.showFlag==true">
+              <span ng-if="(secondDotsFlag==true)&&($index==buttonArray.length-1)">....</span>
+            <span style="padding-left: 12px;padding-right: 12px;border: 1px solid #ddd;cursor: pointer;padding-top: 6px;padding-bottom: 6px;" ng-class="{'activateClass':list.active,'gray':hover}" ng-if="list.showFlag==true" ng-click="buttonValue(list)" ng-mouseenter="hover=true" ng-mouseleave="hover=false">{{list.value}}</span>
+            <span ng-if="(firstDotsFlag==true) && $index==0">....</span>
+        </span>
+  <span  style="padding-left: 5px;padding-right: 5px;border: 1px solid #ddd;height: 32px;cursor: pointer;text-align: center;padding-top: 5px;margin-top: -6px;padding-bottom: 7px;"  ng-disabled="disableNextFlag" ng-click="goToNext()">Next</span>
+</div> -->

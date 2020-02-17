@@ -1,0 +1,222 @@
+<!-- script------>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-89343391-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<!-- script end--->
+<title>Be U Salons in Delhi NCR | Be U Salons</title>
+<meta name="description" content="Branches of Be U Salons in Delhi NCR that offers discounts and deals on different hair and beauty salon services."/>
+
+<style>
+    md-select.md-default-theme .md-select-value.md-select-placeholder, md-select .md-select-value.md-select-placeholder {
+        color: #fff;
+    }
+    /*.arrowBackgroundColor.jk-carousel .md-icon-button md-icon{*/
+    /*background-color: #E3E3E3;*/
+    /*}*/
+    /**/
+    /*.rightArrowPosition.jk-carousel .right-arrow-button {*/
+    /*right: 3%;*/
+    /*top: -117px;*/
+    /*}*/
+    /*.leftArrowPosition.jk-carousel .left-arrow-button {*/
+    /*left: 3%;*/
+    /*top: -117px;*/
+    /*}*/
+    /*.sliderCircleOff.jk-carousel .radio-buttons-container md-radio-button .md-off{*/
+    /*height: 10px;*/
+    /*width: 10px;*/
+    /*margin-top:-6px;*/
+    /*background-color: #A8A9AD;*/
+    /*margin-left:2px;*/
+    /*}*/
+    /*.sliderCircleOn.jk-carousel .radio-buttons-container md-radio-button .md-on{*/
+    /*height: 15px;*/
+    /*width: 15px;*/
+    /*margin-top:-9px;*/
+    /*margin-left:0px;*/
+
+    /*}*/
+    md-autocomplete {
+        border-radius: 2px;
+        display: block;
+        height: 52px;
+        position: relative;
+        overflow: visible;
+        min-width: 190px;
+    }
+    /*.listing-container {*/
+    /*background-color: white;*/
+    /*max-height: 60px!important;*/
+    /*margin-top: 14vh!important;*/
+
+    /*border-radius: 4px;*/
+    /*}*/
+    /*.bufferColor.md-accent path{*/
+    /*stroke: #d2232a;*/
+    /*}*/
+    .bufferColor.md-accent path{
+        stroke: #d2232a;
+    }
+    .sortByArrowPosition .md-select-value .md-select-icon{
+        position: relative;
+        right: 10px;
+    }
+    .sortByArrowText.md-default-theme .md-select-value.md-select-placeholder, .sortByArrowText .md-select-value.md-select-placeholder {
+        color: #fff;
+        font-size: 15px;
+    }
+    md-select-menu:not(.md-overflow) md-content {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    md-select-menu {
+        margin-top: 38px;
+    }
+
+    md-select.md-default-theme:not([disabled]):focus .md-select-value.md-select-placeholder, md-select:not([disabled]):focus .md-select-value.md-select-placeholder{color:#fff;}
+
+    .md-select-value>span:not(.md-select-icon) .md-text {
+        display: inline;
+        color: #fff;
+    }
+    .sortByTextStyle .md-select-value>span:not(.md-select-icon){
+        font-family: latoLight;
+        font-size: 13px;
+    }
+</style>
+
+<div layout="column" style="background-color: #fff;">
+    <!--=========================Carousel==========starts=====================-->
+    <div style="margin-top:109px;">
+        <jk-carousel  class="sliderCircleOff sliderCircleOn arrowBackgroundColor leftArrowPosition arrowBackgroundColor arrowBackgroundColor rightArrowPosition" data="dataArray" item-template-url="'/website/views/item-template.html'" max-width="4000px" max-height="1200px" auto-slide="true" auto-slide-time="4000" style="position: fixed;" ng-click="openCarouselImageDeal()">
+
+        </jk-carousel>
+    </div>
+    <!--=========================Carousel==========stops=====================-->
+    <div flex style="margin-top: 12%;">
+        <!--=========================Search==========starts=====================-->
+        <div class="listing-cover" flex="100" layout="column">
+            <div layout="row" flex layout-align="center">
+                <div layout="row" layout-xs="column" class="listing-container" flex="70" >
+                    <md-autocomplete  md-selected-item="selectedItem" md-search-text-change="searchTextChange(searchText)" md-search-text="searchText" md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)" md-item-text="item.name" md-min-length="1" placeholder="{{myPositionName}}" md-menu-class="autocomplete-custom-template" my-enter="selectedItemChange(item)" flex="100">
+                        <md-item-template>
+								<span class="item-title">
+									<!--<i class="material-icons" id="loc_icon">&#xE0C8;</i>-->
+									<span> {{item.name }} </span>
+								</span>
+                            <span class="item-metadata">
+									<span class="item-metastat">
+									<strong>{{item.type}}</strong>
+									</span>
+								</span>
+                        </md-item-template>
+                    </md-autocomplete>
+                    <md-button id="seabackcolor" id="seabackcolor" class="md-raised md-primary listing-search-btn" flex="20" flex-xs="100" ng-click="produceListingPageSalons()">
+                        Search
+                    </md-button>
+                </div>
+            </div>
+        </div>
+        <!--=========================Search==========stops=====================-->
+
+
+    </div>
+</div>
+<!---start freebee-->
+<div style="background-color: #fff;position: relative;z-index:4;">
+<section flex layout="row" layout-align="center center"class="offer_background" style="position: relative;">
+    <div layout="column" style="z-index: 4;background-color: #fff;" flex>
+        <div layout-align="center center" layout="row" flex>
+            <div flex="75" layout-align="center center" >
+                <div layout="row" layout-align="center">
+                    <div layout="row" layout-align="center" flex-xs="100" flex="100" style="padding-left:20px;padding-top:60px;padding-bottom:30px">
+                        <div hide-xs hide-sm style="border-top:1px solid #abacae;margin-top:30px;width:40%;"></div>
+                        <div  style="text-align: center;width:20%;"><span style="color:#58595b;padding-top:10px;font-size:28px;font-family:latoLight;">Freebees</span></div>
+                        <div  hide-xs hide-sm style="border-top:1px solid #abacae;margin-top:30px;width:40%;"></div>
+                    </div>
+                </div>
+                <div  layout-sm="row" layout-md="row" layout-lg="row" layout-xl="row" flex-sm="100" flex-md="100" flex-lg="100" flex-xl="100" style="padding-left:14px;">
+                <!---->
+                <div flex="30" flex-xs="100" style="padding-bottom: 30px" >
+                    <md-card  flex-xs="100"  style="margin-right: 2px;" >
+                        <div flex class="">
+                            <h3 style="text-align: center;color: #585958;font-family: latoLight">Refer a friend</h3>
+                            <div style="text-align: center"><img ng-src="../website/images/logo3.png" alt="text" width="200" height="100"></div>
+                            <div style="text-align: center;padding-top: 10px;padding-bottom: 10px;font-family: latoLight;font-size: 13px;color: #58595b;padding-left: 10px;padding-right: 10px;">You get 100 freebee points,Friend-Get 100 freebee points* </div>
+                        </div>
+                    </md-card>
+                    <md-card  flex-xs="100"  style="margin-right: 2px;" >
+                        <div flex class="">
+                            <h3 style="text-align: center;font-family: latoLight;color:#58595b">3 visits for 3 months</h3>
+                            <div style="text-align: center"><img ng-src="../website/images/logo3.png" alt="text" width="200" height="100"></div>
+                            <div style="text-align: center;padding-top: 10px;padding-bottom: 10px;font-family: latoLight;font-size: 13px;">Get 300 freebee points</div>
+                        </div>
+                    </md-card>
+                </div>
+                <div flex="40" flex-xs="100" style="padding-bottom: 30px" >
+                <md-card class="beauty">
+                    <div flex class="">
+                        <h3 style="text-align: center;color:#58595b;font-family: latoLight">Download Be U app</h3>
+                        <div style="text-align: center"><img ng-src="../website/images/logo3.png" alt="text" width="200" height="100"></div>
+                        <div style="text-align: center;padding-top: 10px;padding-bottom: 10px;color: #58595b;font-family: latoLight;font-size: 13px;">Earn a free haircut on your visit!</div>
+                    </div>
+                </md-card>
+                </div>
+                <div flex="30"   flex-xs="100"  style="padding-bottom: 30px">
+                    <md-card  flex-xs="100"  style="margin-right: 2px;" class="beauty">
+                        <div flex class="">
+                            <h3 style="text-align: center;color: #58595b;font-family: latoLight;padding-left: 10px;padding-right: 10px;">Book 1 day advance appointment</h3>
+                            <div style="text-align: center"><img ng-src="../website/images/logo3.png" alt="text" width="200" height="100"></div>
+                            <div style="text-align: center;padding-top: 10px;padding-bottom: 10px;color: #58595b;font-family: latoLight;">Earn 50 freebee points!</div>
+                        </div>
+                    </md-card>
+                </div>
+                </div>
+            </div>
+        </div>
+        <section flex layout="row" layout-align="center center"class="offer_background" style="position: relative;margin-top: -36px;">
+            <div layout="column" style="z-index: 4;background-color: #fff;" flex>
+                <div layout-align="center center" layout="row" flex>
+                    <div flex="75" layout-align="center center" >
+
+                        <div  layout-sm="row" layout-md="row" layout-lg="row" layout-xl="row" flex-sm="100" flex-md="100" flex-lg="100" flex-xl="100" style="padding-left:14px;">
+                            <!---->
+                            <div flex="50" flex-xs="100" style="padding-bottom: 30px" >
+                                <md-card  flex-xs="100"  style="margin-right: 2px;" >
+                                    <div flex class="">
+                                        <h3 style="text-align: center;color: #58595b;font-family: latoLight;">Pay 1 day in advance</h3>
+                                        <div style="text-align: center"><img ng-src="../website/images/logo3.png" alt="text" width="200" height="100"></div>
+                                        <div style="text-align: center;padding-top: 10px;padding-bottom: 10px;color: #58595b;font-family: latoLight;font-size: 13px;">Earn 75 freebee points* </div>
+                                    </div>
+                                </md-card>
+                            </div>
+                            <div flex="50" flex-xs="100" style="padding-bottom: 30px" >
+                                <md-card  flex-xs="100"  style="margin-right: 2px;" >
+                                    <div flex class="">
+                                        <h3 style="text-align: center;color: #58595b;font-family: latoLight;">Write a review on Be U app</h3>
+                                        <div style="text-align: center"><img ng-src="../website/images/logo3.png" alt="text" width="200" height="100"></div>
+                                        <div style="text-align: center;padding-top: 10px;padding-bottom: 10px;color: #58595b;font-family: latoLight;font-size: 13px;">Get 50 freebee points! </div>
+                                    </div>
+                                </md-card>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</section>
+<!---<!---stop freebee-->
+<!---start freebee-->
+
+<!---<!---stop freebee-->
+</div>

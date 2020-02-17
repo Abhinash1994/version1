@@ -1,0 +1,191 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"> New Appointment</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="">
+
+                    <div class="row">
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <br />
+									<div class="x_title">
+                                    <h3>Customer Details </h3>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                    </ul>
+                                    <div class="clearfix"></div>
+									</div>
+                                    <span id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="first-name">Customer Mobile Number <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                                <input type="text" id="first-name" ng-model="newApp.user.phoneNumber" ng-change="phoneNumberChanged()" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Customer Name <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="last-name" name="last-name" ng-model="newApp.user.name" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div id="gender" class="btn-group" data-toggle="buttons">
+                                                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                        <input type="radio" ng-model="newApp.user.gender" name="gender" value="M"> &nbsp; Male &nbsp;
+                                                    </label>
+													<label class="btn btn-primary active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                        <input type="radio" name="gender" ng-model="newApp.user.gender" value="F" > Female
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Membership <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="radio-inline" ng-repeat="m in memberships">
+                                                    <label>
+                                                        <input type="radio" class="flat" ng-model="newApp.user.membershipId" checked name="membership" value="{{m.membershipId}}">{{m.name}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       <div class="x_title">
+                                    <h3>Service Details </h3>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                    </ul>
+                                    <div class="clearfix"></div>
+									</div>
+										<div class="form-group">
+											<div class="row">
+											<label class="col-md-1 col-sm-3 col-xs-12 control-label">S. No
+                                            </label>
+											<label class="col-md-1 col-sm-3 col-xs-12 control-label">Service Code
+                                            </label>
+											<label class="col-md-2 col-sm-3 col-xs-12 control-label">Service Name
+                                            </label>
+											<label class="col-md-2 col-sm-3 col-xs-12 control-label">Additions
+                                            </label>
+											<label class="col-md-2 col-sm-3 col-xs-12 control-label">Employee Assigned
+                                            </label>
+											<label class="col-md-2 col-sm-3 col-xs-12 control-label">Price
+                                            </label>
+											<label class="col-md-1 col-sm-3 col-xs-12 control-label">Quantity</label>
+											</div>
+
+                                            <div class="row" ng-repeat="s in newApp.services">
+                                                <span  class="col-md-1 col-sm-3 col-xs-12">{{s.count}}</span>
+    											<span  ng-model="s.code"  class="col-md-1 col-sm-3 col-xs-12">{{s.code}}</span>
+    											<span  ng-model="s.name"  class="col-md-2 col-sm-3 col-xs-12">{{s.name}}</span>
+    											<input type="text"  required="required" ng-model="s.additions" class="col-md-2 col-sm-3 col-xs-12">
+                                                <span  class="col-md-2 col-sm-3 col-xs-12">{{getEmployeeName(s.employee)}}</span>
+    											<input type="text"  required="required" ng-model="s.price" class="col-md-2 col-sm-3 col-xs-12">
+                                                <input type="text" required="required" ng-model="s.quantity" class="col-md-1 col-sm-3 col-xs-12">
+    											<input type="button"  class="btn col-md-1 col-sm-3 col-xs-12" value="Remove">
+											</div>
+                                            <form role="form" ng-submit="addNewService()">
+                                                <span  class="col-md-1 col-sm-3 col-xs-12">{{count}}</span>
+    											<input type="text" required="required" ng-model="currService.code" ng-blur="serviceIdChanged()" class="col-md-1 col-sm-3 col-xs-12">
+    											<input type="text" required="required" ng-model="currService.name" ng-change="serviceNameChanged()" class="col-md-2 col-sm-3 col-xs-12">
+    											<input type="text"  required="required" ng-model="currService.additions" class="col-md-2 col-sm-3 col-xs-12">
+                                                <select class="form-control col-md-2 col-sm-3 col-xs-12" ng-model="currService.employee" ng-options="i.userId as (i.name) for i in employees" required>
+                                                    <option></option>
+                                                </select>
+    											<input type="text"  required="required" ng-model="currService.price" class="col-md-2 col-sm-3 col-xs-12">
+                                                <input type="text" required="required" ng-model="currService.quantity" class="col-md-1 col-sm-3 col-xs-12">
+                                                <button type="submit" class="btn col-md-1 col-sm-3 col-xs-12 btn-primary">Add</button>
+                                            </form>
+                                        </div>
+
+										<div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Other Charges <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" required="required" ng-model="newApp.otherCharges" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        Subtotal : Rs {{subtotal}}<br />
+                                        Tax : Rs {{tax}}<br />
+                                        Membership Discount : Rs {{membershipDiscount}}<br />
+                                        Total : Rs {{total}};
+										<div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+												<button type="submit" class="btn btn-success" ng-click="publish()">Publish</button>
+                                                <button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            <h2>Current Appointments</h2>
+                            <div ng-repeat="appt in appointments" ng-click="openAppointmentModal($index)">
+                                    <span ng-repeat="service in appt.services">{{service.name}}, </span>
+                                    {{appt.services[0].employees}}
+                                    Start Time : {{appt.appointmentStartTime}},
+                                    (Rs {{appt.payableAmount}})
+                                    <hr />
+                            </div>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        // $(document).ready(function () {
+                        //     $('.date-picker ').daterangepicker({
+                        //         singleDatePicker: true,
+                        //         calender_style: "picker_4"
+                        //     }, function (start, end, label) {
+                        //         console.log(start.toISOString(), end.toISOString(), label);
+                        //     });
+                        // });
+                    </script>
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="modal fade" id="appointmentDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                          <div class="modal-content">
+                                              <div class="modal-header">
+                                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                  <h4 class="modal-title" id="myModalLabel">Appointment</h4>
+                                              </div>
+                                              <form role="form" ng-submit="addCustomer()">
+                                              <div class="modal-body">
+                                                  <div class="row">
+
+                                                      <!-- /.col-lg-6 (nested) -->
+                                                  </div>
+                                              </div>
+                                              <div class="modal-footer">
+                                                  <button  class="btn btn-default" data-dismiss="modal">Close</button>
+                                                  <button ng-click="changeStatus(currentViewedAppointment.index, 2)" class="btn btn-primary">Cancel Appointment</button>
+                                                  <button ng-click="changeStatus(currentViewedAppointment.index, 3)" class="btn btn-primary">Print</button>
+                                              </div>
+                                          </form>
+                                          </div>
+                                          <!-- /.modal-content -->
+                                      </div>
+                                      <!-- /.modal-dialog -->
+                                  </div>

@@ -1,0 +1,85 @@
+<style>
+    h3{
+        text-align: center;
+    }
+    .tablesLayout{
+        height:500px;
+        width:100%;
+        overflow:scroll;
+    }
+
+    .myTable{
+        background-color: dimgrey !important;
+        color:white;
+    }
+
+
+</style>
+
+
+<h3>Employee Analysis</h3>
+<div class="row">
+    <div class="col-md-offset-2 col-md-3">
+        <label>Select Parlor</label>
+    </div>
+    <div class="col-md-3">
+        <select ng-change="changeOnDropDown()" ng-model="parlor.selectedParlor" class="form-control"  ng-options="a._id as a.name  for a in parlors"></select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-offset-2 col-md-3">
+        Select Daterange
+    </div>
+    <div class="col-md-6">
+
+        <input date-range-picker id="daterange1"  min="'2017-01-02'"  name="daterange1" class="form-control date-picker" type="text" ng-model="dates.date" required/>
+    </div>
+
+</div>
+<div class="row" >
+
+    <button class="btn btn-link btn-md" ng-click="exportToExcel('#selector')" style="margin-left: -10px;border: 0;">
+        <span class="glyphicon glyphicon-share"></span>
+        Export to Excel
+    </button>
+</div>
+
+<div class="tablesLayout">
+
+    <table class="table" id="selector">
+        <thead>
+        <tr>
+            <th class="head-color-universal" id="firstRowFirstCell" rowspan="2">Employee Name</th>
+            <th class="head-color-universal" id="firstRowSecondCell" rowspan="2">Designation</th>
+            <th class="head-color-universal" id="firstRowThirdCell" rowspan="2">Parameters</th>
+            <th class="head-color-universal"  colspan="2"  ng-repeat="heading in employeeData[0].analysis01"><span ng-if="$index!=0 && !$last">{{heading.startDate | date:'mediumDate'}}-{{heading.endDate | date:'mediumDate'}}</span><span ng-if="$index==0">{{customStartDate|date:'mediumDate'}}-{{heading.endDate|date:'mediumDate'}}</span><span ng-if="$last">{{heading.startDate|date:'mediumDate'}}-{{customEndDate|date:'mediumDate'}}</span></th>
+        </tr>
+        <tr>
+            <th ng-repeat-start="m in employeeData[0].analysis" >No Of Services</th>
+            <th ng-repeat-end>Total Revenue</th>
+        </tr>
+
+        </thead>
+        <tbody ng-repeat="m in employeeData" ng-init="a=$index">
+            <tr  >
+                <td rowspan="{{m.servicesLength + 2}}"  >{{m.name}}</td>
+                <td rowspan="{{m.servicesLength + 2}}" >{{m.position}}</td>
+            </tr>
+            <tr ng-repeat="abc in m.servicesPack">
+                <td >{{abc.serviceName}}</td>
+                <td ng-repeat-start="(key,value) in  m.analysis">{{m |mycustomFilter:key:abc:'service'}}</td>
+                <td ng-repeat-end>{{m |mycustomFilter:key:abc:'revenue'}}</td>
+            </tr>
+            <tr>
+                <td class="myTable" >Total</td>
+                <td class="myTable" ng-repeat-start="(key,value) in  m.analysis">{{m.analysis |total:key:'service'}}</td>
+                <td class="myTable" ng-repeat-end>{{m.analysis |total:key:'revenue'}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+</div>

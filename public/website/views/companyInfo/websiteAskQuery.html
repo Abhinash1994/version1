@@ -1,0 +1,71 @@
+<style>
+ 
+md-input-container {
+    /* display: inline-block; */
+    position: relative;
+    padding: 2px;
+    margin:5px 0;
+    vertical-align: middle;
+}
+
+</style>
+
+
+
+
+<div  class="companyinfo-page-container" flex>
+    <div flex>
+     
+        <md-content class="md-padding" style="background-color: rgb(238, 243, 250);padding-bottom: 14%;" layout-xs="column" layout="row" layout-align="center">
+            <div flex-xs flex-gt-xs="80" layout="column">
+                <div flex>
+                       <div layout="row" layout-align="center" flex class="companyinfo-page-heading">
+                            <h2 class="websiteFormQuery-head">Be U Appointment Query Form</h2>
+                    </div>
+                    <div layout="row">
+                        <div flex-xs="100" flex="50" flex-offset-xs="0" flex-offset="25">
+                        <md-card>
+                         <form name="userForm" ng-submit="submitData(formData)" novalidate>
+                            <md-card-content>
+                                    
+                                    <md-input-container class="md-icon-float md-block">
+                                        <!-- Use floating label instead of placeholder -->
+                                        <label>Name</label>
+                                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                                        <input ng-model="formData.name"  type="text"  ng-required="true">
+
+                                    </md-input-container>
+
+                                    <md-input-container md-no-float class="md-block">
+                                        <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                                <input name="phone" ng-model="formData.phoneNumber" type="number" ng-minlength="10" ng-maxlength="10" placeholder="Please enter 10 digit mobile number" ng-required="true">
+                                    
+                                    </md-input-container>
+                                      
+                                    <md-input-container md-no-float class="md-block">
+                                        <div layout="row">
+                                        <div flex-xs="30" flex-sm="30"  flex="20">Select Date</div>
+                                        <div flex-xs="50" flex-sm="50" flex="30">
+                                            <input ng-model="formData.date" type="date" ng-required="true">
+                                           
+                                        </div>
+                                        </div>
+                                    </md-input-container>
+                                 
+                                    <div layout="column" flex="100" class="addReviewDialog-page-margin" layout-align="center center">
+
+                                        <input type="submit" value="Submit" id="contactSubmit-1" ng-disabled="userForm.$invalid">
+                                    </div>
+
+                                <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
+                            </md-card-content>
+                        </form>
+                        </md-card>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>

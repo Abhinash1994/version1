@@ -1,0 +1,488 @@
+<style type="text/css">
+  #tip {
+    overflow-y:scroll;
+}
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{{categoryName}}</h1>
+		<!-- <button class="btn btn-primary right" ng-click="deleteCategory()">
+                Delete Category
+            </button> -->
+
+          <button class="btn btn-primary right" ng-click="editCategory()">
+            Edit Category Serial Number
+        </button>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<a ui-sref="dashboard.services">Back to Category list</a>
+<br />
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#addService">
+            Add new Service
+        </button>
+        <br />
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Current services for {{categoryName}}
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Created On</th>
+                                <th>Add</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="" ng-repeat="service in services" >
+                                <td ng-click="updateService($index)">{{service.name}}({{service.serviceCode}})
+                                  <button class="btn btn-primary right" 
+                                  ng-click="add($index)"> Add </button>
+                                </td>
+                                <td ng-click="updateService($index)">{{service.gender}}</td>
+                                <td ng-click="updateService($index)">{{service.time}}</td>
+                                <td>
+                                 <button class="btn btn-primary right" ng-click="showAddBrandsModal(service)">Add Brands</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+                    <div class="modal fade" id="addBrandsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Add new Brands and Products</h4>
+                               </div>
+
+                              <div class="modal-body">
+                                <uib-tabset >
+                                 <uib-tab index="$index + 1" ng-repeat="p in currServiceObjectRequired.prices"  heading="Price {{$index+1}}" >
+                                  <div class="row">
+
+                                        <div class="col-lg-12 col-md-12">
+                                        <span><div id="new-select" isteven-multi-select input-model="p.brand.allBrands" output-model="p.brand.brands"  button-label="name" item-label="name" tick-property="isSelected"  output-properties="brandId name" on-close="serviceBrandsMultiselectClose(p.brand,$index)" ></div></span>
+                                         </div>
+                                    </div>
+                                  <div class="row">
+                                          <div class="col-lg-12">
+                                              <div class="dataTable_wrapper">
+
+                                                <table class="table table-striped table-bordered" id="dataTables-example">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>S.No</th>
+                                                            <th>Brands</th>
+                                                            <th>Product Title</th>
+                                                            <th>Select Products</th>
+                                                            <th>Most Popular</th>
+                                                            <th>Max Saving</th>
+                                                            <th>Most Popular Product</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="" ng-repeat="list in p.brand.brands">
+
+                                                            <td>{{$index+1}}</td>
+                                                            <td>{{list.name}}</td>
+                                                            <td><input ng-model="list.productTitle" class="form-control" style="width:60%;"></td>
+                                                            <td><div  isteven-multi-select input-model="list.allProducts" output-model="list.products"  button-label="name" item-label="name" tick-property="isSelected" output-properties="name productId" ></div></td>
+                                                            <td><input type="checkbox" name="checkbox" ng-model="list.popularChoice"></td>
+                                                            <td><input type="checkbox" name="checkbox" ng-model="list.maxSaving"></td>
+                                                          <td>  <select name="mySelect" id="mySelect" ng-options="option as option.name for option in list.products" ng-change="preferredProduct(list.products,list.preferredProduct)" ng-model="list.preferredProduct"></select></td>>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                          </div>
+                                  </div>
+                              </div>
+                              </uib-tab>
+                            </uib-tabset>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button ng-click='addBrands()' class="btn btn-primary">Add</button>
+                              </div>
+
+                          </div>
+                      </div>
+                    </div>
+
+
+
+
+
+<div class="modal fade" id="addService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Add New Service for {{categoryName}}</h4>
+                              </div>
+                              <form role="form" ng-submit="addService()">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-12">
+                                              <div class="form-group">
+                                                  <label>Name</label>
+                                                  <input ng-model="data.name" class="form-control" required>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-12">
+                                              <div class="form-group">
+                                                  <label>Gender</label>
+                                                  <select ng-model="data.gender" class="form-control" required>
+                                                      <option value="1">Male</option>
+                                                      <option value="2">Female</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Add</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>
+
+
+ <div class="modal fade" id="editName1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Edit Category</h4>
+                              </div>
+                              <form role="form" ng-submit="editName()" name="serviceDetails2">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Enter sort sequence</label>
+                                                  <input ng-model="newName.sort" type="test" class="form-control" required>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Enter male Image Url</label>
+                                                  <input ng-model="newName.maleImage" type="test" class="form-control" required>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Enter female Image Url</label>
+                                                  <input ng-model="newName.femaleImage" type="test" class="form-control" required>
+                                              </div>
+                                          </div>
+                                         <!--  <div class="col-lg-6">
+                                            <div class="form-group">
+                                                 <label>Select SuperCategory Name</label>
+                                                 <select class="form-control" ng-model="newName.superCategory" name="supecategory" required>
+                                                     <option value="{{c}}" ng-repeat="c in supercategories">{{c}}</option>
+                                                 </select>
+                                             </div>
+                                         </div> -->
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Update</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>
+
+
+            <!-- add new category tip 1-->
+
+ <div class="modal fade" id="tip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <form role="form">
+                              <div class="modal-body">
+                                <h4>{{selectedServiceForTips.name}}</h4>
+                                  <div class="form-group">
+                                       <h4> Tip 1 </h4>
+                                          <lable> Description </lable>
+                                          <input class="form-control form-control-sm" ng-model="tipsData.tip1" type="text">
+                                          <lable> URL</lable>
+                                          <input class="form-control form-control-sm" ng-model="tipsData.tip1Url" type="text">
+                                  </div> 
+                                   <div class="form-group">
+                                       <h4> Tip 2 </h4>
+                                          <lable> Description </lable>
+                                          <input class="form-control form-control-sm" ng-model="tipsData.tip2" type="text">
+                                          <lable> URL</lable>
+                                          <input class="form-control form-control-sm" ng-model="tipsData.tip2Url" type="text">
+                                  </div>
+                                   <div class="form-group">
+                                       <h4> Tip 3 </h4>
+                                          <lable> Description </lable>
+                                          <input class="form-control form-control-sm" ng-model="tipsData.tip3" type="text">
+                                          <lable> URL</lable>
+                                          <input class="form-control form-control-sm" ng-model="tipsData.tip3Url" type="text">
+                                  </div>
+                                   <div class="form-group">
+                                       <h4> Tip 4 </h4>
+                                          <lable> Description </lable>
+                                          <input class="form-control form-control-sm" ng-model="tipsData.tip4" type="text">
+                                          <lable> URL</lable>
+                                          <input class="form-control form-control-sm" ng-model="tipsData.tip4Url" type="text">
+                                  </div>
+                                   <div class="form-group">
+                                       <h4> Tip 5 </h4>
+                                          <lable> Description </lable>
+                                          <input class="form-control form-control-sm" ng-model="tipsData.tip5" type="text">
+                                          <lable> URl</lable>
+                                          <input class="form-control form-control-sm" ng-model="tipsData.tip5Url" type="text">
+                                  </div>      
+                              </div>
+                          </form>
+                               <div class="modal-footer">
+                                  <button ng-click="submitTips()" class="btn btn-primary">Submit</button>
+                              </div>
+                              </div>
+                          </div>
+                         
+                      </div>
+                    
+                  </div> 
+
+
+
+            <!--close-->
+
+
+
+
+                  <div class="modal fade" id="updateService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog  modal-lg">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Update Service for {{currService.name}} to</h4>
+                              </div>
+                              <form role="form" ng-submit="updateServiceName()">
+                              <div class="modal-body">
+                                  <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                <input ng-model="currService.name" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Gender</label>
+                                                <input ng-model="currService.gender"  class="form-control" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Sub Title</label>
+                                                <input ng-model="currService.subtitle"  class="form-control" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Sub Category</label>
+                                                <select ng-options="option._id as option.name for option in subcategories"
+                                                        ng-model="currService.subCategoryId"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Tag</label>
+                                                <input ng-model="currService.tag" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <label>Description</label>
+                                          <input class="form-control" type="text" ng-model="currService.description"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <label>Repeat Day (In Days) </label>
+                                          <input class="form-control" type="text" ng-model="currService.ServiceRepeatDate"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <label>Repeat Day Interval (In Days) </label>
+                                          <input class="form-control" type="text" ng-model="currService.repeatDaysInterval"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <label>Notification Content</label>
+                                          <input class="form-control" type="text" ng-model="currService.ServiceRepeatContent"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <label>Notification Title</label>
+                                          <input class="form-control" type="text" ng-model="currService.ServiceRepeatTitle"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <label>SMS Content</label>
+                                          <input class="form-control" type="text" ng-model="currService.ServiceRepeatSms"/>
+                                        </div>
+                                       <div class="col-md-6">
+                                          <label>EstimatedTime</label>
+                                          <input class="form-control" type="number" ng-model="currService.estimatedTime"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Sort</label>
+                                                <input ng-model="currService.sort" class="form-control">
+                                            </div>
+                                        </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <input type="checkbox" name="vehicle" ng-model="currService.dontShowInApp"> Don't show in app<br>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <input type="checkbox" name="vehicle" ng-model="currService.isDeleted"> Don't show in CRM<br>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Name On App</label>
+                                              <input ng-model="currService.nameOnApp" class="form-control">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label ng-style='currService.gstNumber==null && {"color":"red"}'>GST No.</label>
+                                              <input ng-model="currService.gstNumber" class="form-control">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label ng-style='currService.gstDescription==null && {"color":"red"}'>GST Description</label>
+                                              <input ng-model="currService.gstDescription" class="form-control">
+                                          </div>
+                                      </div>
+
+										<div class="col-md-12">
+											Types Of Prices <select ng-options="num for num in nums" ng-change="priceListChanged()" ng-model="currService.priceslength" />
+										</div>
+										<table  class="table">
+
+                        <tr ng-repeat-start="n in currService.prices">
+                         <td>
+                          Price {{$index+1}} name:
+                        </td>
+                        <td >
+                        <input type="text" ng-model="currService.prices[$index].name"/>
+                        </td>
+                        </tr>
+                        <tr ng-repeat-end>
+                          <td>Brand Title</td>
+                          <td><input ng-model="currService.prices[$index].brand.title" class="form-control" ></td>
+                        </tr>
+
+
+										</table>
+                                      Upgrade type
+                                      <select name="mySelect" id="mySelect"
+                                              ng-options="option.value as option.name for option in upgradeOptions"
+                                              ng-model="currService.upgradeType" ng-change="typeChanged()"></select>
+
+                                      <div class="row" ng-if="currService.upgradeType!='subCategory'" style='width: 100%;margin-left: 1px;'>
+                                          <div class="table-responsive" style="display:inline" >
+                                              <div class="table-responsive" style="display:inline">
+                                                  <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+                                                      <tr ng-repeat="serv in currService.upgradeServices" ng-if="currService.upgradeServices.length">
+                                                          <td title="'Service Code'">
+                                                              {{serv.serviceCode}}
+                                                          </td>
+                                                          <td title="'Service Name'">
+                                                              {{serv.name}}
+                                                          </td>
+                                                          <td title="'Gender'">
+                                                              {{serv.gender}}
+                                                          </td>
+                                                          <td title="'Action'">
+                                                              <input type="button" class="btn btn-primary" style="background-color: #337ab7"   ng-click="removeService($index)" value="Remove">
+                                                          </td>
+                                                      </tr>
+                                                      <tr name="productDetails">
+                                                          <td title="'Service Code'">
+                                                              {{currService.newServ.serviceCode}}
+                                                          </td>
+
+                                                          <td title="'Service Name'">
+                                                              <input class="form-control" type="text" ng-model="currService.newServ" uib-typeahead="ser as (ser.name) for ser in allServices  | filter:$viewValue " >
+                                                          </td>
+                                                          <td title="'Gender'">
+                                                              {{currService.newServ.gender}}
+                                                          </td>
+                                                          <td title="'Action'">
+                                                              <input type="button" class="btn btn-primary" style="background-color: #337ab7"  ng-click="addService1(currService.newServ)" value="Add">
+                                                          </td>
+                                                      </tr>
+
+                                                  </table>
+                                              </div>
+
+                                          </div>
+                                      </div>
+
+										<!--  Additions
+                    <div class="col-md-12">
+                    <label>
+                                          <input type="checkbox" ng-model="currService.thickness"/>
+                                        Length/ Thickness</label>
+                                        <label>
+                                          <input type="checkbox" ng-model="currService.colorLength"/>
+                                        Color Length</label>
+                                        <label>
+                                          <input type="checkbox" ng-model="currService.upstyling"/>
+                                        Hair Upstyling</label
+                                        <label>
+                                          <input type="checkbox" ng-model="currService.shampooLength"/>
+                                        Shampoo Length</label>
+                                        </div> -->
+
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Update</button>
+								  <button type="button" class="btn btn-primary" ng-click="deleteService(currService)">Delete</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>

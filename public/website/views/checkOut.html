@@ -1,0 +1,169 @@
+<style>
+
+</style>
+<div layout="column" class="checkout-page-container"  flex="100">
+    <div flex="100" layout="row" >
+
+        <div  flex-xs="60" flex="70" style="" class="checkout-page-parlor">
+            <div layout="column">
+                <div flex class="checkout-parlor-container" >
+                    <div layout="row" flex="50">
+                        <span class="Salon-Details">Salon Details</span>
+                    </div>
+                    <div layout="row" flex="50">
+                        <span style="" class="appObj-salonparlorName">{{appObj.parlorName}}</span>
+                    </div>
+                    <div layout="row" flex>
+                        <span style="" class="Phone-Number">Phone Number:{{user.phoneNumber}}</span>
+                    </div>
+                    <div layout="row" flex>
+                        <span class="Phone-Number">{{appObj. startsAt | date:'medium'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  flex-xs="40" flex="30" class="checkout-customer-container">
+
+            <div flex style="" layout="column">
+                <div layout="row" flex>
+                    <span style="" class="Customer-Details">Customer Details</span>
+                </div>
+                <div layout="row" flex>
+                    <span class="appObj-parlorName">Name:{{user.firstName}}</span>
+                </div>
+                <div layout="row" flex>
+                    <span class="Phone-Number">Phone Number:{{user.phoneNumber}}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div layout="column" style="" class="Payment-Mode-box">
+    <div layout="row" layout-xs="column" class="Payment-Mode-box1">
+        <div  flex-xs="100"  flex-sm="50" flex-md="65"  flex-lg="65"  flex-xl="65"  style="" class="Payment-Mode-container">
+            <div flex class="Select-Payment-Mode">
+                <span>Select Payment Mode </span><span style="" class="payment-icon"><ng-md-icon icon="arrow_drop_down" style="fill:#58595b" size="25"></ng-md-icon></span>
+            </div>
+            <div flex style="" class="payment-icon-container">
+                <md-radio-group ng-disabled="cartQuantityTracker.getNumber()==0" ng-model="paymentOption" ng-change="paymentModeSelected(paymentOption.name)">
+                    <md-radio-button class="radioActiveColor" ng-repeat="po in paymentsOptions" ng-value="po">
+                        <div flex class="po-name"><!--<span style="padding-right: 1px;"></span>-->{{po.name}}</div>
+                    </md-radio-button>
+                </md-radio-group>
+            </div>
+            <!--
+                        <div flex style="padding-left: 4%;font-size: 17px;">
+                            <span>Promo Code</span>
+                        </div>-->
+            <div flex>
+                <md-input-container style="" class="promo-code-container">
+                    <!--  <label>Promo code</label>-->
+                    <input type="text" ng-model="color" required class="Promo-Code" placeholder="Enter Promo Code">
+                </md-input-container>
+                <!--<md-button style="background-color: #E3ECEB;">Apply</md-button>-->
+            </div>
+            <div layout="column">
+                <!-- <div flex class="checkout-container-1">
+                     <span>Redeem your membership</span>
+                 </div>-->
+                <!-- <div layout="row"> -->
+                <!-- <div flex="60"  class="checkout-loyality"> -->
+                <!-- <md-checkbox class="customisedCheckoutChecbox" ng-model="memberPoints" aria-label="Finished?"> -->
+                <!-- Membership Points -->
+                <!-- </md-checkbox> -->
+                <!-- </div> -->
+                <!-- <div flex="40"> -->
+                <!-- <span>100</span> -->
+                <!-- </div> -->
+                <!-- </div> -->
+                <div flex  class="Cash-Your-Loyality">
+                    <span>Cash Your Loyality</span>
+                </div>
+                <div layout="row" style="" class="LoyaltyPoints">
+                    <div flex="30" >
+                        <md-checkbox ng-disabled="cartQuantityTracker.getNumber()==0" class="checkBoxPosition activeCheckboxColor checkout-pages checkout-page-1"  ng-model="cashLoyality" aria-label="Finished?" ng-change="applyLoyalityPoints()">
+                            <span style=""> LoyaltyPoints</span>
+                        </md-checkbox>
+                    </div>
+                    <div flex="20" class="user-loyality-point">
+                        <span>{{user.loyalityPoints}}</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div  flex-xs="100"  flex-sm="50"  flex-md="35" flex-lg="35" flex-xl="35" flex="35"  class="checkout-container">
+            <div layout="column">
+                <!--Your order summary starts here  having list of items-->
+                <div flex>
+                    <div layout="column" class="checkout-page-cart">
+
+                        <div flex style="" class="Your-Cart" layout="row" layout-align="center">
+                            <span>Your Cart</span>
+                        </div>
+                        <div flex style="" class="checkout-page-service">
+                            <div ng-repeat="service in cart" flex layout="row">
+                                <div flex="55">
+                                    <span  class="service-name">{{service.name}}</span>
+                                </div>
+                                <span flex="10">
+											<ng-md-icon icon="remove" style="fill:#58595b" ng-click="cartBufferFlag==false && cartRemoveButton($index)" ng-disabled="!serv.quantity" size="15"></ng-md-icon>
+										</span>
+                                <div flex="5">
+                                    <span style="" class="service-quantity">{{service.quantity}}</span>
+                                </div>
+                                <span flex="10">
+											<ng-md-icon icon="add" style="fill:#58595b" ng-click="cartBufferFlag==false && cartAddButton($index)" size="15"></ng-md-icon>
+										</span>
+                                <div flex="20" layout="row" layout-align="end">
+                                    <strike style="color: #e2e2e2"><span style="color: #e2e2e2;font-size: 15px;font-family: latoLight;"><img src="../images/Grey Budget.png" alt="rupeesicon" width="10" height="10">{{service.actualPrice}}</span></strike>
+                                </div>
+                                <div flex="20">
+                                    <span style="" class="checkout-service-additions" ><img src="../images/Grey Budget.png" alt="rupeesicon" width="12" height="12">{{service.price+service.additions}}</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+                <!--Billing information starts here-->
+                <div layout="row" class="checkout-subdetails Subtotal-checkout">
+                    <div layout="column" flex="50" class="checkout-bill-information" style="">
+                        <span class="checkout-summary-text checkSubtotal">Subtotal</span>
+                        <span class="checkout-summary-text checkSubtotal">Total Tax</span>
+                    </div>
+                    <div layout="column" layout-align="none end" flex="50" class="checkout-bill-information-1 checkoutappObj-subtotal">
+                       <span> <img src="../images/Grey Budget.png" alt="rupeesicon" width="12" height="12">{{appObj.subtotal}}</span>
+                        <span class="checkout-summary-text"><img src="../images/Grey Budget.png" alt="rupeesicon" width="12" height="12">{{appObj.tax}}</span>
+                    </div>
+                </div>
+                <div layout="row" flex layout-align="center" style="padding-top: 6px;">
+                    <md-progress-circular  ng-if="cartBufferFlag"  ng-disabled="false" class="md-accent bufferColor" md-diameter="30" style="position: absolute;"></md-progress-circular>
+                </div>
+                <div layout="row" class="checkout-total checkout-total-3"  style="">
+
+                    <div layout="column" flex="50" class="rupees">
+                        <span style="" class="checkoutPageTotal">Total</span>
+                    </div>
+                    <div layout="column" flex="50" layout-align="none end" class="rupees-1">
+                        <span style="" class="checkoutpage-payableAmount"> <img src="../images/Grey Budget.png" alt="rupeesicon" width="12" height="12">{{appObj.payableAmount}} </span>
+                    </div>
+                </div>
+                <div flex class="" layout="row" layout-align="center">
+                    <md-button class="checkout-btn disabledCheckoutButtonColor Payment-through"  ng-disabled="showWalletOptions=='' || cartBufferFlag==true || cartQuantityTracker.getNumber()==0" ng-class="{buttonAnimation:showWalletOptions!=''}" ng-click="payForOrder(paymentOption.value,$event)"><span>Payment through {{showWalletOptions}}</span></md-button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<form action="https://pguat.paytm.com/oltp-web/processTransaction" method="POST" name="paytm_form" id="paytm-form">
+</form>

@@ -1,0 +1,81 @@
+<style>
+    h3{
+        text-align: center;
+    }
+    .tableContainer{
+        overflow: scroll;
+        width:100%;
+        height:400px;
+    }
+    th{
+        text-align: center;
+    }
+
+</style>
+
+
+<h3>Past Appointment</h3>
+<div class="row">
+    <div class="col-md-offset-2 col-md-3">
+        <label>Select Daterange</label>
+    </div>
+    <div class="col-md-6">
+        <input date-range-picker id="daterange1"  min="'2017-01-02'"  name="daterange1" class="form-control date-picker" type="text" ng-model="dates.date" required/>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-offset-2 col-md-3">
+   
+    </div>
+    <div class="col-md-6">
+   <button class="btn btn-primary"  ng-csv="printExcelData()" filename="AllApointments.csv">Export TO Excel</button>
+    </div>
+
+</div>
+<div class=" tableContainer" >
+<table class="table">
+    <thead>
+        <tr>
+            <th>Salon Id</th>
+            <th>Parlor Name</th>
+            <th>starts At</th>
+            <th>Appoitment Id</th>
+            <th>Client Name</th>
+            <th>Client Phone Number</th>
+            <th>Services</th>
+            <th>Payable Amount</th>
+             <th>Payment Method</th>
+            <th>Loyality Points</th>
+            <th>Coupon Code</th>
+            <th>Appointment Type</th>
+            <th>Client First Appointment</th>
+            <th>Closed By Name</th>
+            <th>Membership Credits</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  ng-repeat="m in pastAppointmentData">
+            <td>{{m.parlorId}}</td>
+            <td>{{m.parlorName}}</td>
+            <td>{{m.startsAt | date:'medium'}}</td>   
+            <td>{{m.appointmentId}}</td>   
+            <td>{{m.client.name}}</td>   
+            <td>{{m.client.phoneNumber}}</td>   
+            <td><div ng-repeat="a in m.services">{{a.name}}<span ng-if="!$last">,</span></div></td>   
+            <td>{{m.payableAmount}}</td>   
+             <td>{{m.allPaymentMethod[0].name}}</td>   
+             <td>{{m.loyalityPoints}}</td>   
+             <td>{{m.couponCode}}</td>   
+             <td>{{m.appType}}</td>   
+             <td>{{m.clientFirstAppointment}}</td>   
+             <td>{{m.closedByName}}</td>   
+             <td>{{m.membershipCreditsUsed}}</td>   
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+</div>

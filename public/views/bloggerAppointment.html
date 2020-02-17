@@ -1,0 +1,72 @@
+<style>
+			h3
+		{
+				text-align: center;
+		}
+			.row
+		{
+			margin:10px;
+			padding:8px;
+			background-color: white;
+		}
+		th{
+			text-align: center;
+		   }
+		 td{
+		 	text-align: center;
+		 }
+</style>
+
+<h3>Blogger Appointment</h3>
+  <uib-tabset active="active">
+  <uib-tab index="0" heading="Edit Blogger Appointment" active="tabs[0].active">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-2">
+            <label>Select Date</label>
+        </div>
+        <div class=" col-md-6">
+             <input type="text" class="form-control" style="width:310px;display: inline"   uib-datepicker-popup="{{format}}" ng-change="buttonclick()" ng-model="date.dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn" style="display: inline;">
+            <button type="button"  class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+        </div>
+    </div>
+
+
+  		<form ng-submit="searchPhoneNumber()">
+  			<div class="row">
+  				<div class="col-md-offset-3 col-md-3">
+  					<input type="text" class="form-control" numbers-only placeholder="Enter Phone Number"  required="" ng-model="blogger.phoneNumber"/>
+  				</div>
+  				<div class="col-md-2">
+  					<button type="submit"   class="btn btn-primary">Search</button>
+  				</div>
+  			</div>
+  		</form>
+  		<table class="table" ng-if="bloggersApt">
+  			<thead>
+  				<tr>
+  					<th>Client Name</th>
+  					<th>Phone Number</th>
+  					<th>Service</th>
+  					<th>Time</th>
+  					<th>Otp</th>
+  					<th>Parlor Name</th>
+  					<th>Subtotal</th>
+  					<th>Edit</th>
+  				</tr>
+  			</thead>
+  			<tbody>
+  				 <tr >
+  					<td>{{bloggersApt.clientName}}</td>
+  					<td>{{blogger.phoneNumber}}</td>
+  					<td><span ng-repeat="services in bloggersApt.services">{{services}}<span ng-if="$index<bloggersApt.services.length">,</span</span></td>
+  					<td>{{bloggersApt.appointmentStartTime|date:'fullDate'}}</td>
+  					<td>{{bloggersApt.otp}}</td>
+  					<td>{{bloggersApt.parlorName}}</td>
+  					<td>{{bloggersApt.subtotal}}</td>
+  					<td><button class="btn btn-primary" ng-click="edit(bloggersApt)">Edit</button></td>
+  				</tr>
+  			</tbody>
+  		</table>
+  </uib-tab>
+</uib-tabset>

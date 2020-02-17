@@ -1,0 +1,54 @@
+<style media="screen">
+
+  .button {
+      -moz-appearance: button;
+      /* Firefox */
+      -webkit-appearance: button;
+      /* Safari and Chrome */
+      padding: 10px;
+      margin: 10px;
+      width: 70px;
+  }
+  .drop-box {
+      background: #F8F8F8;
+      border: 5px dashed #DDD;
+      width: auto;
+      height: 65px;
+      text-align: center;
+      padding-top: 5em;
+      margin: 10px;
+      margin-top:5em;
+      padding-bottom:7em;
+  }
+  .dragover {
+      border: 5px dashed #37474F;
+  }
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2 id="tables">Upload Image</h2>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div ngf-drop="" ngf-select="" ng-model="files" class="drop-box" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true" accept="image/*,application/pdf">Drop pdfs or images here or click to upload
+
+      <button type="button" name="button" ngf-select="upload($files)">Upload Image/Images</button>
+
+
+    </div>
+
+    <div ngf-no-file-drop="">File Drag/Drop is not supported for this browser</div>
+
+  </div>
+  <div class="col-md-12">
+    <div class="page-header" style="background-color: #F3F3F3;">
+      <h3 id="tables">Images Uploaded</h3>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="col-md-4" ng-repeat="data in images" style="padding: 1em;">
+      <img ng-src="{{data.appImageUrl}}" alt="" style="height: auto;width: auto;max-width: 100%;">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12"> Adjust Subscription Balance</div>
+</div>
+<div class="row">
+    <div class="col-md-4" style="padding-top: 18px;text-align: right;">Phone Number</div>
+     <div class="col-md-4"><input type='text' class="form-control" ng-model="phoneNumber"></div>
+    
+</div>
+<div class="row">
+<div class="col-md-12">
+  <button class="btn " ng-click='submitphoneNumber()'>Submit</button>
+</div>
+  </div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Client Name</th>
+          <th>Appointment Date</th>
+          <th>Subtotal</th>
+          <th>Payable Amount</th>
+          <th>Salon</th>
+          <th>Status</th>
+          <th>Subscription Loyality</th>
+          <!-- <th>Reopen</th> -->
+
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="data in users">
+          <td>
+            <p ng-repeat="clientInfo in data">
+              <span>{{clientInfo.name}}</span>
+            </p>
+          <td>{{data.appointmentStartTime | date :'medium'}}</td>
+          <td>{{data.subtotal}}</td>
+            <td>{{data.payableAmount}}</td>
+            <td>{{data.parlorName}} - {{data.parlorAddress2}}</td>
+           <td ng-if="data.status==3">Completed</td>
+           <td ng-if="data.status==2">Cancelled</td>
+           <td ng-if="data.status==1">Started</td>
+          <td>{{data.loyalitySubscription}}</td>
+           <!-- <td><button   class="btn btn-primary" ng-disabled="data.status==1"  ng-click="save($index,'reopen')">Reopen</button></td>  -->
+            <td>
+             
+              <button type="button" name="button" ng-click="save($index)"  class="btn btn-primary" ng-disabled="data.status==2||data.status==3||data.loyalitySubscription>0">Update</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

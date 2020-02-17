@@ -1,0 +1,31 @@
+<md-dialog ng-cloak=""   >
+    <md-content>
+        <div layout="row" flex="100" class="offer-filter-container">
+            <div layout="column">
+                <div layout="row" >
+                    <span class="offer-filter-heading">Services</span>
+                </div>
+                <div layout="row" flex="100"style="padding-top:2%;" layout-xs="column" flex-xs="100" class="service-border ">
+                    <div layout="column" flex="50" ng-repeat="list in depts" style="font-size:10px;"layout-xs="column" flex-xs="100">
+                        <span>{{list.name}}</span>
+                        <span ng-repeat="list2 in list.categories"><md-checkbox  ng-checked="exists(list2,checked_categories)"  ng-click="filterServices(list2, checked_categories)"   class="md-warn md-align-top-left" flex/>{{list2.name}}</span>
+                    </div>
+                </div>
+
+                <div layout="row">
+                    <div layout="column" flex="50" class="offer-filter-btn">
+                        <span ng-click="filterParlorList()">Apply Filters</span>
+                    </div>
+                    <div layout="column" flex="50" style="text-align:center;" ng-click="hide()" class="offer-filter-cancile">
+                        <span>Cancel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</md-dialog>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+-->

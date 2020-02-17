@@ -1,0 +1,417 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Deal Name</label>
+                <input ng-model="deal.name" class="form-control" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Deal Category</label>
+                <select ng-model="deal.category" class="form-control" ng-options="cat for cat in dealCategories" />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Sort Order</label>
+                <input ng-model="deal.sort" class="form-control" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label>Delete in App:
+                <input type="checkbox" ng-model="deal.isDeleted" >
+            </label><br/>
+            <label>Visible in CRM:
+                <input type="checkbox" ng-model="deal.active" >
+            </label><br/>
+            
+            
+        </div>
+      
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-3">
+             <div class="form-group">
+                <label>Deal Description</label>
+                <input ng-model="deal.description" class="form-control" >
+              </div>
+        </div>
+        <div class="col-md-4">   <label> All Hair Length Type:<input type="checkbox" value="" ng-model="deal.allHairLength" style="width:15px;height:15px;margin-top: -1px;"></label></div>
+         <div class="col-md-3">
+             <div class="form-group">
+                <label>Short Deal Description</label>
+                <input ng-model="deal.shortDescription" class="form-control" >
+              </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Days </label>
+                <select ng-model="deal.weekDay" ng-options="week.value as week.name for week in weeks" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Deal Type</label>
+                <select ng-model="deal.dealType.name" class="form-control" ng-options="type.value as type.name for type in dealTypes" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Deal Order(Insside Category)</label>
+                <input ng-model="deal.dealSort" class="form-control" >
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="row">
+            <div class='col-lg-3 col-md-3 col-sm-3'>
+              Select Categories 
+            <div  isteven-multi-select input-model="allCategoriesList" output-model="selectedCatInCatList"  button-label="name" item-label="name" tick-property="isSelected" on-close="categoriesSelected(selectedCatInCatList)" output-properties="categoryId"></div>
+            </div class='col-lg-3 col-md-3 col-sm-3'>
+            <div>
+              Select Service Brands 
+            <div  isteven-multi-select input-model="serviceBrandsList" output-model="brandsObjectToBeSent"  button-label="name" item-label="name" tick-property="isSelected" on-close="serviceBrandsSelectedFn(brandsObjectToBeSent)" output-properties="name brandId"></div>
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3'>
+              Select Gender 
+            <div  isteven-multi-select input-model="genderList" output-model="genderSelectedList"  button-label="name" item-label="name" tick-property="isSelected" on-close="genderSelected(genderSelectedList)" output-properties="genderId"></div>
+            </div>
+
+            <div class='col-lg-3 col-md-3 col-sm-3'>
+              Select ParlorType 
+            <div  isteven-multi-select input-model="parlorList" output-model="parlorSelectedList"  button-label="name" item-label="name" tick-property="isSelected" on-close="parlorSelected(parlorSelectedList)" output-properties="type"></div>
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3'>
+                <button ng-click="editAppPageModalOpen()">Edit Deal Prices for App Page</button>
+              
+            </div>
+
+    </div>
+<div class="row" ng-if="deal.dealType.name!='newCombo'">
+        <div class="table-responsive" style="display:inline" >
+            <div class="table-responsive" style="display:inline">
+                <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+                    <tr ng-repeat="serv in deal.services" ng-if="deal.services.length">
+                        <td title="'Service Code'">
+                            {{serv.serviceCode}}
+                        </td>
+                        <td title="'Service Name'">
+                            {{serv.name}}
+                        </td>  
+                        <td title="'Sub Category'">
+                            {{serv.subTitle}}
+                        </td>
+                        <td title="'Gender'">
+                            {{serv.gender}}
+                        </td>
+                        <td title="'Action'">
+                            <input type="button" class="btn btn-primary" style="background-color: #337ab7"   ng-click="removeService($index)" value="Remove">
+                        </td>
+                    </tr>
+                        <tr name="productDetails">
+                            <td title="'Service Code'">
+                                {{newServ.serviceCode}}
+                            </td>
+                            
+                            <td title="'Service Name'">
+                                <input class="form-control" type="text" ng-model="newServ" uib-typeahead="ser as (ser.name) for ser in services  | filter:$viewValue " required>
+                            </td>
+                            <td title="'Sub Category'">
+                                {{newServ.subTitle}}
+                            </td>
+                            <td title="'Gender'">
+                                {{newServ.gender}}
+                            </td>
+                            <td title="'Action'">
+                                <input type="button" class="btn btn-primary" style="background-color: #337ab7"  ng-click="addService(newServ)" value="Add">
+                            </td>
+                        </tr>
+            
+                </table>
+            </div>
+            
+        </div>
+        </div>
+<div class="row" ng-if="deal.dealType.name=='newCombo'">
+    <div class="table-responsive" style="display:inline" >
+        <div class="table-responsive" style="display:inline">
+            <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+                <tr ng-repeat="serv in deal.newCombo">
+                    <td title="'Service Type'">
+                        {{serv.type}}
+                    </td>
+                    <td title="'Service Title'">
+                        {{serv.title}}
+                    </td>
+                    <td title="'Category'">
+                        {{serv.categoryId}}
+                    </td>  
+                    <td title="'Services'">
+                        {{serv.serviceIds}}
+                    </td>
+                    <td title="'Action'">
+                        <input type="button" class="btn btn-primary" style="background-color: #337ab7"   ng-click="removeService($index)" value="Remove">
+                    </td>
+                </tr>
+                <tr name="productDetails">
+                    <td title="'Service Type'">
+                        <select name="mySelect" id="mySelect"
+                                ng-options="option.value as option.name for option in newComboServiceType "
+                                ng-model="row.type"></select>
+                    </td>
+                    <td title="'Service Type'">
+                        <input type="text" ng-model="row.title" > </input>
+                    </td>
+                    <td title="'Category'">
+                        <select name="mySelect"
+                                ng-options="option.categoryId as option.name for option in categories "
+                                ng-model="row.categoryId" ng-change="categoryChanged(row.categoryId)"></select>
+                    </td>
+                    <td title="'Services'">
+                        <div  isteven-multi-select input-model="services" output-model="row.serviceId"  button-label="name" item-label="name gender subtitle" tick-property="isSelected" output-properties="serviceId name"></div>
+                    </td>
+                    <td title="'Action'">
+                        <input type="button" class="btn btn-primary" style="background-color: #337ab7"   ng-click="addNewComboService(row)" value="Add">
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+  
+        
+        <div class="row">
+          <div class='col-md-6 col-lg-6 col-sm-6'>
+            <button ng-click='showAddNewParlorModal()'>Add new Salon</button>
+          </div>
+          <div class='col-md-6 col-lg-6 col-sm-6'>
+            Select Salon 
+            <div id="new-select" isteven-multi-select input-model="salons" output-model="selectedSalons"  button-label="name" item-label="name" tick-property="isSelected" on-close="dropDown(selectedSalons)" output-properties="parlorId name"></div>
+          </div>  
+        </div>
+        
+    
+    <div class="row">
+        <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+            <tr ng-repeat="salon in deal.parlors" >
+                <td title="'Salon Name'" ng-style='!salon.checkPassed && {"background-color": "#ff6666"}'>
+                    {{salon.name}}
+                </td>
+                <td title="'Brands Ratio'" ng-click='openEditParlorRatioModal(salon.brands)' ng-style='!salon.checkPassed && {"background-color": "#ff6666"}'>
+                    <div ng-repeat='ratioList in salon.brands' >{{ratioList.name}}({{ratioList.ratio}})<br></div>
+                </td>
+                <td title="'Menu Price'" ng-style='!salon.checkPassed && {"background-color": "#ff6666"}'>
+                    <input type="text" ng-model="salon.menuPrice"  class="btn col-xs-12" >
+                </td>
+                <td title="'Deal Price'" ng-style='!salon.checkPassed && {"background-color": "#ff6666"}'>
+                    <input type="text" ng-model="salon.dealPrice"   class="btn col-xs-12" >
+                </td>
+                <td title="'Deal Percentage'" ng-style='!salon.checkPassed && {"background-color": "#ff6666"}'>
+                    <input type="text" ng-model="salon.dealPercentage"   class="btn col-xs-12" >
+                </td>
+                <!-- <td title="'Start Date'" ng-style='!salon.checkPassed && {"background-color": "#ff6666"}'>
+                    <input type="date" ng-model="salon.startDate"   class="btn col-xs-12" >
+                </td>
+                <td title="'End Date'" ng-style='!salon.checkPassed && {"background-color": "#ff6666"}'>
+                    <input type="date" ng-model="salon.endDate"  class="btn col-xs-12" >
+                </td> -->
+                <td title="'Price'" ng-style='!salon.checkPassed && {"background-color": "#ff6666"}'>
+                    <input type="text" ng-model="salon.price"  class="btn col-xs-12" >
+                </td>
+                <td title="'Action'" ng-if='dealIdParlor' ng-style='!salon.checkPassed && {"background-color": "#ff6666"}'>
+                    <button class="button" ng-click="checkDealByParlor(salon)">Check</button>
+                    <button class="button" ng-click="updateDealByParlor(salon)">Update</button>
+                    <button class="button" ng-click="deleteDealByParlor(salon)">Delete</button>
+                </td>
+                <td title="'Check Message'" ng-style='!salon.checkPassed && {"background-color": "#ff6666"}'>
+                    {{salon.checkMessage}}
+                </td>
+            </tr>
+        </table>
+    </div>
+        <div class="row"><button class="btn btn-primary" ng-click="submitDeal()">Submit</div>
+
+    <div class="modal fade" id="editRatioModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Edit Brands and Products Ratio</h4>
+                              </div>
+                              <form role="form" ng-submit="submitNewServiceProduct()" name="customerDetails">
+                              <div class="modal-body">
+                                  <div class="row" >
+                                          <div class="col-lg-12">
+                                              <table style='width: 100%;'>
+                                                  <thead>
+                                                      <tr>
+                                                          <th>Brand Name</th>
+                                                          <th>Brand Ratio</th>
+                                                          <th>Products</th>
+                                                      </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                      <tr ng-repeat='brandsList in modalRatioList'>
+                                                          <td>{{brandsList.name}}</td>
+                                                          <td><input type='text' ng-model='brandsList.ratio' class='btn' s></td>
+                                                          <td>
+                                                            <span ng-repeat='productList in brandsList.products'>
+                                                                {{productList.name}}<input type='text' ng-model='productList.ratio' class='btn' ><br>
+                                                            </span>
+                                                          </td>
+                                                      </tr>
+                                                  </tbody>
+                                              </table>
+                                          </div>
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary" data-dismiss="modal">Add</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+    </div>   
+
+    <div class="modal fade" id="serviceBrandsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Edit Product Ratio</h4>
+                              </div>
+                              <form role="form" ng-submit="submitNewServiceProduct()" name="customerDetails">
+                              <div class="modal-body">
+                                  <div class="row">
+                                      <div class='col-lg-12 col-md-12'>
+                                            <table style='width: 100%;'>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Brand Name</th>
+                                                        <th>Brand Ratio</th>
+                                                        <th>Select Products</th>
+                                                        <th>Products Ratio</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat='brandsList in brandsObjectToBeSent'>
+                                                        <td>
+                                                            <span>{{brandsList.name}}</span> 
+                                                        </td>
+                                                        <td>
+                                                            <input type='text' class='btn' ng-model='brandsList.ratio' >
+                                                        </td>
+                                                        <td>
+                                                            <div  isteven-multi-select input-model="brandsList.allProducts" output-model="brandsList.products"  button-label="name" item-label="name" tick-property="isSelected" on-close="serviceProductsSelectedFn(brandsList)" output-properties="name productId ratio"></div>
+                                                        </td>
+                                                        <td ng-if='brandsList.products'>
+                                                            <span ng-repeat='productsList in brandsList.products'>
+                                                                <input type='text' class='btn' ng-model='productsList.ratio' ><br>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>  
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click='addBrandsObject()'>Add</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+    </div> 
+
+    <!-- =================================================add new parlor modal ==========start===============-->
+    <div class="modal fade" id="addNewParlor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel">Add New Parlor</h4>
+              </div>
+              <form role="form" ng-submit="submitNewParlor()" name="customerDetails">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class='col-lg-6 col-sm-6'>
+                          Select Salon:<select name='a' ng-options="sParlor.parlorId as sParlor.name for sParlor in newParlorList" ng-model="parlorSelectedToAdd"  class="form-control" style="width: 100%;" ng-change='newParlorSelected(parlorSelectedToAdd)'  required >  </select>
+                        </div>
+                        <div class='col-lg-6 col-sm-6' style='padding-bottom: 20px;'>
+                          Brands:<br>
+                          <span ng-repeat='list in deal.parlors[0].brands'>{{list.name}}<span ng-if='!$last'>,</span></span>
+                        </div>
+                        <div class='col-lg-6 col-sm-6'>
+                          Menu Price:<input type="text" ng-model="addNewParlorObj.menuPrice"  class="btn col-xs-12" >
+                        </div>
+                        <div class='col-lg-6 col-sm-6'>
+                          Deal Price:<input type="text" ng-model="addNewParlorObj.dealPrice"  class="btn col-xs-12" >
+                        </div>
+                        <div class='col-lg-6 col-sm-6'>
+                          Start Date:<input type="date" ng-model="addNewParlorObj.startDate"  class="btn col-xs-12" >
+                        </div>
+                        <div class='col-lg-6 col-sm-6'>
+                          End Date:<input type="date" ng-model="addNewParlorObj.endDate"  class="btn col-xs-12" >
+                        </div>
+                        <div class='col-lg-6 col-sm-6'>
+                          Deal Percentage:<input type="text" ng-model="addNewParlorObj.dealPercentage"   class="btn col-xs-12" >
+                        </div>
+                        <div class='col-lg-6 col-sm-6'>
+                          Price:<input type="text" ng-model="addNewParlorObj.price"  class="btn col-xs-12" >
+                        </div>  
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"  >Add</button>
+                </div>
+            </form>
+          </div>
+      </div>
+    </div> 
+    <!-- =================================================add new parlor modal ==========stop==================-->
+
+    <div class="modal fade" id="editAppPage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Add New Parlor</h4>
+                </div>
+                <form role="form" ng-submit="editAppPage()" name="customerDetails">
+                  <div class="modal-body">
+                     <table ng-repeat="city in deal.parlorTypesDetail">
+                         <div>City Id- {{city.cityId}}</div>
+                         <tr>
+                        <th>Salon Type</th>
+                        <th>Percent</th>
+                        <th>Starts At</th>
+                        </tr>
+                        <tr ng-repeat="salonType in city.parlorPrice">
+                            <th>{{checkSalonType(salonType.type)}}</th>
+                            <th> <input type="number" ng-model="salonType.percent" class="form-control" /></th>
+                            <th><input type="number" ng-model="salonType.startAt" class="form-control" /></th>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary"  >Update</button>
+                  </div>
+              </form>
+            </div>
+        </div>
+      </div> 

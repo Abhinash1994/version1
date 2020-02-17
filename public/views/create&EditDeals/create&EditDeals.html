@@ -1,0 +1,262 @@
+   <style>
+   				h2{
+   					text-align:center;
+   				}
+
+   				label{
+   					margin-top:10px;
+   				}
+
+   				form{
+   					background-color: white;
+   					padding:5px;
+   				}
+
+   				th{
+   					text-align:center;
+   					padding:5px;
+   					margin-right: 5px;
+   				}
+
+   				td{
+   					padding:5px;
+   				}
+
+   				tr{
+   					padding:5px;
+   					border-style: inset;
+   					border-color:gainsboro;
+   				}
+
+   </style>
+
+<h2>Create/Edit Deals</h2>
+
+<div class="container">
+	<uib-tabset active="active">
+        <uib-tab index="0" heading="Create Deals" active="tabs[0].active">
+        			<form ng-submit="createDeal()">
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <label>Day</label>
+                    </div>
+                    <div class="col-md-8">
+
+                        <input type="number" min="0" class="form-control" ng-model="createDeals.dealDay"  required />
+
+                    </div>
+              </div>
+
+
+        					<div class="row">
+
+        						<div class="col-md-2">
+        								<label>Deal  Id</label>
+        						</div>
+        						<div class="col-md-8">
+
+        								<input type="number" min="0" class="form-control" ng-model="createDeals.dealId"  required />
+
+        						</div>
+							</div>
+							<div class="row">
+
+        						<div class="col-md-2">
+        									<label> Name</label>
+        						</div>
+        						<div class="col-md-8">
+
+        								<input type="text"  class="form-control"  ng-model="createDeals.offerName" required/>
+
+        						</div>
+							</div>
+							<div class="row">
+
+        						<div class="col-md-2">
+        										<label> Gender</label>
+        						</div>
+        						<div class="col-md-6">
+        											<input type="radio" ng-model="createDeals.offerGender"  value="M"  />Male
+        											<input type="radio" ng-model="createDeals.offerGender"  value="F"  />Female
+
+        						</div>
+							</div>
+							<div class="row">
+
+        						<div class="col-md-2">
+        										<label> Title</label>
+        						</div>
+        						<div class="col-md-8">
+        										<input type="text" required class="form-control"    placeholder="{{a}}"  ng-model="createDeals.offerTitle"/>
+
+
+        						</div>
+							</div>
+							<div class="row">
+
+        						<div class="col-md-2">
+        											<label> Text</label>
+        						</div>
+        						<div class="col-md-8">
+
+        										<input type="text"  class="form-control" required ng-attr-placeholder="{{b}}" ng-model="createDeals.offerText"/>
+
+        						</div>
+							</div>
+                <div class="row">
+
+                    <div class="col-md-2">
+                              <label>Alternate Text</label>
+                    </div>
+                    <div class="col-md-8">
+
+                            <input type="text"  class="form-control"  placeholder="Text for People not having 100 % off" required ng-model="createDeals.alternateText"/>
+
+                    </div>
+              </div>
+
+								<div class="row">
+										<div class="col-md-offset-2 col-md-2">
+													<button type="submit"  class="btn btn-primary">Submit</button>
+										</div>
+
+								</div>
+
+
+				</form>
+
+		</uib-tab>
+		<uib-tab index="1"  heading="Edit Deals"  active="tabs[1].active">
+							<table  class="table table-striped">
+									<thead>
+												<tr>
+													<th>Deal Id</th>
+                          <th>Day</th>
+													<th>Name</th>
+													<th>Gender</th>
+													<th>Title</th>
+													<th>Text</th>
+                          <th>Alternate Text</th>
+													<th>Edit</th>
+													<th>Delete</th>
+												</tr>
+
+									</thead>
+									<tbody>
+													<tr ng-repeat="dailyOffers in tableData">
+
+																<td>{{dailyOffers.dealId }}</td>
+                                <td>{{dailyOffers.dealDay }}</td>
+																<td>{{dailyOffers.offerName}}</td>
+																<td>{{dailyOffers.offerGender}}</td>
+																<td>{{dailyOffers.offerTitle}}</td>
+																<td>{{dailyOffers.offerText}}</td>
+                                  <td>{{dailyOffers.alternateText}}</td>
+																<td><button class="btn btn-primary"  ng-click="editDeal(dailyOffers)">Edit</button></td>
+																<td><button class="btn btn-primary" ng-click="removeDeal(dailyOffers)">Delete</button></td>
+													</tr>
+									</tbody>
+
+							</table>
+					 <div class="modal fade" id="myModal" role="dialog">
+   								 <div class="modal-dialog">
+
+      <!-- Modal content-->
+     							 <div class="modal-content">
+       								 <div class="modal-header">
+          									<button type="button" class="close" data-dismiss="modal">&times;</button>
+          									<h4 class="modal-title">Edit Deals</h4>
+        							</div>
+        							<div class="modal-body">
+          										<div class="container">
+          													<div class="row">
+
+          															<div class="col-md-2">
+          																		<label>Deal Id</label>
+          															</div>
+          															<div class="col-md-6">
+          																	<input type="number"  class="form-control"  ng-model="edit.dealId" />
+          															</div>
+
+          													</div>
+                                    <div class="row">
+
+                                        <div class="col-md-2">
+                                              <label>Alternate Text</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text"  class="form-control"  ng-model="edit.alternateText" />
+                                        </div>
+
+                                    </div>
+
+
+          													<div class="row">
+
+          															<div class="col-md-2">
+          																		<label>Offer Name</label>
+          															</div>
+          															<div class="col-md-6">
+          																	<input type="text"  class="form-control"  ng-model="edit.offerName" required/>
+          															</div>
+
+          													</div>
+          													<div class="row">
+
+          															<div class="col-md-2">
+          																	<label>Offer Gender</label>
+          															</div>
+          															<div class="col-md-6">
+          																	<input type="radio"    ng-model="edit.offerGender" value="M"/>Male
+          																	<input type="radio"    ng-model="edit.offerGender" value="F"/>Female
+          															</div>
+
+          													</div>
+                                    <div class="row">
+
+                                        <div class="col-md-2">
+                                            <label>Day</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                              <input type="number"  class="form-control"  ng-model="edit.dealDay" />
+                                        </div>
+
+                                    </div>
+          													<div class="row">
+
+          															<div class="col-md-2">
+          																		<label>Offer title</label>
+          															</div>
+          															<div class="col-md-6">
+          																		<input type="text"  class="form-control"  ng-model="edit.offerTitle" required/>
+          															</div>
+
+          													</div>
+          													<div class="row">
+
+          															<div class="col-md-2">
+          																	<label>Offer text</label>
+          															</div>
+          															<div class="col-md-6">
+          																	<textarea rows=4 cols=30 ng-model="edit.offerText"></textarea>
+          															</div>
+
+          													</div>
+
+
+          										</div>
+       								 </div>
+        							<div class="modal-footer">
+        									<button type="button"  class="btn btn-primary"  ng-click="updateDeal()">Update Deal</button>
+         									 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        							</div>
+     							 </div>
+
+    						</div>
+					  </div>
+
+		</uib-tab>
+
+	</uib-tabset>
+</div>

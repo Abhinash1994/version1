@@ -1,0 +1,344 @@
+<style type="text/css">
+        
+        .header{
+            background-color: #fff;
+            width: 100%;
+            height: 70px;
+        }
+        h3{
+            text-align: center;
+            padding:15px;
+        }
+        select{
+            height: 35px;
+            background-color: #fff;
+            width: 45%;
+        }
+        #mySelect{
+            width: 100px;
+        }
+        .generateNew{
+            background-color:#fff;
+            margin-top:30px;
+        }
+        h1{
+            margin-top: 0px !important;
+        }
+</style>
+
+
+<div class="header"> 
+    <h1 style="text-align: center;padding-top: 10px;">Yearly Invoice</h1> 
+</div>
+<div  class="row"  style="padding-bottom:2%;">
+   <div ng-if="userType=='1'" class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px;height: 40px;">Select Salon :</div>
+    <div class="col-md-8">
+        <select ng-if="userType=='1'" class="setelment-report selectsalon"  ng-model="selectedParlor.selectedParlor"  ng-options="parlor.parlorId as (parlor.name + ' , ' + parlor.address) for parlor in parlors |orderBy:'name'" ng-change="changeParlor(selectedParlor)">
+
+        </select>
+        <button class="btn btn-md" ng-click="submit(selectedParlor)" 
+            style="width:50;letter-spacing: 2px;">Show Invoices</button>
+    </div>
+    
+</div>
+
+
+    
+ <div class="panel-body" style="background-color: #fff">
+        <h3> Past Invoice </h3>
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Invoice Number</th>
+                                <th>Amount</th>
+                                <th>Innvoice Date</th>
+                                <th>Actions</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in stats">
+                                <td>
+                                    <div ng-if="x.type === 1 ">SignUp</div>
+                                    <div ng-if="x.type === 2 ">Yearly Model</div>
+                                </td>
+                                <td>{{x.amountTotal}}</td>
+                                <td>{{x.date | date:sort}}</td>
+                                <td>
+                                <button  class="btn btn-md" ng-click="printToCart(x)" 
+                                    style="width:50;letter-spacing: 2px;">Print</button>
+                                <button ng-if="userType=='1'" class="btn btn-md"  
+                                    style="width:50; letter-spacing: 2px;" ng-click="delete(x._id)">
+                                Delete</button>
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+
+
+
+    <div class="generateNew" ng-if="userType=='1'">
+
+                    <div class="row"  style="padding-bottom:2%;">
+                        <h1 style="text-align: center;padding-bottom: 50px;padding-top: 20px;">Generate New </h1>
+                        <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px">
+                                Type :
+                        </div>
+                         <div class="col-md-8">
+                            <!-- <select style="width: 25%" ng-model="type.type" ng-change="changedValue()" 
+                             ng-options="selectedtype as selectedtype.name for selectedtype in selectedtype">
+                             <option ng-ng-option value="">Select Type</option>
+                            </select> -->
+                            <select style="width: 25%" class="form-control" ng-model="type.type">
+                                    <option value="">Select Type</option>
+                                    <option value="1">SignUp</option>
+                                    <option value="2">yearly Model</option>
+                                    
+                            </select>
+
+                        </div>      
+                        
+                    </div>
+
+            
+                <div class="row"  style="padding-bottom:2%;">
+                    <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px">
+                            Amount :
+                    </div>
+                     <div class="col-md-8">
+                            <input type="Number" name="input" ng-model="data.amount"/>
+                    </div>
+                    
+                </div> 
+
+
+                <div class="row"  style="padding-bottom:2%;">
+                    <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px">
+                           Invoice Date :
+                    </div>
+                    <div class="col-md-8">
+                            <input type="date" ng-model="myDate.myDate" ng-required="required"/>
+                            <button ng-if='type.type==1' class="btn btn-md" ng-click="generate()" 
+                        style="width:50;letter-spacing: 2px;">Generate</button>
+                    </div>
+                    
+
+                </div>
+
+                 <div class="row"  style="padding-bottom:2%;" ng-if='type.type==2'>
+                    <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px">
+                           Start Date :
+                    </div>
+                    <div class="col-md-8">
+                            <input type="date" ng-model="startDate.startDate" ng-required="required"/>
+                            
+                    </div>
+                    
+
+                </div>
+
+                <div class="row"  style="padding-bottom:2%;" ng-if='type.type==2'>
+                    <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px">
+                          End Date :
+                    </div>
+                    <div class="col-md-8">
+                            <input type="date" ng-model="endDate.endDate" ng-required="required"/>
+                            <button class="btn btn-md" ng-click="generate()" 
+                        style="width:50;letter-spacing: 2px;">Generate</button>
+                    </div>
+                    
+
+                </div>
+
+        
+    </div>
+
+
+
+     <!-- /.print invoice -->
+<!-- 
+    
+
+<div class="row" style="padding: 3%;text-align: left;>
+    <table class="table table-bordered" id="printSectionId">
+        <h4 style="text-align: center;"> Invoice Summary</h4>
+        <tr ng-repeat="x in stats">
+            <td colspan="4" style="width:35%;text-align: left">
+               <div style="width: 120px;float:left"><img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1526376237/beu-logo_qfscy6.png" alt="logo" style="width: 100px"></div> 
+
+            </td>
+
+            <td colspan="4" style="text-align: left;">Invoice No: SYF/18-19/00{{x.invoiceNumber}}<br></td>
+            <td colspan="4" style="text-align: left;">Date: {{x.createdAt | date:sort}}</td>
+
+        </tr>
+
+
+         <tr ng-repeat="x in stats">
+            <td colspan="6" style="width:35%;text-align: left">
+              <h4> Issued To : </h4>
+              <b>{{x.parlorName}}</b> <br>
+                  {{x.parlorAddress}}<br>
+                    GSTIN/UIN: 07AAGCG0658K1ZF<br>
+                   {{x.stateName}}
+
+            </td>
+
+            <td colspan="6" style="text-align: right;">
+                <h4> From : </h4>
+                <b>Gingerpan Swapcart Private Limited</b> <br>
+                        Plote No.62 Okhla Industrial Area Phase-3 Delhi<br>
+                        GSTIN/UIN: 07AAGCG0658K1ZF<br>
+                        State Name: Delhi, Code: 07<br>CIN: U5200MH2015PT266734<br>E-mail: finance@beusalons.com
+            </td>
+            
+
+        </tr>
+
+        
+        
+      
+          <tr ng-repeat="x in stats">
+            <td rowspan="2" style="text-align: left">
+                Buyer<br><b>{{x.parlorName}}</b><br>
+              {{x.parlorAddress}}<br>GSTIN/UIN: {{x.salonGST}}<br>State Name: {{x.stateName}}, Code: {{x.code}}<br>
+                
+             
+            
+            </td>
+            <td rowspan="2" colspan="9">Terms Of delivery</td>
+
+        </tr>
+        <tr>
+        </tr>
+
+        <tr>
+            <td colspan="4" >Particulars</td>
+             <td>HSN/SAC</td>
+            <td>Quantity</td>
+            <td>Rate</td>
+            <td>Per</td>
+            <td >Amount</td>
+            
+        </tr>
+         
+         <tr ng-repeat="x in stats">
+            <td colspan="4" style="font-weight: 700">{{x.invoiceNumber}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td >{{x.amountTotal|number:0}}</td>
+        </tr>
+        
+         <tr ng-repeat="x in stats">
+            <td  style="font-weight: 700">CGST</td>
+            <td></td>
+            <td></td>
+            <td>{{x.CGST}}</td>
+            <td>{{x.CGSTpercentage}}</td>
+            <td colspan="5" style="text-align: left;"></td>
+        </tr>
+        
+         <tr ng-repeat="x in stats">
+            <td  style="font-weight: 700">SGST</td>
+            <td></td>
+            <td></td>
+            <td>{{x.SGST}}</td>
+            <td>{{x.SGSTpercentage}}</td>
+            <td colspan="5" style="text-align: left;"></td>
+        </tr>
+ 
+        <tr ng-repeat="x in stats">
+            <td  style="font-weight: 700">Total</td>
+             <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="5" style="text-align: left;">{{x.amountTotal|number:0}}</td>
+        </tr>
+        
+         <tr ng-repeat="x in stats">
+            <td colspan="9" style="text-align: left;">
+                Amount Chargeable(In Words)<br>
+                  <b>INR {{x.amountTotalString}}</b>
+            
+            
+            </td>
+        </tr>
+
+         <tr>
+            <td rowspan="2"  colspan="">HSN/SAC</td>
+            <td rowspan="2" colspan="2">
+                Taxable<br>
+                Value
+            
+            </td>
+            <td colspan="2">Central Tax </td>
+            <td colspan="2">State Tax </td>
+            <td colspan="4">Total Tax<br>Amount</td>
+        </tr>
+
+        <tr>
+            <td>Rate</td>
+            <td>Amount</td>
+            <td>Rate</td>
+            <td>Amount</td>
+            <td colspan="4"></td>
+        </tr>
+
+        <tr ng-repeat="x in stats">
+            <td >Total</td>
+            <td colspan="2"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="6">{{x.taxTotal}}</td>
+        </tr>
+
+        <tr ng-repeat="x in stats">
+            <td colspan="12">Tax Amount(In words) : <b>{{x.taxTotalString}}</b> </td>
+        </tr>
+
+
+           <tr>
+            <td colspan="7" style="text-align: left">
+               Company Pan: <b>AAGC0658K</b>          
+            
+            </td>
+                   <td colspan="2" style="text-align: left">
+              <b>for Gingerpan Swapcart Private Limited</b>
+                       <br><br><br>
+                       Authorised Signatory
+            
+            
+            </td>
+        
+        </tr>
+
+
+    </table>
+ 
+    <div>Instructions :</div>
+     <div>1. E &OE.</div>
+     <div> 2. Any discrepancy in regard to this Invoice must be notified within 7 days from the date of receipt of this
+      invoice.</div>
+     <div> 3. In case where TDS has been deducted, Income Tax Deduction Certificate as provided under The
+      Income Tax Act, 1961,should be sent to us at the earliest.
+    </div>
+    <div> 4. This is computer generated invoice no signature required.
+    </div>
+
+</div> -->
+
+
+
+
+
+

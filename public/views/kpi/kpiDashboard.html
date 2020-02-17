@@ -1,0 +1,1095 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">KPI Dashboard</h1>
+    </div>
+</div>
+
+<uib-tabset active="active" >
+            <uib-tab index="0" heading="FOOTFALL" active="tabs[0].active">
+<div style="overflow-x: auto;">
+<div class="panel panel-default">
+            <div class="panel-heading" style="text-align:center">
+                <h3></h3>
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                               <th class="head-color-universal" style="text-align:center">Overall</th>
+                               <th class="head-color-universal" style="text-align:center" ng-repeat="i in datas">
+                                    <span >{{i.month}}</span>
+                                </th>
+                            </tr>
+                        </thead>
+                            <tr><td colspan="5">Over All</td></tr>
+                            <tr >
+                                 <td >No of days</td>
+                                <td ng-repeat = "data in datas">
+                                    {{data.noOfDays}}
+                                </td>
+                                
+                            </tr>
+                            
+                            <tr >
+                                 <td >Footfall</td>
+                                <td ng-repeat = "data in datas">
+                                    {{data.footFall}}
+                                </td>
+                                
+                            </tr>
+                            
+                            <tr >
+                                 <td >Avg footfall per day_Be U Level</td>
+                                <td ng-repeat = "data in datas">
+                                    {{data.footFall/data.noOfDays|number:2}}
+                                </td>
+                                
+                            </tr>
+                            
+                             <tr >
+                                 <td >No of salons</td>
+                                <td ng-repeat = "data in datas">
+                                    {{data.noOfSalons}}
+                                </td>
+                                
+                            </tr>
+                            
+                             <tr >
+                                 <td >Avg footfall per day per salon</td>
+                                <td ng-repeat = "data in datas">
+                                    {{(data.footFall/data.noOfDays)/data.noOfSalons|number:2}}
+                                </td>
+                                
+                            </tr>
+                            <tbody ng-repeat="i in parlorTypes">
+                            <tr><td colspan="5">{{getParlorType(i)}}</td></tr>
+                            
+                             <tr >
+                                 <td >No of days</td>
+                                <td ng-repeat = "data in datas">
+                                    {{data.noOfDays}}
+                                </td>
+                                
+                            </tr>
+                            
+                            <tr >
+                                 <td >Footfall</td>
+                                <td ng-repeat = "data in datas">
+                                    {{getParlorFootFall(data.parlors, i).footFall}}
+                                </td>
+                                
+                            </tr>
+                            
+                            <tr >
+                                 <td >Avg footfall per day_Be U Level</td>
+                                <td ng-repeat = "data in datas">
+                                    {{getParlorFootFall(data.parlors, i).footFall/data.noOfDays|number:2}}
+                                </td>
+                                
+                            </tr>
+                            
+                             <tr >
+                                 <td >No of salons</td>
+                                <td ng-repeat = "data in datas">
+                                    {{getParlorFootFall(data.parlors, i).noOfSalons}}
+                                </td>
+                                
+                            </tr>
+                            
+                             <tr >
+                                 <td >Avg footfall per day per salon</td>
+                                <td ng-repeat = "data in datas">
+                                    {{(getParlorFootFall(data.parlors, i).footFall/data.noOfDays)/getParlorFootFall(data.parlors, i).noOfSalons|number:2}}
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+</div>
+</div>
+    </uib-tab>
+    <uib-tab index="1" heading="Salon KPI" active="tabs[1].active" ng-click="goToSalonKpi()">
+       
+<div class="panel panel-default"  >
+            <div class="panel-heading" style="text-align:center">
+                <h3></h3>
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                               <th class="head-color-universal" style="text-align:center">Overall</th>
+                               <th class="head-color-universal" style="text-align:center" ng-repeat="i in datasSalon">
+                                    <span >{{i.month}}</span>
+                                </th>
+                            </tr>
+                        </thead>
+                            <tr><td colspan="5">Over All</td></tr>
+                            <tr >
+                                 <td >No of days</td>
+                                <td ng-repeat = "data in datasSalon">
+                                    {{data.noOfDays}}
+                                </td>
+                                
+                            </tr>
+                            
+                            <tr >
+                                 <td >Salon Revenue</td>
+                                <td ng-repeat = "data in datasSalon">
+                                    {{data.reportValue | number:0}}
+                                </td>
+                                
+                        </tr>
+                        <tr >
+                                 <td >Footfall</td>
+                                <td ng-repeat = "data in datasSalon">
+                                    {{data.footFall  | number:0}}
+                                </td>
+                                
+                            </tr>
+                            
+                            <tr >
+                                 <td >Avg. Invoice Value</td>
+                                <td ng-repeat = "data in datasSalon">
+                                    {{data.reportValue/data.footFall|number:2}}
+                                </td>
+                                
+                            </tr>
+                            
+                             
+                            <tbody ng-repeat="i in parlorTypes">
+                            <tr><td colspan="5">{{getParlorType(i)}}</td></tr>
+                                                   
+                            <tr >
+                                 <td >Salon Revenue</td>
+                                <td ng-repeat = "data in datasSalon">
+                                    {{getParlorFootFall(data.parlors, i).reportValue | number:0}}
+                                </td>
+                                
+                            </tr> <tr >
+                                 <td >Footfall</td>
+                                <td ng-repeat = "data in datasSalon">
+                                    {{getParlorFootFall(data.parlors, i).footFall | number:0}}
+                                </td>
+                                
+                            </tr>
+                              <tr >
+                                 <td >Avg. Invoice Value</td>
+                                <td ng-repeat = "data in datasSalon">
+                                      {{getParlorFootFall(data.parlors, i).reportValue/getParlorFootFall(data.parlors, i).footFall |number:2}}
+                                </td>
+                                
+                            </tr>
+              
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+</div>
+
+    
+    </uib-tab>
+
+    <uib-tab index="2" heading="Avg No. of Services" active="tabs[2].active" ng-click="goToSalonServices()">
+            <div class="panel panel-default"  >
+            <div class="panel-heading" style="text-align:center">
+                <h3></h3>
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                               <th class="head-color-universal" style="text-align:center">Overall</th>
+                               <th class="head-color-universal" ng-repeat="i in datasServices" style="text-align:center">
+                                    <span >{{i.month}}</span>
+                                </th>
+                            </tr>
+                        </thead>
+                            <tr><td colspan="5">Over All</td></tr>
+                           
+                            
+                            <tr >
+                                 <td >Total No. of Services</td>
+                                <td ng-repeat = "data in datasServices">
+                                    {{data.reportValue | number:0}}
+                                </td>
+                                
+                        </tr>
+                        <tr >
+                                 <td >No. of Footfalls/Invoices</td>
+                                <td ng-repeat = "data in datasServices">
+                                    {{data.footFall  | number:0}}
+                                </td>
+                                
+                            </tr>
+                            
+                            <tr >
+                                 <td >Avg. No. of Services per Invoice</td>
+                                <td ng-repeat = "data in datasServices">
+                                    {{data.reportValue/data.footFall|number:2}}
+                                </td>
+                                
+                            </tr>
+                            
+                             
+                            <tbody ng-repeat="i in parlorTypes">
+                            <tr><td colspan="5">{{getParlorType(i)}}</td></tr>
+                   
+                            <tr >
+                                 <td >Total No. of Services</td>
+                                <td ng-repeat = "data in datasServices">
+                                    {{getParlorFootFall(data.parlors, i).reportValue | number:0}}
+                                </td>
+                                
+                            </tr> <tr >
+                                 <td >No. of Footfalls/Invoices</td>
+                                <td ng-repeat = "data in datasServices">
+                                    {{getParlorFootFall(data.parlors, i).footFall | number:0}}
+                                </td>
+                                
+                            </tr>
+                              <tr >
+                                 <td >Avg. No. of Services per Invoice</td>
+                                <td ng-repeat = "data in datasServices">
+                                      {{getParlorFootFall(data.parlors, i).reportValue/getParlorFootFall(data.parlors, i).footFall|number:2}}
+                                </td>
+                                
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+</div>
+</uib-tab>
+    <uib-tab index="3" heading="No Of Transaction" active="tabs[3].active" ng-click="goToTransactionFree()">
+        
+        <div class="panel panel-default">
+            <div class="panel-heading" style="text-align:center">
+                <h3>No. of Online Transaction-Free</h3>
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <div class="table-responsive">
+           <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                               <th class="head-color-universal" style="text-align:center">Overall</th>
+                               <th class="head-color-universal" style="text-align:center" ng-repeat="i in datasApp">
+                                    <span >{{i.month}}</span>
+                                </th>
+                            </tr>
+                        </thead>
+                            <tr >
+                                 <td >No. of Online Transaction-Free</td>
+                                <td ng-repeat = "data in datasApp">
+                                    {{data.reportValue | number:0}}
+                                </td>
+                                
+                            </tr>
+                            <tbody ng-repeat="i in parlorTypes">
+                            <tr>
+                                <td >{{getParlorType(i)}}</td>
+                                <td ng-repeat = "data in datasApp">
+                                      {{getParlorFootFall(data.parlors, i).reportValue|number:2}}
+                                </td>
+                                
+                            </tr>
+                            
+               
+               </tbody>
+            </table>
+            </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" style="text-align:center">
+                <h3>APP  TRANSACTIONS</h3>
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <div class="table-responsive">
+           <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                               <th class="head-color-universal" style="text-align:center">Overall</th>
+                               <th colspan="2" class="head-color-universal" style="text-align:center" ng-repeat="i in datasApp1">
+                                    <span >{{i.month}}</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th   style="text-align:center" >
+                                    <span >&nbsp</span>
+                                </th>
+                                <th class="head-color-universal" style="text-align:center" ng-repeat-start="i in datasApp1">Online</th>
+                                <th class="head-color-universal" style="text-align:center" ng-repeat-end>Cash</th>
+                            </tr>
+                        </thead>
+                    <tr><td colspan="5">No. of App/website Transaction(Paid)</td></tr>
+                            <tr >
+                                 <td >Total</td>
+                                <td ng-repeat-start = "data in datasApp1">
+                                    {{data.footFall | number:0}}
+                                </td>
+                                <td ng-repeat-end >
+                                    {{data.footFallCash | number:0}}
+                                </td>
+                                
+                            </tr>
+                            <tbody ng-repeat="i in parlorTypes">
+                            <tr>
+                                <td >{{getParlorType(i)}}</td>
+                                <td ng-repeat-start = "data in datasApp1">
+                                      {{getParlorFootFall(data.parlors, i).footFall|number:2}}
+                                </td>
+                                <td ng-repeat-end >
+                                    {{getParlorFootFall(data.parlors, i).footFallCash|number:2}}
+                                </td>
+                            </tr>
+                            
+               
+                            </tbody>
+                            <tr><td colspan="5">Total Amount Collected App Transactions</td></tr>
+                            <tr>
+                                 <td >Total</td>
+                                <td ng-repeat-start = "data in datasApp1">
+                                    {{data.reportValue | number:0}}
+                                </td>
+                                <td ng-repeat-end >
+                                    {{data.reportValueCash | number:0}}
+                                </td>
+                            </tr>
+                            <tbody ng-repeat="i in parlorTypes">
+                            <tr>
+                                <td >{{getParlorType(i)}}</td>
+                                <td ng-repeat-start = "data in datasApp1">
+                                      {{getParlorFootFall(data.parlors, i).reportValue|number:2}}
+                                </td>
+                                <td ng-repeat-end >
+                                    {{getParlorFootFall(data.parlors, i).reportValueCash|number:2}}
+                                </td>
+                                </tr>
+                            </tbody>
+                            <tr><td colspan="5">Avg Transaction Value</td></tr>
+                            <tr>
+                                 <td >Total</td>
+                                <td ng-repeat-start = "data in datasApp1">
+                                    {{(data.reportValue)/data.footFall | number:0}}
+                                </td>
+                                <td ng-repeat-end >
+                                     {{(data.reportValueCash)/data.footFallCash | number:0}}
+                                </td>
+                            </tr>
+                            <tbody ng-repeat="i in parlorTypes">
+                            <tr>
+                                <td >{{getParlorType(i)}}</td>
+                                <td ng-repeat-start = "data in datasApp1">
+                                      {{(getParlorFootFall(data.parlors, i).reportValue)/getParlorFootFall(data.parlors, i).footFall | number:0}}
+                                </td>
+                                <td ng-repeat-end >
+                                    {{(getParlorFootFall(data.parlors, i).reportValueCash)/getParlorFootFall(data.parlors, i).footFallCash | number:0}}
+                                </td>
+                                </tr>
+                            </tbody>
+                           <!--  <tr><td colspan="5">No of Cash Transactions through App</td></tr>
+                            <tr>
+                                 <td >Total</td>
+                                <td ng-repeat = "data in datasApp1">
+                                    {{(data.reportValueCash)/data.footFallCash | number:0}}
+                                </td>
+                               
+                            </tr>
+                            <tbody ng-repeat="i in parlorTypes">
+                            <tr>
+                                <td >{{getParlorType(i)}}</td>
+                                <td ng-repeat = "data in datasApp1">
+                                      {{(getParlorFootFall(data.parlors, i).reportValueCash)/getParlorFootFall(data.parlors, i).footFallCash | number:0}}
+                                </td>
+                                
+                                </tr>
+                            </tbody> -->
+            </table>
+            </div>
+                </div>
+            </div>
+        </div>
+    
+    </uib-tab>
+   <uib-tab index="4" heading="Visitors" active="tabs[4].active" ng-click="goToVisitors()">  
+       
+        <div class="panel panel-default">
+            <div class="panel-heading" style="text-align:center">
+                <h3>SECOND TIME VISITORS</h3>
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <div class="table-responsive">
+           <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                               <th class="head-color-universal" style="text-align:center">Overall</th>
+                               <th class="head-color-universal" style="text-align:center" ng-repeat="i in visitors">
+                                    <span >{{i.month}}</span>
+                                </th>
+                            </tr>
+                        </thead>
+                            <tr >
+                                 <td >No. of clients visited second time(after free hair cuts)</td>
+                                <td ng-repeat = "data in visitors">
+                                    {{data.noOfClients | number:0}}
+                                </td>
+                            </tr>
+                             <tr>
+                                 <td >Total Amount Collected App Transactions</td>
+                                <td ng-repeat = "data in visitors">
+                                    {{data.revenue | number:0}}
+                                </td>
+                                
+                            </tr>
+                             <tr>
+                                 <td >Avg Transaction Value</td>
+                                <td ng-repeat = "data in visitors">
+                                    {{(data.revenue)/data.noOfClients | number:0}}
+                                </td>
+                                
+                            </tr>
+                        
+                        
+            </table></div></div></div></div>
+                                
+       
+    </uib-tab>
+     <uib-tab index="5" heading="Freebies" active="tabs[5].active" ng-click="goToFreebie()">  
+       
+        <div class="panel panel-default">
+            <div class="panel-heading" style="text-align:center">
+                <h3></h3>
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <div class="table-responsive">
+           <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                               <th class="head-color-universal" style="text-align:center">Freebies</th>
+                               <th class="head-color-universal" style="text-align:center" ng-repeat="i in freebies">
+                                    <span >{{i.month}}</span>
+                                </th>
+                            </tr>
+                        </thead>
+<!--
+                             <tr >
+                                 <td >Amount of Freebies</td>
+                                <td ng-repeat = "data in freebies">
+                                    {{data.freeHairCutFreebies | number:0}}
+                                </td>
+                            </tr>
+-->
+                            <tr >
+                                 <td >Freebies - Free Hair Cuts</td>
+                                <td ng-repeat = "data in freebies">
+                                    {{data.freeHairCutFreebies | number:0}}
+                                </td>
+                            </tr>
+                             <tr>
+                                 <td >Freebies - Online payment</td>
+                                <td ng-repeat = "data in freebies">
+                                    {{data.onlineDiscountFreebies | number:0}}
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                 <td >Referral Freebies</td>
+                                <td ng-repeat = "data in freebies">
+                                    {{data.referalServiceFreebies + data.referalFreebies | number:0}}
+                                </td>
+                                
+                            </tr>
+                             <tr>
+                                 <td >Other Freebies</td>
+                                <td ng-repeat = "data in freebies">
+                                    {{data.reviewFreebies+data.threadingFreebies | number:0}}
+                                </td>
+                                
+                            </tr>
+                             <tr>
+                                 <td >Total Freebies</td>
+                                <td ng-repeat = "data in freebies">
+                                    {{data.totalFreebies | number:0}}
+                                </td>
+                                
+                            </tr>
+                        
+                        
+            </table></div></div></div></div>
+                                
+       
+    </uib-tab>
+
+    <uib-tab index="6" heading="Department Wise" active="tabs[6].active" ng-click="goToDepartmentsReport()">
+<div style="overflow-x: auto;">
+<div class="panel panel-default">
+            <div class="panel-heading" style="text-align:center">
+                <h3></h3>
+            </div>
+            <div class="panel-body">
+            <div class="row">
+             <div class="form-inline row col-md-12 col-lg-12 col-md-offset-4" >
+                     
+                     <button class="btn btn-link btn-md" ng-click="exportToExcelDepartmentWise('#tableToExportDepartmentWise')" style="margin-left: -10px;border: 0;">
+                             <span class="glyphicon glyphicon-share"></span>
+                            Export to Excel
+                     </button>
+            </div>
+            </div>
+                <div class="dataTable_wrapper">
+                    <div class="table-responsive" >
+                    <table class="table table-striped table-bordered" id="tableToExportDepartmentWise">
+                        <thead>
+                            <tr>
+                               <th class="head-color-universal" style="text-align:center" >Month </th>
+                               <th class="head-color-universal" style="text-align:center" colspan="2">Total </th>
+                               <th class="head-color-universal" style="text-align:center" colspan="2" ng-repeat="list in departmentWiseData[0].departments">
+                                    <span >{{list.department}}</span>
+                                </th>
+                               <!--  <th class="head-color-universal" style="text-align:center" colspan="2">
+                                    <span >Total</span>
+                                </th> -->
+                            </tr>
+                            <tr >
+                                <th>&nbsp;</th>
+                                <th style="text-align: center;">Revenue</th>
+                                <th style="text-align: center;">Count</th>
+                                <th ng-repeat-start="list3 in departmentWiseData[0].departments" style="text-align: center;">Revenue</th>
+                                <th ng-repeat-end style="text-align: center;">Count</th>
+                                <!-- <th style="text-align: center;">Revenue</th>
+                                <th style="text-align: center;">Count</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td colspan="16">Over All</td>    
+                            </tr>
+                            <tr ng-repeat='list2 in departmentWiseData' >
+                                <td >{{getMonth(list2.month)}}</td>
+                                <td>{{list2.revenue | number:0}}</td>
+                                <td>{{list2.noOfService}}</td>
+                                <td ng-repeat-start="list3 in list2.departments">{{list3.revenue | number:0}}</td>
+                                <td ng-repeat-end>{{list3.noOfService}}</td>
+                                <!-- <td>{{list2.revenue | number:0}}</td>
+                                <td>{{list2.noOfService}}</td> -->
+                                <!-- <td ng-repat-end>{{list3.noOfService}}</td> --> 
+                            </tr>
+
+                            <tr>
+                                <td colspan="16">Red Category</td>    
+                            </tr>
+                            <tr ng-repeat='list2 in departmentWiseData' >
+                                <td >{{getMonth(list2.month)}}</td>
+                                <td>{{list2.redRevenue | number:0}}</td>
+                                <td>{{list2.redNoOfService}}</td>
+                                <td ng-repeat-start="list3 in list2.departments"><span ng-if='list3.parlors[0].parlorType==0'>{{list3.parlors[0].revenue | number:0}}</span><span ng-if='list3.parlors[1].parlorType==0'>{{list3.parlors[1].revenue | number:0}}</span><span ng-if='list3.parlors[2].parlorType==0'>{{list3.parlors[2].revenue | number:0}}</span></td>
+                                <td ng-repeat-end><span ng-if='list3.parlors[0].parlorType==0'>{{list3.parlors[0].noOfService}}</span><span ng-if='list3.parlors[1].parlorType==0'>{{list3.parlors[1].noOfService}}</span><span ng-if='list3.parlors[2].parlorType==0'>{{list3.parlors[2].noOfService}}</span></td>
+                               
+                                <!-- <td ng-repat-end>{{list3.noOfService}}</td> --> 
+                            </tr>
+
+                            <tr>
+                                <td colspan="16">Blue Category</td>    
+                            </tr>
+                            <tr ng-repeat='list2 in departmentWiseData' >
+                                <td >{{getMonth(list2.month)}}</td>
+                                <td>{{list2.blueRevenue | number:0}}</td>
+                                <td>{{list2.blueNoOfService}}</td>
+                                <td ng-repeat-start="list3 in list2.departments"><span ng-if='list3.parlors[0].parlorType==1'>{{list3.parlors[0].revenue | number:0}}</span><span ng-if='list3.parlors[1].parlorType==1'>{{list3.parlors[1].revenue | number:0}}</span><span ng-if='list3.parlors[2].parlorType==1'>{{list3.parlors[2].revenue | number:0}}</span></td>
+                                <td ng-repeat-end><span ng-if='list3.parlors[0].parlorType==1'>{{list3.parlors[0].noOfService}}</span><span ng-if='list3.parlors[1].parlorType==1'>{{list3.parlors[1].noOfService}}</span><span ng-if='list3.parlors[2].parlorType==1'>{{list3.parlors[2].noOfService}}</span></td>
+                                
+                                <!-- <td ng-repat-end>{{list3.noOfService}}</td> --> 
+                            </tr>
+
+                            <tr>
+                                <td colspan="16">Green Category</td>    
+                            </tr>
+                            <tr ng-repeat='list2 in departmentWiseData' >
+                                <td >{{getMonth(list2.month)}}</td>
+                                <td>{{list2.greenRevenue | number:0}}</td>
+                                <td>{{list2.greenNoOfService}}</td>
+                                <td ng-repeat-start="list3 in list2.departments"><span ng-if='list3.parlors[0].parlorType==2'>{{list3.parlors[0].revenue | number:0}}</span><span ng-if='list3.parlors[1].parlorType==2'>{{list3.parlors[1].revenue | number:0}}</span><span ng-if='list3.parlors[2].parlorType==2'>{{list3.parlors[2].revenue | number:0}}</span></td>
+                                <td ng-repeat-end><span ng-if='list3.parlors[0].parlorType==2'>{{list3.parlors[0].noOfService}}</span><span ng-if='list3.parlors[1].parlorType==2'>{{list3.parlors[1].noOfService}}</span><span ng-if='list3.parlors[2].parlorType==2'>{{list3.parlors[2].noOfService}}</span></td>
+                                
+                                <!-- <td ng-repat-end>{{list3.noOfService}}</td> --> 
+                            </tr>
+                            <!-- <tr ng-repeat='list2 in departmentWiseData'>
+                                 
+                            </tr>
+                            <tr ng-repeat='list2 in departmentWiseData'>
+                                
+                            </tr> -->
+                        </tbody>
+                    </table> 
+                </div>
+                </div>
+            </div>
+
+
+</div>
+</div>
+    </uib-tab>
+
+
+     <uib-tab index="7" heading="Client Wise" active="tabs[7].active" ng-click="goToClientWiseReport()">
+        <div class="panel panel-default"  >
+            <div class="panel-heading" style="text-align:center">
+                <h3></h3>
+            </div>
+            <div class="panel-body">
+            <div class="row">
+             <div class="form-inline row col-md-12 col-lg-12 col-md-offset-4" >
+                     
+                     <button class="btn btn-link btn-md" ng-click="exportToExcelDepartmentWise('#tableToExportClientWise')" style="margin-left: -10px;border: 0;">
+                             <span class="glyphicon glyphicon-share"></span>
+                            Export to Excel
+                     </button>
+            </div>
+            </div>
+                <div class="dataTable_wrapper">
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered" id="tableToExportClientWise">
+                        <thead>
+                            <tr>
+                               <th class="head-color-universal" style="text-align:center">Overall</th>
+                               <th class="head-color-universal" style="text-align:center" ng-repeat="i in clientWiseReport">
+                                    <span >{{i.month}}</span>
+                                </th>
+                            </tr>
+                        </thead>
+                            <tr><td colspan="5">Over All</td></tr>
+                            <tr >
+                                 <td >No of days</td>
+                                <td ng-repeat = "data in clientWiseReport">
+                                    {{data.noOfDays}}
+                                </td>
+                                
+                            </tr>
+                            
+                            <tr >
+                                 <td >Total Revenue</td>
+                                <td ng-repeat = "data in clientWiseReport">
+                                    {{data.reportValue | number:0}}
+                                </td>
+                                
+                        </tr>
+                        <tr >
+                                 <td >No Of unique clients</td>
+                                <td ng-repeat = "data in clientWiseReport">
+                                    {{data.footFall  | number:0}}
+                                </td>
+                                
+                            </tr>
+                            
+                            <tr >
+                                 <td >Avg. Invoice Value</td>
+                                <td ng-repeat = "data in clientWiseReport">
+                                    {{data.reportValue/data.footFall|number:2}}
+                                </td>
+                                
+                            </tr>
+                            
+                             
+                            <tbody ng-repeat="i in parlorTypes">
+                            <tr><td colspan="5">{{getParlorType(i)}}</td></tr>
+                                                   
+                            <tr >
+                                 <td >Salon Revenue</td>
+                                <td ng-repeat = "data in clientWiseReport">
+                                    {{getParlorFootFall(data.parlors, i).reportValue | number:0}}
+                                </td>
+                                
+                            </tr> <tr >
+                                 <td >No Of unique clients</td>
+                                <td ng-repeat = "data in clientWiseReport">
+                                    {{getParlorFootFall(data.parlors, i).footFall | number:0}}
+                                </td>
+                                
+                            </tr>
+                              <tr >
+                                 <td >Avg. Invoice Value</td>
+                                <td ng-repeat = "data in clientWiseReport">
+                                      {{getParlorFootFall(data.parlors, i).reportValue/getParlorFootFall(data.parlors, i).footFall|number:2}}
+                                </td>
+                                
+                            </tr>
+              
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </uib-tab>
+
+    <uib-tab index="8" heading="Service Combo" active="tabs[8].active" ng-click="goToServiceComboReport()">
+        <div class="panel panel-default"  >
+            <div class="panel-heading" style="text-align:center">
+                <h3></h3>
+            </div>
+            <div class="panel-body">
+            <div class="row">
+             <div class="form-inline row col-md-12 col-lg-12 col-md-offset-4" >
+                     
+                     <button class="btn btn-link btn-md" ng-click="exportToExcelDepartmentWise('#tableToExportServiceCombo')" style="margin-left: -10px;border: 0;">
+                             <span class="glyphicon glyphicon-share"></span>
+                            Export to Excel
+                     </button>
+            </div>
+            </div>
+                <div class="dataTable_wrapper">
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered" id="tableToExportServiceCombo">
+                        <thead>
+                            <tr>
+                               <th class="head-color-universal" style="text-align:center" colspan="3">Service</th>
+                               <th class="head-color-universal" style="text-align:center" colspan="3" ng-repeat="list in maxTopServices">Top Service {{$index+1}}</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align:center">Name</th>
+                                <th style="text-align:center">Gender</th>
+                                <th style="text-align:center">Count</th>
+                                <th ng-repeat-start='list in maxTopServices' style="text-align:center">Name</th>
+                                <th style="text-align:center">Gender</th>
+                                <th ng-repeat-end style="text-align:center">Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat='list3 in serviceComboReport'>
+                                <td>{{list3.name}}</td>
+                                <td><span ng-if="list3.gender=='M'">Male</span><span ng-if="list3.gender=='F'">Female</span></td>
+                                <td>{{list3.count}}</td>
+                                <td ng-repeat-start="list4 in list3.topServices">{{list4.name}}</td>
+                                <td><span ng-if="list4.gender=='M'">Male</span><span ng-if="list4.gender=='F'">Female</span></td>
+                                <td ng-repeat-end >{{list4.count}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </uib-tab>
+
+    <uib-tab index="9" heading="Service Per Invoice" active="tabs[9].active" ng-click="goToServicePerInvoiceReport()">
+        <div class="panel panel-default"  >
+            <div class="panel-heading" style="text-align:center">
+                <h3></h3>
+            </div>
+            <div class="panel-body">
+            <div class="row">
+             <div class="form-inline row col-md-12 col-lg-12 col-md-offset-4" >
+                     
+                     <button class="btn btn-link btn-md" ng-click="exportToExcelDepartmentWise('#tableToExportServicePerInvoice')" style="margin-left: -10px;border: 0;">
+                             <span class="glyphicon glyphicon-share"></span>
+                            Export to Excel
+                     </button>
+            </div>
+            </div>
+                <div class="dataTable_wrapper">
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered" id="tableToExportServicePerInvoice">
+                        <thead>
+                            <tr>
+                               <th class="head-color-universal" style="text-align:center" >Count</th>
+                               <th class="head-color-universal" style="text-align:center" ng-repeat="list in servicePerInvoiceReport" >{{getMonth(list.month)}}</th>
+                            </tr>
+                          <!--   <tr>
+                                <th style="text-align:center">Name</th>
+                                <th style="text-align:center">Gender</th>
+                                <th style="text-align:center">Count</th>
+                                <th ng-repeat-start='list in maxTopServices' style="text-align:center">Name</th>
+                                <th style="text-align:center">Gender</th>
+                                <th ng-repeat-end style="text-align:center">Count</th>
+                            </tr> -->
+                        </thead>
+                        <tbody>
+
+                            <tr >
+                                <td colspan="{{servicePerInvoiceReport.length+1}}">Overall</td>
+
+                            </tr>
+                            <tr>
+                                <td>One</td><td ng-repeat="list2 in servicePerInvoiceReport">{{list2.one}}</td>
+                            </tr>
+                            <tr>
+                                <td>Two</td><td ng-repeat="list2 in servicePerInvoiceReport">{{list2.two}}</td>
+                            </tr>
+                            <tr>
+                                <td>Three</td><td ng-repeat="list2 in servicePerInvoiceReport">{{list2.three}}</td>
+                            </tr>
+                            <tr>
+                                <td>Four</td><td ng-repeat="list2 in servicePerInvoiceReport">{{list2.four}}</td>
+                            </tr>
+                            <tr>
+                                <td>Five</td><td ng-repeat="list2 in servicePerInvoiceReport">{{list2.five}}</td>
+                            </tr>
+                            <tr>
+                                <td>More than five</td><td ng-repeat="list2 in servicePerInvoiceReport">{{list2.moreThanFive}}</td>
+                            </tr>
+
+
+
+                            <tr >
+                                <td colspan="{{servicePerInvoiceReport.length+1}}">Red Category</td>
+                            </tr>
+
+                             <tr>
+                                <td>One</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==0">{{list3.one}}</span>
+                                    
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Two</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==0">{{list3.two}}</span>
+                                    
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Three</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==0">{{list3.three}}</span>
+                                   
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Four</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==0">{{list3.four}}</span>
+                                  
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Five</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==0">{{list3.five}}</span>
+                                   
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>More than five</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==0">{{list3.moreThanFive}}</span>
+                                    
+                                 </span>
+                                </td>
+                            </tr>
+
+
+
+                            <tr >
+                            <td colspan="{{servicePerInvoiceReport.length+1}}">Blue Category</td>
+
+                            <tr>
+                                <td>One</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==1">{{list3.one}}</span>
+                                    
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Two</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==1">{{list3.two}}</span>
+                                    
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Three</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==1">{{list3.three}}</span>
+                                   
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Four</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==1">{{list3.four}}</span>
+                                  
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Five</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==1">{{list3.five}}</span>
+                                   
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>More than five</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==1">{{list3.moreThanFive}}</span>
+                                    
+                                 </span>
+                                </td>
+                            </tr>
+                            </tr>
+
+
+                            <tr >
+                            <td colspan="{{servicePerInvoiceReport.length+1}}">Green Category</td>
+
+                            <tr>
+                                <td>One</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==2">{{list3.one}}</span>
+                                    
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Two</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==2">{{list3.two}}</span>
+                                    
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Three</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==2">{{list3.three}}</span>
+                                   
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Four</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==2">{{list3.four}}</span>
+                                  
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Five</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==2">{{list3.five}}</span>
+                                   
+                                 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>More than five</td>
+                                <td ng-repeat="list2 in servicePerInvoiceReport">
+                                 <span ng-repeat="list3 in list2.parlors">
+                                    <span ng-if="list3.parlorType==2">{{list3.moreThanFive}}</span>
+                                    
+                                 </span>
+                                </td>
+                            </tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </uib-tab>
+
+    <uib-tab index="10" heading="Old vs New" active="tabs[10].active" ng-click="goToOldVsNewReport()">
+        <div class="panel panel-default"  >
+            <div class="panel-heading" style="text-align:center">
+                <h3></h3>
+            </div>
+            <div class="panel-body">
+            <div class="row">
+             <div class="form-inline row col-md-12 col-lg-12 col-md-offset-4" >
+                     
+                     <button class="btn btn-link btn-md" ng-click="exportToExcelDepartmentWise('#tableToExportOldVsNew')" style="margin-left: -10px;border: 0;">
+                             <span class="glyphicon glyphicon-share"></span>
+                            Export to Excel
+                     </button>
+            </div>
+            </div>
+                <div class="dataTable_wrapper">
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered" id="tableToExportOldVsNew">
+                        <thead>
+                            <tr>
+                               <th class="head-color-universal" style="text-align:center" rowspan="2">Salon</th>
+                               <th class="head-color-universal" style="text-align:center" colspan="2" ng-repeat="list in maxMonth">{{getMonth(list.month)+ "-" + list.year}}</th>
+                            </tr>
+                            <tr>
+                                <th class="head-color-universal" style="text-align:center" ng-repeat-start="list1 in maxMonth" >Old(App/Crm)</th>
+                                <th class="head-color-universal" style="text-align:center" ng-repeat-end>New(App/Crm)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="list2 in oldNewClientReport" ng-init="sectionIndex = $index">
+                                <td>{{list2.name}}</td>
+                                 <td ng-repeat-start="list3 in list2.months | orderBy:'month'">
+                                    <span>{{list3.oldClientApp + list3.oldClientCrm}}({{list3.oldClientApp}}/{{list3.oldClientCrm}})</span>
+                                </td>
+                                <td ng-repeat-end>
+                                    <span>{{list3.newClientApp + list3.newClientCrm}}({{list3.newClientApp}}/{{list3.newClientCrm}})</span>
+                                </td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </uib-tab>
+
+    
+    
+</uib-tabset>
+

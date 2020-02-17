@@ -1,0 +1,246 @@
+<style media="screen">
+  .nav-tabs {
+    border-bottom:none;
+}
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2 id="tables">Divas And Machos Customers</h2>
+    </div>
+
+    <div class="col-md-12" justified="true">
+      <uib-tabset>
+        <uib-tab  ng-click='categoryButton("Not Contacted")' index="0" heading="Not Contacted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Contacted")' index="1" heading="Contacted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Converted")' index="2" heading="Converted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Reports")'  index="3" heading="Reports"></uib-tab>
+        <uib-tab  ng-click='categoryButton("divasAndMachosCustomers")' active="true"  index="4" heading="Divas and Machos"></uib-tab>
+        <uib-tab  ng-click='categoryButton("afterThreeMonths")' index="4" heading="After Three Months"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Website Queries")' index="4" heading="Website Queries"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Subscription Queries")' index="4" heading="Subscription Queries"></uib-tab>
+        <uib-tab  ng-click='categoryButton("razorPayNonSubscriber")' index="4" heading="RazorPay Non-Subscribers"></uib-tab>
+        
+      </uib-tabset>
+    </div>
+
+    <div class="col-md-12">
+      <div class="col-md-2" style="margin-top: 1em;">
+        <label style="margin-left: 1em">Select Status:</label>
+      </div>
+      <div class="col-md-3" style="margin-top: 1em;">
+        <select class="form-control" ng-model="selectedContacted" ng-change="contactedSelection()">
+          <option  ng-repeat="data in contacted">{{data}}</option>
+        </select>
+      </div>
+      <div class="col-md-2 col-md-offset-5" style="padding-right: 2em;text-align:right;">
+        <span style="font-size: 3em;">{{total_count}}</span>
+      </div>
+    </div>
+
+
+    <div class="col-md-12">
+
+    <div style="text-align:center;" >
+      <dir-pagination-controls
+        max-size="8"
+        direction-links="true"
+        boundary-links="true"
+        on-page-change="getData(newPageNumber)"
+        run="initialiseIt"
+      >
+      </dir-pagination-controls>
+    </div>
+
+  </div>
+
+    <div class="col-md-8 col-md-offset-2">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Customer Name</th>
+            <th>Email Id</th>
+            <th>Phone Number</th>
+            <th>Gender</th>
+            <th>Services</th>
+            <th ng-if="selectedContacted=='Contacted'">History</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody ng-if="selectedContacted=='Contacted'">
+          <tr dir-paginate="data in dmData | itemsPerPage:itemsPerPage" total-items="total_count">
+            <td>{{data.name}}</td>
+            <td>{{data.emailId}}</td>
+            <td>{{data.phoneNumber}}</td>
+            <td><span ng-if="data.gender=='M'">Male</span><span ng-if="data.gender=='F'">Female</span></td>
+            <td><button type="button" name="button" ng-click="services($index)"  data-toggle="modal" data-target="#servicesModal">Services</button></td>
+            <td><button type="button" name="button" ng-click="history($index)"  data-toggle="modal" data-target="#myModal1">History</button></td>
+            <td><button type="button" name="button"  ng-click="editButton($index)" data-toggle="modal" data-target="#editModal">Edit</button></td>
+          </tr>
+        </tbody>
+
+        <tbody  ng-if="selectedContacted=='Not Contacted'">
+          <tr dir-paginate="data in dmData | itemsPerPage:itemsPerPage" total-items="total_count">
+            <td>{{data.name}}</td>
+            <td>{{data.emailId}}</td>
+            <td>{{data.phoneNumber}}</td>
+            <td><span ng-if="data.gender=='M'">Male</span><span ng-if="data.gender=='F'">Female</span></td>
+            <td><button type="button" name="button" ng-click="services($index)"  data-toggle="modal" data-target="#servicesModal">Services</button></td>
+            <td><button type="button" name="button"  ng-click="editButton($index)" data-toggle="modal" data-target="#editModal">Edit</button></td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+
+<!-- *********************************servicesModal********************************************* -->
+    <div class="modal fade" id="servicesModal" role="dialog">
+        <div class="modal-dialog" style="width:60%">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">{{clientName}}</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-4">
+                  Contact: {{clientPhoneNumber}}
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+
+                <table>
+                  <thead>
+                    <th>Service Name</th>
+                    <th>Service Price</th>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="i in servicesRow">
+                      <td>{{i.serviceName}}</td>
+                      <td>{{i.servicePrice}}</td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default closeButton" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+<!-- *************************************editModal******************************************************* -->
+
+    <div class="modal fade" id="editModal" role="dialog">
+        <div class="modal-dialog" style="width:60%">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">{{editRow.clientName | uppercase}}</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-3">
+                  {{editRow.parlorName}}
+                </div>
+                <div class="col-md-3">
+                  {{editRow.phoneNumber}}
+                </div>
+              </div>
+              <form>
+                <div class="form-group">
+                  <label>Remark:</label>
+                  <textarea type="text" class="form-control" id="email" ng-model="remark"></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Expected Date:</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control"  ng-init="popup1.opened=false;" uib-datepicker-popup="{{format}}" ng-change="buttonclick()" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default" ng-click="popup1.opened=true"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Call Status:</label>
+                  <select class="form-control" ng-model="selected" ng-model="selected">
+                  <option  ng-repeat="(key,value) in callStatus" >{{value}}</option>
+                </select>
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="saveButton($index);disabled=true">Save</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default closeButton" data-dismiss="modal" id="closeEditModal">Close</button>
+            </div>
+          </div>
+
+        </div>
+    </div>
+    <!-- *******************************history********************** -->
+
+    <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog" style="width:60%">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">{{historyRow.name}}</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-4">
+                  {{historyRow.phoneNumber}}
+                </div>
+                <div class="col-md-4">
+                  {{historyRow.emailId}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                <table>
+                  <thead>
+                    <th>Contacted By</th>
+                    <th>Contacted On</th>
+                    <th>Expected On</th>
+                    <th>Remark</th>
+                    <th>Call Status</th>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="i in historyRow.contactHistory">
+                      <td>{{i.customerCareName | uppercase}}</td>
+                      <td>{{i.contactedOn | date: 'dd/MM/yyyy'}}</td>
+                      <td>{{i.expectedOn | date: 'dd/MM/yyyy'}}</td>
+                      <td>{{i.remark}}</td>
+                      <td>{{i.callStatus}}</td>
+                    </tr>
+                  </tbody>
+
+
+                </table>
+
+              </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default closeButton" data-dismiss="modal" ng-click="closeFunction('history')">Close</button>
+            </div>
+          </div>
+
+        </div>
+    </div>
+<!-- *******************************history********************** -->
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<style media="screen">
+  th{
+    text-align:center;
+  }
+  .hiddenRow {
+    padding: 0 !important;
+}
+.nav-tabs {
+  border-bottom:none;
+}
+</style>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2 id="tables">Reports</h2>
+    </div>
+  </div>
+  <div class="col-md-12" justified="true">
+      <uib-tabset>
+        <uib-tab  ng-click='categoryButton("Not Contacted")' index="0" heading="Not Contacted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Contacted")' index="1" heading="Contacted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Converted")' index="2" heading="Converted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Reports")'  active="true" index="3" heading="Reports"></uib-tab>
+        <uib-tab  ng-click='categoryButton("divasAndMachosCustomers")'  index="4" heading="Divas and Machos"></uib-tab>
+        <uib-tab  ng-click='categoryButton("afterThreeMonths")' index="4" heading="After Three Months"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Website Queries")' index="4" heading="Website Queries"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Subscription Queries")' index="4" heading="Subscription Queries"></uib-tab>
+        <uib-tab  ng-click='categoryButton("razorPayNonSubscriber")' index="4" heading="RazorPay Non-Subscribers"></uib-tab>
+
+      </uib-tabset>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+        <div class="col-md-2 col-md-offset-3" style="margin-top: 1em;">
+          <label style="margin-left: 1em">Select Date Range:</label>
+        </div>
+        <div class="col-md-4">
+          <input date-range-picker max="limitDate" ng-initname="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+                 ng-model="dateRangeSelected" ng-change="dateSelected()" readonly="readonly" required/>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+        <div class="col-md-2 col-md-offset-5"><button class="btn btn-primary" id="apply-btnservice"  ng-click="submitButton();initialiseIt.initialise()" >Submit</button></button></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <table>
+      <thead>
+        <tr>
+          <th>Customer Care Name</th>
+          <th>Total Calls</th>
+          <th>Total Conversions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="data in reportsData">
+          <td>{{data.customerCareName}}</td>
+          <td>{{data.totalCalls}}</td>
+          <td>{{data.totalConversions}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <table>
+      <thead>
+        <tr>
+          <th>Customer Care Name</th>
+          <th>Total Contacted</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="data in reportsDataNew">
+          <td>{{data.customerCareName}}</td>
+          <td>{{data.total}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

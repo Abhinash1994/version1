@@ -1,0 +1,124 @@
+<style>
+		h2{
+			text-align: center;
+		}
+
+		th{
+				text-align: center;
+		}
+
+		label{
+			margin-top: 14px;
+		}
+
+		input{
+			background-color: white;
+		}
+
+		.input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
+    				z-index: 2;
+  				  margin-left: -1px;
+    				margin-top: 10px;
+
+}
+
+
+		.rows{
+			display:none;
+		}
+</style>
+
+
+
+<h2>Appointment Closing Pattern</h2>
+<head-directive data="multisalonsObject.multisalons" date="dates.date"  output="multisalonsObject.multi">
+</head-directive>
+<div class="row">
+<div class="col-md-12">
+	<div class="col-md-offset-1 col-md-2">
+				<label>Select Date</label>
+	</div>
+        <div class="col-md-6 ">
+            <p class="input-group">
+            		 <div class="form-group">
+                                        <label for="daterange1" class="control-label">Date Range Picker</label>
+                                        <input date-range-picker id="daterange1" name="daterange1" class="form-control date-picker" type="text" ng-model="dates.date" required/>
+                                    </div>
+
+
+             <!--    <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dts"  is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" style="background-color:white;" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span> -->
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+
+<div class="row">
+<div class="col-md-offset-4 col-md-3">
+		<button class="btn btn-primary form-control"  ng-click="getData()" >Submit</button>
+
+</div>
+
+</div>
+	
+
+<div class="container">
+
+
+				<!-- <table class="table table-striped">
+
+					<thead>
+							<tr>
+									<th class="head-color-universal">Parlor Name</th>
+									<th class="head-color-universal">Total Appointments</th>
+									<th class="head-color-universal">Closed By Beu</th>
+									<th class="head-color-universal">Closed By Salon</th>
+							</tr>
+
+					</thead>
+						<tbody>
+							<tr  ng-repeat="parlorData in $data">
+										<td>{{parlorData.parlorName}}</td>
+										<td>{{parlorData.totalAppointments}}</td>
+										<td>{{parlorData.closedByBeu}}</td>
+										<td>{{parlorData.closedBySalon}}</td>
+							</tr>
+						</tbody>
+							
+
+
+				</table> -->
+
+
+				<table ng-table="tableParams" class="table" show-filter="true">
+  		  <tr ng-repeat="user in $data">
+      					  <td title="'Parlor Name'" filter="{ parlorName: 'text'}" sortable="'parlorName'">
+          							  {{user.parlorName}}</td>
+      				  <td title="'Total Appointments'" filter="{ totalAppointments: 'number'}" sortable="'totalAppointments'">
+         				   {{user.totalAppointments}}</td>
+         				     <td title="'Closed By Beu'" filter="{ closedByBeu: 'number'}" sortable="'closedByBeu'">
+         				   {{user.closedByBeu}}</td>
+         				   <td title="'Closed By Beu Amount'" filter="{ closedByBeuAmount: 'number'}" sortable="'closedByBeuAmount'">
+         				   {{user.closedByBeuAmount}}</td>
+         				       <td title="'Closed By Salon'" filter="{ closedBySalon: 'number'}" sortable="'closedBySalon'">
+         				   {{user.closedBySalon}}</td>
+         				   <td title="'Closed By Salon Amount'" filter="{ closedBySalonAmount: 'number'}" sortable="'closedBySalonAmount'">
+         				   {{user.closedBySalonAmount}}</td>
+</tr>
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+
+

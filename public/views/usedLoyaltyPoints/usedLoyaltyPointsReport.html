@@ -1,0 +1,83 @@
+<style>
+    h2{
+        text-align:center;
+    }
+
+    .scroll{
+        margin-left:20% !important;
+    }
+
+    .scroll th{
+        text-align:center;
+        padding:11px;
+    }
+        .scroll1{
+            width:100%;
+        }
+
+
+
+
+</style>
+<h2>Loyalty Points Used</h2>
+<uib-tabset active="active">
+    <uib-tab index="0" heading="Loyalty Points Used" active="tabs[0].active">
+
+
+
+<table class="scroll" style="margin-left:10%;">
+    <thead>
+                <tr>
+                        <th ng-repeat="limit in data">{{limit._id}}</th>
+                </tr>
+    </thead>
+    <tbody>
+                <tr>
+                        <td ng-repeat="m in data">{{m.count}}</td>
+                </tr>
+
+    </tbody>
+</table>
+
+    </uib-tab>
+    <uib-tab index="1"  heading="Loyalty Points Used Second"  active="tabs[1].active">
+        <table class="scroll">
+            <thead>
+            <tr>
+                <th ng-repeat="record in data1">
+                    {{record.label}}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr> <td ng-repeat="record in data1">{{record.count}}
+            </td></tr>
+
+            </tbody>
+
+        </table>
+
+
+    </uib-tab>
+ <uib-tab index="2"  heading="Loyalty Points Used First Time"  active="tabs[2].active">
+        <table class="scroll">
+            <thead>
+            <tr>
+                <th ng-repeat="record in loyaltyUsedFirst">
+                    {{record._id}}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr> <td ng-repeat="record in loyaltyUsedFirst">{{record.count}}
+            </td></tr>
+
+            </tbody>
+
+        </table>
+
+
+    </uib-tab>
+
+
+    </uib-tabset>

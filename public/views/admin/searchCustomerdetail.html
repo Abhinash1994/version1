@@ -1,0 +1,183 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">Search Customer Detail</h2>
+    </div>
+</div>
+<div class="row">
+	<form ng-submit="searchCustomer()">
+    <div class="col-md-2 col-lg-2 col-md-offset-2" style="margin-top: 1%;">  <select class = "form-control" ng-model="dataSent.key"  ng-options="value.val as value.name for value in values">
+              </select></div>
+    <div class="col-md-3 col-lg-3" >
+   			   <input type = "text" ng-model= "dataSent.value" class="form-control" required style="margin-left: -10%; background:white " />
+   	</div>
+   	<div class="col-md-2 col-lg-2" >		   
+        <button type= "submit" class="form-control" style="margin-top: 10px;">Search</button>
+    </div>
+    </form>
+</div>
+
+<div class="card">
+  <div class="container-fluid"  >
+    
+    <div class="table-responsive">
+	    <table class="table table-striped table-bordered">
+	        <thead>
+	            <tr>
+	               <th class="head-color-universal" >Name</th>
+	               <th class="head-color-universal" >Phone No.</th>
+	               <th class="head-color-universal" >Email Id</th>
+	               <th class="head-color-universal" >Date</th>
+	               <th class="head-color-universal" >Free Services</th>
+					<th class="head-color-universal" >Appointments</th>
+					<th class="head-color-universal" >Subcription Type</th>
+					<th class="head-color-universal" >Subcription Buy Date</th>
+					<th class="head-color-universal" >Subcription Cycle</th>
+					
+				</tr>
+	        </thead>
+	        <tbody>
+	            <tr ng-repeat = "data in datas">
+	              <td>{{data.clientName}}</td>
+	              <td>{{data.clientNumber}}</td>
+	              <td>{{data.emailId}}</td>
+	              <td>{{data.createdAt}}</td>
+	              <td>
+	              	<span ng-repeat="free in data.freeService">{{free.name}}</span>
+	              </td>
+	               <td><button  class="form-control"  ng-click="calledApptTable(data.clientNumber)">Appointments</button></td>
+	              <td>{{data.subscriptionIdType}}</td>
+	              <td>{{data.subscriptionBuyDate}}</td> 
+	              <td>{{data.subscriptionCycle}}</td> 
+
+	            </tr>
+	             
+	        </tbody>
+	    </table>
+	</div>
+ 
+</div>
+</div>
+  <div class="container-fluid" ng-if="apptDatas.length">
+    
+    <div class="table-responsive">
+	    <table class="table table-striped table-bordered">
+	        <thead>
+	            <tr>
+	               <th class="head-color-universal" >Date</th>
+	               <th class="head-color-universal" >Parlor Name</th>
+	              <th class="head-color-universal" >Payable Amount</th>
+	              <th class="head-color-universal" >Payment Method</th>
+	              <th class="head-color-universal" >Status</th>
+	              <th class="head-color-universal" >Subscription Buy Amount</th>
+	               <th class="head-color-universal" >Total Loyalty Points</th>
+	               <th class="head-color-universal" >Coupon Loyalty</th>
+	               <th class="head-color-universal" >Coupon Code Used</th>
+	               <th class="head-color-universal" >Free Service Loyalty</th>
+	               <th class="head-color-universal" >Subscription Loyalty</th>
+	               <th class="head-color-universal" >Credits Used</th>
+	               <th class="head-color-universal" >Credits Left</th>
+				
+	              <th class="head-color-universal" >Services</th>
+	              <th class="head-color-universal" >Employees</th>
+
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr ng-repeat = "data in apptDatas">
+	              <td>{{data.appointmentStartTime}}</td>
+	              <td>{{data.parlorName}}</td>
+	              <td>{{data.payableAmount | number:0}}</td>
+	              <td>{{data.paymentMethod}}</td>
+	              <td>{{getstatus(data.status)}}</td>
+	               <td>{{data.subscriptionAmount}}</td>
+	               <td>{{data.loyalityPoints}}</td>
+	               <td>{{data.couponLoyalityPoints}}</td>
+	               <td>{{data.couponLoyalityCode}}</td>
+	               <td>{{data.freeServiceLoyality}}</td>
+	               <td>{{data.subscriptionLoyalityPoints}}</td>
+	               <td>{{data.creditUsed}}</td>
+	               <td>{{data.membersipCreditsLeft}}</td>
+					<td ng-if="data.cashBack!==undefined">{{data.cashBack}}</td>
+					
+	             	<td><span ng-repeat="serv in data.services">{{serv.name}},</span></td>
+	             	<td>{{data.employees}}</td>
+	            </tr>
+	             
+	        </tbody>
+	    </table>
+	</div>
+ 
+</div>
+
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"  style="text-align: center;">Referal Details</h4>
+        </div>
+        <div class="modal-body">
+         		<div class="row">
+         				<div class="col-md-2">
+         				</div>
+         				<div class="col-md-6">
+         								<table  class="table" style="width:auto;">
+        					<thead>
+        							<tr>
+        								<th class="head-color-universal">Refer Friend</th>
+        								<th class="head-color-universal">Friend Refer Code</th>
+        							</tr>
+
+        					</thead>
+        					<tbody>
+        							<tr  ng-repeat="temp in temps">
+
+        										<td>{{temp.referFriend}}</td>
+        										<td>{{temp.friendReferCode}}</td>
+        							</tr>
+
+
+        					</tbody>
+
+
+        		</table>
+         				</div>
+
+         		</div>		
+        		
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<div class="row" style="margin-top:3%;">
+	<div class="col-md-12">
+			<h4  ng-if="flag1" style="text-align: center;">Susbcription Redeem History</h4>
+		<table class="table" ng-if="flag1">
+			<tr>
+				<th class="head-color-universal" style="text-align: center">Amount</th>
+				<th class="head-color-universal" style="text-align: center">Date</th>
+				
+			</tr>
+			<tr ng-repeat = "data in datas">
+				<td class="head-color-universal">
+			         <div ng-repeat = "data2 in data.subscriptionRedeemHistory">{{data2.amount}}</div>
+				</td>
+				<td class="head-color-universal">
+			       <div ng-repeat = "data2 in data.subscriptionRedeemHistory">{{data2.date}}</div>
+				</td>
+				
+			</tr>
+			
+		</table>
+		
+	</div>
+</div>

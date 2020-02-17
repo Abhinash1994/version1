@@ -1,0 +1,288 @@
+0.
+.
+0
+.0.0
+
+<style type="text/css">
+    .city{
+        margin-top:11px;
+    }
+    .modelName {
+    margin-top: 2px;
+    }
+    legend{
+        text-align: center;
+        background-color: #fff;
+        padding:20px;
+    }
+    .table1{
+        margin-left: 20px;
+        
+    }
+    .row1{
+        margin-top:15px;
+
+    }
+    .block1{
+         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+</style>
+<fieldset>
+        <legend>Tickets</legend>
+        <div class="row">
+            <table class="table table1">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Action Type</th>
+                        <th>Call Meeting</th>
+                        <th style="width: 20%">Next Action</th>
+                        <th >Senior</th>
+                        <th>Status</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr ng-repeat="data in tickets">
+                        <td>{{data.date | date:'MMM d, y'}}</td>
+                        <td>{{data.actionType}}</td>
+                        <td>{{data.callMeeting}}</td>
+                        <td>{{data.nextAction}}</td>
+                        <td>{{data.senior}}</td>
+                        <td>{{data.status}}</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div> 
+
+</fieldset>
+
+
+
+<fieldset>
+        <legend>Add Salon</legend>
+     <form ng-submit="addSalon()">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Parlor Detail
+            </div>
+        </div>
+      
+      <div class="container-fluid block1" style="background-color: #fff;margin:20px;">
+        <div class="row row1">
+                 <div class="col-lg-6">
+                    <div class="form-group">
+                        <label style="padding-left: 15px;">Parlor Name
+                         <span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                            <input ng-model="data.name" class="form-control" name="name" required >
+                    </div>
+                 </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Parlor Type <span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                            <select style="margin-top: 10px;" class="form-control" ng-model="data.parlorGender" ng-options="a.value as a.name for a in dropdown.parlorGender" required>
+                                    
+                            </select>
+                    </div>
+                </div>
+        </div>
+        <div class="row row2">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label style="padding-left: 15px;">Owner Name<span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                        <input ng-model="data.ownerName" class="form-control" name="name" required>
+                        </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Owner Mobile No<span style="color:red;font-size: 20px;padding-left: 7px;">*</span></label>
+                        <input ng-model="data.ownerMobileNo" class="form-control" name="name" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+             <div class="col-lg-6">
+                <div class="form-group">
+                    <label style="padding-left: 15px;">LandLine No<span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                    <input ng-model="data.landLineNo" class="form-control" name="name" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Alternate Mobile No<span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                        <input ng-model="data.alternateMobileNo" class="form-control" name="name" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Partner/Manager Name</label>
+                        <input ng-model="data.managerName" class="form-control" name="name" >
+                </div>
+            </div>
+             <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Manager Number</label>
+                        <input type="Number" ng-model="data.managerNumber" class="form-control" name="managerNumber">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Email Id</label>
+                        <input ng-model="data.emailId" class="form-control" >
+                </div>
+            </div>
+             <div class="col-lg-6">
+                <div class="form-group">
+                    <label> Model<span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                               
+                    <select ng-model="data.modelName" class="form-control modelName" ng-options="item.name as item.name for item in dropdown.modelName" required></select>
+                </div>
+            </div>
+        </div>
+         <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Size<span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                                <select ng-model="data.size" class="form-control" ng-options="item.name as item.name for item in dropdown.size" required></select>
+                            </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                         <label>Status <span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                                <select ng-model="data.currentStatus" class="form-control" ng-options="item.value as item.name for item in dropdown.status" required></select>
+                    </div>
+                </div>
+    
+    </div>
+
+
+     <div class="container-fluid block1" style="background-color: #fff;margin:20px;">
+        <div class="row row1">
+                  <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>City<span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                                <select ng-model="data.city" class="form-control city" ng-options="city as city.city for city in locations" required></select>
+                            </div>
+                        </div>
+                 <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Zone <span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                            <select style="margin-top:10px;" ng-model="data.zone" class="form-control" ng-options="zone as zone.zoneName for zone in data.city.zones" required></select>
+                    </div>
+                </div>
+        </div>
+        <div class="row row2">
+            <div class="col-lg-6">
+                 <div class="form-group">
+                     <label>Locality <span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                        <select ng-model="data.locality" class="form-control" ng-options="locality as locality for locality in data.zone.areas" required></select>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Parlor Address(Shop Number and Complex)<span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                         <input style="margin-top:0px;" ng-model="data.address" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+              <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Parlor Address 2(City and Pin Code)<span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                             <input ng-model="data.address2" class="form-control" required>
+                    </div>
+                </div>
+             <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Landmark <span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                        <input ng-model="data.landmark" class="form-control" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Latitude<span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                    <input ng-model="data.latitude" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                     <label>Longitude<span style="color:red;font-size: 20px;padding-left: 7px">*</span></label>
+                        <input ng-model="data.longitude" class="form-control" required>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid block1" style="background-color: #fff;margin:20px;">
+        <div class="row row1">
+              
+                <!-- <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Shampoo</label> 
+                            <select ng-model="data.shampoo" class="form-control" ng-options="item as item for item in dropdown.shampoo"></select>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Beauty</label>
+                                <select ng-model="data.beauty" class="form-control" ng-options="item as item for item in dropdown.beauty"></select>
+                            </div>
+                </div>
+                
+                 <div class="col-lg-6">
+                    <div class="form-group">
+                         <label>Salon Type</label>
+                             <select ng-model="data.parlorType" class="form-control" ng-options="item.value as item.name for item in dropdown.salonType"></select>
+                    </div>
+                </div>
+              <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Pedi</label>
+                            <select ng-model="data.pedi" class="form-control"  ng-options="item as item for item in dropdown.pedi"></select>
+                    </div>
+             </div> -->
+             <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Call Meeting</label>
+                        <select ng-model="data.callMeeting" class="form-control" ng-options="item as item for item in dropdown.callMeeting"></select>
+                    </div>
+            </div>
+             <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Ambience Rating</label>
+                            <select ng-model="data.ambienceRating" class="form-control" ng-options="item as item for item in dropdown.ambienceRating"></select>
+                     </div>
+            </div>
+        </div>
+    </div>
+
+ <button type="submit" class="btn btn-default btn-lg btn-block" style="background-color: #148F76;color:#fff;margin-top: 10px;">Create New</button>
+
+
+    </form>
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+

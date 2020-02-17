@@ -1,0 +1,185 @@
+<style>
+    .bufferColor.md-accent path{
+        stroke: #d2232a;
+    }
+</style>
+<div ng-cloak="" class="tabsdemoDynamicHeight"  layout="column">
+
+    <div flex>
+	<h3 class="myAppointments-page-container">My Appointments</h3>
+
+
+
+    <md-content class="myAppointments-page-content">
+        <md-tabs   md-dynamic-height="" md-border-bottom="" class="myAppointments-page-background" >
+            <md-tab class="appointment-tab" label="Upcoming" >
+                <md-content class="md-padding" >
+                    <md-content flex-xs="100" flex-xl="100"  layout-sm="row" layout-md="row" layout-lg="row" layout-xl="row" flex-md="100"  flex-lg="100">
+
+                            <div flex-xs="100" flex-lg="100"  flex-md="100" flex-sm="100" flex-xl="100" >
+
+                            <md-card flex-xs="100" md-theme-watch ng-repeat="list in salonUpcomingAppointments  track by $index" ng-if="$even" flex="100" ng-click="go('/parlor-detail')" >
+                                <md-card-content layout="row" ng-click="parlorDetails(salon)" flex flex-xs="100">
+                                    <md-card-title-media flex="100">
+                                        <div layout-xs="row"  ng-click="go('/parlor-detail')" flex>
+											<md-card-actions layout="column" layout-align="center" flex-xs="" flex-sm="100" flex-md="100" flex-lg="100" flex-xl="50">
+                                                <div flex>
+											<div><span class="user-parlor-name">{{list.parlorName}}</span></div>
+											<!--<span style="font-size:18px;">{{list.address}}</span>-->
+                                                <div><span class="user-parlor-address">{{list.parlorAddress}}</span></div>
+												<div layout="row" flex>
+													<span class="user-parlor-date">{{customDatePicker[$index] | date:'MM/dd/yyyy'}}</span>
+													<!--<span class="user-parlor-date" ng-click="showDatePickerUpcomingAppointments($index,$event)"></span>-->
+                                                    <span class="user-parlor-date" ></span>
+                                                </div>
+											<div layout="row" flex>
+												<span  style=" font-style: italic;font-size:13px;" ng-click="showTimePickerUpcomingAppointments($index,$event)">{{customTimePicker[$index] | date:'h:mm a'}}</span>
+                                            </div>
+                                                </div>
+                                            </md-card-actions>
+										</div>
+                                    </md-card-title-media>
+                                    <md-card-actions layout="column" layout-align="start end" flex-xs="40" flex-sm="40" flex-md="50" flex-lg="50" flex-xl="50">
+                                        <div flex>
+										<div layout="row" flex>
+                                            <!--<span  ng-click="showDatePickerUpcomingAppointments($index,$event)"><img src="../images/Schedule time.png" style="width:60%;height:80%;"></span>-->
+                                          <!--  <span  ><img src="../images/Schedule time.png" style="width:60%;height:80%;"></span>-->
+                                        </div>
+                                        <div layout="row" style="padding-top:20%;" flex>
+
+                                            <a href="http://maps.google.com/maps?&q={{list.parlorLatitude}}+{{list.parlorLongitude}}" target="_blank"><i class="material-icons location-icon">&#xE0C8;</i></a>
+											<!--<a href="https://www.google.co.in/maps/dir//{{list.location}}" target="_blank"><i class="material-icons location-icon">&#xE0C8;</i></a>-->
+                                        </div>
+                                        </div>
+                                    </md-card-actions>
+                                </md-card-content>
+                            </md-card>
+
+                            </div>
+                          <div flex-xs="100" flex-lg="100"  flex-md="100" flex-sm="100" flex-xl="100" >
+
+                            <md-card flex-xs="100" md-theme-watch ng-repeat="list in salonUpcomingAppointments track by $index" ng-if="$odd" flex="100" ng-click="go('/parlor-detail')" >
+                                <md-card-content layout="row" ng-click="parlorDetails(salon)" flex flex-xs="100">
+                                    <md-card-title-media flex="100">
+                                        <div layout-xs="row"  ng-click="go('/parlor-detail')" flex>
+                                            <md-card-actions layout="column" layout-align="center" flex-xs=""flex-sm="60" flex-md="80" flex-lg="80" flex-xl="80">
+                                                <div flex>
+                                            <div><span class="user-parlor-name">{{list.parlorName}}</span></div>
+                                            <!--<span style="font-size:18px;">{{list.address}}</span>-->
+                                                <div><span class="user-parlor-address">{{list.parlorAddress}}</span></div>
+                                                <div layout="row" flex>
+                                                    <span class="user-parlor-date">{{customDatePicker[$index] | date:'MM/dd/yyyy'}}</span>
+                                                    <span class="user-parlor-date" ></span>
+                                                   <!-- <span class="user-parlor-date" ng-click="showDatePickerUpcomingAppointments($index,$event)"></span>-->
+                                            </div>
+                                            <div layout="row" flex>
+                                                <span  style=" font-style: italic;font-size:13px;" ng-click="showTimePickerUpcomingAppointments($index,$event)">{{customTimePicker[$index] | date:'h:mm a'}}</span>
+                                            </div>
+                                                </div>
+                                            </md-card-actions>
+                                        </div>
+                                    </md-card-title-media>
+                                    <md-card-actions layout="column" layout-align="start end" flex-xs="40" flex-sm="40" flex-md="20" flex-lg="20" flex-xl="20">
+                                        <div flex>
+                                        <div layout="row" flex>
+                                          <!--  <span  ng-click="showDatePickerUpcomingAppointments($index,$event)"><img src="../images/Schedule time.png" style="width:60%;height:80%;"></span>-->
+                                          <!--  <span  ><img src="../images/Schedule time.png" style="width:60%;height:80%;"></span>-->
+                                        </div>
+                                        <div layout="row" style="padding-top:20%;" flex>
+                                            <a href="http://maps.google.com/maps?&q={{list.parlorLatitude}}+{{list.parlorLongitude}}" target="_blank"><i class="material-icons location-icon">&#xE0C8;</i></a>
+                                        </div>
+                                        </div>
+                                    </md-card-actions>
+                                </md-card-content>
+                            </md-card>
+
+                            </div>
+                        </md-content>
+                </md-content>
+            </md-tab>
+            <md-tab label="Previous" flex>
+                <md-content class="md-padding" flex >
+                    <md-content flex="100" layout="row" layout-xs="column">
+                        <div layout="column" flex="100" >
+                            <div flex>
+                            <md-card md-theme-watch ng-repeat="list in salonPreviousAppointments.data" ng-if=" $even" flex="100"  style="cursor: pointer;" >
+                                <md-card-content layout="row" ng-click="parlorDetails(salon)" flex>
+                                    <md-card-title-media flex="80" flex-xs="80" flex-sm="80" flex-md="80" flex-lg="80" flex-xl="80" ng-click="openPastAppointmentsDialog($event,list)">
+                                        <div class="md-unstyled-image" 	layout-xs="column" flex>
+                                           <div layout=" row" flex>
+                                             <span class="user-parlor-name">{{list.parlorName}}</span>
+                                           </div>
+                                        <div layout=" row" flex>
+											<span class="user-parlor-address">{{list.parlorAddress}}</span>
+                                        </div>
+											<div layout="row" flex>
+												<span class="user-parlor-date">{{list.startsAt | date:'MM/dd/yyyy'}}</span>
+												<span class="user-upcoming-date">{{list.startsAt | date:'h:mm a' }}</span>
+											</div>
+											<div layout="row" flex>
+                                                <img src="../images/Grey Budget.png" alt="rupeesicon" width="12" height="12" style="height: 10px;width: 13px;margin-top: 4px;"><span style=" font-style: italic;font-size:13px;">{{list.payableAmount}}</span>
+											</div>
+										</div>
+                                    </md-card-title-media>
+                                    <md-card-actions layout="column" layout-align="start end" flex-xs="20" flex-sm="20" flex-md="20" flex-lg="20" flex-xl="20"  ng-click="addReview($event,list)">
+                                        <div flex >
+                                       	<img  src="../images/Review grey for Appointmt pg.png" class="user-parlor-chait"/>
+                                        </div>
+                                    </md-card-actions>
+                                </md-card-content>
+                            </md-card>
+                            </div>
+                        </div>
+                        <div layout="column" flex="100" >
+                            <div flex>
+                            <md-card md-theme-watch ng-repeat="list in salonPreviousAppointments.data" ng-if="$odd" flex="100" style="cursor: pointer;" >
+                                <md-card-content layout="row" ng-click="parlorDetails(salon)" flex>
+                                    <md-card-title-media flex="80" flex-xs="80" flex-sm="80" flex-md="80" flex-lg="80" flex-xl="80" ng-click="openPastAppointmentsDialog($event,list)">
+                                        <div class="md-unstyled-image"  layout-xs="column" flex>
+                                           <div layout=" row" flex>
+                                             <span class="user-parlor-name">{{list.parlorName}}</span>
+                                           </div>
+                                        <div layout=" row" flex>
+                                            <span class="user-parlor-address">{{list.parlorAddress}}</span>
+                                        </div>
+                                            <div layout="row" flex>
+                                                <span class="user-parlor-date">{{list.startsAt | date:'MM/dd/yyyy'}}</span>
+                                                <span class="user-upcoming-date">{{list.startsAt | date:'h:mm a' }}</span>
+                                            </div>
+                                            <div layout="row" flex>
+                                                <img src="../images/Grey Budget.png" alt="rupeesicon" width="12" height="12" style="height: 10px;width: 13px;margin-top: 4px;"><span style=" font-style: italic;font-size:13px;">{{list.payableAmount}}</span>
+                                            </div>
+                                        </div>
+                                    </md-card-title-media>
+                                    <md-card-actions layout="column" layout-align="start end" flex-xs="20" flex-sm="20" flex-md="20" flex-lg="20" flex-xl="20"  ng-click="addReview($event,list)">
+                                        <div flex >
+                                        <img  src="../images/Review grey for Appointmt pg.png" class="user-parlor-chait"/>
+                                        </div>
+                                    </md-card-actions>
+                                </md-card-content>
+                            </md-card>
+                            </div>
+                        </div>
+                    </md-content>
+
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+        <!--=========================Buffer==========starts=====================-->
+        <div layout="row" flex  hide-xs ng-if="salonUpcomingAppointments=='buffer'">
+            <md-progress-circular ng-disabled="false" class="md-accent bufferColor myAppointments-page-progress" md-diameter="80" ></md-progress-circular>
+        </div>
+        <!--=========================Buffer==========stops=====================-->
+        <!--=========================Buffer==========starts=====================-->
+        <div layout="row" flex   ng-if="salonUpcomingAppointments=='buffer'"  hide-sm hide-md hide-lg hide-xl>
+            <md-progress-circular ng-disabled="false" class="md-accent bufferColor myAppointments-page-progress" md-diameter="20" ></md-progress-circular>
+        </div>
+        <!--=========================Buffer==========stops=====================-->
+</div>
+</div>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+-->

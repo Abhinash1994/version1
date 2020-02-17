@@ -1,0 +1,745 @@
+<style>
+      .table{
+          overflow:scroll;
+          width:100%;
+
+
+      }
+
+
+  .row{
+      margin-top:5px;
+  }
+
+      .dataTable_wrapper{
+
+          width:100%;
+          overflow:scroll;
+
+      }
+
+
+
+      form {
+          overflow:scroll;
+      }
+
+
+      th{
+          padding:12px;
+
+      }
+  </style>
+  <div class="row">
+      <div class="col-lg-12">
+          <h1 class="page-header">Sellers</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+  <uib-tabset active="active">
+      <uib-tab index="0" heading="Sellers" active="tabs[0].active">
+
+          <div class="row">
+              <div class="col-lg-12">
+                  <a class="btn btn-default btn-lg btn-block" ng-click="showAddSellerPopUp()">Add New Seller</a>
+                  <br />
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                          Current sellers registered
+                      </div>
+                      <!-- /.panel-heading -->
+                      <div class="panel-body">
+                          <div class="dataTable_wrapper">
+                              <table class="table table-striped table-bordered" id="dataTables-example">
+                                  <thead>
+                                  <tr>
+                                      <th style="text-align: center;">Name</th>
+                                      <th style="text-align: center;">EmailId</th>
+                                      <th style="text-align: center;">EmailId Cc</th>
+                                      <th style="text-align: center;">Products Count</th>
+                                      <th style="text-align: center;">Address</th>
+                                      <th style="text-align: center;"> Contact No</th>
+                                      <th style="text-align: center;">Action</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr class="" ng-repeat="list in sellerObject.sellers  track by $index ">
+                                      <td>{{list.name}}</td>
+                                      <td><p ng-repeat="email in list.emailId  track by $index">{{email.city}} <br> <span ng-repeat="id in email.ids">{{id}}<span ng-if="$index!= email.ids.length-1">,</span></span></p></td>
+                                      <td><p ng-repeat="email in list.emailIdcc  track by $index">{{email.city}} <br> <span ng-repeat="id in email.ids">{{id}}<span ng-if="$index!= email.ids.length-1">,</span></span></p></td>
+                                      <td>{{list.count}}</td>
+                                      <td>{{list.address}}</td>
+                                      <td>
+                                            <div ng-if="list.contactNumber.length!=0" class="row" ng-repeat="a in list.contactNumber">
+                                                    <span>City : {{a.city}}</span><br>
+                                                    <span ng-repeat="m in a.phoneNumbers track by $index"> 
+                                                        PhoneNumber : {{m}}
+                                                        </span> <br>
+                                                </span>
+                                          
+                                          </div>
+                                      </td>
+                                      <td><button ng-click="showEditSellerPopUp($index)">Edit</button></td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                          <!-- /.table-responsive -->
+                      </div>
+                      <!-- /.panel-body -->
+                  </div>
+                  <!-- /.panel -->
+              </div>
+              <!-- /.col-lg-12 -->
+          </div>
+
+
+
+          <div class="modal fade" id="addSellerModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title" id="addSellerModelLabel">Add Seller Details</h4>
+                      </div>
+
+                      <div class="modal-body">
+                          <div class="row">
+                              <div class="col-lg-10">
+                                  <div class="form-group">
+                                      <label>Name</label>
+                                      <input ng-model="sellerObject.sellerName" class="form-control" >
+                                  </div>
+                              </div>
+                          </div>
+                              <div class="row" style="border:1px solid black;margin-top:5px;margin:4px;">
+                                    <div class="col-lg-4">
+                                  <div class="form-group">
+                                    <label>Select City</label>
+                                    <select ng-options="item.label for item in city track by item.id" ng-model="selected" ng-change="selctedVal(selected)" style="margin-top: 1em;"></select>
+                                  </div>
+                              </div>
+                              <div class="col-lg-6">
+                                  <div class="form-group">
+                                      <label>Email Id</label>
+                                      <input ng-model="seller.sellerEmailId" class="form-control" >
+                                      <button class="btn-primary" ng-click="addEmail()">Add Email</button>
+                                      <p ng-repeat="e in sellerObject.emailId track by $index" ng-if="selected.id==e.cityId">
+                                        <span ng-repeat="d in e.ids track by $index">{{d}}
+                                          <br>
+                                        </span>
+                                       </p>
+                                      <!-- <p ng-repeat="e in sellerObject.emailId">
+                                        <span ng-repeat="d in e.id">{{d}}</span>
+                                      </p>
+                                      <p ng-repeat="e in sellerObject.emailId" ng-if="e.id==2">{{e}}</p> -->
+
+                                  </div>
+                              </div>
+                              
+                              </div>
+                              <div class="row" style="border:1px solid black;margin-top:5px;margin:4px;">
+                                  <div class="col-lg-3">
+                                  <div class="form-group">
+                                    <label>Select City</label>
+                                    <select ng-options="item.label for item in city track by item.id" ng-model="selectedCC" ng-change="selctedVal(selectedCC)"  style="margin-top: 1em;"></select>
+                                  </div>
+                              </div>
+                              <div class="col-lg-6">
+                                  <div class="form-group">
+                                      <label>Email Id Cc</label>
+                                      <input ng-model="seller.sellerEmailIdcc" class="form-control" >
+                                      <button class="btn-primary" ng-click="addEmailCc()">Add Email cc</button>
+                                      <p ng-repeat="e in sellerObject.emailIdcc track by $index" ng-if="selectedCC.id==e.cityId">
+                                        <span ng-repeat="d in e.ids track by $index">{{d}}
+                                          <br>
+                                        </span>
+                                       </p>
+                                  </div>
+                              </div>
+                          
+                          
+                          
+                            </div>
+                              
+                              <!--<div class="col-lg-6">-->
+                              <!--<div class="form-group">-->
+                              <!--<label>Email Id Bcc</label>-->
+                              <!--<input ng-model="sellerObject.sellerEmailIdBcc" class="form-control" >-->
+                              <!--</div>-->
+                              <!--</div>-->
+                              <!--<div class="col-lg-6">-->
+                              <!--<div class="form-group">-->
+                              <!--<label>P.O No.</label>-->
+                              <!--<input ng-model="sellerObject.sellerPoNumber" class="form-control" >-->
+                              <!--</div>-->
+                              <!--</div>-->
+                              <!--<div class="col-lg-6">-->
+                              <!--<div class="form-group">-->
+                              <!--<label>Tin No.</label>-->
+                              <!--<input ng-model="sellerObject.sellerTinNumber" class="form-control" >-->
+                              <!--</div>-->
+                              <!--</div>-->
+                         
+                              
+
+                              <div class="row" style="border:1px solid black;margin-top:5px;margin:4px;">
+                                <div class="col-lg-12">
+                                  <div class="col-lg-4">
+                                      <div class="form-group">
+                                        <label>Select City</label>
+                                        <select ng-options="item.label for item in city track by item.id" ng-model="selectedContacts" ng-change="selctedVal(selectedContacts)" style="margin-top: 1em;"></select>
+                                      </div>
+                                  </div>
+                                 
+                                  <div class="col-lg-6">
+                                      <div class="form-group">
+                                          <label>Contact No.</label>
+                                          <input type="text" ng-model="sellerObject.sellerContactNumber" class="form-control" >
+                                          <button class="btn-primary" ng-click="addPhoneNumber(selectedContacts,sellerObject.sellerContactNumber)">Add Phone Number</button>
+                                          <p ng-repeat="e in sellerObject.contactNumber">
+                                            <span ng-repeat="d in e.phoneNumbers track by $index" ng-if="selectedContacts.id==e.cityId">{{d}} <br></span>
+
+                                           </p>
+
+                                      </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                          
+                           <div class="row" style="border:1px solid black;margin-top:5px;margin:4px;">
+                              <div class="col-lg-10">
+                              <div class="form-group">
+                              <label>Address</label>
+                              <input ng-model="sellerObject.sellerAddress" class="form-control" >
+                              </div>
+                              </div>
+                          </div>
+                            
+                            <div class="row">
+                              
+                              
+                             
+                              <div class="col-lg-12">
+                                  <div class="form-group">
+                                      <label>Items</label>
+                                      <div style="display:inline" isteven-multi-select input-model="sellerObject.itemsArrayCopy" output-model="sellerObject.createdArray"  on-item-click="itemsSelected()" button-label="name" item-label="name" tick-property="isSelected" output-properties="name _id" ></div>
+                                  </div>
+                              </div>
+
+ </div>
+
+                              <!-- /.col-lg-6 (nested) -->
+                          </div>
+                    
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-disabled="sellerObject.createdArray.length==0" ng-click="addSeller()">Add</button>
+                      </div>
+
+                  </div>
+                  <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+          </div>
+
+
+          <div class="modal fade" id="editSeller" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title" id="editSellerModelLabel">Edit Seller Detail</h4>
+                      </div>
+
+                      <div class="modal-body">
+                          <div class="row">
+                              <div class="col-lg-7">
+                                 
+                                  <div class="form-group">
+                                      <label>Name</label>
+                                <input ng-model="sellerObject.sellers[sellerObject.editSellerIndex].name" class="form-control" >
+                                  </div>
+                              </div>
+                             
+                          </div>
+                             <div class="row" style="border:1px solid black;margin-top:5px;margin:4px;">
+                                  <div class="col-lg-4">
+                                  <div class="form-group">
+                                    <label>Select City for email ids to edit and Add</label>
+                                    <select class="form-control" ng-options="item.label for item in city track by item.id" ng-model="editObjects.selected" ng-change="selectedEmailIdsTOEdit(selectedCC,sellerObject.editSellerIndex,editObjects.selected)"  style="margin-top: 1em;"></select>
+                                  </div>
+                              </div>
+                                 <div class="col-lg-5">
+                                  <div class="form-group">
+                                      <div ng-repeat="a in sellerObject.sellers[sellerObject.editSellerIndex].emailId">
+                                          <div   ng-if="editObjects.selected.label==a.city"  >
+                                              
+                                              <label>Email Id</label>
+                                                <input ng-model="a.ids"   class="form-control" >                                              
+                                          </div>
+                                        
+                                         
+                                         
+                                             
+                                      </div>
+                                        <div ng-if="emailIdFlag">
+                                                 <label>Email Id</label>
+                                                <input  type="text" ng-model="temp"   class="form-control" >  
+                                              <button class="btn btn-primary"   ng-click="addEmailTo(sellerObject.editSellerIndex,editObjects.selected,temp)">Add Email Id</button>
+                                          </div>
+                                      
+                                 
+                                  </div>
+                              </div> 
+                                 
+                                 
+                          </div>
+                             
+                           <div class="row" style="border:1px solid black;margin-top:5px;margin:4px;">
+                                  <div class="col-lg-5">
+                             
+                                  <div class="form-group">
+                                    <label>Select City for Email ids CC for Adding and Editing</label>
+                                    <select  class="form-control" ng-options="item.label for item in city track by item.id" ng-model="editObjects.selectedCC" ng-change="selctedValforCC(selected,sellerObject.editSellerIndex,editObjects.selectedCC)"  style="margin-top: 1em;"></select>
+                                  </div>
+                              </div>
+                               <div class="col-lg-5">
+                                  <div class="form-group">
+                                       <div ng-repeat="a in sellerObject.sellers[sellerObject.editSellerIndex].emailIdcc">
+                                        <div  ng-if="a.city==editObjects.selectedCC.label">
+                                              <label> Email Id Cc</label>
+                                                <input class="form-control" ng-model="a.ids" class="form-control" >
+                                        </div>
+                                   
+                                      </div>
+                                        <div ng-if="emailIdFlagcc">
+                                                 <label>Email Id CC</label>
+                                                <input  type="text" ng-model="tempsForCC"   class="form-control" >  
+                                              <button class="btn btn-primary"   ng-click="addEmailCCTo(sellerObject.editSellerIndex,editObjects.selectedCC,tempsForCC)">Add Email Id CC</button>
+                                          </div>
+                                  </div>
+                                   
+                              </div>
+                              
+                               
+                          </div>
+                            <div class="row" style="border:1px solid black;margin-top:5px;margin:4px;">
+                                
+                                 <div class="col-lg-10">
+                                  <div class="form-group">
+                                      <label>Address</label>
+                                      <input ng-model="sellerObject.sellers[sellerObject.editSellerIndex].address" class="form-control" >
+                                  </div>
+                              </div>
+                                
+                          </div>
+                          <div class="row" style="border:1px solid black;margin-top:5px;margin:4px;">
+                               <div class="col-lg-5">
+                             
+                                  <div class="form-group">
+                                    <label>Select City for  phone Numbers</label>
+                    <select class="form-control" ng-options="item.label for item in city track by item.id" ng-model="editObjects.selectedcityForPhoneNum"  ng-change="selectCityForPhone(selectedCC,sellerObject.editSellerIndex,editObjects.selectedcityForPhoneNum)" style="margin-top: 1em;"></select>
+                                  </div>
+                              </div>
+                             
+                                <div class="row">
+                               <div class="col-lg-9">
+                                    <div ng-repeat="m in sellerObject.sellers[sellerObject.editSellerIndex].contactNumber ">
+                                        <div ng-if="editObjects.selectedcityForPhoneNum.label==m.city">
+                                         
+                                                 <label>Phone Number</label>
+                                              <input type="text"  class="form-control" ng-model="m.phoneNumbers"/>
+                                        <div>
+                                              
+                                        </div>
+                                      
+                                        </div>
+                                           
+                                  </div>  
+                                   <div ng-if="phoneNumbersFlag">
+                                           <label>Phone Number</label>
+                                              <input type="text"  class="form-control" ng-model="tempPhoneNumbers"/>     
+                                       <button class="btn btn-primary"  ng-click="addPhoneNmbers(sellerObject.editSellerIndex,editObjects.selectedcityForPhoneNum,tempPhoneNumbers)" >Add Phone Number</button>
+                                   </div>
+                              
+                              </div>
+                              
+                              
+                              </div>
+                              
+                          </div>
+                              
+                            
+                             
+
+<!--
+                              <div class="col-lg-6">
+                                  <div class="form-group">
+                                      <label>Contact Number</label>
+                                      <input ng-model="sellerObject.sellers[sellerObject.editSellerIndex].contactNumber" class="form-control" >
+                                  </div>
+                              </div>
+-->
+                              
+                            
+                             
+                              
+                           <div class="row" >
+                               <div class="col-lg-12">
+                                  <div class="form-group">
+                                      <label>Items</label>
+                                      <div style="display:inline" isteven-multi-select input-model="sellerObject.sellers[sellerObject.editSellerIndex].items" output-model="editedArrayOfSellersItems.editedArrayOfSellersItems" on-close="itemsSelectedForEdit()" button-label="name" item-label="name" tick-property="isSelected" output-properties="name itemId" ></div>
+                                  </div>
+                              </div>
+                               
+                               </div>  
+                              
+                      </div>      
+                  
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="updateSeller(sellerObject.sellers[sellerObject.editSellerIndex].sellerId,sellerObject.sellers[sellerObject.editSellerIndex].name,sellerObject.sellers[sellerObject.editSellerIndex].emailId,sellerObject.sellers[sellerObject.editSellerIndex].emailIdcc,sellerObject.sellers[sellerObject.editSellerIndex].items,sellerObject.sellers[sellerObject.editSellerIndex].address,sellerObject.sellers[sellerObject.editSellerIndex].contactNumber)">Update</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </uib-tab>
+
+      <uib-tab index="1" heading="Create Discount Model" active="tabs[1].active" ng-click="refreshSellerSelector()">
+          <div>
+              <div class="row">
+                  <div class="col-md-3 col-lg-3 col-md-offset-2"> <h4>Select Salon Type</h4></div>
+                  <div class="col-md-6 col-lg-3" >
+
+                      <div style="display:inline" isteven-multi-select input-model="parlorType.type" output-model="parlorType.createdArray"  on-item-click="itemsSelected()" button-label="name" item-label="name" tick-property="isSelected" output-properties="id" ></div>
+
+                      <!--<select class="form-control"  ng-model="sellerData1.salonType"  ng-options="type.id as (type.name) for type in parlorType.type" ng-disabled="filledData.length" required>-->
+                      <!--</select>-->
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-3 col-lg-3 col-md-offset-2"> <h4>Select Seller</h4></div>
+                  <div class="col-md-6 col-lg-3" >
+                      <select class="form-control"  ng-model="sellerData1.sellerId"  ng-options="cat.sellerId as (cat.sellerName) for cat in categories" ng-disabled="filledData.length" required>
+                      </select>
+                  </div>
+              </div>
+
+
+              <div class="table-responsive" style="display:inline" >
+                  <form  name="form" ng-submit="addNewseller()" role="form">
+                      <div class="table-responsive" style="display:inline">
+                          <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+                              <tr>
+                                  <!--<th class="head-color-universal" colspan="2">Range</th>-->
+                                  <th class="head-color-universal">Retail Product</th>
+
+                                  <th class="head-color-universal">Be U Purchase Scheme</th>
+                                  <th class="head-color-universal">Professional Discount</th>
+                                  <th class="head-color-universal">Direct Discount</th>
+                                  <th class="head-color-universal">Merchandising</th>
+                                  <th class="head-color-universal">Cash Discount</th>
+                                  <th class="head-color-universal">Cash Discount on wax </th>
+                                  <th class="head-color-universal">Cash Discount on wax Oil</th>
+                                  <th class="head-color-universal">Education Training</th>
+                                  <th class="head-color-universal">Direct Billing</th>
+                                  <th class="head-color-universal">Year End Benefits</th>
+                                  <!--<th class="head-color-universal">Total Retails</th>-->
+                                  <!--<th class="head-color-universal">Total Proffessional</th>-->
+                                  <!--<th class="head-color-universal">Total Cash Discount On Oil</th>-->
+                                  <!--<th class="head-color-universal">Total Cash Discount On Wax</th>-->
+                                  <th class="head-color-universal">Action</th>
+                              </tr>
+                              <tr ng-repeat = "p in filledData">
+                                  <!--<td colspan="2">{{p.rangeFrom}} - {{p.rangeTo}}Lac</td>-->
+                                  <td>{{p.retailDiscount || 0}}%</td>
+                                  <td>{{p.beUPurchaseScheme || 0}}%</td>
+                                  <td>{{p.professionalDiscount || 0}}%</td>
+                                  <td>{{p.directDiscount || 0}}%</td>
+                                  <td>{{p.merchandising || 0}}%</td>
+                                  <td>{{p.cashDiscount || 0}}%</td>
+                                  <td >{{p.cashDiscountOnWax || 0}}%</td>
+                                  <td >{{p.cashDiscountOnWaxOil || 0}}%</td>
+                                  <td>{{p.educationTraining || 0}}%</td>
+                                  <td>{{p.directBilling || 0}}%</td>
+                                  <td>{{p.yearBenefit || 0}}%</td>
+                                  <!--<td>{{p.totalRevenue || 0}}%</td>-->
+                                  <!--<td>{{p.totalProffessional || 0}}%</td>-->
+                                  <!--<td>{{p.totalCashDiscountOnOil || 0}}%</td>-->
+                                  <!--<td>{{p.totalDiscountOnWax || 0}}%</td>-->
+                                  <td>
+                                      <button type="button" class="" ng-click="editNewseller($index,p)">Edit
+                                      </button>
+                                  </td>
+                              </tr>
+
+                              <tr  ng-form="form">
+                                  <!--<td class="form-group">-->
+                                  <!--<input type="number" class="form-control" name="num" ng-model="sellerData.rangeFrom" style = "" placeholder="from" min="0" required>-->
+                                  <!--</td>-->
+                                  <!--<td>-->
+                                  <!--<input type="text" class="form-control" name="num" min="0" ng-model="sellerData.rangeTo" style = "" placeholder="to"  required>-->
+                                  <!--</td>-->
+                                  <td class="form-group">
+                                      <input class="form-control"  ng-init="sellerData.retailDiscount= 0" type="number" ng-model="sellerData.retailDiscount" min="0" max = "100">
+                                  </td>
+
+                                  <td class="form-group">
+                                      <input class="form-control" ng-init="sellerData.beUPurchaseScheme= 0" type="number" ng-model="sellerData.beUPurchaseScheme" min="0" max = "100">
+                                  </td>
+                                  <td class="form-group">
+                                      <input class="form-control" ng-init="sellerData.professionalDiscount= 0" type="number" ng-model="sellerData.professionalDiscount"  min="0" max="100">
+                                  </td>
+                                  <td class="form-group">
+                                      <input class="form-control" ng-init="sellerData.directDiscount= 0" type="number" ng-model="sellerData.directDiscount" min="0" max="100">
+                                  </td>
+                                  <td class="form-group">
+                                      <input class="form-control" ng-init="sellerData.merchandising= 0"  type="number" ng-model="sellerData.merchandising" min="0" max="100">
+                                  </td>
+                                  <td class="form-group">
+                                      <input class="form-control" ng-init="sellerData.cashDiscount= 0" type="number" ng-model="sellerData.cashDiscount" min="0" max="100">
+                                  </td>
+                                  <td class="form-group">
+                                      <input class="form-control"  ng-init="sellerData.cashDiscountOnWax= 0" type="number" ng-model="sellerData.cashDiscountOnWax
+
+  " min="0" max="100">
+                                  </td>
+                                  <td class="form-group">
+                                      <input class="form-control" ng-init="sellerData.cashDiscountOnWaxOil= 0"  type="number" ng-model="sellerData.cashDiscountOnWaxOil
+
+  " min="0" max="100">
+                                  </td>
+                                  <td class="form-group">
+                                      <input class="form-control" ng-init="sellerData.educationTraining= 0" type="number" ng-model="sellerData.educationTraining" min="0" max="100">
+                                  </td>
+                                  <td class="form-group">
+                                      <input class="form-control" ng-init="sellerData.directBilling= 0" type="number" ng-model="sellerData.directBilling" min="0" max="100">
+                                  </td>
+                                  <td class="form-group">
+                                      <input class="form-control" ng-init="sellerData.yearBenefit= 0" type="number" ng-model="sellerData.yearBenefit" min="0" max="100">
+                                  </td>
+                                  <!--<td class="form-group">-->
+                                      <!--<input class="form-control" type="number" ng-model="sellerData.totalProffessional" min="0" max="100" readonly>-->
+                                  <!--</td>-->
+                                  <!--<td class="form-group">-->
+                                      <!--<input class="form-control" type="number" ng-model="sellerData.totalRevenue" min="0" max="100" readonly>-->
+                                  <!--</td>-->
+                                  <!--<td class="form-group">-->
+                                      <!--<input class="form-control" type="number" ng-model="sellerData.totalCashDiscountOnOil" min="0" max="100" readonly>-->
+                                  <!--</td>-->
+                                  <!--<td class="form-group">-->
+                                      <!--<input class="form-control" type="number" ng-model="sellerData.totalDiscountOnWax" min="0" max="100" readonly>-->
+                                  <!--</td>-->
+                                  <td class="form-group">
+                                      <button  ng-disabled="parlorType.createdArray.length==0" type="submit" class="btn btn-primary col-xs-12" >Add
+                                      </button>
+                                  </td>
+                              </tr>
+                          </table>
+                      </div>
+                  </form>
+              </div>
+
+              <div> <button class="btn btn-primary col-xs-12" ng-click="submitSeller()" ng-disabled="!filledData.length">Submit</button></div>
+          </div>
+      </uib-tab>
+
+  <uib-tab index="2" heading="Edit Discount Model" active="tabs[2].active" ng-click="refreshSellerSelector()">
+  <div class="row">
+
+      <div class ="row">
+          <div class="col-md-3 col-lg-2 col-md-offset-2">
+              <h4>Select Seller</h4>
+          </div>
+          <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+
+              <select class="form-control" ng-change= "refreshSellerSelector()" ng-model="selectedSlabs.sellerId"  ng-options="cat.sellerId as (cat.sellerName) for cat in categories"   required>
+              </select>
+          </div>
+      </div>
+      <div class="row">
+
+          <div class="col-md-3 col-lg-2 col-md-offset-2">
+              <label>Select Salon Type</label>
+          </div>
+          <div class="col-md-6 col-lg-3">
+              <!--<div style="display:inline"  isteven-multi-select input-model="parlorType.type" output-model="selectedSlabs.createdArray01"  on-item-click="refreshSellerSelector()" button-label="name" item-label="name" tick-property="isSelected" output-properties="id" ></div>-->
+
+              <select class="form-control"   ng-change= "refreshSellerSelector()" ng-disabled="!selectedSlabs.sellerId" ng-model="selectedSlabs.salonType" ng-options="type.id as (type.name) for type in parlorType.type"  required>
+              </select>
+          </div>
+
+
+      </div>
+
+  <!--&lt;!&ndash;=======&ndash;&gt;-->
+      <!--<uib-tab index="2" heading="Edit Discount Model" active="tabs[2].active" ng-click="refreshSellerSelector()">-->
+          <!--<div class="row">-->
+              <!--<div class="col-md-3 col-lg-2 col-md-offset-2" >-->
+                  <!--<label>Select Salon Type</label>-->
+                  <!--<select class="form-control" ng-change= "refreshSellerSelector()" ng-disabled="!selectedSlabs.sellerId" ng-model="selectedSlabs.salonType" ng-options="type.id as (type.name) for type in parlorType.type"  required>-->
+                  <!--</select>-->
+              <!--</div>-->
+              <!--<div class="col-md-3 col-lg-2 col-md-offset-2">-->
+                  <!--<h4>Select Seller</h4>-->
+              <!--</div>-->
+              <!--<div class="col-md-6 col-lg-3" style="display: inline-flex;">-->
+                  <!--<select class="form-control"  ng-model="selectedSlabs.sellerId"  ng-options="cat.sellerId as (cat.sellerName) for cat in categories"   required>-->
+                  <!--</select>-->
+              <!--</div>-->
+  <!--&gt;>>>>>> dafe59eb86a0f0158508ecf2bd61386aec9ae9ae-->
+
+          </div>
+          <div class="card">
+              <div class="container-fluid">
+                  <div class="table-responsive">
+                      <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+                          <thead ng-repeat="row1 in slabs">
+
+                          <tr ng-repeat="row in row1.slabs" >
+
+                              <td title="'Direct Discount'" >
+                                  {{row.directDiscount || 0}}%</td>
+                              
+                              <td title="'Mechandising'" >
+                                  {{row.merchandising || 0}}%</td>
+                              <td title="'Retail Discount'" >
+                                  {{row.retailDiscount || 0}}%</td>
+                           
+                              <td title="'Be U Purchase Scheme'" >
+                                  {{row.beUPurchaseScheme || 0}}%</td>
+                              <td title="'Cash Discount On Wax Oil'" >
+                                  {{row.cashDiscountOnWaxOil || 0}}%</td>
+                              <td title="'Cash Discount On Wax'" >
+                                  {{row.cashDiscountOnWax || 0}}%</td>
+                                 
+                              <td title="'Cash Discount'" >
+                                  {{row.cashDiscount || 0}}%</td>
+                              <td title="'Direct Billing'" >
+                                  {{row.directBilling || 0}} %</td>
+                              <td title="'Professional Discount'" >
+                                  {{row.professionalDiscount || 0}}%</td>
+                              <td title="'Year end benefits'">
+                                  {{row.yearBenefit || 0}}%</td>
+                              <td title="'Educational Training'">
+                                  {{row.educationTraining || 0}}%</td>
+                              <td title="'Total Discount'">
+                                  {{row.retailDiscount+row.directDiscount+row.directBilling +row.cashDiscount+row.merchandising+row.professionalDiscount+row.yearBenefit+row.educationTraining+row.beUPurchaseScheme+row.cashDiscountOnWax+row.cashDiscountOnWaxOil}}%</td>
+                             
+                              <td title="'Action'">
+                                  <button class="form-control" data-toggle="modal" data-target="#editDiscountModel" ng-click="editDiscountModelClick(row)">Edit</button></td>
+                          </tr>
+                          </thead>
+                      </table>
+                  </div>
+              </div>
+          </div>
+          <div class="container-fluid">
+              <div class="modal fade" id="editDiscountModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title" id="addSellerModelLabel">Edit Discount Model</h4>
+                          </div>
+                          <form ng-submit="updatedDiscountModel()">
+                              <div class="modal-body">
+                                  <div class="row">
+
+                                      <!--<label class="col-lg-12">Annual Turnover Value in Lacs</label>-->
+
+
+                                      <!--<div class="col-lg-6">-->
+                                      <!--<div class="form-group">-->
+                                      <!--<input ng-model="editData.rangeFrom" class="form-control" type="number" min="0" max="100">-->
+                                      <!--</div>-->
+                                      <!--</div>-->
+                                      <!--<div class="col-lg-6">-->
+                                      <!--<div class="form-group">-->
+                                      <!--<input ng-model="editData.rangeTo" class="form-control" type="number" min="0" max="100">-->
+                                      <!--</div>-->
+                                      <!--</div>-->
+                                      <div class="col-lg-6">
+                                          <div class="form-group">
+                                              <label>Direct Discount</label>
+                                              <input ng-model="editData.directDiscount" class="form-control" type="number" min="0" max="100">
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="form-group">
+                                              <label>Merchandising</label>
+                                              <input ng-model="editData.merchandising" class="form-control" type="number" min="0" max="100">
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="form-group">
+                                              <label>Be U Purchase Scheme</label>
+                                              <input ng-model="editData.beUPurchaseScheme" class="form-control" type="number" min="0" max="100">
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="form-group">
+                                              <label>Cash Discount On Wax</label>
+                                              <input ng-model="editData.cashDiscountOnWax" class="form-control" type="number" min="0" max="100">
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="form-group">
+                                              <label>Cash Discount On Wax Oil</label>
+                                              <input ng-model="editData.cashDiscountOnWaxOil" class="form-control" type="number" min="0" max="100">
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="form-group">
+                                              <label>Retail Discount</label>
+                                              <input ng-model="editData.retailDiscount" class="form-control" type="number" min="0" max="100">
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="form-group">
+                                              <label>Cash Discount</label>
+                                              <input ng-model="editData.cashDiscount" class="form-control" type="number" min="0" max="100">
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="form-group">
+                                              <label>Direct Billing</label>
+                                              <input ng-model="editData.directBilling" class="form-control" type="number" min="0" max="100">
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="form-group">
+                                              <label>Professional Discount</label>
+                                              <input ng-model="editData.professionalDiscount" class="form-control" type="number" min="0" max="100">
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="form-group">
+                                              <label>Year end benefits</label>
+                                              <input ng-model="editData.yearBenefit" class="form-control" type="number" min="0" max="100">
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="form-group">
+                                              <label>Educational Training</label>
+                                              <input ng-model="editData.educationTraining" class="form-control" type="number" min="0" max="100">
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary" >Update</button>
+                              </div>
+                          </form>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </uib-tab>
+  </uib-tabset>

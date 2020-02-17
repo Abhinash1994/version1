@@ -1,0 +1,239 @@
+
+<style>
+
+	md-switch.md-default-theme.md-checked .md-thumb, md-switch.md-checked .md-thumb {
+		background-color: rgb(255,64,129);
+		background-color: transparent;
+	}
+	.switchColorChangeClassFemale.md-default-theme .md-bar, .switchColorChangeClassFemale .md-bar{
+		background-color: #fff;
+		border: 1px solid #d6d9dc;
+	}
+
+	#sk-wrapper{
+		display: none;
+	}
+	#sk-container{
+		display: none;
+	}
+
+
+
+md-radio-button {
+    box-sizing: border-box;
+    display: block;
+     margin-bottom:0px;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+}
+.subscription-backg{
+
+  background-color: #b98d00;
+}
+.subscription-font{
+  color:#fff;
+  text-align: center;
+  font-size: 1.2em;
+
+  }
+
+
+    .add{
+        font-size: 18px;
+    }
+    .progressBar{
+        position: absolute;
+        justify-content: center;
+        position: absolute;
+        justify-content: center;
+        top: 53%;
+        left: 45%;
+        z-index: 10;
+    }
+
+
+
+.vAccordion--default v-pane-header {
+    padding: 5px 0;
+    margin-bottom:5px;
+    border-bottom: 1px solid #b98d00;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+}
+
+.fontcolorsame{
+  color:#58595b;
+}
+.md-on, md-radio-button:not([disabled]).md-primary .md-on {
+    background-color:#b98d00;
+}
+md-radio-button:not([disabled]).md-primary.md-checked .md-off {
+    border-color: #b98d00;
+}
+
+.md-primary:hover{
+  background-color:#b98d00;
+}
+.phoneCall{
+    min-width:38px;
+    padding:2%;
+    background-color:blue;
+
+}
+
+.whatsApp{
+
+}
+.fa-phone{
+  font-size: 1.3em;
+    margin: 3px;
+}
+.fa-whatsapp{
+  font-size: 1.3em;
+    margin: 3px;
+}
+
+.btn{
+  background-color:#D2232A !important;
+  color:white !important;
+}
+button.phone:hover{
+   background-color:#0086fe !important;
+   
+}
+button.whatsApp:hover{
+   background-color:#25D366 !important;
+   
+}
+
+</style>
+
+<update-title title="Be U Salons Deals and Offers | Premium salon chain in Delhi|NCR & Bengalore"></update-title>
+<update-meta name="description" content="Be u salons, provides best salon deals on salon services at different be u salon outlets. Hair rebonding deals, Hair straightening deals, Hair keratin deals are top sellig deals of be u salons at very low prices at 80+ outlets all over Delhi-Ncr & Bangalore."></update-meta>
+<update-meta property="og:title" content="Best and low price deals for Men & Women by be u salons on Hair & Beauty services at your nearest BeU salon outlet. Great deals with huge discounts on facial, keratin, manicure & pedicure, smoothening, straightening, highlights in Delhi NCR and Bengalore."></update-meta>
+
+
+<div layout="column">
+<div class="m-t-l">
+    <md-content ng-cloak>
+      <div layout="row" flex="100">
+        <span flex="100" style="font-size:20px;text-align: center;padding:1% 1% 1% 1%"><b>Be U</b> {{parlor.name}}</span>
+      </div>
+      <div layout="row" flex="80"  flex-offset="10" flex-xs="100"  flex-offset-xs="0">
+        <div flex="100" class="parlor-bannerImge">
+           <img src="{{parlor.websiteBanner}}" alt="salon images" style="width: 100%;">
+
+        </div>
+          
+     
+      </div>
+
+    </md-content>
+    <md-content>
+	
+      
+     
+          <div layout="row" layout-xs="column" flex="80" flex-xs="100" flex-offset="10" flex-offset-xs="0" ng-cloak>
+           
+  				<div   flex="50" flex-xs="100" >
+            <md-card>
+            <div layout="row" layout-wrap>
+              <div flex="33" ng-repeat="img in parlor.images" layout-wrap>
+              <md-card ng-if="img.appImageUrl!=''">
+
+    	           <img src="{{img.appImageUrl}}" alt="salon images" style="width:100%;">
+                  
+              </md-card>  
+              </div>
+             </div>  
+              <div layout="row">
+              <div flex="100">
+                    <div layout="row" style="padding-top:2%;color: #424242;">
+                      <div flex="20" style="padding-left:4%;">Contact Us:</div>
+                      <div flex="5" flex-xs="10"><i class="material-icons" style="font-size: 20px;">call</i></div>
+                      <div flex="60">+91 {{parlor.phoneNumber}}</div>
+                    </div>
+                    <div layout="row" style="padding-left:3%;padding-bottom:1%;color: #424242;">
+                      <div flex="15" style="padding-left:1%;"> Address:</div>
+                      <div flex="80"><span style="font-size:13px;">{{parlor.landmark}},{{parlor.address2}}</span></div>
+                     
+                   </div>
+                    <div layout="row" style="padding-left:3%; "> Amenities</div>
+                    <div layout="row" class="infolist" ng-repeat="infoList in parlor.info">
+                     <img src="../img/checkmarkNew.png" alt="cheack"><span style="font-size:13px;">{{infoList}}</span>
+                    
+                    </div>
+             
+                  
+           
+              </div>
+             </div>  
+             </md-card>  
+  				</div>
+          
+          <div flex="50" flex-xs="100" ng-cloak>
+            <md-card>
+              <div layout="row">
+                <div flex="100" style="background: #a29c9cc7;text-align: center;padding-top: 2%;padding-bottom: 2%;color: #fff">
+                    REVIEWS & RATINGS
+                </div>
+              </div>
+
+              <div layout="row" flex="100">
+            <div flex="100" style="text-align: center;font-size:15px;padding-top: 1%;padding-bottom: 1%;"> Recent Ratings</div>
+              </div>
+              <div layout="row" flex="100" layout-align="center center">
+                <div flex="5" flex-xs="10" ng-repeat="rate in parlor.reviews" class="reting-salon-deal-d"  ng-style="rate.rating === 4 && {'background-color':'green'}  || rate.rating === 5 && {'background-color':'green'}|| rate.rating === 3 && {'background-color':'#fdc534'}|| rate.rating === 1 && {'background-color':'red'}|| rate.rating === 2 && {'background-color':'red'}">{{rate.rating}}
+                </div>
+               
+                
+              </div>
+            <div ng-repeat="review in parlor.reviews" flex="100" style="padding-top: 2%;padding-bottom:1%;margin-left: 2%;margin-right: 2%;border-bottom: 1px solid gray">
+    
+              <div layout="row" flex="100">
+                <div flex="10"><img src="../img/defaultpic.jpg" alt="user-images" style="border-radius: 81px;"></div>
+                <div flex="65">
+                    <div layout="row" style="font-weight:600;color:#424242;">
+                    {{review.clientName}}
+                    </div>
+                    <div layout="row" style="font-size: 13px;padding-bottom: 1%;padding-top: 1%;color: #747474;">
+                    {{review.review}}
+                    </div>
+                </div>
+                <div flex="5" style="height:23px;background:green;color:#fff;font-size: 13px;line-height: 23px;text-align:center;border-radius:4px;">{{review.rating}}
+                </div>
+                <div flex="20" style="font-size: 13px;text-align:center;color:#9e9fb3;">{{review.appointmentDate|date}}</div>
+              </div>
+      
+            </div>
+           
+         
+    
+            </md-card>
+          </div>
+      </div>
+           
+          <div layout="row" flex="100" class="layout-row flex-100" style="padding-bottom: 2%;" ng-cloak>
+        <div flex="40" hide-xs>
+          <div  layout="column" flex="100" class="layout-column flex-100" flex-offset="30" >
+            
+          </div>
+              
+        </div>
+          <div flex="30" layout-xs="column" style="padding-bottom: 0px;" layout-align="center">
+              <div flex="50" flex-xs="100" hide-md hide-lg flex-offset="10" flex-offset-sm="5">
+
+
+                <a href="http://beusalons.com/subscription/default"><md-button class="md-raised  phone btn"> <i class="fa fa-phone" aria-hidden="true"></i> <span style="font-size: 0.8em">Request A CallBack</span></md-button></a>
+              </div>
+              <div flex="50" flex-offset="10" flex-offset-xs="5" flex-offset-sm="5" style="margin-top:10px;">
+                <a  href="https://api.whatsapp.com/send?phone=919582242000&text=I%20want%20to%20know%20more%20about%20your%20subscription%20plan?"> <md-button class="md-raised  whatsApp btn" ><i class="fa fa-whatsapp" aria-hidden="true"></i><span style="font-size: 0.8em">Ask Query On Whatsapp</span></md-button></a>
+              </div>
+        </div>
+      
+        </div>
+		</md-content>
+    
+</div>
+</div>

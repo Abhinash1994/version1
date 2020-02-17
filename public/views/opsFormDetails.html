@@ -1,0 +1,246 @@
+<style media="screen">
+  .btn-group, .btn-group-vertical{
+    display:none;
+  }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">Ops Form Details</h2>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+      <div  class="col-md-3 col-lg-3 col-md-offset-2">
+          <h4>Select Date Range</h4>
+      </div>
+      <div class="col-md-6  col-lg-3" style="display: inline-flex;">
+          <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+                 ng-model="dateRangeSelected" ng-change="dateSelected()" readonly="readonly" required/>
+      </div>
+  </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-3 col-lg-3 col-md-offset-2"> <h4></h4></div>
+    <div class="col-md-6 col-lg-6 " >
+    <div style="display:inline-flex" isteven-multi-select input-model="opsList" output-model="selectedOpsList" button-label="opsName" item-label="opsName" tick-property="isSelected" output-properties="_id" on-close="changeOpsList()" ></div>
+    </div>
+
+<div class="row">
+    <div class="col-md-3 col-lg-3 col-md-offset-2"> <h4></h4></div>
+    <div class="col-md-6 col-lg-6 " >
+    <div style="display:inline-flex" isteven-multi-select input-model="parlorList" output-model="selectedParlorList" button-label="parlorList" item-label="parlorList" tick-property="isSelected" output-properties="_id" on-close="changeParlorList()" ></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-md-offset-2"><button class="btn btn-primary" id="apply-btnservice"  ng-click="selectEmployee()">Select Employees</button></div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <table ng-table="tableParams" class="table table-striped" style="margin-top:2em;">
+
+
+                    <tr ng-repeat="user in $data">
+                            <td title="'Form ID'" onmouseover="this.title='';">
+                                    {{user.formId}}
+                            </td>
+                            <td title="'Name'" sortable="'name'" onmouseover="this.title='';">
+                               {{user.name}}</td>
+                            <td title="'Parlor Name'"  onmouseover="this.title='';">
+                                {{user.parlorName}}</td>
+                            <td title="'Date'" sortable="'dateTime'">
+                               {{user.dateTime | date:'dd-MM-yyyy'}}</td>
+                             <td title="'Time'">
+                                {{user.dateTime | date:'HH:mm'}}</td>
+                              <td title="'Form Status'">
+                                <span ng-if="user.formStatus==0">Incomplete</span>
+                                <span ng-if="user.formStatus==1">Complete</span>
+                              </td>
+                              <td title="'View'">
+                                <button class="btn btn-primary" id="apply-btnservice"  ng-click="viewForm(user)">View Form</button>
+                              </td>
+
+
+                    </tr>
+    </table>
+  </div>
+
+</div>
+<div class="modal fade" id="viewFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog" style="width:70%">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel"></h4>
+                            </div>
+
+                            <div class="modal-body" >
+                              <div class="row">
+                                <div class="col-md-12" style="word-wrap: break-word;">
+                                  <div class="row">
+                                    <div class="col-md-12" style="padding-bottom:3em;">
+                                      <button ng-repeat="data in formJSON.questionsData" type="button" name="button" ng-click='categoryButton(data.categoryName)'>{{data.categoryName}}</button>
+                                      <br>
+
+
+                                      <div class="row" ng-if='employeeFlag' ng-repeat="value in employeeData">
+
+                                      </div>
+
+
+                                      <div class="row" ng-if='ownerFlag'  >
+
+                                        <div class="row">
+                                          <!-- {{value}} -->
+                                          <div ng-repeat="s in ownerData.questions" ng-if="s.formType=='text'">
+                                            <div class="col-md-12" >
+                                              {{s.question}}
+                                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                                                <hr>
+                                            </div>
+                                          </div>
+                                          <div ng-repeat="s in ownerData.questions" ng-if="s.formType=='radio'">
+                                            <div class="col-md-12" >
+                                              {{s.question}}
+                                              <br>
+                                              <label><input type="radio" name="optradio">{{s.options[0].option}}</label>
+                                              <label><input type="radio" name="optradio">{{s.options[1].option}}</label>
+                                              <hr>
+                                            </div>
+                                          </div>
+                                          <div ng-repeat="s in ownerData.questions" ng-if="s.formType=='range'">
+                                            <div class="col-md-12" >
+                                              {{s.question}}
+                                              <br>
+                                                <rzslider rz-slider-model="slider_ticks_values_tooltip.value" rz-slider-options="slider_ticks_values_tooltip.options"></rzslider>
+                                            </div>
+                                          </div>
+
+
+                                          <div ng-repeat="s in ownerData.questions" ng-if="s.formType=='checkbox'">
+                                            <div class="col-md-12" >
+
+                                              {{s.question}}
+                                              <br>
+                                              <label><input type="checkbox" value="">Option 1</label>
+                                              <br>
+
+                                            </div>
+                                          </div>
+                                          <div ng-repeat="s in ownerData.questions" ng-if="s.formType=='dropDown'">
+                                            <div class="col-md-12" >
+
+                                              {{s.question}}
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                      </div>
+
+
+
+                                      <div class="row" ng-if='branchFlag'  ng-repeat="value in branchData">
+                                        <div ng-repeat="s in branchData.questions" ng-if="s.formType=='radio'">
+                                          <div class="col-md-12" >
+                                            {{s.question}}
+                                            <br>
+                                            <label><input type="radio" name="optradio">{{s.options[0].option}}</label>
+                                            <label><input type="radio" name="optradio">{{s.options[1].option}}</label>
+                                            <hr>
+                                          </div>
+                                        </div>
+                                        <div ng-repeat="s in branchData.questions" ng-if="s.formType=='range'">
+                                          <div class="col-md-12" >
+                                            {{s.question}}
+                                            <br>
+
+                                          </div>
+                                        </div>
+                                        <div ng-repeat="s in branchData.questions" ng-if="s.formType=='checkbox'">
+                                          <div class="col-md-12" >
+
+                                            {{s.question}}
+                                            <br>
+                                            <label><input type="checkbox" value="">Option 1</label>
+                                            <br>
+
+                                          </div>
+                                        </div>
+                                        <div ng-repeat="s in branchData.questions" ng-if="s.formType=='dropDown'">
+                                          <div class="col-md-12" >
+
+                                            {{s.question}}
+                                          </div>
+                                        </div>
+                                      </div>
+                                      </div>
+
+
+
+                                      <div class="row" ng-if='managerFlag'  ng-repeat="value in managerData">
+
+                                        <div ng-repeat="s in managerData.questions" ng-if="s.formType=='radio'">
+                                          <div class="col-md-12" >
+                                            {{s.question}}
+                                            <br>
+                                            <label><input type="radio" name="optradio">{{s.options[0].option}}</label>
+                                            <label><input type="radio" name="optradio">{{s.options[1].option}}</label>
+                                            <hr>
+                                          </div>
+                                        </div>
+                                        <div ng-repeat="s in managerData.questions" ng-if="s.formType=='range'">
+                                          <div class="col-md-12" >
+                                            {{s.question}}
+                                            <br>
+
+                                          </div>
+                                        </div>
+                                        <div ng-repeat="s in managerData.questions" ng-if="s.formType=='checkbox'">
+                                          <div class="col-md-12" >
+
+                                            {{s.question}}
+                                            <br>
+                                            <label><input type="checkbox" value="">Option 1</label>
+                                            <br>
+
+                                          </div>
+                                        </div>
+                                        <div ng-repeat="s in managerData.questions" ng-if="s.formType=='dropDown'">
+                                          <div class="col-md-12" >
+
+                                            {{s.question}}
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      </div>
+
+
+
+                                    </div>
+                                  </div>
+
+
+                                  <!-- {{formJSON}} -->
+                                </div>
+
+                              </div>
+
+                                  <!-- <table ng-table="tableParams" class="table table-striped" style="margin-top:2em;">
+                                      <tr>
+
+                                      </tr>
+                                  </table> -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <!-- <button type="submit" class="btn btn-primary">Add</button> -->
+                            </div>
+
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>

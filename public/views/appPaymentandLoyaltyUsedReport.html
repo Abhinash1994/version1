@@ -1,0 +1,129 @@
+<style>
+			.total{
+						color:white;
+						background-color: cadetBlue !important;
+
+					}
+    h2{
+        text-align: center;
+    }
+		.table{
+			height:500px;
+		}
+		
+	.setelment-report{
+        height: 40px;
+    	}
+</style>
+            <h2>App Payment Loyalty Used Report</h2>
+<div class="row" ng-if="role==1">
+    <div class="col-md-3 col-lg-3 col-md-offset-3"> <h4>Select Salon</h4></div>
+    <div class="col-md-6 col-lg-3" style = "margin-left:-20px">
+    <div style="display:inline" isteven-multi-select input-model="parlors" output-model="selected.selectedParlor" button-label="name" item-label="name" tick-property="isSelected" output-properties="parlorId" ></div>
+    </div>
+</div>
+
+
+
+
+<div class="row">
+		<div class="col-md-offset-2 col-md-2">
+					<label style="margin-top: 8px;">Select Date Range </label>
+		</div>
+		<div class="col-md-6">
+                                <!--       date range Picker  -->
+                                  <input date-range-picker id="daterange1" name="daterange1" class="form-control date-picker" type="text" ng-model="dates.date" />
+         </div>
+
+
+</div>
+
+<div class="row">
+			<div class="col-md-offset-2 col-md-2">
+				<label>Select Payment Mode</label>
+			</div>
+			<div class="col-md-4">
+					<select class="form-control" ng-model="selectedpaymentMode" ng-options="item.method as item.name for item in paymentModes">
+					</select>
+			</div>
+</div>
+
+<div class="row" ng-if="role == 7">
+			<div class="col-md-offset-2 col-md-2">
+				<label>Select salon</label>
+			</div>
+			<div class="col-md-4">
+					 <select  class="setelment-report selectsalon"  ng-model="selectedParlorId"  ng-options="parlor.parlorId as (parlor.name + ' '+parlor.address1) for parlor in allParlors |orderBy:'name'" ng-change="changeParlor(selectedParlorId)">
+                    </select>
+			</div>
+</div>
+
+<div class="row">
+				<div class="col-md-offset-2 col-md-2">
+					<label>Select FreeBies Range</label>
+				</div>
+				<div class="col-md-4">
+						<select class="form-control" ng-model="freebiesRange" ng-options="item as item.range for item in freebieRange"></select>
+				</div>
+</div>
+<div class="row">
+		<div class="col-md-offset-4  col-md-3">
+				<button class="btn btn-primary" ng-click="filter()">Apply Filter</button>
+		</div>
+</div>
+<div >
+<table class="table" fixed-header ng-if='data.length>1'>
+
+	<thead>
+		<tr >
+					<th>Date</th>
+					<th>Customer Name</th>
+					<th>Parlor Name</th>
+					
+					<th>Total Billed Amount</th>
+					<th>Freebies Used</th>
+					<th>FreeBie Redeemed Points</th>
+					<th>Free Service Points</th>
+					<th>Payment Method</th>
+
+		</tr>
+</thead>
+<tbody>
+<tr ng-repeat="user in data">
+        <td >
+            {{user.date}}</td>
+        <td >
+            {{user.clientName}}</td>
+         <td>{{user.parlorName}} - {{user.parlorAddress}}</td>
+              <td  >
+            {{user.totalAmount|number:0}}</td>
+        <td  >
+            {{user.freePointsUsed |number:0}}</td>
+              <td   >
+            {{user.freePointsRedemeed |number:0}}</td>
+        <td  >
+            {{user.freeServicePoints |number:0}}</td>
+              <td  >
+              	{{user.paymentMethod }}
+          </td>
+    </tr>
+
+
+</tbody>
+<thead>
+		<tr >
+					<th>Total</th>
+					<th></th>
+					<th></th>
+					<th>{{total.totalAmount |number:0}}</th>
+					<th>{{total.freePointsUsed |number:0}}</th>
+					<th>{{total.freePointsRedemeed |number:0}}</th>
+					<th>{{total.freeServicePoints |number:0}}</th>
+					<th></th>
+
+		</tr>
+</thead>
+
+
+
+</table>

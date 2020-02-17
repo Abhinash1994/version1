@@ -1,0 +1,251 @@
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
+    <meta http-equiv="x-ua-compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+
+    <style>
+        @font-face {
+            font-family: 'latoBlackItalic';
+            src: url('Lato-BlackItalic.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('Lato-BlackItalic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+        @font-face {
+            font-family: 'LatoBold';
+            src: url('Lato-Bold.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('lato/Lato-Bold.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+        @font-face {
+            font-family: 'latoHairLineItalic';
+            src: url('Lato-HairlineItalic.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('Lato-HairlineItalic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+        @font-face {
+            font-family: 'latoHeavyItalic';
+            src: url('Lato-HeavyItalic.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('Lato-HeavyItalic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+        @font-face {
+            font-family: 'Lato-Light';
+            src: url('Lato-Light.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('Lato-Light.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+
+        @font-face {
+            font-family: 'latoMediumItalic';
+            src: url('Lato-MediumItalic.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('Lato-MediumItalic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+
+
+
+        }
+        @font-face {
+            font-family: 'latoRegular';
+            src: url('Lato-Regular.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('Lato-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+        @font-face {
+            font-family: 'latoSemiBold';
+            src: url('Lato-Semibold.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('Lato-Semibold.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+        @font-face {
+            font-family: 'latoSemiBoldItalic';
+            src: url('Lato-SemiboldItalic.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('Lato-SemiboldItalic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+        @font-face {
+            font-family: 'latoThin';
+            src: url('Lato-Thin.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('Lato-Thin.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+        @font-face {
+            font-family: 'latoThinItalic';
+            src: url('Lato-ThinItalic.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('Lato-ThinItalic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+        @font-face {
+            font-family: 'LatoMedium';
+            src: url('Lato-Medium.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('Lato-Medium.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+        @font-face {
+            font-family: 'LatoBold';
+            src: url('Lato-Bold.ttf') format('ttf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('Lato-Bold.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+        @font-face {
+            font-family: 'LetterGothicStd-Bold';
+            src: url('LetterGothicStd-Bold.otf') format('otf'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('LetterGothicStd-Bold.otf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+        }
+        .head-responsive{
+            float:left;
+            width:120px;
+            margin-top:2%;
+            margin-left:4%;
+        }
+        .head-right{
+            float:right;
+            color:#777;
+            padding-top:3%;
+            padding-right:1%;
+            width:20%;
+            font-size:10px;
+        }
+        .android{
+            width:20px;
+            height:20px;
+        }
+        .footer{
+            text-align:center;
+            height:200px;
+            padding-top:3%;
+            font-family:'Lato-Light';
+            color:#9f9f9f;
+            font-size:14px;
+            line-height:24px;
+        }
+        .mailtable{
+            font-size:14px;
+            width:100%;
+        }
+        .main-container{
+            height: 300px;
+            background: #f2f2f2;
+            background-image: url('http://res.cloudinary.com/dyqcevdpm/image/upload/v1492149004/PANEL12_b1ua0p.jpg');
+            background-size: contain;
+        }
+        .go-container{text-align:center;line-height:300px;color:#7FBA50;font-family:'Lato-Light';}
+        .second-container{height:600px;background:#fff;}
+        .freebee{
+            padding-left:10%;
+        }
+        @media only screen and (max-width: 480px){
+            .head-responsive{
+                float:left;
+                width:120px;
+                margin-top:2%;
+                margin-left:4%;
+            }
+            .head-right{
+                float:right;
+                color:#777;
+                padding-top:3%;
+                padding-right:1%;
+                width:50% !important;
+                font-size:10px;
+            }
+            .android{
+                width:15px !important;
+                height:15px !important;
+            }
+            .footer{
+                text-align:center;
+                height:500px !important;
+                padding-top:3%;
+                font-family:'Lato-Light';
+                color:#9f9f9f;
+                font-size:14px;
+                line-height:24px;
+            }
+            .mailtable{
+                font-size:10px !important;
+                width:100%;
+            }
+            .main-container{
+                height:80px!important;
+                background: #f2f2f2;
+                background-image: url('http://res.cloudinary.com/dyqcevdpm/image/upload/v1492149004/PANEL12_b1ua0p.jpg');
+                background-size: contain;
+            }
+            .go-container{text-align:center;line-height:80px!important;color:#7FBA50;font-family:'Lato-Light';font-size:15px;}
+            .second-container{height:450px!important;background:#fff;}
+            .freebee{
+                padding-left:40% !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<div style="width:100%;height:auto;margin:auto;">
+    <div class="head-responsive">
+        <img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1491484496/beu-logo_srvetg.png" style="height:60px;width:100%" alt="Beu salons">
+    </div>
+    <div class="head-right">
+        <div>
+            <span style="padding-left:0%;font-family:'latoRegular';">Download App</span>
+            <span style="padding-left:2%;text-transform:capitalize;font-family:'latoRegular';">Avail Freebies</span>
+        </div>
+        <div style="padding-top:11px;">
+          <span style="padding-left:2%;">
+            <a href="onelink.to/bf45qf" style="text-decoration:none;"> <img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1491484496/ICON_3_g5skqb.png" alt="android icon" class="android">
+            </a>
+          </span>
+            <span style="padding-left: 2%;">
+            <a href="onelink.to/bf45qf" style="text-decoration:none;"> <img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1491484496/ICON_2_abyddu.png" alt="Apple-icon icon" class="android">
+            </a>
+          </span>
+            <span class="freebee">
+            <img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1491484496/ICON_hjnl1h.png" alt="Apple-icon icon" class="android">
+          </span>
+        </div>
+    </div>
+    <div style="clear:both;">
+    </div>
+    <div style="height:30px;background-color:#000;color:#fff;padding-top:2%;">
+        <table class="mailtable">
+            <tr>
+                <td style="border-right:1px solid #fff;text-align:center;">HAIR</td>
+                <td style="border-right:1px solid #fff;text-align:center;">BEAUTY</td>
+                <td style="border-right:1px solid #fff;text-align:center;">SPA</td>
+                <td style="border-right:1px solid #fff;text-align:center;">MAKEUP</td>
+                <td style="text-align:center;">HAND&amp;FEET</td>
+            </tr>
+        </table>
+        <!--<ul style="list-style:none;">-->
+        <!--<li class="menu">HAIR</li>-->
+        <!--<li class="menu-1">BEAUTY</li>-->
+        <!--<li class="menu">SPA</li>-->
+        <!--<li class="menu-1">MAKEUP</li>-->
+        <!--<li class="menu-2">HAND&amp;FEET</li>-->
+        <!--</ul>-->
+    </div>
+
+    <div style="clear:both;"></div>
+    <div class="main-container">
+        <h2 class="go-container">Going ... Going ... Almost Gone !</h2>
+    </div>
+    <div class="second-container">
+        <h1 style="text-align:center;color:#000;padding-top:38px;font-family:'latoBold';"><b>Better hurry & checkout</b></h1>
+        <p style="text-align:center;color:#000;font-family:'Lato-Light';font-size:15px;">The service in your cart is about to</p>
+        <h1 style="text-align:center;color:#000;font-family:'latoBold';"><b>Expire</b></h1>
+        <div style="width:500px;height:150px;margin:auto;"><img src="https://media.giphy.com/media/k1SuVPEuA89S8/giphy.gif" alt="" style="width: 100%"> </div>
+    </div>
+    <div style="clear:both;">
+    </div>
+    <div class="footer">
+      <span>
+        <a href="https://www.facebook.com/BeUSalons/" style="text-decoration:none;">
+          <img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1491484496/social__ICON_2_dsofvy.png" alt="facebook" width="30" height="30" style="text-decoration:none;">
+        </a>
+      </span>
+        <span style="padding-left:3%;">
+        <a href="https://plus.google.com/100683126750126363146" style="text-decoration:none;">
+          <img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1491484496/social__ICON_3_qdqnsk.png" alt="facebook" width="30" height="30">
+        </a>
+      </span>
+        <span style="padding-left:3%;">
+        <a href="https://www.instagram.com/beusalons/" style="text-decoration:none;">
+          <img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1491484496/social__ICON_4_twk3mc.png" alt="facebook" width="30" height="30">
+        </a>
+      </span>
+        <p>Amount received against any services/products will be refunded and can not be redeemed against other services/products. Deals once sold can not be exchanged or returned. Be U Salons is not liable for any loss or damage of any personal belonging and reaction to skin and hair. Offers/ Packages need to be redeemed within stipulated duration of time or they hold expired. By default, you will receive transaction related and promotional SMS'es. To unsubscribe or to file a complaint, please email us at customercare@beusalons.com Rights of Admission Reserved. All disputes are subject to Delhi Jurisdiction.
+        </p>
+    </div>
+
+
+</div>
+
+</body>
+</html>

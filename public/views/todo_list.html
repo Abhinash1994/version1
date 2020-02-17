@@ -1,0 +1,148 @@
+				
+<div class="content">
+
+	<div class="module message">
+		<div class="module-head">
+			<h3>To Do List</h3>
+		</div>
+		<div class="module-option clearfix">
+			<div class="pull-left">
+				Filter : &nbsp;
+			</div>
+			<select ng-model="filtertext" class="selectpicker">
+ 				<option value="">All</option>
+  				<option value="Completed">Completed</option>
+  				<option value="Pending">Pending</option>
+  				<option value="Missed">Missed</option>
+			</select>
+			<script type="text/javascript">
+			$('.selectpicker').selectpicker({
+				  size: 4
+				});
+
+			</script>
+			<div class="pull-right">
+				<a class="btn btn-primary" data-toggle="modal" data-target="#addNewTask">Add Task</a>
+			</div>
+		</div>
+		<div class="module-body table">
+
+			<table class="table table-message">
+				<tbody>
+					<tr class="heading">
+						<td class="cell-icon"></td>
+						<td class="cell-title">Task</td>
+						<td class="cell-status hidden-phone hidden-tablet">Status</td>
+						<td class="cell-time">Due Date</td>
+						<td class="cell-time align-right"></td>
+					</tr>
+
+					<tr ng-repeat="task in todolist | orderBy:'duedate' | filter:value | filter: filtertext" ng-show="task.resolved==false" class="task" ng-class="{'resolved': task.resolved}">
+						<td class="cell-icon"><i class="icon-checker high"></i></td>
+						<td class="cell-title"><div>{{task.description}}</div></td>
+						<td class="cell-status hidden-phone hidden-tablet" ng-click="setstatus(task)"><b class="pending">{{task.status}}</b></td>
+						<td class="cell-time">{{task.duedate}}</td>
+						<td class="cell-time align-right"><button ng-click="change(task)" class="btn-info">Edit</button></td>
+					</tr>
+					<tr ng-repeat="task in todolist | orderBy:'-duedate' | filter:value | filter: filtertext" ng-show="task.resolved==true" class="task" ng-class="{'resolved': task.resolved}">
+						<td class="cell-icon"><i class="icon-checker high"></i></td>
+						<td class="cell-title"><div>{{task.description}}</div></td>
+						<td class="cell-status hidden-phone hidden-tablet"><b ng-class="{ 'success': task.status=='Complete'}">{{task.status}}</b></td>
+						<td class="cell-time">{{task.duedate}}</td>
+						<td class="cell-time align-right"><button ng-click="change(task)" class="btn-info">Edit</button></td>
+					</tr>
+
+				</tbody>
+			</table>
+
+
+		</div>
+	</div>
+
+
+<div class="modal fade" id="editTask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">Edit Task</h4>
+          </div>
+          <form role="form">
+          <div class="modal-body">
+              <div class="row">
+                      <div class="col-lg-6">
+                          <div class="form-group">
+                              <label>Task:</label>
+                              <input ng-model="edit_task_description" class="form-control" required>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="form-group">
+                              <label>Due Date</label>
+				                <div class='input-group date' id='datetimepicker2'>
+				                    <input class="form-control" name="date" ng-model="edit_task_date" id="datetimepicker" placeholder="select date" required/>
+				                    <span class="input-group-addon">
+				                        <span class="glyphicon glyphicon-calendar"></span>
+				                    </span>
+				                </div>
+
+                          </div>
+                      </div>
+                  </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button ng-click="edittask()" type="submit" class="btn btn-primary">Edit</button>
+          </div>
+      </form>
+      </div>
+      <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="addNewTask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">Add New Task</h4>
+          </div>
+          <form role="form">
+          <div class="modal-body">
+              <div class="row">
+                      <div class="col-lg-6">
+                          <div class="form-group">
+                              <label>Task:</label>
+                              <input ng-model="new_task_description" class="form-control" required>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="form-group">
+                              <label>Due Date</label>
+				                <div class='input-group date' id='datetimepicker1'>
+				                    <input class="form-control" name="date" id="datetimepicker" placeholder="select date" required/>
+				                    <span class="input-group-addon">
+				                        <span class="glyphicon glyphicon-calendar"></span>
+				                    </span>
+				                </div>
+
+                          </div>
+                      </div>
+                  </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button ng-click="addtask()" type="submit" class="btn btn-primary">Add</button>
+          </div>
+      </form>
+      </div>
+      <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
+
+
+</div><!--/.content-->

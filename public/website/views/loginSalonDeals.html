@@ -1,0 +1,117 @@
+<style media="screen">
+.disableLoginClass{
+
+  background:#B0B0B0 !important;
+  color:gray!important;
+
+}
+.enableLoginClass{
+  background:#D2232A!important;
+  color:white!important;
+}
+    .labels{
+        width:auto !important;
+    }
+    md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    border-color: #D2232A!important;
+}
+    md-input-container:not(.md-input-invalid).md-input-focused label {
+    color: #D2232A!important;
+}
+    input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+md-input-container {
+    display: inline-block;
+    position: relative;
+    padding: 2px;
+    margin:0px 0;
+    vertical-align: middle;
+    height: 49px;
+}
+    .toolbar{
+        margin:9px;
+        background-color:#D2232A !important;
+    }
+    .myPage{
+        opacity:0.2;
+    }
+    .loaders{
+        align-self:center;
+        position:absolute;
+    }
+
+
+</style>
+<div flex="80" flex-offset="10" class="Newsalondeallogin">
+
+<!--
+  <div layout="row" flex-xs="100" flex="100" layout-wrap>
+    <div flex="100" style="text-align:center;font-size:1.4em;">
+
+        One last step
+
+    </div>
+  </div>
+-->
+  <div layout="row" flex-xs="100" layout-align="center center" flex="50" flex-offset-xs="0"  flex-offset="25" layout-wrap style="margin-top:1em">
+    <div flex="100" style="text-align:center;" >
+     <form form name="inquiryForm">
+
+    <md-card style="width:100%;">
+
+          <div layout-align="center center" style="background-color:#D2232A;">
+            <div style="text-align:center;padding-top:2%;padding-bottom:2%;color:#fff;">Proceed To Checkout</div>
+          </div>
+
+            <md-card-content  ng-class="{'myPage':loaderProgress}" style="margin-top: 1.5em;margin-bottom: 2em;">
+<!--
+             <md-input-container class="md-block" flex-gt-sm>
+            <label  class="labels">Name</label>
+            <input ng-model="user.firstName" ng-change="enableLogin()">
+            </md-input-container>
+-->
+            <div layout="row" style="padding-top:3%;padding-left: 0.5em;">
+              <div class="loaders" ng-if="loaderProgress"  flex-xs="10" flex-offset-xs="30" flex-offset="15">
+               <md-progress-circular ng-disabled="false" class="md-accent bufferColor" md-diameter="30"></md-progress-circular>
+             </div>
+                  <i class="material-icons" style="margin-top:9px">phone</i>
+            <md-input-container class="md-block" flex-gt-sm>
+              <label class="labels">Phone Number</label>
+              <input ng-model="user.phoneNumber" type="number" ng-change="enableLogin()"  autocomplete="off" style="margin-left: 0.3em;">
+              </md-input-container>
+
+
+                </div>
+
+                <div flex="100" class="addReviewDialog-page-margin" layout-align="center center" style="border-radius: 5px;">
+                  <md-button class="sendOTPButton" flex="100" ng-disabled="disableButton" ng-click="smsLogin($event)" id="fbLoginButton" ng-style="disableButton==true && {'background-color':'#B0B0B0','color':'gray'} || disableButton==false && {'background-color':'#D2232A','color':'white'}">Continue</md-button>
+                        <!-- <md-button  ng-disabled="disableButton"  ng-click="smsLogin($event)"  id="fbLoginButton" style="color:white;width:39%;height:20px;font-size:.7em"  ng-style="disableButton==true && {'background-color':'#B0B0B0','color':'gray'} || disableButton==false && {'background-color':'#D2232A','color':'white'}">Send Otp</md-button> -->
+
+                </div>
+                <!-- <div layout="row" flex="100" style="margin:1em 0;">
+                  <div flex="45" style="border-bottom:1px solid #B0B0B0;width:100%;margin-bottom: 1em;margin-right: 1em;">
+
+                  </div>
+                  <div flex="10" >
+                    <span style="color:#B0B0B0;font-size:1.5em">Or</span>
+                  </div>
+                  <div flex="45" style="border-bottom:1px solid #B0B0B0;width:100%;margin-bottom: 1em;margin-left: 1em;">
+
+                  </div>
+                </div>
+                <div layout="column" flex="100" class="addReviewDialog-page-margin" layout-align="center center" style="background:#3B5998;border-radius: 5px;">
+                    <md-button id="fbLoginButton"  ng-click="websiteQuerySubmit()" style="color:white;width:100%;padding: 0.5em;">Login With Facebook</md-button>
+                </div> -->
+            </md-card-content>
+      </md-card>
+         </form>
+</div>
+</div>
+
+
+</div>

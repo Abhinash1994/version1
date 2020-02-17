@@ -1,0 +1,163 @@
+
+<style>
+	h3{
+				text-align:center;
+		}
+	.row{
+
+		margin-top:9px;
+	}
+
+	.col-md-offset-2 label{
+				margin-top:13px;
+	}	
+
+	input {
+		background-color:white !important;
+	}
+
+	.container{
+			margin-top:10px;
+		    background-color: white;
+    	padding: 30px;
+	}
+
+
+		
+</style>
+
+
+<div class="container">
+
+			<h3>Create Be U Questions</h3>
+
+<form ng-submit="submitQuestion()">			
+	<div class="row">
+						<div class="col-md-offset-2 col-md-3">
+									<label>Select Category</label>
+
+						</div>
+						<div class="col-md-3">
+
+								<div style="display:inline" isteven-multi-select input-model="categories" output-model="category.copiedArray" on-select-all="onselectAll()"  on-select-none="onselectNone()" on-item-click="optionsChanged(this)" button-label="name" item-label="name" tick-property="isSelected" output-properties="_id" ></div>
+
+						</div>
+						
+			</div>
+			<div class="row" ng-if="subCategories.length>0">
+					<div class="col-md-offset-2 col-md-3">
+
+								<label>Select Subcategory</label>
+						</div>
+						<div class="col-md-3">
+								<div style="display:inline" on-select-all="selectAllSub()" on-select-none="selectNone()" isteven-multi-select input-model="subCategories" output-model="subCategory.copiedArray"  on-item-click="optionsChangedSub()" button-label="name" item-label="name" tick-property="isSelected" output-properties="_id" ></div>
+
+						</div>
+
+						
+
+			</div>
+			<div class="row" ng-if="category.copiedArray.length>0 && subCategory.copiedArray.length>0">
+					<div class="col-md-offset-2 col-md-3">
+								<label>Form Type</label>
+
+						</div>
+						<div class="col-md-3">
+								<select ng-change="radioChange()"  class="form-control" ng-options="b._value as b.name for b in formTypes track by b._value"  ng-model="formType.select" required></select>
+
+						</div>
+
+						
+
+
+			</div>
+
+
+	<!-- 						when the form type is checkbox													-->
+
+	<div class="row" ng-if="formType.select=='checkbox' || formType.select=='radio'">
+
+					<div class="row">
+								<div class="col-md-offset-2 col-md-3">
+
+									<label>Number  of Options</label>
+								</div>
+						<div class="col-md-3">
+										<input ng-change="checkBox()"  required  type="number"  class="form-control"  ng-model="Nop.select"/>
+						</div>
+					</div>
+					<div class="row"  ng-if="Nop.select>0"    >
+
+							<div class="row" ng-repeat="a in formTypes.selected.options">
+
+
+								<div class="col-md-offset-2 col-md-3">
+
+									<label>{{a.label}}</label>
+								</div>
+									<div class="col-md-3">
+										<input    type="text" required  class="form-control"  ng-model="a.value"/>
+									</div>
+
+							</div>
+
+
+				</div>
+</div>
+
+<!-- 										when the form Type is range     											 -->
+
+		<div class="row"  ng-if="formType.select=='range'"  >
+
+				<div class="row"  >
+							<div class="col-md-offset-2 col-md-3">
+
+								<label >Max Value</label>
+
+					</div>
+					<div class="col-md-3">
+
+								<input type  ="number" required class="form-control"  ng-model="formTypes.selected.max"/>
+
+					</div>
+
+				</div>
+				<div class="row"   >
+					<div class="col-md-offset-2 col-md-3">
+
+								<label >Min Value</label>
+
+					</div>
+					<div class="col-md-3">
+
+								<input type  ="number" required class="form-control"  ng-model="formTypes.selected.min"/>
+
+					</div>
+
+				</div>
+
+				
+		</div>
+
+
+		<div class="row">
+					<div class="col-md-offset-2 col-md-3">
+							<label > Question </label>
+					</div>
+					<div class="col-md-5">
+						<input type  ="text" class="form-control" required  ng-model="Question.val"/>
+
+					</div>
+
+
+
+		</div>
+
+<div class="row">
+<button type ="Submit" class="btn btn-primary form-control"  >Create Question </button>
+</div>
+
+</form>
+
+
+</div>

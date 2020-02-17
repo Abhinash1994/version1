@@ -1,0 +1,774 @@
+<style>
+
+.ng-scope th,td{
+	padding:3px;
+	margin:0px;
+}
+#reLiveCloseDate ul{
+	margin-left: -232px;
+}
+.cashback{
+	padding-left: 14px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-top: 19px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+label{
+	margin-bottom:-9px;
+}
+
+.selectcity{
+	    padding-left: 25px;
+}
+</style>
+
+
+				
+
+
+ <div class="row">
+	<div class="col-md-12">
+	<div class="col-md-3">
+	  <div class="form-group">
+	      <label>Name</label>
+	      <input ng-model="p.name" class="form-control" >
+	  </div>
+	</div>
+	<div class="col-md-3">
+	  <div class="form-group">
+	      <label>Contact number</label>
+	      <input ng-model="p.phoneNumber" class="form-control"  >
+	  </div>
+	</div>
+	<div class="col-md-3">
+	  <div class="form-group">
+	      <label>Legal Entity</label>
+	      <input ng-model="p.legalEntity" class="form-control" >
+	  </div>
+	</div>
+	<div class="col-md-3">
+	  <div class="form-group">
+	      <label>Tax</label>
+	      <input ng-model="p.tax" class="form-control" ng-disabled="flag">
+	  </div>
+	</div>
+
+	<div class="col-md-3">
+	  <div class="form-group">
+	      <label>Brands</label>
+	      <input ng-model="p.brands" class="form-control" >
+	  </div>
+	</div>
+
+		<div class="col-md-3">
+	  <div class="form-group">
+	      <label>Ambience Rating(Out of 5)</label>
+	      <input ng-model="p.ambienceRating" type="number" class="form-control" >
+	  </div>
+	</div>
+
+
+<!-- appRevenuePercentage -->
+<!-- revenueDiscountAvailable -->
+
+		<div class="col-md-3">
+	  <div class="form-group">
+	      <label>Happy Hour Discount</label>
+	      <input ng-model="p.appRevenuePercentage" type="number" class="form-control" >
+	  </div>
+	</div>
+
+	</div>
+
+<div class="row">
+
+<div class="col-md-3">
+<label class="selectcity">Select City</label>
+</div>
+<div class="col-md-3">
+<select class="form-control"  ng-model="p.cityId" ng-options="a.cityId as a.cityName for a in cities"></select>
+
+</div>
+
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-3">
+		  <div class="form-group">
+		      <label>SMS Code</label>
+		      <input ng-model="p.smscode" class="form-control" >
+		  </div>
+		</div>
+		<div class="col-md-3">
+		  <div class="form-group">
+		      <label>Center Id</label>
+		      <input ng-model="p.centerId" class="form-control" >
+		  </div>
+		</div>
+		<div class="col-md-3">
+		  <div class="form-group">
+		      <label>Latitude</label>
+		      <input ng-model="p.latitude" class="form-control" >
+		  </div>
+		</div>
+	<div class="col-md-3">
+	  <div class="form-group">
+	      <label>Longitude</label>
+	      <input ng-model="p.longitude" class="form-control" >
+	  </div>
+	</div>
+	</div><!--end of tax-->
+	<div class="col-md-12">
+	  <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Logo Url</label>
+			  <input ng-model="p.logo" class="form-control" >
+		  </div>
+		  </div>
+
+		  <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Parlor Link</label>
+			  <input ng-model="p.link" class="form-control" >
+		  </div>
+		  </div>
+
+		   <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Gender</label>
+			  <select class="form-control" ng-model="p.gender" name="gender">
+				  <option value="1" ng-selected="p.gender == 1">Unisex</option>
+				  <option value="2" ng-selected="p.gender == 2">Male</option>
+				  <option value="3" ng-selected="p.gender == 3">Female</option>
+			  </select>
+		  </div>
+	  </div>
+
+	   <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Attendace Working</label>
+			  <select class="form-control" ng-model="p.attendanceWorking" name="attendanceWorking">
+				  <option value="1" ng-selected="p.attendanceWorking == 1">Working</option>
+				  <option value="0" ng-selected="p.attendanceWorking == 0">Not Working</option>
+			  </select>
+		  </div>
+	  </div>
+
+
+
+	   <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Parlor type</label>
+			  <select class="form-control" ng-model="p.parlorType" name="parlorType">
+				  <option value="0" ng-selected="p.parlorType == 0">A Grade</option>
+				  <option value="1" ng-selected="p.parlorType == 1">B Grade</option>
+				  <option value="2" ng-selected="p.parlorType == 2">C Grade</option>
+				  <option value="4" ng-selected="p.parlorType == 4">Affiliate</option>
+			  </select>
+		  </div>
+	  </div></div></div></div>
+<div class="row">
+	<div class="col-md-12">
+	   <div class="col-md-3">
+	   <label>Status<span>
+		  <div class="form-group">
+				<label><input type="checkbox" value="" ng-model="p.active">Active</label>
+		  </div></span><label>
+	 </div>
+
+
+<div class="col-md-3">
+		  <div class="form-group">
+			  <label>Parlor closed day</label>
+			  <select class="form-control" ng-model="p.dayClosed" name="dayClosed">
+				  <option value="0" ng-selected="p.dayClosed == 0">None</option>
+				  <option value="1" ng-selected="p.dayClosed == 1">Sunday</option>
+				  <option value="2" ng-selected="p.dayClosed == 2">Monday</option>
+				  <option value="3" ng-selected="p.dayClosed == 3">Tuesday</option>
+				  <option value="4" ng-selected="p.dayClosed == 4">Wednesday</option>
+				  <option value="5" ng-selected="p.dayClosed == 5">Thrusday</option>
+				  <option value="6" ng-selected="p.dayClosed == 6">Friday</option>
+				  <option value="7" ng-selected="p.dayClosed == 7">Saturday</option>
+			  </select>
+		  </div>
+	  </div>
+
+
+    <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Parlor Commission to BE U for service</label>
+			  <input ng-model="p.serviceCommission" class="form-control" >
+		  </div>
+	  </div>
+
+
+
+  </div>
+</div>
+
+ <div class="row">
+	<div class="col-md-12">
+        <div class="col-md-5">
+            <p class="input-group">
+                <input type="text" class="form-control col-md-3" style= "width:90%" uib-datepicker-popup="fullDate" ng-model="p.discountEndTime" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default " ng-click="open1()" style="margin-top: 20%;margin-left: -110%;"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+
+
+
+		  <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Parlor Commission to beu for product</label>
+			  <input ng-model="p.productCommission" class="form-control" ng-disabled="true">
+		  </div>
+		  </div>
+
+	   <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Parlor Commision Type</label>
+			  <select class="form-control" ng-model="p.commissionType" name="commissionType">
+				  <option value="0" ng-selected="p.commissionType == 0">Normal</option>
+				  <option value="1" ng-selected="p.commissionType == 1">Threshold Required</option>
+			  </select>
+		  </div>
+	  </div>
+
+	   <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Parlor Threshold Amount 1</label>
+			  <input ng-model="p.thresholdAmount1" class="form-control" >
+		  </div>
+		  </div>
+
+		  <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Parlor Threshold Amount Commission 1</label>
+			  <input ng-model="p.thresholdAmount1Commission" class="form-control" >
+		  </div>
+		  </div>
+
+
+		  	   <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Parlor Threshold Amount 2</label>
+			  <input ng-model="p.thresholdAmount2" class="form-control" >
+		  </div>
+		  </div>
+
+		  <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Parlor Threshold Amount Commission 2</label>
+			  <input ng-model="p.thresholdAmount2Commission" class="form-control" >
+		  </div>
+		  </div>
+
+
+		  	   <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Parlor Threshold Amount 3</label>
+			  <input ng-model="p.thresholdAmount3" class="form-control" >
+		  </div>
+		  </div>
+
+		  <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Parlor Threshold Amount Commission 3</label>
+			  <input ng-model="p.thresholdAmount3Commission" class="form-control" >
+		  </div>
+		  </div>
+
+
+
+
+
+
+
+	   <div class="col-md-3">
+
+		  <div class="form-group">
+			  <label>Parlor Daily Hour</label>
+			  <input ng-model="p.dailyParlorHour" class="form-control" >
+		  </div>
+		  </div>
+
+		   <div class="col-md-3">
+
+		  <div class="form-group">
+			  <label>Salon Opening Time(24h)</label>
+			  <input ng-model="p.openingTime" class="form-control" >
+		  </div>
+		  </div>
+
+		  <div class="col-md-3">
+		  <div class="form-group">
+			  <label>Salon Closing Time(24h)</label>
+			  <input ng-model="p.closingTime" class="form-control" >
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-12">
+	  <div class="col-md-4">
+		  <div class="form-group">
+			  <label>Price Rating</label>
+			  <input ng-model="p.budget" class="form-control" >
+		  </div>
+	 </div>
+	 <div class="col-md-4">
+		  <div class="form-group">
+			  <label>Parlor Rating</label>
+			  <input ng-model="p.rating" class="form-control" >
+		  </div>
+	 </div>
+
+	 <div class="col-md-4">
+		  <div class="form-group">
+			  <label>Landmark</label>
+			  <input ng-model="p.landmark" class="form-control" >
+		  </div>
+	 </div>
+
+	  <div class="col-md-4">
+		  <div class="form-group">
+			  <label>Address 1(Shop Number and Complex)</label>
+			  <input ng-model="p.address" class="form-control" >
+		  </div>
+	 </div>
+	 <div class="col-md-4">
+		  <div class="form-group">
+			  <label>Address 2(Locality)</label>
+			  <input ng-model="p.address2" class="form-control" >
+		  </div>
+	 </div>
+	 <div class="col-md-4">
+		  <div class="form-group">
+			  <label>Address 3(City and Pin Code)</label>
+			  <input ng-model="p.address3" class="form-control" >
+		  </div>
+	 </div>
+	</div>
+	<div class="col-md-12">
+	  <div class="col-md-4">
+		  <div class="form-group">
+			  <label>Service Tax Number</label>
+			  <input ng-model="p.serviceTaxNumber" class="form-control" >
+		  </div>
+	 </div>
+	 <div class="col-md-4">
+		  <div class="form-group">
+			  <label>Tin Number</label>
+			  <input ng-model="p.tinNumber" class="form-control" >
+		  </div>
+        </div>
+
+
+         <div class="col-md-4">
+		  <div class="form-group">
+			  <label>PAN No.</label>
+			  <input ng-model="p.panNo" class="form-control" >
+		  </div>
+	 </div>
+         </div>
+     <div class="col-md-12">
+    <div class="col-md-4">
+
+			<div class="col-md-2">Bank Name</div>
+			<div class="col-md-2">
+                <select name="mySelect" id="mySelect"
+                        ng-options="option.name for option in banks"
+                        ng-model="p.bankName"></select>
+			</div>
+		</div>
+
+
+    <div class="col-md-4">
+		  <div class="form-group">
+			  <label>Branch Name</label>
+			  <input ng-model="p.branchName" class="form-control" >
+		  </div>
+	 </div>
+		 <div class="col-md-4">
+			 <div class="form-group">
+				 <label>Bank Beneficiary Name</label>
+				 <input ng-model="p.bankBeneficiaryName" class="form-control" >
+			 </div>
+		 </div>
+        <div class="col-md-4">
+		  <div class="form-group">
+			  <label>Bank Account No.</label>
+			  <input ng-model="p.accountNo" class="form-control" >
+		  </div>
+	 </div>
+        <div class="col-md-4">
+		  <div class="form-group">
+			  <label>IFSC Code</label>
+			  <input ng-model="p.ifscCode" class="form-control" >
+		  </div>
+	 </div>
+     <div class="col-md-4">
+     <div class="form-group">
+         <label>Salon E-mail</label>
+         <input ng-model="p.salonEmail" class="form-control" >
+     </div>
+     </div>
+	</div>
+</div>
+     <div class="row">
+     <div class="col-md-12">
+         <div class="col-md-3">
+             <div class="form-group">
+                 <label>Minimum Gurantee</label>
+                 <input type="number" ng-model="p.minimumGuarantee" class="form-control" >
+             </div>
+         </div>
+         <div class="col-md-3">
+             <div class="form-group">
+                 <label>App Digital%</label>
+                 <input type="number" ng-model="p.appDigital" class="form-control" >
+             </div>
+         </div>
+         <div class="col-md-3">
+             <div class="form-group">
+                 <label>First App Digital%</label>
+                 <input type="number" ng-model="p.firstAppDigital" class="form-control" >
+             </div>
+         </div>
+         <div class="col-md-3">
+             <div class="form-group">
+                 <label>On ERP%</label>
+                 <input type="number" ng-model="p.onErp" class="form-control" >
+             </div>
+         </div>
+     </div>
+	 </div>
+	 <div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label>App Cash%</label>
+				<input type="number" ng-model="p.appCash" class="form-control" >
+			</div>
+		</div>
+	
+		<div class="col-md-3">
+			<div class="form-group">
+				<label>First App Cash%</label>
+				<input type="number" ng-model="p.firstAppCash" class="form-control" >
+			</div>
+		</div>
+			<div class="col-md-3">
+			<div class="form-group">
+				<label>Maximum Refund On App Cash</label>
+				<input type="number" ng-model="p.maximumRefundOnAppCash" class="form-control" >
+			</div>
+		</div>
+	 </div>
+     
+    
+
+     <div class="row">
+      <div class="col-md-12">
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Maximum Refund On Erp</label>
+            <input type='number'  min="0" ng-model="p.maximumRefundOnErp" class="form-control" >
+          </div>
+        </div>   
+        <div class="col-md-3">
+             <p class="input-group">
+            <label>Salon live Date</label>
+            <input type='text' style= "width:90%" ng-model="p.parlorLiveDate" class="form-control" uib-datepicker-popup="fullDate" is-open="popup2.opened" datepicker-options="dateOptions" min-date="minDate" max-date="maxDate" date-disabled="disabled(date, mode)"   ng-required="true" ng-disabled="flag">
+               <span class="input-group-btn">
+             <button type="button"  class="btn btn-default " ng-click="open2()" style="margin-top: 67%;margin-left: -110%;"><i class="glyphicon glyphicon-calendar"></i></button>
+             </span>
+         </p>
+        </div>  
+           <div class="col-md-3">
+             <p class="input-group">
+            <label> Salon Re-Live Open Date </label>
+            <input type='text' style= "width:90%" ng-model="p.reLiveOpenDate" class="form-control" uib-datepicker-popup="fullDate" is-open="popup3.opened" datepicker-options="dateOptions">
+               <span class="input-group-btn">
+             <button id="re-live" type="button"  class="btn btn-default " ng-click="open3()" style="margin-top: 67%;margin-left: -110%;"><i class="glyphicon glyphicon-calendar"></i></button>
+             </span>
+         </p>
+        </div> 
+         <div class="col-md-3">
+             <p class="input-group" id="reLiveCloseDate">
+            <label>  Salon Re-Live Close Date </label>
+            <input type='text' style= "width:90%" ng-model="p.reLiveCloseDate" class="form-control" uib-datepicker-popup="fullDate" is-open="popup4.opened" datepicker-options="dateOptions">
+               <span class="input-group-btn">
+             <button type="button"  class="btn btn-default " ng-click="open4()" style="margin-top: 67%;margin-left: -110%;"><i class="glyphicon glyphicon-calendar"></i></button>
+             </span>
+         </p>
+        </div> 
+        <div class="col-md-3">
+		  <div class="form-group">
+		      <label>Previous Per-Day MG </label>
+		      <input type="number" ng-model="p.previousPerDayMg" class="form-control ng-pristine ng-valid ng-not-empty ng-touched">
+		  </div>
+		</div>
+
+	<!--
+        <div class="col-md3">
+              <p class="input-group">
+            <label>CashBack Live Date</label>
+            <input type='text'  style= "width:90%" ng-model="p.refundEffectiveDate" uib-datepicker-popup="fullDate" class="form-control" is-open="popup5.opened" datepicker-options="dateOptions" ng-required="true" >
+               <span class="input-group-btn">
+             <button type="button" class="btn btn-default " ng-click="open5()" style="margin-top: 80%;margin-left: -110%;"><i class="glyphicon glyphicon-calendar"></i></button>
+             </span>
+             </p>
+          </div>
+	-->
+	<!--CashBack Live Date-->
+	
+		<div class="col-md-3">
+	            <p class="input-group">
+		            <label class="cashback"> CashBack Live Date </label>
+		            <input type='text'  style= "width:118%" ng-model="p.refundEffectiveDate" uib-datepicker-popup="fullDate" class="form-control" is-open="popup5.opened" datepicker-options="dateOptions" ng-required="true" >
+		               <span class="input-group-btn">
+		             
+		             <button type="button" class="btn btn-default " ng-click="open5()" style="margin-top: 67%;margin-left: 10%;"><i class="glyphicon glyphicon-calendar"></i></button>
+		             </span>
+	         	</p>
+	        </div>
+
+	        <div class="col-md-3">
+	            <p class="input-group" id="xmodel">
+		            <label class="cashback"> 3x Model Start Date </label>
+		            <input type='text'  style= "width:118%" ng-model="p.threeXModelStartDate" uib-datepicker-popup="fullDate" class="form-control" is-open="popup6.opened" datepicker-options="dateOptions" ng-required="true" >
+		               <span class="input-group-btn">
+		             
+		             <button type="button" class="btn btn-default " ng-click="open6()" style="margin-top: 67%;margin-left: 10%;"><i class="glyphicon glyphicon-calendar"></i></button>
+		             </span>
+	         	</p>
+	        </div>
+	         <div class="col-md-2">
+		            <label for="editParlor"> Model Type </label>
+		            <select class="form-control" ng-model="p.modelType" name="modelType">
+					  <option value="1" ng-selected="p.modelType == 1">Yearly</option>
+					  <option value="2" ng-selected="p.modelType == 2">Quarterly</option>
+					  <option value="3" ng-selected="p.modelType == 3">Monthly</option>
+				  </select>
+				   
+	        </div>
+	        <div class="col-md-3">
+	            <p class="input-group" id="xmodel">
+		            <label class="cashback"> Model Type Live Date </label>
+		            <input type='text' style= "width:10%" ng-model="p.modelTypeLiveDate" uib-datepicker-popup="fullDate" class="form-control" is-open="popup7.opened" datepicker-options="dateOptions" ng-required="true" >
+		               <span class="input-group-btn">
+		             
+		             <button type="button" class="btn btn-default " ng-click="open7()" style="margin-top: 67%;margin-left: 10%;"><i class="glyphicon glyphicon-calendar"></i></button>
+		             </span>
+	         	</p>
+	        </div>
+     
+       <!-- close-->
+        	<div class="col-md-offset-1 col-md-3" style="margin-top:5px;">
+
+							<label style="margin-bottom:-9px;margin-right: 10px;display:block;"  >Refund By Otp</label>
+
+						<label class="switch">
+ 								 <input type="checkbox"  ng-model="p.refundByOtp">
+  						<span class="slider round"></span>
+						</label>
+
+		</div>
+
+           </div> 
+	 </div>
+	 <div class="row">
+			<div class="col-md-3">
+				<div class="form-group">
+					<label>Google Rating Short URL</label>
+					<input type='text'   ng-model="p.googleRateLink" class="form-control" >
+				</div>
+			</div> 
+			<div class="col-md-3">
+					<div class="form-group">
+					  <label>Salon Delay Time</label>
+					  <input type='number'  min="0" ng-model="p.maximumRefundOnErp" class="form-control" >
+					</div>
+			</div>
+			<div class="col-md-3">
+					<div class="form-group">
+						<label>Salon State Name</label>
+						<input type='text'   ng-model="p.stateName" class="form-control" >
+					</div>
+			</div> 
+			<div class="col-md-3">
+				<label>Show Salon Support Data<span>
+					<div class="form-group">
+							<label><input type="checkbox" value="" ng-model="p.showSalonSupportData">Show</label>
+					</div></span><label>
+			</div>
+			 
+	 </div>
+	<h3>Images Url</h3>
+	<div class="col-md-6" ng-repeat="i in p.images">
+	  <div class="form-group">
+	  		Website
+	      <input ng-model="i.imageUrl" class="form-control" >
+	      App
+	      <input ng-model="i.appImageUrl" class="form-control" >
+	  </div>
+	</div>
+	
+    <!-- <div class="col-md-12" >
+		<div class="col-md-3">
+	  <div class="form-group">
+	      <label>Owner Name</label>
+	      <input  class="form-control" disabled>
+	  </div>
+		</div>
+		<div class="col-md-3">
+	  <div class="form-group">
+	      <label>Owner Number</label>
+	      <input  class="form-control" disabled >
+	  </div>
+		</div>
+		<div class="col-md-3">
+	  <div class="form-group">
+	      <label>Owner E-mail</label>
+	      <input  class="form-control" >
+	  </div>
+
+		</div>
+	</div>
+     
+	<div class="row">
+	<div class="col-md-12" >
+		<div class="col-md-4">
+	  <div class="form-group">
+	      <label>Manager Name</label>
+	      <input  class="form-control" disabled>
+	  </div>
+		</div>
+		<div class="col-md-4">
+	  <div class="form-group">
+	      <label>Manager Number</label>
+	      <input  class="form-control" disabled>
+	  </div>
+		</div>
+		<div class="col-md-4">
+	  <div class="form-group">
+	      <label>Manager E-mail</label>
+	      <input  class="form-control" disabled>
+	  </div>
+		</div>
+	</div>
+	</div>
+	<div class="col-md-12">
+	  <div class="table-responsive">
+		  <table >
+			<thead>
+				<th>Name</th>
+				<th>Number</th>
+				<th>E Mail Id</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="i in [1, 2, 3, 4,5,6,7]">
+					<td><input  class="form-control parlor-edit-table"  ></td>
+					<td><input  class="form-control parlor-edit-table" ></td>
+					<td><input  class="form-control parlor-edit-table"></td>
+				</tr>
+			</tbody>
+		  </table>
+	</div>
+	</div>-->
+ <div class="row">
+    <div class="col-md-3 col-lg-3" style="padding-left: 3%;">
+        <label>Break Even</label>
+         <input  type="number"  class="form-control parlor-edit-table"  ng-model="p.breakEven" >
+         </div>
+         <div class="col-md-3 col-lg-3">
+              <label>L1</label>
+        <input type="number"   class="form-control parlor-edit-table"  ng-model="p.L1" >
+         </div>
+        <div class="col-md-3 col-lg-3">
+             <label>L2</label>
+            <input type="number"   class="form-control parlor-edit-table" ng-model="p.L2" ></div>
+        <div class="col-md-3 col-lg-3">
+             <label>L3</label>
+            <input type="number"   class="form-control parlor-edit-table"  ng-model="p.L3" ></div>
+				
+              
+</div>
+     <div class="row">
+         <div class="col-md-4">
+             Select Salon Head<div id="new-select" isteven-multi-select input-model="eList1.employee" output-model="d" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="ticked" output-properties="id" on-close="paymentDropdown($index)" ></div>
+             
+         </div>
+         <div class="col-md-4">
+             Select Assistant Manager<div id="new-select" isteven-multi-select input-model="eList2.employee" output-model="f" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="id" on-close="paymentDropdown($index)"></div>
+         </div>
+          <div class="col-md-4">
+             Select Salon Manager<div id="new-select" isteven-multi-select input-model="eList3.employee" output-model="e" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="ticked" output-properties="id" on-close="paymentDropdown($index)" </div>
+         </div>
+    </div>
+
+
+<div class="row">
+	<div class="col-md-12" >
+		<div class="col-md-4">&nbsp;</div>
+		<button type="button" class="btn btn-default  col-md-4" ng-click="updateParlor()">Submit</button>
+
+
+	</div>
+		</div>

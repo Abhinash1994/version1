@@ -1,0 +1,189 @@
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    .changeColor {
+        background-color: #009dfd !important;
+        color: white;
+    }
+
+    .table {
+        height: 400px;
+    }
+
+    .changeSeller {
+        background-color: #880e4f !important;
+        color: white;
+    }
+
+    .row {
+        background-color: white;
+        padding: 5px;
+        margin: 0px;
+    }
+
+    th {
+        text-align: center;
+        padding: 5px;
+    }
+
+    td {
+        text-align: center;
+    }
+</style>
+<div class="row">
+    
+    <div class="row">
+        <div class="col-md-offset-4  col-md-4">
+            <h2>Discount On Purchase</h2>
+            <select class='form-control' ng-change="check()" ng-model='parlor.selected' ng-options='b.parlorId as b.name for b in parlors track by b.parlorId'></select>
+        </div>
+          <div class="col-md-offset-4 col-md-4">
+           <h2>Select Month</h2>
+            <select  class="form-control" ng-model="month">
+                
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">Novemember</option>
+                <option value="12">December</option>                      
+            </select>
+        </div>
+        <div class="col-md-offset-4 col-md-4">
+           <h2>Select Year </h2>
+           <div class="row">
+          </div>
+           <select class='form-control' ng-model="years"  ng-options="years for years in year"></select>
+         
+        <button class="btn btn-primary" ng-click="loadData()">Submit</button>
+         <button class="btn btn-primary"  ng-click="exportToExcel('#tableId')">Export To Excel</button>
+
+        </div>
+    </div>
+    <table class="  table " ng-if="discountOnPurchase.length>0" fixed-header>
+        <thead>
+            <tr>
+                <th class="head-color-universal">Salon Id</th>
+                <th class="head-color-universal">Received At</th>
+                <th class="head-color-universal">Seller Name</th>
+                <th class="head-color-universal">Purchase</th>
+                <th class="head-color-universal">Purchase Till Date</th>
+                <th class="head-color-universal">Discount</th>
+                <th class="head-color-universal">Discount Bucket Till Date</th>
+                <th class="head-color-universal">Discount Bucket On this Purchase</th>
+                <th class="head-color-universal">Target Revenue</th>
+                <th class="head-color-universal">Revenue Booked In Erp</th>
+                <th class="head-color-universal">Discount Received At Salon</th>
+                <th class="head-color-universal">Discount Paid</th>
+                <th class="head-color-universal">Paid/Unpaid</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="discountOn in discountOnPurchase">
+                <td ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);">{{discountOn.parlorId}}</td>
+
+                <td ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);">
+                    <span ng-if="discountOn.purchase!=undefined">{{discountOn.time |date:'medium'}}</span> </td>
+                <td ng-if="discountOn.sellerName==undefined" ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);">Month Closing Balance</td>
+                <td ng-if="discountOn.sellerName!=undefined" ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);">{{discountOn.sellerName}} </td>
+                <td ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);;">{{discountOn.purchase |number:2}} </td>
+                <td ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);;">{{discountOn.purchaseTillDate |number:2}} </td>
+                <td ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);;">{{discountOn.discount |number:0}} <span ng-if="discountOn.discount">%</span></td>
+                <td ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);">{{discountOn.discountBucket |number:2}} </td>
+                <td ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);">
+                    {{(discountOn.discount * discountOn.purchase)/100 |number:0 }}
+                </td>
+                <td ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);">{{discountOn.targetRevenue |number:2}} </td>
+                <!-- <<<<<<< HEAD
+					<td >{{discountOn.revenueBookedInErp |number:2}}	</td>
+					<td >{{discountOn.discountPaid |number:2}}	</td>
+		======= -->
+                <td ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);">{{discountOn.revenueBookedInErp|number:2}} </td>
+                <td ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);">{{discountOn.upFrontDiscount |number:2}} </td>                <td ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);">{{discountOn.discountPaid|number:2}} </td>
+                <td ng-class="checkPurchaseandSeller(discountOn.purchase,discountOn.discountPaid);">
+                    <button style="background: white; color:#009DFD;" type="button" name="button" ng-click="paidUnpaidButtonClick(discountOn._id,false)" ng-if="(discountOn.purchase==undefined&&discountOn.paid)" ng-disabled="user!=1">Paid</button>
+                    <button style="background: white; color:#009DFD;" type="button" name="button" ng-click="paidUnpaidButtonClick(discountOn._id,true)" ng-if="(discountOn.purchase==undefined&&discountOn.paid==false&&discountOn.sellerName!=
+			'Month Opening Balance')" ng-disabled="user!=1">Unpaid</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 	<div class="row">
+			<div class="col-md-offset-2 col-md-10">
+							<table class="table">
+										<thead>
+													<tr ng-repeat="m in  recordList">
+															<th >{{m.name}}</th>
+													</tr>
+													<tr>
+															<th ng-repeat-start='m in recordList'>Purchase</th>
+															<th>Purchase Till Date</th>
+															<th>Discount</th>
+															<th>Target Revenue</th>
+															<th>Discount Bucket</th>
+															<th>Revenue Booked In Erp</th>
+															<th ng-repeat-end>Discount Paid</th>
+													</tr>
+										</thead>
+							</table>
+			</div>
+</div> -->
+</div>
+
+
+<div class="card" >
+  <div class="container-fluid">
+    <div class="table-responsive">
+      <table  class="table table-striped table-hover" id="tableId" style="display: none">
+        <thead>
+                 <th class="head-color-universal">Salon Id</th>
+                <th class="head-color-universal">Month</th>
+                <th class="head-color-universal">Seller Name</th>
+                <th class="head-color-universal">Purchase</th>
+                <th class="head-color-universal">Purchase Till Date</th>
+                <th class="head-color-universal">Discount</th>
+                <th class="head-color-universal">Discount Bucket Till Date</th>
+                <th class="head-color-universal">Discount Bucket On this Purchase</th>
+                <th class="head-color-universal">Target Revenue</th>
+                <th class="head-color-universal">Revenue Booked In Erp</th>
+                <th class="head-color-universal">Discount Received At Salon</th>
+                <th class="head-color-universal">Discount Paid</th>
+                <th class="head-color-universal">Paid/Unpaid</th>
+        </thead>
+        <tbody>
+             <tr ng-repeat="discountOn in discountData">
+                <td >{{discountOn.parlorId}}</td>
+
+                <td >
+                    {{discountOn.month}}
+                </td>
+                <td>{{discountOn.sellerName}}</td>
+                <td>{{discountOn.purchase}}</td>
+                <td>{{discountOn.purchaseTillDate}}</td>
+                <td>{{discountOn.discount}}</td>
+                <td>{{discountOn.discountBucket |number:2}}</td>
+                <td>{{(discountOn.discount * discountOn.purchase)/100 |number:0 }}</td>
+
+                <td>{{discountOn.targetRevenue}}</td>
+                <td>{{discountOn.revenueBookedInErp}}</td>
+                <td>{{discountOn.upFrontDiscount |number:2}}</td>
+                <td>{{discountOn.discountPaid}}</td>
+                <td >
+                    <div ng-if="discountOn.paid==true">Paid</div>
+                     <div ng-if="discountOn.paid==false">Unpaid</div>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

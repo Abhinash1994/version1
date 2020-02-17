@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12"><h3 style="text-align: center;">Salon Details</h3></div>
+	</div>
+<div class="row">
+
+<div class="col-md-offset-7 col-md-3">
+		<button class="btn btn-primary" ng-click="exportToExcel('#mytable')">Export To Excel</button>
+</div>
+
+</div>
+
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="table-responsive">
+				<table  id="mytable" class="table table-bordered">
+					<tr>
+						<th style="text-align: center;">Salon Name</th>
+						<th style="text-align: center;"> GST Number</th>
+                        <th style="text-align: center;"> Wi-Fi Name</th>
+                        <th style="text-align: center;"> Wi-Fi Password</th>
+                           <th style="text-align: center;">Employee  With no Bank accounts</th>
+              <!--                <th style="text-align: center;">Employee  With no Bank accounts</th>  -->
+                         
+
+					</tr>
+					<tr ng-repeat="x in GSTDetails">
+						<td style="text-align: center;">{{x.name}}</td>
+						<td style="text-align: center;">{{x.gstNumber}}</td>
+                        <td>{{x.wifiName}}</td>
+                        <td>{{x.wifiPassword}}</td>
+                       
+                         <!--   <td>{{x.emps}}</td> -->
+                        <td  ><span ng-repeat="a in x.empWithoutAccounts">{{a}}<span ng-if="$index < x.empWithoutAccounts.length-1">&nbsp  ,</span></span></td>  
+                          
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

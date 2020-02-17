@@ -1,0 +1,1285 @@
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse" ng-controller="SidebarCtrl">
+        <ul class="nav in" id="side-menu">
+            <div class="side-menu-userp">
+                <div class="user one" id="profile-image"></div>
+                <div>{{user}}</div>
+            </div>
+            <!--<sidebar-search></sidebar-search> -->
+            <li ng-class="{active: collapseVar==5}" ng-if="userType==1 && (role==1 || role==11 ||role==9 ||role==3|| role==10)">{{dropDown}}
+                <a href="" ng-click="check(5)"><i class="fa fa-wrench fa-fw"></i> Admin<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=5">
+                    <li ui-sref-active="active" ng-if="userType==1 && (role==1 || role==10 ||role==9 ||role==3 ||role==11)">
+                        <a ui-sref="dashboard.parlors">Parlors</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.owners">Owners</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.services">Services</a>
+                    </li>
+
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.serviceProduct">Service Product</a>
+                    </li>
+
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.serviceBrand">Service Brands</a>
+                    </li>
+
+                    <li ui-sref-active="active" ng-if="role==1||role==9">
+                        <a ui-sref="dashboard.add-sellers">Sellers</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.sellersItems">Sellers Items</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1||role==9">
+                        <a ui-sref="dashboard.add-inventory-items">Inventory Items</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.create-membership">Create Membership</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.service-percent">Service Percentage</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="  userType==1 && (role==1 || role==10 ||role==9 ||role==3)">
+                        <a ui-sref="dashboard.cancelledappointments">Cancelled Appointments</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="  userType==1 && (role==1 || role==10 ||role==9 ||role==3)">
+                        <a ui-sref="dashboard.noncompappointments">Non-Completed Appointments</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1 || role==9">
+                        <a ui-sref="dashboard.recommendation">Recommendation Services</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1 || role==9">
+                        <a ui-sref="dashboard.addSlab">Add Slab</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1 || role==9">
+                        <a ui-sref="dashboard.addFlashSale">Add Flash Sale</a>
+                    </li>
+                    
+                      <li ui-sref-active="active" ng-if="role==1 || role==9">
+                        <a ui-sref="dashboard.addHrSupport">Add HR Support</a>
+                    </li>
+                    
+                    <li ui-sref-active="active" ng-if="role==1 || role==9|| role==11">
+                        <a ui-sref="dashboard.addManagertoSalon">Add Manager to Salon</a>
+                    </li>
+                   <li ui-sref-active="active" ng-if="role==1 || role==9|| role==11">
+                        <a ui-sref="dashboard.addOwnertoSalon">Add Owner to Salon</a>
+                    </li> 
+                     <li ui-sref-active="active" ng-if="role==1 || role==9|| role==11">
+                        <a ui-sref="dashboard.addEmployeetoSalon">Add Employee to Salon</a>
+                    </li> 
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <li ui-sref-active="active" ng-if="(role==2 || role==7) && userType!=1">
+                <a ui-sref="dashboard.home"><i class="fa fa-home fa-lg padding-r20"></i> Home</a>
+            </li>
+
+
+            <!-- <li ng-class="{active: collapseVar==1}">{{dropDown}}
+                <a ui-sref="dashboard.serviceHome" ng-click="check(1)" ng-if="(role==2 || role==7 ) && userType!=1">
+                    <i class="fa fa-cart-arrow-down  fa-lg padding-r20"></i> Service Home
+                    <span class="fa arrow"></span>
+                </a>
+
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=1">
+
+
+
+                  
+<li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7)">
+<a ui-sref="dashboard.parlor-categories"><i class="fa fa-dashboard fa-lg padding-r20"></i> Services</a>
+</li>
+
+ -->
+
+                    <!-- <li ui-sref-active="active" ng-if="role!=1 && role<4">
+                        <a ui-sref="dashboard.packages"><i class="fa fa-dashboard fa-lg padding-r20"></i> Packages</a>
+                    </li>
+                </ul>
+
+            </li> --> 
+
+            <li ng-class="{active: collapseVar==30}">{{dropDown}}
+                <a ui-sref="dashboard.customer"  ng-click="check(30)" ng-if="userType==1 && (role==1 || role==11 ||role==9 ||role==3|| role==10|| role==13)">
+                    <i class="fa fa-cart-arrow-down  fa-lg padding-r20"></i>For Customer Care
+                    <span class="fa arrow"></span>
+                </a>
+
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=30">
+                    <li ui-sref-active="active" ng-if="role!=13"  >
+                        <a ui-sref="dashboard.customer"><i class="fa fa-dashboard fa-lg padding-r20"></i> Block Code</a>
+                    </li>
+                <li ui-sref-active="active" ng-if="role!=13">
+                    <a ui-sref="dashboard.redim"><i class="fa fa-user fa-lg padding-r20"></i>Redeem Subscription</a>
+                </li>
+                 <li ui-sref-active="active">
+                    <a ui-sref="dashboard.newCustomerReport"><i class="fa fa-user fa-lg padding-r20"></i>New Customer Report</a>
+                </li>
+                <li ui-sref-active="active" ng-if="role!=13">
+                    <a ui-sref="dashboard.websiteAppointment"><i class="fa fa-user fa-lg padding-r20"></i>Website Appointment</a>
+                </li>
+               <!-- dawdasdssad -->
+                <li ui-sref-active="active">
+                    <a ui-sref="dashboard.leads"><i class="fa fa-user fa-lg padding-r20"></i>Leads Dashboard</a>
+                </li> 
+                <li ui-sref-active="active">
+                    <a ui-sref="dashboard.myConversions"><i class="fa fa-user fa-lg padding-r20"></i>My Conversions</a>
+                </li> 
+                <li ui-sref-active="active">
+                    <a ui-sref="dashboard.conversionSummary"><i class="fa fa-user fa-lg padding-r20"></i>Conversion Summary</a>
+                </li> 
+                <li ui-sref-active="active" ng-if="userId=='5bee5024dbb11c1dce8d80be' ||userId=='5bf2a9e5763c341ccbc86fee'">
+                    <a ui-sref="dashboard.facebookQueries"><i class="fa fa-user fa-lg padding-r20"></i>Facebook Queries</a>
+                </li>
+                <li ui-sref-active="active" ng-if="role!=13">
+                    <a ui-sref="dashboard.previouSubscribers"><i class="fa fa-user fa-lg padding-r20"></i>Previous Subscriber</a>
+                </li>
+                <li ui-sref-active="active"ng-if="role!=13">
+                    <a ui-sref="dashboard.newGurgaonCustomerReport"><i class="fa fa-user fa-lg padding-r20"></i>Gurgaon Salons New Customer Report </a>
+                </li>
+                <li ui-sref-active="active" ng-if="role!=13">
+                    <a ui-sref="dashboard.appointmentCancelBySalon"><i class="fa fa-user fa-lg padding-r20"></i>Appointment Cancel By Salon</a>
+                </li>
+                <li ui-sref-active="active" ng-if="role!=13">
+                        <a ui-sref="dashboard.cancelledappointments"><i class="fa fa-user fa-lg padding-r20"></i>Cancelled Appointments</a>
+                    </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="dashboard.latestapointment"><i class="fa fa-user fa-lg padding-r20"></i>Latest Appointment Details</a>
+                </li>
+                <li ui-sref-active="active" >
+                    <a ui-sref="dashboard.subscriptionpay"><i class="fa fa-user fa-lg padding-r20"></i>Subscription via Payment Link</a>
+                </li>
+                  <li ui-sref-active="active" ng-if="role!=13">
+                    <a ui-sref="dashboard.transferSubscription"><i class="fa fa-user fa-lg padding-r20"></i>Transfer Subscription</a>
+                </li>
+                <li ui-sref-active="active" ng-if="role!=13">
+                        <a ui-sref="dashboard.userQuestionnaire"><i class="fa fa-user fa-lg padding-r20"></i>Users Questionnaire</a>
+                </li>
+                 <li ui-sref-active="active" ng-if="role!=13">
+                        <a ui-sref="dashboard.allotData"><i class="fa fa-user fa-lg padding-r20"></i>Allot Data</a>
+                </li>
+               
+                 <!-- <li ui-sref-active="active">
+                        <a ui-sref="dashboard.OldSalonNearNewSalon"><i class="fa fa-user fa-lg padding-r20"></i>Old Salon Near New salon</a>
+                </li> -->
+
+                </ul>
+
+            </li>
+             <li ng-class="{active: collapseVar==50}">{{dropDown}}
+                <a ui-sref="dashboard.salonAffiliateAppointment"  ng-click="check(50)" ng-if="userType==1 && (role==1 || role==11 ||role==9 ||role==3|| role==10)">
+                    <i class="fa fa-cart-arrow-down  fa-lg padding-r20"></i>Affiliate Salon 
+                    <span class="fa arrow"></span>
+                </a>
+
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=50">
+
+                     <li ui-sref-active="active" >
+                        <a ui-sref="dashboard.salonPasspayment"><i class="fa fa-dashboard fa-lg padding-r20"></i> Salon Pass Payment</a>
+                    </li>
+                     <li ui-sref-active="active">
+                        <a ui-sref="dashboard.salonAffiliateAppointment"><i class="fa fa-dashboard fa-lg padding-r20"></i> Salon Affiliate Apppointment</a>
+                    </li>
+                    dashboard.salonAffiliateAppointment
+
+
+                </ul>
+
+            </li>
+
+
+            <li ng-class="{active: collapseVar==31}">{{dropDown}}
+                <a ui-sref="dashboard.appontmentedit"  ng-click="check(31)" ng-if="  userType==1 && (role==1 || role==10 ||role==9 ||role==3)">
+                    <i class="fa fa-cart-arrow-down  fa-lg padding-r20"></i>Edit Appontment
+                    <span class="fa arrow"></span>
+                </a>
+
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=31">
+
+                    <li ui-sref-active="active" ng-if="(role==1 || role==9 )">
+                        <a ui-sref="dashboard.appontmentedit"><i class="fa fa-dashboard fa-lg padding-r20"></i> Change Salon </a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1||role==9 || role==3">
+                        <a ui-sref="dashboard.editAppointment"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i> Edit Appointment<span></span></a>
+                    </li>
+                     <li ui-sref-active="active" ng-if="role==1||role==9 || role==3">
+                        <a ui-sref="dashboard.reopenAppointment"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i> Reopen Appointment<span></span></a>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li ui-sref-active="active" ng-if="  userType==1 && (role==1 || role==10 ||role==9 ||role==3  ||role==13) ">
+                        <a ui-sref="dashboard.searchCustomer"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Search Customer<span></span></a>
+             </li>
+            
+             <li ui-sref-active="active" ng-if="  userType==1 && (role==1 || role==10 ||role==9 ||role==3) ">
+                        <a ui-sref="dashboard.userMembership"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>User Membership<span></span></a>
+             </li>
+            <li ng-class="{active: collapseVar==2}">{{dropDown}}
+                <a ui-sref="dashboard.appointment-home" ng-click="check(2)" ng-if="(role==2 || role==7) && userType!=1">
+                    <i class="fa fa-check-square-o  fa-lg padding-r20"></i> Appointments Home
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=2">
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7)">
+                        <a ui-sref="dashboard.newappointments"><i class="fa fa-user fa-lg padding-r20"></i>New Appointment</a>
+                    </li>
+                     <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7)">
+                        <a ui-sref="dashboard.sellSubscription"><i class="fa fa-user fa-lg padding-r20"></i>Sell Subscription</a>
+                    </li>
+                    <!-- <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7)"> -->
+                    <!-- <a ui-sref="dashboard.previous"><i class="fa fa-dashboard fa-lg padding-r20"></i> Previous Appointments</a> -->
+                    <!-- </li> -->
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7)">
+                        <a ui-sref="dashboard.completed"><i class="fa fa-dashboard fa-lg padding-r20"></i> Completed Appointments</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7)">
+                        <a ui-sref="dashboard.authorizedAppointments"><i class="fa fa-dashboard fa-lg padding-r20"></i> Authorized Appointments</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.appointmentsOTP"><i class="fa fa-dashboard fa-lg padding-r20"></i>Appointments OTP</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7)">
+                        <a ui-sref="dashboard.calendar"><i class="fa fa-dashboard fa-lg padding-r20"></i>Calendar View</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7)">
+                        <a ui-sref="dashboard.appointment"><i class="fa fa-dashboard fa-lg padding-r20"></i>Appt</a>
+                    </li>
+                    <!-- <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7)">
+                        <a ui-sref="dashboard.searchBy"><i class="fa fa-dashboard fa-lg padding-r20"></i>App Cash Appointment</a>
+                    </li> -->
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.book">Book</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <li ng-class="{active: collapseVar==3}">{{dropDown}}
+                <a ui-sref="dashboard.employeeHome" ng-click="check(3)" ng-if="(role==2 || role==7) && userType!=1">
+                    <i class="fa fa-user fa-lg padding-r20"></i> Employee Home
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=3">
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7)">
+                        <a ui-sref="dashboard.team"><i class="fa fa-dashboard fa-lg padding-r20"></i> Employees</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <li ng-class="{active: collapseVar==4}" ng-if="((role==2 || role==7 || role==9))">{{dropDown}}
+                <a href="" ng-click="check(4)"><i class="fa fa-archive fa-lg padding-r20"></i> Inventory<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=4">
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7 || role==3)">
+                        <a ui-sref="dashboard.inventoryMangement">Inventory Management</a>
+                    </li>
+                    <!--    -->
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7 || role==3)">
+                        <a ui-sref="dashboard.allProducts">All Products</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7 || role==3)">
+                        <a ui-sref="dashboard.inventoryDiscount">Discount Model</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7 || role==3)">
+                        <a ui-sref="dashboard.purchaseOrders">Recent PO's</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7 || role==3)">
+                        <a ui-sref="dashboard.reorderByBrand">Reorder by Brand</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7 || role==3)">
+                        <a ui-sref="dashboard.reorder1">Reorder</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=1 && (role<4 || role==7 || role==9||role==2)">
+                        <a ui-sref="dashboard.discountOnPurchase"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Discount Bucket<span></span></a>
+                    </li>
+
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+
+            <li ui-sref-active="active">
+                <a ui-sref="dashboard.weeklyReportSalon2" ng-if="role==3 || role==1">Weekly Report</a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="dashboard.checkInCheckout" ng-if="role==1">Check In Checkuot report</a>
+            </li>
+            
+            <li ng-class="{active: collapseVar==8}" ng-if="(role==2 && userType!=1 && parlorName !='Monsoon') || (userType!=1 && role==7)||(role==11 && userType==1)">{{dropDown}}
+                <a href="" ng-click="check(8)"><i class="fa fa-archive fa-lg padding-r20"></i> Reports<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=8">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.summaryr">Daily Summary</a>
+                    </li>
+                    <!-- <li ui-sref-active="active">
+                        <a ui-sref="dashboard.appPaymentandLoyaltyUsedReport">App Payment  Loyalty Used Report</a>
+                    </li> -->
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.weeklyReportSalon2">Weekly Report</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.additionreport">Additions Report</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.employeeRepeatCustomerReport">Employee Customer Repeat Report</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.membershipSold">Membership/Family Wallet Sold</a>
+                    </li>
+
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.revenuer">Revenue</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.invoiceWise">Invoice Wise Collection</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.employeeWise">Employee Wise Collection</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.ownerbranchRevenue">Owner Branch Revenue</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.ownervital">Owner Vital Report</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.salonsCouponUsed">Salons Coupon Used</a>
+                    </li>
+                    <!-- <li ui-sref-active="active" ng-if="role!=1 && role<3">
+                        <a ui-sref="dashboard.incentiver">Incentive</a>
+                    </li>-->
+
+
+
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.employeer">Employees</a>
+                    </li>
+                    <!--<li ui-sref-active="active" ng-if="(role!=1 && role<3) || (userType!=1 && role==7)">
+                        <a ui-sref="dashboard.servicer">Services</a>
+                    </li>-->
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.collectionr">Day Wise Collection</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.customersNoShow3Months">Non-Repeating Customers</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li ng-class="{active: collapseVar==7}" ng-if="role!=1 && (role<4 || role==7)">{{dropDown}}
+                <a href="" ng-click="check(7)"><i class="fa fa-archive fa-lg padding-r20"></i> Expenses<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=7">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.expense">Create an Expense</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.profitAndLoss">Profit and Loss</a>
+                    </li>
+                    <!--  <li ui-sref-active="active">
+                        <a ui-sref="dashboard.previous-expense">Previous Expense</a>
+                    </li> -->
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li ng-class="{active: collapseVar==6}" ng-if="role==1 ">{{dropDown}}
+                <a href="" ng-click="check(6)"><i class="fa fa-archive fa-lg padding-r20"></i> Marketing<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=6">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.smscustomer">SMS Customers</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.smsCoupon">SMS Coupon</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.facebookpage">Facebook Page</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li ng-class="{active: collapseVar==20}" ng-if="role==1 || role==11 ">{{dropDown}}
+                <a href="" ng-click="check(20)"><i class="fa fa-archive fa-lg padding-r20"></i> Finance<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=20">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.tdstcsUpload">TDS/TCS Uploads</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.salonDetail">SalonDetail</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.payProductDiscount">Pay Product Discount</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.gstAmountTransfer">Pay GST Amount</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1 || role==11">
+                        <a ui-sref="dashboard.addRoyaltyAmount">Add Royalty Amount</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1 || role==9|| role==11">
+                        <a ui-sref="dashboard.innvoiceOfSalon">Innvoice of Salon</a>
+                    </li>
+                     <li ui-sref-active="active" ng-if="role==1 || role==9|| role==11">
+                        <a ui-sref="dashboard.uploadpreviousdue">Upload previous Due</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.yearlyInnvoice">SignUp / YearlyInvoice</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.generateInvoice">Generate settlement</a>
+                    </li>
+                    
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li ng-class="{active: collapseVar==9}" ng-if="role==1">{{dropDown}}
+                <a href="" ng-click="check(9)"><i class="fa fa-archive fa-lg padding-r20"></i> Membership<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=9">
+
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.view-membership">View Membership</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li ng-class="{active: collapseVar==18}" ng-if="role==1">{{dropDown}}
+                <a href="" ng-click="check(18)"><i class="fa fa-archive fa-lg padding-r20"></i> Music Player<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=18">
+
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.addSong">Add Song</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li ng-class="{active: collapseVar==10}" ng-if="role==1  || role==10">{{dropDown}}
+
+                <a href="" ng-click="check(10)"><i class="fa fa-archive fa-lg padding-r20"></i> Coupon<span
+                              class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=10">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.couponRedemption" ng-if="role==1 || role==10" >Coupon Redemtion</a>
+                    </li>
+                     <li ui-sref-active="active">
+                        <a ui-sref="dashboard.addcoupontouser" ng-if="role==3 || role==1 || role==10" >Add Coupon To User</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            <!-- </li> -->
+            <!-- <li ui-sref-active="active">
+                <a ui-sref="dashboard.parlorLayout">Parlor Layout</a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="dashboard.parlorLayout2">Parlor Layout2</a>
+            </li> -->
+            <!-- <li ui-sref-active="active" ng-if="role!=1 && role<4">
+                <a ui-sref="dashboard.expense"><i class="fa fa-dashboard fa-lg padding-r20"></i> Expenses</a>
+            </li> -->
+            <li ui-sref-active="active" ng-if="role ==2 || role==7">
+                <a ui-sref="dashboard.uploadImage"><i class="fa fa-user fa-lg padding-r20"></i> Upload Image</a>
+            </li>
+           <!--  <li ui-sref-active="active" ng-if="role ==2 || role==7">
+                <a ui-sref="dashboard.dashboardMarketing"><i class="fa fa-user fa-lg padding-r20"></i> Marketing User</a>
+            </li> -->
+          <li ng-class="{active: collapseVar==32}"   ng-if="role==1 || role==9 ||role==11 || role ==3">{{dropDown}}
+                <a  ng-click="check(32)" >
+                    <i class="fa fa-cart-arrow-down  fa-lg padding-r20"></i> Subscription
+                    <span class="fa arrow"></span>
+                </a>
+
+            <ul class="nav nav-second-level" uib-collapse="collapseVar!=32">
+                <li ui-sref-active="active" if="role==1">
+                        <a ui-sref="dashboard.subscriptionReports"><i class="fa fa-user fa-lg padding-r20"></i>Subscription Reports</a>
+                </li>
+                <li ui-sref-active="active" if="role==1">
+                    <a ui-sref="dashboard.editSubscriptionAppt"><i class="fa fa-user fa-lg padding-r20"></i>Edit Subscription Appt</a>
+                </li>
+                 <li ui-sref-active="active" if="role==1">
+                    <a ui-sref="dashboard.subscriptionhead"><i class="fa fa-user fa-lg padding-r20"></i>Subscription Cohort</a>
+                </li>
+                <li ui-sref-active="active" if="role==1">
+                        <a ui-sref="dashboard.subscribersAttendance"><i class="fa fa-user fa-lg padding-r20"></i>Subscribers With Low Attendance</a>
+                    </li>
+               
+    </ul>
+          <li ui-sref-active="active"  ng-if="role==1 || role==3 ||role==11 ||role==10">
+                    <a ui-sref="dashboard.subscriptionSales"><i class="fa fa-user fa-lg padding-r20"></i>Subscription Sales Report</a>
+                </li>
+
+       </li>
+       <li ng-class="{active: collapseVar==33}"   ng-if="(role==1 || role==4) && userType==1">{{dropDown}}
+        <a  ng-click="check(33)" >
+            <i class="fa fa-cart-arrow-down  fa-lg padding-r20"></i> Sales Team
+            <span class="fa arrow"></span>
+        </a>
+
+
+        <ul class="nav nav-second-level" uib-collapse="collapseVar!=33">
+        <li ui-sref-active="active">
+            <a ui-sref="dashboard.salesSalonList"><i class="fa fa-user fa-lg padding-r20"></i>Salon List</a>
+        </li>
+        <li ui-sref-active="active"  ng-if="role==1 || role==3 ||role==11">
+            <a ui-sref="dashboard.subscriptionSales"><i class="fa fa-user fa-lg padding-r20"></i>Subscription Sales</a>
+        </li>
+        <li ui-sref-active="active"  >
+            <a ui-sref="dashboard.salonsForSales"><i class="fa fa-user fa-lg padding-r20"></i> Sales Salon</a>
+        </li>
+        <!-- <li ui-sref-active="active"  >
+            <a ui-sref="dashboard.printMOU"><i class="fa fa-user fa-lg padding-r20"></i> Print MOU</a>
+        </li> -->
+    </ul>
+
+    </li>
+
+
+            <li ui-sref-active="active" ng-if="role==7 && userType!=1">
+                <a ui-sref="dashboard.customers"><i class="fa fa-user fa-lg padding-r20"></i> Customers</a>
+            </li>
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.createOffer"><i class="fa fa-dashboard fa-lg padding-r20"></i> Create Offer</a>
+            </li>
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.parlorLayout"><i class="fa fa-dashboard fa-lg padding-r20"></i> Parlor Layout</a>
+            </li>
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.createDeal"><i class="fa fa-dashboard fa-lg padding-r20"></i> Create Deal</a>
+            </li>
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.notifcations"><i class="fa fa-dashboard fa-lg padding-r20"></i>Notifications</a>
+            </li>
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.employeeNotifcations"><i class="fa fa-dashboard fa-lg padding-r20"></i>Employee Notifications</a>
+            </li>
+            <!--    <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.notificationOrSms"><i class="fa fa-dashboard fa-lg padding-r20"></i>Notification Or Sms </a>
+            </li> -->
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.incentiveEditForum"><i class="fa fa-dashboard fa-lg padding-r20"></i>Edit Incentive </a>
+            </li>
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.editManagerIncentive"><i class="fa fa-dashboard fa-lg padding-r20"></i>Edit Manager Incentive </a>
+            </li>
+
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.offers"><i class="fa fa-dashboard fa-lg padding-r20"></i> Offers</a>
+            </li>
+            <!--new file adhar-->
+            <!-- <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.adminAdhar"><i class="fa fa-dashboard fa-lg padding-r20"></i>Parlor MoUs</a>
+            </li> -->
+            <!--new file Employee Referral-->
+            <!-- <li ui-sref-active="active" ng-if="(role==1 || role==2) && (userType==1)">
+                <a ui-sref="dashboard.EmployeeReferral"><i class="fa fa-dashboard fa-lg padding-r20"></i>Employee Referral</a>
+            </li>
+            <!--new file Employee Referral-->
+            <!-- <li ui-sref-active="active" ng-if="(role==1 || role==2) && (userType==1)">
+                <a ui-sref="dashboard.SearchReffaralCtrl"><i class="fa fa-dashboard fa-lg padding-r20"></i>Search Employee Referral</a>
+            </li> --> -->
+            <!--salon Review-->
+            <li ui-sref-active="active" ng-if="((role==2 || role==7 || role==1) && userType!=1)">
+                <a ui-sref="dashboard.salonReview"><i class="fa fa-dashboard fa-lg padding-r20"></i>Salon Review </a>
+            </li>
+            <!--salon recomendation-->
+           <!--  <li ui-sref-active="active" ng-if="((role==2 || role==7 || role==1) && userType!=1)">
+                <a ui-sref="dashboard.dashboardMarketing"><i class="fa fa-dashboard fa-lg padding-r20"></i>
+                Send Message</a>
+            </li> -->
+            <!--new file adhar-->
+            <!-- <li ui-sref-active="active" ng-if="((role==2 || role==7 || role==1) && userType!=1)">
+                <a ui-sref="dashboard.salonAdhar"><i class="fa fa-dashboard fa-lg padding-r20"></i>Salon Adhar</a>
+            </li> -->
+            <!--new file adhar-->
+            <li ui-sref-active="active" ng-if="((role==2 || role==7 ||role==11) && userType!=1)">
+                <a ui-sref="dashboard.gstDetails"><i class="fa fa-dashboard fa-lg padding-r20"></i>Salon Details</a>
+            </li>
+
+            <li ui-sref-active="active" ng-if="((role==2 || role==7 ||role==11) && userType!=1)">
+                <a ui-sref="dashboard.searchCustomerdetail"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Search Customer Detail<span></span></a>
+            </li>
+            
+
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.refundPayment"><i class="fa fa-dashboard fa-lg padding-r20"></i>Refund Payment</a>
+            </li>
+            <li ui-sref-active="active" ng-if="role==1 || role==11">
+                <a ui-sref="dashboard.adminGST"><i class="fa fa-dashboard fa-lg padding-r20"></i>Salon Details</a>
+            </li>
+
+
+            <!--
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.createDiscountModel"><i class="fa fa-dashboard fa-lg padding-r20"></i> Create discount Model</a>
+            </li>
+-->
+            <!-- <li ui-sref-active="active" ng-if="role!=1 && role<4">
+                <a ui-sref="dashboard.to-do-list"><i class="fa fa-dashboard fa-lg padding-r20"></i> To-Do List</a>
+            </li> -->
+            <!--
+             <li ui-sref-active="active" ng-if="role!=10 && userType!=1 && role!=3 && role!=6">
+                <a ui-sref="dashboard.allparlors"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i> All Parlour Data<span></span></a>
+            </li>
+-->
+
+
+            <li ui-sref-active="active" ng-if="role==10">
+                <a ui-sref="dashboard.custSupport"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i> Appt from Be U<span></span></a>
+            </li>
+            <li ui-sref-active="active" ng-if="role==10">
+                <a ui-sref="dashboard.pendingAppt"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Pending Appointment<span></span></a>
+            </li>
+            <!--     Admin Reports       -->
+
+            <li ng-class="{active: collapseVar==12}" ng-if="(role==1|| role==3 || role==7 || role==9 || role==11|| role==10) && showReports">{{dropDown}}
+                <a href="" ng-click="check(12)"><i class="fa fa-archive fa-lg padding-r20"></i>Admin Reports<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=12">
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.serviceReport">Service Report</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.LuckyDrawSalonWiseReport">Salon Wise Lucky Draw Report</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.LuckyDrawEmployeeWiseReport">Employee Wise Lucky Draw Report</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.relevanceReport">Relevance Report</a>
+                    </li>
+                     <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.trainingSessionReport">Training Session Report</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.apptsOfRelevance">Appts od Relevance Report</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.flashsaleappointment">Flash Sale Appointment</a>
+                    </li> 
+                    
+                    <li ui-sref-active="active" ng-if="role!=7 ">
+                        <a ui-sref="dashboard.opsVisit">OP's Visit</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=7||role!=10">
+                        <a ui-sref="dashboard.customerMonthCohort">Customer Month Cohort</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=7 ||role!=10">
+                        <a ui-sref="dashboard.parlorData">Parlor Data</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.weeklyReport">Weekly Revenue</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1||role==11">
+                        <a ui-sref="dashboard.revenueReport">Revenue Report</a>
+                    </li>
+                     <li ui-sref-active="active">
+                        <a ui-sref="dashboard.quarterlySettlement">Quarterly Settlement<span></span></a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1 || role==3">
+                        <a ui-sref="dashboard.employeeAnalysis"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Employee Analysis</a>
+                    </li>
+
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.onlineAppointmentPattern">online Appointment Pattern</a>
+                    </li>
+
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.cohortReport">Cohort Report</a>
+                    </li>
+
+                    <li ui-sref-active="active" ng-if="role==1 || role==11">
+                        <a ui-sref="dashboard.salonCohort">Salon Cohort</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.salarySheet">Salary Sheet</a>
+                    </li>
+
+                    <li ui-sref-active="active" ng-if="role==1 || role==3">
+                        <a ui-sref="dashboard.incentiveReport">Incentive Report</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1 ">
+                        <a ui-sref="dashboard.appPaymentandLoyaltyUsedReport">App Payment  Loyalty Used Report</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.salonReportAppCustomer">Customers from App</a>
+                    </li>
+
+                    <!-- <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.incentiveReport">Incentive Report</a>
+                    </li> -->
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.empSegment"> Employees Segment</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.empPerformance">Employees Performance</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.empPerformanceReports">Top 3 Partner Report</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.thousandCashBackSpend">Thousand Cashback Spend<span></span></a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==1 || role==9 || role==3 || role==11">
+                        <a ui-sref="dashboard.adminPurchaseOrder">Admin Purchase Order<span></span></a>
+                    </li>
+
+                    <!--new-->
+                    <!-- <li ui-sref-active="active" ng-if="role!=7">
+                         <a ui-sref="dashboard.dayWiseReport">Day Wise Report</a>
+                    </li> -->
+                    <!--<li ui-sref-active="active" ng-if="role==1 || role==6 || role==3">-->
+                    <!--<a ui-sref="dashboard.timeWiseReport">Time Wise Report</a>-->
+                    <!--</li>-->
+                    <!--<li ui-sref-active="active" ng-if="role==1 || role==6 || role==3">-->
+                    <!--<a ui-sref="dashboard.serviceRepetition">Service Repetition</a>-->
+                    <!--</li>-->
+                    <!--<li ui-sref-active="active" ng-if="role==1 || role==6 || role==3">-->
+                    <!--<a ui-sref="dashboard.employeeRepetition">Employee Repetition</a>-->
+                    <!--</li>-->
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.membershipSold">Membership Sold</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.adminRazorPay">Razor Pay</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.admincoupanCode">Coupon Code<span></span></a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role!=7">
+                        <a ui-sref="dashboard.freeServ">Free Services<span></span></a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="userType==1">
+                        <a ui-sref="dashboard.freeHairCut">Free Hair Cut<span></span></a>
+                    </li>
+
+                    <li ui-sref-active="active" ng-if="userType==1">
+                        <a ui-sref="dashboard.onlinePayment">Online Payment<span></span></a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="userType==1">
+                        <a ui-sref="dashboard.cashOnlineReport">Cash Online Report<span></span></a>
+                    </li>
+                   
+                </ul>
+
+            </li>
+            <!-- <li ng-class="{active: collapseVar==16}" ng-if="role==1 ">{{dropDown}}
+                <a href="" ng-click="check(16)"><i class="fa fa-archive fa-lg padding-r20"></i> Incentives<span
+                              class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=16">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.employeeIncentiveReport">Employee Incentive Report</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li> -->
+            <!-- <li ng-class="{active: collapseVar==35}" ng-if="role==1 || role=3">{{dropDown}}
+                <a href="" ng-click="check(35)"><i class="fa fa-archive fa-lg padding-r20"></i> Lucky Draw Reports<span
+                              class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=35">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.LuckyDrawSalonWiseReport">Salon Wise Report</a>
+                    </li>
+                </ul>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=35">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.LuckyDrawEmployeeWiseReport">Employee Wise Report</a>
+                    </li>
+                </ul> -->
+                <!-- /.nav-second-level -->
+            <!-- </li> -->
+            <li ng-class="{active: collapseVar==13}" ng-if="userType!=1 && role==7">{{dropDown}}
+                <a href="" ng-click="check(13)"><i class="fa fa-archive fa-lg padding-r20"></i>Salons Reports<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=13">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.serviceReportSalon">Service Report</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.weeklyReportSalon">Weekly Revenue</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.salonRecommendations">Salon Recommendation</a>
+                    </li>
+                   
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.incentiveReportSalon">Incentive Report</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.empSegmentReportSalon"> Employees Segment</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.empPerformanceReportSalon">Employees Performance</a>
+                    </li>
+
+
+                </ul>
+
+            </li>
+
+            <!--    End Admin Reports       -->
+
+            <!-- <li ng-class="{active: collapseVar==14}" ng-if="role==1">{{dropDown}}
+                <a href="" ng-click="check(14)"><i class="fa fa-archive fa-lg padding-r20"></i>Settlement<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=14">
+                    <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.settlement"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i> Settlement Report<span></span></a>
+                    </li>
+                    <li ui-sref-active="active" >
+                        <a ui-sref="dashboard.salonSettlement">Salon Level</a>
+                    </li>
+
+                    <li ui-sref-active="active" >
+                        <a ui-sref="dashboard.adminWiseSettlement">Admin Level</a>
+                    </li>
+                </ul>
+            </li> -->
+
+            <li ng-class="{active: collapseVar==14}" ng-if="(role==1 || role==2  || role==7 ||role==11 ||role==9) && parlorName !='Monsoon'">{{dropDown}}
+                <a href="" ng-click="check(14)"><i class="fa fa-archive fa-lg padding-r20"></i>Settlement<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=14">
+                    <li ui-sref-active="active" ng-if="role==1 ||role==11">
+                        <a ui-sref="dashboard.settlement"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i> Settlement Report<span></span></a>
+                    </li>
+                     <li ui-sref-active="active" ng-if="role==11">
+                        <a ui-sref="dashboard.pastAppointment"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i> Past Appointment<span></span></a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.salonSettlement">Salon Level</a>
+                    </li>
+                   <!-- <li ui-sref-active="active" ng-if="role==1 || role==2  || role==7 ||role==11 ||role==9">
+                        <a ui-sref="dashboard.accountStatement">Account Statement</a>
+                    </li> -->
+                    <li ui-sref-active="active" ng-if="role==1 || role==2  || role==7 ||role==11 ||role==9">
+                        <a ui-sref="dashboard.monthLedger">Month Ledger</a>
+                    </li>
+                    
+                   
+                    
+                    <li ui-sref-active="active" ng-if="role==1||role==11||role==9">
+                        <a ui-sref="dashboard.adminWiseSettlement">Admin Level</a>
+                    </li>
+                      <li ui-sref-active="active">
+                        <a ui-sref="dashboard.settlementInvoice">Settlement Invoice</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.signUpInvoice">Signup Invoice</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="role==2 || role==7">
+                        <a ui-sref="dashboard.yearlyInnvoice">Yearly Invoice</a>
+                    </li>
+                    <!-- <li ui-sref-active="active" ng-if="role==1">
+                        <a ui-sref="dashboard.firstAppSettlement"><span>First App Settlement</span></a>
+                    </li> -->
+                </ul>
+            </li>
+
+
+
+            <li ui-sref-active="active" ng-if="userType==1 &&(role==1||role==7)">
+
+                <a ui-sref="dashboard.editReview"><i class="fa fa-pencil-square-o fa-lg padding-r20"></i>Edit Review<span></span></a>
+            </li>
+
+
+            <li ui-sref-active="active" ng-if="(role==1|| role == 7) && userType==1 ">
+                <a ui-sref="dashboard.zeroStatusAppts"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Zero Status Appointments<span></span></a>
+            </li>
+            <li ui-sref-active="active" ng-if="(role==2 || role==1|| role == 7 || role == 9 || role == 3) ">
+                <a ui-sref="dashboard.searchOtp"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Search Otp<span></span></a>
+            </li>
+
+            
+            <!-- ng-if="role==1||userType!='1' " -->
+            <li ui-sref-active="active" ng-if="(role==1|| role == 7) && userType==1">
+                <a ui-sref="dashboard.teamMemberProfile"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>My Profile<span></span></a>
+            </li>
+              <!-- <li ui-sref-active="active"ng-if="userType!=1 && role==7">
+                        <a ui-sref="dashboard.Salon-support-report">Salon Support Report</a>
+                    </li >-->
+            <li ui-sref-active="active" ng-if="role==1 ||role==3">
+                <a ui-sref="dashboard.inventoryOrdered"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Inventory Ordered<span></span></a>
+            </li>
+
+            <!--
+            <li ui-sref-active="active" ng-if="role==11">
+               <a ui-sref="dashboard.razorPay"><i class="fa fa-dashboard fa-lg padding-r20"></i>Razor Pay<span></span></a>
+           </li>
+-->
+            <li ui-sref-active="active" ng-if="role==11">
+                <a ui-sref="dashboard.nearbuy"><i class="fa fa-dashboard fa-lg padding-r20"></i>Nearbuy<span></span></a>
+            </li>
+            <li ng-class="{active: collapseVar==4}" ng-if="(role==1 || role==6 || role==3 ||role==9 || role==11) && showReports">{{dropDown}}
+                <a href="" ng-click="check(4)"><i class="fa fa-archive fa-lg padding-r20"></i> Vital Statics<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=4">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.branchRevenue">Branch Revenue</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.clientsOnMap">Clients On Map</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.mapFeature">Map Feature</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.oldNewBranch">Old-New(Branch &amp; Segment)</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.oldNewAvg">Old-New(Avg Tck)</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.vital">Vital</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.allSalon">Cross Sell and Upsell Report</a>
+                    </li>
+                </ul>
+
+            </li>
+            <!--            -->
+            <!--my code-->
+            <!-- <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.test"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Test<span></span></a>
+            </li> -->
+
+            <!-- <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.map"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Map<span></span></a>
+            </li> -->
+
+            <!-- <li ui-sref-active="active" ng-if="role==1 || role==3">
+                <a ui-sref="dashboard.map"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Map<span></span></a>
+            </li> -->
+
+            <!-- <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.info"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Info<span></span></a>
+            </li> -->
+            <!-- <li ng-class="{active: collapseVar==25}" ng-if="role==1 ">{{dropDown}}
+                      <a href="" ng-click="check(25)"><i class="fa fa-archive fa-lg padding-r20"></i> Trainer<span
+                              class="fa arrow"></span></a>
+                      <ul class="nav nav-second-level" uib-collapse="collapseVar!=25">
+                          <li ui-sref-active="active">
+                              <a ui-sref="dashboard.createChapter">Create Chapter</a>
+                          </li>
+                           <li ui-sref-active="active">
+                              <a ui-sref="dashboard.trainingSession">Training Session</a>
+                          </li>
+                          <li ui-sref-active="active">
+                             <a ui-sref="dashboard.trainingCompleted">Trainings Completed</a>
+                         </li>
+                      </ul> -->
+            <!-- /.nav-second-level -->
+            <!-- </li> -->
+            <li ui-sref-active="active" ng-if="role==1 || role===11 ||role==9">
+                <a ui-sref="dashboard.employeeLuckyDraw"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Employee Lucky Draw<span></span></a>
+            </li>
+
+            <!-- <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.opsFormDetails"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Ops Form Details<span></span></a>
+            </li> -->
+            <li ui-sref-active="active" ng-if="role==1||role==11 ||role==3">
+                <a ui-sref="dashboard.luckyDraw"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Lucky Draw<span></span></a>
+            </li>
+            <!-- <li ui-sref-active="active" ng-if="(userType!=1 && role==7)|| (userType!=1 && role==2)">
+                <a ui-sref="dashboard.dealTest"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Hair Deal<span></span></a>
+            </li> -->
+
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.luckyDrawModel"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Lucky Draw Model<span></span></a>
+            </li>
+            <li ng-class="{active: collapseVar==15}" ng-if="role==1 || role==11">{{dropDown}}
+                <a href="" ng-click="check(15)"><i class="fa fa-download fa-lg padding-r20"></i>KPI<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=15">
+                    <li ui-sref-active="active">
+
+                        <a ui-sref="dashboard.kpiDashboard">KPI Dashboard</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.kpiDashboardEntry">KPI Dashboard Entry</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <!--  -->
+            <!--members-->
+            <li ng-class="{active: collapseVar==11}" ng-if="role==1 || (role==2 && userType==1)">{{dropDown}}
+                <a href="" ng-click="check(11)"><i class="fa fa-archive fa-lg padding-r20"></i>Create Members<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=11">
+                    <li ui-sref-active="active">
+
+                        <a ui-sref="dashboard.members">Members</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+			 <li ui-sref-active="active"  ng-if="role==1 || role==2">
+                    <a ui-sref="dashboard.redeemsubscriptionnearby"><i class="fa fa-user fa-lg padding-r20"></i>
+						Redeem Nearby Subscription
+						
+					</a>
+                </li>
+
+            <li ng-class="{active: collapseVar==11}" ng-if="role==1">{{dropDown}}
+                <a href="" ng-click="check(16)"><i class="fa fa-archive fa-lg padding-r20"></i>Video Tutorial<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=16">
+                    <li ui-sref-active="active">
+
+                        <a ui-sref="dashboard.videoTutorial">Video</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <!--    end members       -->
+            
+
+            <li ui-sref-active="active" ng-if="(userType!=1 && role==7)|| (userType!=1 && role==2)">
+                <a ui-sref="dashboard.couponCode"><i class="fa fa-cc fa-lg padding-r20"></i>Coupon Code<span></span></a>
+            </li>
+            <li ui-sref-active="active" ng-if="(userType!=1 && role==7)|| (userType!=1 && role==2)">
+                <a ui-sref="dashboard.dealMenu"><i class="fa fa-cc fa-lg padding-r20"></i>Deal Menu<span></span></a>
+            </li>
+            <!-- <li ui-sref-active="active" ng-if="(userType!=1 && role==7)|| (userType!=1 && role==2)">
+                <a ui-sref="dashboard.packageMenu"><i class="fa fa-cc fa-lg padding-r20"></i>Package Menu<span></span></a>
+            </li> -->
+
+            <!-- <li ui-sref-active="active" ng-if="userType==1 &&(role==1||role==7)">
+                <a ui-sref="dashboard.appDashDownload"><i class="fa fa-download fa-lg padding-r20"></i>Download Dashboard<span></span></a>
+            </li> -->
+
+            <!--  <li ui-sref-active="active" ng-if="role==1">
+               <a ui-sref="dashboard.automatedNotification"><i class="fa fa-download fa-lg padding-r20"></i>Automated Notifications<span></span></a>
+           </li> -->
+
+
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.graphicalReport"><i class="fa fa-download fa-lg padding-r20"></i>Graphical Report<span></span></a>
+            </li>
+              <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.createCoupon"><i class="fa fa-download fa-lg padding-r20"></i>Create Coupon<span></span></a>
+            </li>
+
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.frequencyMonitor"><i class="fa fa-download fa-lg padding-r20"></i>Frequency Monitors Report<span></span></a>
+            </li>
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.usedLoyaltyPoints"><i class="fa fa-download fa-lg padding-r20"></i>Loyalty Points Used<span></span></a>
+            </li>
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.beUForm"><i class="fa fa-download fa-lg padding-r20"></i>Be U Form Category<span></span></a>
+            </li>
+            <li ui-sref-active="active" ng-if="userType==1 && role==1">
+                <a ui-sref="dashboard.salonCashback&Loyalty"><i class="fa fa-download fa-lg padding-r20"></i>Salon Cashback & Loyalty<span></span></a>
+            </li>
+            <!-- <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.createBeUQuestions"><i class="fa fa-download fa-lg padding-r20"></i>Create Be U Questions<span></span></a>
+            </li> -->
+            <li ui-sref-active="active" ng-if="userType==1  && role==1">
+                <a ui-sref="dashboard.create&ViewBeUQuestions"><i class="fa fa-download fa-lg padding-r20"></i>Create/View Be U Questions<span></span></a>
+            </li>
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.create&editDeals"><i class="fa fa-download fa-lg padding-r20"></i>Create/Edit Daily Deals<span></span></a>
+            </li>
+            <li ui-sref-active="active" ng-if="userType==1  && role==1">
+                <a ui-sref="dashboard.appointmentClosingPattern"><i class="fa fa-download fa-lg padding-r20"></i>Appointment Closing Pattern<span></span></a>
+            </li>
+
+
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.repeatCustomerMonthWise"><i class="fa fa-download fa-lg padding-r20"></i>Repeat Customer Month Wise<span></span></a>
+            </li>
+
+
+            <!-- <li ui-sref-active="active" >
+               <a ui-sref="dashboard.dealMenu"><i class="fa fa-download fa-lg padding-r20"></i>Deal Menu<span></span></a>
+           </li> -->
+
+
+            <!--  <li ui-sref-active="active" >
+               <a ui-sref="dashboard.dealMenu"><i class="fa fa-download fa-lg padding-r20"></i>Deal Menu<span></span></a>
+           </li>   -->
+
+            <!--  <li ui-sref-active="active" >
+               <a ui-sref="dashboard.createdJpeg"><i class="fa fa-download fa-lg padding-r20"></i>Created Jpeg<span></span></a>
+           </li>
+
+
+		  <!-- <li ui-sref-active="active">
+                <a ui-sref="dashboard.chat"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i> Chat<span></span></a>
+           </li> -->
+
+            <!--    <li ui-sref-active="active">
+                <a ui-sref="dashboard.table"><i class="fa fa-table fa-fw"></i> Tables</a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="dashboard.form"><i class="fa fa-edit fa-fw"></i> Forms</a>
+            </li>
+            <li ng-class="{active: collapseVar==1}">{{dropDown}}
+                <a href="" ng-click="check(1)"><i class="fa fa-wrench fa-fw"></i> UI Elements<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" collapse="collapseVar!=1">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.panels-wells">Panels and Wells</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.buttons">Buttons</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.notifications">Notifications</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.typography">Typography</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.icons"> Icons</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.grid">Grid</a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-class="{active: collapseVar==2}">
+                <a href="" ng-click="check(2)"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" collapse="collapseVar!=2">
+                    <li>
+                        <a href="">Second Level Item</a>
+                    </li>
+                    <li>
+                        <a href="">Second Level Item</a>
+                    </li>
+                    <li ng-init="third=!third" ng-class="{active: multiCollapseVar==3}">
+                        <a href="" ng-click="multiCheck(3)">Third Level <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level" collapse="multiCollapseVar!=3">
+                            <li>
+                                <a href="">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="">Third Level Item</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+                </li>
+            <li ng-class="{active:collapseVar==4}">
+                <a href="" ng-click="check(4)"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" collapse="collapseVar!=4">
+                    <li ng-class="{active: selectedMenu=='blank'}">
+                        <a ui-sref="dashboard.blank" ng-click="selectedMenu='blank'">Blank Page</a>
+                    </li>
+                    <li>
+                        <a ui-sref="login">Login Page</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="http://www.strapui.com/">Premium Angular Themes</a></li> -->
+            <li ui-sref-active="active" ng-if="role==1 ">
+                <a ui-sref="dashboard.corporateCompany"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Corporate  Company<span></span></a>
+            </li>
+            <li ui-sref-active="active" ng-if="role==1">
+                <a ui-sref="dashboard.uploadTutorial"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Upload Tutorial <span></span></a>
+            </li>
+            <li ng-class="{active: collapseVar==17}" ng-if="role!=1 && (role==2 || role==7)">{{dropDown}}
+                <a href="" ng-click="check(17)"><i class="fa fa-archive fa-lg padding-r20"></i>Tutorial<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=17">
+                    <li ui-sref-active="active" ng-repeat="pane in chapters">
+                        <a ui-sref="dashboard.viewTutorial" ng-click="chapter(pane.chapterId)">{{pane.name}}</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- /.nav-second-level -->
+            <li ui-sref-active="active" ng-if="role==1 && userType==1">
+                <a ui-sref="dashboard.corporateCompanyRequest"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Corporate  Company Request<span></span></a>
+            </li>
+            <li ui-sref-active="active" ng-if="userType==1 && (role==9||role==1 ||role==10)">
+                <a ui-sref="dashboard.capturePayment"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Capture Payment<span></span></a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="dashboard.discountOnPurchase" ng-if="role==1 || role==11"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Discount Bucket<span></span></a>
+            </li>
+            <li ui-sref-active="active">
+
+                <a ui-sref="dashboard.bloggerAppointment" ng-if="role==1 "><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Blogger Appointment<span></span></a>
+            </li>
+            <li ui-sref-active="active">
+
+                <a ui-sref="dashboard.editFeaturedReviews" ng-if="role==1 || role==10 "><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Edit Featured Reviews<span></span></a>
+            </li>
+
+            <li ui-sref-active="active" ng-if="userType==1 && (role==7||role==1 ||role==10)">
+
+                <a ui-sref="dashboard.visitedOnce"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Customer Care</a>
+            </li>
+
+            <li ui-sref-active="active" ng-if="userType==1  && role==1">
+                <a ui-sref="dashboard.createTrainingChapter"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Create Training Chapter</a>
+            </li>
+            <li ui-sref-active="active" ng-if="userType==0">
+                <a ui-sref="dashboard.musicPlayer"><i class="fa fa-bar-chart-o fa-lg padding-r20"></i>Music Player</a>
+            </li>
+
+             <li ui-sref-active="active" ng-if="role==1 || role==2|| role==7||  role==6 || role==3 ||role==9 || role==11">
+
+                <a ui-sref="dashboard.salonSubscriptionSide">Salon Subscription</a>
+            </li> 
+
+                <li ui-sref-active="active" ng-if="userType==1 && (role==3 || role==1 ) ">
+
+
+                <a ui-sref="dashboard.parlorClientFrq">Parlor Client Frequency</a>
+            </li> 
+            <li ui-sref-active="active" ng-if="role==1">
+
+
+                <a ui-sref="dashboard.CreateFlashCoopon">Create Flash Coopon</a>
+            </li> 
+              
+            <li ng-class="{active: collapseVar==19}" ng-if="userType==1 && role!=13">{{dropDown}}
+                <a href="" ng-click="check(19)"><i class="fa fa-archive fa-lg padding-r20"></i>Salon Support <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=19">
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard.Salon-support-report">Salon Support Report</a>
+                    </li>
+                    <li ui-sref-active="active"  >
+                        <a ui-sref="dashboard.clientSupportReport">Performance Report- Good, Bad and Ugly</a>
+                    </li>
+                    <li ui-sref-active="active"  >
+                        <a ui-sref="dashboard.clientSupportReport">Include Salon In Early Bird  </a>
+                    </li>
+                     <li ui-sref-active="active"  >
+                        <a ui-sref="dashboard.salonSupportmonthwise">Salon Support Month Wise </a>
+                    </li>
+                    <li ui-sref-active="active"  >
+                            <a ui-sref="dashboard.dateWiseSupport">Salon Support Date Wise </a>
+                        </li>
+                    <li ui-sref-active="active"  >
+                            <a ui-sref="dashboard.repeatWiseSupport">Salon Support Repeat Wise </a>
+                        </li>    
+                </ul>
+            </li>
+                 
+           
+
+
+        </ul>
+    </div>
+</div>

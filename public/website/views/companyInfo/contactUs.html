@@ -1,0 +1,63 @@
+<div  class="companyinfo-page-container" flex>
+    <div  flex>
+        <div layout="row" layout-align="center" flex class="companyinfo-page-heading">
+            <h2 class="beu-company-heading">Contact us</h2>
+        </div>
+        <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center">
+            <div flex-xs flex-gt-xs="80" layout="column">
+                <div flex>
+                    <div layout="row">
+                        <div flex="50">
+                        <md-card>
+                            <md-card-content>
+
+                                    <md-input-container class="md-icon-float md-block">
+                                        <!-- Use floating label instead of placeholder -->
+                                        <label>Name</label>
+                                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                                        <input ng-model="formData.name"  type="text">
+
+                                    </md-input-container>
+
+                                    <md-input-container md-no-float class="md-block">
+                                        <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                                        <input ng-model="formData.phoneNumber" type="number" placeholder="Phone Number">
+                                    </md-input-container>
+
+                                    <md-input-container class="md-block">
+                                        <!-- Use floating placeholder instead of label -->
+                                        <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+                                        <input ng-model="formData.emailId" type="email" placeholder="Email (required)" ng-required="true">
+                                    </md-input-container>
+
+                                    <md-card-content layout="row" flex="100">
+                                        <md-input-container class="md-block" flex="100">
+                                            <label style="font-size:13px;">Type Message Here</label>
+                                            <textarea  ng-model="formData.message" md-maxlength="150" ng-maxlength="150" rows="3" md-select-on-focus ></textarea>
+                                        </md-input-container>
+                                    </md-card-content>
+                                    <div layout="column" flex="100" class="addReviewDialog-page-margin" layout-align="center center">
+                                        <md-button id="contactSubmit"  ng-click="submit()">Send</md-button>
+                                    </div>
+
+                                <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
+                            </md-card-content>
+                        </md-card>
+                        </div>
+                        <div flex="50">
+                            <md-card>
+                                <md-card-content>
+                                    <p class="beu-about">
+                                        Corporate Office: Plot No 62, Okhla Phase 3, New Delhi-110020, Phone: +91-8690291910,
+                                        Regd Office: Shubham Centre – A1, 4th Floor, Unit No 401, Cardinal Gracious Road, Chakala, Andheri East, Mumbai, MH-400099
+                                    </p>
+                                </md-card-content>
+                            </md-card>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>

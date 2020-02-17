@@ -1,0 +1,136 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Inventory Management</h1>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!--/.row-->
+<div class="container-fluid">
+  <div class="form-inline row" style="text-align:right">
+        <input type="text" ng-model="query" class="form-control" placeholder="Search here">
+<!--        <button type="button" class="btn" ng-csv="makeCSVData()" filename="data.csv">Export as CSV</button>-->
+         <button type="button" class="btn" ng-csv="data" csv-column-order="order" csv-header="['Name', 'Id','Current Quantity','Minimum Quantity']">Export as CSV</button>
+  </div>
+
+  <div class="card">
+      <div class="container-fluid">
+        <div class="table-responsive">
+          <table ng-table="tableParams" class="table table-striped table-hover" show-filter="true">
+                 <tr ng-repeat="product in $data | filter : query" ng-if="(product.quantity) || product.quantity>=0" >
+              <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
+                        {{product.name  }}</td>
+              <td title="'Id'"  sortable="'itemId'">
+                        {{product.itemId}}</td>
+					    <td title="'Current Quantity'"   sortable="'quantity'">
+                        {{product.  quantity}}</td>
+					    <td title="'Minimum Quantity'">
+                        {{product.minimumQuantity}}
+                        <button class="btn btn-primary"  ng-click="edit(product)">Edit</button>
+            </td>
+					    <td title="'Add/Consumed'">
+                <button class="btn" ng-click="add($index, 1,product.itemId,product.parlorItemId)">Add</button>
+						    <button class="btn" ng-click="add($index, -1,product.itemId,product.parlorItemId)">Consumed</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+	     </div>
+     </div>
+</div>
+
+        <div class="modal fade" id="addQuantity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Add Quantity</h4>
+                              </div>
+                              <form role="form" ng-submit="addQuantity(1)">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Quantity</label>
+                                                  <input class="form-control" ng-model="newQuantity.amount" value="{{newQuantity.amount}}" required >
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Manufacture Month</label>
+                                                  <input type="date" class="form-control" ng-model="newQuantity.manufactureMonth" value="{{newQuantity.manufactureMonth}}" required >
+                                              </div>
+                                          </div>
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Add</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>
+
+               <div class="modal fade" id="editQuantity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Edit Minimum Quantity</h4>
+                              </div>
+                              <form role="form" ng-submit="editQuantity()">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Quantity</label>
+                                                  <input class="form-control" ng-model="editMinQuantity.quantity"  required >
+                                              </div>
+                                          </div>
+                                         
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Edit</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>
+
+                  <div class="modal fade" id="consumeQuantity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel2"> Consume Quantity</h4>
+                                        </div>
+                                        <form role="form" ng-submit="addQuantity(-1)">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>Quantity</label>
+                                                            <input class="form-control" ng-model="newQuantity.amount" value="{{newQuantity.amount}}" required >
+                                                        </div>
+                                                    </div>
+                                                <!-- /.col-lg-6 (nested) -->
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Consume</button>
+                                        </div>
+                                    </form>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>

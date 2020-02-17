@@ -1,0 +1,533 @@
+<div class="row" >
+    <div class="col-lg-12">
+        <h1 class="page-header">Deal Menu</h1><br/>
+    </div>
+</div>
+<div >
+    <div class="row" id="my-node" >
+        <div class="col-lg-12 col-md-12" style="margin-left:10%;"  >
+
+            <!-- ---------------------------------Hair starts------------------------------ -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h4>Hair</h4>
+                </div>
+            </div>
+            <div class="row" >
+
+
+                <!-- ---------------------------------ignore this starts------------------------------ -->
+
+                <div ng-hide='true' class="col-lg-6 col-md-6" >
+                    <div class="row">
+        <span><select ng-hide='rewindObject.hair.hairCat.flag' ng-options="cat.name as cat.name disable when cat.isSelected for cat in categories" ng-model="selectedCat1"  ng-change="categorySelected('hair','rewindObject.hair.hairCat.name',selectedCat1,'rewindObject.hair.hairCat.services');rewindObject.hair.hairCat.flag=true"></select><span ng-if='rewindObject.hair.hairCat.flag==true'>{{rewindObject.hair.hairCat.name}}<button ng-click="edit('rewindObject.hair.hairCat.name');rewindObject.hair.hairCat.flag=false;rewindObject.hair.hairCat.services=[];rewindObject.hair.hairCat.selectedServices=[]">Edit</button></span>
+        </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="row">
+                                <span><div id="new-select" isteven-multi-select input-model="rewindObject.hair.hairCat.services" output-model="rewindObject.hair.hairCat.selectedServices" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="name menuPrice dealPrice" on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div></span>
+                            </div>
+                            <div class="row">
+                                <table style="width:80%;">
+                                    <tbody>
+                                        <tr ng-repeat='list in rewindObject.hair.hairCat.selectedServices'>
+                                            <td>{{list.name}}</td>
+                                            <td><strike>{{list.menuPrice}}</strike></td>
+                                            <td>{{list.dealPrice}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---------------------------------ignore this stops------------------------------ -->
+
+                <div class="col-lg-6 col-md-6" >
+                    <div class="row">
+        <span><select ng-hide='rewindObject.hair.hairCat11.flag' ng-options="cat.name as cat.name disable when cat.isSelected for cat in categories" ng-model="selectedCat1"  ng-change="categorySelected('hair','rewindObject.hair.hairCat11.name',selectedCat1,'rewindObject.hair.hairCat11.services');rewindObject.hair.hairCat11.flag=true"></select><span ng-if='rewindObject.hair.hairCat11.flag==true'>{{rewindObject.hair.hairCat11.name}}<button ng-click="edit('rewindObject.hair.hairCat11.name');rewindObject.hair.hairCat11.flag=false;rewindObject.hair.hairCat11.services=[];rewindObject.hair.hairCat11.selectedServices=[]">Edit</button></span>
+        </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="row">
+                                <span><div id="new-select" isteven-multi-select input-model="rewindObject.hair.hairCat11.services" output-model="rewindObject.hair.hairCat11.selectedServices" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="name menuPrice dealPrice dealType  brands" on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div></span>
+                            </div>
+                            <div class="row">
+                                <table style="width:80%;">
+                                    <tbody>
+                                    <tr ng-repeat='list in rewindObject.hair.hairCat11.selectedServices'>
+                                        <td>{{list.name}}</td>
+                                        <td ng-if='list.brands.length>0'>
+                                            <span ng-repeat='bList in list.brands'>
+                                                <strike>{{list.menuPrice*bList.ratio | number :0}}</strike>
+                                                <span ng-if='!$last'>/</span>
+                                            </span>
+                                        </td>
+                                        <td ng-if='list.brands.length>0'>
+                                            <span ng-repeat='bList in list.brands'>
+                                                {{list.dealPrice*bList.ratio | number :0}}
+                                                <span ng-if='!$last'>/</span>
+                                            </span>
+                                        </td>
+                                        <td ng-if='list.brands.length==0'><strike>{{list.menuPrice}}</strike></td>
+                                        <td ng-if='list.brands.length==0'>{{list.dealPrice}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="row">
+         <span><select ng-hide='rewindObject.hair.hairCat12.flag' ng-options="cat.name as cat.name disable when cat.isSelected for cat in categories" ng-model="selectedCat1"  ng-change="categorySelected('hair','rewindObject.hair.hairCat12.name',selectedCat1,'rewindObject.hair.hairCat12.services');rewindObject.hair.hairCat12.flag=true"></select><span ng-if='rewindObject.hair.hairCat12.flag==true'>{{rewindObject.hair.hairCat12.name}}<button ng-click="edit('rewindObject.hair.hairCat12.name');rewindObject.hair.hairCat12.flag=false;rewindObject.hair.hairCat12.services=[];rewindObject.hair.hairCat12.selectedServices=[]">Edit</button></span>
+         </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="row">
+                                <span><div id="new-select" isteven-multi-select input-model="rewindObject.hair.hairCat12.services" output-model="rewindObject.hair.hairCat12.selectedServices" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="name menuPrice dealPrice dealType brands" on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div></span>
+                            </div>
+                            <div class="row">
+                                <table style="width:80%;">
+                                    <tbody>
+                                    <tr ng-repeat='list in rewindObject.hair.hairCat12.selectedServices'>
+                                        <td>{{list.name}}</td>
+                                        <td ng-if='list.brands.length>0'>
+                                            <span ng-repeat='bList in list.brands'>
+                                                <strike>{{list.menuPrice*bList.ratio | number :0}}</strike>
+                                                <span ng-if='!$last'>/</span>
+                                            </span>
+                                        </td>
+                                        <td ng-if='list.brands.length>0'>
+                                            <span ng-repeat='bList in list.brands'>
+                                                {{list.dealPrice*bList.ratio | number :0}}
+                                                <span ng-if='!$last'>/</span>
+                                            </span>
+                                        </td>
+                                        <td ng-if='list.brands.length==0'><strike>{{list.menuPrice}}</strike></td>
+                                        <td ng-if='list.brands.length==0'>{{list.dealPrice}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="row">
+          <span><select ng-hide='rewindObject.hair.hairCat21.flag' ng-options="cat.name as cat.name disable when cat.isSelected for cat in categories" ng-model="selectedCat1"  ng-change="categorySelected('hair','rewindObject.hair.hairCat21.name',selectedCat1,'rewindObject.hair.hairCat21.services');rewindObject.hair.hairCat21.flag=true"></select><span ng-if='rewindObject.hair.hairCat21.flag==true'>{{rewindObject.hair.hairCat21.name}}<button ng-click="edit('rewindObject.hair.hairCat21.name');rewindObject.hair.hairCat21.flag=false;rewindObject.hair.hairCat21.services=[];rewindObject.hair.hairCat21.selectedServices=[]">Edit</button></span>
+         </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="row">
+                                <span><div id="new-select" isteven-multi-select input-model="rewindObject.hair.hairCat21.services" output-model="rewindObject.hair.hairCat21.selectedServices" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="name menuPrice dealPrice dealType brands" on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div></span>
+                            </div>
+                            <div class="row">
+                                <table style="width:80%;">
+                                    <tbody>
+                                    <tr ng-repeat='list in rewindObject.hair.hairCat21.selectedServices'>
+                                        <td>{{list.name}}</td>
+                                        <td ng-if='list.brands.length>0'>
+                                            <span ng-repeat='bList in list.brands'>
+                                                <strike>{{list.menuPrice*bList.ratio | number :0}}</strike>
+                                                <span ng-if='!$last'>/</span>
+                                            </span>
+                                        </td>
+                                        <td ng-if='list.brands.length>0'>
+                                            <span ng-repeat='bList in list.brands'>
+                                                {{list.dealPrice*bList.ratio | number :0}}
+                                                <span ng-if='!$last'>/</span>
+                                            </span>
+                                        </td>
+                                        <td ng-if='list.brands.length==0'><strike>{{list.menuPrice}}</strike></td>
+                                        <td ng-if='list.brands.length==0'>{{list.dealPrice}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="row">
+            <span><select ng-hide='rewindObject.hair.hairCat22.flag' ng-options="cat.name as cat.name disable when cat.isSelected for cat in categories" ng-model="selectedCat1"  ng-change="categorySelected('hair','rewindObject.hair.hairCat22.name',selectedCat1,'rewindObject.hair.hairCat22.services');rewindObject.hair.hairCat22.flag=true"></select><span ng-if='rewindObject.hair.hairCat22.flag==true'>{{rewindObject.hair.hairCat22.name}}<button ng-click="edit('rewindObject.hair.hairCat22.name');rewindObject.hair.hairCat22.flag=false;rewindObject.hair.hairCat22.services=[];rewindObject.hair.hairCat22.selectedServices=[]">Edit</button></span>
+           </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="row">
+                                <span><div id="new-select" isteven-multi-select input-model="rewindObject.hair.hairCat22.services" output-model="rewindObject.hair.hairCat22.selectedServices" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="name menuPrice dealPrice dealType brands" on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div></span>
+                            </div>
+                            <div class="row">
+                                <table style="width:80%;">
+                                    <tbody>
+                                    <tr ng-repeat='list in rewindObject.hair.hairCat22.selectedServices'>
+                                        <td>{{list.name}}</td>
+                                        <td ng-if='list.brands.length>0'>
+                                            <span ng-repeat='bList in list.brands'>
+                                                <strike>{{list.menuPrice*bList.ratio | number :0}}</strike>
+                                                <span ng-if='!$last'>/</span>
+                                            </span>
+                                        </td>
+                                        <td ng-if='list.brands.length>0'>
+                                            <span ng-repeat='bList in list.brands'>
+                                                {{list.dealPrice*bList.ratio | number :0}}
+                                                <span ng-if='!$last'>/</span>
+                                            </span>
+                                        </td>
+                                        <td ng-if='list.brands.length==0'><strike>{{list.menuPrice}}</strike></td>
+                                        <td ng-if='list.brands.length==0'>{{list.dealPrice}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="row">
+           <span><select ng-hide='rewindObject.hair.hairCat31.flag' ng-options="cat.name as cat.name disable when cat.isSelected for cat in categories" ng-model="selectedCat1"  ng-change="categorySelected('hair','rewindObject.hair.hairCat31.name',selectedCat1,'rewindObject.hair.hairCat31.services');rewindObject.hair.hairCat31.flag=true"></select><span ng-if='rewindObject.hair.hairCat31.flag==true'>{{rewindObject.hair.hairCat31.name}}<button ng-click="edit('rewindObject.hair.hairCat31.name');rewindObject.hair.hairCat31.flag=false;rewindObject.hair.hairCat31.services=[];rewindObject.hair.hairCat31.selectedServices=[]">Edit</button></span>
+           </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="row">
+                                <span><div id="new-select" isteven-multi-select input-model="rewindObject.hair.hairCat31.services" output-model="rewindObject.hair.hairCat31.selectedServices" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="name menuPrice dealPrice dealType brands" on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div></span>
+                            </div>
+                            <div class="row">
+                                <table style="width:80%;">
+                                    <tbody>
+                                    <tr ng-repeat='list in rewindObject.hair.hairCat31.selectedServices'>
+                                        <td>{{list.name}}</td>
+                                        <td ng-if='list.dealType.name!="frequency"'><strike>{{list.menuPrice}}</strike></td>
+                                        <td  ng-if='list.dealType.name!="frequency"'>{{list.dealPrice}}</td>
+                                        <td ng-if='list.dealType.name=="frequency"'>Buy {{list.dealType.frequencyRequired}} get {{list.dealType.frequencyFree}} free</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="row">
+          <span><select ng-hide='rewindObject.hair.hairCat32.flag' ng-options="cat.name as cat.name disable when cat.isSelected for cat in categories" ng-model="selectedCat1"  ng-change="categorySelected('hair','rewindObject.hair.hairCat32.name',selectedCat1,'rewindObject.hair.hairCat32.services');rewindObject.hair.hairCat32.flag=true"></select><span ng-if='rewindObject.hair.hairCat32.flag==true'>{{rewindObject.hair.hairCat32.name}}<button ng-click="edit('rewindObject.hair.hairCat32.name');rewindObject.hair.hairCat32.flag=false;rewindObject.hair.hairCat32.services=[];rewindObject.hair.hairCat32.selectedServices=[]">Edit</button></span>
+           </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="row">
+                                <span><div id="new-select" isteven-multi-select input-model="rewindObject.hair.hairCat32.services" output-model="rewindObject.hair.hairCat32.selectedServices" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="name menuPrice dealPrice dealType brands" on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div></span>
+                            </div>
+                            <div class="row">
+                                <table style="width:80%;">
+                                    <tbody>
+                                    <tr ng-repeat='list in rewindObject.hair.hairCat32.selectedServices'>
+                                        <td>{{list.name}}</td>
+                                        <td ng-if='list.brands.length>0'>
+                                            <span ng-repeat='bList in list.brands'>
+                                                <strike>{{list.menuPrice*bList.ratio | number :0}}</strike>
+                                                <span ng-if='!$last'>/</span>
+                                            </span>
+                                        </td>
+                                        <td ng-if='list.brands.length>0'>
+                                            <span ng-repeat='bList in list.brands'>
+                                                {{list.dealPrice*bList.ratio | number :0}}
+                                                <span ng-if='!$last'>/</span>
+                                            </span>
+                                        </td>
+                                        <td ng-if='list.brands.length==0'><strike>{{list.menuPrice}}</strike></td>
+                                        <td ng-if='list.brands.length==0'>{{list.dealPrice}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ---------------------------------Hair stops------------------------------ -->
+
+
+            <!-- ---------------------------------Beauty starts------------------------------ -->
+            <div class="row" >
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <h4>Beauty</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="row">
+        <span><select ng-hide='rewindObject.beauty.beautyCat11.flag' ng-options="cat.name as cat.name disable when cat.isSelected for cat in categories" ng-model="selectedCat1"  ng-change="categorySelected('beauty','rewindObject.beauty.beautyCat11.name',selectedCat1,'rewindObject.beauty.beautyCat11.services');rewindObject.beauty.beautyCat11.flag=true"></select><span ng-if='rewindObject.beauty.beautyCat11.flag==true'>{{rewindObject.beauty.beautyCat11.name}}<button ng-click="edit('rewindObject.beauty.beautyCat11.name');rewindObject.beauty.beautyCat11.flag=false;rewindObject.beauty.beautyCat11.services=[];rewindObject.beauty.beautyCat11.selectedServices=[]">Edit</button></span>
+        </span>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="row">
+                                        <span><div id="new-select" isteven-multi-select input-model="rewindObject.beauty.beautyCat11.services" output-model="rewindObject.beauty.beautyCat11.selectedServices" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="name menuPrice dealPrice dealType brands" on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div></span>
+                                    </div>
+                                    <div class="row">
+                                        <table style="width:80%;">
+                                            <tbody>
+                                            <tr ng-repeat='list in rewindObject.beauty.beautyCat11.selectedServices'>
+                                                <td>{{list.name}}</td>
+                                                <td ng-if='list.brands.length>0'>
+                                                    <span ng-repeat='bList in list.brands'>
+                                                        <strike>{{list.menuPrice*bList.ratio | number :0}}</strike>
+                                                        <span ng-if='!$last'>/</span>
+                                                    </span>
+                                                </td>
+                                                <td ng-if='list.brands.length>0'>
+                                                    <span ng-repeat='bList in list.brands'>
+                                                        {{list.dealPrice*bList.ratio | number :0}}
+                                                        <span ng-if='!$last'>/</span>
+                                                    </span>
+                                                </td>
+                                                <td ng-if='list.brands.length==0'><strike>{{list.menuPrice}}</strike></td>
+                                                <td ng-if='list.brands.length==0'>{{list.dealPrice}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="row">
+        <span><select ng-hide='rewindObject.beauty.beautyCat21.flag' ng-options="cat.name as cat.name disable when cat.isSelected for cat in categories" ng-model="selectedCat1"  ng-change="categorySelected('beauty','rewindObject.beauty.beautyCat21.name',selectedCat1,'rewindObject.beauty.beautyCat21.services');rewindObject.beauty.beautyCat21.flag=true"></select><span ng-if='rewindObject.beauty.beautyCat21.flag==true'>{{rewindObject.beauty.beautyCat21.name}}<button ng-click="edit('rewindObject.beauty.beautyCat21.name');rewindObject.beauty.beautyCat21.flag=false;rewindObject.beauty.beautyCat21.services=[];rewindObject.beauty.beautyCat21.selectedServices=[]">Edit</button></span>
+        </span>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="row">
+                                        <span><div id="new-select" isteven-multi-select input-model="rewindObject.beauty.beautyCat21.services" output-model="rewindObject.beauty.beautyCat21.selectedServices" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="name menuPrice dealPrice dealType brands" on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div></span>
+                                    </div>
+                                    <div class="row">
+                                        <table style="width:80%;">
+                                            <tbody>
+                                            <tr ng-repeat='list in rewindObject.beauty.beautyCat21.selectedServices'>
+                                                <td>{{list.name}}</td>
+                                                <td ng-if='list.brands.length>0'>
+                                                    <span ng-repeat='bList in list.brands'>
+                                                        <strike>{{list.menuPrice*bList.ratio | number :0}}</strike>
+                                                        <span ng-if='!$last'>/</span>
+                                                    </span>
+                                                </td>
+                                                <td ng-if='list.brands.length>0'>
+                                                    <span ng-repeat='bList in list.brands'>
+                                                        {{list.dealPrice*bList.ratio | number :0}}
+                                                        <span ng-if='!$last'>/</span>
+                                                    </span>
+                                                </td>
+                                                <td ng-if='list.brands.length==0'><strike>{{list.menuPrice}}</strike></td>
+                                                <td ng-if='list.brands.length==0'>{{list.dealPrice}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="row">
+        <span><select ng-hide='rewindObject.beauty.beautyCat22.flag' ng-options="cat.name as cat.name disable when cat.isSelected for cat in categories" ng-model="selectedCat1"  ng-change="categorySelected('beauty','rewindObject.beauty.beautyCat22.name',selectedCat1,'rewindObject.beauty.beautyCat22.services');rewindObject.beauty.beautyCat22.flag=true"></select><span ng-if='rewindObject.beauty.beautyCat22.flag==true'>{{rewindObject.beauty.beautyCat22.name}}<button ng-click="edit('rewindObject.beauty.beautyCat22.name');rewindObject.beauty.beautyCat22.flag=false;rewindObject.beauty.beautyCat22.services=[];rewindObject.beauty.beautyCat22.selectedServices=[]">Edit</button></span>
+        </span>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="row">
+                                        <span><div id="new-select" isteven-multi-select input-model="rewindObject.beauty.beautyCat22.services" output-model="rewindObject.beauty.beautyCat22.selectedServices" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="name menuPrice dealPrice dealType brands" on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div></span>
+                                    </div>
+                                    <div class="row">
+                                        <table style="width:80%;">
+                                            <tbody>
+                                            <tr ng-repeat='list in rewindObject.beauty.beautyCat22.selectedServices'>
+                                                <td>{{list.name}}</td>
+                                                <td ng-if='list.brands.length>0'>
+                                                    <span ng-repeat='bList in list.brands'>
+                                                        <strike>{{list.menuPrice*bList.ratio | number :0}}</strike>
+                                                        <span ng-if='!$last'>/</span>
+                                                    </span>
+                                                </td>
+                                                <td ng-if='list.brands.length>0'>
+                                                    <span ng-repeat='bList in list.brands'>
+                                                        {{list.dealPrice*bList.ratio | number :0}}
+                                                        <span ng-if='!$last'>/</span>
+                                                    </span>
+                                                </td>
+                                                <td ng-if='list.brands.length==0'><strike>{{list.menuPrice}}</strike></td>
+                                                <td ng-if='list.brands.length==0'>{{list.dealPrice}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- ---------------------------------Beauty Ends------------------------------ -->
+
+            <!-- ---------------------------------Spa Starts------------------------------ -->
+            <!-- <div class="row" >
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <h4>Spa</h4>
+                    </div>
+                    <div class="row">
+                        <span>Input for first line</span>
+                        <input type="text" ng-model='rewindObject.spa.spaTextFirstLine'>
+                    </div>
+                    <div class="row">
+                        <span>Input for Second line</span>
+                        <input type="text" ng-model='rewindObject.spa.spaTextSecondLine'>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="row" >
+                <div class="col-lg-12 col-md-12" >
+                    <div class="row">
+                        <h4>Spa</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="row">
+        <span><select ng-hide='rewindObject.spa.spaCat11.flag' ng-options="cat.name as cat.name disable when cat.isSelected for cat in categories" ng-model="selectedCat1"  ng-change="categorySelected('spa','rewindObject.spa.spaCat11.name',selectedCat1,'rewindObject.spa.spaCat11.services');rewindObject.spa.spaCat11.flag=true"></select><span ng-if='rewindObject.spa.spaCat11.flag==true'>{{rewindObject.spa.spaCat11.name}}<button ng-click="edit('rewindObject.spa.spaCat11.name');rewindObject.spa.spaCat11.flag=false;rewindObject.spa.spaCat11.services=[];rewindObject.spa.spaCat11.selectedServices=[]">Edit</button></span>
+        </span>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="row">
+                                        <span><div id="new-select" isteven-multi-select input-model="rewindObject.spa.spaCat11.services" output-model="rewindObject.spa.spaCat11.selectedServices" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="name menuPrice dealPrice dealType brands" on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div></span>
+                                    </div>
+                                    <div class="row">
+                                        <table style="width:80%;">
+                                            <tbody>
+                                            <tr ng-repeat='list in rewindObject.spa.spaCat11.selectedServices'>
+                                                <td>{{list.name}}</td>
+                                                <td ng-if='list.brands.length>0'>
+                                                    <span ng-repeat='bList in list.brands'>
+                                                        <strike>{{list.menuPrice*bList.ratio | number :0}}</strike>
+                                                        <span ng-if='!$last'>/</span>
+                                                    </span>
+                                                </td>
+                                                <td ng-if='list.brands.length>0'>
+                                                    <span ng-repeat='bList in list.brands'>
+                                                        {{list.dealPrice*bList.ratio | number :0}}
+                                                        <span ng-if='!$last'>/</span>
+                                                    </span>
+                                                </td>
+                                                <td ng-if='list.brands.length==0'><strike>{{list.menuPrice}}</strike></td>
+                                                <td ng-if='list.brands.length==0'>{{list.dealPrice}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---------------------------------Spa Ends------------------------------ -->
+
+            <!-- ---------------------------------Make Up Starts------------------------------ -->
+            <div class="row" >
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <h4>Make Up</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="row">
+        <span><select ng-hide='rewindObject.makeUp.makeUpCat11.flag' ng-options="cat.name as cat.name disable when cat.isSelected for cat in categories" ng-model="selectedCat1"  ng-change="categorySelected('makeUp','rewindObject.makeUp.makeUpCat11.name',selectedCat1,'rewindObject.makeUp.makeUpCat11.services');rewindObject.makeUp.makeUpCat11.flag=true"></select><span ng-if='rewindObject.makeUp.makeUpCat11.flag==true'>{{rewindObject.makeUp.makeUpCat11.name}}<button ng-click="edit('rewindObject.makeUp.makeUpCat11.name');rewindObject.makeUp.makeUpCat11.flag=false;rewindObject.makeUp.makeUpCat11.services=[];rewindObject.makeUp.makeUpCat11.selectedServices=[]">Edit</button></span>
+        </span>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="row">
+                                        <span><div id="new-select" isteven-multi-select input-model="rewindObject.makeUp.makeUpCat11.services" output-model="rewindObject.makeUp.makeUpCat11.selectedServices" ng-hide="appt.isPaid" button-label="name" item-label="name" tick-property="isSelected" output-properties="name menuPrice dealPrice dealType brands" on-close="paymentDropdown($index)" ng-show="appt.payableAmount"></div></span>
+                                    </div>
+                                    <div class="row">
+                                        <table style="width:80%;">
+                                            <tbody>
+                                            <tr ng-repeat='list in rewindObject.makeUp.makeUpCat11.selectedServices'>
+                                                <td>{{list.name}}</td>
+                                                <td ng-if='list.brands.length>0'>
+                                                    <span ng-repeat='bList in list.brands'>
+                                                        <strike>{{list.menuPrice*bList.ratio | number :0}}</strike>
+                                                        <span ng-if='!$last'>/</span>
+                                                    </span>
+                                                </td>
+                                                <td ng-if='list.brands.length>0'>
+                                                    <span ng-repeat='bList in list.brands'>
+                                                        {{list.dealPrice*bList.ratio | number :0}}
+                                                        <span ng-if='!$last'>/</span>
+                                                    </span>
+                                                </td>
+                                                <td ng-if='list.brands.length==0'><strike>{{list.menuPrice}}</strike></td>
+                                                <td ng-if='list.brands.length==0'>{{list.dealPrice}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---------------------------------Make Up Ends------------------------------ -->
+            <div class="row">
+                <div class="pull-left col-lg-4"><button ng-click="showTaxCheckModal()">Advance</button></div>
+                <div class="col-lg-4"><button ng-click="generateJpeg()">Generate</button></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div>
+
+</div>
+
+
+<div class="modal fade" id="taxModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Advanced Settings</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">Show Price with tax</div>
+                    <div class="col-lg-6"><input type="checkbox" ng-model="taxFlag" ng-change="taxChk(taxFlag)"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-md btn-success col-md-4" type="submit" ng-click="addTax()" data-dismiss="modal">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

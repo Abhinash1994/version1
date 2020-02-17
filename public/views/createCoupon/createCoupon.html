@@ -1,0 +1,65 @@
+<style>
+
+	h3{
+		text-align: center;
+	}
+
+	form{
+		    padding: 4%;
+    background-color: white;
+	}
+	button{
+		margin:auto;
+		display: block !important;
+	}
+	.wrapper{
+		    margin: auto;
+    width: fit-content;
+    display: block;
+	}
+</style>
+
+			<h3>Create Coupon</h3>
+	<form ng-submit='createCoupon()'>
+		<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<label>Select Parlor Type</label>
+				<select class="form-control" ng-model="coupon.parlorTypes"  ng-options="item.value as item.name for item in parlorTypes"></select>
+
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+					<label>Offer Type</label>
+					<select class="form-control" ng-model="coupon.offerTypes" ng-options="item.name as item.name for item in fromParlor"></select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+					<label>Coupon Count</label>
+					<input type="text" class="form-control" numbers-only ng-model="coupon.couponCount"  ng-required='true' class="form-control" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+					<label>Enter Price</label>
+					<input type='text' numbers-only class="form-control" ng-required='true'  ng-model="coupon.price"/>           
+	  		</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<label>Enter Deal Id</label>
+			<input type="text" numbers-only ng-model="coupon.dealId" ng-required='true'/>
+		</div>
+
+	</div>
+
+<button class="btn btn-primary" type='submit' >submit</button>
+<div class="btn wrapper" ng-if="mainData.length>0">
+	<button  class="btn btn-primary" style="margin:0px" ng-csv='uploadData()'  filename="coupon.csv" >Export to csv</button>
+</div>
+
+	</form>

@@ -1,0 +1,24 @@
+<style>
+h3 {
+    text-align: center;
+}
+</style>
+<h3>Corporate Company Request</h3>
+<table ng-table="tableParams" class="table" show-filter="true">
+    <tr ng-repeat="user in $data">
+         <!-- <td title="'S.No.'">
+                    {{$index+1}}</td> -->
+        <td title="'Company Name'" filter="{ companyName: 'text'}" sortable="'companyName'">
+            {{user.companyName}}</td>
+        <td title="'Date'" filter="{ date: 'text'}" sortable="'date'">
+            {{user.createdAt}}</td>
+        <td title="'HR Email'" filter="{ hrEmail: 'text'}" sortable="'hrEmail'">
+            {{user.hrEmail}}</td>
+        <td title="'Location'" filter="{ location: 'text'}" sortable="'location'">
+            {{user.location}}</td>
+        <td title="' Customer Name'" filter="{ firstName: 'text'}" sortable="'firstName'">
+            {{user.firstName}}</td>
+        <td title="' Customer Phone No.'" filter="{ phoneNumber: 'number'}" sortable="'phoneNumber'">
+            {{user.phoneNumber}}</td>
+    </tr>
+</table>

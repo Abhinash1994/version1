@@ -1,0 +1,223 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Services</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addCategory">
+            Add new Category
+        </button>
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addSuperCategory">
+            Add new Super Category
+        </button>
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addSubCategory">
+            Add new Sub Category
+        </button>
+        <br />
+        <div class="row">
+              <div class="col-lg-8">
+                  <div class="row">
+                    <div class="col-lg-4" ng-repeat="category in categories" ng-click="gotoServices(category.categoryId, category.name, category.superCategory, category.sort,category.maleImage ,category.femaleImage)">
+                        <div class="jumbotron">
+                            <h3>{{category.name}}</h3>
+                            <h4>{{category.superCategory}}</h4>
+                            <h5>{{category.sort}}</h5>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+              
+              <div class="col-lg-4" style="background: white">
+                  <div class="row">
+                    <h3>Super Categories</h3>
+                    <hr>
+                      <h4 ng-repeat="category in supercategories" ng-click="openEditPopup($index)">{{category.name}}</h4>
+                  </div>
+                  <hr>
+                  <hr>
+                  <div class="row">
+                      <h3>Sub Categories</h3>
+                      <hr>
+                      <h4 ng-repeat="category in subcategories" ng-click="">{{category.name}}</h4>
+                  </div>
+              </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+<div class="modal fade" id="editSuperCategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Edit Department</h4>
+                              </div>
+                              <form role="form" ng-submit="editDepartment()">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-12">
+                                              <div class="form-group">
+                                                  <label>Department Name</label>
+                                                  <input ng-model="dep.name" class="form-control" readonly>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-lg-12">
+                                              <div class="col-lg-6">
+                                                  <label>Description for Male</label>
+                                                  <input ng-model="dep.maleDescription" class="form-control" required>
+                                              </div>
+                                              <div class="col-lg-6">
+                                                  <label>Image Link for Male</label>
+                                                  <input ng-model="dep.maleImage" class="form-control" required>
+                                              </div>
+                                          </div>
+                                      <div class="col-lg-12">
+                                          <div class="col-lg-6">
+                                              <label>Description for Female</label>
+                                              <input ng-model="dep.femaleDescription" class="form-control" required>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <label>Image Link for Female</label>
+                                              <input ng-model="dep.femaleImage" class="form-control" required>
+                                          </div>
+                                      </div>
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Edit</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>
+<div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Add New Category</h4>
+            </div>
+            <form role="form" ng-submit="addCategory()">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>Category Name</label>
+                                <input ng-model="data.name" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>Select SuperCategory Name</label>
+                                <select class="form-control" ng-model="data.supercategory" name="supecategory" required>
+                                    <option value="{{c}}" ng-repeat="c in supercategories">{{c}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+<div class="modal fade" id="addSuperCategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Add New Super Category</h4>
+                              </div>
+                              <form role="form" ng-submit="addSuperCategory()">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-12">
+                                              <div class="form-group">
+                                                  <label>Super Category Name</label>
+                                                  <input ng-model="s.name" class="form-control" required>
+                                              </div>
+                                          </div>
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Add</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>
+
+<div class="modal fade" id="addSubCategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Add New Sub Category</h4>
+            </div>
+            <form role="form" >
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Sub Category Name</label>
+                                <input ng-model="sub.name" class="form-control" required>
+                            </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Sub Category Sort Order</label>
+                                    <input ng-model="sub.sortOrder" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Select Category</label>
+                                    <select name="mySelect" id="mySelect"
+                                            ng-options="option.categoryId as option.name for option in categories "
+                                            ng-model="sub.categoryId"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" ng-click="addSubCategory()">Add</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

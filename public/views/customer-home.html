@@ -1,0 +1,275 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{{userName}}</h1>
+
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<button class="btn btn-info"><a href="" style="color:#173e43" ng-click="back()">&lt;&lt;Back</a></button>
+<br />
+<!-- /.row -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row container-fluid">
+        <div class="card">
+          <div class="card profilecard">
+            <span style="float:right" class="glyphicon glyphicon-edit" ng-click="openEditCustomer()">
+                 Edit&nbsp;
+             </span>
+            <div class="cardheader">
+            </div>
+            <div class="avatar">
+              <img alt="" src="http://lorempixel.com/100/100/people/9/">
+            </div>
+            <div class="info">
+              <div class="title">
+                <a target="_blank" ng-bind="name">{{user.name}}</a>
+              </div>
+  				    <div ng-if="user.membership.membershipId">
+  					  <div class="desc">
+  						  <!-- <span>Membership ID:<span ng-bind="user.membership.membershipId"></span></span> -->
+  					  </div>
+  				    <div class="desc">
+  						  <span>Total Credits: <span>{{user.credits}}</span></span>
+  					  </div>
+  					  <div class="desc">
+  						  <i class="fa fa-certificate fa-3x"  style=" vertical-align: middle;margin-right: 5%;" aria-hidden="true"></i>
+  						  <span ng-bind="user.membership.name"></span>
+  					  </div>
+  					  <!-- <button class="btn" ng-click="removeMembership()">
+                                Remove membership
+              </button> -->
+  				  </div>
+          </div>
+
+          <hr style=" color:;margin-right: 5%;">
+
+          <div class="contact-info info">
+            <div class="desc">
+              Contact Number : <span ng-bind="user.phoneNumber"></span>
+            </div>
+            <div class="desc" ng-if="user.email">
+              Email : <span ng-bind="user.email"></span>
+            </div>
+            <div class="desc">
+              Address : <span ng-bind="user.address"></span>
+            </div>
+            <div class="desc">
+              Gender : <span ng-if="user.gender == 'M'">Male</span><span ng-if="user.gender == 'F'">Female</span>
+            </div>
+                   <!--<div class="desc">Age: 20</div>-->
+  		<!--<div class="desc"><i class="fa fa-facebook fa-2x fa-fw" aria-hidden="true"></i>  <i class="fa fa-twitter fa-2x" aria-hidden="true"></i></div>-->
+          </div>
+        </div>
+  	   </div>
+     </div>
+        <div class="row container-fluid" >
+            <div class="row card">
+                <h3>Membership Details</h3>
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <table class="col-lg-12 col-md-12">
+                            <tr ng-repeat-start="userMembershipList in user.membership" style="border-top: 1px solid #ddd;">
+                                <td>Membership Type:-</td><td><b>{{userMembershipList.name}}</b></td>
+
+                            </tr>
+                            <tr ng-repeat-end style="border-bottom: 1px solid #ddd;">
+                                <td>Membership Points Left:-</td><td><b>{{userMembershipList.creditsLeft}}</b></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!--<div class="row" style="border-bottom: 1px solid #ddd;border-top: 1px solid #ddd;">
+                    </div>-->
+                </div>
+
+            </div>
+        </div>
+   </div>
+
+     <div class="col-md-8">
+       <div class="card">
+         <div class="container-fluid">
+           <div class="panel-heading">
+     				<h2>Recent Appointments</h2>
+     			</div>
+          <div class="row">
+<!--
+       <div class="form-inline">
+           <input type="text" ng-model="query" class="form-control" placeholder="Search here">
+
+           <button type="button" class="btn" ng-csv="makeCSVData()" filename="data.csv">Export as CSV</button>
+      </div>
+-->
+    </div>
+
+               <div class="table-responsive">
+
+
+        <table ng-table="tableParams" class="table table-hover table-striped" show-filter="false">
+            <tr ng-repeat="appt in $data | filter : query">
+
+                <td title="'Service Name'" filter="{ name: 'text'}" >
+                    <span ng-repeat="service in appt.services">{{service.name}}-<span ng-repeat="emp in service.employees"><span ng-if="$index>0">,</span>{{emp.name}}</span><span ng-if="$index!=appt.services.length-1"><hr></span></span></td>
+<!--
+                <td title="'Employee Name'" filter="{ age: 'number'}" sortable="'user.name'">
+                    {{appt.services[0].employees}}</td>
+-->
+				<td title="'Date'" filter="{ name: 'text'}" sortable="'user.name'">
+                    {{appt.appointmentStartTime | date:'longDate'}}</td>
+				<td title="'Total Amount'" filter="{ name: 'number'}" sortable="'user.age'">
+                    {{appt.payableAmount}}</td>
+                <td title="'Appointment Status'">
+                    {{apptStatus(appt.status)}}</td>
+                <td title="'Payment Mode'">
+                    <div style="border-bottom: 1px solid #ddd;" ng-if="appt.creditUsed>0">
+                        <span >Membership Points Used-{{appt.creditUsed}}</span><br>
+                    </div>
+                    <div style="border-bottom: 1px solid #ddd;" ng-if="(appt.allPaymentMethods.length>0)&&(appt.payableAmount>0)">
+                        <span  ng-repeat="paymentTypeList in appt.allPaymentMethods"><span>{{paymentTypeList.name}}-{{paymentTypeList.amount}}</span></span><br>
+                    </div>
+                    <div style="border-bottom: 1px solid #ddd;" ng-if="appt.advanceCredits>0">
+                        <span >Advance Credits Used-{{appt.advanceCredits}}</span><br>
+                    </div>
+                    <div style="border-bottom: 1px solid #ddd;" ng-if="appt.loyalityPoints>0">
+                        <span >Loyality Points Used-{{appt.loyalityPoints}}</span><br>
+                    </div>
+                </td>
+
+                <!--<td title="'Employee Name'">
+                    <span ng-repeat="service in appt.services"> {{service.employees[0].name}}</span>
+                   </td>-->
+
+            </tr>
+        </table>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="addMembershipToCustomer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Add membership to {{userName}}</h4>
+                              </div>
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Select your membership type</label>
+                                                  <select class="form-control" required ng-model="data.membershipId">
+                                                      <option value="{{m.membershipId}}" ng-repeat="m in memberships">{{m.name}}  - Rs {{m.price}}  Discount - {{m.discount}}%</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary" ng-click="update()">Update</button>
+                              </div>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>
+
+
+<div class="modal fade" id="editCustomer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Add New Customer</h4>
+                              </div>
+                              <form role="form" ng-submit="editCustomer()" name="customerDetails">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>First Name</label>
+                                                  <input ng-model="newUser.firstName" class="form-control" name="firstname" ng-minlength="3" required>
+                                                  <span ng-show="customerDetails.firstname.$dirty && customerDetails.firstname.$error.required">Firstname is required.</span>
+                                                  <span ng-show="customerDetails.firstname.$dirty && customerDetails.firstname.$error.minlength">Firstname is too short.</span>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Last Name</label>
+                                                  <input ng-model="newUser.lastName" class="form-control" name="lastname" ng-minlength="3" required>
+                                                  <span ng-show="customerDetails.lastname.$dirty && customerDetails.lastname.$error.required">Lastname is required.</span>
+                                                  <span ng-show="customerDetails.lastname.$dirty && customerDetails.lastname.$error.minlength">Lastname is too short.</span>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Email Id</label>
+                                                  <input ng-model="newUser.emailId" class="form-control" name="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required>
+                                                  <span ng-show="customerDetails.email.$dirty && customerDetails.email.$error.required">Email is required.</span>
+                                                  <span ng-show="customerDetails.email.$dirty && customerDetails.email.$error.pattern">Invalid Email.</span>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Phone Number</label>
+                                                  <input ng-model="newUser.phoneNumber" class="form-control" name="phoneNumber" ng-pattern="/^[789]\d{9}$/" required>
+                                                  <span ng-show="customerDetails.phoneNumber.$dirty && customerDetails.phoneNumber.$error.pattern">Invalid Phone Number.</span>
+                                                  <span ng-show="customerDetails.phoneNumber.$dirty && customerDetails.phoneNumber.$error.required">Phone Number is required.</span>
+                                              </div>
+                                          </div>
+
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Gender</label>
+                                                  <select class="form-control" ng-model="newUser.gender" name="gender" required>
+                                                      <option value="M">Male</option>
+                                                      <option value="F">Female</option>
+                                                  </select>
+                                                  <span ng-show="customerDetails.gender.$dirty && customerDetails.gender.$error.required">Gender is required.</span>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Street Line 1</label>
+                                                  <input ng-model="newUser.streetLine1" class="form-control" name="address1" required>
+                                                  <span ng-show="customerDetails.address1.$dirty && customerDetails.address1.$error.required">This field is required.</span>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Street Line 2</label>
+                                                  <input ng-model="newUser.streetLine2" class="form-control" name="address2" required>
+                                                  <span ng-show="customerDetails.address2.$dirty && customerDetails.address2.$error.required">This field is required.</span>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>City</label>
+                                                  <input ng-model="newUser.city" class="form-control" name="city" required>
+                                                  <span ng-show="customerDetails.city.$dirty && customerDetails.city.$error.required">City is required.</span>
+                                              </div>
+                                          </div>
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Update</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>

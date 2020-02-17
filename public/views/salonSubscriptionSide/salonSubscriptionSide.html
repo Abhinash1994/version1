@@ -1,0 +1,148 @@
+    <style>
+        .heading{
+        text-align: center;
+        }
+        .row{
+        margin:0px;
+        }
+        .label{
+        text-align: right;
+        color:#000;
+        }
+        .labe2{
+        text-align: right;
+        color:#000;
+
+        }
+        .selectsalon{
+            height: 30px;
+             margin-left: 10px;
+            width: 316px;
+        }
+        .label-1{
+        padding-top: 3%;
+        font-size: 13px;
+        }
+        #apply-btnservice{
+            margin-left: 72px;
+        }
+    </style>
+    <h3 class="heading">Subscription Sales</h3>
+
+    <div class="row">
+        <div class="col-md-3 col-lg-4 label">
+        <label class="label-1">Select Date Range</label>
+        </div>
+        <div class="col-md-6 col-lg-4" style="display: inline-flex;">
+        <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport1" ng-model="dateRangeSelected"  required/>
+        </div>
+    </div>
+
+
+<div class="row">
+   <div class="col-md-3 col-lg-4 labe2">
+        <label class="label-1">Select Salon</label>
+    </div>
+    <div class="col-md-6 col-lg-4" style="display: inline-flex;">
+        <select  class="setelment-report selectsalon"  ng-model="selectedParlor.selectedParlor"  ng-options="parlor.parlorId as parlor.name for parlor in parlors |orderBy:'name'" ng-change="changeParlor(selectedParlor)">
+        </select>
+    </div>
+   </div>
+   <div class="row">
+        <div class="col-md-12 col-lg-12 col-md-offset-2"><button class="btn btn-primary" 
+            id="apply-btnservice"  ng-click="applyFilter()">Apply Filter</button>
+        </div>
+    </div>
+       
+    <div class="row">
+        <div class="col-md-4 label">
+        <label class="label-1">Filter By Phone Number</label>
+
+
+        </div>
+        <div class="col-md-4">
+        <input type="number" ng-model="f.clientPhoneNumber" class="form-control" ng-change="phoneNumberFilter()" />
+        </div>
+ 
+    </div>
+    <!--     <div class="row">
+    <div class="col-md-3 col-lg-3 col-md-offset-2">
+    <h4>Select Date Range</h4>
+    </div>
+    <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+    <input date-range-picker name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport" ng-model="date.dateRangeSelected" />
+    </div>
+
+    </div> -->
+
+
+    <!-- <div class="row">
+    <div class="form-inline row col-md-12 col-lg-12 col-md-offset-4" >
+
+    <button class="btn btn-link btn-md" ng-click="exportToExcel('#tableToExport')" style="margin-left: -10px;border: 0;">
+    <span class="glyphicon glyphicon-share"></span>
+    Export to Excel
+    </button>
+    </div>
+    </div>
+    -->
+     <div class="row">
+        <span style="font-weight: bold">Total Count: </span><span style="font-weight: bold;">{{count}}</span>
+    </div>
+    <div  class="table-responsive">
+        <table class="table" id="tableToExport" style="margin:5px;">
+            <thead>
+                <tr>
+                    <!-- <th >Subscription Id</th> -->
+                    <th>Salon Name</th>
+                    <th>Appoinment Date</th>
+                    <th >Subscription Type</th>
+                    <th >Purchase Date</th>
+                    <th > Price</th>
+                   
+                    <th >Payment Method</th>
+                    <!--       <th >Cash Salon Id</th>
+                    <th >Cash Salon</th> -->
+                    <th >Difference in Hours</th>
+                    <th >Client Details</th>
+
+                    <!--
+                    <th >Appointment Date</th>
+                    <th >Redeemed Subscription</th>
+                    <th >Services Taken</th>
+                    -->
+
+
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr ng-repeat="datas in copyingArray |filter:f">
+                    <!-- <td>{{datas._id}}</td> -->
+                      <td><span ng-repeat="x in datas.apptsDetail" ng-if="x.parlorname==''">{{x.parlorname}}</span>
+                        {{datas.purchaseSalon}}
+                    </td>
+                    <td>{{datas.appointmentDate}}</td>
+
+                    <td>{{datas.subscriptionType}}</td>
+                    <td>{{datas.subscriptionDate}}</td>
+                    <td>{{datas.price}}</td>
+                    <td>{{datas.paymentMethod}}</td>
+                    <!--    <td>{{datas.cashSalonId}}</td>
+                    <td>{{datas.cashSalon}}</td> -->
+                    <td>{{datas.difference}}</td>
+                    <td>{{datas.clientName}}<br>{{datas.clientPhoneNumber}}<br><span style="font-weight: bold">{{datas.gender}}</span></td>
+
+                    <!--
+                    <td>{{datas.date}}</td>
+                    <td>{{datas.subscriptionAmountUsed}}</td>
+                    <td>{{datas.services}}</td>
+                    -->
+
+
+                </tr>
+            
+
+            </tbody>
+        </table>
+    </div>

@@ -1,0 +1,108 @@
+<div layout-xs="column" layout="row" class="UserProfile-page-container" flex-sm="100" flex-md="100" flex-lg="100" flex-xl="100">
+<div flex layout-sm="row" layout-md="row" layout-lg="row" layout-xl="row" style="" class="UserProfile-page-marginTop">
+    <div  flex-xs="100" flex-sm="30" flex-md="30" flex-lg="30" flex="30"  class="user-profile-main-container">
+        <div layout="column"  style="" class="UserProfile-page-content" layout-align="center center" flex>
+                <div flex>
+                    <div layout="row" flex layout-align="center">
+                        <img src="../images/profilePicture.png" style="" class="UserProfile-page-image">
+                    </div>
+                    <div layout="row" flex layout-align="center" class="userName">
+                        <span class="UserProfile-page-userName">{{userName}}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div  layout-sm="column" layout-md="column" layout-lg="column" layout-xl="column"   flex="100" class="UserProfile-background">
+				
+                <!--<div ng-click="optionOpenFuncn('User Profile')" layout="row" flex="100" style="cursor: pointer;border-bottom:1px solid #F2F2F2;padding-top:5%;padding-bottom:5%;">
+					<div layout="row" flex="15"><img src="../images/My reviews.png" style="width:60%;height:60%;"> </div>
+					<div layout="row" flex="75" style="font-size:13px;">My Profile</div>
+					<div layout="row" flex="10"><ng-md-icon icon="chevron_right" style="fill:#555"size="20"></ng-md-icon></ng-md-icon></div>
+                </div>-->
+                <!--<div ng-click="displayAccountOptionsFuncn()">
+                    <p>Account Options</p>
+                </div> ng-show="displayAccountOptions" -->
+                <div flex hide-xs>
+                <div layout="row" ng-repeat="list in optionsInAccount" class="user-list12" flex-xs="100" flex>
+					
+					<div flex="10" flex-sm="20" class="user-profile-icon-box" hide-xs>
+						<img src="../images/{{list.imagePathOptions}}.png" alt="icon" class="user-profile-small"/>
+					</div>
+					<div flex-xs="50" flex-sm="60"flex="70" class="user-myprofile" ng-click="optionOpenFuncn(list.option)" style="cursor: pointer;padding-top: .6em;">
+						<span  style="cursor: pointer;font-size:13px;  padding-left: 4%;">{{list.option}}</span>
+					</div>
+					<div flex="10" hide-xs style="padding-top:0.8em;text-align:right">
+						<ng-md-icon icon="chevron_right" style="fill:#555"size="20"></ng-md-icon>
+					</div>
+                </div>
+                </div>
+
+                <div flex  hide-sm hide-md hide-lg hide-xl class="user-profile-tab">
+                    <div layout="row" flex-xs="100">
+                        <div layout-xs="column" flex-xs="100">
+                            <div flex>
+                    <div layout-xs="row" ng-repeat="list in optionsInAccount"  class="user-list12" flex-xs="100" flex ng-if="$even">
+
+                        <div flex="10" flex-sm="20"  hide-xs>
+                            <img src="../website/images/{{list.imagePathOptions}}.png" alt="icon" class="user-profile-small"/>
+                        </div>
+                        <div flex-xs="100" flex-sm="60"flex="70" class="user-myprofile" ng-click="optionOpenFuncn(list.option)" style="cursor: pointer;">
+                            <span  style="cursor: pointer;font-size:13px;  padding-left: 4%;	">{{list.option}}</span>
+                        </div>
+                        <div flex-sm="10" flex="10" hide-xs>
+                            <ng-md-icon icon="chevron_right" style="fill:#555"size="20"></ng-md-icon>
+                        </div>
+                    </div>
+                            </div>
+                        </div>
+                        <div layout-xs="column" flex-xs="100">
+                            <div flex>
+                    <div layout-xs="row" ng-repeat="list in optionsInAccount" class="user-list12"  flex-xs="100" flex ng-if="$odd">
+
+                        <div flex="10"   hide-xs>
+                            <img src="../images/{{list.imagePathOptions}}.png" class="user-profile-small">
+                        </div>
+                        <div flex-xs="100" flex="70" class="user-myprofile" ng-click="optionOpenFuncn(list.option)" style="cursor: pointer;">
+                            <span  style="cursor: pointer;font-size:13px;  padding-left: 4%;">{{list.option}}</span>
+                        </div>
+                        <div flex="10" hide-xs>
+                            <ng-md-icon icon="chevron_right" style="fill:#555" size="20"></ng-md-icon>
+                        </div>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div flex-xs="100"  flex-sm="70" flex-md="70" flex-lg="70" flex="70" style="padding-left: 30px;padding-right: 30px;" >
+            <div ng-switch="optionToBeDisplayed">
+                <div ng-switch-when="My Profile">
+                 <div ng-include="'/website/views/userProfilePages/userInformation.html'"></div>
+                </div>
+                <div ng-switch-when="My Offers">
+                    <div ng-include="'/website/views/userProfilePages/myOffers.html'"></div>
+                </div>
+                <div ng-switch-when="My Appointments">
+                    <div ng-include="'/website/views/userProfilePages/myAppointments.html'"></div>
+                </div>
+                <div ng-switch-when="My Loyalty Points">
+                    <div ng-include="'/website/views/userProfilePages/myLoyaltyPoints.html'"></div>
+                </div>
+                <div ng-switch-when="My Reviews">
+                    <div ng-include="'/website/views/userProfilePages/myReviews.html'"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+</div>
+
+</div>
+
+
+

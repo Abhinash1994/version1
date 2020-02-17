@@ -1,0 +1,71 @@
+   if ($scope.limit.top == undefined) {
+
+
+                if ($scope.limit.bottom > 0) {
+
+                    console.log($scope.temparray.length)
+                    if ($scope.temparray.length > 0) {
+                            console.log("hello Temparray length greater then 0")
+                        $scope.finalGraph = [];
+                        for (i = 0; i < $scope.temparray[0].values.length; i++) {
+                            // if(i<$scope.limit.bottom){
+                            for (j = i + 1; j < $scope.temparray[0].values.length; j++) {
+                                var a = {};
+                                if ($scope.temparray[0].values[j].value < $scope.temparray[0].values[i].value) {
+                                    a = $scope.temparray[0].values[i].value;
+                                    $scope.temparray[0].values[i].value = $scope.temparray[0].values[j].value;
+                                    $scope.temparray[0].values[j].value = a;
+                                }
+                            }
+
+                        }
+
+                            var a = {
+                                key: "",
+                                values: []
+                            }
+                            a.key = $scope.temparray[0].key;
+
+                            $scope.temparray[0].values.forEach(function (element, index) {
+                                if (index < $scope.limit.bottom) {
+                                    a.values.push(element);
+
+                                }
+
+
+                            })
+                            $scope.finalGraph.push(a);
+                        console.log("final graph finallly filtered")
+
+                    }
+                    else {
+                        $scope.finalGraph.forEach(function (element) {
+
+                            $scope.temparray.push(element);
+                        })
+                    }
+                }
+
+
+            }
+
+            else if ($scope.limit.bottom == undefined) {
+                        if($scope.limit.top>0){
+                            if($scope.temparray.length>0){
+                                    
+
+                            }
+
+                            else{
+                                $scope.finalGraph.forEach(function (element) {
+
+                                    $scope.temparray.push(element);
+                                })
+                            }
+
+
+
+                        }
+
+
+            }

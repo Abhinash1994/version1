@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-12"><h3>Online Appontment Pattern</h3></div>
+</div>
+  <div class="row">
+      <div class="col-md-6">
+        <p class="input-group">
+          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-change="buttonclick()" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+      </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+
+            <table class="table bordered">
+
+                <tr>
+                    <th style="text-align:center">Date</th>
+                    <th style="text-align:center">Number</th>
+                    <th style="text-align:center">Amount</th>
+                </tr>
+                <tr ng-repeat="data in weekData">
+                    <td>{{data.day | date:'DD,MM,YYYY'}}</td>
+                    <td>{{data.num}}</td>
+                    <td>{{data.amount}}</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="row">
+    <h3>Range Wise</h3>
+    <div class="col-md-12">
+        <div class="table-responsive">
+
+            <table class="table bordered" ng-table="tableParams" >
+              <thead >
+                <tr>
+                    <th style="text-align:center" ng-repeat="(key,value) in weekData[0]"><span ng-if="key!='num' && key!='day' && key!='amount'">{{key}}</span><span ng-if="key=='num'">Number</span><span ng-if="key=='day'">Date</span><span ng-if="key=='amount'">Amount</span></th>
+
+                </tr>
+              </thead>
+
+                <tbody  ng-repeat="data in weekData">
+                <tr>
+                    <td ng-repeat="(key,value) in data">{{value}}</td>
+
+                  </tr>
+                </tbody>
+
+
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

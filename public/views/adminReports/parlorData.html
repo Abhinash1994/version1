@@ -1,0 +1,75 @@
+<style>
+    h2 {
+        text-align: center;
+    }
+    
+    .table {
+        height:500px;
+    }
+    
+    th {
+        text-align: center;
+        background-color: #880e4f !important;
+        color: white;
+    }
+    
+    td {
+        text-align: center;
+    }
+</style>
+
+<h2>Parlor Data</h2>
+<div class="row">
+    <div class="col-md-4" style="text-align: right;padding-top: 7px;">Select Report Type</div>
+    <div class="col-md-3">
+       
+        <select class="form-control" ng-model="selectReport">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            
+        </select>
+        
+    </div>
+
+</div>
+<div class="row"> <button  class="btn btn-info"ng-click="submitData()">Submit</button></div>
+<table class="table" fixed-header ng-if="data.length>0">
+    <!-- <thead> -->
+    <thead>
+        <th>Id</th>
+        <th>Salon Name</th>
+        <th>Parlor type</th>
+        <th>Parlor Threshold Amount 1</th>
+        <th>Parlor Threshold Amount Commission 1</th>
+        <th>Parlor Threshold Amount 2</th>
+        <th>Discount EndTime</th>
+        <th>Parlor Live Date</th>
+        <th>Tax</th>
+         <th>Revenue Given By Be u</th>
+        <th>Royalty Amount</th>
+        <th>% of Business Provided</th>
+
+    </thead>
+    <!-- </thead> -->
+    <tbody>
+        <tr ng-repeat="m in data ">
+            <td>{{m._id}}</td>
+            <td style="background-color: cornflowerBlue !important;color:white;">{{m.name}}</td>
+            <td>{{m.parlorType}}</td>
+            <td>{{m.thresholdAmount1}}</td>
+            <td>{{m.thresholdAmount1Commission}}</td>
+            <td>{{m.thresholdAmount2}}</td>
+            <td>{{m.discountEndTime | date:'d,MMM,y '}}</td>
+            <td>{{m.parlorLiveDate | date:'d,MMM,y '}}</td>
+            <td>{{m.tax}}</td>
+            <td>{{m.appDistanceRevenue|number:0}}</td>
+            <td>{{m.avgRoyalityAmount}}</td>
+            <td ng-if="m.appDistanceRevenue!=0 && m.avgRoyalityAmount!=0">{{(m.appDistanceRevenue/m.avgRoyalityAmount)*100 |number:0}}</td>
+             <td ng-if="m.appDistanceRevenue==0 && m.avgRoyalityAmount!=0">0</td>
+             <td ng-if="m.appDistanceRevenue!=0 && m.avgRoyalityAmount==0">0</td>
+            <td ng-if="m.appDistanceRevenue==0 && m.avgRoyalityAmount==0">0</td>
+           
+        </tr>
+    </tbody>
+
+</table>

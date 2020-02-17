@@ -1,0 +1,143 @@
+<style>
+    p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 0.010em;
+    line-height: 1.6em;
+    margin: 0.1em 0 0.6em;
+    align-self: center;
+    word-wrap: break-word;
+     
+}
+    h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0rem;
+    margin-top: 1rem;
+}
+    md-autocomplete {
+    border-radius: 2px;
+    display: block;
+    height:50px;
+    position: relative;
+    overflow: visible;
+    min-width: 190px;
+}
+    md-autocomplete md-autocomplete-wrap {
+    height:50px;
+    background-image: url(../images/location.svg);
+    background-repeat: no-repeat;
+    background-size: 35px 35px;
+    background-position: 7px 10px;
+    /* padding: 7px 25px; */
+    padding: 7px 7px 12px 35px;
+    color: #58595b;
+    }
+#seabackcolor {
+    background-color: #D2232A;
+    border-radius: 0;
+    height:50px;
+    color: #fff;
+    width: 100%;
+}
+</style>
+
+<div  class="companyinfo-page-container" flex>
+    <div   flex>
+
+        <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center">
+            <div flex-xs flex-gt-xs="80" layout="column">
+                <div>
+                  
+                       
+                        <md-content class="md-padding" layout-xs="column" layout="row">
+                            <div flex-xs flex-gt-xs="100" layout="column">
+                                
+                                
+                                <div layout="row">
+                                    <div flex="50">
+
+                                      <md-autocomplete
+                                          ng-disabled="isDisabled"
+                                          md-no-cache="noCache"
+                                          md-selected-item="searchQuery.selectedItem"
+                                          md-search-text-change="searchTextChange(searchText)"
+                                          md-search-text="searchText"
+                                          md-selected-item-change="selectedItemChange(item)"
+                                          md-items="item in querySearch(searchText)"
+                                          md-item-text="item.text"
+                                          md-min-length="0"
+                                          placeholder="Pick an Angular repository"
+                                          md-menu-class="autocomplete-custom-template">
+                                 <md-item-template flex>
+                                    <span class="item-title" style="padding-top:0.3em;color: #33373D;font-size:15px;">
+                                            <span> {{item.text}} </span>
+                                    </span>
+              <span class="item-metadata" style="margin-top: -11px;">
+                  <span class="item-metastat">
+                    <strong style="color: #89959B;font-size:11px;">{{item.text}}</strong>
+                  </span>
+              </span>
+          </md-item-template>
+                                      </md-autocomplete>
+                                       
+                                        
+                                         </div>
+                                        <div flex="30">
+
+                                          <button class="md-raised beu-small beu-small-button md-button md-ink-ripple flex-xs-100 flex-xl-20 flex-sm-20 flex-md-20 flex-lg-20"   id="seabackcolor" ng-click="goSearchlist()" flex-xs="100" flex-sm="20" flex-md="20" flex-lg="20" flex-xl="20"><span class="ng-scope">
+                                                  Search
+                                              </span>
+                                            <div class="md-ripple-container" style=""></div>
+                                                </button>
+
+                                        </div>
+                                    </div>
+                                <div layout="row" ng-repeat="item in combinationObject">
+                                
+                                    <div flex="60">
+                                    <div layout="row" >
+                                        
+                                        <a style="color:black;" href="{{item._source.url}}" target="_blank" > <h3>{{item._source.title}}</h3></a>
+                                        
+                                    </div>
+                                     <div layout="row">
+                                                         
+                                 <a href="{{item._source.url}} " target="_blank">{{item._source.url}}</a>
+                                    </div>
+                                         <div layout="row">
+                                        
+                                   <p>
+                                    {{item._source.content  | limitTo : 280 : 0}}....<a href="{{item._source.url}}" target="_blank" >see more </a>
+                                   </p>
+                                        
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                                                               
+                                 
+
+
+                                     
+
+                            </div>
+
+                           
+                        </md-content>
+
+                     
+
+                     
+               
+
+                      
+
+                
+            </div>
+            </div>
+
+        </md-content>
+
+
+
+    </div>
+</div>

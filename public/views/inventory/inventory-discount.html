@@ -1,0 +1,104 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Discount Model</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+        <div class="col-md-3 col-lg-3 col-md-offset-2">
+            <h4>Select Seller</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+            <select class="form-control"  ng-model="selectedSlabs.sellerId"  ng-change= "sellerChange()"ng-options="cat.sellerId as (cat.sellerName) for cat in categories" required>
+            </select>
+    </div>
+
+
+</div>
+<div class="row">
+
+    <div class="col-md-offset-2 col-md-7">
+                <span  style="font-weight:bold;">Contact Details :   </span>
+                <span style="font-weight:200;">{{contactDetails}}</span>
+    </div>
+
+</div>
+<div class="card">
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <table ng-table="tableParams" class="table table-striped table-hover" show-filter=true>
+         <thead>
+         <tr>
+             <th ng-if="slabs[0].directDiscount!=undefined ">Direct Discount</th>
+             <th ng-if="slabs[0].directBilling!==undefined">Direct Billing </th>
+             <th ng-if="slabs[0].cashDiscount!==undefined">Cash Discount</th>
+             <th ng-if="slabs[0].beUPurchaseScheme!==undefined">Be U Purchase  CashBack Scheme</th>
+             <th ng-if="slabs[0].merchandising!==undefined">Merchandising</th>
+             <th ng-if="slabs[0].yearBenefit!==undefined">Year end benefits</th>
+             <th ng-if="slabs[0].educationTraining!==undefined">Educational Training</th>
+             <th ng-if="slabs[0].cashDiscountOnWax!==undefined">Cash Discount on Wax</th>
+             <th ng-if="slabs[0].cashDiscountOnWaxOil!==undefined">Cash Discount Wax Oil</th>
+             <th ng-if="slabs[0].professionalDiscount!==undefined">Professional Discount</th>
+             <th ng-if="slabs[0].cashDiscountOnWax!==undefined">Total Discount On Wax</th>
+             <th ng-if="slabs[0].cashDiscountOnWaxOil!==undefined">Total Discount On Wax Oil</th>
+             <th ng-if="slabs[0].professionalDiscount!==undefined">Total Professional Discount</th>
+             <!--<th ng-if="!slabs[0].cashDiscountOnWax || !slabs[0].professionalDiscount" >Total Discount</th>-->
+         </tr>
+
+         </thead>
+                <tbody>
+                            <tr ng-repeat ="row in slabs">
+                                        <td ng-if="row.directDiscount">{{row.directDiscount}}%</td>
+                                        <td ng-if="row.directBilling!==undefined">{{row.directBilling}}%</td>
+                                        <td ng-if="row.cashDiscount!==undefined">{{row.cashDiscount}}%</td>
+                                        <td ng-if="row.beUPurchaseScheme!==undefined">{{row.beUPurchaseScheme}}%</td>
+                                          <td ng-if="row.merchandising!==undefined">{{row.merchandising}}%</td>
+                                         <td ng-if="row.yearBenefit!==undefined">{{row.yearBenefit}}%</td>
+                                          <td ng-if="row.educationTraining!==undefined">{{row.educationTraining}}%</td>
+                                <td ng-if="row.cashDiscountOnWax!==undefined">{{row.cashDiscountOnWax}}%</td>
+                                <td ng-if="row.cashDiscountOnWaxOil!==undefined">{{row.cashDiscountOnWaxOil}}%</td>
+                                <td ng-if="row.professionalDiscount!==undefined">{{row.professionalDiscount}}%</td>
+                                <td ng-if="row.cashDiscountOnWax!==undefined">{{row.beUPurchaseScheme + row.cashDiscountOnWax}}%</td>
+                                <td ng-if="row.cashDiscountOnWaxOil!==undefined">{{row.beUPurchaseScheme + row.cashDiscountOnWaxOil}}%</td>
+                                <td ng-if="row.professionalDiscount!==undefined">{{row.beUPurchaseScheme + row.professionalDiscount}}%</td>
+                                <!--<td ng-if="!row.cashDiscountOnWax || !row.professionalDiscount">{{row.directDiscount + row.directBilling + row.cashDiscount + row.beUPurchaseScheme-->
+                                    <!--+row.merchandising + row.yearBenefit +row.educationTraining + row.cashDiscountOnWax +-->
+                                    <!--row.cashDiscountOnWaxOil + row.professionalDiscount}}%</td>-->
+                            </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<!--<tr ng-repeat="row in slabs" >-->
+    <!--<td title="'Annual Turnover Value'" >-->
+        <!--{{row.rangeFrom}}-{{row.rangeTo}}<span ng-if="row.rangeTo!='Above'">Lac</span></td>-->
+    <!--<td title="'Direct Discount'" >-->
+
+        <!--<p >{{row.directDiscount || 0}}%</p>-->
+    <!--</td>-->
+    <!--<td  title="'Direct Billing'"  >-->
+        <!--{{row.directBilling || 0}}%</td>-->
+    <!--<td title="'Merchandising'"   >-->
+        <!--{{row.merchandising || 0}}%</td>-->
+    <!--<td title="'Cash Discount'"   >-->
+        <!--{{row.cashDiscount || 0}}%</td>-->
+    <!--<td title="'Retail Discount'"   ng-if="row.retailDiscount>0" >-->
+        <!--{{row.retailDiscount }} %-->
+    <!--</td>-->
+    <!--<td title="'Be U Purchase Scheme'" ng-if="row.beUPurchaseScheme>0"  >-->
+        <!--{{row.beUPurchaseScheme || 0}}%-->
+    <!--</td>-->
+    <!--<td title="'Professional Discount'"  >-->
+        <!--{{row.professionalDiscount || 0}}%</td>-->
+    <!--<td title="'Year end benefits'"  >-->
+        <!--{{row.yearBenefit || 0}}%</td>-->
+    <!--<td title="'Educational Training'" >-->
+        <!--{{row.educationTraining || 0}}%</td>-->
+    <!--<td title="'Total Discount'">-->
+        <!--{{row.retailDiscount+row.directDiscount+row.proffesionalDiscount+row.yearBenefit+row.educationTraining || 0}}%</td>-->
+<!--</tr>-->

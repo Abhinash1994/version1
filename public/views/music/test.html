@@ -1,0 +1,298 @@
+<body >
+ <table>
+   <tbody>
+     <td>
+       <div >
+
+       </div>
+     </td>
+     <td>
+    <div id="title">
+    <span id="track" style="font-size: 0.6em;"></span>
+    <div id="timer">0:00</div>
+    <div id="duration">0:00</div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controlsOuter">
+    <div class="controlsInner">
+      <div id="loading"></div>
+      <div class="btn" id="playBtn"></div>
+      <div class="btn" id="pauseBtn"></div>
+      <div class="btn" id="prevBtn"></div>
+      <div class="btn" id="nextBtn"></div>
+
+    </div>
+    <div class="btn" id="playlistBtn"></div>
+    <div class="btn" id="volumeBtn"></div>
+  </div>
+
+  <!-- Progress -->
+  <div id="waveform"></div>
+  <div id="bar"></div>
+  <div id="progress"></div>
+
+  <!-- Playlist -->
+  <div id="playlist">
+    <div id="list"></div>
+  </div>
+
+  <!-- Volume -->
+  <div id="volume" class="fadeout">
+    <div id="barFull" class="bar"></div>
+    <div id="barEmpty" class="bar"></div>
+    <div id="sliderBtn"></div>
+  </div>
+
+     </td>
+   </tbody>
+ </table>
+
+
+
+
+  <!-- Top Info -->
+
+
+  <!-- Scripts -->
+
+
+
+
+    <!--PLaylist modal -->
+
+    <div class="modal fade" id="playlist1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top:7em;overflow:hidden ">
+      <div class="modal-dialog widthOfModal" style="margin-top:10em;">
+          <div class="modal-content">
+              <div class="modal-header" style="font-size:1.5em ;padding-top: 7.5em;font-weight:500;">
+                  Be U Salons Music Player
+              </div>
+              <div class="modal-body" id="modal-body" style="overflow:auto;height:535px; ">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div ng-repeat="list in models  track by $index" class="col-md-6">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <h3 class="panel-title" style="text-align:center">{{list.listName}}</h3>
+                                </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <input type="checkbox"  ng-model="list.selectAll" ng-change="selectAllItems(list)">
+                                  <label for="">Select All</label>
+                                </div>
+                                <!-- <hr> -->
+                                <div class="col-md-4 col-md-offset-4"  ng-show="$index==1">
+                                  <button ng-click="openSaveModal()" style="height: 3em;padding: 0.5em;">Save playlist</button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel-body" style="overflow:auto;max-height:405px;font-size:1.2em;">
+                                <ul dnd-list dnd-drop="onDrop(list, item, index)">
+                                    <li ng-repeat="item in list.items track by $index"
+                                        dnd-draggable="getSelectedItemsIncluding(list, item)"
+                                        dnd-dragstart="onDragstart(list, event)"
+                                        dnd-moved="onMoved(list)"
+                                        dnd-dragend="list.dragging = false"
+                                        dnd-selected="item.selected = !item.selected"
+                                        ng-class="{'selected': item.selected}"
+                                        ng-hide="list.dragging && item.selected"
+                                        >
+                                        <span ng-if="$parent.$index==0">{{item.title}}</span>
+                                        <span ng-if="$parent.$index==1">{{item.title}} - Requested By </span>
+                                        <span ng-if="$parent.$index==1"> - {{item.requestedBy}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12" style="padding-top: 1em;padding-bottom: 1em;">
+                <button ng-click="openLoadPlayList()"  style="height: 3em;padding: 0.5em;">Load Playlist</button>
+              </div>
+              <div class="modal-footer" style="padding: 2.5em;">
+                <button class="btn btn-warning" type="button"  style="height: 3em;padding: 0.5em;" id="cancel" ng-click="closeModal()">Cancel</button>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="loadPlayList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" style="margin-top: 22em;">
+        <div class="modal-content">
+            <div class="modal-header">
+              <span style="font-size: 1.5em;font-weight: 500;color: #5a5757;">Your Saved Playlist</span>
+            </div>
+            <div class="modal-body"   style="padding-top: 0.5em;">
+              <div class="row" style="margin: 0.5em;">
+                  <div class="col-md-12" style="text-align:center;font-size:1.2em;font-weight:500;color:#6b6161;">
+                    Playlist Name
+                  </div>
+              </div>
+              <div class="row" ng-repeat="playlist in playlists">
+                  <div class="col-md-6"  style="text-align:right;margin-top: 0.5em;">
+                    <span style="font-size:1.2em;">{{playlist.playListName}}</span>
+                  </div>
+                  <div class="col-md-6"  style="text-align: right;padding-top: 0.5em;text-align:left;">
+                    <button ng-click="loadThisList(playlist.playListName)" style="height: 2.5em;padding: 0.5em;">Load Playlist</button>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="modal fade" id="loadPlayList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin-top: 22em;">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <span style="font-size: 1.5em;">Your Saved Playlist</span>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                  <div class="col-md-12">Playlist Name
+                      <div class="col-md-8">
+                          <div class="row" ng-repeat="playlist in playlists">
+                             <div>{{playlist.playListName}}</div>
+                             <button ng-click="loadThisList(playlist.playListName)" style="height: 3em;padding: 0.5em;">Load Playlist</button>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div> -->
+
+
+
+  <div class="modal fade" id="savePLayList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  Save Your Playlist
+              </div>
+              <div class="modal-body" id="modal-body">
+                <div class="row">
+                <div class="col-md-12">Playlist Name
+                    <div class="col-md-8">
+                        <div class="row">
+                           <input type="text" ng-model="saveNewPLayList"/>
+                           <button ng-click="savePlayList(models[1],saveNewPLayList)"  style="height: 3em;padding: 0.5em;">Save Playlist</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- <div class="modal fade" id="playlist1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  Hello hi dude whats up
+
+              </div>
+              <div class="modal-body" id="modal-body">
+                <div class="row">
+                <div class="col-md-12">Your playlist
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div ng-repeat="list in models" class="col-md-6">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">{{list.listName}}</h3>
+                                        <input type="checkbox"  ng-model="list.selectAll" ng-change="selectAllItems(list)">Select All
+                                        <button ng-click="openSaveModal()">Save playlist</button>
+                                    </div>
+                                    <div class="panel-body" >
+                                        <ul dnd-list dnd-drop="onDrop(list, item, index)">
+                                            <li ng-repeat="item in list.items"
+                                                dnd-draggable="getSelectedItemsIncluding(list, item)"
+                                                dnd-dragstart="onDragstart(list, event)"
+                                                dnd-moved="onMoved(list)"
+                                                dnd-dragend="list.dragging = false"
+                                                dnd-selected="item.selected = !item.selected"
+                                                ng-class="{'selected': item.selected}"
+                                                ng-hide="list.dragging && item.selected"
+                                                >
+                                                {{item.title}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button ng-click="openLoadPlayList()">Load Playlist</button>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" type="button" >OK</button>
+                <button class="btn btn-warning" type="button" >Cancel</button>
+              </div>
+
+          </div>
+      </div>
+    </div>
+    <div class="modal fade" id="savePLayList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Save Your Playlist
+                </div>
+                <div class="modal-body" id="modal-body">
+                  <div class="row">
+                  <div class="col-md-12">Playlist Name
+                      <div class="col-md-8">
+                          <div class="row">
+                             <input type="text" ng-model="saveNewPLayList"/>
+                             <button ng-click="savePlayList(models[1],saveNewPLayList)">Save Playlist</button>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+            </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="loadPlayList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      Your Saved Playlist
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                    <div class="col-md-12">Playlist Name
+                        <div class="col-md-8">
+                            <div class="row" ng-repeat="playlist in playlists">
+                               <div>{{playlist.playListName}}</div>
+                               <button ng-click="loadThisList(playlist.playListName)">Load Playlist</button>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+              </div>
+          </div>
+        </div>
+    </div> -->
+  </body>
+</html>

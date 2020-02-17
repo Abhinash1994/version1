@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>eKyc Success</title>
+<script type="text/javascript">
+function ePayLaterResult(){
+    var payload = '{ "success": true }';
+    if (typeof EpayLater !== "undefined"){
+        EpayLater.success(payload); //If Payment was success
+    }
+    setTimeout(function(){ window.location = 'https://www.beusalons.com/appointment-booked' }, 1000);
+}
+          
+ePayLaterResult();
+</script>
+</head>
+<body>
+<h2>Success</h2>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<div class="row">
+
+    <h3>Settlement Invoice</h3>
+</div>
+ 
+      <div class="row" style="margin:4px; padding-top:1%;text-align: right;" >
+    <div class="col-md-4">Select Month</div> 
+    <div class="col-md-4">
+         <select class="setelment-report" style="width: 72%;height: 30px;background: #fff;"  ng-model="item"  ng-options="item for item in month">
+        </select>
+   
+    </div>
+ </div>
+ <div  class="row" style="margin:4px; padding-top: 1%;text-align: right;">
+    <div class="col-md-4">Select Year</div>
+      <div class="col-md-4">
+        <select class="setelment-report monthselect"  style="width: 72%;height: 30px;background: #fff;" ng-model="item1"  ng-options="item1 for item1 in year">
+        </select>
+    </div>
+  </div>
+    <div class="row" style="margin:4px;text-align: right;"  ng-if="userType=='1'">
+    <div class="col-md-4">Select Salon</div>
+    <div class="col-md-4">
+        <select class="setelment-report" style="width: 72%;height: 30px;background: #fff;" ng-model="selectedParlor" ng-options="parlor.parlorId as parlor.name for parlor in parlors |orderBy:'name'"  ng-change="changeParlor(selectedParlor)">
+        </select>
+    </div>
+ 
+      
+    </div>
+
+    <div class="row" style="padding-left:21%;">  <button  class="btn btn-md" style="width: 12%;" ng-click="getLedger()">click</button>
+    </div>
+<div class="row" style="padding: 3%;text-align: left;">
+    <table class="table table-bordered" id="printSectionId">
+        <tr>
+            <td rowspan="6" style="width:35%;text-align: left">
+               <div style="width: 120px;float:left"><img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1526376237/beu-logo_qfscy6.png" alt="logo" style="width: 100px"></div> 
+                <div style="width:65%;float:left">
+                   <b>Gingerpan Swapcart Private Limited</b> <br>
+                    Plote No.62 Okhla Industrial Area Phase-3 Delhi<br>
+                    GSTIN/UIN: 07AAGCG0658K1ZF<br>
+                    State Name: Delhi, Code: 07<br>CIN: U5200MH2015PT266734<br>E-mail: finance@beusalons.com
+                    
+                
+                </div>
+            
+            
+            </td>
+
+            <td colspan="4" style="text-align: left;">
+          
+              <span ng-if="(item=='April' && item1 == 2019) || (item=='May' && item1 == 2019) || (item=='June' && item1 == 2019) || (item=='July' && item1 == 2019) || (item=='August' && item1 == 2019) || (item=='September' && item1 == 2019) || (item=='October' && item1 == 2019) || (item=='November' && item1 == 2019) || (item=='December' && item1 == 2019) || (item=='January' && item1 == 2020) || (item=='February' && item1 == 2020) || (item=='March' && item1 == 2020)"> Invoice No: GIN/19-20/00{{settlementData.invoiceNumber}}<br></span>
+
+               <span ng-if="(item=='January' && item1 == 2019) || (item=='February' && item1 == 2019) || (item=='March' && item1 == 2019)|| item1==2018"> Invoice No: GIN/18-19/00{{settlementData.invoiceNumber}}<br></span>
+            </td>
+            <td colspan="4" style="text-align: left;">Date: {{settlementData.date}}</td>
+
+            
+        </tr>
+        <tr>
+        
+         <td colspan="4" style="text-align: left;">Delevery Note</td>
+         <td colspan="4" style="text-align: left;">Mode/Terms of Payment</td>
+           
+        </tr>
+            <tr>
+        
+         <td colspan="4" style="text-align: left;">Suppleir's Ref.</td>
+         <td colspan="4" style="text-align: left;">Other Reference(s)</td>
+           
+        </tr>
+        <tr>
+        
+         <td colspan="4" style="text-align: left;">Buyer's Order No </td>
+         <td colspan="4" style="text-align: left;">Dated</td>
+           
+        </tr>
+        <tr>
+        
+         <td colspan="4" style="text-align: left;">Dispatched Document No</td>
+         <td colspan="4" style="text-align: left;">Delevery Note Date</td>
+           
+        </tr>
+         <tr>
+        
+         <td colspan="4" style="text-align: left;">Dispatched through</td>
+         <td colspan="4" style="text-align: left;">Destination</td>
+           
+        </tr>
+          <tr>
+            <td rowspan="2" style="text-align: left">
+                Buyer<br><b>{{settlementData.parlorName}}</b><br>
+                <b>{{settlementData.legalEntity}}</b><br>
+              {{settlementData.parlorAddress}}<br>GSTIN/UIN: {{settlementData.salonGST}}<br>State Name: {{settlementData.stateName}}, Code: {{settlementData.code}}<br>
+                
+             
+            
+            </td>
+            <td rowspan="2" colspan="9">Terms Of delivery</td>
+
+        </tr>
+        <tr>
+        
+        
+
+       
+           
+        </tr>
+
+      
+
+       
+        <tr>
+            <td >Particulars</td>
+             <td>HSN/SAC</td>
+            <td>Quantity</td>
+            <td>Rate</td>
+            <td>Per</td>
+            <td colspan="4">Amount</td>
+            
+        </tr>
+           <tr>
+        
+             <td rowspan="4" style="font-weight: 700;text-align: left;" ng-if="settlementData.stateName!='New Delhi'">
+               Mangement Fees<br><br>
+                Reimb of online payment fees<br><br>
+                 Reimb of online payment fees (Exempt)<br><br>
+              <span>IGST</span>
+          <!--     <span ng-if="settlementData.IGST==0">CGST</span><br>
+              <span ng-if="settlementData.IGST==0">SGST</span> -->
+         
+               
+               
+            </td>
+           
+            <td rowspan="5" style="font-weight: 700;text-align: left;" ng-if="settlementData.stateName=='New Delhi'">
+               Mangement Fees<br><br>
+                Reimb of online payment fees<br><br>
+                 Reimb of online payment fees (Exempt)<br><br>
+          <!--     <span ng-if="settlementData.IGST!=0">IGST</span> -->
+              <span>CGST</span><br><br>
+              <span>SGST</span>
+         
+               
+               
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="4" style="text-align: left;">{{settlementData.managementFee|number:0}}</td>
+        </tr>
+        <tr>
+        
+        <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="4" style="text-align: left;">{{settlementData.onlinePaymentFee|number:0}}</td>
+        </tr>
+            <tr>
+        
+        <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="4" style="text-align: left;">{{settlementData.onlinePaymentFeeExempt|number:0}}</td>
+        </tr>
+        <tr ng-if="settlementData.stateName=='New Delhi'">
+        
+            <td></td>
+            <td></td>
+            <td style="text-align: left;" ng-if="settlementData.IGST==0">{{settlementData.CGSTpercentage}}</td>
+            <td ng-if="settlementData.IGST!=0">{{settlementData.IGSTpercentage}}</td>
+            <td style="text-align: left;">%</td>
+            <td colspan="5" style="text-align: left;">{{settlementData.SGST}}</td>
+            <td colspan="6" style="text-align: left;" ng-if="settlementData.IGST!=0">{{settlementData.IGST}}</td>
+        </tr>
+           <tr ng-if="settlementData.stateName=='New Delhi'">
+        
+            <td></td>
+            <td></td>
+            <td style="text-align: left;" ng-if="settlementData.IGST==0">{{settlementData.CGSTpercentage}}</td>
+            <td ng-if="settlementData.IGST!=0">{{settlementData.IGSTpercentage}}</td>
+            <td style="text-align: left;">%</td>
+            <td colspan="5" style="text-align: left;">{{settlementData.SGST}}</td>
+            <td colspan="6" style="text-align: left;" ng-if="settlementData.IGST!=0">{{settlementData.IGST}}</td>
+        </tr>
+        <tr ng-if="settlementData.stateName!='New Delhi'">
+        
+            <td></td>
+            <td></td>
+          <!--   <td style="text-align: left;">{{settlementData.SGSTpercentage}}</td> -->
+
+            <td>{{settlementData.IGSTpercentage}}</td>
+            <td style="text-align: left;">%</td>
+           <!--  <td colspan="5" style="text-align: left;">{{settlementData.IGST}}</td> -->
+            <td colspan="5" style="text-align: left;">{{settlementData.IGST}}</td>
+
+        
+        </tr>
+ 
+        <tr>
+            <td  style="font-weight: 700">Total</td>
+             <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="5" style="text-align: left;">{{settlementData.amountTotal|number:0}}</td>
+        </tr>
+        <tr>
+            <td colspan="9" style="text-align: left;">
+                Amount Chargeable(In Words)<br>
+                  <b>INR {{settlementData.amountTotalString}}</b>
+            
+            
+            </td>
+        
+        </tr>
+        <tr ng-if="settlementData.stateName!='New Delhi'">
+            <td rowspan="2"  colspan="">HSN/SAC</td>
+            <td rowspan="2" colspan="2">
+                Taxable<br>
+                Value
+            
+            </td>
+            <td colspan="4">IGST</td>
+           
+
+            <td rowspan="2" colspan="">Total Tax<br>Amount</td>
+           
+        
+        </tr>
+        <tr ng-if="settlementData.stateName=='New Delhi'">
+            <td rowspan="2"  colspan="">HSN/SAC</td>
+            <td rowspan="2" colspan="2">
+                Taxable<br>
+                Value
+            
+            </td>
+            <td colspan="2">Central Tax</td>
+            <td colspan="2">State Tax</td>
+
+            <td rowspan="2" colspan="2">Total Tax<br>Amount</td>
+           
+        
+        </tr>
+        <tr ng-if="settlementData.stateName=='New Delhi'">
+          
+     
+             <td>
+                Rate
+            </td>
+             <td>
+                Amount
+            </td>
+             <td>
+                Rate
+            </td>
+             <td>
+                Amount
+
+            </td>
+        
+        </tr>
+         <tr ng-if="settlementData.stateName!='New Delhi'">
+          
+     
+             <td colspan="2">
+                Rate
+            </td>
+          
+           
+             <td colspan="2">
+                Amount
+
+            </td>
+        
+        </tr>
+    
+         
+        <tr ng-if="settlementData.stateName=='New Delhi'">
+          <td><b>Total</b></td>  
+          <td  colspan="2">{{c+b}}</td>  
+            <td>
+                {{settlementData.CGSTpercentage}}
+            </td>
+             <td>
+                {{settlementData.CGST}}
+            </td>
+         
+             <td>
+                  {{settlementData.CGSTpercentage}}
+            </td>
+             <td>
+                {{settlementData.CGST}}
+            </td>
+            <td>{{settlementData.taxTotal}}</td>
+           
+          
+        </tr>
+        
+
+    
+         <tr ng-if="settlementData.stateName!='New Delhi'">
+            <td><b>Total</b></td>  
+            <td  colspan="2">{{c+b}}</td>  
+             
+               <td colspan="2">
+                  {{settlementData.IGSTpercentage}}
+              </td>
+              
+               <td colspan="2">
+                   {{settlementData.taxTotal}}
+              </td>
+           
+              
+              <td>{{settlementData.taxTotal}}</td>
+           
+          
+        </tr>
+  
+   <tr>
+            <td colspan="9">
+Tax Amount (In words): <b>INR {{settlementData.taxTotalString}}</b>
+            
+            
+            </td>
+        
+        </tr>
+           <tr>
+            <td colspan="5" style="text-align: left">
+               Company Pan: <b>AAGC0658K</b>          
+            
+            </td>
+                   <td colspan="4" style="text-align: left">
+              <b>for Gingerpan Swapcart Private Limited</b>
+                       <br><br><br>
+                       Authorised Signatory
+            
+            
+            </td>
+        
+        </tr>
+  
+      
+      
+    </table>
+ 
+    <div>Instructions :</div>
+     <div>1. E &OE.</div>
+     <div> 2. Any discrepancy in regard to this Invoice must be notified within 7 days from the date of receipt of this
+      invoice.</div>
+     <div> 3. In case where TDS has been deducted, Income Tax Deduction Certificate as provided under The
+      Income Tax Act, 1961,should be sent to us at the earliest.
+    </div>
+
+
+</div>
+<div class="row">
+<button ng-click="printToCart('printSectionId')" class="button">Print Settlement Invoice </button>
+</div>

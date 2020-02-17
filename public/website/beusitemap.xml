@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>http://beusalons.com/#/</loc>
+ </url>
+<url>
+  <loc>http://beusalons.com/#/offerPage</loc>
+
+  </url>
+<url>
+  <loc>http://beusalons.com/#/parlor-detail</loc>
+
+  </url>
+<url>
+  <loc>http://beusalons.com/#/salon-listing</loc>
+
+  </url>
+    <url>
+        <loc>http://www.beusalons.com/blog</loc>
+    </url>
+    <url>
+        <loc>http://www.beusalons.com/salon-deals</loc>
+    </url>
+    <url>
+        <loc>http://www.beusalons.com/salon-services</loc>
+    </url>
+ </urlset>

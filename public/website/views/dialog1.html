@@ -1,0 +1,160 @@
+<style>
+	md-radio-button{
+		box-sizing: border-box;
+		display: block;
+		margin-bottom:0px;
+		white-space: nowrap;
+		cursor: pointer;
+		position: relative;
+	}
+	md-radio-group.md-default-theme:not([disabled]) .md-primary .md-on, md-radio-group:not([disabled]) .md-primary .md-on, md-radio-group.md-default-theme:not([disabled]).md-primary .md-on, md-radio-group:not([disabled]).md-primary .md-on, md-radio-button.md-default-theme:not([disabled]) .md-primary .md-on, md-radio-button:not([disabled]) .md-primary .md-on, md-radio-button.md-default-theme:not([disabled]).md-primary .md-on, md-radio-button:not([disabled]).md-primary .md-on {
+		background-color:#818286;
+	}
+	md-radio-group.md-default-theme:not([disabled]) .md-primary .md-checked .md-off, md-radio-group:not([disabled]) .md-primary .md-checked .md-off, md-radio-group.md-default-theme:not([disabled]) .md-primary.md-checked .md-off, md-radio-group:not([disabled]) .md-primary.md-checked .md-off, md-radio-group.md-default-theme:not([disabled]).md-primary .md-checked .md-off, md-radio-group:not([disabled]).md-primary .md-checked .md-off, md-radio-group.md-default-theme:not([disabled]).md-primary.md-checked .md-off, md-radio-group:not([disabled]).md-primary.md-checked .md-off, md-radio-button.md-default-theme:not([disabled]) .md-primary .md-checked .md-off, md-radio-button:not([disabled]) .md-primary .md-checked .md-off, md-radio-button.md-default-theme:not([disabled]) .md-primary.md-checked .md-off, md-radio-button:not([disabled]) .md-primary.md-checked .md-off, md-radio-button.md-default-theme:not([disabled]).md-primary .md-checked .md-off, md-radio-button:not([disabled]).md-primary .md-checked .md-off, md-radio-button.md-default-theme:not([disabled]).md-primary.md-checked .md-off, md-radio-button:not([disabled]).md-primary.md-checked .md-off {
+		border-color: #98999b;
+	}
+	</style>
+
+<md-dialog  aria-label="Mango (Fruit)" style="" class="sevice-dialo" >
+<div flex>
+    <md-toolbar layout="row" id="dialog1-page-container">
+      <div flex class="md-toolbar-tools">
+		  <div flex="90"><h2 class="dialog1-page-heading">Customize Your Experience </h2></div>
+		  <div flex="10"  ng-click="cancel()"  class="deal-cancel-icon"><ng-md-icon icon="close" style="fill: #d2d4d5" size="20"></ng-md-icon></div>
+	  </div>
+    </md-toolbar>
+	<md-dialog-content class="dialog1-page-content-1">
+	<v-accordion id="my-accordion" class="vAccordion--default" control="accordionCount" >
+		<v-pane expanded>
+			<v-pane-header class="dialog1-page-header-container">
+				<div layout="row" flex="100">
+					<div class="dialog1-page-chooseyour">Choose Your Stylist</div>
+					<div class="dialog1-page-arrowicon"> <ng-md-icon icon="arrow_drop_down" style="fill:#58595b" size="20"></ng-md-icon></div>
+				</div>
+			</v-pane-header>
+			<v-pane-content >
+				<md-radio-group ng-model="in3"  >
+					<div ng-repeat="price in serv1.prices" class="row">
+						<div flex layout='row' layout-padding layout-align="center" class="dialog1-page-pricecontainer">
+
+							<md-radio-button style="padding-bottom: 0px;" flex="90" ng-click="priceFunction($index,serv1)" ng-value="$index" class="md-primary dialog1-page-custom dealdialog-12 style-type dialog1-page-btn " ng-required="true" name="{{price.price}}">
+								<div layout="row" flex="100" class="dialog1-page-pricename">
+									<div flex="80">
+										{{price.name}}
+									</div>
+									<div flex="20" style="text-align: right;">
+										<span class="dialog1-page-priceprice"><i class="fa fa-inr " aria-hidden="true"></i>
+										{{price.price}}
+										</span>
+									</div>
+								</div>
+							</md-radio-button>
+						</div>
+					</div>
+				</md-radio-group>
+			</v-pane-content>
+		</v-pane>
+		<v-pane ng-show="serv1.prices[0].additions[0].name=='Length'" >
+			<v-pane-header class="dialog1-page-vpcontainer">
+				<div layout="row" flex="100">
+					<div class="dialog1-page-hairtype">Hair Type</div>
+					<div  style="width: 10%;padding-top: 15px;"> <ng-md-icon icon="arrow_drop_down" style="fill:#000" size="20"></ng-md-icon></div>
+				</div>
+			</v-pane-header>
+			<v-pane-content>
+				<md-radio-group ng-model="in2"  >
+					<div class="row">
+						<div flex="100" layout='column' layout-padding class="dialog1-page-normalcontainer">
+							<div flex="30">
+							<md-radio-button flex value="Normal" class="md-primary dialog1-page-custom dialog1-page-normal hairtype dialog1-page-btn " ng-click="thickFunction(0)" ng-required="true" style="padding:0px;font-family:latoLight;font-size: 13px;color: #58595b" >
+							Normal
+							</md-radio-button>
+							</div>
+							<div flex="30">
+							<md-radio-button flex value="Thick" class="md-primary dialog1-page-custom dialog1-page-normal hairtype dialog1-page-btn " ng-click="thickFunction(1)" ng-required="true" style="padding:0px;font-family:latoLight;font-size: 13px;color: #58595b">
+								Thick
+							</md-radio-button>
+							</div>
+						</div>
+					</div>
+				</md-radio-group>
+			</v-pane-content>
+		</v-pane>
+		<v-pane ng-show="serv1.prices[0].additions.length" >
+			<v-pane-header id="dialog1-page-lenghtcontainer">
+				<div layout="row" flex="100">
+					<div class="dialog1-page-lenght">Length</div>
+					<div style="width:20%;"> <ng-md-icon icon="arrow_drop_down" style="fill:#58595b" size="20"></ng-md-icon></div>
+				</div>
+			</v-pane-header>
+			<v-pane-content>
+				<div layout="column" flex>
+					<div flex>
+						<md-radio-group ng-model="in1"   class="dialog1-page-Groupcontainer">
+							<div flex ng-repeat="addition in serv1.prices[in3].additions[0].types | filter: (!disableFilter || '') && {name: in2}" >
+								<div layout="row" flex="100"  class="dialog1-page-btn-group">
+									<div flex="100" style="padding-left: 48px;padding-top: 5px;padding-bottom: 10px;">
+										<md-radio-button layout="row" ng-value="$index" class="md-primary dialog-normal-1 dialog1-page-btn dialog1-page-custom"  ng-click="additionFunction($index) ;checkPrice(serv1,in3,in1,in2)" ng-required="true" style="">
+											<div flex="100" layout="row" class="dialog1-page-additionContainer">
+												<div flex="70"><span class="dialog1-page-additionname">{{addition.name}}</span></div>
+												<div flex="30" class="dialog1-page-addition"><span style=""><img src="../images/Grey Budget.png" alt="price-con" width="10" height="10"> {{addition.additions+serv1.prices[0].price}}</span></div>
+											</div>
+										</md-radio-button>
+									</div>
+
+								</div>
+							</div>
+						</md-radio-group>
+					</div>
+				</div>
+			</v-pane-content>
+		</v-pane>
+	</v-accordion>
+	<div layout="column" flex="100" class="dialog1-page--optionContainer" >
+	   <div ng-repeat="option in serv1.options"  layout="row" style="margin-top:10px;">
+            <div layout="row" flex="80" class="dialog1-page-optionMessage">
+		   			{{option.message}}
+				 </div>
+		    <div layout="row" flex="20" class="dialog1-page-optionMessage-icon"> <!--<md-button class="md-raised md-primary" ng-click="addCombo($event,serv1,$index,0,0,'deal')"></md-button>--><span ng-click="addCombo($event,serv1,$index,0,0,'deal',option.dealType.name,in1)"><i class="fa fa-plus-circle" aria-hidden="true"></i></span></div>
+		  
+       </div>	
+	</div>
+	</md-dialog-content>
+
+    <md-dialog-actions style="padding: 0px 0px;">
+		<div flex>
+			<div layout="column" layout-align="center" class="dialog1-page-MenuContainer" flex>
+				<div layout="row" flex layout-align="end end" class="dialog1-page-menuPrice" flex>
+					<div layout="row" flex="100">
+							<div flex="40"></div>
+							<div flex="20"><span class="dialog1-page-menuPriceFont">Menu Price</span></div>
+							<div flex="20" style="text-align: right;"><strike style="color:#dfe0e1"><i class="fa fa-inr " aria-hidden="true"></i> 3000</strike></div>
+							<div flex="20" class="dialog1-page-menuPriceIcon"><i class="fa fa-inr " aria-hidden="true"></i><span class="dialog1-page-menuPriceicon2">{{serv1.prices[in3].price + serv1.prices[in3].additions[0].types[index3].additions}}</span></div>
+					</div>
+				</div>
+				<!--<div layout="row"  layout-align="center" flex>-->
+					<!--<div layout="column">-->
+							<!--<span style="font-size:13px;font-weight: 700;color:#58595b;">Deal Price</span>-->
+                      <!--&lt;!&ndash;  <span>{{meraPrice}}</span>&ndash;&gt;-->
+							<!--<span ng-if="((serv1.prices[in3].price + serv1.prices[in3].additions[0].types[in1].additions)>(meraPrice))&&(meraPrice!=0)">{{meraPrice}}</span>-->
+						<!--<span ng-if="((serv1.prices[in3].price + serv1.prices[in3].additions[0].types[in1].additions)<(meraPrice))||(meraPrice==0)" style="font-size:13px;">Deal not applicable</span>-->
+					<!--</div>-->
+				<!--</div>-->
+			</div>
+			<!--Serive final price={{serv1.prices[in3].price + serv1.prices[in3].additions[0].types[in1].additions}}-->
+			<div layout="row"   class="dialog1-page-btn-container" flex>
+				<div layout="row"  layout-align="end end" flex>
+					<md-button ng-click="selectPrice(serv1,in3,in1,in2)" id="dialog1-page-btn">
+						Apply
+					</md-button>
+				</div>
+				<!--<div layout="row"  layout-align="center" flex>-->
+					<!--<md-button ng-click="cancel()" style="background-color:#e6e6e6;margin: 0px 0px;font-size:13px;">-->
+						<!--Cancel-->
+					<!--</md-button>-->
+				<!--</div>-->
+			</div>
+		</div>
+    </md-dialog-actions>
+</div>
+</md-dialog>

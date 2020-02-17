@@ -1,0 +1,97 @@
+<style>
+       .fht-table-wrapper{
+    overflow: scroll !important;
+    position: relative;
+}   
+
+
+.fht-tbody table{
+    /* margin-top: -74px !important;*/
+}
+
+.fht-tbody{
+   
+  height:670px !impo;
+}
+
+
+.table-responsive{
+    height:800px !important;
+}
+
+.fht-fixed-body{
+    width:auto !important;
+}
+</style>
+     <div class="row">
+         <div class="col-md-12"> <h3 style="text-align: center">Employee Referral</h3></div>
+    </div>
+
+
+   <div  class="table-responsive" style="height:600px; width:100%">
+            <table class="table table-hover " id="tableToExport"  >
+                <thead>
+                <tr>
+
+                    <th class="head-color-universal"   >Salon Name</th>
+                    <th  class="head-color-universal"  >Employee Name</th>
+                    <th class="head-color-universal"  >Name</th>
+                    <th class="head-color-universal"  >Phone Number</th>
+                    <th class="head-color-universal"   >City                         </th>
+                    <th class="head-color-universal">Address</th>
+                 
+                     <th class="head-color-universal" >Department</th>
+                    <th class="head-color-universal" >Experience</th>
+                    <th class="head-color-universal" >Willing To Relocate </th>
+                    <th class="head-color-universal" >Gender</th>
+                   <th class="head-color-universal" >Minimum Salary</th>
+                     <th class="head-color-universal">Maximum Salary</th> 
+                     <th class="head-color-universal" >Action </th> 
+
+                </tr>
+
+                </thead>
+          
+                <tr ng-repeat="d in getData track by $index">
+
+                    <td >{{d.parlorName}}</td>
+                    <td >{{d.name}}</td>
+                    <td >{{d.referredContactName}}</td>
+                    <td >{{d.referredContactNumber}}</td>
+                    <td  ><input  vs-google-autocomplete="options1" ng-model="d.city" name="address" type="text"/></td>
+                     <td   ><input   vs-google-autocomplete="options" ng-model="d.address"  vs-longitude="d.long"  vs-latitude="d.lat" name="address" type="text"/></td>
+<!--                    <td><input vs-google-autocomplete ng-model="d.address" name="address" type="text"></td>-->
+                   
+                    
+                    
+                    <td  ><select  style="height:27px;" ng-model="d.department"><option value="Beautician" sty>Beautician</option><option value="Makeup Artist">Makeup Artist</option><option value="Admin">Admin</option><option value="Pedicurist">Pedicurist</option> <optgroup label="Hair Dresser">
+    <option value="Gents Hairdresser">Gents</option>
+    <option value="Ladies Hairdresser">Ladies</option>
+     <option value="Unisex Hairdresser">Unisex</option>
+  </optgroup></select></td>
+                    <td ><input  ng-model="d.experience" name="address" type="text"></td>
+                    <td > <input  type="checkbox" name="vehicle" value="Car" checked ng-model="d.area"></td>
+                    <td ><select  ng-model="d.gender"><option value="Male">Male</option><option value="Female">Female</option><option value="Unisex">Unisex</option></select></td>
+
+                   
+                       
+                                <td ><input type="text" class="form-control" name="n8" ng-model="d.salaryMin"></td>
+                                <td ><input type="text" class="form-control" name="n9" ng-model="d.salaryMax"></td>
+                      
+                   
+                    <td>
+
+                        <button class="btn btn-large" ng-click="Sendsave(d)" ng-show="!d.visible">Save</button>
+                        <button class="btn btn-large" ng-click="edit(d)" ng-show="d.visible">Edit</button>
+                    </td>
+                </tr>
+           
+         
+            </table>
+
+    </div>
+
+   
+           
+         
+      

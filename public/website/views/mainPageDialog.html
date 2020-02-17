@@ -1,0 +1,92 @@
+<style>
+  md-dialog md-dialog-content:not([layout=row])>:first-child:not(.md-subheader) {
+      margin-top: 0;
+      padding: 0;
+  }
+  md-dialog md-dialog-content {
+  	overflow: hidden !important;
+  }
+  .md-padding {
+      padding: 0;
+  }
+
+  [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+.md-toolbar-tools {
+  padding: 0 10px;
+}
+
+.glyphicon.glyphicon-one-fine-dot:before {
+    content: "\25cf";
+    font-size: 0.8em;
+    color:#D2232A;
+}
+</style>
+<md-dialog aria-label="Mango (Fruit)" style="width:60%;">
+  <form ng-cloak>
+    <md-dialog-content class="main_page_dialog">
+      <div class="md-dialog-content">
+        <md-content ng-cloak class="md-padding" layout-xs="column">
+
+        <div layout="column" flex="100" layout-xs = "column"  flex-xs flex-gt-xs="100">
+          <div flex="30">
+            <i class="material-icons" style="cursor:pointer;position:absolute;right:0;" ng-click="closeDialog()">clear</i>
+          </div>
+
+          <img class="why_download_image"style="margin: auto; width: 100%;" alt="" src="../website/images/why_download_creative.png">
+        </div>
+        <div style="overflow-y:hidden;background:#fff;"layout="column" flex="100" layout-xs = "column" flex-xs flex-gt-xs="100" layout-align="center center">
+          <p style="padding:0 3em;line-height:1.5em;" class="why_download font_why_download">
+            <span>Easy </span>To Use <span class="glyphicon glyphicon-one-fine-dot"></span> Enjoy <span>1000 FREEBIE POINTS</span> <span class="glyphicon glyphicon-one-fine-dot"></span> <span>FREE HAIRCUT </span>On A Minimum Bill Value Of Rs.100  <span class="glyphicon glyphicon-one-fine-dot"></span> <span>CUSTOMIZED, </span>Enhanced And <span>HASSLE-FREE </span>Salon Experience
+          </p>
+          <!-- <p class="why_download font_why_download">
+            Enjoy <span>1000 FREEBIE POINTS</span>
+          </p>
+          <p class="why_download font_why_download">
+            <span>FREE HAIRCUT </span>On A Minimum Bill Value Of Rs.100
+          </p>
+          <p class="why_download font_why_download">
+            <span>CUSTOMIZED, </span>Enhanced And <span>HASSLE-FREE </span>Salon Experience
+          </p> -->
+        </div>
+
+      </div>
+      <div layout="column" layout-xs = "column" flex-xs flex-gt-xs="100" layout-align="center center">
+        <div >
+          <h3 class="highlights" style="padding-top:.8em;color:#424242"><b>ADD YOUR COPRORATE ID AND GET BENEFITS LIKE</b></h3>
+        </div>
+        <div class="">
+          <h4 class="highlights" style="color:#D2232A;"><b>3 FREE HAIRCUTS</b></h4>
+        </div>
+        <div class="">
+          <p class="terms">(1 Haircut Every Month)</p>
+        </div>
+        <div class="">
+          <h4 class="highlights" style="color:#D2232A;"><b>&</b></h4>
+        </div>
+        <div class="">
+          <h4 class="highlights" style="color:#D2232A;"><b>200% CASHBACK</b></h4>
+        </div>
+        <div class="">
+          <p class="terms">(on your next app payment)</p>
+        </div>
+
+      </div>
+      <div layout="row" layout-xs = "column" flex-xs flex-gt-xs="100" layout-align="center center">
+          <div flex="50" flex-xs="100">
+
+          <p class="facebook_like" style="margin-bottom:0;" >Like us on <a href="https://www.facebook.com/BeUsalons/" target="_blank"><img src="../website/images/facebook.png" alt=""></a> /BeUSalons</p>
+          </div>
+          <div  flex="50" flex-xs="100" style="text-align:right">
+
+         <p class="p_app_button"><a href="https://play.google.com/store/apps/details?id=com.beusalons.android&hl=en" target="_blank"><img id="app_store" src="../website/images/android_app_store.png" alt=""></a><a href="https://itunes.apple.com/app/id1206326408?mt=8" target="_blank"><img id="app_store" src="../website/images/apple_app_store.png" alt=""></a></p>
+        </div>
+
+
+      </div>
+      <!-- <md-content class="md-padding" layout-xs="column" layout="row"> -->
+    </md-dialog-content>
+  </form>
+</md-dialog>
+<link rel="stylesheet" href="style.css">

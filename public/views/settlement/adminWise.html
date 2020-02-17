@@ -1,0 +1,511 @@
+<style>
+    .table-responsive {
+        height: 600px !important;
+    }
+    .ng-table th.filter .input-filter{
+        background-color: #fff;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Admin Wise Settlement</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <button ng-click="regenerateAll(selectedPeriod)" class="btn btn-primary">Regenerate All</button>
+    </div>
+
+    <div class="col-md-2">
+        <button class="btn btn-primary" ng-click="sendMailToAll()">Send Mail To All</button>
+    </div>
+    <div class="col-md-2">
+            <td> <span style="padding-top: 2px;"> <button ng-csv="makeCSVData(data[0].parlorId._id,data[0].period,2)" filename="AllApointments.csv">Export All Appointments</button></span></td>
+            
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-link btn-md" ng-click="exportToExcel('#selector')" style="margin-left: -10px;border: 0;">
+                      <span class="glyphicon glyphicon-share"></span>
+                      Export to Excel
+              </button>
+    </div>
+
+    <div class="col-md-2">
+        <div class="row">
+            <button ng-csv="loadData()" csv-header='["SalonId","Salon Name","Payable Amount"]' filename="amounts.csv">Payable Amount Excel</button>
+          </div>
+    <div class="col-md-2">
+        <button class="btn btn-link btn-md" ng-click="openApproveModal()" style="margin-left: -10px;border: 0;">
+            <span class="glyphicon glyphicon-share"></span>
+                Approve Amount
+            </button>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-offset-2 col-md-2">
+        <button ng-click="submitViewModal()" class="btn btn-primary">View Current Status</button>
+    </div>  
+</div>
+
+<div class="col-md-12" style="margin-top:10px;">
+    <div class="col-md-4 col-md-offset-2">Select Settlement Period</div>
+    <div class="col-md-4">
+        <select class="setelment-report" ng-model="selectedPeriod" ng-change="periodChanged(selectedPeriod)" ng-options="period.value as period.date for period in periods">
+
+      </select>
+    </div>
+</div>
+
+
+
+
+<div class="col-md-12" style="margin-top:10px;">
+    <div class="table-responsive">
+        <table id="selector" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Salon Id</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Name of salon</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Service Revenue</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Product Revenue</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Total Revenue</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Total Revenue Till Date</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Collected By Salon</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Slab Commission Till Date</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Amount Collected Till Date</th>
+                    <!-- <th class="setelment-report-td" style="background-color: #FAE596;">Online Payment Fee</th> -->
+                    <th class="setelment-report-td" colspan="4" style="text-align: center;background-color: #FAE596;">Collected By Be U</th>
+                    <th class="setelment-report-td" colspan="5" style="text-align: center;background-color: #FAE596;">Salon Cashback</th>
+
+                    <th class="setelment-report-td" style="text-align: center;background-color: #FAE596;">Online Payment Fee</th>
+                    <th class="setelment-report-td" style="text-align: center;background-color: #FAE596;">Online Payment Fee Tax</th>
+
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Be U Payout</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Amount Already Received(By Be U)</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Extra Amount Needed by Be U</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Membership Sold By Beu</th>
+                     <th class="setelment-report-td" style="background-color: #FAE596;">Subscription Sold By Salon</th>
+                     <th class="setelment-report-td" style="background-color: #FAE596;">Lucky Draw By Be U</th>
+					<th class="setelment-report-td" style="background-color: #FAE596;">Subscription Loyalty</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Previous Due</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Previous Month Royalty (Yearly Model)</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Paid To Salon</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Balance(D+E-F)</th>
+                    <!-- <th class="setelment-report-td" style="background-color: #FAE596;"> Pending  Amount(to be given to Be U)</th> -->
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Settlement Status</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Invoice</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Excel</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Regenerate</th>
+                     <th class="setelment-report-td" style="background-color: #FAE596;">Activate Email</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Paid</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Send Mail</th>
+                    <th class="setelment-report-td" style="background-color: #FAE596;">Update Previous Dues</th>
+                </tr>
+                <tr>
+                    <th style="background-color: transparent;"></th>
+
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <!-- <th style="background-color: transparent;"></th> -->
+                    <th>Affiliates</th>
+                    <th>App</th>
+                    <th>Loyality Points</th>
+                    <th>Total</th>
+                    <th>ERP Cashback</th>
+                    <th>App Cashback(Cash)</th>
+                    <th>App Cashback(Digital)</th>
+                    <th>First App Cash</th>
+                    <th>First App Digital</th>
+
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                    <th style="background-color: transparent;"></th>
+                       <th style="background-color: transparent;"></th>
+                       <th style="background-color: transparent;"></th>
+                </tr>
+            </thead>
+            <tr ng-repeat="rows in data">
+                <td class="setelment-report-td"> {{rows.parlorId._id}}</td>
+                <td class="setelment-report-td"> {{rows.parlorName}} &nbsp; {{rows.parlorAddress}}</td>
+                <td class="setelment-report-td">{{rows.serviceRevenue | number:0}}</td>
+                <td class="setelment-report-td">{{rows.productRevenue | number:0}}</td>
+                <td class="setelment-report-td">{{rows.totalRevenue | number:0}}</td>
+                <td class="setelment-report-td">{{rows.totalPastRevenueService | number:0 }}</td>
+                <td class="setelment-report-td">{{rows.totalCollectionByParlor | number:0}}</td>
+                <td class="setelment-report-td">{{rows.actualCommissionTillDate | number:0}}</td>
+                <td class="setelment-report-td">{{rows.amountCollectedTillDate | number:0}}</td>
+                <!-- <td class="setelment-report-td">{{rows.onlinePaymentFee| number:0 }}</td> -->
+                <td class="setelment-report-td">{{rows.collectedByAffiliates| number:0 }}</td>
+                <td class="setelment-report-td">{{rows.collectedByApp | number:0}}</td>
+                <td class="setelment-report-td">{{rows.collectedByLoyalityPoints | number:0}}</td>
+                <td class="setelment-report-td">{{rows.totalCollectionByBeu | number:0}}</td>
+                <td class="setelment-report-td">{{rows.refundOnErp | number:0}}</td>
+                <td class="setelment-report-td">{{rows.refundAppDigitalCash | number:0}}</td>
+                <td class="setelment-report-td">{{rows.refundAppDigitalOnline | number:0}}</td>
+                <td class="setelment-report-td">{{rows.refundFirstAppCash | number:0}}</td>
+                <td class="setelment-report-td">{{rows.refundFirstAppDigital | number:0}}</td>
+                <td class="setelment-report-td">{{rows.onlinePaymentFee| number:0 }}</td>
+                <td class="setelment-report-td">{{rows.onlinePaymentFeeTax| number:0 }}</td>
+                <td class="setelment-report-td">{{rows.amountPayableToBeuAfterDiscount | number:0}}</td>
+                <td class="setelment-report-td">{{rows.totalCollectionByBeu | number:0}}</td>
+                <td class="setelment-report-td">{{rows.newNetPayable | number:0}}</td>
+                <td class="setelment-report-td">{{rows.membershipSoldByBeu | number:0}}</td>
+                <td class="setelment-report-td">{{rows.subscriptionSoldBySalon | number:0}}</td>
+                <td class="setelment-report-td">{{rows.luckyDrawThroughBeu | number:0}}</td>
+				<td class="setelment-report-td">{{rows.subscriptionLoyalty | number:0}}</td>
+                <td class="setelment-report-td">{{rows.previousDue | number:0}}</td>
+                <td class="setelment-report-td">{{rows.previousMonthRoyalty | number:0}}</td>
+                <td class="setelment-report-td">{{rows.paidToSalon | number:0}}</td>
+                <td class="setelment-report-td"><input type="number" ng-model="rows.balance"> <button ng-click="changeBalance(rows._id,rows.period,rows.balance)">Update Balance</button></td>
+                <!-- <td class="setelment-report-td">{{rows.pendingAmount || 0}}</td> -->
+                <td class="setelment-report-td"><span ng-if="rows.status==1">{{rows.reason}}</span><span ng-if="rows.status==0">{{rows.reason}}</span>
+                    <!-- <button ng-if="rows.status==0" ng-click="regenrateSettlement(rows._id)">Regenrate</button> --></td>
+                <td>
+                    <span><button style="margin-bottom: 4px;" ng-click="salonInvoice(rows.parlorId._id,rows.period)">Salon invoice</button></span>
+                    <span><button ng-click="beUInvoice(rows.parlorId._id,rows.period)">Be U Invoice</button></span>
+                </td>
+                <td> <span style="padding-top: 2px;"> <button ng-csv="makeCSVData(rows.parlorId._id,rows.period,1)" filename="data.csv">Appointments</button></span></td>
+                <td><button class="btn btn-primary" ng-click="regenerate(rows._id)">Regenerate</button></td>
+                   <td><input type="checkbox"  ng-model="rows.isTrue" ng-change="activatedMail(rows._id,rows.isTrue)"/></td>
+                <td ng-if="rows.paid"><button class="btn btn-primary" ng-click="paid(rows._id,false)">Paid</button></td>
+                <td ng-if="!rows.paid"><button class="btn btn-primary" ng-click="paid(rows._id,true)">UnPaid</button></td>
+                <td><button class="btn btn-primary" ng-click="sendMail(rows._id)">Send Mail</button></td>
+                <td><button class="btn btn-primary"  ng-if="!rows.paymentFlag" ng-click="rows.paymentFlag=true">Update</button>
+                     <input type="number" class="form-control" ng-if="rows.paymentFlag" ng-model="rows.customPaymentDues" placeholder="Enter Payment Dues"/>
+                    <button class="btn btn-primary" ng-if="rows.paymentFlag"  ng-click="save({settlementId:rows._id,previousDue:rows.customPaymentDues,period:selectedPeriod})">Save</button>
+                   
+
+                </td>
+
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<!------------------Salon Invoice-----------Starts------------>
+<div ng-hide="true" class="col-md-12" id="salonInvoice">
+    <div style="margin:auto;width:90%;">
+        <div><img src='https://www.monsoonsalon.com/emailler/images/beu-logo.png' width='150' alt='Beu salons' /></div>
+        <h3 style="text-align:center;">Debit Note</h3>
+        <div class="jk">
+            <table border="1" style="width:100%;border-collapse: collapse;border:1px solid gray;text-align: left;text-align: left">
+                <tr>
+                    <td rowspan="" ng-model="name" style="border:1px solid gray;text-align: left">
+                        <b style="margin-top: 3%;margin-left: 5%;">From</b>
+                        <p style="margin-top: 3%;margin-left: 5%;"><span>{{salonInvoiceContent.parlorName}}1</span><br>{{salonInvoiceContent.parlorAddress}}</p>
+                    </td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Invoice No:</br>Date:</td>
+                    <td colspan="" style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">{{salonInvoiceContent.invoiceNo}}</br>{{currentDate | date:'MM/dd/yyyy'}}</td>
+                </tr>
+                <tr>
+                    <td style="margin-top: 3%;padding-left:2%;text-align: left"><b style="margin-top: 3%;margin-left:0%;">To</b>
+                        <p style="margin-top: 3%;margin-left:0%;"><span>M/s Gingerpan Swapcart Pvt.Ltd.</span><br>DLF City Phase II, Gurgaon 122008,Haryana</p>
+                    </td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Service Tax No:<br>Pan:</td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">AAGCG0658KSD001<br>{{salonInvoiceContent.panNo}}</td>
+
+                </tr>
+                <tr>
+
+
+
+                </tr>
+                <tr>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Sr. No.</td>
+                    <td style="text-align:center;padding-left:2%;border:1px solid gray">Description</td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray">Amount in INR</td>
+
+                </tr>
+                <tr>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">1</td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Management Fees for the period form:<br> {{salonInvoiceContent.startDate | date:"MM/dd/yyyy"}} to {{salonInvoiceContent.endDate | date:"MM/dd/yyyy"}}<br>(as per settelment report annexed here with)
+                    </td>
+                    <td style="text-align:right;padding-right:2%;border:1px solid gray">{{salonInvoiceContent.totalAmount | ceil}} </td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align:center;border:1px solid gray">Total</td>
+                    <td style="text-align:right;padding-right:2%;border:1px solid gray">{{salonInvoiceContent.totalAmount | ceil}} </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;padding-right:4%;border:1px solid gray">
+                        Add:Service Tax @ 14%<br>SB @0.5%<br>KKb@0.5%
+
+                    </td>
+                    <td style="text-align:right;padding-right:2%;border:1px solid gray">{{salonInvoiceContent.serviceTax | ceil}}<br>{{salonInvoiceContent.sbcTax | ceil}}<br>{{salonInvoiceContent.kkcTax | ceil}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;border:1px solid gray">Grand Total</td>
+                    <td style="text-align:right;padding-right:2%;border:1px solid gray" ng-model="myValue"> <span ng-model="myValue">{{ amount}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left" id="container" ng-model="num">Rupees<span style="padding-left:5px;">{{convertNumberToWords1(amount)}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding-bottom:2%;border:1px solid gray;text-align: left">
+                        <h3 style="text-decoration: underline;padding-left:2%;">Bank Details for payment </h3>
+                        <span style="margin-top: 3%;margin-left:2%;">Name</span>
+                        <span style="margin-left:145px">: {{salonInvoiceContent.legalEntity}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">Current A/c No</span>
+                        <span style="margin-left: 89px;">: {{salonInvoiceContent.accountNo}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">Name of bank</span>
+                        <span style="margin-left: 93px;">: {{salonInvoiceContent.bankName}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">Bank Branch</span>
+                        <span style="margin-left: 99px;">: {{salonInvoiceContent.branchName}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">IFSC Code</span>
+                        <span style="margin-left:111px">: {{salonInvoiceContent.ifscCode}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">Cheque/DD must be drawn in Favour of <b>"{{salonInvoiceContent.legalEntity}}"</b></span>
+                        <br>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <p>Note:All Disputes shall be subject to Delhi jurisdiction only</p>
+        <div style="text-align:right;margin-top:20px;">
+            <div><img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1490268827/Aalenes__DLF-page-001_qf2e6n.png" /></div>
+        </div>
+
+    </div>
+
+</div>
+<!------------------Salon Invoice-------------Stops---------->
+
+<!------------------Be U Invoice-----------Starts------------>
+<div ng-hide="true" class="col-md-12" id="beuInvoice">
+    <div style="margin:auto;width:90%;">
+        <div><img src='https://www.monsoonsalon.com/emailler/images/beu-logo.png' width='150' alt='Beu salons' /></div>
+        <h3 style="text-align:center;">Invoice</h3>
+
+        <div class="jk">
+            <table border="1" style="width:100%;border-collapse: collapse;border:1px solid gray;text-align: left;text-align: left">
+                <tr>
+                    <td rowspan="" ng-model="name" style="border:1px solid gray;text-align: left;padding-left:2%;">
+                        <b style="margin-top: 3%;margin-left: 5%;">From</b>
+                        <p style="margin-top: 3%;margin-left:0%;"><span>M/s Gingerpan Swapcart Pvt.Ltd.</span><br>DLF City Phase II, Gurgaon 122008,Haryana</p>
+                    </td>
+                    </td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Invoice No:</br>Date:</td>
+                    <td colspan="" style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">{{beUInvoiceContent.invoiceNo}}</br>{{currentDate | date:'MM/dd/yyyy'}}</td>
+
+                </tr>
+                <tr>
+                    <td style="margin-top: 3%;padding-left:2%;text-align: left"><b style="margin-top: 3%;margin-left:0%;">To</b>
+                        <p style="margin-top: 3%;margin-left:0%;"><span>{{beUInvoiceContent.parlorName}}</span><br>{{beUInvoiceContent.parlorAddress}}</p>
+                    </td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Service Tax No:<br>Pan:</td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">AAGCG0658KSD001<br>{{beUInvoiceContent.panNo}}</td>
+
+                </tr>
+                <tr>
+
+
+
+                </tr>
+                <tr>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Sr. No.</td>
+                    <td style="text-align:center;padding-left:2%;border:1px solid gray">Description</td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray">Amount in INR</td>
+
+                </tr>
+                <tr>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">1</td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Management Fees for the period form:<br> {{beUInvoiceContent.startDate | date:"MM/dd/yyyy"}} to {{beUInvoiceContent.endDate | date:"MM/dd/yyyy"}}<br>(as per settelment report annexed here with)
+                    </td>
+                    <td style="text-align:right;padding-right:2%;border:1px solid gray">{{beUInvoiceContent.totalAmount | ceil}} </td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align:center;border:1px solid gray">Total</td>
+                    <td style="text-align:right;padding-right:2%;border:1px solid gray">{{beUInvoiceContent.totalAmount | ceil}} </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;padding-right:4%;border:1px solid gray">
+                        Add:Service Tax @ 14%<br>SB @0.5%<br>KKb@0.5%
+
+                    </td>
+                    <td style="text-align:right;padding-right:2%;border:1px solid gray">{{beUInvoiceContent.serviceTax | ceil}}<br>{{beUInvoiceContent.sbcTax | ceil}}<br>{{beUInvoiceContent.kkcTax | ceil}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;border:1px solid gray">Grand Total</td>
+                    <td style="text-align:right;padding-right:2%;border:1px solid gray" ng-model="myValue"> <span ng-model="myValue">{{ amount}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left" id="container" ng-model="num">Rupees<span style="padding-left:5px;">{{convertNumberToWords1(amount)}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding-bottom:2%;border:1px solid gray;text-align: left">
+                        <h3 style="text-decoration: underline;padding-left:2%;">Bank Details for payment </h3>
+                        <span style="margin-top: 3%;margin-left:2%;">Name</span>
+                        <span style="margin-left:145px">: {{beUInvoiceContent.legalEntity}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">Current A/c No</span>
+                        <span style="margin-left: 89px;">: {{beUInvoiceContent.accountNo}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">Name of bank</span>
+                        <span style="margin-left: 93px;">: {{beUInvoiceContent.bankName}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">Bank Branch</span>
+                        <span style="margin-left: 99px;">: {{beUInvoiceContent.branchName}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">IFSC Code</span>
+                        <span style="margin-left:111px">: {{beUInvoiceContent.ifscCode}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">Cheque/DD must be drawn in Favour of <b>"{{beUInvoiceContent.legalEntity}}"</b></span>
+                        <br>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <p>Note:All Disputes shall be subject to Delhi jurisdiction only</p>
+        <div style="text-align:right;margin-top:20px;">
+            <div><img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1490268827/Aalenes__DLF-page-001_qf2e6n.png" /></div>
+        </div>
+
+    </div>
+
+</div>
+<!------------------Be U Invoice-------------Stops---------->
+
+
+<div class="modal fade bd-example-modal-lg" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h2>Approve Payment</h2>
+                <div style="display:inline" isteven-multi-select input-model="MemPaymentOptions" output-model="MemPaymentMethod" button-label="name" item-label="name" tick-property="isSelected" output-properties="value name" on-close="advancePaySelect(MemPaymentMethod)"></div>
+            </div>
+            <div class="modal-body text-center">
+                <div class="row">
+                    <div class="container-fluid">
+                        <!--  <div class="form-inline row" style="text-align:right">
+                            <div class="form-group">
+                             <form id="uploadForm2" enctype="multipart/form-data" method="post" action="/role3/uploadCustomer" >
+                                  <input type="file" name="file" />Upload Customers
+                                  <input type="submit" value="Upload" name="submit">
+                             </form>
+                             </div>
+                             </div> -->
+                            <div class="card">
+                              <div class="container-fluid">
+                                <div class="table-responsive">
+                                  <table ng-table="tableParams" class="table" show-filter="true" id="myTable">
+                                      <tr ng-repeat="c in $data | filter : query ">
+                                        <td title="'Salon Name'" filter="{ parlorName: 'text'}" sortable="'name'">
+                                                {{c.parlorName}}-{{c.parlorAddress}}</td>
+                                        <td title="'Payable Amount'" filter="{ netPayable: 'number'}" sortable="'netPayable'">
+                                                {{c.netPayable}}</td>
+                                        <td title="'Hold Settlement'"  sortable="'phoneNumber'">
+                                                    <button ng-click="holdSettlement(c.parlorId._id)">Hold Settlement</button></td>
+                                    </tr>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                    
+                        </div>
+
+                <div class="row">
+                    <div class="col-md-6" style="margin-top:1px"> <h4> Total Amount :  &#8377  {{getTotal}} </h4></div>
+                    <div class="col-md-6">
+                         <button type="submit" ng-click="settlementApproved()" class="btn btn-success">Approve Settlement</button>
+                         <button type="submit"  ng-click="settlementSend()" class="btn btn-success">Send Settlement</button>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade bd-example-modal-lg" id="loginModel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body text-center"">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h2> Enter Password</h2>
+
+                <input type="text" ng-model="password"/>
+                    <button type="submit" ng-click="submitPassword()" class="btn btn-success">Submit</button>
+            </div>
+           
+    </div>
+</div>
+</div>
+
+
+<!--send settlement-->
+<div class="modal fade bd-example-modal-lg" id="sendModel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body text-center"">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h2> Enter Password</h2>
+
+                <input type="text" ng-model="password"/>
+                    <button type="submit" ng-click="submitSettlement()" class="btn btn-success">Submit</button>
+            </div>
+           
+    </div>
+</div>
+</div>
+
+
+<div class="modal fade bd-example-modal-lg" id="viewCurrentStatus" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h2>View Current Status</h2>
+                <div style="display:inline" isteven-multi-select input-model="MemPaymentOptions" output-model="MemPaymentMethod" button-label="name" item-label="name" tick-property="isSelected" output-properties="value name" on-close="advancePaySelect(MemPaymentMethod)"><h4>Period: {{selectedPeriod}} </h4></div>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th >parlor Id</th>
+                        <th >parlor Name</th>
+                        <th >parlor Address</th>
+                        <th >Net Payable</th>
+                        <th> Status</th>
+                    </tr>
+
+            </thead>
+         <tbody>
+        <tr ng-repeat="data in stats">
+           <td>{{data.parlorId}}</td>
+            <td>{{data.parlorName}}</td>
+            <td>{{data.parlorAddress}}</td>
+            <td>{{data.netPayable}}</td>
+            <td>{{data.status}}</td>
+        </tr>
+
+    </tbody>
+</table>
+           
+    </div>
+</div>
+</div>

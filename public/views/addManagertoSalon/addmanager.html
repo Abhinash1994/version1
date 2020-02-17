@@ -1,0 +1,42 @@
+<style>
+  table,tr,th{
+  	text-align: center;
+  }
+  .d{
+  	width: 40%;
+  }
+  select{
+  	height: 30px;
+  	width: 502px;
+  }
+</style>
+
+<div  class="row">
+	<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+  <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10"
+  style="border-radius:4px;margin: 20px;padding: 20px;background-color: #185149d6">
+      	<h3 style="color:white;font-weight: 400;text-align: center;">Add Manager To Salon </h3>
+
+    	<table class="table table-dark">
+		  <thead>
+		    <tr>
+		      <th scope="col">List of Manager</th>
+		      <th scope="col">Select Salon</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr ng-repeat="x in stat">
+		      <td class="d">{{x.firstName + "("+x.phoneNumber+")"}}</td>
+		      <td class="d1">
+		      	<select  class="setelment-report selectsalon"  ng-model="x.parlorId"  ng-options="parlor.parlorId as (parlor.name +' - '+ parlor.address) for parlor in parlors |orderBy:'name'" >
+        		</select>
+        		<button type="button" class="btn btn-primary" ng-click="apply(x)" >Update</button>
+		      </td>
+		    </tr>
+		  </tbody>
+	</table>
+		     
+
+  <div class="col-lg-2 col-md-2 col-sm-10 col-xs-12 col-sm-1 col-xs-1"></div>
+
+</div>

@@ -1,0 +1,11 @@
+var flattened = data.reduce(function(acc, i) {
+
+
+var id=acc;
+if(id){
+    id+=id;
+}
+
+
+  return a.concat(b);
+}, {});

@@ -1,0 +1,518 @@
+<title>Be U Salons Locations & Deals in Delhi & Gurugram</title>
+<meta name="description" content="Be U Salons offer the best hair and beauty salon services across Delhi & Gurugram (Gurgaon). Get details about discount, prices and offers on hair & beauty services."/>
+
+
+<style>
+
+	md-switch.md-default-theme.md-checked .md-thumb, md-switch.md-checked .md-thumb {
+		background-color: rgb(255,64,129);
+		background-color: transparent;
+	}
+	.switchColorChangeClassFemale.md-default-theme .md-bar, .switchColorChangeClassFemale .md-bar{
+		background-color: #fff;
+		border: 1px solid #d6d9dc;
+	}
+
+	#sk-wrapper{
+		display: none;
+	}
+	#sk-container{
+		display: none;
+	}
+
+
+	</style>
+<div layout="column">
+	<div flex>
+<!------------------------------------Cart view for xs starts here------------------style="font-family: AvenirNextPro,'Helvetica Neue',Helvetica,Arial,san-serif"--------------------------->
+
+		<div hide-sm hide-md hide-xl hide-lg flex class="parlor-details-page-cart-right">
+        <md-button id="parlor-details-page-cart-btn" ng-click="activateShowFloatingCart()">Your Cart</md-button>
+		<div layout="column" ng-if="showFloatingCartXs"  hide-sm hide-md hide-xl hide-lg class="parlor-details-pageshow">
+			<div flex >
+				<div layout="column">
+					<div flex class="parlor-detail-page-currentDateContainer">
+						<div layout="row" flex="100" layout-align="center" class="parlor-detail-page-showDatePicker">
+							<md-button class="md-raised  md-no-focus" ng-click="showDatePicker($event)"  class="parlor-detail-pageevent">
+								{{ currentDate | date:'shortDate' }}
+							</md-button>
+						</div>
+						<div layout="row" flex="100" layout-align="center" class="parlor-detail-page-currentTime">
+							<md-button ng-disabled="bookingTimeButtonFlag" class="md-raised  md-no-focus cart-btn" ng-click="showTimePicker($event)" class="parlor-detail-pageevent">
+								{{ currentTime | date:'HH:mm' }}
+							</md-button>
+						</div>
+						<div  layout="row" flex="100" layout-align="center" ng-if="incorrectTimeOrDateFlag">
+							<span class="parlor-detail-page-fontcolor">Please select the right time</span>
+						</div>
+					</div>
+				</div>
+				<div layout="row" flex="100" layout-align="center">
+					<h2 class="parlor-detail-page-xsyourcart">Your Cart fr</h2>
+				</div>
+				<div layout="column">
+					<div flex id="cartScrollBarStyleXs" class="parlor-detail-page-cartScrollBarStyleXs">
+						<md-list-item class="md-2-line" ng-repeat="serv in cart">
+							<div class="md-list-item-text" flex="100" layout="row" id="parler_right" style="position: static;">
+								<span class="parlor-detail-page-serviceName" flex="65">
+									{{serv.name}} <span ng-if="serv.detail!='' || serv.detail != undefined">-</span> {{serv.detail}}
+								</span>
+								<span ng-show="serv.menuPrice" flex="25" class="parlor-details-page-cartsave">Saved {{(1-(serv.price/serv.menuPrice))*100  | number:0}}%</span>
+								<span flex="7">
+									<ng-md-icon icon="remove" style="fill:#58595b;outline: none" ng-click="cartRemoveButton($index)" ng-disabled="!serv.quantity" size="15"></ng-md-icon>
+								</span>
+								<span flex="7" ng-model="serv.quantity"  class="detail_page" class="parlor-details-page-cart-xs-servquantity">
+									{{serv.quantity}}
+								</span>
+								<span flex="7">
+									<ng-md-icon icon="add" ng-click="cartAddButton($index)" size="15"></ng-md-icon>
+								</span>
+								<span  flex="30" style="text-align: right;">
+									<strike ng-show="serv.menuPrice" class="parlor-detail-page-cartStrikeColor"><img src="../images/Grey Budget.png" alt="rupees-icon" width="10" height="10"/>{{serv.menuPrice}}</strike>
+									<img src="../images/Grey Budget.png" alt="rupees-icon" width="10" height="9"/>{{serv.price+serv.additions}}
+								</span>
+							</div>
+						</md-list-item>
+					</div>
+				</div>
+				<div layout="column" >
+					<div flex>
+						<div layout="row" flex="15" flex-offset="40">
+							<md-button class="parler-checkout-btn md-raised" id="seabackcolor-1" ng-click="goToCheckOutPage();">
+								 Checkout
+							</md-button>
+						</div>
+						<div layout="row" flex="100" layout-align="center">
+							<span class="parlor-detail-page-fontcolor" ng-if="checkoutErrorFlagBooking" >Incorrect Booking date or time</span>
+							<span class="parlor-detail-page-fontcolor" ng-if="checkoutErrorFlagCart" >Cart is empty</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!--<div ng-if="showFloatingCartXs"  hide-sm hide-md hide-xl hide-lg  style="position: fixed;top: 31%;width: 100%;">
+			<div class="parler-bg-left" layout-xs="colunm" flex="100" >
+				<md-content class="card-btn-bg"  layout-padding>
+					<div style="text-align:center">
+						<md-button class="md-raised  md-no-focus" ng-click="showDatePicker($event)"  style="width: 55%;">
+							{{ currentDate | date:'shortDate' }}
+						</md-button>
+					</div>
+					<div>
+						<md-button ng-disabled="bookingTimeButtonFlag" class="md-raised  md-no-focus cart-btn" ng-click="showTimePicker($event)" style="width: 55%;">{{ currentTime | date:'HH:mm' }}</md-button>
+					</div>
+					<div ng-if="incorrectTimeOrDateFlag">
+						<span style="color:red;">Please select the right time</span>
+					</div>
+				</md-content>
+				<h2 style="background:#fbfafa;padding:16px;font-size:14px;color:#d2232a;">Your Cart</h2>
+				<div>
+					<md-list-item class="md-2-line" ng-repeat="serv in cart">
+						<div class="md-list-item-text" flex="100" layout="row" id="parler_right">
+							<div layout="row" flex="100">
+						<span style="width:50%;font-size:11px;"flex="64">
+							{{serv.name}} <span ng-if="serv.detail!='' || serv.detail != undefined">-</span> {{serv.detail}}
+						</span>
+								<span flex="7">
+							<ng-md-icon icon="remove" ng-click="cartRemoveButton($index)" ng-disabled="!serv.quantity" size="15"></ng-md-icon>
+						</span>
+								<span flex="7" ng-model="serv.quantity"  class="detail_page" style="width:7%;padding-left:2px;padding-right:2px; font-size:13px;">
+							{{serv.quantity}}
+						</span>
+								<span flex="7">
+							<ng-md-icon icon="add" ng-click="cartAddButton($index)" size="15"></ng-md-icon>
+						</span>
+								<span layout-align="end" flex="25">
+							<img src="../images/Grey Budget.png" alt="rupees-icon"/width="10" height="10"/>{{serv.price+serv.additions}}
+						</span>
+							</div>
+						</div>
+					</md-list-item>
+				</div>
+				<md-button class="parler-checkout-btn md-raised" id="seabackcolor-1" ng-click="goToCheckOutPage();">CHECKOUT</md-button>
+				<div layout="row" layout-algn="center" >
+					<span style="color:red;" ng-if="checkoutErrorFlagBooking" >Incorrect Booking date or time</span>
+					<span style="color:red;" ng-if="checkoutErrorFlagCart" >Cart is empty</span>
+				</div>
+			</div>
+
+		</div>-->
+
+	</div>
+
+<!------------------------------------Cart view for xs stops here--------------------------------------------->
+	<div class="parler-head-container" layout="row" style="">
+		<md-content flex class="parlor-details-page-content-1">
+			<div layout="row" flex="100" >
+				<div flex="50" class="parlor-detail-page-headingContainer">
+					<div layout="column" flex="100">
+						<span class="price parlor-detail-page-headingParlorName" flex="100">{{headingParlorName}}</span>
+						<span class="parlor-detail-page-headingParlorAddress1">{{headingParlorAddress1}}</span>
+						<span class="parlor-detail-page-ParlorAddress2">{{headingParlorAddress2}}</span>
+					</div>
+				</div>
+				<div flex="50" class="parlor-detail-page-rating">
+					<div layout="column" flex>
+						<div style="padding-left: 30px;"><!--<span style="font-family: latoLight;font-size: 15px;color:#58595b;">Rating--><!--<img src="../website/images/{{headingParlorImage}}.png" style="width:30px;height:30px;">--><!--</span><span style="font-family: latoLight;font-size: 13px;color:#58595b;margin-left: 10px;">{{ratingText}}</span>--></div>
+						<div class="parlor-detail-page-ratingContainer">
+							<!--<span class="mood-awesome">{{headingParlorRating}} &nbsp {{ratingText}}</span>-->
+							<span class="parlor-detail-page-rating-content">Rating:</span>
+							<span class="parlor-detail-page-ratingText">{{ratingText}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--<div flex="100" layout="column" class="parler-container" >
+				<span class="price" flex="100" style="font-size: 18px;font-family: latoLight;color: #58595b;padding-top:20px;">{{headingParlorName}}</span>
+			</div>
+			<div layout="row" flex="100">
+				<div layout="column" flex-xs="60" flex-sm="60" flex-md="60" flex-lg="60" flex="60"   class="parler-princes" >
+					<span style="font-family: latoLight;font-size: 13px;color: #58595b;">{{headingParlorAddress1}}</span>
+					<span style="font-family: latoLight;font-size: 13px;color: #58595b;">{{headingParlorAddress2}}</span>
+				</div>
+				<div  layout="row" flex-xs="40" flex-sm="40" flex-md="40" flex-lg="40" flex="40" >
+					<div layout="column">
+						<div style="text-align: center;"><span><img src="../website/images/{{headingParlorImage}}.png" style="width:30px;height:30px;"></span></div>
+						<div style=""><span class="mood-awesome">{{headingParlorRating}} &nbsp {{ratingText}}</span></div>
+					</div>
+				</div>
+			</div>-->
+		</md-content>
+<!------------------------------------Cart view for sm and md starts here--------------------------------------------->
+			<div hide-xs hide-xl hide-lg class="parlor-detail-page-sm-cart-container">
+                <md-button id="parlor-details-smdevice" ng-click="activateShowFloatingCart()"><span>Your Cart</span></md-button>
+			</div>
+		<div layout="column" ng-if="showFloatingCart" hide-xs hide-xl hide-lg  style="" class="parlor-detailbox-smdevice">
+			<div flex >
+				<div layout="column" >
+					<div flex class="parlor-detail-page-sm-cart-ContainerDate">
+						<div layout="row" flex="100" layout-align="center" class="parlor-detail-page-sm-cart-Container-1">
+							<md-button class="md-raised  md-no-focus" ng-click="showDatePicker($event)"  class="parlor-detail-page-sm-cart-cDtae">
+								{{ currentDate | date:'shortDate' }}
+							</md-button>
+						</div>
+						<div layout="row" flex="100" layout-align="center" class="parlor-detail-page-sm-cart-currentDate">
+							<md-button ng-disabled="bookingTimeButtonFlag" class="md-raised  md-no-focus cart-btn parlor-detail-page-sm-cart-cDtae" ng-click="showTimePicker($event)" >
+								{{ currentTime | date:'HH:mm' }}
+							</md-button>
+						</div>
+						<div  layout="row" flex="100" layout-align="center" ng-if="incorrectTimeOrDateFlag">
+							<span class="parlor-detail-page-fontcolor">Please select the right time</span>
+						</div>
+					</div>
+				</div>
+				<div layout="row" flex="100" layout-align="center">
+					<h2 class="parlor-detail-page-sm-cart-heading">Your Cart</h2>
+				</div>
+				<div  layout="column">
+					<div flex id="cartScrollBarStyleMdSm" class="parlor-detail-page-cartScrollBarStyleXs">
+						<md-list-item class="md-2-line" ng-repeat="serv in cart">
+							<div class="md-list-item-text" flex="100" layout="column" id="parler_right" style="position: static;color:#58595b;">
+								<div flex layout="column">
+                                    <div flex>
+                                        <div flex="100" layout="row">
+                                            <span class="parlor-detail-page-serviceName" flex="70">
+                                                {{serv.name}} <span ng-if="serv.detail!='' || serv.detail != undefined">-</span> {{serv.detail}}
+                                            </span>
+                                            <span ng-show="serv.menuPrice" flex="30" class="parlor-detail-page-sm-cart-servprice">Saved {{(1-(serv.price/serv.menuPrice))*100  | number:0}}%</span>
+                                        </div>
+                                    </div>
+									</div>
+								<div flex layout="column">
+                                    <div flex>
+
+                                        <div flex="100" layout="row" layout-align="end end">
+                                        <span flex="10">
+                                        <ng-md-icon icon="remove" ng-click="cartRemoveButton($index)" ng-disabled="!serv.quantity" size="15"></ng-md-icon>
+                                    </span>
+                                    <span flex="10" ng-model="serv.quantity"  class="detail_page parlor-detail-page-sm-cartservquantity" >
+                                        {{serv.quantity}}
+                                    </span>
+                                            <span flex="10">
+                                        <ng-md-icon icon="add" style="fill:#58595b;outline: none;"ng-click="cartAddButton($index)" size="15"></ng-md-icon>
+                                    </span>
+                                    <span  flex="40" style="text-align: right;">
+                                        <strike ng-show="serv.menuPrice" class="parlor-detail-page-cartStrikeColor"><img src="../images/Grey Budget.png" alt="rupees-icon" width="10" height="10"/>{{serv.menuPrice}}</strike>
+                                        <img src="../images/Grey Budget.png" alt="rupees-icon" width="10" height="9"/>{{serv.price+serv.additions}}
+                                    </span>
+                                        </div>
+								</div>
+                                </div>
+							</div>
+						</md-list-item>
+					</div>
+				</div>
+				<div flex="100" layout-align="center" layout="column">
+                    <div flex>
+					<div layout="row" flex="15" flex-offset="40">
+						<md-button class="parler-checkout-btn md-raised" id="seabackcolor-1" ng-click="goToCheckOutPage($event);">
+							Checkout
+						</md-button>
+					</div>
+					<div layout="column" flex="100" layout-align="center" style="text-align: center;margin-top:10px;">
+						<span class="parlor-detail-page-fontcolor" ng-if="checkoutErrorFlagBooking" >Incorrect Booking date or time</span>
+						<span class="parlor-detail-page-fontcolor" ng-if="checkoutErrorFlagCart" >Cart is empty</span>
+					</div>
+				</div>
+                </div>
+			</div>
+		</div>
+
+
+
+<!------------------------------------Cart view for sm and md stops here--------------------------------------------->
+
+
+
+<!------------------------------------Cart view for xs DROPDOWN starts here--------------------------------------------->
+
+		<div  hide-md  hide-lg hide-xl class="parlor-detail-page-cart-xs-dropdown">
+            <div flex class="parlor-detail-page-cart-xs-Services" ng-click="servicesDropdownMenuToggle()">
+				<span>Services</span>
+			</div>
+			<div  du-smooth-scroll={{testScroll}} du-scrollspy>
+				<md-list ng-if="servicesDropdownMenuFlag"   style="padding-top: 0px;">
+					<md-list-item ng-click="tryScroll('idForXsScroll+'+dropdownDept.name)"    ng-repeat="dropdownDept in depts"  style="background-color: #fbfafa;border-bottom: 1px solid #A1A1A1; min-height: 35px;height: 35px;">{{dropdownDept.name}}</md-list-item>
+				</md-list>
+			</div>
+		</div>
+
+<!------------------------------Cart view for xs DROPDOWN stops here--------------------------------------------->
+	</div>
+	<md-content layout="row" layout-align="center" flex="100" class="parlor-detail-page-leftsidebar-container">
+
+		<div flex="25" hide-xs hide-sm id="sideMenuId" class="accordatio_left">
+			<div class="menu-wrapper">
+
+				<v-accordion  class="vAccordion--default" control="accordion"   multiple>
+
+					<v-pane expanded="true" class="parlor-detail-page-leftsidebar-mdswitch" >
+						<span>
+						<md-switch id="maleFemale" ng-model="gend" aria-label="Switch 2" ng-true-value="'M'" ng-false-value="'F'" ng-change="genderFilter(gend)"  class="parler-switch switchColorChangeClassMale switchColorChangeClassFemale" ng-class="{moustacheClass:gend=='M',lipClass:gend=='F'}" style="display: inline;">
+						</md-switch>
+						</span>
+
+						<span  class="parlor-detail-page-leftsidebar-servicefor"> Services for:</span> <span ng-show="gend=='F'" class="parlor-detail-page-leftsidebar-mf">Female</span><span ng-show="gend=='M'" class="parlor-detail-page-leftsidebar-mf">Male</span>
+
+
+
+						<v-pane ng-repeat="dept in depts"   id="{{dept.name}}" expanded="dept.openFlag" ng-if="dept.name=='Deals'">
+							<v-pane-header 	style="padding: 0px 0px;" du-smooth-scroll="{{duScrollVpaneHeader}}"   ng-click="closeOpenedVpaneContent($index)" control="accordion" style="">
+								<span class="parlor-detail-page-leftsidebar-deptname">{{ ::dept.name }} </span><!--<i id="{{$index}}DownUpArrow" class="material-icons" ng-class="{'downUpArrowClass':dept.openFlag}" style="position: absolute;right: 0px">&#xE037;</i>-->
+								<ng-md-icon  id="{{$index}}DownUpArrow" class="dropDownArrowClassBefore" ng-class="{'downUpArrowClass':dept.openFlag}" icon="arrow_drop_down" style="fill:#58595b" size="25" ></ng-md-icon>
+							</v-pane-header>
+							<v-pane-content  id="paneToBeOpened{{dept.name}}" style="transition: all 0s;">
+								<div  ng-repeat="cat in dept.categories" 	 du-smooth-scroll="{{cat.categoryId}}" du-scrollspy class="highlight parlor-detail-page-leftsidebar-catnameContainer" id="scrollSpyId{{cat.categoryId}}" >
+									<span class="parlor-detail-page-leftsidebar-catname">{{cat.name}}</span>
+								</div>
+							</v-pane-content>
+						</v-pane>
+
+						<v-pane-header id="parlor-detail-page-leftsidebar-servicehead" ng-click="turnArrow()">
+							Services
+							<ng-md-icon   icon="arrow_drop_down" style="" class="servicesTurnArrowClassBefore" size="25" ng-class="{'servicesTurnArrowClass':servicesArrowFlag}" ></ng-md-icon>
+						</v-pane-header>
+						<v-pane-content>
+							<v-accordion  class="vAccordion--default" id="parlor-detail-page-leftsidebar-serviceheadvAccordion" >
+								<v-pane ng-repeat="dept in depts"   id="{{dept.name}}" expanded="dept.openFlag" ng-if="dept.name!='Deals'">
+									<v-pane-header 	style="padding: 0px 0px;" du-smooth-scroll="{{duScrollVpaneHeader}}"    ng-click="closeOpenedVpaneContent($index)" control="accordion" >
+										<span class="parlor-detail-page-leftsidebar-deptname-1">{{ ::dept.name }} </span><!--<i id="{{$index}}DownUpArrow" class="material-icons" ng-class="{'downUpArrowClass':dept.openFlag}" style="position: absolute;right: 0px;transform: rotate(90deg);">&#xE037;</i>-->
+										<ng-md-icon  id="{{$index}}DownUpArrow" class="dropDownArrowClassBefore" ng-class="{'downUpArrowClass':dept.openFlag}" icon="arrow_drop_down" style="fill:#58595b" size="25" ></ng-md-icon>
+									</v-pane-header>
+									<v-pane-content  id="paneToBeOpened{{dept.name}}" style="transition: all 0s;">
+										<div  ng-repeat="cat in dept.categories" du-smooth-scroll="{{cat.categoryId}}" du-scrollspy class="highlight parlor-detail-page-leftsidebar-deptname-2" id="scrollSpyId{{cat.categoryId}}">
+											<span class="parlor-detail-page-leftsidebar-catname">{{cat.name}}</span>
+										</div>
+									</v-pane-content>
+								</v-pane>
+							</v-accordion>
+						</v-pane-content>
+
+
+
+				<!--	<v-pane>
+						<v-pane-header >
+							Reviews
+						</v-pane-header>
+						<v-pane-content>
+							User Reviews
+						</v-pane-content>
+					</v-pane>
+					<v-pane>
+						<v-pane-header >
+							<div >Directions{{gend}}</div>
+						</v-pane-header>
+						<v-pane-content>
+							Directions
+						</v-pane-content>
+					</v-pane>-->
+				</v-accordion>
+			</div>
+		</div>
+
+		<div flex="45" flex-xs="90"  flex-sm="80" flex-offset-md="25" flex-md="70"  flex-sm="80" class="parlor-detail-page-middlecontainer">
+			<div ng-show="one">
+				<md-content  class="parler-bg miidle-list">
+					<md-list  flex ng-repeat="cat in allCategories" style="padding: 0px 0px;" ng-if="cat.services.length" ng-init="catID=$index" id="{{cat.categoryId}}" name="{{cat.categoryId}}" ng-style=" cat.superCategory=='Deals' && {'background-color':'#f2f2f2','width':'98%','margin-left':'1%','margin-top':'3%','box-shadow':'0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24)','margin-bottom':'0%'} ">
+
+						<md-subheader class="md-no-sticky highlight parlor-detail-page-middlecatservices "  ng-focus="accordion.expand(cat.superCategory)" id="idForXsScroll+{{cat.superCategory}}" >{{cat.superCategory}} › {{cat.name}}</md-subheader>
+						<md-list-item class="md-2-line highlight" ng-repeat="serv in cat.services   | filter:{weekDay:selectedDay}:containsWeekdayWeekend | filter:{gender: gend}" style="height: 50px; min-height: 45px; padding-top: 11px;border-bottom: 1px solid #f1f1f1;padding-bottom: 14px;" ng-style=" cat.superCategory=='Deals' && {'height':'auto','border-bottom':'1px solid #ebe9e0'}" >
+							<div class="md-list-item-text highlight" layout="row" id="parler_p_container" flex="100">
+								<div layout="column" flex="65">
+									<div flex>
+										<div flex="100" layout="row">
+											<div layout="column" flex="20" class="parlor-detail-page-middlecat-save"  ng-if="( cat.superCategory=='Deals')">
+												<div>save</div>
+												<div>
+													{{(1-(serv.dealPrice/serv.menuPrice))*100 | number:0}}%
+													<!--<span class="detail_page" >-->
+														<!--&lt;!&ndash;<img src="../images/percentage-icon.png" alt="rupees-icon" style="width:19px;height: 19px;" ng-if="(serv.deals.length!=0)&&(serv.prices[0].price!=undefined)">&ndash;&gt;-->
+													<!--</span>-->
+												</div>
+											</div>
+											<div layout="column">
+												<div class="parlor-detail-page-middlecatbookdate">
+													<span  ng-if="serv.prices[0].price!=undefined">
+														<span ng-click="(currentDate=='BOOKING DATE')&&showDatePicker($event,serv,0,catID,serv.serviceIdRequired,'service');(currentDate!='BOOKING DATE')&&addButton($event,serv,0,catID,serv.serviceIdRequired,'service')" >{{serv.name}}</span>
+													</span>
+													<span ng-if="serv.dealPrice!=undefined">
+														<span ng-click="(currentDate=='BOOKING DATE')&&showDatePicker($event,serv,0,catID,serv.serviceIdRequired,'deal');(currentDate!='BOOKING DATE')&&addButton($event,serv,0,catID,serv.serviceIdRequired,'deal')" >{{serv.name}}</span>
+													</span>
+
+												</div>
+												<div  class="parlor-page-middleservdescription">
+													<span ng-if="serv.dealPrice!=undefined" >
+													{{serv.description}}
+										    		</span>
+												</div>
+													<span ng-if="(serv.deals.length!=0)&&(serv.prices[0].price!=undefined)" class="parlor-page-middle-dealavailabe">Deals Available</span>
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<span class="plus-icon" flex="5">
+									<ng-md-icon icon="remove" style="fill:#58595b;outline: none;" size="15" ng-click="removeButton($event,serv,0)" ng-disabled="!serv.quantity"></ng-md-icon>
+								</span>
+								<span ng-model="serv.quantity"  class="quantity" flex="5" ng-if="serv.prices[0].price!=undefined">
+									{{quantity[serv.serviceCode]}}
+								</span>
+								<span  ng-model="serv.quantity"  class="quantity"  flex="5" ng-if="serv.dealPrice!=undefined">
+									{{dealQuantity(serv)}}
+								</span>
+								<span class="plus-icon"flex="5" ng-if="serv.prices[0].price!=undefined">
+									<ng-md-icon icon="add" style="fill:#58595b;outline: none;" ng-click="(currentDate=='BOOKING DATE')&&showDatePicker($event,serv,0,catID,serv.serviceIdRequired,'service');(currentDate!='BOOKING DATE')&&addButton($event,serv,0,catID,serv.serviceIdRequired,'service')" size="15"></ng-md-icon>
+								</span>
+								<span class="plus-icon"flex="5" ng-if="serv.dealPrice!=undefined">
+									<ng-md-icon icon="add" style="fill:#58595b;outline: none" ng-click="(currentDate=='BOOKING DATE')&&showDatePicker($event,serv,0,catID,serv.serviceIdRequired,'deal');(currentDate!='BOOKING DATE')&&addButton($event,serv,0,catID,serv.serviceIdRequired,'deal')" size="15"></ng-md-icon>
+								</span>
+								<span layout-align="end"flex="15" class="middle-price" style="" ng-if="serv.prices[0].price!=undefined">
+									<img src="../images/Grey Budget.png" alt="rupees-icon"width="10" height="9"/><span style="font-family:latoLight;font-size: 14px;color: #58595b;">{{serv.prices[0].price}}</span>
+								</span>
+								<span layout-align="end" flex="20" style="font-size: 14px;" class="middle-price" ng-if="serv.dealPrice!=undefined">
+									<strike style="color:#A1A1A1"><img src="../images/Grey Budget.png" alt="rupees-icon" width="10" height="10"/>{{serv.menuPrice}}</strike>
+									<img src="../images/Grey Budget.png" alt="rupees-icon" width="10" height="9"/>
+									<span class="parlor-page-middle-serviceprice1">{{serv.dealPrice}}</span>
+								</span>
+								<!--#d4d4d4-->
+							</div>
+						</md-list-item>
+					</md-list>
+				</md-content>
+			</div>
+			<div ng-show="two">Reviews</div>
+			<div ng-show="three">Directions</div>
+		</div>
+
+		<div flex="30" class="right-box" layout="column"  hide-md hide-sm hide-xs>
+			<div flex >
+				<div layout="column" >
+					<div flex class="parlor-page-rightsidebarContainer">
+						<div layout="row" flex="100" layout-align="center" class="parlor-page-rightsidebar-currentdate">
+							<md-button class="md-raised  md-no-focus" ng-click="showDatePicker($event)" id="parlor-page-rightsidebar-btn">
+								{{ currentDate | date:'shortDate' }}
+							</md-button>
+						</div>
+						<div layout="row" flex="100" layout-align="center" style="padding-bottom: 10%;">
+							<md-button ng-disabled="currentDate=='BOOKING DATE'" class="md-raised  md-no-focus cart-btn" ng-click="showTimePicker($event)" id="parlor-page-rightsidebar-btn-2">
+								{{ currentTime | date:'HH:mm' }}
+							</md-button>
+						</div>
+						<div  layout="row" flex="100" layout-align="center" ng-if="incorrectTimeOrDateFlag">
+							<span class="parlor-detail-page-fontcolor">Please select the right time</span>
+						</div>
+					</div>
+				</div>
+				<div layout="row" flex="100" layout-align="center">
+					<div class="parlor-page-rightsidebaryourcart">Your Cart</div>
+				</div>
+				<div layout="column">
+					<div flex id="cartScrollBarStyle" class="parlor-detail-page-cartScrollBarStyleXs">
+						<md-list-item class="md-2-line" ng-repeat="serv in cart">
+							<div class="md-list-item-text" flex="100" layout="column" id="parler_right" style="position: static;">
+								<div layout="column" flex>
+                                    <div flex>
+									<div layout="row" flex="100" style="padding-top:0px; margin-right:8px;">
+								<span style="width:60%;font-size:13px;color:#58595b;font-family:latoLight;" flex="75">
+									{{serv.name}} <span ng-if="serv.detail!='' || serv.detail != undefined"></span><!-- {{serv.detail}} -->
+								</span>
+								<span ng-show="serv.menuPrice" flex="25" style="font-family:latoLight;border: 1px solid #f1f1f1;height: 20px;color:#d2232a;font-size: 14px;text-align: center;padding-top:2px;padding-bottom:23px;">Saved {{(1-(serv.price/serv.menuPrice))*100  | number:0}}%</span>
+									</div>
+                                    </div>
+								</div>
+								<div layout="column">
+                                    <div flex>
+									<div layout="row" flex="100" layout-align="end end"  style="padding-top:5px;font-family:latoLight;font-size: 13px;color:#58595b;margin-right: 8px;">
+										<span flex="10">
+											<ng-md-icon icon="remove" style="fill:#58595b;outline: none;cursor: pointer" ng-click="cartRemoveButton($index)" ng-disabled="!serv.quantity" size="15"></ng-md-icon>
+										</span>
+										<span flex="10" ng-model="serv.quantity"  class="detail_page" style="color:#58595b;width:7%;padding-left:2px;padding-right:2px; font-size:13px;">
+											{{serv.quantity}}
+										</span>
+										<span flex="10">
+											<ng-md-icon icon="add" style="fill:#58595b;outline: none;cursor: pointer" ng-click="cartAddButton($index)" size="15"></ng-md-icon>
+										</span>
+										<span  flex="30" style="text-align: right;">
+											<strike ng-show="serv.menuPrice" style="color:#A1A1A1"><img src="../images/Grey Budget.png" alt="rupees-icon" width="10" height="10"/>{{serv.menuPrice}}</strike>
+											<img src="../images/Grey Budget.png" alt="rupees-icon" width="10" height="9"/>{{serv.price+serv.additions}}
+										</span>
+									</div>
+								</div>
+                                </div>
+							</div>
+						</md-list-item>
+					</div>
+				</div>
+				<div layout="column" >
+					<div flex="100" layout-align="center" layout="column">
+						<div layout="row" flex="15" flex-offset="40">
+							<md-button class="parler-checkout-btn md-raised" id="seabackcolor-1" ng-click="goToCheckOutPage($event);">
+								 Checkout
+							</md-button>
+						</div>
+						<div layout="column" flex="100" layout-align="center" style="text-align: center;margin-top:10px;">
+							<span class="parlor-detail-page-fontcolor" ng-if="checkoutErrorFlagBooking" >Incorrect Booking date or time</span>
+							<span class="parlor-detail-page-fontcolor" ng-if="checkoutErrorFlagCart" >Cart is empty</span>
+						</div>
+					</div>
+				</div>
+				<div layout="column">
+					<div flex class="parlor-detail-page-cartScrollBarStyleXs">
+						<md-list-item class="md-2-line" ng-repeat="combo in selectedCombos">
+							<div class="md-list-item-text" flex="100" layout="row" id="parler_right" style="position: static;">
+								<span class="parlor-detail-page-serviceName" flex="65">
+									{{combo.name}}
+								</span>
+								<span class="parlor-detail-page-serviceName" flex="10">
+									<md-button class="md-primary" ng-click="addCombo($index)">Add Combo</md-button>
+								</span>
+							</div>
+						</md-list-item>
+					</div>
+				</div>
+			</div>
+		</div>
+	</md-content>
+	</div>
+</div>

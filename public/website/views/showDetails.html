@@ -1,0 +1,130 @@
+<style>
+  .show-deatils-dialog-left{
+    font-size:.7em
+  }
+  .show-deatils-dialog-right{
+    font-size:.7em;
+    text-align: center;
+  }
+  .show-detail-dialog-m{
+    margin-left:3%;margin-right:3%;padding-top:1%;
+
+  }
+  .show-detail-dialog-l{margin-left:3%;margin-right:3%;border-bottom: 1px solid #f1f1f1; padding-bottom:1%;padding-top: 1%;}
+
+  .show-detail-dialog-total {
+    margin-left: 3%;
+    margin-right: 3%;
+    border-bottom: 1px solid #f1f1f1;
+    font-weight: bold;
+    padding-top: 1%;
+    padding-bottom: 2%;
+
+}
+
+</style>
+
+
+<md-dialog aria-label="Mango (Fruit)" style="width:30%;">
+    <md-dialog-content>
+  <form ng-cloak>
+    <div layout="row" flex="100" style="background-color:#D2232A">
+    <div flex-xs="80" flex="90" style="color:#fff;padding: 9px 9px 9px 3%;"> Service Total</div>
+    <div flex-xs="20" flex='10' style="padding: 9px 9px 9px 7px;">
+
+        <md-icon ng-click="cancel()" style="fill:#fff" md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+
+    </div>
+  </div>
+
+
+
+
+  <div style="padding: 0.5em;padding-bottom: 1em; padding-top: 1em;">
+
+      <div layout="row" flex='100' class='show-detail-dialog-m' style="margin-bottom: 0.5em;">
+            <div flex="50" class="show-deatils-dialog-left">
+                Menu Price
+            </div>
+            <div flex="50" class="show-deatils-dialog-right" style="text-align:right;">
+                &#x20B9;{{finalData.menuPrice|number:0}}
+            </div>
+
+        </div>
+       <div layout="row" flex='100'  class='show-detail-dialog-m'  style="margin-bottom: 0.5em;">
+             <div flex="50" class="show-deatils-dialog-left">
+                    Discount
+            </div>
+            <div flex="50" class="show-deatils-dialog-right"  style="text-align:right;">
+                        (-)&#x20B9;{{finalData.discount |number:0}}
+           </div>
+       </div>
+       <div layout="row" flex='100'  class="show-detail-dialog-l"  style="margin-bottom: 0.5em;">
+         <div flex="50" class="show-deatils-dialog-left" >
+                Freebie Points Used
+        </div>
+        <div flex="50" class="show-deatils-dialog-right"  style="text-align:right;">
+
+        </div>
+
+       </div>
+       <div layout="row" flex='100' class="show-detail-dialog-l"  style="margin-bottom: 0.5em;">
+            <div flex="50" class="show-deatils-dialog-left">
+                    Service Amount
+            </div>
+           <div flex="50" class="show-deatils-dialog-right"  style="text-align:right;">
+                    &#x20B9;{{finalData.serviceAmount|number:0}}
+           </div>
+
+       </div>
+      <div layout="row" flex='100' class="show-detail-dialog-l" ng-if="finalData.subscriptionAmount"  style="margin-bottom: 0.5em;">
+            <div flex="50" class="show-deatils-dialog-left">
+                    Subscription  Balance Used
+            </div>
+           <div flex="50" class="show-deatils-dialog-right"  style="text-align:right;">
+                    (-)&#x20B9;{{finalData.dealPrice|number:0}}
+           </div>
+
+       </div>
+        <div layout="row" flex='100' class="show-detail-dialog-l" ng-if="finalData.subscriptionAmount"  style="margin-bottom: 0.5em;">
+            <div flex="50" class="show-deatils-dialog-left">
+                    Subscription  Amount
+            </div>
+           <div flex="50" class="show-deatils-dialog-right"  style="text-align:right;">
+                    &#x20B9;{{finalData.subscriptionAmount |number:0}}
+           </div>
+
+       </div>
+        <div layout="row" flex='100'  class="show-detail-dialog-l"  style="margin-bottom: 0.5em;">
+            <div flex="50" class="show-deatils-dialog-left">
+               Tax
+            </div>
+           <div flex="50" class="show-deatils-dialog-right" style="text-align:right;">
+                  &#x20B9;  {{finalData.taxAmount|number:0}}
+           </div>
+
+       </div>
+       <div layout="row" flex='100'  class="show-detail-dialog-l"  style="margin-bottom: 0.5em;">
+            <div flex="50" class="show-deatils-dialog-left">
+               Service Total
+            </div>
+           <div flex="50" class="show-deatils-dialog-right" style="text-align:right;">
+                 <span ng-if="!finalData.subscriptionAmount">&#x20B9;{{finalData.dealPrice |number:0}}</span>
+                 <span ng-if="finalData.subscriptionAmount">&#x20B9;{{finalData.taxAmount |number:0}}</span>
+           </div>
+
+       </div>
+       <div layout="row" flex='100'  class="show-detail-dialog-total"  style="margin-bottom: 0.5em;border-bottom:none;">
+            <div flex="50">
+               Grand Total
+            </div>
+           <div flex="50" style="text-align:right;">
+                 <span ng-if="!finalData.subscriptionAmount">&#x20B9;{{finalData.appointmentData.payableAmount |number:0}}</span>
+                <span ng-if="finalData.subscriptionAmount">&#x20B9;{{finalData.subscriptionAmount + finalData.appointmentData.payableAmount |number:0}}</span>
+            </div>
+      </div>
+     </div>
+
+  </form>
+    </md-dialog-content>
+</md-dialog>

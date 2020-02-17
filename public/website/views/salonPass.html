@@ -1,0 +1,171 @@
+
+
+
+<style type="text/css">
+    .ui-carousel .carousel-next .carousel-btn {
+    right: 7px;
+}
+.ui-carousel .carousel-prev .carousel-btn {
+    left: 8px;
+}
+.ui-carousel {
+    display: block;
+    margin-bottom:0px;
+}
+
+</style>
+<div layout="column">
+<!--     <div class="progressBar" layout-padding layout-wrap ng-if="loader">
+    <div layout="row" layout-sm="column" layout-align="space-around">
+      <md-progress-circular ng-disabled="false" class="md-accent bufferColor" md-diameter="70"></md-progress-circular>
+    </div>
+
+  </div> -->
+<div class="salon-pass-m" ng-cloak>
+    <md-content ng-cloak>
+ 
+      <div layout="row" flex="100"  flex-offset="0" flex-xs="100"  flex-offset-xs="0">
+        <div flex="100">
+          <div layout="row">
+            <div class="hero"> 
+              <img src="../img/Buy Be U SalonPass - Section 1 - 1349x580.jpg" class="img-content-pass" alt="salon-pass">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div layout="row">
+        <div flex="100">
+          <div class="hero-salon-pasbox ">
+            <div layout="row" flex="80"  flex-offset="10" flex-xs="100"  flex-offset-xs="0">
+               <div flex="100" class="salon-pass-3step">3 Easy Steps</div>
+            </div>
+            <div layout="row" layout-xs="column" flex-sm="100"  flex="60"  flex-offset-sm="0" flex-offset="20" flex-xs="100"  flex-offset-xs="0">
+              <div flex-xs="90" flex="33">
+                <md-card class="salon-pass-card"> 
+                  <div layout="row" layout-align="center center">
+                    <img src="../img/Step1.png" alt="logo" class="salon-pass-logo">
+                  </div>
+                  <div layout="row" layout-align="center center">
+                    <div class="salon-pass-appdown">Download<br>Be U App</div>
+                  </div>
+                </md-card>
+
+              </div>
+              <div flex-xs="90"  flex="33">
+               <md-card class="salon-pass-card"> 
+                  <div layout="row" layout-align="center center">
+                    <img src="../img/Step2.png" alt="logo" class="salon-pass-logo">
+                  </div>
+                  <div layout="row" layout-align="center center">
+                    <div class="salon-pass-appdown">Buy <br>SalonPass Subscription</div>
+                  </div>
+                </md-card>
+              </div>
+              <div flex-xs="90"  flex="33">
+                 <md-card class="salon-pass-card"> 
+                  <div layout="row" layout-align="center center">
+                   <img src="../img/123.png" alt="logo" class="salon-pass-logo">
+                  </div>
+                  <div layout="row" layout-align="center center">
+                    <div class="salon-pass-appdown">Enjoy Free Services<br>Every Month</div>
+                  </div>
+                </md-card>
+              </div>
+          </div>
+      
+          <div layout="row" flex-xs="50" flex="30"  flex-offset="45" flex-xs="100"  flex-offset-xs="30">
+           <div flex="100" style="padding-bottom: 7%;"><button class="salon-pass-subnow" ng-click="goToSubscription()">SUBSCRIBE NOW</button></div>
+          </div>
+            
+          </div>
+        </div>
+      </div>
+      
+
+      <!---THIS is a google map section-start--------------->
+      <!--  <div layout="row" flex="100"  flex-offset="0" flex-xs="100"  flex-offset-xs="0" style="color:#000;text-align: center;">
+          <div flex="75">
+            <div id="map" style="width:100%;height:400px;"></div>
+          </div>
+          <div flex="25"></div>
+
+       </div> -->
+          <!---THIS is a google map section-End--------------->
+      <div layout="row" ngIf="dataArray" flex="" hide-xs flex-offset="0" flex-xs="100"  flex-offset-xs="0">
+      
+          <ui-carousel ng-cloak style="width:100%;" slides="autoplay.slides" slides-to-show="6" slides-to-scroll="1" initial-slide="1" autoplay="true" autoplay-speed="1000">
+              <carousel-item>
+                      <md-card layout="row" flex style="margin:1em;height:10em;width:99%;" class="home-parlor-top-1">
+                          <img ng-src="{{item.images[0].imageUrl}}" alt="salon-pass-image" style="">
+                      </md-card>
+              </carousel-item>
+          </ui-carousel>
+      </div>
+       <div layout="row" hide-sm hide-md hide-lg ngIf="dataArray" flex=""  flex-offset="0" flex-xs="100"  flex-offset-xs="0">
+      
+          <ui-carousel ng-cloak style="width:100%;" slides="autoplay.slides" slides-to-show="2" slides-to-scroll="1" initial-slide="1" autoplay="true" autoplay-speed="1000">
+              <carousel-item>
+                      <md-card layout="row" flex style="margin:1em;height:10em;width:99%;" class="home-parlor-top-1">
+                          <img ng-src="{{item.images[0].imageUrl}}" alt="salon-pass-image" style="">
+                      </md-card>
+              </carousel-item>
+          </ui-carousel>
+      </div>
+      <div layout="row" layout-xs="column" flex="100"  flex-offset="0" flex-xs="100"  flex-offset-xs="0" style="padding-bottom: 3%;">
+         <div flex-xs="100" flex="60">
+              <div layout="row">
+                <div flex-xs="100" flex="70" flex-offset-xs="0" flex-offset="20" class="app-salon-pass-get">Download & get your<br>SalonPass Now
+                </div>
+              </div>
+              <div layout="row">
+                <div flex-xs="100" flex="70" flex-offset="20" flex-offset-xs="0" class="salon-pass-ser-fre">
+
+                  Enjoy free servics across our 100+ Be U Salons and<br>20+ Affiliates in Delhi NCR & Bengaluru
+                </div>
+              </div>
+                <div layout="row">
+                <div flex-xs="25" flex="10" flex-offset-xs="30" flex-offset="45">
+                  <a href="https://itunes.apple.com/app/id1206326408?mt=8"><img src="../img/SalonPass Page@2x.png" alt="google" style="width: 84%;height: 24px;padding-left: 5%;"></a>
+                </div>
+                <div flex-xs="25" flex="10">
+                <a href="https://play.google.com/store/apps/details?id=com.beusalons.android&hl=en">  <img src="../img/d.png" alt="google" style="width: 84%;height: 24px;padding-left: 5%;"></a>
+                </div>
+                
+              </div>
+         </div>
+          <div flex-xs="70" flex-offset-xs="15" flex="25" style="padding-top: 1%;">
+              <img src="../img/Downloadphones.png" alt="mobile images"  class="download-salon-pass-b">
+
+         </div>
+      </div>
+    
+     <div layout="row" flex="100"  flex-offset="0" flex-xs="100"  flex-offset-xs="0" style="background-color:#a10006;color:#fff;text-align: center;">
+        <div flex="100" style="padding-top:4%;padding-bottom: 4%;">
+          <div layout="row" flex="100" layout-align="center center" class="salon-pass-areyou">
+             Are you salon owner?
+          </div>
+          <div layout="row" flex="100" layout-align="center center" class="salon-pass-opendoor">
+             Open doors to
+          </div>
+           <div layout="row" layout-align="center center" flex="100" class="salon-pass-fiveplus">
+             5000+ SalonPass subscribers
+           
+          </div>
+          <div layout="row" flex="100" layout-align="center center" class="salon-pass-enjory">
+             & enjoy INCREASED SALES every month
+          </div>
+          <div layout="row" flex="100" layout-align="center center" class="salon-pass-becoming-salon">
+           
+
+           by  becoming SalonPass Affiliate
+          </div>
+          <div layout="row" flex="30"  flex-offset="35" flex-xs="100"  flex-offset-xs="0">
+             <div flex="100"><button class="salon-pass-registernow" ng-click="registerNow()">REGISTER NOW</button></div>
+             </div>
+          </div>
+        
+      </div>
+</md-content>
+
+</div>
+</div>

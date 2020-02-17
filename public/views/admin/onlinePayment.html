@@ -1,0 +1,56 @@
+<style>
+    .multiSelect > button {
+        width: 249px;
+    }
+    .multiSelect .clearButton {
+        right: -7px;
+        top: -6px;
+    }
+    #inputbox-servicereport{
+        width:100%;
+        border: 1px solid #fff;
+        height: 41px;
+        background: #fff;
+    }
+    .sortLinkColor{
+        color: black;
+    }
+</style>
+<div class="row">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Online Payment</h1>
+        </div>
+    </div>
+
+    <!-- /.col-lg-12 -->
+    <div class="row ">
+        <div class="col-md-3 col-lg-3 col-md-offset-2">
+            <h4>Online Payment</h4>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div style="display:inline" isteven-multi-select input-model="parlorList" output-model="parlorsSelected" button-label="name" item-label="name" tick-property="isSelected" output-properties="parlorId" on-close="updateParlorsSelected()" ></div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div  class="col-md-3 col-lg-3 col-md-offset-2">
+            <h4>Select Date Range</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+            <input date-range-picker  name="daterange1" class="date-picker" type="text" id="inputbox-servicereport"
+                   ng-model="dateRangeSelected" ng-change="dateSelected()" required/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-md-offset-2">
+            <button class="btn btn-primary" id="apply-btn" ng-click="apply()">Apply</button>
+        </div>
+    </div>
+
+</div>
+
+<br/>
+
+
+
+</div>

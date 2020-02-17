@@ -1,0 +1,391 @@
+
+<style>
+    table, th, td {
+        text-align: center;
+    }
+    .setelment-report{
+        width: 100%;
+        height: 30px;
+    }
+    .setelment-report-td{
+        width:50% ;
+
+    }
+    .setelment-head{
+        text-align: center;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12"><h3>Settlement Report</h3></div>
+</div>
+<div>
+<div class="col-md-12" style="margin-top:25px;">
+
+    <div class="col-md-4 col-md-offset-2">Select Salon</div>
+    <div class="col-md-4">
+        <select class="setelment-report" ng-model="selectedParlor" ng-change="parlorChanged()" ng-options="parlor.parlorId as parlor.name for parlor in parlors">
+</select>
+    </div>
+</div>
+<div class="col-md-12" style="margin-top:25px;">
+    <div class="col-md-4 col-md-offset-2">Select Settlement Period</div>
+    <div class="col-md-4"><select  class="setelment-report"ng-model="selectedPeriod" ng-change="dateSelected(periods,selectedPeriod)" ng-options="period.value as period.date for period in periods">
+</select>
+    </div>
+</div>
+
+
+
+                              
+                                 
+        <div style=width:90%;margin:auto> 
+            
+
+        <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;width:98%;padding: 32px 10px 10px 10px;margin-top:25px;">
+            <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:center;margin-top: 95px;"> 
+                <tr> 
+                    <th style="width:100%;border:1px solid gray;text-align:center;" colspan="2"><b>SETTLEMENT REPORT</b></th>
+                </tr> 
+                <tr>
+                    <td style="width:70%;border:1px solid gray">Name of salon</td>
+                    <td style="width:30%;border:1px solid gray">{{set.parlorName}}</td>
+                </tr> 
+                <tr> 
+                    <td style="width:70%;border:1px solid gray">Entity name</td>
+                    <td style="width:30%;border:1px solid gray">{{set.parlorEntityName}}</td>
+                </tr>
+                <tr>
+                    <td style="width:70%;border:1px solid gray">Address</td> 
+                    <td style="width:30%;border:1px solid gray">{{set.parlorAddress}}</td> 
+                </tr>
+                <tr>
+                    <td style="width:70%;border:1px solid gray">Period of Settlement</td> 
+                    <td style="width:30%;border:1px solid gray">{{dateOfSettlement}}</td>
+                </tr>
+            </table> 
+        </div> 
+                                     <!--Start of Graph Table-->
+        <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;width:98%;padding:10px;margin-top:25px;">
+            
+            <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:center">
+                 <tr>
+                    <th  style="width:100%;border:1px solid gray" colspan="2"><b>SETTLEMENT SUMMARY</b></th>
+                </tr>
+               <tr>
+                    <td style="width:70%;border:1px solid gray;" >
+                        SALON REVENUE
+                    </td>
+                    <td style="width:30%;border:1px solid gray;">
+                        
+                        &#8377; {{set.totalCollectionByParlor | number:0}}
+                    </td>
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray;">
+                            SERVICE REVENUE</td>
+                        <td style="width:30%;border:1px solid gray;">
+                            &#8377; {{set.serviceRevenue |number:0}}
+                        </td>
+                    </tr>
+                   <tr>
+                        <td style="width:70%;border:1px solid gray;">
+                            PRODUCT REVENUE
+                        </td>
+                        <td style="width:30%;border:1px solid gray;">
+                           &#8377;  {{set.productRevenue |number:0}}
+                        </td>
+                    </tr>
+            </table>
+        </div>
+        <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2)!important;transition: 0.3s!important;width:98%;padding:10px;margin-top:25px;">
+            <div>
+              
+                <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:center">
+                    <tr>
+                        <th  style="width:100%;text-align:center;border:1px solid gray;" colspan="2"><b>BENEFITS TO SALON</b></th>
+                    </tr>
+                    <tr>
+                          <td  style="width:70%;border:1px solid gray;">
+                        Freebies Benefit
+                        </td>
+                        <td  style="width:30%;border:1px solid gray;">
+                        &#8377; {{set.collectedByLoyalityPoints |number:0}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray;">
+                        Cash Back on ERP
+                         </td>
+                       <td  style="width:30%;border:1px solid gray;">
+                        &#8377; {{set.refundOnErp|number:0}}
+                       </td>
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray;">
+                            Cash Back on App Transaction.
+                        </td>
+                        <td style="width:30%;border:1px solid gray;">
+                            &#8377; {{set.refundFirstAppDigital+set.refundAppDigitalCash+set.refundAppDigitalOnline |number:0}}
+                        </td>
+                    </tr>
+                   <tr>
+                        <td style="width:70%;border:1px solid gray;">
+                            <b>TOTAL BENEFITS</b>
+                        </td>
+
+                        <td style="width:30%;border:1px solid gray;">
+                        &#8377;{{set.refundOnErp+set.refundFirstAppDigital+set.refundAppDigitalCash+set.refundAppDigitalOnline+set.collectedByLoyalityPoints |number:0}}
+                          
+                        </td>
+                    </tr>
+              </table>
+            </div>
+        </div>
+  <!--Start of right table--> 
+    <div style="width:46%;padding-top:10px;float:left">
+        <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;margin-top:25px;">
+            <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:center">
+                <tr>  
+                    <th style="width:100%;border:1px solid gray" colspan=2>
+                    <b>Revenue Summary</b>
+                    </th>
+                </tr> 
+                <tr>
+                    <td style="width:70%;border:1px solid gray">Particulars</td>
+                    <td style="width:30%;border:1px solid gray">Amount</td>
+                </tr> 
+                <tr>
+                    <td style="width:70%;border:1px solid gray">Service Revenue</td>
+                    <td style="width:30%;border:1px solid gray">&#8377; {{set.serviceRevenue |number:0}}</td> 
+                </tr>
+                <tr> 
+                    <td style="width:70%;border:1px solid gray">Product Revenue</td>
+                    <td style="width:30%;border:1px solid gray">&#8377; {{set.productRevenue |number:0}}</td> 
+                </tr>
+                <tr>
+                    <td style="width:70%;border:1px solid gray"><b>Total Revenue</b></td>
+                    <td style="width:30%;border:1px solid gray"><b>&#8377; {{set.totalRevenue |number}}</b></td>
+                </tr>
+            </table> 
+            </div> 
+            <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;margin-top:25px;">
+                <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:center">
+                    <tr>
+                        <th style="width:100%;border:1px solid gray" colspan="2"><b>Collection Summary</b></th>
+                    </tr>
+                    <tr> 
+                        <td style="width:70%;border:1px solid gray"><b>Particulars</b></td> 
+                        <td style="width:30%;border:1px solid gray"><b>Amount</b></td>
+                    </tr> 
+                    <tr>  
+                        <td style="width:70%;border:1px solid gray;text-align:center;">Collected By Salon</td>
+                        <td style="width:30%;border:1px solid gray;text-align:center;">&#8377; {{set.totalCollectionByParlor |number:0}}</td>
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray;text-align:center;">Collected by Be U</td>
+                        <td style="width:30%;border:1px solid gray;text-align:center;">&#8377; {{set.totalCollectionByBeu |number:0}}</td>
+                    </tr>
+                    <tr>  
+                        <td style="width:70%;border:1px solid gray;text-align:right"><i>Through App/Website</i></td>
+                        <td style="width:30%;border:1px solid gray;text-align:center;">&#8377;{{set.collectedByApp |number:0}}</td> 
+                    </tr> 
+                    <tr> 
+                        <td style="width:70%;border:1px solid gray;text-align:right"><i>Through Affiliates</i></td>
+                        <td style="width:30%;border:1px solid gray;text-align:center;">
+                        &#8377; {{set.collectedByAffiliates |number:0}}</td>  
+                    </tr> 
+                    <tr> 
+                        <td style="width:70%;border:1px solid gray;text-align:right"><i>Through Loyality</i></td>
+                        <td style="width:30%;border:1px solid gray;text-align:center;">&#8377; {{set.collectedByLoyalityPoints |number:0}}
+                        </td> 
+                    </tr> 
+                    <tr> 
+                        <td style="width:70%;border:1px solid gray;text-align:center;padding-left:5%"><b>Total Collection</b></td>
+                        <td style="width:30%;border:1px solid gray;text-align:center;">&#8377;{{set.totalCollection |number}}</td>
+                    </tr>  
+                </table>
+            </div>
+          
+    </div>
+<!--End of right table--> 
+    <!--start of right table--> 
+    <div style="width:50%;float:left;margin-top:35px;margin-left: 20px">
+        <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;">
+            <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:left"> 
+                <tr>
+                    <th style="width:100%;border:1px solid gray;text-align:center" colspan=2>
+                        <b>Be U Payout</b></th></tr>
+                <tr> 
+                        <td style="width:70%;border:1px solid gray;text-align:center;"><b>Particulars</b></td>
+                        <td style="width:30%;border:1px solid gray;text-align:center;"><b>Amount</b></td>
+                    </tr>
+                <tr>
+                    <td style="width:70%;border:1px solid gray">Amount Collected by Be U</td> 
+                    <td style="width:30%;border:1px solid gray;text-align:center;">&#8377;{{set.collectedByAffiliates+set.collectedByApp |number:0}}</td>
+                </tr>
+                <tr>  
+                    <td style="width:70%;border:1px solid gray">Salon Benefits by Be U</td> 
+                                                                          <td style="width:30%;border:1px solid gray;text-align:center;"></td>
+                </tr>
+                <tr> 
+                    <td style="width:70%;border:1px solid gray;padding-left: 25px;"> a) Cash Back</td>
+                    <td style=                                         "width:30%;border:1px solid gray;text-align:center;"></td>
+                </tr>  
+                <tr> 
+                    <td style="width:70%;border:1px solid gray;padding-left: 20px;"> <i>-Cash Back on ERP_Revenue</i></td> 
+                    <td style="width:30%;border:1px solid gray;text-align:center;">&#8377;{{set.refundOnErp |number:0}}</td>
+                </tr> 
+                <tr> 
+                    <td style="width:70%;border:1px solid gray;padding-left: 20px;"><i>-Cash Back on App_Transaction</i></td>
+                    <td style="width:30%;border:1px solid gray;text-align:center;">&#8377;{{set.refundFirstAppDigital+set.refundAppDigitalCash+set.refundAppDigitalOnline |number:0}}</td>
+                </tr>
+                <!--<tr>-->
+                <!--<td style="width:70%;border:1px solid gray">b) Be U Purcahse Scheme Benefits</td>--> 
+                <!--<td style="width:30%;border:1px solid gray;text-align:center;">&#45;&#45;&#45;&#45;</td>' + '--> 
+                <!--</tr>--> 
+                <tr>  
+                    <td style="width:70%;border:1px solid gray;">c) Freebies Benefits</td> 
+                    <td style="width:30%;border:1px solid gray;text-align:center;">&#8377;{{set.collectedByLoyalityPoints |number:0}}</td>
+                </tr>
+                <tr> 
+                    <td style="width:70%;border:1px solid gray;text-align:center;"><b>Total Salon Benefits by Be U {a+b}</b></td> 
+                    <td style="width:30%;border:1px solid gray;text-align:center;">&#8377;{{set.collectedByLoyalityPoints+set.refundFirstAppDigital+set.refundAppDigitalCash+set.refundAppDigitalOnline+set.refundOnErp |number:0}}</td>
+                </tr> 
+                <!--<tr>--> 
+                <!--<td style="width:70%;border:1px solid gray;text-align:center;"><b>Grand Total {A+B}</b></td>--> 
+                <!--<td style="width:30%;border:1px solid gray;text-align:center;">&#45;&#45;&#45;&#45;</td>' + '--> 
+                <!--</tr>-->  
+            </table>  
+        </div>  
+        <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;margin-top:25px;">
+            <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:left">
+                <tr> 
+                    <th style="width:100%;border:1px solid gray;text-align:center" colspan="2"><b>Salons Payout</b></th>
+                </tr>
+                <tr> 
+                    <td style="width:70%;border:1px solid gray;text-align:center;"><b>Particulars</b></td>
+                    <td style="width:30%;border:1px solid gray;text-align:center;"><b>Amount</b></td>
+                </tr>
+                <tr>
+                    <td style="width:70%;border:1px solid gray">Amount payable to Be U</td>
+                    <td style="width:30%;border:1px solid gray;text-align:center;">&#8377;{{set.amountPayableToBeu |number:0}}</td>
+                </tr>
+                <tr> 
+                    <td style="width:70%;border:1px solid gray">Final Amount Payable to Salon/(Be U)</td>
+                    <td style="width:30%;border:1px solid gray;text-align:center;">&#8377;{{set.netPayable |number:0}}</td>
+                </tr>
+<!--                    <td style="width:70%;border:1px solid gray">Less: Discount</td>  '  <td style="width:30%;border:1px solid gray;text-align:center;">{{set.lessDiscount}}</td>-->
+<!--
+                <tr> 
+                    <td style="width:70%;border:1px solid gray">Amount payable to Be U(After Discount)</td>
+                    <td style="width:30%;border:1px solid gray;text-align:center;">{{set.amountPayableToBeuAfterDiscount}}</td>
+                </tr>  
+-->
+<!--
+                <tr> 
+                    <td style="width:50%;border:1px solid gray">Add: CGST @ 9%</td> 
+                    <td style="border:1px solid gray;text-align:center;">{{set.amountPayableToBeuAfterDiscount*.09}}</td>
+                </tr> 
+-->
+<!--
+                <tr>
+                    <td style="width:70%;border:1px solid gray">Add: SGST @ 9%</td>
+                    <td style="width:30%;border:1px solid gray;text-align:center;">{{set.amountPayableToBeuAfterDiscount*.09}}</td>
+                </tr>
+-->
+<!--
+                <tr> 
+                    <td style="width:70%;border:1px solid gray"><b>Total Amount Payable to Be U(Incl. Taxes)</b></td>
+                    <td style="width:30%;border:1px solid gray;text-align:center;">{{set.amountPayableToBeuAfterTax}}</td>
+                </tr> 
+-->
+            </table>
+        </div>
+<!--
+        <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;margin-top:5px;">
+            <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:left"> 
+                <tr>
+                    <td style="width:70%;border:1px solid gray">Net amount payable to Salon</td>
+                    <td style="width:30%;border:1px solid gray">{{set.netPayable}}</td>
+                </tr> 
+                <tr> 
+                    <td style="width:70%;border:1px solid gray">Previous balance outstanding </td>
+                    <td style="width:30%;border:1px solid gray;text-align:center;">{{set.amountPayableToBeuAfterTax}}</td>
+                </tr>
+                <tr>
+                    <td style="width:50%;border:1px solid gray">Final Amount Payable to Salon/(Be U)</td>
+                    <td style="border:1px solid gray;text-align:center;">{{set.netPayable}}</td>
+                </tr> 
+            </table>
+        </div> 
+-->
+    </div>  
+              <div style="width:98%; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;margin-top:50%;">
+                <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:left"> 
+                    <tr> 
+                     <th style="width:100%;border:1px solid gray;text-align:center;" colspan="2"><b>Final Settlement Terms</b></th>
+                    </tr>  
+                    <tr> 
+                        <td style="width:70%;border:1px solid gray;text-align:center;"><b>Particulars</b></td>
+                        <td style="width:30%;border:1px solid gray;text-align:center;"><b>Amount</b></td>
+                    </tr>
+                    <tr> 
+                        <td style="width:70%;border:1px solid gray;text-align:center;">Royalty %age_Service Revenue</td>
+                        <td style="width:30%;border:1px solid gray;text-align:center;">{{set.royalityPercentageService |number:0}}%</td>
+                    </tr>
+                    <tr>  
+                        <td style="width:70%;border:1px solid gray;text-align:center;">Royalty %age_Product Sale</td>
+                        <td style="width:30%;border:1px solid gray;text-align:center;">{{set.royalityPercentageProduct |number:0}}%</td>
+                    </tr> 
+                    <tr>
+                        <td style="width:70%;border:1px solid gray">Discount, if any</td>  
+                        <td style="width:30%;border:1px solid gray;text-align:center;">{{set.lessDiscount |number:0}}%</td> 
+                    </tr>
+<!--
+                    <tr> 
+                        <td style="width:70%;border:1px solid gray;">Minimum Guarantee</td> 
+                        <td style="width:30%;border:1px solid gray;text-align:center;">{{parlor.minimumGuarantee}}</td> 
+                    </tr>
+-->
+                </table>
+        </div>
+    <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;width: 98%;padding:10px;margin-top: 25px;">
+        <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:center">
+            <tr> 
+                <th style="width:100%;border:1px solid gray" colspan="2"><b>Benefits to Salon by Be U - Summary</b></th> 
+            </tr>
+            <tr> 
+                <td style="width:70%;border:1px solid gray;text-align:center;"><b>Particulars</b></td>
+                <td style="width:30%;border:1px solid gray;text-align:center;"><b>Amount</b></td>
+            </tr>
+            <tr>
+                <td style="width:70%;border:1px solid gray">Freebies_Payout_July 2017_Till Date</td>
+                <td style="width:30%;border:1px solid gray">&#8377;{{set.freebiesPayoutJulyTillDate |number:0}}</td>
+            </tr>
+            <!--
+            <td style="width:50%;border:1px solid gray">Freebies_Payout_Since Joining</td> 
+            <td style="width:50%;border:1px solid gray">{{set.freebiesPayoutSinceJoining}}</td>
+            -->
+            <tr>
+                <td style="width:70%;border:1px solid gray">Cash Back on ERP & App_Payout_July 2017_Till Date</td>
+                <td style="width:30%;border:1px solid gray">&#8377;{{set.cashBackErpAndAppPayoutJulyTillDate |number:0}}</td>
+            </tr>    <tr>
+                <td style="width:70%;border:1px solid gray">Grand Total_Benefits_July 17_Till Date</td>
+                <td style="width:30%;border:1px solid gray">&#8377;{{set.freebiesPayoutJulyTillDate+set.cashBackErpAndAppPayoutJulyTillDate |number:0}}</td> </tr>
+            <tr> 
+            <!--                                <td style="width:50%;border:1px solid gray">Grand Total_Benefits_Since Joining</td>-->
+            <!--                               <td style="width:50%;border:1px solid gray">{{set.freebiesPayoutSinceJoining+set.cashBackErpAndAppPayoutSinceJoining}}</td>-->
+            </tr>
+            </table> 
+    </div>
+
+</div>
+</div>
+<!--
+<div class="row">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="padding-top: 2%;">
+        <button class="btn btn-primary" ng-click="generateRevenueReport()">Generate Report</button>
+        <button class="btn btn-primary" ng-click="generateRevenueReport()">Invoice Report</button>
+    </div>
+</div>-->

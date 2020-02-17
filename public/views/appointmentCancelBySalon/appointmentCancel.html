@@ -1,0 +1,233 @@
+<style>
+.ng-scope th,td{
+  padding:3px;
+  margin:0px;
+}
+ .row3{
+      margin: 20px;
+ }
+    h2 {
+        text-align: center;
+        margin:20px;
+    }
+    #btn1{
+      margin-top: -31px;
+      margin-left: -41px;
+    }
+    select{
+      margin: 15px;
+      height: 35px;
+    }
+    .input-group .form-control{
+          width: 70%;
+    margin-left: 106px;
+    margin-top: -31px;
+    }
+    table .item_center th{
+    text-align: center;
+  }
+/*  table{
+    margin:50px;
+  }*/
+</style>
+
+<div class="container-fluid">
+      <div class="row">
+            <div class="col-md-12">
+              <div class="page-header">
+                <h2 id="tables">Appointment Cancel By Salon </h2>
+              </div>
+            </div>
+
+             <div class="col-md-12" justified="true">
+                <uib-tabset>
+                  <uib-tab  ng-click='categoryButton("Re-Booked Appointment")' index="0" active="true"heading="Re-Booked Appointment"></uib-tab>
+                  <uib-tab  ng-click='categoryButton("Cancel Appointment Employee ")' index="1" 
+                  heading="Cancel Appointment Client-Wise"></uib-tab>
+                  <uib-tab  ng-click='categoryButton("Cancel Appointment Salon")' index="1" 
+                  heading="Cancel Appointment Salon-Wise"></uib-tab>
+                </uib-tabset>
+            </div>
+
+      </div>
+        
+      <div class="row" ng-if="oldSelected" >
+            <div class="col-md-12">
+                      <div class="col-md-6 col-md-offset-2">
+                           <p class="input-group">
+                             <label> Select Salon : </label>
+                              <select  class="setelment-report selectsalon"  ng-model="selectedParlor.selectedParlor"  ng-options="parlor.parlorId as parlor.name for parlor in parlors |orderBy:'name'" ng-change="changeParlor(selectedParlor)">
+                              </select>
+                          </p>
+                      </div>
+              </div>
+
+
+            <div class="col-md-12">
+                      <div class="col-md-6 col-md-offset-2">
+                         <label> start Date : </label>
+                          <p class="input-group">
+                              <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dts"  is-open="popup1.opened" ng-required="true" close-text="Close"/>
+                              <span class="input-group-btn">
+                              <button id="btn1" type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                              </span>
+                          </p>
+                      </div>
+              </div>
+
+              <div class="col-md-12">
+                      <div class="col-md-6 col-md-offset-2">
+                         <label> End Date : </label>
+                          <p class="input-group">
+                              <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dte"  is-open="popup2.opened" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button id="btn1" type="button" class="btn btn-default btn1" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                          </p>
+                      </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-md-3 col-md-offset-4">
+                    <button class="btn" id="branchfilter" ng-click="rebookwise()">Apply</button>
+                  </div>
+              </div>
+
+     <!-- table-->
+                    <table class="table">
+                      <thead>
+                          <tr class="item_center">
+                              <th id="name">Salon Name </th>
+                              <th id="unique">Client Name </th>
+                              <th id="repeat">Phone Number</th>
+                              <th id="name">Appointment Date  </th> 
+                              <th id="name">Re-Book Create Date  </th> 
+                              <th id="name">Cancel Create Date  </th> 
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="customer in rebooked ">
+                            <td>{{customer.parlor}}</td>
+                            <td>{{customer.name}}</td>
+                            <td>{{customer.phoneNumber}}</td>
+                            <td>{{customer.apptDate}}</td>
+                            <td>{{customer.rebookCreateDate}}</td>
+                            <td>{{customer.cancelCreateDate}}</td>
+                          </tr>
+                      </tbody>
+                   </table>
+          </div>   <!--2nd row-->
+
+        <div class="row" ng-if="newSelected" >
+            <div class="col-md-12">
+                      <div class="col-md-6 col-md-offset-2">
+                          <p class="input-group">
+                             <label> Select Salon : </label>
+                              <select  class="setelment-report selectsalon"  ng-model="selectedParlor.selectedParlor"  ng-options="parlor.parlorId as parlor.name for parlor in parlors |orderBy:'name'" ng-change="changeParlor(selectedParlor)">
+                              </select>
+                          </p>
+                      </div>
+              </div>
+
+
+            <div class="col-md-12">
+                      <div class="col-md-6 col-md-offset-2">
+                         <label> Start Date : </label>
+                          <p class="input-group">
+                              <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dts"  is-open="popup1.opened" ng-required="true" close-text="Close"/>
+                              <span class="input-group-btn">
+                              <button id="btn1" type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                              </span>
+                          </p>
+                      </div>
+
+                       <div class="col-md-12">
+                          <div class="col-md-6 col-md-offset-2">
+                             <label> End Date : </label>
+                              <p class="input-group">
+                                  <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dte"  is-open="popup2.opened" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                <button id="btn1" type="button" class="btn btn-default btn1" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                              </p>
+                          </div>
+                   </div>
+              <div class="row">
+                  <div class="col-md-3 col-md-offset-4">
+                    <button class="btn" id="branchfilter" ng-click = "empwise()">Apply</button>
+                  </div>
+              </div>
+
+     <!-- table-->
+                    <table class="table">
+                      <thead>
+                          <tr class="item_center">
+                              <th id="name">Client Name </th>
+                              <th id="unique">Count</th>
+                              <th id="repeat">Repeat Revenue</th>
+                              
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="customer in stats">
+                            <td>{{customer.clientName}}</td>
+                            <td>{{customer.count}}</td>
+                            <td>{{customer.revenue}}</td>
+                          </tr>
+                      </tbody>
+                   </table>
+          </div>   <!--2rd row -->
+      </div>
+          <!-- 3rd row start-->
+
+           <div class="row row3" ng-if="salonWise" >
+                <div class="col-md-12">
+                          <div class="col-md-6 col-md-offset-2">
+                             <label> Start Date : </label>
+                              <p class="input-group">
+                                  <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dts"  is-open="popup1.opened" ng-required="true" close-text="Close"/>
+                                  <span class="input-group-btn">
+                                  <button id="btn1" type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                  </span>
+                              </p>
+                      </div>
+
+                       <div class="col-md-12">
+                          <div class="col-md-6 col-md-offset-2">
+                             <label> End Date : </label>
+                              <p class="input-group">
+                                  <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dte"  is-open="popup2.opened" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                <button id="btn1" type="button" class="btn btn-default btn1" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                              </p>
+                          </div>
+                   </div>
+              <div class="row">
+                  <div class="col-md-3 col-md-offset-4">
+                    <button class="btn" id="branchfilter" ng-click = "salonwise()">Apply</button>
+                  </div>
+              </div>
+
+     <!-- table-->
+                    <table class="table">
+                      <thead>
+                          <tr class="item_center">
+                              <th id="name">Parlor Name </th>
+                              <th id="unique">Count</th>
+                              <th id="repeat">Repeat Revenue</th>
+                              
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="customer in data">
+                            <td>{{customer.parlorName}}</td>
+                            <td>{{customer.count}}</td>
+                            <td>{{customer.revenue}}</td>
+                          </tr>
+                      </tbody>
+                   </table>
+             </div>   <!--3rd row -->
+          </div>
+      </div>
+  

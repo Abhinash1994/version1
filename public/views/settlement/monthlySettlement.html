@@ -1,0 +1,527 @@
+<style>
+		h3{
+			text-align: center;
+		}
+
+		h2{
+			text-align: center;
+		}
+
+				.row{
+					margin: 0px;
+				}
+				th{
+					text-align: center;
+				}
+				.glyphicon.glyphicon-one-fine-full-dot {
+					    /*margin-bottom: -.8em;*/
+					    overflow: hidden;
+					}
+					.glyphicon.glyphicon-one-fine-full-dot:before {
+					    content:"\25cf";
+					    font-size: 1.2em;
+					}
+				.shiftRight{
+					    padding-left: 15% !important;
+					    font-style: italic !important;
+					}
+
+					.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td{
+						    padding-left: 12% !important;
+								text-align: justify;
+						}
+</style>
+<div class="row">
+
+<div class="row">
+
+								<h3>Monthly Settlement Report</h3>
+</div>
+
+
+
+
+
+<div class="row"  ng-if="user==1" ng-if='(loginRole!=2 || loginRole!=7)&&(loginUserType!=0)'>
+
+						<div class="col-md-offset-2 col-md-2">
+								<label>Select salon</label>
+
+						</div>
+
+						<div class="col-md-offset-1 col-md-3">
+
+						<select  class="form-control"  ng-change="check()" ng-model="selected.parlor" ng-options="item.parlorId as item.name for item in parlors  track by item.parlorId">
+
+				         </select>
+
+						</div>
+
+</div>
+
+
+
+    <div class="row">
+
+    	<div class="col-md-offset-2 col-md-2">
+
+    					<label>Select Month</label>
+
+    	</div>
+
+
+        <div class=" col-md-6">
+            <p class="input-group">
+              <input type="text" show-weeks="false" show-button-bar="false" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" min-mode="'month'" max-mode="'month'" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+
+      </div>
+
+   <div class="row">
+
+   				<div class="col-md-offset-3 col-md-6">
+
+   						<button  class="btn btn-primary"   ng-click="getData()"> Submit</button>
+   				</div>
+
+   </div>
+
+<div class="row">
+
+
+
+
+
+
+
+						<h2>Settlement Summary </h2>
+						<p>Note: Negative balance indicates that the salon has to pay for the given amount.</p>
+
+
+						<div class="col-md-12">
+									<table  class="table">
+											<thead>
+												<tr >
+														<th style="color:white; background-color: #9c3165 !important">Particulars</th>
+														<th style="color:white; background-color: #9c3165 !important">Amount</th>
+														<th style="color:white; background-color: #9c3165 !important">Taxes</th>
+														<th style="color:white; background-color: #9c3165 !important">Total</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr >
+														<td>Total Revenue</td>
+														<td>{{fillData.serviceRevenue +fillData.productRevenue | number:0}}</td>
+														<td>{{(fillData.serviceRevenue +fillData.productRevenue )* .18 | number:0}}</td>
+														<td>{{(fillData.serviceRevenue +fillData.productRevenue ) * 1.18 | number:0}}</td>
+
+												</tr>
+
+												<tr >
+														<td class="shiftRight" style="padding-left:16% !important;">Collection By Salon</td>
+														<td>{{fillData.totalCollectionByParlor| number:0}}</td>
+														<td>{{fillData.totalCollectionByParlor * .18 | number:0}}</td>
+														<td>{{fillData.totalCollectionByParlor * 1.18 | number:0}}</td>
+
+												</tr>
+												<tr >
+														<td class="shiftRight" style="padding-left:16% !important;">Collection By Be U</td>
+														<td>{{(fillData.collectedByApp+fillData.collectedByLoyalityPoints+fillData.collectedByAffiliates)| number:0}}</td>
+														<td>{{(fillData.collectedByApp+fillData.collectedByLoyalityPoints+fillData.collectedByAffiliates) * .18| number:0}}</td>
+														<td>{{(fillData.collectedByApp+fillData.collectedByLoyalityPoints+fillData.collectedByAffiliates) * 1.18| number:0}}</td>
+
+												</tr>
+												<tr >
+														<td>Less: Management Fees</td>
+														<td>{{fillData.managementFee  |  number:0}}</td>
+														<td>{{(fillData.managementFee) * .18 | number:0}}</td>
+														<td>{{(fillData.managementFee) * 1.18 | number:0}}</td>
+
+												</tr>
+												<tr >
+														<td>Cashback To Salon</td>
+														<td>{{fillData.refundAppDigitalCash + fillData.refundAppDigitalOnline + fillData.refundFirstAppDigital + fillData.refundOnErp | number:0}}</td>
+														<td>{{(fillData.refundAppDigitalCash + fillData.refundAppDigitalOnline + fillData.refundFirstAppDigital + fillData.refundOnErp) * .18 | number:0}}</td>
+														<td>{{(fillData.refundAppDigitalCash + fillData.refundAppDigitalOnline + fillData.refundFirstAppDigital + fillData.refundOnErp) * 1.18 | number:0}}</td>
+
+												</tr>
+
+												<tr >
+														<td style="background-color: #ccc4e0">Net Amount Payable To Salon/(Be U)</td>
+														<td style="background-color: #ccc4e0">{{fillData.netPayable  | number:0}}</td>
+														<td style="background-color: #ccc4e0">{{(fillData.netPayable ) * .18 | number:0}}</td>
+														<td style="background-color: #ccc4e0">{{(fillData.netPayable ) * 1.18 | number:0}}</td>
+
+												</tr>
+											<!-- 	<tr >
+														<td style="background-color: #ccc4e0">Total</td>
+														<td style="background-color: #ccc4e0">{{fillData.serviceRevenue+ fillData.productRevenue+fillData.totalCollectionByParlor+fillData.refundAppDigitalCash + fillData.refundAppDigitalOnline + fillData.refundFirstAppDigital + fillData.refundOnErp+(fillData.managementFee * -1)+fillData.netPayable| number:0}}</td>
+														<td style="background-color: #ccc4e0">{{
+														(fillData.serviceRevenue+ fillData.productRevenue+fillData.totalCollectionByParlor+fillData.refundAppDigitalCash + fillData.refundAppDigitalOnline + fillData.refundFirstAppDigital + fillData.refundOnErp+(fillData.managementFee * -1)+fillData.netPayable ) * .18| number:0}}</td>
+														<td style="background-color: #ccc4e0">{{(fillData.serviceRevenue+ fillData.productRevenue+fillData.totalCollectionByParlor+fillData.refundAppDigitalCash + fillData.refundAppDigitalOnline + fillData.refundFirstAppDigital + fillData.refundOnErp+(fillData.managementFee * -1)+fillData.netPayable)*1.18| number:0}}</td>
+
+												</tr>
+ -->
+
+											</tbody>
+
+									</table>
+
+
+						</div>
+						<h2>Detailed Summary </h2>
+
+						<div class="col-md-12">
+									<table  class="table">
+											<thead>
+												<tr >
+														<th style="color:white; background-color: #9c3165 !important">Particulars</th>
+														<th style="color:white; background-color: #9c3165 !important">Amount</th>
+														<th style="color:white; background-color: #9c3165 !important">Taxes</th>
+														<th style="color:white; background-color: #9c3165 !important">Total</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr >
+														<td>Service Revenue</td>
+														<td>{{fillData.serviceRevenue | number:0}}</td>
+														<td>{{fillData.serviceRevenue * .18 | number:0}}</td>
+														<td>{{fillData.serviceRevenue * 1.18 | number:0}}</td>
+
+												</tr>
+												<tr >
+														<td>Product Revenue</td>
+														<td>{{fillData.productRevenue | number:0}}</td>
+														<td>{{fillData.productRevenue * .18 | number:0}}</td>
+														<td>{{fillData.productRevenue * 1.18 | number:0}}</td>
+
+												</tr>
+												<tr >
+														<td style="background-color: #ccc4e0" style="background-color: #ccc4e0" style="background-color: #ccc4e0">Total</td>
+														<td style="background-color: #ccc4e0" style="background-color: #ccc4e0" style="background-color: #ccc4e0">{{fillData.serviceRevenue+ fillData.productRevenue| number:0}}</td>
+														<td style="background-color: #ccc4e0" style="background-color: #ccc4e0" style="background-color: #ccc4e0">{{(fillData.serviceRevenue * .18)+(fillData.productRevenue * .18)| number:0}}</td>
+														<td style="background-color: #ccc4e0" style="background-color: #ccc4e0" style="background-color: #ccc4e0">{{(fillData.serviceRevenue * 1.18)+(fillData.productRevenue * 1.18)| number:0}}</td>
+
+												</tr>
+
+
+											</tbody>
+
+									</table>
+
+
+						</div>
+
+
+</div>
+
+<div class="row">
+
+
+				<h2> Revenue Collection</h2>
+						<div class="col-md-12">
+								<table  class="table">
+											<thead>
+												<tr>
+														<th style="color:white; background-color: #9c3165 !important">Particulars</th>
+														<th style="color:white; background-color: #9c3165 !important">Amount</th>
+														<th style="color:white; background-color: #9c3165 !important">Taxes</th>
+														<th style="color:white; background-color: #9c3165 !important">Total</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr  >
+														<td>By Salon- Cash Card</td>
+														<td>{{fillData.totalCollectionByParlor| number:0}}</td>
+														<td>{{fillData.totalCollectionByParlor * .18| number:0}}</td>
+														<td>{{fillData.totalCollectionByParlor * 1.18| number:0}}</td>
+
+												</tr>
+													<tr >
+														<td>By Be U - Digital App Transaction</td>
+														<td>{{fillData.collectedByApp| number:0}}</td>
+														<td>{{fillData.collectedByApp * .18| number:0}}</td>
+														<td>{{fillData.collectedByApp * 1.18| number:0}}</td>
+
+												</tr>
+													<tr  >
+														<td>By Be U - Affiliates</td>
+														<td>{{fillData.collectedByAffiliates| number:0}}</td>
+														<td>{{fillData.collectedByAffiliates * .18| number:0}}</td>
+														<td>{{fillData.collectedByAffiliates * 1.18| number:0}}</td>
+
+												</tr>
+													<tr  >
+														<td style="background-color: #ccc4e0">Collection {A}</td>
+														<td style="background-color: #ccc4e0" style="background-color: #ccc4e0">
+														{{fillData.totalCollectionByParlor + fillData.collectedByApp+ fillData.collectedByAffiliates | number:0}}</td>
+														<td style="background-color: #ccc4e0" style="background-color: #ccc4e0">
+													{{(fillData.totalCollectionByParlor + fillData.collectedByApp+ fillData.collectedByAffiliates )* 0.18 | number:0}}
+
+														</td>
+														<td style="background-color: #ccc4e0" style="background-color: #ccc4e0">
+
+														{{(fillData.totalCollectionByParlor + fillData.collectedByApp+ fillData.collectedByAffiliates )* 1.18 | number:0}}
+														</td>
+
+												</tr>
+													<tr  >
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+
+												</tr>
+													<tr  >
+														<td>FreeBee Benefits By Be U {B}</td>
+														<td>{{fillData.collectedByLoyalityPoints| number:0}}</td>
+														<td>{{fillData.collectedByLoyalityPoints * .18| number:0}}</td>
+														<td>{{fillData.collectedByLoyalityPoints * 1.18| number:0}}</td>
+
+												</tr>
+													<tr  >
+														<td style="background-color: #ccc4e0">Total Collection {A + B}</td>
+														<td style="background-color: #ccc4e0">
+														{{fillData.collectedByLoyalityPoints+fillData.totalCollectionByParlor + fillData.collectedByApp+ fillData.collectedByAffiliates | number:0}}</td>
+														<td style="background-color: #ccc4e0">
+													{{(fillData.collectedByLoyalityPoints+fillData.totalCollectionByParlor + fillData.collectedByApp+ fillData.collectedByAffiliates )* 0.18 | number:0}}
+
+														</td>
+														<td style="background-color: #ccc4e0">
+
+														{{(fillData.collectedByLoyalityPoints+fillData.totalCollectionByParlor + fillData.collectedByApp+ fillData.collectedByAffiliates )* 1.18 | number:0}}
+														</td>
+												</tr>
+
+
+											</tbody>
+
+									</table>
+
+
+						</div>
+
+
+</div>
+
+<div class="row">
+
+
+				<h2>Management Fees</h2>
+						<div class="col-md-12">
+									<table class="table">
+											<thead>
+												<tr>
+														<th style="color:white; background-color: #9c3165 !important">Particulars</th>
+														<th style="color:white; background-color: #9c3165 !important">Amount</th>
+														<th style="color:white; background-color: #9c3165 !important">Taxes</th>
+														<th style="color:white; background-color: #9c3165 !important">Total</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr >
+														<td>Management Fees - As per MOU</td>
+														<td>{{(fillData.managementFee) | number:0}}</td>
+														<td>{{(fillData.managementFee) * .18 | number:0}}</td>
+														<td>{{(fillData.managementFee) * 1.18 | number:0}}</td>
+
+												</tr>
+
+												<tr >
+														<td>Cashback To Salon</td>
+														<td>{{fillData.refundAppDigitalCash + fillData.refundAppDigitalOnline + fillData.refundFirstAppDigital + fillData.refundOnErp | number:0}}</td>
+														<td>{{(fillData.refundAppDigitalCash + fillData.refundAppDigitalOnline + fillData.refundFirstAppDigital + fillData.refundOnErp) * .18 | number:0}}</td>
+														<td>{{(fillData.refundAppDigitalCash + fillData.refundAppDigitalOnline + fillData.refundFirstAppDigital + fillData.refundOnErp) * 1.18 | number:0}}</td>
+
+												</tr>
+
+												<tr >
+														<td style="background-color: #ccc4e0">Net Management Fees Charged By Be U/(Net Amount Earned By Salon)</td>
+														<td style="background-color: #ccc4e0">{{(fillData.refundAppDigitalCash + fillData.refundAppDigitalOnline + fillData.refundFirstAppDigital + fillData.refundOnErp)-(fillData.managementFee) | number:0}}</td>
+														<td style="background-color: #ccc4e0">{{((fillData.refundAppDigitalCash + fillData.refundAppDigitalOnline + fillData.refundFirstAppDigital + fillData.refundOnErp) * .18)-(fillData.managementFee *.18) | number:0}}</td>
+														<td style="background-color: #ccc4e0">{{((fillData.refundAppDigitalCash + fillData.refundAppDigitalOnline + fillData.refundFirstAppDigital + fillData.refundOnErp) * 1.18)-((fillData.managementFee) * 1.18 ) | number:0}}</td>
+
+												</tr>
+
+
+											</tbody>
+
+									</table>
+
+
+						</div>
+
+
+</div>
+<div class="row">
+
+
+				<h2>Amount Paid By Be U Salon</h2>
+						<div class="col-md-12">
+								<table class="table">
+											<thead>
+												<tr>
+														<th style="color:white; background-color: #9c3165 !important">Particulars</th>
+														<th style="color:white; background-color: #9c3165 !important">Amount</th>
+														<th style="color:white; background-color: #9c3165 !important">Taxes</th>
+														<th style="color:white; background-color: #9c3165 !important">Total</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr >
+														<td>Amount Collected By Be U Through App</td>
+														<td>{{fillData.collectedByApp| number:0}}</td>
+														<td>{{fillData.collectedByApp * .18| number:0}}</td>
+														<td>{{fillData.collectedByApp * 1.18| number:0}}</td>
+
+												</tr>
+													<tr  >
+														<td>Amount Collected By Be U Through Affiliates</td>
+														<td>{{fillData.collectedByAffiliates| number:0}}</td>
+														<td>{{fillData.collectedByAffiliates * .18| number:0}}</td>
+														<td>{{fillData.collectedByAffiliates * 1.18| number:0}}</td>
+
+												</tr>
+												<tr  >
+														<td>For Freebee Benefits By Be U</td>
+														<td>{{fillData.collectedByLoyalityPoints| number:0}}</td>
+														<td>{{fillData.collectedByLoyalityPoints * .18| number:0}}</td>
+														<td>{{fillData.collectedByLoyalityPoints * 1.18| number:0}}</td>
+
+												</tr>
+												<tr  >
+														<td>Less: Management Fees</td>
+														<td>{{(fillData.managementFee )| number:0}}</td>
+														<td>{{(fillData.managementFee) * .18| number:0}}</td>
+														<td>{{(fillData.managementFee) * 1.18| number:0}}</td>
+
+												</tr>
+
+												<tr >
+														<td style="background-color: #ccc4e0">Total</td>
+														<td style="background-color: #ccc4e0">{{(fillData.managementFee * -1)+fillData.collectedByApp + fillData.collectedByAffiliates + fillData.collectedByLoyalityPoints   | number:0}}</td>
+
+														<td style="background-color: #ccc4e0">{{((fillData.managementFee * -1)+fillData.collectedByApp + fillData.collectedByAffiliates + fillData.collectedByLoyalityPoints  ) * .18 | number:0}}</td>
+														<td style="background-color: #ccc4e0">{{((fillData.managementFee * -1)+fillData.collectedByApp + fillData.collectedByAffiliates + fillData.collectedByLoyalityPoints  ) * 1.18 | number:0}}</td>
+
+												</tr>
+
+
+
+											</tbody>
+
+									</table>
+
+
+						</div>
+
+
+</div>
+
+</div>
+<div class="row">
+    <div class="col-md-12"><button ng-click="GenerateInvoice()">Generate Salon Invoice</button></div>
+</div>
+<!------------------Salon Invoice-----------Starts------------>
+<div ng-hide="true"  class="col-md-12" id="salonInvoice">
+    <div style="margin:auto;width:90%;" >
+<!--        <div><img src='https://www.monsoonsalon.com/emailler/images/beu-logo.png' width='150' alt='Beu salons' /></div>-->
+        <h3 style="text-align:center;">Tax Invoice</h3>
+        <div class="jk">
+            <table border="1" style="width:100%;border-collapse: collapse;border:1px solid gray;text-align: left;text-align: left">
+                <tr>
+                    <td rowspan="" ng-model="name" style="border:1px solid gray;text-align: left">
+                        <b style="margin-top: 3%;margin-left: 5%;">From</b>
+                        <p style="margin-top: 3%;margin-left: 5%;"><span>{{toPrint[0].name}}</span><br>{{fillData.address}}{{fillData.address2}}</p>
+                    </td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Invoice No:</br>Date:</td>
+                    <td colspan="" style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Beu{{num}}</br>{{data.date}}</td>
+                </tr>
+                <tr>
+                    <td  style="margin-top: 3%;padding-left:2%;text-align: left"><b style="margin-top: 3%;margin-left:0%;">To</b>
+                        <p style="margin-top:1%;margin-left:0%;padding-bottom: 1%;"><span>M/s Gingerpan Swapcart Pvt.Ltd.</span><br>#TheAddress, Plot No 62,Okhla Phase-III New Delhi-110020</p></td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">GST  No:<br>Pan NO:</td>
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">{{fillData.gstNumber}}<br>{{fillData.panNo}}</td>
+
+                </tr>
+                <tr>
+
+
+
+                </tr>
+                <tr>
+                    <td colspan="2" style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Sr. No.</td>
+<!--                    <td style="text-align:center;padding-left:2%;border:1px solid gray"></td>-->
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray">Amount in INR</td>
+
+                </tr>
+                <tr>
+                    <td  style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">1<br>2</td>
+<!--
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Management Fees for the period form:<br>
+                        {{salonInvoiceContent.startDate | date:"MM/dd/yyyy"}} to {{salonInvoiceContent.endDate | date:"MM/dd/yyyy"}}<br>(as per settelment report annexed here with)
+                    </td>
+-->
+                    <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Loyality Benifit<br>Sales Promation</td>
+                    <td style="text-align:right;padding-right:2%;border:1px solid gray">{{fillData1.collectedByAffiliates| number:0}}<br>{{fillData1.refundAppDigitalCash + fillData1.refundAppDigitalOnline + fillData1.refundFirstAppDigital + fillData1.refundOnErp | number:0}} </td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align:center;border:1px solid gray">Total</td>
+                    <td style="text-align:right;padding-right:2%;border:1px solid gray">{{fillData1.collectedByAffiliates + fillData1.refundAppDigitalCash + fillData1.refundAppDigitalOnline + fillData1.refundFirstAppDigital + fillData1.refundOnErp | number:0}} </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;padding-right:4%;border:1px solid gray">
+                       <span ng-if="!indicator">GST @ 18%</span> <span ng-if="indicator">CGST@9%<br>SGST@9%</span>
+
+                    </td>
+                    <td  style="text-align:right;padding-right:2%;border:1px solid gray"><span ng-if="!indicator">{{(fillData1.collectedByAffiliates + fillData1.refundAppDigitalCash + fillData1.refundAppDigitalOnline + fillData1.refundFirstAppDigital + fillData1.refundOnErp )*.18|number:0}}</span><br><span ng-if="indicator">{{(fillData1.collectedByAffiliates + fillData1.refundAppDigitalCash + fillData1.refundAppDigitalOnline + fillData1.refundFirstAppDigital + fillData1.refundOnErp )*.09|number:0}}<br>{{(fillData1.collectedByAffiliates + fillData1.refundAppDigitalCash + fillData1.refundAppDigitalOnline + fillData1.refundFirstAppDigital + fillData1.refundOnErp )*.09|number:0}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;border:1px solid gray">Grand Total</td>
+                    <td style="text-align:right;padding-right:2%;border:1px solid gray" ng-model="myValue"> <span ng-model="myValue">{{((fillData1.collectedByAffiliates + fillData1.refundAppDigitalCash + fillData1.refundAppDigitalOnline + fillData1.refundFirstAppDigital + fillData1.refundOnErp)+(fillData1.collectedByAffiliates + fillData1.refundAppDigitalCash + fillData1.refundAppDigitalOnline + fillData1.refundFirstAppDigital + fillData1.refundOnErp )*.18)|number:0}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left" id="container" ng-model="num">Rupees<span style="padding-left:5px;">{{convertNumberToWords1((fillData1.collectedByAffiliates + fillData1.refundAppDigitalCash + fillData1.refundAppDigitalOnline + fillData1.refundFirstAppDigital + fillData1.refundOnErp)+(fillData1.collectedByAffiliates + fillData1.refundAppDigitalCash + fillData1.refundAppDigitalOnline + fillData1.refundFirstAppDigital + fillData1.refundOnErp )*.18)}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding-bottom:2%;border:1px solid gray;text-align: left">
+                        <h3 style="text-decoration: underline;padding-left:2%;">Bank Details for payment </h3>
+<!--
+                        <span style="margin-top: 3%;margin-left:2%;">Name</span>
+                        <span style="margin-left:145px">: {{fillData.legalEntity}}</span>
+-->
+                       
+                        <span style="margin-top: 3%;margin-left:2%;">Current A/c No</span>
+                        <span style="margin-left: 89px;">: {{fillData.accountNo}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">Name of bank</span>
+                        <span style="margin-left: 93px;">: {{fillData.bankName}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">Bank Branch</span>
+                        <span style="margin-left: 99px;">: {{fillData.branchName}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">IFSC Code</span>
+                        <span style="margin-left:111px">: {{fillData.ifscCode}}</span>
+                        <br>
+                        <span style="margin-top: 3%;margin-left:2%;">Cheque/DD must be drawn in Favour of <b>"{{toPrint[0].name}}"</b></span>
+                        <br>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <p>Note:All Disputes shall be subject to Delhi jurisdiction only</p>
+<!--
+        <div style="text-align:right;margin-top:20px;">
+            <div><img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1490268827/Aalenes__DLF-page-001_qf2e6n.png"/></div>
+        </div>
+-->
+
+    </div>
+
+</div>

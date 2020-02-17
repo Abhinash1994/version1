@@ -1,0 +1,86 @@
+<style>
+    h3{
+        text-align: center;
+    }
+
+    td{
+        padding:7px;
+        text-align:center;
+    }
+
+    th{
+        padding:7px;
+        text-align:center;
+    }
+
+    .col-md-2{
+        margin-top:13px;
+    }
+</style>
+
+
+<div class="container">
+        <h3>Salon Cashback & Loyalty</h3>
+          <div class="row">
+                  <div class="row">
+                       <div class="col-md-3 col-md-offset-2"> <h4>Select Salon</h4></div>
+                        <div class="col-md-3 col-lg-3" >
+                       <div style="display:inline" isteven-multi-select input-model="parlors" output-model="selectedParlor" button-label="name" item-label="name" tick-property="isSelected" output-properties="parlorId" on-close="changeParlor()" ></div>
+                        </div>
+</div>
+
+
+          </div>
+   <div class="row">
+       <div class="col-md-offset-2 col-md-2">
+           <label>Select Period</label>
+       </div>
+       <div class=" col-md-5">
+           <div style="display:inline" isteven-multi-select input-model="data.periods"  on-select-all="onselectAll()" on-select-none="selectNone()" output-model="data.copiedPeriods"  on-item-click="itemsSelected(this)" button-label="date" item-label="date" tick-property="isSelected" output-properties="value" ></div>
+       </div>
+   </div>
+    <div class="row">
+        <div class="col-md-offset-3 col-md-5">
+
+
+                <button class="btn btn-primary"  ng-click="itemsSelected()">Apply</button>
+        </div>
+    </div>
+
+
+
+<div class="row">
+
+    <table class="scroll table table-hover table-striped">
+        <thead>
+        <tr>
+                <th>Parlor Name</th>
+                 <th>Salon Cashback</th>
+                 <th>Salon Loyalty Points</th>
+                <th ng-if="loyaltyCashback[0].purchaseScheme">Salon Purchase Scheme</th>
+        </tr>
+        </thead>
+        <tbody>
+                    <tr ng-repeat="salons in loyaltyCashback.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+                        <td>{{salons.parlorName}}</td>
+                        <td>{{salons.cashBack | number:2}}</td>
+                        <td>{{salons.loyalityPoints | number:2}}</td>
+                        <td ng-if="salons.purchaseScheme">{{salons.purchaseScheme}}</td>
+                    </tr>
+
+        </tbody>
+
+
+
+    </table>
+
+
+    <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
+
+
+</div>
+
+
+
+</div>
+

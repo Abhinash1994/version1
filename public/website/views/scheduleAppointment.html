@@ -1,0 +1,44 @@
+<div flex-xs="100" flex="85" flex-offset="5" flex-offset-xs="0" class="scheduleAppointment-page-container">
+
+  <md-content class="schedule-datetime-container">
+
+  <div layout="row" flex="100" flex-offset-xs="0" flex-offset="10" layout-wrap>
+    <div flex="100" style="text-align:center;">
+
+      <h4 class="scheduleAppointment-page">  Select date of service</h4>
+
+    </div>
+        <div flex="20" ng-repeat="data in week" class="scheduleAppointment-date" ng-click="showTimeOfDay($index)" ng-style="activeDay==$index && {'background':'#e0f5fe','border':'2px solid #03A9F4'} || activeDay!=$index && {'border' : '1px solid gray'}" style="cursor: pointer;">
+          <div layout="column">
+            <span style="font-size: 0.6em;" ng-if="$index==0 && check==false">Today</span>
+          </div>
+          <div layout="column">
+            <span style="font-size: 0.6em;" ng-if="$index==0 && check==true">Tomorrow</span>
+          </div>
+          <div layout="column">
+            <span style="font-size: 0.6em;" ng-if="$index==1 && check==false">Tomorrow</span>
+          </div>
+          <div layout="column">
+            <span style="font-size: 0.6em;" ng-if="$index==1 && check==true">{{data.day | date: 'EEE'}}</span>
+          </div>
+          <div layout="column">
+            <span style="font-size: 0.6em;" ng-if="$index!=1 && $index!=0">{{data.day | date: 'EEE'}}</span>
+          </div>
+          <div layout="column">
+            <span>{{data.day | date: 'dd'}}</span>
+          </div>
+      </div>
+  </div>
+  <div layout="row" flex="100"  flex="95" flex-offset-xs="0" flex-offset="10" class="schedule-datetime" layout-wrap>
+    <div flex="100" style="text-align:center;" ng-if="timeArray">
+      <h4 style="text-align:center;background-color:#888;padding-top:1%;padding-bottom:1%;color:#fff;">
+        Select time
+      </h4>
+    </div>
+    <div flex="30"  ng-repeat="data in timeArray"  class="scheduleAppointment-time" ng-click="selectedTimeSlot($index,data.fromTime)" ng-style="activeSlot==$index && {'background':'#e0f5fe','border':'2px solid #03A9F4'} || activeSlot!=$index && {'border' : '1px solid gray'}">
+      <span>{{data.fromTime | date: 'hh:mm'}} - {{data.toTime | date: 'hh:mm a'}}</span>
+
+    </div>
+  </div>
+    </md-content>
+</div>

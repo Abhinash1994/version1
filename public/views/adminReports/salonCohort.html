@@ -1,0 +1,85 @@
+<style media="screen">
+  th{
+    text-align:center;
+  }
+  .hiddenRow {
+    padding: 0 !important;
+}
+
+.row{
+  margin-left:0;
+}
+.table{
+  height:400px;
+
+  overflow:auto;
+}
+.mynew{
+  width:100%;
+  overflow:scroll;
+}
+</style>
+<div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+  			<h2 id="tables">Salon Cohort</h2>
+  		</div>
+
+      <div class="form-inline col-md-offset-5 col-md-2" >
+          <!-- <input type="text" ng-model="searchKey" class="form-control" id="focusedInput" placeholder="Search" style="margin-left: -10px" ng-change="searchMethod()"> -->
+          <button class="btn btn-link btn-md" ng-click="exportToExcel('#selector')" style="margin-left: -10px;border: 0;">
+                  <span class="glyphicon glyphicon-share"></span>
+                  Export to Excel
+          </button>
+      </div>
+  <div class="mynew">
+          <table id="selector" class="table table-striped table-hover" fixed-header>
+            <thead>
+              <tr>
+                <th class="head-color-universal">ParlorName</th>
+                <th class="head-color-universal">Week Revenue</th>
+                <th class="head-color-universal">Week Appointments</th>
+                <th class="head-color-universal">Month 1 Revenue</th>
+                <th class="head-color-universal">Month 1 Apps</th>
+                <th class="head-color-universal">Month 2 Revenue</th>
+                <th class="head-color-universal">Month 2 Apps</th>
+                <th class="head-color-universal">Month 3 Revenue</th>
+                <th class="head-color-universal">Month 3 Apps</th>
+                <th class="head-color-universal">Month 4 Revenue</th>
+                <th class="head-color-universal">Month 4 Apps</th>
+                <th class="head-color-universal">Month 5 Revenue</th>
+                <th class="head-color-universal">Month 5 Apps</th>
+                <th class="head-color-universal">Month 6 Revenue</th>
+                <th class="head-color-universal">Month 6 Apps</th>
+                <th class="head-color-universal">Month 7 Revenue</th>
+                <th class="head-color-universal">Month 7 Apps</th>
+                <th class="head-color-universal">Month 8 Revenue</th>
+                <th class="head-color-universal">Month 8 Apps</th>
+                <th class="head-color-universal">Month 9 Revenue</th>
+                <th class="head-color-universal">Month 9 Apps</th>
+                <th class="head-color-universal">Month 10 Revenue</th>
+                <th class="head-color-universal">Month 10 Apps</th>
+                <th class="head-color-universal">Month 11 Revenue</th>
+                <th class="head-color-universal">Month 11 Apps</th>
+                <th class="head-color-universal">Month 12 Revenue</th>
+                <th class="head-color-universal">Month 12 Apps</th>
+              </tr>
+            </thead>
+            <tbody>
+          <tr ng-repeat="data in salonCohortData">
+              <td style="background: cornflowerblue;color: white;">{{data.parlorName}}: {{data.parlorLiveDate | date:"dd/MM/yyyy"}}</td>
+              <td>{{data.firstWeekRevenue | number:0}}</td>
+              <td>{{data.firstWeekApps}}</td>
+              <td  ng-repeat-start="s in data.cohortData">
+                <span>{{s.Revenue  | number:0}}</span>
+                </td>
+              <td ng-repeat-end >{{s.Apps}}</td>
+
+            </tr>
+            </tbody>
+          </table>
+
+</div>
+
+    </div>
+</div>

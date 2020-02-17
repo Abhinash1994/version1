@@ -1,0 +1,211 @@
+@import url("http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.css");
+body {
+	font-size: 13px;
+	font-family: 'Open Sans', Arial, sans-serif;
+	background: #fff;
+	color: #777
+}
+h1, h2, h3, h4, h5, h6 {
+	color: #333;
+	margin-top: 0
+}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+	font-size: 11px;
+	margin: 0 0 0 5px
+}
+h1 {
+	font-size: 28px
+}
+h2 {
+	font-size: 24px
+}
+h3 {
+	font-size: 20px
+}
+h4 {
+	font-size: 16px
+}
+h5 {
+	font-size: 13px
+}
+h6 {
+	font-size: 11px
+}
+strong, b {
+	color: #555
+}
+a:hover, a:focus {
+	outline: 0
+}
+small, .small {
+	font-size: 11px
+}
+pre, code {
+	padding: 1px 2px;
+	font-weight: bold;
+	font-size: 12px
+}
+blockquote {
+	border-left: 3px solid #dcdddf
+}
+blockquote p {
+	font-size: 14px
+}
+blockquote small::before {
+	content: "# "
+}
+.module {
+	
+	box-shadow: 0 0 3px rgba(0,0,0,.1);
+	border-color: #e9e9e9;
+	margin-bottom: 20px;
+background-color: #fff;
+border-radius: 4px;
+-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.message .module-option {
+	border-bottom: 0
+}
+.message .module-body {
+	padding: 0
+}
+.message .table-message thead tr.heading td, .message .table-message tbody tr.heading td {
+	background: #29b7d3!important;
+	font-weight: bold;
+	border: 0;
+}
+.message .table-message tbody td {
+	}
+.message .table-message tbody td.cell-check {
+	width: 20px;
+	text-align: center
+}
+.message .table-message tbody td.cell-check input[type="checkbox"] {
+	margin: 0
+}
+.message .table-message tbody td.cell-icon {
+	text-align: center;
+	padding-left: 0!important;
+	padding-right: 0!important
+}
+.message .table-message tbody td.cell-author {
+	width: 150px
+}
+.message .table-message tbody td.cell-time {
+	width: 70px
+}
+.message .table-message tbody td.cell-status {
+	width: 100px;
+	text-align: center
+}
+.message .table-message tbody td.cell-status b {
+	background: #d74f2a;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #fff;
+	color: rgba(255,255,255,0.8);
+	display: inline-block;
+	padding: 1px 5px;
+	font-size: 11px;
+	text-transform: uppercase
+}
+
+.message .table-message tbody td.cell-status .success{
+	background-color: green;
+}
+.message .table-message tbody [class^="icon-"], .message .table-message tbody [class*=" icon-"] {
+	font-size: 13px;
+	color: #999
+}
+.message .table-message tbody .icon-star {
+	color: #ddd
+}
+.message .table-message tbody .icon-checker {
+	width: 5px;
+	height: 5px;
+	border: 3px solid #d74f2a;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0 0 0 15px
+}
+.message  tr.heading {
+	color: #fff;
+}
+.message .table-message tbody tr.unread {
+	font-weight: bold;
+	color: #666
+}
+.message .table-message tbody tr.unread td {
+	background: #fff
+}
+.message .table-message tbody tr.starred .icon-star {
+	color: #fd7b12!important
+}
+.message .table-message tbody tr.starred .icon-star:hover {
+	opacity: .6;
+	filter: alpha(opacity=60)
+}
+.message .table-message tbody tr:hover td {
+	background: #E8F6E4;
+	cursor: pointer
+}
+.message .table-message tbody tr:hover .icon-star {
+	color: #d9d9a9
+}
+.message .table-message tbody tr:hover .icon-star:hover {
+	color: #adad88;
+	cursor: pointer
+}
+.message .table-message tbody tr.task td {
+	background: #fff;
+	font-weight: bold
+}
+.message .table-message tbody tr.task.resolved td {
+	background: #f5f5f5;
+	color: #999;
+	font-weight: normal
+}
+.message .table-message tbody tr.task.resolved .icon-checker {
+	border-color: #ddd
+}
+
+.content {
+	width: 90%;
+	margin-left: 5%;
+	background-color: #F3F3F3;
+}
+
+.module-head {
+	
+	color: #767676;
+background-color: #f6f6f6;
+border-color: #e9e9e9;
+
+
+	padding: 10px 15px;
+border-bottom: 1px solid transparent;
+border-top-right-radius: 3px;
+border-top-left-radius: 3px;
+
+
+
+	
+}
+.module-head h3 {
+	font-size: 14px;
+	line-height: 20px;
+	height: 20px;
+	margin: 0
+}
+
+.cell-time {
+	min-width: 100px;
+}
+.form-control{
+	margin-top: 0px !important;
+}

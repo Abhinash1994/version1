@@ -1,0 +1,58 @@
+<style media="screen">
+  .row{
+    margin-top: 1em;
+  }
+</style>
+<div class="row" style="margin-top:0;">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2>Create Training Chapter</h2>
+    </div>
+  </div>
+<!-- <div id="chapterAdded" class="row" ng-if="showAlert==true">
+  <div class="col-md-6 col-md-offset-6 alert alert-success">
+  <strong>Success!</strong> The Chapter Has Been Added.
+</div>
+</div> -->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+    <form ng-submit="submitButton()">
+        <div class="row">
+          <div class="col-md-offset-2 col-md-3">
+            <label style="margin-left: 1em">Select Units:</label>
+          </div>
+          <div class="col-md-3">
+            <select class="form-control" ng-options="item as item.unitName for item in units" ng-model="units.selected" required></select>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-3">
+        <label>Chapter Name:</label>
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" ng-model="chapterName" placeholder="Enter Chapter Name" style="background:white;margin-left: 0;" required>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-3">
+        <label>Description:</label>
+      </div>
+      <div class="col-md-6">
+        <textarea class="form-control" rows="3;" id="comment" ng-model="description" required></textarea>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-5 col-md-6" style="text-align:center;">
+          {{message}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-10">
+          <button type="submit" class="btn btn-default" style="margin-top: 1em;">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

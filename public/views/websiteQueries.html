@@ -1,0 +1,79 @@
+<style media="screen">
+  th{
+    text-align:center;
+  }
+  .nav-tabs {
+    border-bottom:none;
+}
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2>Website Queries</h2>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12" justified="true">
+    <uib-tabset>
+      <uib-tab  ng-click='categoryButton("Not Contacted")' index="0" heading="Not Contacted"></uib-tab>
+      <uib-tab  ng-click='categoryButton("Contacted")' index="1" heading="Contacted"></uib-tab>
+      <uib-tab  ng-click='categoryButton("Converted")' index="2" heading="Converted"></uib-tab>
+      <uib-tab  ng-click='categoryButton("Reports")'  index="3" heading="Reports"></uib-tab>
+      <uib-tab  ng-click='categoryButton("divasAndMachosCustomers")' index="4" heading="Divas and Machos"></uib-tab>
+      <uib-tab  ng-click='categoryButton("afterThreeMonths")' index="4" heading="After Three Months"></uib-tab>
+      <uib-tab  ng-click='categoryButton("Website Queries")' active="true" index="4" heading="Website Queries"></uib-tab>
+      <uib-tab  ng-click='categoryButton("Subscription Queries")' index="4" heading="Subscription Queries"></uib-tab>
+      <uib-tab  ng-click='categoryButton("razorPayNonSubscriber")' index="4" heading="RazorPay Non-Subscribers"></uib-tab>
+
+    </uib-tabset>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div style="text-align:center;" >
+      <dir-pagination-controls
+        max-size="8"
+        direction-links="true"
+        boundary-links="true"
+        on-page-change="getData(newPageNumber)"
+        run="initialiseIt"
+      >
+      </dir-pagination-controls>
+    </div>
+</div>
+  <div class="col-md-12" style="margin-top:1em;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>Date</th>
+          <th>Customer Queries</th>
+          <th>Agent Response</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr dir-paginate="data in customerQuery | itemsPerPage:itemsPerPage" total-items="total_count">
+          <td>{{data.name}}</td>
+          <td>{{data.phoneNumber}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.date | date:'dd/MM/yyyy'}}</td>
+          <td>{{data.queryText}}</td>
+          <td>
+            <span ng-if="$index!=hideTextarea">{{data.agentResponse}}</span>
+            <span ng-if="$index==hideTextarea" ><textarea class="form-control" rows="2" id="comment" ng-model="data.agentResponse">{{data.agentResponse}}</textarea></span>
+
+          </td>
+          <td>
+            <button type="button" name="button" ng-click="edit($index)"  ng-if="$index!=hideTextarea">Edit</button>
+            <button type="button" name="button" ng-click="save($index)" ng-if="$index==hideTextarea" >Save</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

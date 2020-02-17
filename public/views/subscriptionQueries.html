@@ -1,0 +1,167 @@
+<style media="screen">
+  th{
+    text-align:center;
+  }
+  .hiddenRow {
+    padding: 0 !important;
+}
+.nav-tabs {
+  border-bottom:none;
+}
+.form-control{
+  background: white !important;
+}
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2 id="tables">Subscription Queries</h2>
+    </div>
+  </div>
+  <div class="col-md-12" justified="true">
+      <uib-tabset>
+        <uib-tab  ng-click='categoryButton("Not Contacted")' index="0" heading="Not Contacted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Contacted")' index="1" heading="Contacted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Converted")' index="2" heading="Converted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Reports")' index="2" heading="Reports"></uib-tab>
+        <uib-tab  ng-click='categoryButton("divasAndMachosCustomers")'  index="4" heading="Divas and Machos"></uib-tab>
+        <uib-tab  ng-click='categoryButton("afterThreeMonths")' index="4" heading="After Three Months"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Website Queries")' index="4" heading="Website Queries"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Subscription Queries")' active="true" index="4" heading="Subscription Queries"></uib-tab>
+        <uib-tab  ng-click='categoryButton("razorPayNonSubscriber")' index="4" heading="RazorPay Non-Subscribers"></uib-tab>
+
+
+      </uib-tabset>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" name="button"  ng-click="editButton($index)" data-toggle="modal" data-target="#addModal">Add New Subscription Queries</button>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+
+    <div class="col-md-2 col-md-offset-5" style="margin-top: 1em;">
+      <label>Select Conversion:</label>
+      <select class="form-control" ng-model="selectedContacted" ng-change="conversionSelection()">
+        <option  ng-repeat="data in contacted">{{data}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-2 col-md-offset-3" style="padding-right: 2em;text-align:right;">
+      <span style="font-size: 3em;">{{total_count}}</span>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+        <div style="text-align:center;" >
+          <dir-pagination-controls
+            max-size="8"
+            direction-links="true"
+            boundary-links="true"
+            on-page-change="getData(newPageNumber)"
+            run="initialiseIt"
+          >
+          </dir-pagination-controls>
+        </div>
+    </div>
+  </div>
+  <div class="row"  ng-if="selectedContacted=='Contacted'">
+    <div class="col-md-12" style="margin-top:1em;margin-left: 2em;padding-right: 5em;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Customer Care Name</th>
+            <th>Remarks</th>
+            <th>Send Whatsapp</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr dir-paginate="data in subscriptionQuery | itemsPerPage:itemsPerPage" total-items="total_count">
+            <td>{{data.name}}</td>
+            <td>{{data.phoneNumber}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.customerCareName}}</td>
+            <td>{{data.customerQuery}}</td>
+            <td><a class="btn btn-primary"  ng-href="https://api.whatsapp.com/send?phone=91{{data.phoneNumber}}&text=We%20think%20you%20would%20love%20to%20know%20about%20it!%20Buy%20Be%20U%20Subscription%20@1699%20and%20get%20free%20services%20worth%20Rs%20500%20per%20month%20for%201%20year." target="_blank">Send Whatsapp</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+      <div class="modal fade" id="addModal" role="dialog">
+          <div class="modal-dialog" style="width:50%">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add New Subscription Query</h4>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group col-md-4">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" ng-model="name" style="margin-left:0">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Contact Number:</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" ng-model="phoneNumber" style="margin-left:0">
+                    </div>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Email ID:</label>
+                    <input type="text" class="form-control" ng-model="email" style="margin-left:0">
+                  </div>
+                  <div class="form-group col-md-6 col-md-offset-3">
+                    <label>Remarks:</label>
+                    <textarea class="form-control" ng-model="remarks"rows="4"></textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-default" ng-click="submit()" style="margin-top: 1em;width: 30%;">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="row"  ng-if="selectedContacted=='Converted'">
+        <div class="col-md-12" style="margin-top:1em;margin-left: 2em;padding-right: 5em;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Contacted By</th>
+                <th>Customer Name</th>
+                <th>Contact Number</th>
+                <th>Subscription Date</th>
+                <th>Contacted On</th>
+                <th>Subscription Type</th>
+                <th>Agent Comment</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr dir-paginate="data in subscriptionQuery|itemsPerPage:itemsPerPage" total-items="total_count">
+                <td>{{data.contactedBy}}</td>
+                <td>{{data.firstName}}</td>
+                <td>{{data.phoneNumber}}</td>
+                <td>{{data.subscriptionDate | date: 'dd/MM/yyyy'}}</td>
+                <td>{{data.contactedOn | date: 'dd/MM/yyyy'}}</td>
+                <td>
+                  <span ng-if="data.subscriptionType==1">1699</span><span ng-if="data.subscriptionType==2">899</span>
+                </td>
+                <td>{{data.queryText}}</td>
+                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div>

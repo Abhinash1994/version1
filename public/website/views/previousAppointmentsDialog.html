@@ -1,0 +1,89 @@
+<md-dialog ng-cloak=""   style="" class="previousAppointmentsDialog-page">
+    <md-content>
+        <div flex class="previousAppointmentsDialog-page-Summary">
+            <span>Order Summary</span>
+        </div>
+        <div flex class="appontment-details-dialog">
+            {{displayPastParlorDetails.startsAt | date:'MMMM d, y, EEEE h:mma'}}
+        </div>
+        <div class="appointment-detail-head">
+            <span>Details</span>
+        </div>
+        <div flex ng-repeat="list in displayPastParlorDetails.services" class="appontment-list">
+            <div layout="row" flex="100">
+                <div flex="50">
+                    {{list.name}}
+                </div>
+                <div layout="row" flex="50" layout-align="end" style="" class="previousAppointmentsDialog-page-listprice">
+                    {{list.price}}
+                </div>
+            </div>
+        </div>
+        <div flex>
+            <div layout="row" flex="100" style="" class="previousAppointmentsDialog-page-Total">
+                <div flex="50" class="appointment-total">
+                    <span><b>Total</b></span>
+                </div>
+                <div layout="row" flex="50" layout-align="end" class="appointment-total previousAppointmentsDialog-page-subtotal">
+                    <span><b >{{displayPastParlorDetails.subtotal}}</b></span>
+                </div>
+            </div>
+        </div>
+        <div flex>
+            <div layout="row" flex="100" class="appontment-list">
+                <div flex="50">
+                    <span>Discount</span>
+                </div>
+                <div layout="row" flex="50" layout-align="end"  class="previousAppointmentsDialog-page-subtotal">
+                    {{displayPastParlorDetails.discount}}
+                </div>
+            </div>
+        </div>
+        <div flex>
+            <div layout="row" flex="100" class="appontment-list">
+                <div flex="50">
+                    <span>Tax</span>
+                </div>
+                <div layout="row" flex="50" layout-align="end" class="previousAppointmentsDialog-page-subtotal">
+                    {{displayPastParlorDetails.tax}}
+                </div>
+            </div>
+        </div>
+        <div flex>
+            <div layout="row" flex="100" style="" class="previousAppointmentsDialog-GrandTotal">
+                <div flex="50" class="appointment-total">
+                    <span><b>Grand Total</b></span>
+                </div>
+                <div layout="row" flex="50" layout-align="end"  class="appointment-total previousAppointmentsDialog-page-subtotal">
+                   <span><b>{{displayPastParlorDetails.payableAmount}}</b></span>
+                </div>
+            </div>
+        </div>
+
+
+
+       <!-- <div layout="row" flex="100" class="offer-filter-container">
+            <div layout="column">
+                <div layout="row" >
+                    <span class="offer-filter-heading">Services</span>
+                </div>
+                <div layout="row" flex="100"style="padding-top:2%;" layout-xs="column" flex-xs="100" class="service-border ">
+                    <div layout="column" flex="50" ng-repeat="list in depts" style="font-size:10px;"layout-xs="column" flex-xs="100">
+                        <span>{{list.name}}</span>
+                        <span ng-repeat="list2 in list.categories"><md-checkbox  ng-checked="exists(list2,checked_categories)"  ng-click="filterServices(list2, checked_categories)"   class="md-warn md-align-top-left" flex/>{{list2.name}}</span>
+                    </div>
+                </div>
+
+                <div layout="row">
+                    <div layout="column" flex="50" class="offer-filter-btn">
+                        <span ng-click="filterParlorList()">Apply Filters</span>
+                    </div>
+                    <div layout="column" flex="50" style="text-align:center;" ng-click="hide()" class="offer-filter-cancile">
+                        <span>Cancel</span>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </md-content>
+</md-dialog>
+

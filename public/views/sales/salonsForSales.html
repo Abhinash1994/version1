@@ -1,0 +1,14 @@
+
+<div class="row">
+    <table ng-table="tableParams" show-filter="true" class="table table-bordered table-striped table-condensed">
+      <tr ng-repeat="row in $data track by $index">
+        <td data-title="'Salon Name'" filter="{ name: 'text'}"  sortable="'name'">{{row.name}}</td>
+        <td data-title="'City'" filter="{ city: 'select'}" filter-data="getCities()">{{row.city}}</td>
+        <td data-title="'Zone'" filter="{ zone: 'select'}" filter-data="getZonesValues">{{row.zone}}</td>
+        <td data-title="'Area'" filter="{ locality: 'select'}" filter-data="getAreasValues">{{row.locality}}</td>
+        <td data-title="'Address'"  sortable filter="{ parlorName: 'text'}"="'adminEmail'">{{row.address}}</td>
+        <td data-title="'Owner Name'" filter="{ parlorName: 'text'}"  sortable="'poweredBy'">{{row.ownerMobileNo}}</td>
+        <td data-title="'Manager Name'" filter="{ managerName: 'text'}"  sortable="'poweredByIcon'">{{row.managerName}}</td>
+      </tr>
+    </table>
+  </div>

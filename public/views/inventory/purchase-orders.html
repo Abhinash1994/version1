@@ -1,0 +1,356 @@
+<style>
+    th,td{
+        text-align:center;
+    }
+
+</style>
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">Purchase Order's</h2>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="container">
+   
+    <div class="col-md-12 dailysummary">
+        <div class="col-md-3 col-md-offset-2" style="font-size: 116%;">Select Date Range</div>
+        <div class="col-md-4">
+            <input date-range-picker id="daterange1" name="daterange1" class="date-picker revenue-report-page-inputdate" type="text" ng-model="filter.date" required/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 dailysummary">
+            <div class="col-md-4 col-md-offset-5"><button class="btn btn-primary" ng-click="filterApplied()"> Apply Filters</button></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="container-fluid">
+        <div class="form-inline row" style="text-align:right">
+            <input type="text" ng-model="query" class="form-control" placeholder="Search">
+            <!-- <button type="button" class="btn" ng-csv="data" csv-column-order="order" csv-header="['Date','No of Appointments','Total Revenue', 'Total Services', 'Total Products','Total Memberships','Loyality Points']" filename="Revenue Report.csv">Export as CSV</button> -->
+        </div>
+
+        <div class="table-responsive">
+            <table  class="table table-striped table-hover" >
+                <thead>
+                <tr>
+                    <th  style="background-color: #FAE596; text-align: center;">
+                        <span>Order Date</span>
+                    </th>
+                     <th  style="background-color: #FAE596; text-align: center;">
+                        <span>Receive Date</span>
+                    </th>
+                    <th  style="background-color: #FAE596; text-align: center;">
+                        <span>Category</span>
+                    </th>
+                   <!--  <th  style="background-color: #FAE596;">
+                        <span>Total Items Ordered</span>
+                    </th> -->
+                    <th  style="background-color: #FAE596; text-align: center;">
+                        <span>Total Ordered Items </span>
+                    </th>
+                    <th  style="background-color: #FAE596; text-align: center;">
+                        <span>Total Amount as Approved by Be U </span>
+                    </th>
+                    <th  style="background-color: #FAE596; text-align: center;">
+                        <span>Uploaded Bills </span>
+                    </th>
+
+                    <th  style="background-color: #FAE596; text-align: center;">
+                        <span>Order Status</span>
+                    </th>
+                    <th  style="background-color: #FAE596; text-align: center;">
+                        <span>Edit</span>
+                    </th>
+                    <th  style="background-color: #FAE596; text-align: center;">
+                        <span>Add Items</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody >
+                <tr ng-repeat="list  in data | filter: query">
+                    <td >
+                            {{list.date | date:'MMM d, y '}}
+                    </td>
+                     <td >
+                            {{list.receivedDate | date:'MMM d, y '}}
+                    </td>
+                    <td >
+                        {{list.sellerName}}
+                    </td>
+                    <td >
+                        {{list.items.length}}
+                    </td>
+                    <td >
+                        {{list.newOrderAmount | number:0}}
+                    </td>
+                    <td >
+                        <button class ="btn btn-primary" ng-click="viewBill(list.imageUrl)">View Bills</button>
+                    </td>
+                    <td >
+                        <span ng-if="list.status==1">Pending</span><span ng-if="list.status==0">Complete</span>
+                    </td>
+                    <td >
+                        <button ng-click="showEditPopUp(list)" ng-if="list.status==1">Edit</button>
+                        <button ng-click="showReceivePopUp(list)" ng-if="list.status==1">Receive</button>
+                        <button ng-click="openModal(list)" data-toggle="modal" data-target="#myModal" ng-if="list.status==0">View</button>
+                    </td>
+                    <td>
+                        <button class="btn"  ng-click="getItemsToAdd(list)" ng-disabled="list.status!=1">Add Items</button>    
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="modal fade" id="myModal" role="dialog" >
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Inventory</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Product Category Name</th>
+                                    <th>Ordered Quantity</th>
+                                    <th>Received Quantity</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="data in modalObject">
+                                            <td>{{data.productCategoryName}}</td>
+                                           <td>{{data.orderedQuantity}}</td>
+                                        <td>{{data.recieveQuantity}}</td>
+                                     </tr>
+                                </tbody>
+                            </table>
+                           
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+           
+          
+
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="showBills" role="dialog" >
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Inventory</h4>
+            </div>
+            <div class="modal-body">
+          
+                
+                <div ng-if="images.length!=0">View Bills</div>
+                <div ng-if="images.length==0">No image has been uploaded</div>
+                <div ng-repeat="image in images">
+                    <img ng-src="{{image.image}}"/>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="$('#showBills').modal('hide')">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!---------------------------------editOrderPopUp-------------------------------------------->
+<div class="modal fade" id="editOrderPopUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Edit Items</h4>
+            </div>
+                <div class="modal-body">
+                <div class="row"  ng-if="edit">
+                    <div class="table-responsive">
+                        <table  class="table table-striped table-hover" >
+                            <thead>
+                            <tr>
+                                <th  style="background-color: #FAE596;">
+                                    <span>Name</span>
+                                </th>
+                                <th  style="background-color: #FAE596;">
+                                    <span>Current Quantity</span>
+                                </th>
+                                <th  style="background-color: #FAE596;">
+                                    <span>Ordered Quantity</span>
+                                </th>
+                                <th  style="background-color: #FAE596;">
+                                    <span>Edit</span>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody >
+                            <tr ng-repeat="editItemsList  in editModelData">
+                                <td >
+                                    {{editItemsList.productCategoryName}}
+                                </td>
+                                <td >
+                                    {{editItemsList.actualQuantity}}
+                                </td>
+                                <td >
+                                    <input type="text" class="form-control" numbers-only ng-disabled="editItemsList.disableFlag" ng-model="editItemsList.orderedQuantity" placeholder="Enter Amount" uib-typeahead="state.id as state.price for state in differentsPrices"/>
+                                    <!--{{editItemsList.actualQuantity}}-->
+                                </td>
+                                <td >
+                                    <button ng-click="editModelFlagChange($index)" >Edit</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                          <button ng-click="submitEdittedItems()" class="btn btn-primary">Submit</button>
+                </div>
+              <div ng-if="!edit">
+                <form ng-submit="submitItNow()">
+                    <div class="row" >
+                        <div class='row'>
+                                <div class="col-md-4">
+                                    <label>Select Items</label>
+                                </div>
+                        <div class="col-md-6">
+                            <select class="form-control" ng-model="temporary.selected" ng-change="addtoitemDropdownChanged()" ng-options="m.data[0] as m.data[0].name disable when m.data[0].selected for m in temp" >
+                            </select>
+                        </div>
+                        </div>
+                            <div class="row"  ng-if="temporary.selected">
+                                        <div class='col-md-4'>
+                                                <label>Enter Quantity</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                                <input type='text' class="form-control" min='0'   ng-model="temporary.selected.orderedQuantity" numbers-only  ng-required="true"/>
+                                        </div>
+                            </div>
+                        <div class="row">
+                                <div class="col-md-offset-3 col-md-4">
+                                     <button type="submit"  ng-disabled="!temporary.selected" class="btn btn-primary">Add Item</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                         <table class="table">
+                                <thead>
+                                        <th> Name </th>
+                                        <th> Ordered Quantity   </th>
+                                </thead>
+                                <tbody>
+                                        <tr ng-repeat="m in temporary.selectedItems">
+                                             <td>{{m.name}}</td>
+                                             <td>{{m.orderedQuantity |number:0}}</td>
+                                        </tr>
+                                       
+                                    
+                                </tbody>
+                            
+                            </table>
+                        <button type="submit" class="btn btn-primary" ng-disabled="temporary.selectedItems.length==0"  ng-click="addItemsonSubmit()"   >Submit Items</button>
+
+                    </div>
+                  </div>
+                           
+                <div class="modal-footer">
+                    <button  class="btn btn-default" data-dismiss="modal">Close</button>
+                  
+                </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!---------------------------------receiveOrderPopUp-------------------------------------------->
+<div class="modal fade" id="receiveOrderPopUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="receiveOrderPopUpLabel">Received Items</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table  class="table table-striped table-hover" >
+                        <thead>
+                        <tr>
+                            <th  style="background-color: #FAE596;">
+                                <span>Name</span>
+                            </th>
+                            <th  style="background-color: #FAE596;">
+                                <span>Ordered Quantity</span>
+                            </th>
+                            </th><th  style="background-color: #FAE596;">
+                            <span>Selling Price</span>
+                             </th>
+                            <th  style="background-color: #FAE596;">
+                                <span>Received Quantity</span>
+
+                            <!--<th  style="background-color: #FAE596;">-->
+                                <!--<span>Edit</span>-->
+                            <!--</th>-->
+                        </tr>
+                        </thead>
+                        <tbody >
+
+                        <tr  ng-repeat="receiveItemsList  in receiveModelData">
+                            <td >
+                                {{receiveItemsList.productCategoryName}}
+                            </td>
+                            <td ng-init="x =receiveItemsList.orderedQuantity"   >
+                                {{x}}
+                            </td>
+                            <td><select  class="form-control" ng-change="sellingPriceChanged(receiveModelData)"   ng-model="receiveItemsList.itemId" ng-options="state as state.sellingPrice for state in receiveItemsList.sellingPrices"></select>
+
+                                <!--<td><select  class="form-control" ng-model="receiveItemsList.itemId" ng-options="state.itemId as state.sellingPrice for state in receiveItemsList.sellingPrices" ng-change="calculatingSellingPriceSum($index,receiveItemsList.itemId)"></select>-->
+                            </td>
+                            <td >
+                                <!--Model as range: <input type="range" name="range" ng-model="receiveItemsList.orderedQuantity" min="0"  max="{{x}}">-->
+                                <!--<input type="number" class="form-control"  ng-model="receiveItemsList.orderedQuantity" placeholder="Enter Amount"/>-->
+
+                                <button style="display:inline" class="btn btn-primary"  ng-click="minus(receiveItemsList,receiveModelData)" ng-disabled="receiveItemsList.orderedQuantity==0">-</button>   <p style="display: inline">{{receiveItemsList.orderedQuantity}}</p>   <button class="btn btn-primary" style="display:inline" ng-click="plusit(x,receiveItemsList,receiveModelData)" ng-disabled="receiveItemsList.orderedQuantity==x">+</button>
+
+                            </td>
+                            <!--<td >-->
+                                <!--<button ng-click="receiveModelFlagChange($index)">Edit</button>-->
+                            <!--</td>-->
+                        </tr>
+                        
+                        </tbody>
+                    </table>
+                    <h2> Amount after Cash Discount is--> {{orderAmmountToBePaid}}</h2>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button  class="btn btn-default" data-dismiss="modal">Close</button>
+                <button ng-click="submitReceivedItems()" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

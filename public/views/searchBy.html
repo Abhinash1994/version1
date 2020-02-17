@@ -1,0 +1,62 @@
+<style>
+
+					.row{
+						margin:0px;
+						background-color: white;		
+					}
+
+					h2{
+						text-align: center;
+					}
+
+					label{
+						margin-top: 8px;
+						font-weight: 200;
+					}
+
+					th {
+						text-align: center;
+					}
+
+</style>
+
+
+
+<div  class="row">
+				<h2>Search Phone Number</h2>
+	<div class="col-md-offset-2 col-md-3">
+		<label>Search Phone Number</label>
+	</div>
+
+	<div class="col-md-4">
+				<input type="number" class="form-control" ng-model="data.phoneNumber"/>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-offset-2">
+		<button class="btn btn-primary"   ng-click="getData()">Search  </button>
+	</div>
+</div>
+
+<table class="table table-responsive">
+	<thead>
+		<tr>
+			<th>Created At</th>
+			<th>Appointment Start Time</th>
+			<th>Services</th>
+			<th>Payable Amount</th>
+			<th>Start Appointment</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="temp in searchedData">
+			<td>{{temp.createdAt|date:"MM/dd/yyyy 'at' h:mma"}}</td>
+			<td>{{temp.appointmentStartTime| date:'middle'}}</td>
+			<td  ><span ng-repeat="m in temp.services track by $index"><span>{{m}}</span><span ng-if="temp.services.length>$index+1"  >,</span></span></td>
+			<td>{{temp.payableAmount}}</td>
+			<td><button class="btn btn-primary" ng-click="startAppointment(temp.apptId)">Start Appointment</button></td>
+		</tr>
+	</tbody>
+
+</table>
+

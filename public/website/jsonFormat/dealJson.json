@@ -1,0 +1,1408 @@
+[
+  {
+    "dealId":"584a7b1a92258b19142c27bd",
+    "name":"Rebonding/Straightning /Smoothning",
+    "description":"Rebonding/Straightning /Smoothning",
+    "menuPrice":8000,
+    "dealPrice":4000,
+    "tax":15,
+    "dealPercentage":50,
+    "weekDay":1,
+    "dealType":{
+      "price":4000,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"chooseOne"
+    },
+    "services":[
+      {
+        "serviceCode":89,
+        "name":"Pro Keratin Shine Bond",
+        "_id":"584a7b1a92258b19142c27c0"
+      },
+      {
+        "serviceCode":90,
+        "name":"Pro Keratin Shine Straight",
+        "_id":"584a7b1a92258b19142c27bf"
+      },
+      {
+        "serviceCode":91,
+        "name":"Kera Smooth",
+        "_id":"584a7b1a92258b19142c27be"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c27c3",
+    "name":"Global Color",
+    "description":"Global Color",
+    "menuPrice":5000,
+    "dealPrice":2000,
+    "tax":15,
+    "dealPercentage":60,
+    "weekDay":1,
+    "dealType":{
+      "price":2000,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"chooseOne"
+    },
+    "services":[
+      {
+        "serviceCode":96,
+        "name":"Global Color Inoa",
+        "_id":"584a7b1a92258b19142c27c5"
+      },
+      {
+        "serviceCode":97,
+        "name":"Global Color Majirel",
+        "_id":"584a7b1a92258b19142c27c4"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c27c1",
+    "name":"Keratin",
+    "description":"Keratin",
+    "menuPrice":7000,
+    "dealPrice":3500,
+    "tax":15,
+    "dealPercentage":50,
+    "weekDay":1,
+    "dealType":{
+      "price":3500,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"dealPrice"
+    },
+    "services":[
+      {
+        "serviceCode":92,
+        "name":"G Keratin",
+        "_id":"584a7b1a92258b19142c27c2"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c27c8",
+    "name":"Creative Color",
+    "description":"Ombre/Balayage /Sombre / Splash Light /Sunset Hightlights",
+    "menuPrice":6400,
+    "dealPrice":3500,
+    "tax":15,
+    "dealPercentage":45,
+    "weekDay":1,
+    "dealType":{
+      "price":3500,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"dealPrice"
+    },
+    "services":[
+      {
+        "serviceCode":100,
+        "name":"Creative Color",
+        "_id":"584a7b1a92258b19142c27c9"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c27c6",
+    "name":"Highlights",
+    "description":"Global Highlights",
+    "menuPrice":5500,
+    "dealPrice":2500,
+    "tax":15,
+    "dealPercentage":55,
+    "weekDay":1,
+    "dealType":{
+      "price":2500,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"dealPrice"
+    },
+    "services":[
+      {
+        "serviceCode":98,
+        "name":"HighlightsFull Head",
+        "_id":"584a7b1a92258b19142c27c7"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c27ca",
+    "name":"Color Change",
+    "description":"Color Change",
+    "menuPrice":6000,
+    "dealPrice":3000,
+    "tax":15,
+    "dealPercentage":50,
+    "weekDay":1,
+    "dealType":{
+      "price":3000,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"chooseOne"
+    },
+    "services":[
+      {
+        "serviceCode":101,
+        "name":"Color Change Inoa",
+        "_id":"584a7b1a92258b19142c27cc"
+      },
+      {
+        "serviceCode":102,
+        "name":"Color Change Majirel",
+        "_id":"584a7b1a92258b19142c27cb"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c27e8",
+    "name":"Hair Color Touch Up",
+    "description":"Root Touch Up Inoa (Upto 1 Inch / 1 Month )",
+    "menuPrice":3000,
+    "dealPrice":2000,
+    "tax":15,
+    "dealPercentage":33,
+    "weekDay":1,
+    "dealType":{
+      "price":2000,
+      "loyalityPoints":null,
+      "frequencyFree":1,
+      "frequencyRequired":2,
+      "name":"frequency"
+    },
+    "services":[
+      {
+        "serviceCode":103,
+        "name":"Root Touch Up Inoa",
+        "_id":"584a7b1a92258b19142c27e9"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c27ea",
+    "name":"Hair Color Touch Up",
+    "description":"Root Touch Up Inoa (Above 1 Inch / 1 Month )",
+    "menuPrice":3600,
+    "dealPrice":2400,
+    "tax":15,
+    "dealPercentage":33,
+    "weekDay":1,
+    "dealType":{
+      "price":2400,
+      "loyalityPoints":null,
+      "frequencyFree":1,
+      "frequencyRequired":2,
+      "name":"frequency"
+    },
+    "services":[
+      {
+        "serviceCode":104,
+        "name":"Root Touch Up Majirel",
+        "_id":"584a7b1a92258b19142c27eb"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c280c",
+    "name":"Deluxe Body Wax",
+    "description":"Wax Full Body",
+    "menuPrice":2800,
+    "dealPrice":1400,
+    "tax":15,
+    "dealPercentage":50,
+    "weekDay":1,
+    "dealType":{
+      "price":1400,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"dealPrice"
+    },
+    "services":[
+      {
+        "serviceCode":280,
+        "name":"",
+        "_id":"584a7b1a92258b19142c280d"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c27cd",
+    "name":"Loreal Spa",
+    "description":"All Luxury Hair Spa",
+    "menuPrice":1900,
+    "dealPrice":800,
+    "tax":15,
+    "dealPercentage":58,
+    "weekDay":1,
+    "dealType":{
+      "price":800,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"chooseOne"
+    },
+    "services":[
+      {
+        "serviceCode":24,
+        "name":"Cristalceutic Color Lock",
+        "_id":"584a7b1a92258b19142c27e7"
+      },
+      {
+        "serviceCode":49,
+        "name":"Hair Botox ProcedureFibreceutics",
+        "_id":"584a7b1a92258b19142c27e6"
+      },
+      {
+        "serviceCode":50,
+        "name":"Hair Spa Treatment",
+        "_id":"584a7b1a92258b19142c27e5"
+      },
+      {
+        "serviceCode":59,
+        "name":"Lipidium Power Reconstruction",
+        "_id":"584a7b1a92258b19142c27e4"
+      },
+      {
+        "serviceCode":60,
+        "name":"Lipidium Primer Reconstruction",
+        "_id":"584a7b1a92258b19142c27e3"
+      },
+      {
+        "serviceCode":61,
+        "name":"Lipidium Vapo Reconstruction",
+        "_id":"584a7b1a92258b19142c27e2"
+      },
+      {
+        "serviceCode":62,
+        "name":"Dia Richesse Hair Shiner",
+        "_id":"584a7b1a92258b19142c27e1"
+      },
+      {
+        "serviceCode":63,
+        "name":"Global Keratin Restore",
+        "_id":"584a7b1a92258b19142c27e0"
+      },
+      {
+        "serviceCode":64,
+        "name":"Liss Unlimited Smoothing Treatment",
+        "_id":"584a7b1a92258b19142c27df"
+      },
+      {
+        "serviceCode":65,
+        "name":"Power Dose Color Lock",
+        "_id":"584a7b1a92258b19142c27de"
+      },
+      {
+        "serviceCode":199,
+        "name":"Cristalceutic Color Lock",
+        "_id":"584a7b1a92258b19142c27dd"
+      },
+      {
+        "serviceCode":230,
+        "name":"Hair Botox ProcedureFibreceutics",
+        "_id":"584a7b1a92258b19142c27dc"
+      },
+      {
+        "serviceCode":231,
+        "name":"Hair Spa With New Detox Scalp Treatment",
+        "_id":"584a7b1a92258b19142c27db"
+      },
+      {
+        "serviceCode":232,
+        "name":"Hair Spa With New Detox Scalp Treatment",
+        "_id":"584a7b1a92258b19142c27da"
+      },
+      {
+        "serviceCode":233,
+        "name":"Hair Spa Treatment",
+        "_id":"584a7b1a92258b19142c27d9"
+      },
+      {
+        "serviceCode":234,
+        "name":"Lipidium Power Reconstruction",
+        "_id":"584a7b1a92258b19142c27d8"
+      },
+      {
+        "serviceCode":235,
+        "name":"Lipidium Primer Reconstruction",
+        "_id":"584a7b1a92258b19142c27d7"
+      },
+      {
+        "serviceCode":236,
+        "name":"Lipidium Vapo Reconstruction",
+        "_id":"584a7b1a92258b19142c27d6"
+      },
+      {
+        "serviceCode":237,
+        "name":"Dia Richesse Hair Shiner",
+        "_id":"584a7b1a92258b19142c27d5"
+      },
+      {
+        "serviceCode":238,
+        "name":"Global Keratin Restore",
+        "_id":"584a7b1a92258b19142c27d4"
+      },
+      {
+        "serviceCode":239,
+        "name":"Liss Unlimited Smoothing Treatment",
+        "_id":"584a7b1a92258b19142c27d3"
+      },
+      {
+        "serviceCode":258,
+        "name":"Power Dose Color Lock",
+        "_id":"584a7b1a92258b19142c27d2"
+      },
+      {
+        "serviceCode":358,
+        "name":"Mythic Rituals Scalp",
+        "_id":"584a7b1a92258b19142c27d1"
+      },
+      {
+        "serviceCode":359,
+        "name":"Mythic Rituals Repair Or Rediance",
+        "_id":"584a7b1a92258b19142c27d0"
+      },
+      {
+        "serviceCode":360,
+        "name":"Mythic Rituals Scalp",
+        "_id":"584a7b1a92258b19142c27cf"
+      },
+      {
+        "serviceCode":361,
+        "name":"Mythic Rituals Repair Or Rediance",
+        "_id":"584a7b1a92258b19142c27ce"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c27ec",
+    "name":"Hair Color Touch Up",
+    "description":"Root Touch Up Majirel (Upto 1 Inch / 1 Month )",
+    "menuPrice":2700,
+    "dealPrice":1800,
+    "tax":15,
+    "dealPercentage":33,
+    "weekDay":1,
+    "dealType":{
+      "price":1800,
+      "loyalityPoints":null,
+      "frequencyFree":1,
+      "frequencyRequired":2,
+      "name":"frequency"
+    },
+    "services":[
+      {
+        "serviceCode":105,
+        "name":"Root Touch Up Inoa",
+        "_id":"584a7b1a92258b19142c27ed"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c27ee",
+    "name":"Hair Color Touch Up",
+    "description":"Root Touch Up Majirel (Above  1 Inch / 1 Month )",
+    "menuPrice":3300,
+    "dealPrice":2200,
+    "tax":15,
+    "dealPercentage":33,
+    "weekDay":1,
+    "dealType":{
+      "price":2200,
+      "loyalityPoints":null,
+      "frequencyFree":1,
+      "frequencyRequired":2,
+      "name":"frequency"
+    },
+    "services":[
+      {
+        "serviceCode":106,
+        "name":"Root Touch Up Majirel",
+        "_id":"584a7b1a92258b19142c27ef"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c27f0",
+    "name":"Premium Facials",
+    "description":"Forest Essential - Sandalwood & Saffron,Narangi Kesar / O3+ White & Brightening , Sensitive Skin,Oily & Acne Skin,Anti Aging",
+    "menuPrice":3000,
+    "dealPrice":1500,
+    "tax":15,
+    "dealPercentage":50,
+    "weekDay":1,
+    "dealType":{
+      "price":1500,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"chooseOne"
+    },
+    "services":[
+      {
+        "serviceCode":38,
+        "name":"Forest Essential Narangi Nagkesar",
+        "_id":"584a7b1a92258b19142c27fc"
+      },
+      {
+        "serviceCode":40,
+        "name":"Forest Essential Sandalwood & Saffron",
+        "_id":"584a7b1a92258b19142c27fb"
+      },
+      {
+        "serviceCode":71,
+        "name":"O3+ Anti Aging",
+        "_id":"584a7b1a92258b19142c27fa"
+      },
+      {
+        "serviceCode":73,
+        "name":"O3+ Oily & Acne Skin",
+        "_id":"584a7b1a92258b19142c27f9"
+      },
+      {
+        "serviceCode":74,
+        "name":"O3+ Sensitive Skin",
+        "_id":"584a7b1a92258b19142c27f8"
+      },
+      {
+        "serviceCode":75,
+        "name":"O3+ Whitening & Brightening",
+        "_id":"584a7b1a92258b19142c27f7"
+      },
+      {
+        "serviceCode":218,
+        "name":"Forest Essential Narangi Nagkesar",
+        "_id":"584a7b1a92258b19142c27f6"
+      },
+      {
+        "serviceCode":220,
+        "name":"Forest Essential Sandalwood & Saffron",
+        "_id":"584a7b1a92258b19142c27f5"
+      },
+      {
+        "serviceCode":243,
+        "name":"O3+ Anti Aging",
+        "_id":"584a7b1a92258b19142c27f4"
+      },
+      {
+        "serviceCode":247,
+        "name":"O3+ Oily & Acne Skin",
+        "_id":"584a7b1a92258b19142c27f3"
+      },
+      {
+        "serviceCode":248,
+        "name":"O3+ Sensitive Skin",
+        "_id":"584a7b1a92258b19142c27f2"
+      },
+      {
+        "serviceCode":249,
+        "name":"O3+ Whitening & Brightening",
+        "_id":"584a7b1a92258b19142c27f1"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2808",
+    "name":"Deluxe Waxing",
+    "description":"Wax Full Arms+Full Underarms+ Full Legs",
+    "menuPrice":1500,
+    "dealPrice":900,
+    "tax":15,
+    "dealPercentage":40,
+    "weekDay":1,
+    "dealType":{
+      "price":900,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"dealPrice"
+    },
+    "services":[
+      {
+        "serviceCode":293,
+        "name":"Wax Full Arms+Full Underarms+ Full Legs",
+        "_id":"584a7b1a92258b19142c2809"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c27fd",
+    "name":"Classic Facial",
+    "description":"Forest Essential - Yoghurt & Aloe Vera ,Organic Fruit Clean Up / Eminence Organic Clean Up /O3+ Clean Up",
+    "menuPrice":1800,
+    "dealPrice":1000,
+    "tax":15,
+    "dealPercentage":44,
+    "weekDay":1,
+    "dealType":{
+      "price":1000,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"chooseOne"
+    },
+    "services":[
+      {
+        "serviceCode":25,
+        "name":"Liss Unlimited Smoothing Treatment",
+        "_id":"584a7b1a92258b19142c2807"
+      },
+      {
+        "serviceCode":39,
+        "name":"Forest Essential Organic Fruit Clean Up",
+        "_id":"584a7b1a92258b19142c2806"
+      },
+      {
+        "serviceCode":48,
+        "name":"Forest Essential Yoghurt And Aloe Vera",
+        "_id":"584a7b1a92258b19142c2805"
+      },
+      {
+        "serviceCode":72,
+        "name":"O3+ Clean Up",
+        "_id":"584a7b1a92258b19142c2804"
+      },
+      {
+        "serviceCode":115,
+        "name":"Remy Laure Whitening & Glow Clean Up",
+        "_id":"584a7b1a92258b19142c2803"
+      },
+      {
+        "serviceCode":203,
+        "name":"Eminence Organic Clean Up",
+        "_id":"584a7b1a92258b19142c2802"
+      },
+      {
+        "serviceCode":219,
+        "name":"Forest Essential Organic Fruit Clean Up",
+        "_id":"584a7b1a92258b19142c2801"
+      },
+      {
+        "serviceCode":228,
+        "name":"Forest Essential Yoghurt And Aloe Vera",
+        "_id":"584a7b1a92258b19142c2800"
+      },
+      {
+        "serviceCode":244,
+        "name":"O3+ Clean Up",
+        "_id":"584a7b1a92258b19142c27ff"
+      },
+      {
+        "serviceCode":261,
+        "name":"Remy Laure Whitening & Glow Clean Up",
+        "_id":"584a7b1a92258b19142c27fe"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c280a",
+    "name":"Classic Waxing",
+    "description":"Wax Full Arms+Full Underarms+ Full Legs",
+    "menuPrice":840,
+    "dealPrice":500,
+    "tax":15,
+    "dealPercentage":40,
+    "weekDay":1,
+    "dealType":{
+      "price":500,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"dealPrice"
+    },
+    "services":[
+      {
+        "serviceCode":294,
+        "name":"Wax Full Arms+Full Underarms+Full Legs",
+        "_id":"584a7b1a92258b19142c280b"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c280e",
+    "name":"Premium Padicure & Manicure",
+    "description":"Forest Essential Marigold Padicure & Manicure",
+    "menuPrice":1150,
+    "dealPrice":800,
+    "tax":15,
+    "dealPercentage":30,
+    "weekDay":1,
+    "dealType":{
+      "price":800,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"chooseOne"
+    },
+    "services":[
+      {
+        "serviceCode":69,
+        "name":"Manicure Forest Essential Marigold",
+        "_id":"584a7b1a92258b19142c2812"
+      },
+      {
+        "serviceCode":84,
+        "name":"Pedicure Forest Essential Marigold   45 Min",
+        "_id":"584a7b1a92258b19142c2811"
+      },
+      {
+        "serviceCode":241,
+        "name":"Manicure Forest Essential Marigold   45 Min",
+        "_id":"584a7b1a92258b19142c2810"
+      },
+      {
+        "serviceCode":257,
+        "name":"Pedicure Forest Essential Marigold   45 Min",
+        "_id":"584a7b1a92258b19142c280f"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2813",
+    "name":"Luxury Padicure & Manicure",
+    "description":"Forest Essential Frangipani Padicure & Manicure",
+    "menuPrice":1850,
+    "dealPrice":1200,
+    "tax":15,
+    "dealPercentage":35,
+    "weekDay":1,
+    "dealType":{
+      "price":1200,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"chooseOne"
+    },
+    "services":[
+      {
+        "serviceCode":68,
+        "name":"Manicure Forest Essential Frangi Pani",
+        "_id":"584a7b1a92258b19142c2817"
+      },
+      {
+        "serviceCode":83,
+        "name":"Pedicure Forest Essential Frangi Pani   60 Min",
+        "_id":"584a7b1a92258b19142c2816"
+      },
+      {
+        "serviceCode":240,
+        "name":"Manicure Forest Essential Frangi Pani   60 Min",
+        "_id":"584a7b1a92258b19142c2815"
+      },
+      {
+        "serviceCode":256,
+        "name":"Pedicure Forest Essential Frangi Pani   60 Min",
+        "_id":"584a7b1a92258b19142c2814"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2818",
+    "name":"Forest Essential Body Spa (Weekdays)",
+    "description":"Forest Essential Body Massage-Signature,Aroma,Deep Tissue",
+    "menuPrice":2850,
+    "dealPrice":1000,
+    "tax":15,
+    "dealPercentage":65,
+    "weekDay":2,
+    "dealType":{
+      "price":1000,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"chooseOne"
+    },
+    "services":[
+      {
+        "serviceCode":34,
+        "name":"Forest Essential Swedish Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c2822"
+      },
+      {
+        "serviceCode":37,
+        "name":"Forest Essential Swedish Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c2821"
+      },
+      {
+        "serviceCode":46,
+        "name":"Forest Essential Signature Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c2820"
+      },
+      {
+        "serviceCode":47,
+        "name":"Forest Essential Signature Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c281f"
+      },
+      {
+        "serviceCode":210,
+        "name":"Forest Essential Deep Tissue Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c281e"
+      },
+      {
+        "serviceCode":211,
+        "name":"Forest Essential Deep Tissue Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c281d"
+      },
+      {
+        "serviceCode":216,
+        "name":"Forest Essential Balinese Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c281c"
+      },
+      {
+        "serviceCode":217,
+        "name":"Forest Essential Balinese Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c281b"
+      },
+      {
+        "serviceCode":225,
+        "name":"Forest Essential Aroma Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c281a"
+      },
+      {
+        "serviceCode":227,
+        "name":"Forest Essential Aroma Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c2819"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2823",
+    "name":"Forest Essential Body Sp (Weekends)",
+    "description":"Forest Essential Body Massage-Signature,Aroma,Deep Tissue",
+    "menuPrice":3000,
+    "dealPrice":1200,
+    "tax":15,
+    "dealPercentage":60,
+    "weekDay":3,
+    "dealType":{
+      "price":1200,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"chooseOne"
+    },
+    "services":[
+      {
+        "serviceCode":34,
+        "name":"Forest Essential Swedish Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c282d"
+      },
+      {
+        "serviceCode":37,
+        "name":"Forest Essential Swedish Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c282c"
+      },
+      {
+        "serviceCode":46,
+        "name":"Forest Essential Signature Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c282b"
+      },
+      {
+        "serviceCode":47,
+        "name":"Forest Essential Signature Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c282a"
+      },
+      {
+        "serviceCode":210,
+        "name":"Forest Essential Deep Tissue Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c2829"
+      },
+      {
+        "serviceCode":211,
+        "name":"Forest Essential Deep Tissue Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c2828"
+      },
+      {
+        "serviceCode":216,
+        "name":"Forest Essential Balinese Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c2827"
+      },
+      {
+        "serviceCode":217,
+        "name":"Forest Essential Balinese Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c2826"
+      },
+      {
+        "serviceCode":225,
+        "name":"Forest Essential Aroma Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c2825"
+      },
+      {
+        "serviceCode":227,
+        "name":"Forest Essential Aroma Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c2824"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c282e",
+    "name":"Srubs & Wraps",
+    "description":"Srubs & Wraps",
+    "menuPrice":2500,
+    "dealPrice":1000,
+    "tax":15,
+    "dealPercentage":60,
+    "weekDay":1,
+    "dealType":{
+      "price":1000,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"chooseOne"
+    },
+    "services":[
+      {
+        "serviceCode":35,
+        "name":"Forest Essential Himalayan Clay Wrap (45 Mins)",
+        "_id":"584a7b1a92258b19142c2836"
+      },
+      {
+        "serviceCode":36,
+        "name":"Forest Essential Kokum Butter & Honey Wrap (45 Mins)",
+        "_id":"584a7b1a92258b19142c2835"
+      },
+      {
+        "serviceCode":42,
+        "name":"Forest Essential Sea Salt Rose Scrub (45 Mins)",
+        "_id":"584a7b1a92258b19142c2834"
+      },
+      {
+        "serviceCode":45,
+        "name":"Forest Essential Sugarcane Tarmarind Scrub (45 Mins)",
+        "_id":"584a7b1a92258b19142c2833"
+      },
+      {
+        "serviceCode":214,
+        "name":"Forest Essential Himalayan Clay Wrap (45 Mins)",
+        "_id":"584a7b1a92258b19142c2832"
+      },
+      {
+        "serviceCode":215,
+        "name":"Forest Essential Kokum Butter & Honey Wrap (45 Mins)",
+        "_id":"584a7b1a92258b19142c2831"
+      },
+      {
+        "serviceCode":222,
+        "name":"Forest Essential Sea Salt Rose Scrub (45 Mins)",
+        "_id":"584a7b1a92258b19142c2830"
+      },
+      {
+        "serviceCode":236,
+        "name":"Lipidium Vapo Reconstruction",
+        "_id":"584a7b1a92258b19142c282f"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2837",
+    "name":"Express Spa",
+    "description":"Forest Essential Foot Reflexology Massage (60 Mins)",
+    "menuPrice":1500,
+    "dealPrice":750,
+    "tax":15,
+    "dealPercentage":50,
+    "weekDay":1,
+    "dealType":{
+      "price":50,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"chooseOnePer"
+    },
+    "services":[
+      {
+        "serviceCode":187,
+        "name":"Forest Essential Foot Reflexology Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c283f"
+      },
+      {
+        "serviceCode":188,
+        "name":"Forest Essential Foot Reflexology Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c283e"
+      },
+      {
+        "serviceCode":206,
+        "name":"Forest Essential Foot Reflexology Massage (30 Mins)",
+        "_id":"584a7b1a92258b19142c283d"
+      },
+      {
+        "serviceCode":207,
+        "name":"Forest Essential Foot Reflexology Massage (30 Mins)",
+        "_id":"584a7b1a92258b19142c283c"
+      },
+      {
+        "serviceCode":29,
+        "name":"Head, Neck & Shoulder Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c283b"
+      },
+      {
+        "serviceCode":30,
+        "name":"Head, Neck & Shoulder Massage (30 Mins)",
+        "_id":"584a7b1a92258b19142c283a"
+      },
+      {
+        "serviceCode":31,
+        "name":"Head, Neck & Shoulder Massage (30 Mins)",
+        "_id":"584a7b1a92258b19142c2839"
+      },
+      {
+        "serviceCode":362,
+        "name":"Head, Neck & Shoulder Massage (60 Mins)",
+        "_id":"584a7b1a92258b19142c2838"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2840",
+    "name":"Light Makeup",
+    "description":"Face Makeup, Dress Draping, Nail Paint, Open Hair Styling",
+    "menuPrice":3500,
+    "dealPrice":1999,
+    "tax":15,
+    "dealPercentage":43,
+    "weekDay":1,
+    "dealType":{
+      "price":1999,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"dealPrice"
+    },
+    "services":[
+      {
+        "serviceCode":10,
+        "name":"Light Makeup",
+        "_id":"584a7b1a92258b19142c2841"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2842",
+    "name":"Ocassion Makeup",
+    "description":"Face Makeup, Dress Draping, Nail Paint, Hair Styling(Bun",
+    "menuPrice":7000,
+    "dealPrice":2999,
+    "tax":15,
+    "dealPercentage":57,
+    "weekDay":1,
+    "dealType":{
+      "price":2999,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"dealPrice"
+    },
+    "services":[
+      {
+        "serviceCode":148,
+        "name":"Occasion Makeup",
+        "_id":"584a7b1a92258b19142c2843"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2844",
+    "name":"Bridal Makeup",
+    "description":"Face Makeup, Dress Draping, Nail Paint, Hair Styling",
+    "menuPrice":10000,
+    "dealPrice":5999,
+    "tax":15,
+    "dealPercentage":40,
+    "weekDay":1,
+    "dealType":{
+      "price":5999,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"dealPrice"
+    },
+    "services":[
+      {
+        "serviceCode":1,
+        "name":"Bridal Makeup",
+        "_id":"584a7b1a92258b19142c2845"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2846",
+    "name":"Global Color + Keratin",
+    "description":"Global Color(Majirel) + Keratin",
+    "menuPrice":11300,
+    "dealPrice":5000,
+    "tax":15,
+    "dealPercentage":56,
+    "weekDay":1,
+    "dealType":{
+      "price":5000,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"combo"
+    },
+    "services":[
+      {
+        "serviceCode":96,
+        "name":"Global Color Inoa",
+        "_id":"584a7b1a92258b19142c2848"
+      },
+      {
+        "serviceCode":92,
+        "name":"G Keratin",
+        "_id":"584a7b1a92258b19142c2847"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2849",
+    "name":"Global Color + Keratin",
+    "description":"Global Color(Inoa) + Keratin",
+    "menuPrice":12400,
+    "dealPrice":5000,
+    "tax":15,
+    "dealPercentage":60,
+    "weekDay":1,
+    "dealType":{
+      "price":5000,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"combo"
+    },
+    "services":[
+      {
+        "serviceCode":97,
+        "name":"Global Color Majirel",
+        "_id":"584a7b1a92258b19142c284b"
+      },
+      {
+        "serviceCode":92,
+        "name":"G Keratin",
+        "_id":"584a7b1a92258b19142c284a"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c284c",
+    "name":"Global Color + Highlights",
+    "description":"Global Color + Full Head Highlights (Inoa)",
+    "menuPrice":10000,
+    "dealPrice":4000,
+    "tax":15,
+    "dealPercentage":60,
+    "weekDay":1,
+    "dealType":{
+      "price":4000,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"combo"
+    },
+    "services":[
+      {
+        "serviceCode":96,
+        "name":"Global Color Inoa",
+        "_id":"584a7b1a92258b19142c284e"
+      },
+      {
+        "serviceCode":98,
+        "name":"HighlightsFull Head",
+        "_id":"584a7b1a92258b19142c284d"
+      }
+    ],
+    "couponCode":null,
+    "$$hashKey":"object:1342"
+  },
+  {
+    "dealId":"584a7b1a92258b19142c284f",
+    "name":"Global Color + Highlights",
+    "description":"Global Color + Highlights (Majirel)",
+    "menuPrice":10000,
+    "dealPrice":4000,
+    "tax":15,
+    "dealPercentage":60,
+    "weekDay":1,
+    "dealType":{
+      "price":4000,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"combo"
+    },
+    "services":[
+      {
+        "serviceCode":97,
+        "name":"Global Color Majirel",
+        "_id":"584a7b1a92258b19142c2851"
+      },
+      {
+        "serviceCode":98,
+        "name":"HighlightsFull Head",
+        "_id":"584a7b1a92258b19142c2850"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2852",
+    "name":"Highlights + Keratin",
+    "description":"Global Highlights + Keratin",
+    "menuPrice":12300,
+    "dealPrice":5500,
+    "tax":15,
+    "dealPercentage":55,
+    "weekDay":1,
+    "dealType":{
+      "price":5500,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"combo"
+    },
+    "services":[
+      {
+        "serviceCode":92,
+        "name":"G Keratin",
+        "_id":"584a7b1a92258b19142c2854"
+      },
+      {
+        "serviceCode":98,
+        "name":"HighlightsFull Head",
+        "_id":"584a7b1a92258b19142c2853"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2855",
+    "name":"Root Touch Up & Color Lock",
+    "description":"Root Touch Up Inoa& Color Lock (M)",
+    "menuPrice":2000,
+    "dealPrice":1400,
+    "tax":15,
+    "dealPercentage":30,
+    "weekDay":1,
+    "dealType":{
+      "price":1400,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"combo"
+    },
+    "services":[
+      {
+        "serviceCode":103,
+        "name":"Root Touch Up Inoa",
+        "_id":"584a7b1a92258b19142c2857"
+      },
+      {
+        "serviceCode":258,
+        "name":"Power Dose Color Lock",
+        "_id":"584a7b1a92258b19142c2856"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2858",
+    "name":"Root Touch Up & Color Lock",
+    "description":"Root Touch Up Majirel + Power Dose Color Lock (M)",
+    "menuPrice":1850,
+    "dealPrice":1400,
+    "tax":15,
+    "dealPercentage":24,
+    "weekDay":1,
+    "dealType":{
+      "price":1400,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"combo"
+    },
+    "services":[
+      {
+        "serviceCode":104,
+        "name":"Root Touch Up Majirel",
+        "_id":"584a7b1a92258b19142c285a"
+      },
+      {
+        "serviceCode":258,
+        "name":"Power Dose Color Lock",
+        "_id":"584a7b1a92258b19142c2859"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c285b",
+    "name":"Root Touch Up & Color Lock",
+    "description":"Root Touch Up Inoa+Power Dose Color Lock (F)",
+    "menuPrice":2000,
+    "dealPrice":1400,
+    "tax":15,
+    "dealPercentage":30,
+    "weekDay":1,
+    "dealType":{
+      "price":1400,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"combo"
+    },
+    "services":[
+      {
+        "serviceCode":105,
+        "name":"Root Touch Up Inoa",
+        "_id":"584a7b1a92258b19142c285d"
+      },
+      {
+        "serviceCode":258,
+        "name":"Power Dose Color Lock",
+        "_id":"584a7b1a92258b19142c285c"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c285e",
+    "name":"Root Touch Up & Color Lock",
+    "description":"Root Touch Up Majirel +  Power Dose Color Lock (F)",
+    "menuPrice":1870,
+    "dealPrice":1400,
+    "tax":15,
+    "dealPercentage":25,
+    "weekDay":1,
+    "dealType":{
+      "price":1400,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"combo"
+    },
+    "services":[
+      {
+        "serviceCode":106,
+        "name":"Root Touch Up Majirel",
+        "_id":"584a7b1a92258b19142c2860"
+      },
+      {
+        "serviceCode":258,
+        "name":"Power Dose Color Lock",
+        "_id":"584a7b1a92258b19142c285f"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2861",
+    "name":"Cut & Blow Dry",
+    "description":"Cut & Blow Dry",
+    "menuPrice":670,
+    "dealPrice":300,
+    "tax":15,
+    "dealPercentage":55,
+    "weekDay":1,
+    "dealType":{
+      "price":300,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"dealPrice"
+    },
+    "services":[
+      {
+        "serviceCode":202,
+        "name":"Cut & Blow Dry",
+        "_id":"584a7b1a92258b19142c2862"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2863",
+    "name":"Cut For Him",
+    "description":"Cut For Him",
+    "menuPrice":350,
+    "dealPrice":150,
+    "tax":15,
+    "dealPercentage":57,
+    "weekDay":1,
+    "dealType":{
+      "price":150,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"dealPrice"
+    },
+    "services":[
+      {
+        "serviceCode":52,
+        "name":"Cut For Him",
+        "_id":"584a7b1a92258b19142c2864"
+      }
+    ],
+    "couponCode":null
+  },
+  {
+    "dealId":"584a7b1a92258b19142c2865",
+    "name":"Cut For Her",
+    "description":"Cut For Her",
+    "menuPrice":670,
+    "dealPrice":300,
+    "tax":15,
+    "dealPercentage":55,
+    "weekDay":1,
+    "dealType":{
+      "price":300,
+      "loyalityPoints":null,
+      "frequencyFree":null,
+      "frequencyRequired":null,
+      "name":"dealPrice"
+    },
+    "services":[
+      {
+        "serviceCode":198,
+        "name":"Blowdry",
+        "_id":"584a7b1a92258b19142c2866"
+      }
+    ],
+    "couponCode":null
+  }
+]

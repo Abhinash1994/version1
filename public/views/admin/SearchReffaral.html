@@ -1,0 +1,95 @@
+
+<div class="container">
+<div class="row">
+    <div class="col-md-12"><h3>Search Employee Referral </h3></div>
+
+</div>
+<!--<div class="row">-->
+    <!--<div class="col-md-10">-->
+        <!--<input class="form-control" type="text" name="name" placeholder="Search Employee">-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<div class="row">
+    <div class="col-md-2" style="padding-top: 2%;">Experience</div>
+    <div class="col-md-4"><input type="text" name="" class="form-control" ng-model="empReferralSearch.experience" ></div>
+     <div class="col-md-2" style="padding-top: 2%;">Location</div>
+    <div class="col-md-4"><input class="form-control"  type="text" name="" ng-model="empReferralSearch.location" vs-google-autocomplete="options"   vs-longitude="empReferralSearch.long"  vs-latitude="empReferralSearch.lat"> </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2" style="padding-top:1%;">Department</div>
+    <div class="col-md-4" style="padding-left: 23px;"><select ng-model="empReferralSearch.department" class="form-control" ><option value="Beautician">Beautician</option><option value="Makeup Artist">Makeup Artist</option><option value="Admin">Admin</option><option value="Pedicurist">Pedicurist</option>
+    <optgroup label="Hair Dresser">
+    <option value="Gents Hairdresser">Gents</option>
+    <option value="Ladies Hairdresser">Ladies</option>
+     <option value="Unisex Hairdresser">Unisex</option>
+  </optgroup></select></div>
+    <div class="col-md-2" style="padding-top:1%;">Gender</div>
+    <div class="col-md-4" style="padding-left: 23px;"><select class="form-control" class="form-control"  ng-model="empReferralSearch.gender"><option value="Male">Male</option><option value="Female">Female</option></select></div>
+     
+</div>
+
+<div class="row">
+    
+     <div class="col-md-2" style="padding-top: 2%;">Max Salary</div>
+    <div class="col-md-4"><input class="form-control"  type="text" name="" ng-model="empReferralSearch.salaryMax"></div>
+    <div class="col-md-2" style="padding-top: 2%;">Min Salary</div>
+    <div class="col-md-4"><input class="form-control"  type="text" name="" ng-model="empReferralSearch.salaryMin"></div>
+
+</div>
+
+<div class="row">
+       <div class="col-md-12"><button class="btn btn-primary" ng-click="search()">Search</button></div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-bordered" ng-show="table">
+                <thead>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Number</th>
+                    <th class="text-center">Location</th>
+                    <th class="text-center">Department</th>
+                    <th class="text-center">Experience</th>
+                    <th class="text-center">Gender</th>
+                    <th class="text-center">Max Salary</th>
+                    <th class="text-center">Min Salary</th>
+                </thead>
+                <tr ng-repeat="x in tableSearch">
+                     <td>
+                       {{x.referredContactName}}
+                    </td>
+                    <td>
+                        {{x.referredContactNumber}}
+                    </td>
+                    <td>
+                       {{x.address}}
+                    </td>
+                    <td>
+                        {{x.department}}
+                    </td>
+                    <td>
+                        {{x.experience}}
+                    </td>
+                    <td>
+                        {{x.gender}}
+                    </td>
+                    <td>
+                        {{x.salaryMax}}
+                    </td>
+                    <td>
+                        {{x.salaryMin}}
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+</div>

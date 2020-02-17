@@ -1,0 +1,83 @@
+<style type="text/css">
+	.row1{
+		margin:20px;
+	}
+	.header{
+            background-color: #fff;
+            width: 100%;
+            height: 70px;
+        }
+        select{
+        	width: 50% !important;
+        }
+</style>
+
+<div class="header"> 
+    <h1 style="text-align: center;padding-top: 10px;">Print MOU</h1> 
+</div>
+
+	<div  class="row"  style="padding-bottom:2%;">
+	   <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px;height: 40px;"> Salon Name:</div>
+	    <div class="col-md-8">
+	        <input type="text" ng-model="salonName">
+	    </div>
+	</div>
+
+	<div  class="row"  style="padding-bottom:2%;">
+	   <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px;height: 40px;"> Salon Address:</div>
+	    <div class="col-md-8">
+	        <input type="text" ng-model="salonAddress">
+	    </div>
+	</div>
+
+	<div  class="row"  style="padding-bottom:2%;">
+	   <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px;height: 40px;"> Salon Owner Name:</div>
+	    <div class="col-md-8">
+	        <input type="text" ng-model="ownerName">
+	    </div>
+	</div>
+
+	<div  class="row"  style="padding-bottom:2%;">
+	   <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px;height: 40px;"> Owner Number:</div>
+	    <div class="col-md-8">
+	        <input type="text" ng-model="ownerNumber" >
+	    </div>
+	</div>
+
+	<div  class="row"  style="padding-bottom:2%;">
+	   <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px;height: 40px;"> Owner Email:</div>
+	    <div class="col-md-8">
+	        <input type="text" ng-model="ownerEmail">
+	    </div>
+	</div>
+
+	<div  class="row"  style="padding-bottom:2%;">
+	   <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px;height: 40px;"> Effective Date:</div>
+	    <div class="col-md-8">
+	        <input type="date"  name="input" ng-model="dateSelected.value"
+       placeholder="yyyy-MM-dd" />
+	    </div>
+	</div>
+
+	<div  class="row"  style="padding-bottom:2%;">
+	   <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px;height: 40px;"> Payment Start Date:</div>
+	    <div class="col-md-8">
+	        <input type="date"  name="input" ng-model="paymentDate.value"
+       placeholder="yyyy-MM-dd" />
+	    </div>
+	</div>
+
+	<div  class="row"  style="padding-bottom:2%;">
+	   <div class="col-md-4" style="text-align: right;font-size: 17px;padding-top: 10px;height: 40px;"> Director Name:</div>
+	    <div class="col-md-8">
+	        <select class="form-control" ng-model="directorSelected">
+    			<option disabled selected value>-- select an option --</option>
+	    		<option>Vikas Johari</option>
+			    <option>Shailendra Nagvani</option>
+			</select>
+			<button  class="btn btn-md" ng-click="printToCart(x)" style="letter-spacing: 2px;">Print</button>
+	    </div>
+
+	</div>
+
+

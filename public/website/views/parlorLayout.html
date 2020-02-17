@@ -1,0 +1,50 @@
+<style>
+  .md-primary:hover{
+    background-color: #d2232a !important;
+
+  }
+</style>
+
+    
+
+
+
+
+
+<div  layout-align="center" style="padding-top:5em;">
+<md-content layout-padding layout-wrap flex-sm="100" flex="80" flex-xs="100" flex-offset-xs="0" flex-offset="20" style="padding-bottom:2%;padding:0px;">
+<div layout="row"  style="height:60px;" >
+ <!--  <div flex='30' style="padding-top: 4%"><label>Select Date</label></div> -->
+  <div flex="50" >
+   <mdp-date-picker mdp-placeholder="Date" ng-model="currentDate.date"></mdp-date-picker>  
+
+  </div>
+   <div flex="50">
+        <mdp-time-picker ng-model="currentDate.date"></mdp-time-picker>
+  </div>
+</div>
+<!-- <div layout="row"  style="height:60px;">
+  <div flex="30" style="padding-top:4%;"><label>Select Time</label></div>
+  <div flex="50">
+        <mdp-time-picker ng-model="currentDate.date"></mdp-time-picker>
+  </div>
+</div> -->
+<div layout="row" style="padding: 5%;">
+    <div flex-offset="40" flex="50">
+       <md-button class="md-raised md-primary"  ng-click="changeParlor()">Submit</md-button>
+    </div>
+ </div>
+ <div layout="row">
+    <div id="grid" style="width:700px;height:700px;text-align:center;">
+        <svg ng-init="initialScreenSize()" my-directive custom="checkScreenWidth()"  small="mobileScreen()" width={{svgWidth}} height="700" xmlns="http://www.w3.org/2000/svg" id="svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewbox={{veiwBoxValue}}>
+
+  </svg>
+  </div>
+  
+</div>
+</md-content>
+
+
+
+
+</div>

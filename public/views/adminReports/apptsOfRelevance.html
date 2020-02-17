@@ -1,0 +1,87 @@
+<div class="row"  style="margin:2em;">
+    <div class="col-md-12"><h3>Appts Relevance Report</h3></div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <select ng-options="salon._id as salon.name for salon in parlors" ng-model="selectedSalon" ng-change="callApi()"></select>
+  </div>
+  <div>
+    <div  class="col-md-3 col-lg-3 col-md-offset-2">
+            <h4>Select Date Range</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+            <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+                   ng-model="dateRangeSelected" ng-change="dateSelected()">
+        </div>
+        <button class="btn btn-primary" ng-click="callApi()"> Submit</button>
+    </div>
+<!-- <div class="row">
+    <div class="col-md-4  col-md-offset-4">
+      <p class="input-group">
+        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </p>
+    </div>
+    <button ng-click="buttonclick()">Submit</button>
+</div> -->
+</div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+
+          <table class="table bordered">
+
+              <tr>
+                  <th style="text-align:center">Salon Name</th>
+                  <th style="text-align:center">Revenue from App Clients(distance>100m)</th>
+                  <th style="text-align:center">Revenue from first time customers(distance>100m)</th>
+                  <th style="text-align:center">Total Revenue of Salon</th>
+                  <th style="text-align:center">Total Clients from App</th>
+                  <th style="text-align:center">First Time Clients from App</th>
+                  <th style="text-align:center">Days </th>
+              </tr>
+              <tr ng-repeat="salonData in data">
+                  <td>{{salonData.salonName}}</td>
+                  <td>{{salonData.distanceRevenue | number:0}}</td>
+                  <td>{{salonData.distanceRevenueFirstTime | number:0}}</td>
+                  <td>{{salonData.totalRevenue  | number:0}}</td>
+                  <td>{{salonData.countOfPeople}}</td>
+                  <td>{{salonData.countOfPeopleFirstTime}}</td>
+                  <td>{{salonData.days}}</td>
+              </tr>
+          </table>
+
+      </div>
+    </div>
+  </div>
+Appts Details
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+
+          <table class="table bordered">
+
+              <tr>
+                    <th style="text-align:center">S No.</th>
+                  <th style="text-align:center">Client Name</th>
+                  <th style="text-align:center">Phone Number</th>
+                  <th style="text-align:center">Revenue</th>
+                  <th style="text-align:center">Appointment Time </th>
+                  <th style="text-align:center">Previous Visits</th>
+              </tr>
+              <tr ng-repeat="appt in appointments  | orderBy : 'previosVisits'">
+                    <td>{{$index+1}}</td>
+                  <td>{{appt.clientName}}</td>
+                  <td>{{appt.phoneNumber}}</td>
+                  <td>{{appt.serviceRevenue | number:0}}</td>
+                  <td>{{appt.appointmentStartTime  | date:'longDate'}}</td>
+                  <td>{{appt.previosVisits}}</td>
+              </tr>
+          </table>
+
+      </div>
+    </div>
+  </div>

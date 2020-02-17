@@ -1,0 +1,151 @@
+<style media="screen">
+  th{
+    text-align:center;
+  }
+  .hiddenRow {
+    padding: 0 !important;
+}
+.nav-tabs {
+  border-bottom:none;
+}
+.form-control{
+  background: white !important;
+}
+.range_inputs{
+  display:none;
+}
+.dropdown-menu{
+  width: 486px;
+  min-width: 486px;
+
+}
+button {
+    background-color: #148F76;
+    color: #FFF;
+    margin: 5px;
+    border-color: transparent!important;
+    outline: none !important;
+}
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2 id="tables">RazorPay Non-Subscribers</h2>
+    </div>
+  </div>
+  <div class="col-md-12" justified="true" style="margin-left: 1em;">
+      <uib-tabset>
+        <uib-tab  ng-click='categoryButton("Not Contacted")' index="0" heading="Not Contacted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Contacted")' index="1" heading="Contacted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Converted")' index="2" heading="Converted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Reports")' index="2" heading="Reports"></uib-tab>
+        <uib-tab  ng-click='categoryButton("divasAndMachosCustomers")'  index="4" heading="Divas and Machos"></uib-tab>
+        <uib-tab  ng-click='categoryButton("afterThreeMonths")' index="4" heading="After Three Months"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Website Queries")' index="4" heading="Website Queries"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Subscription Queries")'  index="4" heading="Subscription Queries"></uib-tab>
+        <uib-tab  ng-click='categoryButton("razorPayNonSubscriber")' active="true" index="4" heading="RazorPay Non-Subscribers"></uib-tab>
+      </uib-tabset>
+  </div>
+  <div class="col-md-12">
+    <div class="col-md-2 col-md-offset-10" style="padding-right: 2em;text-align:right;">
+      <span style="font-size: 3em;">{{total_count}}</span>
+    </div>
+  </div>
+</div>
+<div class="col-md-12">
+    <div class="col-md-2 col-md-offset-2" style="margin-top: 1em;">
+      <label style="margin-left: 1em">Select Date Range:</label>
+    </div>
+    <div class="col-md-3" style="padding-right:0">
+      <input style="margin-left: 0;" class="form-control" date-range-picker max="limitDate" ng-initname="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+             ng-model="dateRangeSelected" ng-change="dateChange(dateRangeSelected)" readonly="readonly" required/>
+    </div>
+    <div class="col-md-2" style="padding-left: 0;">
+      <button id="apply-btnservice"  ng-click="dateSelected();initialiseIt.initialise()" >Submit</button>
+    </div>
+</div>
+  <div style="text-align:center;">
+    <dir-pagination-controls
+      max-size="8"
+      direction-links="true"
+      boundary-links="true"
+      on-page-change="getData(newPageNumber)"
+      run="initialiseIt">
+    </dir-pagination-controls>
+  </div>
+  <div class="col-md-8 col-md-offset-2" justified="true" style="margin-top: 2em;">
+    <table>
+      <thead>
+        <tr>
+          <th>Client</th>
+          <th>Phone Number</th>
+          <th>Last Appointment Date</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr dir-paginate="data in nonSubscribers | itemsPerPage:itemsPerPage" total-items="total_count">
+          <td>{{data.name}}</td>
+          <td>{{data.phoneNumber}}</td>
+          <td>{{data.appointmentDate | date:'dd/MM/yyyy'}}</td>
+          <td>
+            <button name="button" ng-click="user.checkIt=true;editButton($index)" data-toggle="modal" data-target="#myModal">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog" style="width:40%">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">{{editRow.clientName | uppercase}}</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-8">
+                <label>Name: </label>
+                <span>{{editRow.name}}</span>
+              </div>
+              <div class="col-md-4" style="text-align:left">
+                <label>Contact: </label>
+                <span>{{editRow.phoneNumber}}</span>
+              </div>
+            </div>
+            <form>
+              <div class="form-group">
+                <label>Remark:</label>
+                <textarea type="text" class="form-control" ng-model="remark"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Expected Date:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control"  ng-init="popup1.opened=false;" uib-datepicker-popup="{{format}}" ng-change="buttonclick()" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="popup1.opened=true"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Call Status:</label>
+                <select class="form-control" ng-model="selected" ng-model="selected">
+                <option  ng-repeat="(key,value) in callStatus" >{{value}}</option>
+              </select>
+              </div>
+
+              <button type="submit" class="btn btn-default" ng-click="saveButton();disabled=true" ng-disabled="disableSave">Save</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default closeButton" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+  </div>
+
+</div>

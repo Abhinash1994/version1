@@ -1,0 +1,451 @@
+
+<style>
+        .row
+    {
+        margin:0px;
+        margin-top:5px;
+    }
+    .labels{
+        margin-top:5px;
+    }
+    
+    
+</style>
+
+
+<div class="row">
+<uib-tabset active="active">
+        <uib-tab index="0" heading="Create Super Category"  ng-click="initialise()"   active="tabs[0].active">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-2">
+                         <label>Select Unit</label>
+                     
+                     </div>
+                    <div class="col-md-3">
+                            <select class="form-control" ng-model="createSuperCat.selectedUnit" ng-options="item.id as item.unitName for item in units"></select>
+                    </div>
+            </div>
+         
+            <div ng-if="createSuperCat.selectedUnit>='0'">
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="row">
+                                <div class="col-md-2">
+                                        <label>Super Category Name</label>
+                                </div>
+                                <div class="col-md-5">
+                                            <input type="text" class="form-control"  ng-model="superCategory.superCategoryName"/>
+                            
+                                </div>
+                        </div>
+                </div>
+            </div>
+                 <div class="row">
+                    <div class="col-md-offset-3 col-md-4">
+                                    <button class="btn btn-primary"  ng-click="addSuperCategory()">Submit</button>                
+                    
+                    </div>
+            </div>
+                </div>
+           
+            
+            
+        </uib-tab>
+         <uib-tab index="1" heading="Add SubCategory"   ng-click="initialise()"  active="tabs[1].active">
+              <div class="row">
+                  <div class="col-md-offset-2 col-md-2">
+                         <label>Select Unit</label>
+                     
+                     </div>
+                    <div class=" col-md-3">
+                            <select class="form-control" ng-model="getSuperCat.selectedUnit" ng-options="item.id as item.unitName for item in units"  ng-change="getSuperCategory()"></select>
+                    </div>
+            </div>
+            <div class="row">
+                 <div class="row">
+                     <div class="col-md-offset-2 col-md-2">
+                         <label>Select Super Category</label>
+                     
+                     </div>
+                    <div class="col-md-3">
+                            <select class="form-control" ng-model="getSuperCat.selectedSuperCategory" ng-options="item._id as item.superCategoryName for item in subCategory" ></select>
+                    </div>
+            </div>
+            </div>
+             <div ng-if="getSuperCat.selectedSuperCategory">
+             <div class="row">
+                <div class="col-md-offset-2 col-md-2">
+                        <label>Enter SubCategory Name</label>
+                </div>
+                 <div class="col-md-3">
+                    <input type="text" class="form-control" ng-model="subCategories.subcategoryName"  />
+                 </div>
+                 <div class="row">
+                    <div class="col-md-offset-3 col-md-4">
+                                    <button class="btn btn-primary"  ng-click="addSubCategory()">Submit</button>                
+                    
+                    </div>
+            </div>
+             
+             </div>
+                 </div>
+            
+            
+                         
+        </uib-tab>
+        <uib-tab index="2" heading="Add Chapter"   ng-click="initialise()"  active="tabs[2].active">
+              <div class="row">
+                  <div class="col-md-offset-2 col-md-2">
+                         <label>Select Unit</label>
+                     
+                     </div>
+                    <div class=" col-md-3">
+                            <select class="form-control" ng-model="getChapters.selectedUnits"  ng-options="item.id as item.unitName for item in units"  ng-change="getchapterSuperCategory()"   ></select>
+                    </div>
+            </div>
+            <div class="row">
+                 <div class="row">
+                     <div class="col-md-offset-2 col-md-2">
+                         <label>Select SuperCategory</label>
+                     
+                     </div>
+                    <div class="col-md-3">
+                            <select class="form-control" ng-model="getChapters.selectedSuperCategory" ng-options="item._id as item.superCategoryName for item in getChapters.superCategories" ng-change="getSubCategories()"></select>
+                    </div>
+            </div>
+            </div>
+            <div class="row">
+                 <div class="row">
+                     <div class="col-md-offset-2 col-md-2">
+                         <label>Select SubCategory</label>
+                     
+                     </div>
+                    <div class="col-md-3">
+                            <select class="form-control" ng-model="getChapters.selectedSubCategory" ng-options="item._id as item.subCategoryName for item in getChapters.getSubCategories"></select>
+                    </div>
+                        
+                
+                </div>
+                <div  ng-if="getChapters.selectedSubCategory">
+                <form ng-submit="addChapters()">  
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-2">
+                        <label>Chapter Name</label>
+                    </div>
+                    <div class="col-md-3">
+                            <input type="text"   class="form-control"    required ng-model="submitChapters.chapterName"/>
+                            
+                    </div>
+                
+                
+                </div>
+                <div class="row">
+                <div class="col-md-offset-2 col-md-2">
+                            <label>Duration </label>
+                </div>
+                    <div class="col-md-3">
+                    <input type="text"   class="form-control" required ng-model="submitChapters.duration"/>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-offset-2 col-md-2">
+                                    <label>Session Time(in mins)  </label>
+                        </div>
+                            <div class="col-md-3">
+                            <input type="text"   class="form-control" required ng-model="submitChapters.sessionTime"/>
+                            </div>
+                        </div>
+                <div class="row">
+                    <input type="checkbox"  ng-model="submitChapters.practical"/> Practical
+                
+                </div>
+                <div class="row">
+                    <input type="checkbox"  ng-model="submitChapters.theory"/> Theory
+                </div>
+                     <div class="row">
+                    <div class="col-md-offset-3 col-md-4">
+                                    <button class="btn btn-primary"  type="submit"  >Submit</button>                
+                     </div>
+            </div>
+                    </form>
+                </div>
+            </div>
+           
+                  
+        </uib-tab>
+     <uib-tab index="3" heading="Training Session"   ng-click="initialise()"    active="tabs[3].active">
+<!------        Select Unit-->
+        <div class="col-md-12">
+            <div class="col-md-6 col-md-offset-2">
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="date.dts"  is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+         </div>
+         <div class="row">
+              <div class=" col-md-offset-2 col-md-2">
+                    <label>Select Trainer</label>
+             </div>
+               <div class=" col-md-3">
+                  <select  ng-model="date.trainId"  class="form-control" ng-options="a.userId as a.firstName for a in trainer" >
+                  </select>   
+                  {{selectedTrainer}}
+             </div>
+         </div>  
+         <div class="row">
+              <div class=" col-md-offset-2 col-md-2">
+                    <label>Select Unit</label>
+             </div>
+               <div class=" col-md-3">
+                  <select  ng-model="trainingSession.selectedUnit"  class="form-control" ng-options="a.id as a.unitName for a in trainingSession.units" ng-change="trainingSession.getSuperCategory()">
+                  </select>   
+             </div>
+         </div>  
+<!--------    Select SuperCategory ----->
+        <div class="row" ng-if="trainingSession.selectedUnit!=undefined">
+             <div class=" col-md-offset-2 col-md-2">
+                     <label>Select SuperCategory</label>
+             </div>
+            <div class=" col-md-3">
+             <select ng-model="trainingSession.selectedSuperCategory" class="form-control"  ng-options="a._id as a.superCategoryName for a in trainingSession.superCategories" ng-change="trainingSession.getSubCategory()"></select>
+
+            </div>
+         </div>
+<!---         Select Sub Category   ------------->
+    <div class="row"  ng-if="trainingSession.selectedSuperCategory">
+         <div class=" col-md-offset-2 col-md-2">
+                    <label>Select SubCategory</label>
+             </div>
+                  <div class="col-md-3">
+                    <select  ng-model="trainingSession.selectedSubCategory"  class="form-control" ng-options="a._id  as a.subCategoryName for a in trainingSession.subCategories" ng-change="trainingSession.getChapters()"></select>
+                    
+                </div>
+         </div>
+    
+    
+    
+
+    
+    
+    
+<!-------- Select Chapter ------>
+         <div class="row" ng-if="trainingSession.selectedSubCategory">
+             <div class=" col-md-offset-2 col-md-2">
+                    <label>Select Chapters</label>
+             </div>
+             <div class=" col-md-3">
+                    <select  ng-model="trainingSession.selectedChapter"  class="form-control" ng-options="a._id  as a.chapterName for a in trainingSession.chapters"></select>
+             </div>  
+         
+         </div>
+    
+<!--
+    
+                                                Select   Parlors
+-->
+      <div class="row" ng-if="trainingSession.selectedChapter">
+             <div class=" col-md-offset-2 col-md-2">
+                    <label>Select Parlors</label>
+             </div>
+             <div class=" col-md-3">
+                    <select  ng-model="trainingSession.selectedParlor"  class="form-control" ng-options="a._id  as a.name for a in parlors"  ng-change="getActiveEmployees()"></select>
+             </div> 
+          
+                        
+          
+         
+         </div>
+    <div class="row" ng-if="trainingSession.selectedParlor">
+        <center><label>Select Employees</label></center>
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-7">
+                        <label>Theory</label>
+                        <input type="checkbox"  ng-model='trainingSession.theory'/>
+                    </div>
+                
+                    
+                </div > 
+                 <div class="row">
+                     <div class="col-md-offset-2 col-md-7">
+                        <label>Practical</label>
+                        <input type="checkbox"  ng-model='trainingSession.practical'/>
+                    </div>
+                    
+                </div >
+                
+         </div>
+        
+<!--
+        
+          <div class="row" ng-repeat="m in trainingSession.employees" ng-if="trainingSession.selectedParlor">
+        <div class="col-md-12">
+                <div class="col-md-offset-2 col-md-4">
+                        <label>{{m.firstName +' '+ m.lastName}}</label>       
+            
+                </div>
+                <div class="col-md-4">
+                        <input type="checkbox"   ng-model="m.isTrue"/>    
+                </div>
+        </div>
+    </div>
+-->
+         
+   
+       <div class="row"  style="height:500px;overflow:scroll;">
+          <table  class="table"   ng-if="trainingSession.selectedParlor">
+             <thead>
+                 <tr>
+                   <th>Employee Name</th>
+                    <th>Select Employee</th>
+          
+            </tr>
+                       
+             </thead>
+           <tbody>
+                <tr ng-repeat="m in trainingSession.employees">
+                    <td>{{m.firstName +' '+ m.lastName}}</td>
+                    <td>  <input type="checkbox"   ng-model="m.isTrue"/> </td>
+                
+               </tr> 
+            </tbody>
+         
+         </table>
+         
+         
+         
+        </div>  
+        
+   
+    <button class="btn btn-primary"  ng-if="trainingSession.selectedParlor"  ng-click="submitEmployees()"> Submit</button>
+            
+    </uib-tab>
+    
+    <uib-tab index="4"  heading="Add Training Questions"   ng-click="initialise(2)"  active="tabs.active[4]">
+<!--        -- Question unit  select ------>
+        <div class="row">
+                    <div class="col-md-offset-1 col-md-2">
+                            <label>Select Unit</label>
+                    </div>
+                    <div class="col-md-3">
+                                <select ng-model="questionObject.selectedUnit" class="form-control" ng-options="a.unitId as a.unitName for a in  question"  ng-change="changeInQuestionsUnit()"></select>
+                    </div>
+                        
+        
+        </div>
+<!------------Question super category -------------->
+        <div class="row" ng-if="questionObject.selectedUnit!=undefined">
+                 <div class="col-md-offset-1 col-md-2">
+                            <label>Select SuperCategory</label>
+                    </div>
+                    <div class="col-md-3">
+                        <select ng-model="questionObject.selectedSuperCategory" class="form-control" ng-options="a._id as a.superCategoryName for a in  questionObjects.superCategory"  ng-change="changeInQuestionsSuperCategory()"></select>
+                    </div>
+        </div>
+<!--<-----------------Question sub category ------------->
+        <div class="row" ng-if="questionObject.selectedSuperCategory">
+              <div class="col-md-offset-1 col-md-2">
+                            <label>Select SubCategory</label>
+                    </div>
+                    <div class="col-md-3">
+                        <select ng-model="questionObject.selectedSubCategory" class="form-control" ng-options="a._id as a.subCategoryName for a in  questionObjects.subCategory"  ng-change="changeInQuestionssubCategory()"></select>
+                    </div>
+        
+        </div>
+        
+<!----------------------------   Question  Chapters -------------------------->
+        <div class="row" ng-if="questionObject.selectedSubCategory">
+                <div class="col-md-offset-1 col-md-2">
+                            <label>Select chapters</label>
+                    </div>
+                    <div class="col-md-3">
+                        <select ng-model="questionObject.selectedChapter" class="form-control" ng-options="a.chapterId as a.chapterName for a in  questionObjects.chapters"  ng-change="changeInChapters()"></select>
+                    </div>
+        
+        
+        </div>
+        
+    <form style="background-color:white;" ng-submit="submitQuestions()" ng-if="questionObject.selectedChapter">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-2">
+                    <label class="labels">Enter Question</label>
+            </div>
+            <div class="col-md-3">
+                            <input type="text" class="form-control"   ng-model="questionObject.selectedQuestion" placeholder="Enter your Question here"  required/>
+            </div>
+        
+        </div>
+           
+        
+        
+
+        <div class="row">
+            <div class="col-md-offset-1 col-md-2">
+                          <label>No Of Options you want To Create</label>
+            </div>
+            <div class="col-md-3">
+                            <input type="number" class="form-control" ng-change="createOptions()" ng-model="questionObject.noOfOptions" required placeholder="Please select number of Options"/>
+                
+            </div>
+           
+        </div>
+        <div class="row" ng-repeat="m in questionObject.optionArray" >
+                   <div class="col- md-offset-1 col-md-2">
+                          <label>Option {{$index}}</label>
+            </div> 
+            <div class="col-md-3">
+                           <input type="text" class="form-control" ng-model="m.option" required  placeholder="Please enter your  Options"/> 
+            </div>
+             <div class="col-md-3" ng-if="m.option!=undefined">
+                                Select
+                             <input type="radio"  ng-model="$parent.selectedquestion.answer"  ng-value="$index">
+            </div>
+            
+        
+        </div>
+         <div class="row">
+        
+                <div class="col-md-offset-1 col-md-3" ng-if="questionObject.selectedChapter ">
+                    <button type="submit" class="btn btn-primary" >Submit</button>
+                </div>
+        
+        </div>
+        </form>
+   
+        
+        
+      
+    
+    </uib-tab>
+       <uib-tab index="5"  heading="Test Quiz"   ng-click="initialise(3)"  active="tabs.active[3]">
+           
+        <div class="row" ng-repeat="m in quizArray" ng-init="a=$index">
+           <div class="row">
+                <div class="col-md-offset-1 col-md-2">
+                            <label>Your Question</label>
+               </div>
+                <div class=" col-md-2">
+                            <label>{{m.question}}</label>        
+               </div>
+           
+           </div>
+            <div class="row" >
+                <div class="col-md-offset-1 col-md-2">
+                            <label>Answer</label>
+               </div>
+                <div class=" col-md-2" ng-repeat="v in m.options">
+                            <label>{{v.option}}</label>    
+                            <input type="radio"  ng-model="$parent.quizArray[a].answer"  ng-value="$index"/>
+               </div>
+           
+           </div>
+       </div>   
+           
+           <button ng-click="submitQuiz()">Submit</button>
+    </uib-tab>
+</uib-tabset>
+
+
+</div>

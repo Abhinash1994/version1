@@ -1,0 +1,47 @@
+<div class="row"><h4>Add HR Support</h4></div>
+<div class="row">
+	<div class="col-md-4"style="text-align: right;padding-top: 5px;">Salon name</div>
+	<div class="col-md-4">
+		<select class="form-control" ng-model="data.parlorId" ng-options="parlorList.parlorId as parlorList.name for parlorList in parlors"></select>
+	</div>
+
+</div>
+<div class="row" style="padding-top: 1%;">
+	<div class="col-md-4"  style="text-align: right;padding-top: 5px;">Month</div>
+	<div class="col-md-4">
+		<select ng-model="data.month" class="form-control" ng-options="monthlist.id as monthlist.value for monthlist in month">
+			
+		</select>
+	</div>
+
+
+</div>
+<div class="row">
+	<div class="col-md-4"  style="text-align: right;padding-top:18px;" >Year</div>
+	<div class="col-md-4">
+		<input type="number" ng-model="data.year" class="form-control" >
+	</div>
+
+</div>
+
+<div class="row" >
+	<div class="col-md-4" style="text-align: right;padding-top:18px;">Employee Name</div>
+	<div class="col-md-4">
+		
+		<input type="" name="" ng-model="data.employeeName" class="form-control" >
+
+	</div>
+
+</div>
+<div class="row" >
+	<div class="col-md-4" style="text-align: right;padding-top:18px;">Position</div>
+	<div class="col-md-4" >
+	
+		<input type="" name="" ng-model="data.position" class="form-control" >
+
+	</div>
+
+</div>
+<div class="row">
+	<button class="btn" ng-click="addHrSupport()">Submit</button>
+</div>

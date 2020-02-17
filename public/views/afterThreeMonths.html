@@ -1,0 +1,97 @@
+<style media="screen">
+  .nav-tabs {
+    border-bottom:none;
+}
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2 id="tables">After Three Months</h2>
+    </div>
+
+    <div class="col-md-12" justified="true">
+      <uib-tabset>
+        <uib-tab  ng-click='categoryButton("Not Contacted")' index="0" heading="Not Contacted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Contacted")' index="1" heading="Contacted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Converted")' index="2" heading="Converted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Reports")'  index="3" heading="Reports"></uib-tab>
+        <uib-tab  ng-click='categoryButton("divasAndMachosCustomers")' index="4" heading="Divas and Machos"></uib-tab>
+        <uib-tab  ng-click='categoryButton("afterThreeMonths")' active="true"  index="4" heading="After Three Months"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Website Queries")' index="4" heading="Website Queries"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Subscription Queries")' index="4" heading="Subscription Queries"></uib-tab>
+        <uib-tab  ng-click='categoryButton("razorPayNonSubscriber")' index="4" heading="RazorPay Non-Subscribers"></uib-tab>
+
+      </uib-tabset>
+    </div>
+    <div class="col-md-12">
+      <div style="text-align:center;" >
+        <dir-pagination-controls
+          max-size="8"
+          direction-links="true"
+          boundary-links="true"
+          on-page-change="getData(newPageNumber)"
+          run="initialiseIt"
+        >
+        </dir-pagination-controls>
+      </div>
+  </div>
+  <div class="col-md-12" style="margin-bottom:1em;">
+    <div class="col-md-3 col-md-offset-1">
+      <label style="margin-left: 1em">Select Month:</label>
+      <p class="input-group">
+        <input type="text" class="form-control" uib-datepicker-popup="MMMM,yy" ng-change="buttonclick();initialiseIt.initialise()" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="open1()" style="margin: 0;margin-top: 0.8em;z-index: 22;"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </p>
+    </div>
+      <div class="col-md-3 ">
+        <label style="margin-left: 1em">Select Previous Parlor:</label>
+        <select style="margin-top: 0.5em;" class="form-control" ng-options="item as item.name for item in parlors" ng-model="parlorListPrevious.selected" ng-change="parlorSelection();initialiseIt.initialise()"></select>
+      </div>
+      <div class="col-md-3">
+        <label style="margin-left: 1em">Select Last Parlor:</label>
+        <select style="margin-top: 0.5em;" class="form-control" ng-options="item as item.name for item in parlors" ng-model="parlorListLast.selected" ng-change="parlorSelection();initialiseIt.initialise()"></select>
+      </div>
+
+  </div>
+  <div class="col-md-12" style="padding-right: 2em;text-align:right;">
+    <span style="font-size: 3em;">{{total_count}}</span>
+  </div>
+
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th>Phone Number</th>
+          <th>Previous Visit Date</th>
+          <th>Previous Parlor</th>
+          <th>Last Visited Date</th>
+          <th>Last Visit Parlor</th>
+          <!-- <th>Services</th>
+          <th>Edit</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-if="noData==false" ng-show="conversionData.length <= 0"><td colspan="6" style="text-align:center;">Loading Clients!!</td></tr>
+        <tr ng-if="noData==true"><td colspan="6" style="text-align:center;">No Data Available</td></tr>
+        <tr dir-paginate="data in conversionData | itemsPerPage:itemsPerPage" total-items="total_count">
+
+          <td>{{data.clientName}}</td>
+          <td>{{data.phoneNumber}}</td>
+          <td>{{data.previousVisitDate | date: 'dd/MM/yyyy'}}</td>
+          <td style="background: #c0392b; color:white;" ng-if="data.previousActive==false">{{data.previousVisitedParlor}}</td>
+          <td  ng-if="data.previousActive==true">{{data.previousVisitedParlor}}</td>
+          <td>{{data.lastVisitDate | date: 'dd/MM/yyyy'}}</td>
+          <td style="background: #c0392b; color:white;" ng-if="data.lastActive==false">{{data.lastVisitedParlor}}</td>
+          <td  ng-if="data.lastActive==true">{{data.lastVisitedParlor}}</td>
+          <!-- <td><button type="button" name="button" ng-click="services($index)"  data-toggle="modal" data-target="#servicesModal">Services</button></td>
+          <td><button type="button" name="button"  ng-click="editButton($index)" data-toggle="modal" data-target="#editModal">Edit</button></td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  </div>
+</div>

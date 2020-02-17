@@ -1,0 +1,39 @@
+<style>
+    h3{
+                    text-align: center;
+        }
+</style>
+<div>
+    <h3>Edit Featuered Reviews</h3>
+    <div class="row">
+            <div class="col-md-offset-2 col-md-2">
+                    <label>Select Salon</label>
+            </div>
+            <div class="col-md-3">
+<!--                     Parlor dropdown                    -->
+                    <select class="form-control"   ng-model="parlor.selectedParlor" ng-change="getParlorReviews()" ng-options="item._id as item.name for item in parlorList ">
+                    </select>
+            </div>
+    </div>
+    
+</div>
+<div class="row">
+    <div class="col-md-offset-9 col-md-2">
+<!--                Update Record Button-->
+            <button class="btn btn primary" ng-click="updateRecord()">Update</button>
+    </div>
+</div>
+
+<!--                                                        table  starting-->
+        <table   ng-table="tableParams" class="table" show-filter="false">
+                <tr ng-repeat="user in $data">
+                            <td title="'Text'" >{{user.review.text}}</td>
+                            <td title="'Rating'" filter="{ rating: 'number'}" sortable="'Rating'">{{user.review.rating}}</td>
+                           <td title="'Created At'"  >{{user.review.createdAt |date:'fullDate'}}</td>
+                            <td title="'Is Featured'" filter="{ rating: 'number'}" sortable="'isfeatured'"><input type="checkbox"  ng-model="user.review.isFeatured"/> </td>
+                            
+                </tr>
+        </table>
+
+ 
+                            

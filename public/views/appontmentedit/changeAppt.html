@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-12"><h3>Change Salon</h3></div>
+</div>
+<div class="row">
+    <div class="col-md-4" style="padding-top: 18px;text-align: right;">Phone Number</div>
+     <div class="col-md-4"><input type='text' class="form-control" ng-model="phoneNumber"></div>
+    
+</div>
+<div class="row">
+
+<div class="col-md-12">
+  <button class="btn " ng-click='submitphoneNumber()'>Submit</button>
+</div>
+  
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Client Name</th>
+          <th>Phone Number</th>
+          <th>Appointment Date</th>
+          <th>Payable Amount</th>
+          <th>Salon</th>
+          <th>Status</th>
+          <th>Changed Salon</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="data in users |filter: clientInfo.phoneNumber">
+          <td>
+            <p ng-repeat="clientInfo in data">
+              <span>{{clientInfo.name}}</span>
+            </p>
+            <td>
+              <p ng-repeat="clientInfo in data">
+                <span>{{clientInfo.phoneNumber}}</span>
+              </p>
+            </td>
+            <td>{{data.appointmentStartTime |date:'medium'}}</td>
+            <td>{{data.payableAmount}}</td>
+            <td>{{data.parlorName}} - {{data.parlorAddress2}}</td>
+           <td ng-if="data.status==1">Started</td>
+           <td ng-if="data.status==2">Cancelled</td>
+           <td ng-if="data.status==3">Completed</td>
+           <td ng-if="data.status==4">Started</td>
+          
+            <td>
+              <span ng-if="$index!=hideTextarea">{{data.agentResponse}}</span>
+              <span ng-if="$index==hideTextarea" >
+                <select class="weekly-selectdate form-control" ng-model="selectedParlor.selected"  ng-options="item as item.name for item in parlors">
+                </select>
+              </span>
+
+            </td>
+            <td>
+              <button type="button" name="button" ng-click="edit($index)"  ng-if="$index!=hideTextarea">Edit</button>
+              <button type="button" name="button" ng-click="save($index)" ng-if="$index==hideTextarea" >Save</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

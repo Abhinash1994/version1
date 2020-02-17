@@ -1,0 +1,1360 @@
+<style>
+				h2{
+					text-align: center;
+				}
+				.container{
+					background-color:white;
+				}
+
+				label{
+					margin-top:12px;
+				}
+				.row{
+					margin:0px;
+				}
+
+			.forms .row{
+
+				background-color:white;
+				margin:7px;
+			}
+
+
+</style>
+			<div class="">
+						<h2>Lucky Draw Model</h2>
+						 <uib-tabset active="active">
+    					<uib-tab index="0" heading="Lucky Draw ParlorWise">
+    								<div class="row">
+    									<div class="col-md-3">
+    											<label>Select Salon</label>
+    									</div>
+    									<div class="col-md-4">
+											<div style="display:inline" isteven-multi-select input-model="parlorList.parlors" output-model="selectedParlorList.list" button-label="name" item-label="name" tick-property="isSelected" output-properties="id" on-close="" ></div>
+
+    									</div>
+    								</div>
+    							<div class="row  forms"   ng-if="selectedParlorList.list.length>0">
+                                    <div class="row">
+													<h1>App Transaction</h1>
+													<div class='row'>
+														<div class="col-md-3">
+																	<label>App Transaction</label>
+
+
+
+																		<input type="number" step='0.01' ng-init="salon.appTransaction.value=0" class="form-control" ng-model="salon.appTransaction.value"/>
+															</div>
+															<div class="col-md-3">
+
+															<label>App Transaction Amount</label>
+																<input type="number" step='0.01' ng-init="salon.appTransaction.amount=0" min="0" class="form-control" ng-model="salon.appTransaction.amount"/>
+														</div>
+															<div class="col-md-3">
+
+															<label>App Transaction Employee Message</label>
+															<textarea rows="4" cols="4" class="form-control" ng-model="salon.appTransaction.employeeMessage"></textarea>
+													</div>
+													<div class="col-md-3">
+
+															<label>App Transaction Salon Message</label>
+																		<textarea rows="4" cols="4" class="form-control" ng-model="salon.appTransaction.salonMessage"></textarea>
+														</div>
+														</div>
+                                        
+                                                <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>App Transaction New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="salon.appTransaction.newMemberShip=0" min="0" class="form-control" ng-model="salon.appTransaction.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>App Transaction Packages</label>
+																		<input type="number" step='0.01' ng-init="salon.appTransaction.packages=0" min="0" class="form-control" ng-model="salon.appTransaction.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>App Transaction Checkin</label>
+																		<input type="number" step='0.01' ng-init="salon.appTransaction.checkIn=0" min="0" class="form-control" ng-model="salon.appTransaction.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+															
+
+													</div>
+                                    <div class="row">
+													<h1>Salon Transaction</h1>
+													<div class="row">
+	    												<div class="col-md-3">
+	    															<label> Salon Transaction</label>
+
+
+	    														<input type="number" step='0.01' ng-init="salon.salonTransaction.value=0" min="0" class="form-control" ng-model="salon.salonTransaction.value"/>
+	    												</div>
+	    											<div class="col-md-3">
+
+	    														<label >  Salon Transaction Amount</label>
+
+
+	    													<input type="number" step='0.01' ng-init="salon.salonTransaction.amount=0" min="0" class="form-control" ng-model="salon.salonTransaction.amount"/>
+	    										</div>
+													<div class="col-md-3">
+
+													<label>salon Transaction Employee Message</label>
+															<textarea rows="4" cols="4" class="form-control" ng-model="salon.salonTransaction.employeeMessage"></textarea>
+												</div>
+													<div class="col-md-3">
+
+													<label>salon Transaction  Message</label>
+														<textarea rows="4" cols="4" class="form-control" ng-model="salon.salonTransaction.salonMessage"></textarea>
+												</div>
+	    										</div>
+                                         <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Salon Transaction New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="salon.salonTransaction.newMemberShip=0" min="0" class="form-control" ng-model="salon.salonTransaction.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Salon Transaction Packages</label>
+																		<input type="number" step='0.01' ng-init="salon.salonTransaction.packages=0" min="0" class="form-control" ng-model="salon.salonTransaction.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Salon Transaction Checkin</label>
+																		<input type="number" step='0.01' ng-init="salon.salonTransaction.checkIn=0" min="0" class="form-control" ng-model="salon.salonTransaction.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+									</div>
+                                    <div class="row">
+												<h1>Customer Review</h1>
+
+												<div class="row">
+														<div class="col-md-3">
+																	<label>Salon Customer Review</label>
+
+
+																<input type="number" step='0.01' ng-init="salon.customerReview.value=0"  min="0" class="form-control" ng-model="salon.customerReview.value"/>
+														</div>
+
+														<div class="col-md-3">
+																<label >  Customer Review Amount</label>
+
+
+															<input type="number" step='0.01' ng-init="salon.customerReview.amount=0"  min="0" class="form-control" ng-model="salon.customerReview.amount"/>
+														</div>
+														<div class="col-md-3">
+
+														<label>Customer Review Employee Message</label>
+															<textarea rows="4" cols="4"  min="0" class="form-control" ng-model="salon.customerReview.employeeMessage"></textarea>
+													</div>
+														<div class="col-md-3">
+
+														<label>Customer Review Salon Message</label>
+															<textarea rows="4" cols="4"   min="0" class="form-control" ng-model="salon.customerReview.salonMessage"></textarea>
+													</div>
+
+
+												</div>
+                                        <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Customer Review New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="salon.customerReview.newMemberShip=0" min="0" class="form-control" ng-model="salon.customerReview.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Customer Review Packages</label>
+																		<input type="number" step='0.01' ng-init="salon.customerReview.packages=0" min="0" class="form-control" ng-model="salon.customerReview.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Customer Review Checkin</label>
+																		<input type="number" step='0.01' ng-init="salon.customerReview.checkIn=0" min="0" class="form-control" ng-model="salon.customerReview.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+
+									</div >
+                                    <div class="row">
+												<h1>Bill Value</h1>
+												<div class="row">
+															<div class="col-md-3">
+																		<label>Bill Value</label>
+
+																<input type="number" step='0.01' ng-init="salon.billValue.value=0" min="0" class="form-control" ng-model="salon.billValue.value"/>
+
+
+															</div>
+
+
+													<div class="col-md-3">
+																<label >  Bill Value Amount</label>
+
+
+															<input type="number" step='0.01' ng-init="salon.billValue.amount=0" min="0" class="form-control" ng-model="salon.billValue.amount"/>
+												</div>
+												<div class="col-md-3">
+
+												<label>Bill Value Employee Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="salon.billValue.employeeMessage"></textarea>
+											</div>
+												<div class="col-md-3">
+
+												<label>Bill Value Salon Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="salon.billValue.salonMessage"></textarea>
+											</div>
+
+												</div>
+                                        
+                                         <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Bill Value New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="salon.billValue.newMemberShip=0" min="0" class="form-control" ng-model="salon.billValue.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Bill Value Packages</label>
+																		<input type="number" step='0.01' ng-init="salon.billValue.packages=0" min="0" class="form-control" ng-model="salon.billValue.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Bill Value Checkin</label>
+																		<input type="number" step='0.01' ng-init="salon.billValue.checkIn=0" min="0" class="form-control" ng-model="salon.billValue.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+
+									</div>
+								    <div class="row">
+														<h1>Bill Services</h1>
+														<div class="row">
+																<div class="col-md-3">
+
+																		<label >  Bill Services</label>
+
+
+																	<input type="number" step='0.01' ng-init="salon.billServices.value=0" min="0" class="form-control" ng-model="salon.billServices.value"/>
+
+																</div>
+																<div class="col-md-3">
+
+																		<label >  Bill Services Amount</label>
+
+
+																	<input type="number" step='0.01' ng-init="salon.billServices.amount=0" min="0" class="form-control" ng-model="salon.billServices.amount"/>
+																	</div>
+																	<div class="col-md-3">
+
+																	<label>Bill Services Employee Message</label>
+																		<textarea rows="4" cols="4"  class="form-control" ng-model="salon.billServices.employeeMessage"></textarea>
+																</div>
+																	<div class="col-md-3">
+
+																	<label>Bill Services Salon Message</label>
+																		<textarea rows="4" cols="4"  class="form-control" ng-model="salon.billServices.salonMessage"></textarea>
+																</div>
+
+														</div>
+                                            <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Bill Services New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="salon.billServices.newMemberShip=0" min="0" class="form-control" ng-model="salon.billServices.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Bill Services Packages</label>
+																		<input type="number" step='0.01' ng-init="salon.billServices.packages=0" min="0" class="form-control" ng-model="salon.billServices.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Bill Services Checkin</label>
+																		<input type="number" step='0.01' ng-init="salon.billServices.checkIn=0" min="0" class="form-control" ng-model="salon.billServices.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+										</div>
+                                    <div class="row">
+													<h1>Membership Sold</h1>
+													<div class="row">
+															<div class="col-md-3">
+
+																	<label >  Membership Sold</label>
+
+
+																<input type="number" step='0.01' ng-init="salon.membershipSold.value=0"  min="0" class="form-control" ng-model="salon.membershipSold.value"/>
+
+															</div>
+															<div class="col-md-3">
+
+																	<label >  Membership Sold Amount</label>
+
+
+																<input type="number" step='0.01' ng-init="salon.membershipSold.amount=0" min="0" class="form-control" ng-model="salon.membershipSold.amount"/>
+																</div>
+																<div class="col-md-3">
+
+																<label>Membership Sold Employee Message</label>
+																	<textarea rows="4" cols="4"  class="form-control" ng-model="salon.membershipSold.employeeMessage"></textarea>
+															</div>
+																<div class="col-md-3">
+
+																<label>Membership Sold  Salon Message</label>
+																	<textarea rows="4" cols="4"  class="form-control" ng-model="salon.membershipSold.salonMessage"></textarea>
+															</div>
+
+													</div>
+                                               <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Membership Sold New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="salon.membershipSold.newMemberShip=0" min="0" class="form-control" ng-model="salon.membershipSold.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Membership Sold Packages</label>
+																		<input type="number" step='0.01' ng-init="salon.membershipSold.packages=0" min="0" class="form-control" ng-model="salon.membershipSold.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Membership Sold Checkin</label>
+																		<input type="number" step='0.01' ng-init="salon.membershipSold.checkIn=0" min="0" class="form-control" ng-model="salon.membershipSold.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+                                            
+
+										</div >
+                                    <div class="row">
+														<h1>Retail Product</h1>
+														<div class="row">
+																<div class="col-md-3">
+
+																		<label >  Retail Product</label>
+
+
+																	<input type="number" step='0.01' ng-init="salon.retailProduct.value=0"  min="0" class="form-control" ng-model="salon.retailProduct.value"/>
+
+																</div>
+																<div class="col-md-3">
+
+																		<label >  Retail ProductAmount</label>
+
+
+																	<input type="number" step='0.01' ng-init="salon.retailProduct.amount=0" min="0" class="form-control" ng-model="salon.retailProduct.amount"/>
+																	</div>
+																	<div class="col-md-3">
+
+																	<label>Retail Product Employee Message</label>
+																		<textarea rows="4" cols="4"  class="form-control" ng-model="salon.retailProduct.employeeMessage"></textarea>
+																</div>
+																	<div class="col-md-3">
+
+																	<label>Retail Product Salon Message</label>
+																		<textarea rows="4" cols="4" class="form-control" ng-model="salon.retailProduct.salonMessage"></textarea>
+																</div>
+
+														</div>
+                                            
+                                             <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Retail Product New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="salon.retailProduct.newMemberShip=0" min="0" class="form-control" ng-model="salon.retailProduct.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Retail Product Packages</label>
+																		<input type="number" step='0.01' ng-init="salon.retailProduct.packages=0" min="0" class="form-control" ng-model="salon.retailProduct.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Retail Product Checkin</label>
+																		<input type="number" step='0.01' ng-init="salon.retailProduct.checkIn=0" min="0" class="form-control" ng-model="salon.retailProduct.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+										</div>
+								    <div class="row">
+														<h1>Incentive Target L1</h1>
+														<div class="row">
+																<div class="col-md-3">
+
+																		<label >  Incentive Target</label>
+
+
+																	<input type="number" step='0.01' ng-init="salon.incentiveTargets[0].value=0"  min="0" class="form-control" ng-model="salon.incentiveTargets[0].value"/>
+
+																</div>
+																<div class="col-md-3">
+
+																		<label >  Incentive Target Amount</label>
+
+
+																	<input type="number" step='0.01' ng-init="salon.incentiveTargets[0].amount=0"  min="0" class="form-control" ng-model="salon.incentiveTargets[0].amount"/>
+																	</div>
+																	<div class="col-md-3">
+
+																	<label>Incentive Target Message</label>
+																		<textarea rows="4" cols="4"  class="form-control" ng-model="salon.incentiveTargets[0].employeeMessage"></textarea>
+																</div>
+																	<div class="col-md-3">
+
+																	<label>Incentive Target Salon Message</label>
+																		<textarea rows="4" cols="4" class="form-control" ng-model="salon.incentiveTargets[0].salonMessage"></textarea>
+																</div>
+
+														</div>
+                                            
+                                            <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Incentive Target New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="salon.incentiveTargets[0].newMemberShip=0" min="0" class="form-control" ng-model="salon.incentiveTargets[0].newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Incentive Target Packages</label>
+																		<input type="number" step='0.01' ng-init="salon.incentiveTargets[0].packages=0" min="0" class="form-control" ng-model="salon.incentiveTargets[0].packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Incentive Target Checkin</label>
+																		<input type="number" step='0.01' ng-init="salon.incentiveTargets[0].checkIn=0" min="0" class="form-control" ng-model="salon.incentiveTargets[0].checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+										</div>
+									<div class="row">
+										<h1>Incentive Target L2</h1>
+										<div class="row">
+											<div class="col-md-3">
+
+												<label >  Incentive Target</label>
+
+
+												<input type="number" step='0.01' ng-init="salon.incentiveTargets[1].value=0"   min="0" class="form-control" ng-model="salon.incentiveTargets[1].value"/>
+
+											</div>
+											<div class="col-md-3">
+
+												<label >  Incentive Target Amount</label>
+
+
+												<input type="number" step='0.01' ng-init="salon.incentiveTargets[1].amount=0"  min="0" class="form-control" ng-model="salon.incentiveTargets[1].amount"/>
+											</div>
+											<div class="col-md-3">
+
+												<label>Incentive Target Message</label>
+												<textarea rows="4" cols="4"  class="form-control" ng-model="salon.incentiveTargets[1].employeeMessage"></textarea>
+											</div>
+											<div class="col-md-3">
+
+												<label>Incentive Target Salon Message</label>
+												<textarea rows="4" cols="4" class="form-control" ng-model="salon.incentiveTargets[1].salonMessage"></textarea>
+											</div>
+
+										</div>
+                                         <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Incentive Target New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="salon.incentiveTargets[1].newMemberShip=0" min="0" class="form-control" ng-model="salon.incentiveTargets[1].newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Incentive Target Packages</label>
+																		<input type="number" step='0.01' ng-init="salon.incentiveTargets[1].packages=0" min="0" class="form-control" ng-model="salon.incentiveTargets[1].packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Incentive Target Checkin</label>
+																		<input type="number" step='0.01' ng-init="salon.incentiveTargets[1].checkIn=0" min="0" class="form-control" ng-model="salon.incentiveTargets[1].checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+									</div>
+									<div class="row">
+										<h1>Incentive Target L3</h1>
+										<div class="row">
+											<div class="col-md-3">
+
+												<label >  Incentive Target</label>
+
+
+												<input type="number" step='0.01' ng-init="salon.incentiveTargets[2].value=0"   min="0" class="form-control" ng-model="salon.incentiveTargets[2].value"/>
+
+											</div>
+											<div class="col-md-3">
+
+												<label >  Incentive Target Amount</label>
+
+
+												<input type="number" step='0.01' ng-init="salon.incentiveTargets[2].amount=0"  min="0" class="form-control" ng-model="salon.incentiveTargets[2].amount"/>
+											</div>
+											<div class="col-md-3">
+
+												<label>Incentive Target Message</label>
+												<textarea rows="4" cols="4"  class="form-control" ng-model="salon.incentiveTargets[2].employeeMessage"></textarea>
+											</div>
+											<div class="col-md-3">
+
+												<label>Incentive Target Salon Message</label>
+												<textarea rows="4" cols="4"class="form-control" ng-model="salon.incentiveTargets[2].salonMessage"></textarea>
+											</div>
+
+										</div>
+                                         <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Incentive Target New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="salon.incentiveTargets[2].newMemberShip=0" min="0" class="form-control" ng-model="salon.incentiveTargets[2].newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Incentive Target Packages</label>
+																		<input type="number" step='0.01' ng-init="salon.incentiveTargets[2].packages=0" min="0" class="form-control" ng-model="salon.incentiveTargets[2].packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Incentive Target Checkin</label>
+																		<input type="number" step='0.01' ng-init="salon.incentiveTargets[2].checkIn=0" min="0" class="form-control" ng-model="salon.incentiveTargets[2].checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+									</div>
+								    <div class="row">
+															<h1>Shared Bill Ratio</h1>
+															<div class="row">
+																	<div class="col-md-3">
+
+																			<label > Shared Bill Ratio</label>
+
+
+																		<input type="number" step='0.01' ng-init="salon.sharedBillRatio.value=0"  min="0" class="form-control" ng-model="salon.sharedBillRatio.value"/>
+
+																	</div>
+																	<div class="col-md-3">
+
+																			<label >  Shared Bill Ratio Amount</label>
+
+
+																		<input type="number" step='0.01' ng-init="salon.sharedBillRatio.amount=0"  min="0" class="form-control" ng-model="salon.sharedBillRatio.amount"/>
+																		</div>
+																		<div class="col-md-3">
+
+																		<label>Shared Bill Ratio Message</label>
+																			<textarea rows="4" cols="4"  class="form-control" ng-model="salon.sharedBillRatio.employeeMessage"></textarea>
+																	</div>
+																		<div class="col-md-3">
+
+																		<label>Shared Bill Ratio Salon Message</label>
+																<textarea rows="4" cols='4'  class="form-control" ng-model="salon.sharedBillRatio.salonMessage"></textarea>
+																	</div>
+
+															</div>
+                                             <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Shared Bill Ratio New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="salon.sharedBillRatio.newMemberShip=0" min="0" class="form-control" ng-model="salon.sharedBillRatio.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Shared Bill Ratio Packages</label>
+																		<input type="number" step='0.01' ng-init="salon.sharedBillRatio.packages=0" min="0" class="form-control" ng-model="salon.sharedBillRatio.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Shared Bill Ratio Checkin</label>
+																		<input type="number" step='0.01' ng-init="salon.sharedBillRatio.checkIn=0" min="0" class="form-control" ng-model="salon.sharedBillRatio.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+										</div>
+								    <div class="row">
+
+								<h1>Best Rated</h1>
+
+								<div class="row">
+
+								<div class="col-md-3">
+
+<label > Best Rated Employee</label>
+
+
+				<input type="number" ng-init="salon.bestRatedEmployee.value=0" step='0.01'  min="0" class="form-control" ng-model="salon.bestRatedEmployee.value"/>
+
+																</div>
+												<div class="col-md-3">
+
+												<label >  Best Rated Employee Amount</label>
+
+
+																							<input type="number" ng-init="salon.bestRatedEmployee.amount=0" step='0.01'  min="0" class="form-control" ng-model="salon.bestRatedEmployee.amount"/>
+																													</div>
+												<div class="col-md-3">
+
+								<label>Best Rated EmployeeRatio Message</label>
+												<textarea rows="4" cols='4' class="form-control" ng-model="salon.bestRatedEmployee.employeeMessage"></textarea>
+																												</div>
+																<div class="col-md-3">
+
+								<label>Best Rated Employee Salon Message</label>
+				<textarea rows="4" cols="4" class="form-control" ng-model="salon.bestRatedEmployee.salonMessage"></textarea>
+												</div>
+
+								</div>
+								  <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Best Rated Employee New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="salon.bestRatedEmployee.newMemberShip=0" min="0" class="form-control" ng-model="salon.bestRatedEmployee.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Best Rated Employee Packages</label>
+																		<input type="number" step='0.01' ng-init="salon.bestRatedEmployee.packages=0" min="0" class="form-control" ng-model="salon.bestRatedEmployee.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Best Rated Employee Checkin</label>
+																		<input type="number" step='0.01' ng-init="salon.bestRatedEmployee.checkIn=0" min="0" class="form-control" ng-model="salon.bestRatedEmployee.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>		
+                            
+                            
+                            
+                            
+                            
+                            
+                            </div>
+                                <button class="btn btn-primary"  ng-click="submit()">Create</button>
+    								</div>
+                             </uib-tab>
+    					<uib-tab index="1" heading="Edit Lucky Draw">
+    								<div class="row">
+    									<div class="col-md-3">
+    											<label>Select Salon</label>
+    									</div>
+    									<div class=" col-md-4">
+    									<select ng-change='call()'  ng-model='editparlor.selected'  class="form-control" ng-options="i.id as i.name for i in editparlorList track by i.id ">
+    										<option></option>
+    									</select>
+    									</div>
+    								</div>
+    								<div class="row forms"   ng-if="show">
+										<div class="row">
+											<h1>App Transaction</h1>
+											<div class='row'>
+												<div class="col-md-3">
+													<label>App Transaction</label>
+
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.appTransaction.value"/>
+												</div>
+												<div class="col-md-3">
+
+													<label>App Transaction Amount</label>
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.appTransaction.amount"/>
+												</div>
+												<div class="col-md-3">
+
+													<label>App Transaction Employee Message</label>
+													<textarea rows="4" cols="4" class="form-control" ng-model="editsalon.appTransaction.employeeMessage"></textarea>
+												</div>
+
+												<div class="col-md-3">
+
+													<label>App Transaction Salon Message</label>
+													<textarea rows="4" cols="4" class="form-control" ng-model="editsalon.appTransaction.salonMessage"></textarea>
+												</div>
+											</div>
+                                              <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>App Transaction New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="editsalon.appTransaction.newMemberShip=0" min="0" class="form-control" ng-model="editsalon.appTransaction.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>App Transaction Packages</label>
+																		<input type="number" step='0.01' ng-init="editsalon.appTransaction.packages=0" min="0" class="form-control" ng-model="editsalon.appTransaction.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>App Transaction Checkin</label>
+																		<input type="number" step='0.01' ng-init="editsalon.appTransaction.checkIn=0" min="0" class="form-control" ng-model="editsalon.appTransaction.checkIn"/>
+												</div>
+                                        
+                                        
+                                        
+                                            </div>
+
+
+										</div>
+                                        <div class="row">
+											<h1>Salon Transaction</h1>
+											<div class="row">
+												<div class="col-md-3">
+													<label> Salon Transaction</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.salonTransaction.value"/>
+												</div>
+												<div class="col-md-3">
+
+													<label >  Salon Transaction Amount</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.salonTransaction.amount"/>
+												</div>
+												<div class="col-md-3">
+
+													<label>salon Transaction Employee Message</label>
+													<textarea rows="4" cols="4" class="form-control" ng-model="editsalon.salonTransaction.employeeMessage"></textarea>
+												</div>
+												<div class="col-md-3">
+
+													<label>salon Transaction  Message</label>
+													<textarea rows="4" cols="4" class="form-control" ng-model="editsalon.salonTransaction.salonMessage"></textarea>
+												</div>
+											</div>
+                                             <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Salon Transaction New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="editsalon.salonTransaction.newMemberShip=0" min="0" class="form-control" ng-model="editsalon.salonTransaction.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Salon Transaction Packages</label>
+																		<input type="number" step='0.01' ng-init="editsalon.salonTransaction.packages=0" min="0" class="form-control" ng-model="editsalon.salonTransaction.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Salon Transaction Checkin</label>
+																		<input type="number" step='0.01' ng-init="editsalon.salonTransaction.checkIn=0" min="0" class="form-control" ng-model="editsalon.salonTransaction.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+										</div>
+                                        <div class="row">
+											<h1>Customer Review</h1>
+
+											<div class="row">
+												<div class="col-md-3">
+													<label>Salon Customer Review</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.customerReview.value"/>
+												</div>
+
+												<div class="col-md-3">
+													<label >  Customer Review Amount</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.customerReview.amount"/>
+												</div>
+												<div class="col-md-3">
+
+													<label>Customer Review Employee Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="editsalon.customerReview.employeeMessage"></textarea>
+												</div>
+												<div class="col-md-3">
+
+													<label>Customer Review Salon Message</label>
+													<textarea rows="4" cols="4" class="form-control" ng-model="editsalon.customerReview.salonMessage"></textarea>
+												</div>
+
+
+											</div>
+                                            <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Customer Review New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="editsalon.customerReview.newMemberShip=0" min="0" class="form-control" ng-model="editsalon.customerReview.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Customer Review Packages</label>
+																		<input type="number" step='0.01' ng-init="editsalon.customerReview.packages=0" min="0" class="form-control" ng-model="editsalon.customerReview.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Customer Review Checkin</label>
+																		<input type="number" step='0.01' ng-init="editsalon.customerReview.checkIn=0" min="0" class="form-control" ng-model="editsalon.customerReview.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+
+										</div>
+                                        <div class="row">
+											<h1>Bill Value</h1>
+											<div class="row">
+												<div class="col-md-3">
+													<label>Bill Value</label>
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.billValue.value"/>
+
+
+												</div>
+
+
+												<div class="col-md-3">
+													<label >  Bill Value Amount</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.billValue.amount"/>
+												</div>
+												<div class="col-md-3">
+
+													<label>Bill Value Employee Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="editsalon.billValue.employeeMessage"></textarea>
+												</div>
+												<div class="col-md-3">
+
+													<label>Bill Value Salon Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="editsalon.billValue.salonMessage"></textarea>
+												</div>
+
+											</div>
+                                            <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Bill Value New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="editsalon.billValue.newMemberShip=0" min="0" class="form-control" ng-model="editsalon.billValue.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Bill Value Packages</label>
+																		<input type="number" step='0.01' ng-init="editsalon.billValue.packages=0" min="0" class="form-control" ng-model="editsalon.billValue.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Bill Value Checkin</label>
+																		<input type="number" step='0.01' ng-init="editsalon.billValue.checkIn=0" min="0" class="form-control" ng-model="editsalon.billValue.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+
+										</div>
+										<div class="row">
+											<h1>Bill Services</h1>
+											<div class="row">
+												<div class="col-md-3">
+                                                            <label >  Bill Services</label>
+                                                            <input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.billServices.value"/>
+
+												</div>
+												<div class="col-md-3">
+
+													<label >  Bill Services Amount</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.billServices.amount"/>
+												</div>
+												<div class="col-md-3">
+
+													<label>Bill Services Employee Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="editsalon.billServices.employeeMessage"></textarea>
+												</div>
+												<div class="col-md-3">
+
+													<label>Bill Services Salon Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="editsalon.billServices.salonMessage"></textarea>
+												</div>
+
+											</div>
+                                                <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Bill Services New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="editsalon.billServices.newMemberShip=0" min="0" class="form-control" ng-model="editsalon.billServices.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Bill Services Packages</label>
+																		<input type="number" step='0.01' ng-init="editsalon.billServices.packages=0" min="0" class="form-control" ng-model="editsalon.billServices.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Bill Services Checkin</label>
+																		<input type="number" step='0.01' ng-init="editsalon.billServices.checkIn=0" min="0" class="form-control" ng-model="editsalon.billServices.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+										</div>
+                                        <div class="row">
+											<h1>Membership Sold</h1>
+											<div class="row">
+												<div class="col-md-3">
+
+													<label >  Membership Sold</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.membershipSold.value"/>
+
+												</div>
+												<div class="col-md-3">
+
+													<label >  Membership Sold Amount</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.membershipSold.amount"/>
+												</div>
+												<div class="col-md-3">
+
+													<label>Membership Sold Employee Message</label>
+													<textarea rows="4" cols="4" class="form-control" ng-model="editsalon.membershipSold.employeeMessage"></textarea>
+												</div>
+												<div class="col-md-3">
+
+													<label>Membership Sold  Salon Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="editsalon.membershipSold.salonMessage"></textarea>
+												</div>
+
+											</div>
+                                               <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Membership Sold New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="editsalon.membershipSold.newMemberShip=0" min="0" class="form-control" ng-model="editsalon.membershipSold.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Membership Sold Packages</label>
+																		<input type="number" step='0.01' ng-init="editsalon.membershipSold.packages=0" min="0" class="form-control" ng-model="editsalon.membershipSold.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Membership Sold Checkin</label>
+																		<input type="number" step='0.01' ng-init="editsalon.membershipSold.checkIn=0" min="0" class="form-control" ng-model="editsalon.membershipSold.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+                                            
+
+										</div >
+                                        <div class="row">
+											<h1>Retail Product</h1>
+											<div class="row">
+												<div class="col-md-3">
+                                                    <label >  Retail Product</label>
+                                                    <input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.retailProduct.value"/>
+                                                </div>
+												<div class="col-md-3">
+                                                    <label>  Retail ProductAmount</label>
+                                                <input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.retailProduct.amount"/>
+												</div>
+												<div class="col-md-3">
+                                                    <label>Retail Product Employee Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="editsalon.retailProduct.employeeMessage"></textarea>
+												</div>
+												<div class="col-md-3">
+                                                    <label>Retail Product Salon Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="editsalon.retailProduct.salonMessage"></textarea>
+												</div>
+
+											</div>
+                                            <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Retail Product New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="editsalon.retailProduct.newMemberShip=0" min="0" class="form-control" ng-model="editsalon.retailProduct.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Retail Product Packages</label>
+																		<input type="number" step='0.01' ng-init="editsalon.retailProduct.packages=0" min="0" class="form-control" ng-model="editsalon.retailProduct.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Retail Product Checkin</label>
+																		<input type="number" step='0.01' ng-init="editsalon.retailProduct.checkIn=0" min="0" class="form-control" ng-model="editsalon.retailProduct.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+                                            
+                                            
+
+										</div>
+										<div class="row">
+											<h1>Incentive Target L1</h1>
+											<div class="row">
+												<div class="col-md-3">
+
+													<label >  Incentive Target</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.incentiveTargets[0].value"/>
+
+												</div>
+												<div class="col-md-3">
+
+													<label >  Incentive Target Amount</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.incentiveTargets[0].amount"/>
+												</div>
+												<div class="col-md-3">
+
+													<label>Incentive Target Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="editsalon.incentiveTargets[0].employeeMessage"></textarea>
+												</div>
+												<div class="col-md-3">
+
+													<label>Incentive Target Salon Message</label>
+													<textarea rows="4" cols="4" class="form-control" ng-model="editsalon.incentiveTargets[0].salonMessage"></textarea>
+												</div>
+
+											</div>
+                                            
+                                                <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Incentive Target New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="editsalon.incentiveTargets[0].newMemberShip=0" min="0" class="form-control" ng-model="editsalon.incentiveTargets[0].newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Incentive Target Packages</label>
+																		<input type="number" step='0.01' ng-init="editsalon.incentiveTargets[0].packages=0" min="0" class="form-control" ng-model="editsalon.incentiveTargets[0].packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Incentive Target Checkin</label>
+																		<input type="number" step='0.01' ng-init="editsalon.incentiveTargets[0].checkIn=0" min="0" class="form-control" ng-model="editsalon.incentiveTargets[0].checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+                                            
+
+										</div>
+										<div class="row">
+											<h1>Incentive Target L2</h1>
+											<div class="row">
+												<div class="col-md-3">
+
+													<label >  Incentive Target</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.incentiveTargets[1].value"/>
+
+												</div>
+												<div class="col-md-3">
+
+													<label >  Incentive Target Amount</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.incentiveTargets[1].amount"/>
+												</div>
+												<div class="col-md-3">
+
+													<label>Incentive Target Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="editsalon.incentiveTargets[1].employeeMessage"></textarea>
+												</div>
+												<div class="col-md-3">
+
+													<label>Incentive Target Salon Message</label>
+													<textarea rows="4" cols="4" class="form-control" ng-model="editsalon.incentiveTargets[1].salonMessage"></textarea>
+												</div>
+
+											</div>
+                                            <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Incentive Target New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="editsalon.incentiveTargets[1].newMemberShip=0" min="0" class="form-control" ng-model="editsalon.incentiveTargets[1].newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Incentive Target Packages</label>
+																		<input type="number" step='0.01' ng-init="editsalon.incentiveTargets[1].packages=0" min="0" class="form-control" ng-model="editsalon.incentiveTargets[1].packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Incentive Target Checkin</label>
+																		<input type="number" step='0.01' ng-init="editsalon.incentiveTargets[1].checkIn=0" min="0" class="form-control" ng-model="editsalon.incentiveTargets[1].checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+										</div>
+										<div class="row">
+											<h1>Incentive Target L3</h1>
+											<div class="row">
+												<div class="col-md-3">
+
+													<label >  Incentive Target</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.incentiveTargets[2].value"/>
+
+												</div>
+												<div class="col-md-3">
+
+													<label >  Incentive Target Amount</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.incentiveTargets[2].amount"/>
+												</div>
+												<div class="col-md-3">
+
+													<label>Incentive Target Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="editsalon.incentiveTargets[2].employeeMessage"></textarea>
+												</div>
+												<div class="col-md-3">
+
+													<label>Incentive Target Salon Message</label>
+													<textarea rows="4" cols="4" class="form-control" ng-model="editsalon.incentiveTargets[2].salonMessage"></textarea>
+												</div>
+
+											</div>
+                                             <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Incentive Target New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="editsalon.incentiveTargets[2].newMemberShip=0" min="0" class="form-control" ng-model="editsalon.incentiveTargets[2].newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Incentive Target Packages</label>
+																		<input type="number" step='0.01' ng-init="editsalon.incentiveTargets[2].packages=0" min="0" class="form-control" ng-model="editsalon.incentiveTargets[2].packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Incentive Target Checkin</label>
+																		<input type="number" step='0.01' ng-init="editsalon.incentiveTargets[2].checkIn=0" min="0" class="form-control" ng-model="editsalon.incentiveTargets[2].checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+										</div>
+										<div class="row">
+											<h1>Shared Bill Ratio</h1>
+											<div class="row">
+												<div class="col-md-3">
+
+													<label > Shared Bill Ratio</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.sharedBillRatio.value"/>
+
+												</div>
+												<div class="col-md-3">
+
+													<label >  Shared Bill Ratio Amount</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.sharedBillRatio.amount"/>
+												</div>
+												<div class="col-md-3">
+
+													<label>Shared Bill Ratio Message</label>
+													<textarea rows="4" cols="4"  class="form-control" ng-model="editsalon.sharedBillRatio.employeeMessage"></textarea>
+												</div>
+												<div class="col-md-3">
+
+													<label>Shared Bill Ratio Salon Message</label>
+													<textarea rows="4" cols='4'  class="form-control" ng-model="editsalon.sharedBillRatio.salonMessage"></textarea>
+												</div>
+
+											</div>
+                                             <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Shared Bill Ratio New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="editsalon.sharedBillRatio.newMemberShip=0" min="0" class="form-control" ng-model="editsalon.sharedBillRatio.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Shared Bill Ratio Packages</label>
+																		<input type="number" step='0.01' ng-init="editsalon.sharedBillRatio.packages=0" min="0" class="form-control" ng-model="editsalon.sharedBillRatio.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Shared Bill Ratio Checkin</label>
+																		<input type="number" step='0.01' ng-init="editsalon.sharedBillRatio.checkIn=0" min="0" class="form-control" ng-model="editsalon.sharedBillRatio.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>
+
+										</div>
+										<div class="row">
+
+											<h1>Best Rated</h1>
+
+											<div class="row">
+
+												<div class="col-md-3">
+
+													<label > Best Rated Employee</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.bestRatedEmployee.value"/>
+
+												</div>
+												<div class="col-md-3">
+
+													<label >  Best Rated Employee Amount</label>
+
+
+													<input type="number" step='0.01'  min="0" class="form-control" ng-model="editsalon.bestRatedEmployee.amount"/>
+												</div>
+												<div class="col-md-3">
+
+													<label>Best Rated EmployeeRatio Message</label>
+													<textarea rows="4" cols='4'  class="form-control" ng-model="editsalon.bestRatedEmployee.employeeMessage"></textarea>
+												</div>
+												<div class="col-md-3">
+
+													<label>Best Rated Employee Salon Message</label>
+													<textarea rows="4" cols="4" class="form-control" ng-model="editsalon.bestRatedEmployee.salonMessage"></textarea>
+												</div>
+
+											</div>
+                                             <div class="row">
+                                                                <div class="col-md-3">
+
+															<label>Best Rated Employee New membership</label>
+                                                                    <input type="number" step='0.01' ng-init="editsalon.bestRatedEmployee.newMemberShip=0" min="0" class="form-control" ng-model="editsalon.bestRatedEmployee.newMemberShip"/>
+																		
+														</div>
+                                                     <div class="col-md-3">
+
+															<label>Best Rated Employee Packages</label>
+																		<input type="number" step='0.01' ng-init="editsalon.bestRatedEmployee.packages=0" min="0" class="form-control" ng-model="editsalon.bestRatedEmployee.packages"/>
+														</div>
+                                                    
+                                                     <div class="col-md-3">
+
+															<label>Best Rated Employee Checkin</label>
+																		<input type="number" step='0.01' ng-init="editsalon.bestRatedEmployee.checkIn=0" min="0" class="form-control" ng-model="editsalon.bestRatedEmployee.checkIn"/>
+														</div>
+                                        
+                                        
+                                        
+                                                    </div>	
+										</div>
+
+										<button class="btn btn-primary"  ng-click="edit()">Edit</button>
+    								</div>
+
+
+
+
+    					</uib-tab>
+    	</uib-tabset>
+
+			</div>

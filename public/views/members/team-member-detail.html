@@ -1,0 +1,161 @@
+<style>
+    .redClassLessWorkingHours{
+        background-color: red;
+    }
+    .greenClassLessWorkingHours{
+        background-color: green;
+    }
+    .yellowClassLessWorkingHours{
+        background-color: yellow;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{{userName}}</h1>
+
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card profilecard">
+						<span style="float:right" class="glyphicon glyphicon-edit" ng-click="openEditEmployee()">
+										 Edit &nbsp;
+								</span>
+                        <div class="cardheader">
+                        </div>
+
+                        <div class="avatar">
+                            <img alt="" src="http://lorempixel.com/100/100/people/9/">
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a> {{userName}}</a>
+                            </div>
+                            <div class="desc">
+                                <span >Job Title : {{employeeData.position}}</span>
+                            </div>
+                            <div class="desc">
+                                <span>Employee ID: {{employeeData._id}}</span>
+                            </div>
+                            <div class="desc">
+                                Rating :
+                                <i class="fa fa-star"  style=" vertical-align: middle;margin-right: 5%;" aria-hidden="true"></i>
+                                <i class="fa fa-star"  style=" vertical-align: middle;margin-right: 5%;" aria-hidden="true"></i>
+                                <i class="fa fa-star"  style=" vertical-align: middle;margin-right: 5%;" aria-hidden="true"></i>
+                                <i class="fa fa-star"  style=" vertical-align: middle;margin-right: 5%;" aria-hidden="true"></i>
+                                <i class="fa fa-star"  style=" vertical-align: middle;margin-right: 5%;" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="contact-info info">
+                            <div class="desc">
+                                <span>Contact Info : {{employeeData.phoneNumber}}</span>
+                            </div>
+                            <div class="desc">
+                                <span>Email : {{employeeData.emailId}}</span>
+                            </div>
+                        </div>
+                        <div class="contact-info info">
+                            <div class="desc"><i class="fa fa-facebook fa-2x fa-fw text-color-green" aria-hidden="true"></i>  <i class="fa fa-twitter fa-2x text-color-green" aria-hidden="true"></i></div>
+                            <div class="desc">
+                                <span><span class="heading">Age : </span>{{employeeData.age}}</span>
+                            </div>
+                            <div class="desc">
+                                <div class="heading">Earning Info:</div>
+                                <div>Salary: {{employeeData.salary}}</div>
+                                <div>Commission: {{commission}}</div>
+                                <div>Total Salary: {{totalSalary}}</div>
+                            </div>
+                            <div class="desc">
+                                <span><span class="heading">Total Leaves:</span><span class="text-color-green">   {{leaveCount}}</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" container-fluid">
+        <div class="col-lg-12 col-md-12 card">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h3>Employee Day Wise Attendance</h3>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 dailysummary" >
+                <div class="col-lg-2 col-md-2 col-md-offset-2">
+                    <span>From date</span>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-change="updateFromTime()"  ng-model="fromDate" uib-datepicker-popup is-open="popup1.open1" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                </div>
+                <div clas="col-md-2">
+                            <span class="input-group-btn">
+						        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+					        </span>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 dailysummary">
+                <div class="col-lg-2 col-md-2 col-md-offset-2">
+                    <span>To date</span>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-change="updateToTime()"  ng-model="toDate" uib-datepicker-popup is-open="popup2.open2" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                </div>
+                <div clas="col-lg-2">
+                             <span class="input-group-btn">
+					        	<button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+					        </span>
+                </div>
+            </div>
+
+
+            <div class="row ">
+                <div class="col-lg-12 dailysummary">
+                    <div class="table-responsive">
+                        <table ng-table-dynamic="tableParams1 with columns" show-filter="true" class="table">
+                            <thead>
+                            <tr>
+                                <th style="background-color: #FAE596;" ng-repeat="column in columns" ng-show="column.visible" class="text-center sortable" ng-class="{'sort-asc': tableParams1.isSortBy(column.field, 'asc'),'sort-desc': tableParams1.isSortBy(column.field, 'desc')}" ng-click="tableParams1 .sorting(column.field, tableParams1.isSortBy(column.field, 'asc') ? 'desc' : 'asc')">
+                                    <span>{{column.title}}</span>
+                                </th>
+                                <th style="background-color: #FAE596;">
+                                    <span>Total</span>
+                                </th>
+                                <th style="background-color: #FAE596;">
+                                    <span>Difference</span>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="user in $data" >
+                                <td ng-repeat="column in columns"  ng-show="column.visible" sortable="column.field"  ng-style="{'background-color': user.rowColor}">
+                                    <span style="color:white">{{(user[column.field][column.subfield1] |date:'h:mma')||  (user[column.field] | date)}}<span ng-if="user[column.field][column.subfield1]!=undefined"> to </span> {{ user[column.field][column.subfield2] |date:'h:mma'}} <br> {{user[column.field][column.subfield3]}}</span>
+                                </td>
+                                <td   ng-style="{'background-color': user.rowColor}">
+                                    <span style="color: white;">{{user.workingHours}}</span>
+                                </td>
+                                <td  ng-style="{'background-color': user.rowColor}">
+                                    <span style="color: white;">{{user.hoursDifference}}</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

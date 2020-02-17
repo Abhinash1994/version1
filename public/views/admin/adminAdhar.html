@@ -1,0 +1,95 @@
+
+<style>
+	.alert-success{
+
+		margin:10px;
+		margin-top:10%;
+
+		padding:20px;
+	}
+
+</style>
+
+
+<div class="container">
+	<div style="width: 70%;margin:auto;border: 1px solid gray; background-color: #fff;margin-top: 10%;padding-bottom: 3%;">
+	<div class="row">
+		<div class="col-md-12"><h4> MoUs Uploader</h4></div>
+	</div>
+	<div class="row">
+		<div class="col-md-5"><h5>Select Salons</h5></div>
+		<div class="col-md-4">
+			  <select  style="width:100%;height: 30px;"  class="form-control" ng-change="parlorChange()" ng-model="aadhaarCard.parlorId" ng-options="parlor._id as parlor.name for parlor in parlors">
+               <option style="display:none" value="">select a Parlor</option>
+
+            </select>
+		</div>
+	</div>
+		<div class="row">
+			<div class="col-md-5"><h5>Select MoU Pdf File</h5></div>
+			<div class="col-md-4">
+			 <input   type="file" ngf-select ng-model="pdfFile.file" name="file"  accept=".pdf"  
+              ngf-max-size="10MB" required
+             ngf-model-invalid="errorFile">
+             </div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-md-offset-6">
+				
+      			<button   type="button" class="btn" ng-click="uploadPdf(pdfFile)">Submit</button>
+
+			</div>
+		</div>
+
+
+
+		<!-- <div class="row" ng-if="sendOtpFlag">
+		<div class="col-md-12">
+		<div class="row">
+		<div class="col-md-5">Enter name on adhar card</div>
+			<div class="col-md-3">
+				
+      			<input type="texd" ng-model="aadhaarCard.name" name="uid">
+
+			</div>
+			</div>
+		<div class="row">
+		<div class="col-md-5">Enter adhar card number</div>
+			<div class="col-md-3">
+				
+      			<input type="texd" ng-model="aadhaarCard.uid" name="uid">
+
+			</div>
+			</div>
+	
+		<div class="row">
+			<div col-md-12><button class="btn" ng-click="sendOTPFun()">Send OTP</button></div>
+		</div>
+
+		</div>
+		</div>
+
+		<div class="row" ng-if="verifyOtpFlag">
+		<div class="col-md-12">
+		<div class="row">
+		<div class="col-md-5">Enter otp</div>
+			<div class="col-md-3">
+				
+      			<input type="texd" name="uid" ng-model="aadhaarCard.otp">
+
+			</div>
+			</div>
+		
+		<div class="row">
+			<div col-md-12><button class="btn" ng-click="sendVerifyFun()">Verify</button></div>
+		</div>
+		</div>
+		</div> -->
+
+
+	</div>
+</div>
+
+<div class="alert alert-success" ng-show="flag">
+	<strong>Your MOU is successfully Uploaded !</strong>
+</div>

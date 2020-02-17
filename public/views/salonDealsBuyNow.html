@@ -1,0 +1,170 @@
+<style media="screen">
+  .box{
+    border: double 4px #F37A75;
+    outline: solid 3px #F37A75;
+    margin-bottom: 2em;
+  }
+</style>
+
+    <!-- Title -->
+    <!-- Call Back Form -->
+
+
+
+
+
+    <!-- Call Back Form -->
+
+<div layout="row" layout-align="center" layout-wrap layout-align="center center" style="padding-top:6em;    padding-bottom: 1em; " ng-cloak>
+    <span style="font-size: 20px;">Our deals are valid on app booking only. Follow the download link for more discounts.</span>
+</div>
+<div layout="row" flex="100">
+  <div layout="column" flex-gt-md="33" flex-xs="100" style="margin:2em;margin-top:0" ng-cloak>
+    <md-card class="box">
+      <md-card-content>
+        <div layout="row" flex="80" flex-offset="10" style="background:#FEEFEA; padding:1em"  ng-cloak>
+          <div layout="column" flex="30" flex-offset="20" class="appleAppStore"  ng-cloak >
+            <a href="https://itunes.apple.com/app/apple-store/id1206326408?pt=118567089&ct=Website%20Salon%20Deals&mt=8"><img ng-src="/images/appleAppStore.png" class="md-card-image" style="width: 100%;" ng-click="iphoneLink()"></a>
+          </div>
+          <div layout="column" flex="30" flex-offset="5"  class="androidAppStore"  ng-cloak>
+            <a href="https://play.google.com/store/apps/details?id=com.beusalons.android&referrer=utm_source%3DWebsite%26utm_medium%3DSalon%2520Deals"><img ng-src="/images/androidAppStore.png" ng-click="androidLink()" class="md-card-image" style="width: 100%;"/> </a>
+          </div>
+        </div>
+      </md-card-content>
+        <md-card-content style="text-align: center;">
+          <img id="bookThroughApp" ng-src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1512815271/imagedummy_kfxge1.png" class="md-card-image">
+        </md-card-content>
+
+    </md-card>
+
+  </div>
+    <div layout="column" flex-gt-md="33" flex-xs="100" style="margin:2em;margin-top:0" ng-cloak>
+    <md-card class="box">
+      <md-card-content>
+        <div layout="row" flex="80" flex-offset="10" style="background:#FEEFEA; padding:1em"  ng-cloak>
+          <div layout="column" flex="30" flex-offset="20" class="appleAppStore"  ng-cloak >
+            <a href="https://itunes.apple.com/app/apple-store/id1206326408?pt=118567089&ct=Website%20Salon%20Deals&mt=8"><img ng-src="/images/appleAppStore.png" class="md-card-image" style="width: 100%;" ng-click="iphoneLink()"></a>
+          </div>
+          <div layout="column" flex="30" flex-offset="5"  class="androidAppStore"  ng-cloak>
+            <a href="https://play.google.com/store/apps/details?id=com.beusalons.android&referrer=utm_source%3DWebsite%26utm_medium%3DSalon%2520Deals"><img ng-src="/images/androidAppStore.png" ng-click="androidLink()" class="md-card-image" style="width: 100%;"/> </a>
+          </div>
+        </div>
+      </md-card-content>
+        <md-card-content style="text-align: center;">
+          <img id="bookThroughApp" ng-src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1512815271/imagedummy_kfxge1.png" class="md-card-image">
+        </md-card-content>
+
+    </md-card>
+
+  </div>
+  <div hide-xs hide-sm hide-md show-xl show-lg layout="column" flex="33"  ng-cloak>
+    <md-card style="background: #ecf0f1;width:100%;margin-left: 0;">
+            <md-card-content>
+              <md-input-container class="md-icon-float chatWindowText">
+                <p style="margin: 0;font-size:12px;margin-bottom: 1em;">Kindly leave your information here, our representative will call you shortly.</p>
+              </md-input-container>
+
+                    <md-input-container class="md-icon-float md-block" style="margin:0">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Name</label>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                        <input ng-model="dialog.queryName"  type="text">
+
+                    </md-input-container>
+
+                    <md-input-container md-no-float class="md-block" style="margin:0">
+                        <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                        <input ng-model="dialog.queryPhoneNumber" type="number" placeholder="Phone Number">
+                    </md-input-container>
+
+                    <md-input-container class="md-block"  style="margin:0">
+                        <!-- Use floating placeholder instead of label -->
+                        <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+                        <input ng-model="dialog.queryEmail" type="email" placeholder="Email (Optional)">
+                    </md-input-container>
+                    <!-- <md-input-container  class="md-block" style="margin:0;width:20em;">
+                      <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="cb" class="md-primary"></md-checkbox>
+                      <span style="font-size:12px">I authorize Be U Salons to contact me via email or phone or SMS.</span>
+                    </md-input-container> -->
+                    <md-input-container class="md-block" style="margin:0;text-align:center;width:17em;font-weight:bold;">
+                      <span style="font-size:15px;">{{message}}</span>
+                    </md-input-container>
+                    <div layout="column" flex="100" class="addReviewDialog-page-margin" layout-align="center center">
+                        <md-button id="contactSubmit"  ng-click="websiteQuerySubmit()">Send</md-button>
+                    </div>
+            </md-card-content>
+        </md-card>
+       <md-card style="background: #ecf0f1;width:100%;margin-left: 0;">
+            <md-card-content>
+              <md-input-container class="md-icon-float chatWindowText">
+                <p style="margin: 0;font-size:12px;margin-bottom: 1em;">Kindly leave your information here, our representative will call you shortly.</p>
+              </md-input-container>
+
+                    <md-input-container class="md-icon-float md-block" style="margin:0">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Name</label>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                        <input ng-model="dialog.queryName"  type="text">
+
+                    </md-input-container>
+
+                    <md-input-container md-no-float class="md-block" style="margin:0">
+                        <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                        <input ng-model="dialog.queryPhoneNumber" type="number" placeholder="Phone Number">
+                    </md-input-container>
+
+                    <md-input-container class="md-block"  style="margin:0">
+                        <!-- Use floating placeholder instead of label -->
+                        <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+                        <input ng-model="dialog.queryEmail" type="email" placeholder="Email (Optional)">
+                    </md-input-container>
+                    <!-- <md-input-container  class="md-block" style="margin:0;width:20em;">
+                      <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="cb" class="md-primary"></md-checkbox>
+                      <span style="font-size:12px">I authorize Be U Salons to contact me via email or phone or SMS.</span>
+                    </md-input-container> -->
+                    <md-input-container class="md-block" style="margin:0;text-align:center;width:17em;font-weight:bold;">
+                      <span style="font-size:15px;">{{message}}</span>
+                    </md-input-container>
+                    <div layout="column" flex="100" class="addReviewDialog-page-margin" layout-align="center center">
+                        <md-button id="contactSubmit"  ng-click="websiteQuerySubmit()">Send</md-button>
+                    </div>
+            </md-card-content>
+        </md-card>
+       <md-card style="background: #ecf0f1;width:100%;margin-left: 0;">
+            <md-card-content>
+              <md-input-container class="md-icon-float chatWindowText">
+                <p style="margin: 0;font-size:12px;margin-bottom: 1em;">Kindly leave your information here, our representative will call you shortly.</p>
+              </md-input-container>
+
+                    <md-input-container class="md-icon-float md-block" style="margin:0">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Name</label>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                        <input ng-model="dialog.queryName"  type="text">
+
+                    </md-input-container>
+
+                    <md-input-container md-no-float class="md-block" style="margin:0">
+                        <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                        <input ng-model="dialog.queryPhoneNumber" type="number" placeholder="Phone Number">
+                    </md-input-container>
+
+                    <md-input-container class="md-block"  style="margin:0">
+                        <!-- Use floating placeholder instead of label -->
+                        <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+                        <input ng-model="dialog.queryEmail" type="email" placeholder="Email (Optional)">
+                    </md-input-container>
+                    <!-- <md-input-container  class="md-block" style="margin:0;width:20em;">
+                      <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="cb" class="md-primary"></md-checkbox>
+                      <span style="font-size:12px">I authorize Be U Salons to contact me via email or phone or SMS.</span>
+                    </md-input-container> -->
+                    <md-input-container class="md-block" style="margin:0;text-align:center;width:17em;font-weight:bold;">
+                      <span style="font-size:15px;">{{message}}</span>
+                    </md-input-container>
+                    <div layout="column" flex="100" class="addReviewDialog-page-margin" layout-align="center center">
+                        <md-button id="contactSubmit"  ng-click="websiteQuerySubmit()">Send</md-button>
+                    </div>
+            </md-card-content>
+        </md-card>
+  </div>
+</div>

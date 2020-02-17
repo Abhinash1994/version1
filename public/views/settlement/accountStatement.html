@@ -1,0 +1,265 @@
+<style>
+    h3 {
+        text-align: center;
+    }
+    
+    td {
+        text-align: center;
+    }
+    
+    th {
+        text-align: center;
+        color: white;
+        background-color: dimgrey;
+    }
+    
+    .row {
+        margin: 0px;
+    }
+</style>
+
+<div class="row">
+    <h3>Account Statement</h3>
+
+    <div class="row" style="margin:4px;" ng-if="userType=='1'" >
+        <div class="col-md-offset-2 col-md-2">
+            <label>Select Salon</label>
+        </div>
+        <div class="col-md-2">
+                <select class="form-control" ng-model="parlor.selectedParlor" ng-options="s._id  as s.name  for s in parlors" ng-change="getLedger()"></select>
+    
+            </div>
+    </div>
+    <div class="row" style="margin:4px;" >
+        <label>Select Month Date</label>
+        <div class="col-md-6 col-md-offset-2">
+                <!--        <div class="col-md-3" >-->
+                        <div class="col-md-6 col-md-offset-2">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dts.time"  is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+        </div>
+      
+        <button class="btn btn-primary" ng-click="getLedger()">Apply </button>
+    </div>
+</div>
+    <div class="row" style="margin:4px;" ng-if="role==1">
+        <div class="col-md-offset-2 col-md-2">
+            Parlor Name:
+
+        </div>
+        <div class="col-md-3">
+
+            {{parlorName}}
+        </div>
+
+
+
+    </div>
+    <div class="row" style="margin:4px;">
+        <div class="col-md-offset-2 col-md-2">
+            Parlor Address:
+
+        </div>
+        <div class="col-md-3">
+
+            {{parlorAddress}}
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="setelment-report-td" style="background-color: #696969">Nature of Transaction</th>
+                    <th class="setelment-report-td" colspan="2" style="background-color: #696969;">Period</th>
+                    <th class="setelment-report-td" style="background-color: #696969">Days</th>
+                    <th class="setelment-report-td" colspan="3" style="background-color: #696969">Total Revenue</th>
+                    <th class="setelment-report-td" colspan="3" style="background-color: #696969">Be U Share</th>
+                    <th class="setelment-report-td" colspan="4" style="background-color: #696969">Other Amount Recoverable from Salon</th>
+                    <th class="setelment-report-td" colspan="4"  style="background-color: #696969">Collection of Revenue</th>
+                    <th class="setelment-report-td" colspan="9" style="background-color: #696969">Net Payable to Be U/ (Salon)</th>
+                    <!-- <th class="setelment-report-td" style="background-color: #696969">Online Payment Fee</th> -->
+                </tr>
+                <tr>
+                    <th style="background-color: #FAE596;"></th>
+                    <th style="background-color: #FAE596;">From</th>
+                    <th style="background-color: #FAE596;">To</th>
+                    <th style="background-color: #FAE596;" style="background-color: transparent;"></th>
+
+                    <th style="background-color: #FAE596;">Service (1)</th>
+                    <th style="background-color: #FAE596;">Product (2)</th>
+                    <th style="background-color: #FAE596;">Total Salon Revenue(3=1+2)</th>
+                    
+                    <th style="background-color: #FAE596;">Be U's Share after Dicount/Advance(4)</th>
+                    <th style="background-color: #FAE596;">GST @ 18%(5 = 4 * 18%)</th>
+                    <th style="background-color: #FAE596;">Gross Payable to Be U after Dicount/Advance (6 =4+5)</th>
+
+                    <th style="background-color: #FAE596;">Online Payment Fees (7)</th>
+                    <th style="background-color: #FAE596;">Online Payment Fees Tax (8)</th>
+                    <th style="background-color: #FAE596;">Subscription Sold By Salon (9)</th>
+                    <th style="background-color: #FAE596;">Net to Be U / (Salon) (10 =6+7+8+9)</th>
+                    
+                    <th style="background-color: #FAE596;">Revenue Collected by Salon (11)</th>
+                    <th style="background-color: #FAE596;">Revenue Collected by Be U  throughApp/Web/Affiliates (12)</th>
+                    <th style="background-color: #FAE596;">Revenue Collected by Be U  through Loyalty Redemption(13)</th>
+                    <th style="background-color: #FAE596;">Total Collection by Be U (14 = 12+13)</th>
+
+                    <th style="background-color: #FAE596;">Net Payable to Be U/ (Salon) (15 = 10-14)</th>
+                    <th style="background-color: #FAE596;">Previous Dues(16)</th>
+                    <th style="background-color: #FAE596;">TDS deductable for Previous Month (17)</th>
+                    <th style="background-color: #FAE596;">GST Refundable for Previous Month (18)</th>
+                    <th style="background-color: #FAE596;">Discount Refundable (19)</th>
+                    <th style="background-color: #FAE596;">Subscription Incentive For Owner(20)</th>
+                    <th style="background-color: #FAE596;">Amount Paid to Salon (21)</th>
+                    <th style="background-color: #FAE596;">Date of Payment</th>
+                    <th style="background-color: #FAE596;">Net Balance (settlement) (22 = 15+16+17+18+19+20+21)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat-start='report in reports'>
+                    <td >Settlement</td>
+                    <td >{{report.startDate |date:'dd-MMM-yy'}}</td>
+                    <td >{{report.endDate |date:'dd-MMM-yy'}}
+                    <td >{{diffDate(report.startDate, report.endDate) }}</td>
+
+                    <td >{{report.serviceRevenue | number:0}}</td>
+                    <td >{{report.productRevenue | number:0}}</td>
+                    <td >{{report.totalRevenue | number:0}}</td>
+                    
+                    <td >{{report.amountPayableToBeuAfterDiscount/1.18 |number:0}}</td>
+                    <td >{{(report.amountPayableToBeuAfterDiscount/1.18) * 0.18 |number:0}}</td>
+                    <td >{{report.amountPayableToBeuAfterDiscount |number:0}}</td>
+
+                    <td >{{-(report.onlinePaymentFee-report.onlinePaymentFeeTax)| number:0 }}</td>
+                    <td >{{report.onlinePaymentFeeTax| number:0 }}</td>
+                    <td>{{-report.subscriptionSoldBySalon| number:0 }}</td>
+                    <td>{{(report.amountPayableToBeuAfterDiscount-report.onlinePaymentFee-report.subscriptionSoldBySalon) | number:0 }}</td>
+
+                    <td>{{report.totalCollectionByParlor | number:0}}</td>
+                    <td>{{report.collectedByApp+report.collectedByAffiliates | number:0}}</td>
+                    <td>{{report.collectedByLoyalityPoints | number:0}}</td>
+                    <td>{{report.totalCollectionByBeu | number:0}}</td>
+                     
+                    <td>{{report.netPayable | number:0}}</td>
+                    <td>{{report.previousDue | number:0}}</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>{{report.paidToSalon |number:0}}</td>
+                    <td >{{report.startDate |date:'dd-MMM-yy'}}</td>
+                    <td>{{report.balance |number:0}}</td>
+                </tr>
+
+                <tr ng-show="discount.matchDate>report.startDate && (discount.matchDate<reports[$index+1].startDate ||reports[$index+1].startDate==undefined ) ">
+                     <td style="background-color:purple;color:white;">Discount</td>
+                    <td style="background-color:purple;color:white;">{{discount.startDate |date:'dd-MMM-yy'}}</td>
+                    <td style="background-color:purple;color:white;">{{discount.endDate |date:'dd-MMM-yy'}}</td>
+                    <td style="background-color:purple;color:white;">{{diffDate(discount.startDate, discount.endDate) }}</td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;">{{discount.discountPaid |number:0}}</td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;">{{discount.paymentDate |date:'dd-MMM-yy'}}</td>
+                    <td style="background-color:purple;color:white;"></td>
+                </tr>
+                <tr  ng-show="gstAmount.paymentDate>report.startDate && (gstAmount.paymentDate<reports[$index+1].startDate ||reports[$index+1].startDate==undefined ) ">
+                        <td style="background-color:purple;color:white;">GST</td>
+                        <td style="background-color:purple;color:white;">{{gstAmount.startDate |date:'dd-MMM-yy'}}</td>
+                        <td style="background-color:purple;color:white;">{{gstAmount.endDate |date:'dd-MMM-yy'}}</td>
+                        <td style="background-color:purple;color:white;">{{diffDate(gstAmount.startDate, gstAmount.endDate) }}</td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"> {{gstAmount.amount |number:0}}</td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;"></td>
+                        <td style="background-color:purple;color:white;">{{gstAmount.paymentDate |date:'dd-MMM-yy'}}</td>
+                        <td style="background-color:purple;color:white;"></td>
+                </tr>
+                <tr ng-repeat-end ng-show="subsAmountTransfer.paymentDate>report.startDate && (subsAmountTransfer.paymentDate<reports[$index+1].startDate ||reports[$index+1].startDate==undefined ) ">
+                    <td style="background-color:purple;color:white;">Subscription Incentive</td>
+                    <td style="background-color:purple;color:white;">{{subsAmountTransfer.startDate |date:'dd-MMM-yy'}}</td>
+                    <td style="background-color:purple;color:white;">{{subsAmountTransfer.endDate |date:'dd-MMM-yy'}}</td>
+                    <td style="background-color:purple;color:white;">{{diffDate(subsAmountTransfer.startDate, subsAmountTransfer.endDate) }}</td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                   
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;"> {{subsAmountTransfer.amount |number:0}}</td>
+                    <td style="background-color:purple;color:white;"></td>
+                    <td style="background-color:purple;color:white;">{{subsAmountTransfer.paymentDate |date:'dd-MMM-yy'}}</td>
+                    <td style="background-color:purple;color:white;"></td>
+            </tr>
+
+
+            </tbody>
+
+        </table>
+            </div>
+
+    </div>
+
+
+
+</div>

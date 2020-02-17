@@ -1,0 +1,69 @@
+<style type="text/css">
+	table,th,td{
+		text-align: center;
+	}
+	table { width: 100%; border-collapse: collapse;}
+td { border: 1px solid #000; }
+td table { 
+  margin: -2px;
+  width: calc(100% + 4px);
+}
+</style>
+
+<div class="row">
+	
+	<h3>Check In Checkout Report</h3>
+</div>
+<div class="row">
+	<div class="col-md-4" style="text-align: right;">Select Date</div>
+	<div class="col-md-2"><input type="date" name="date" class="form-control" ng-model="date"></div>
+	
+</div>
+<div class="row">
+	<button ng-click="submitData()">Submit</button>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<table class="table table-bordered">
+			
+		
+							<table class="table">
+								<tr>
+										<td>Name</td>
+										<td>Salon Name</td>
+										<td>Check In </td>
+										<td> Checkout </td>
+										<td>Total Distance Travelled</td>
+										<td>Effective Distance Travelled </td>
+
+								</tr>
+							<tr ng-repeat="data in finalData">
+								<td>{{data.name}}</td>
+								<td><div ng-repeat="x in data.checkInDetails">{{x.parlorName}}(Distance {{x.distanceTravelled}}({{x.distanceType}})){{x.distanceTravelledSalonToHome?("Salon to home is "+ x.distanceTravelledSalonToHome):null}}</div></td>
+								<td>
+									 <div ng-repeat="x in data.checkInDetails">
+									<div ng-repeat="y in x.checkIncheckOuts">
+										{{y.checkIn|date:'yyyy-MM-dd HH:mm:ss '}}
+									</div>
+								</div>
+								
+								</td>
+								<td>
+									<div ng-repeat="x in data.checkInDetails">
+									<div ng-repeat="y in x.checkIncheckOuts">
+											{{y.checkOut|date:'yyyy-MM-dd HH:mm:ss'}}
+									</div>
+								</div>
+								</td>
+								<td>{{totalDistance(data.checkInDetails)}}</td>
+								<td>{{effectiveDistance(data.checkInDetails)}}</td>
+							</tr>
+						</table>
+				
+			
+		</table>
+
+	</div>
+
+</div>

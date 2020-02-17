@@ -1,0 +1,211 @@
+<style media="screen">
+	.header-page-app-color {
+    font-family: latoLight;
+    color: white;
+    font-size: 0.7em;
+}
+
+</style>
+
+
+
+<md-toolbar hide-xs hide-sm show-md show-lg show-xl style="height:3em;background-color:#D2232A; position:fixed; padding-left:0;z-index:80;"class="md-hue-2">
+	<div class="md-toolbar-tools" style="padding-left:0;padding-top:0em">
+		<div layout="row" layout-align="start" >
+			<a href="/"><img class="header-logo" src="../images/logoWhite.png" alt=""></a>
+		</div>
+
+		<div flex="70" layout="row"  layout-align="start" flex ng-hide='hideFooterFlag' style="font-size: 14px;">
+				<ul class="header-toolbar-list" layout="row" flex-xs="100" flex="100" layout-wrap style="padding: 0px; 	margin-left: 4em;">
+
+						<div>
+							<li ng-click="goToAboutUs()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding"></span><span class="header-border-line">About Us</span></li>
+						</div>
+						<div >
+								<li ng-click="goToNews()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="header-border-line">News and Media</span></li>
+						</div>
+<!--
+						<div >
+								<li ng-click="goToOffers()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="header-border-line">Offers</span></li>
+						</div>
+-->
+						<div>
+								<li ng-click="goToDeals()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="header-border-line">Deals</span></li>
+						</div>
+						<div>
+								<li ng-click="goToSubscription()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="header-border-line">Buy Subscription</span></li>
+						</div>
+						<div>
+								<li style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="header-border-line"><a href="http://35.154.125.175/blog/look-flawless-at-your-workplace/">Blogs</a></span></li>
+						</div>
+						<!-- <div >
+								<li ng-click="goToFaq()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="header-border-line">FAQs</span> </li>
+						</div> -->
+						<!-- <div >
+								<li ng-click="goToContactUs()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="header-border-line">Contact Us</span></li>
+						</div> -->
+						<div >
+								<li ng-click="goToWebsiteQuery()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="header-border-line">Appointment Query</span></li>
+						</div>
+
+						<!-- <div >
+								<li ng-click="goToTermsCondiions()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding"><a href="https://play.google.com/store/apps/details?id=com.beusalons.android&hl=en" target="_blank">
+									<span class="header-page-app-androidicon"><i  class="fa fa-android apple-icon" aria-hidden="true"></i></span>
+								</a>
+								<a  hide-xs  href="https://itunes.apple.com/app/id1206326408?mt=8" target="_blank">
+								<i class="fa fa-apple " aria-hidden="true"></i>
+							</a></span><br><span class="header-border-line">Download App</span></li>
+						</div> -->
+				</ul>
+		</div>
+		<div layout="row" flex="30" layout-align="center center">
+				<div flex="10">
+					<a href="https://play.google.com/store/apps/details?id=com.beusalons.android&hl=en" target="_blank">
+						<span class="header-page-app-androidicon"><i  class="fa fa-android apple-icon" style="font-size: 25px" aria-hidden="true"></i></span>
+					</a>
+				</div>
+				<div flex="10">
+					<a  hide-xs  href="https://itunes.apple.com/app/id1206326408?mt=8" target="_blank">
+					<i class="fa fa-apple" aria-hidden="true" style="font-size: 25px"></i>
+					</a>
+				</div>
+			<!-- <div layout="row" >
+				<b><span class="beuheader-pro header-download-app">Download App</span></b>
+			</div> -->
+		</div>
+		<!-- <div layout="row"  flex="10" flex-xs="100" layout-align:"end start" > -->
+
+			<!-- <span class="header-page-listingpadding">|</span> -->
+			<div layout="row" flex="15" flex-md-offset="5" flex-gt-sm-offset="0">
+				<!-- <div layout="row"> -->
+					<span class="header-page-phoneicon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+				<!-- </div>
+				<div layout="row"> -->
+					<b class="header-page-phonenumberBold"><span class="header-page-phonenumber">91-8690291910</span></b>
+			</div>
+			<!-- </div> -->
+
+<!--
+
+								<div flex="5" layout="row" layout-align="end"ng-click="goToCartParlor()" style="margin-top: 0.2em;right: 5.5em;position: absolute;">
+									<span><ng-md-icon style="fill:#fff; cursor:pointer;" icon="shopping_cart" size="27"></ng-md-icon></span>
+									<span ng-if="cartValue.getNumber()!=0" class="beu-header-cart-logo">{{cartValue.getNumber()}}</span>
+								</div>
+-->
+<!--
+			<div layout="row" flex="10" layout-align="start" ng-mouseover="menuShow()" ng-click="menuShowClick()" style="margin-top:0.5em">
+
+					<div layout="row" class="beu-header-profile"  style="position:absolute;right:2em;bottom: 1.5em;">
+						<br><b class="beuheader-pro">My Profile</b> <ng-md-icon icon="arrow_drop_down" style="fill:#fff" class="beu-header-pro-icon" size="15"></ng-md-icon>
+				</div>
+				<div layout="column"  class="varyingMenuDropdownRightProperty varyingMenuDropdownTopProperty" ng-if="showLoginDropdown"  id="header-page-profilecontainer" ng-mouseover="menuShow()" ng-mouseleave="menuHide()">
+					<div flex  class="polygonClass varyingMenuDropdownTopProperty" id="header-page-show"  ng-mouseleave="menuHide()">
+
+						<div flex   ng-if="loginLogout=='New?'" ng-click="showalert();menuHide()" class="header-page-hide">
+							<md-button   id="header-page-signin">Sign in</md-button>
+						
+						</div>
+
+						<div flex id="myProfileDropDown" ng-if="loginLogout=='Logout'"  ng-click="goToProfileOrLogin('My Profile');menuHide()" class="header-page-myprofile">
+							<span>My profile</span>
+						
+						</div>
+
+						<div flex ng-if="loginLogout=='New?'" id="new" class="header-page-new" ng-click="newUserFlagSet();goToProfileOrLogin('New');menuHide()" >
+							<span ng-if="loginLogout=='New?'" class="md-alt-text" >New?</span>
+			
+						</div>
+						<div flex id="myAppointmentsDropDown" class="header-page-myappointment" ng-click="goToProfileOrLogin('My Appointments');menuHide()" >
+							<span >My appointments</span>
+						</div>
+						<div flex id="myLoyaltyDropDown" class="header-page-myloyality" ng-click="goToProfileOrLogin('My Loyalty Points');menuHide()" >
+							<span  >My loyalty</span>
+						</div>
+						<div flex id="mySignoutDropDown" ng-if="loginLogout=='Logout'" flex ng-click="showalert();menuHide()" class="header-page-signout" >
+							<md-button ng-if="loginLogout=='Logout'" id="header-page-signout-content">Sign out</md-button>
+						</div>
+					</div>
+				</div>
+-->
+			</div>
+
+
+			<!-- </div> -->
+	</div>
+</md-toolbar>
+
+
+<!--- small devices---->
+
+
+<md-toolbar hide-lg hide-md hide-xl show-xs show-sm style="padding-left: 1em;height:1.55em;background-color:#D2232A; position:fixed; padding-left:0;z-index:80;"class="md-hue-2">
+
+	<div class="md-toolbar-tools" style="padding-left:0;padding-right: 0;">
+		<div layout="row" flex="100">
+			<div flex-xs="5">
+				<div layout-align="start">
+					<md-icon style="margin-left: 0.3em;"ng-click="toggleLeft()" class="md-raised" md-svg-icon="img/icons/menu.svg"></md-icon>
+				</div>
+			</div>
+			<div flex-xs="80" flex-sm="80" layout-align="start" style="padding-top: 1px;">
+				<a href="/"><img  class="header-logo" src="../images/logoWhite.png" alt=""></a>
+			</div>
+			<div flex-xs="5" class="header-download-div">
+				<a class="header-android" href="https://play.google.com/store/apps/details?id=com.beusalons.android&hl=en" target="_blank">
+					<span class="header-page-app-androidicon"><i  class="fa fa-android apple-icon" aria-hidden="true"></i></span>
+				</a>
+			</div>
+			<div flex-xs="5"  class="header-download-div">
+				<a  href="https://itunes.apple.com/app/id1206326408?mt=8" target="_blank">
+				<span class="header-page-app-androidicon"><i class="fa fa-apple" aria-hidden="true"></i></span>
+				</a>
+			</div>
+						<!-- <b><span class="header-download-app">Download App</span></b> -->
+				
+	
+
+
+			
+<!--
+
+			<div flex="5" layout="row" layout-align="end"ng-click="goToCartParlor()" class="cart-mobile" style="position: absolute;">
+				<span><ng-md-icon style="fill:#fff; cursor:pointer;" icon="shopping_cart" size="22"></ng-md-icon></span>
+				<span ng-if="cartValue.getNumber()!=0" class="beu-header-cart-logo">{{cartValue.getNumber()}}</span>
+			</div>
+			<div layout="row" flex="25" layout-align="start" ng-mouseover="menuShow()" ng-click="menuShowClick()" style="right: 0;position: absolute;margin-top:0.3em">
+					<div layout="row" class="beu-header-profile" >
+						<br><b class="beuheader-pro">My Profile</b> <ng-md-icon icon="arrow_drop_down" style="fill:#fff;margin-top: -2px;" class="beu-header-pro-icon" size="15"></ng-md-icon>
+				</div>
+				<div layout="column"  class="varyingMenuDropdownRightProperty varyingMenuDropdownTopProperty" id="header-page-profilecontainer"  ng-if="showLoginDropdown"  ng-mouseover="menuShow()" ng-mouseleave="menuHide()">
+					<div flex  class="polygonClass varyingMenuDropdownTopProperty" id="header-page-show"  ng-mouseleave="menuHide()">
+
+						<div flex   ng-if="loginLogout=='New?'" ng-click="showalert();menuHide()" class="header-page-hide">
+							<md-button   id="header-page-signin">Sign in</md-button>
+						
+						</div>
+
+						<div flex id="myProfileDropDown" ng-if="loginLogout=='Logout'"  ng-click="goToProfileOrLogin('My Profile');menuHide()" class="header-page-myprofile">
+							<span>My profile</span>
+						
+						</div>
+
+						<div flex ng-if="loginLogout=='New?'" id="new" class="header-page-new" ng-click="newUserFlagSet();goToProfileOrLogin('New');menuHide()" >
+							<span ng-if="loginLogout=='New?'" class="md-alt-text" >New?</span>
+						
+						</div>
+						<div flex id="myAppointmentsDropDown" class="header-page-myappointment" ng-click="goToProfileOrLogin('My Appointments');menuHide()" >
+							<span >My appointments</span>
+						</div>
+						<div flex id="myLoyaltyDropDown" class="header-page-myloyality" ng-click="goToProfileOrLogin('My Loyalty Points');menuHide()" >
+							<span  >My loyalty</span>
+						</div>
+						<div flex id="mySignoutDropDown" ng-if="loginLogout=='Logout'" flex ng-click="showalert();menuHide()" class="header-page-signout" >
+							<md-button ng-if="loginLogout=='Logout'" id="header-page-signout-content">Sign out</md-button>
+						</div>
+					</div>
+				</div>
+			</div>
+-->
+		</div>
+	</div>
+</md-toolbar>

@@ -1,0 +1,126 @@
+<style>
+    .multiSelect > button {
+        width: 249px;
+    }
+    .multiSelect .clearButton {
+        right: -7px;
+        top: -6px;
+    }
+    #inputbox-servicereport{
+        width:100%;
+        border: 1px solid #fff;
+        height: 41px;
+        background: #fff;
+    }
+    .sortLinkColor{
+        color: black;
+    }
+</style>
+<div class="row">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Service Report</h1>
+        </div>
+        
+    </div>
+
+    <!-- /.col-lg-12 -->
+    <div class="row ">
+        <div class="col-md-3 col-lg-3 col-md-offset-2">
+            <h4>Select Salon</h4>
+        </div>
+        <div class="col-md-3 col-lg-3">
+<!--
+            <select  class="form-control" ng-options="i.parlorId as i.name for i in parlorList "  ng-model="selectedParlor">
+            </select>
+-->
+            
+            
+            <div style="display:inline" isteven-multi-select input-model="parlorList" output-model="parlorsSelected" button-label="name" item-label="name" tick-property="isSelected" output-properties="parlorId" on-close="updateParlorsSelected()" ></div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div  class="col-md-3 col-lg-3 col-md-offset-2">
+            <h4>Select Date Range</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+            <input date-range-picker  name="daterange1" class="date-picker" type="text" id="inputbox-servicereport"
+                   ng-model="dateRangeSelected" ng-change="dateSelected()" required/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-md-offset-2">
+            <button class="btn btn-primary" id="apply-btn" ng-click="apply()">Apply</button>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+        <div class="form-inline row col-md-12 col-lg-12 col-md-offset-4" >
+            <input type="text" ng-model="searchKey" class="form-control" id="focusedInput" placeholder="Search" style="margin-left: -10px">
+            <button class="btn btn-link btn-md" ng-click="exportToExcel('#tableToExport')" style="margin-left: -10px;border: 0;">
+                    <span class="glyphicon glyphicon-share"></span>
+                    Export to Excel
+            </button>
+        </div>
+</div>
+<br/>
+
+
+<div class="card" >
+    <div class="container-fluid" >
+        <div class="table-responsive" id="table-container" style="width: 100%;height: 600px;">
+                <table  class="table table-striped table-hover" id="tableToExport">
+                    <thead>
+                <tr >
+                    <th rowspan="2" class="head-color-universal">
+                        <a href="#" class="sortLinkColor" ng-click="changeSortType('name')"><span>Labels</span><span ng-show="sortType == 'name'" class="fa fa-caret-down"></span><span ng-show="sortType != 'name'" class="fa fa-caret-up"></span></a>
+                    </th>
+                    <th colspan="2" ng-repeat="parlorNameList in parlorNamesHeader" class="head-color-universal">
+                        <span>{{parlorNameList.name}}</span>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="head-color-universal" ng-repeat-start="depList in reportArray[0].values[0].values[0].parlors">
+                        <span>No of Services</span>
+                    </th>
+                    <th class="head-color-universal" ng-repeat-end>
+                        <span>Revenue</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="fullList in reportArray |orderBy:sortType:sortFlag | filter:searchKey">
+                <tr ng-click="hideCategory(fullList)">
+                    <td style ="text-align : left"><span>{{fullList.name}}</span> <span class="glyphicon" ng-class="{ 'glyphicon-chevron-right': !fullList.hideFromDepartment, 'glyphicon-chevron-down': fullList.hideFromDepartment }"></span></td>
+                    <td ng-repeat-start="depTotalRevCount in fullList.parlors">
+                        <span>{{depTotalRevCount.count | number:0}}</span>
+                    </td>
+                    <td ng-repeat-end>
+                        <span>{{depTotalRevCount.revenue | number:0}}</span>
+                    </td>
+                </tr>
+                <tr  ng-repeat-start="categoryList in fullList.values | filter:searchKey" ng-if="fullList.hideFromDepartment" ng-click="hideService(categoryList)" ng-init="expand()">
+                    <td  style ="text-align: left;padding-left: 20px;" >{{categoryList.category}}<span class="glyphicon" ng-class="{ 'glyphicon-chevron-right': !categoryList.hideFromCategory && fullList.hideFromDepartment, 'glyphicon-chevron-down': (categoryList.hideFromCategory && fullList.hideFromDepartment) }"></span></td>
+                    <td ng-repeat-start="catTotalRevCount in categoryList.parlors">
+                        <span>{{catTotalRevCount.count | number:0}}</span>
+                    </td>
+                    <td ng-repeat-end>
+                        <span>{{catTotalRevCount.revenue | number:0}}</span>
+                    </td>
+                </tr>
+                <tr   ng-repeat-end ng-repeat="a in categoryList.values | filter:searchKey" ng-if="categoryList.hideFromCategory && fullList.hideFromDepartment">
+                    <td  style ="text-align : left; padding-left: 35px;">{{a.serviceName}} - {{a.gender}}</td>
+                    <td  ng-repeat-start="parlor in a.parlors" >
+                        <span >{{parlor.count | number:0}}</span>
+                    </td>
+                    <td ng-repeat-end>    
+                        <span >{{parlor.revenue | number:0}}</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div id="bottom_anchor"></div>
+        </div>
+        </div>
+    </div>
+</div>

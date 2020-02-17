@@ -1,0 +1,56 @@
+<style media="screen">
+  .row{
+    margin-left:0;
+  }
+</style>
+<div class="col-lg-12">
+  <div class="page-header">
+    <h2 id="tables">Cohort Report</h2>
+  </div>
+<div class="row">
+    <div class="form-inline col-md-offset-5 col-md-2" >
+        <!-- <input type="text" ng-model="searchKey" class="form-control" id="focusedInput" placeholder="Search" style="margin-left: -10px" ng-change="searchMethod()"> -->
+        <button class="btn btn-link btn-md" ng-click="exportToExcel('#cohortTable')" style="margin-left: -10px;border: 0;">
+                <span class="glyphicon glyphicon-share"></span>
+                Export to Excel
+        </button>
+    </div>
+  </div>
+
+<div class="row">
+  <div id="cohortTable">
+  <div class="row" ng-repeat="data in cohortData"
+    <div class="col-md-12"  >
+
+        <div class="col-md-3" style="text-align:left">
+            Parlor Name: {{data.parlorName}}
+        </div>
+        <div class="col-md-3" style="text-align:left">
+          ParlorId: {{data.parlorId}}
+        </div>
+        <div class="col-md-3" style="text-align:left">
+          First Appointment Date: {{data.firstAppointmentDate | date: 'dd/MM/yyyy'}}
+        </div>
+        <div class="col-md-3" style="text-align:left">
+          Parlor Live Date: {{data.parlorLiveDate | date: 'dd/MM/yyyy'}}
+        </div>
+        <div class="row" style="margin:0px;">
+
+            <table class="table" >
+              <thead>
+                <tr>
+                  <th ng-repeat="(key,value) in data.cohortData[0]"  ng-if="key=='Month'">{{key}}</th>
+                  <th ng-repeat="(key,value) in data.cohortData[0]" ng-if="key!='Month'">{{key}}</th>
+                </tr>
+              </thead>
+              <tbody ng-repeat="data in data.cohortData"  ng-init="a=$index+1">
+                <td ng-repeat="(key,value) in data" ng-if="key=='Month'">
+                  {{a}}
+                </td>
+                <td ng-repeat="(key,value) in data" ng-if="key!='Month'"><span>{{value}}</span></td>
+              </tbody>
+            </table>
+        </div>
+  </div>
+  </div>
+</div>

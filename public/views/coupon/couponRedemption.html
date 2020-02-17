@@ -1,0 +1,170 @@
+<style media="screen">
+  .nav-tabs {
+    border-bottom: none;
+}
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2 id="tables">Coupon Redemption</h2>
+    </div>
+  </div>
+  <div class="col-md-12" justified="true">
+      <uib-tabset>
+        <uib-tab  ng-click='categoryButton("Old Coupons")' index="0" active="true" heading="Old Coupons"></uib-tab>
+        <uib-tab  ng-click='categoryButton("New Coupons")' index="1" heading="New Coupons"></uib-tab>
+      </uib-tabset>
+  </div>
+  <div class="col-md-12" ng-if="oldSelected">
+    <div class="col-md-12" style="margin-bottom:1em;">
+      <div class="col-md-3 col-md-offset-3">
+        <label style="margin-left: 1em">Select Coupon Code:</label>
+        <select class="form-control" ng-model="selectedCouponCode" ng-change="couponCodeSelected(selectedCouponCode)">
+          <option  ng-repeat="data in couponCode" >{{data}}</option>
+        </select>
+      </div>
+        <div class="col-md-3">
+          <label style="margin-left: 1em">Select Status:</label>
+          <select class="form-control" ng-model="selectedStatus" ng-change="statusChanged(selectedStatus)" ng-disabled="disablestatus">
+            <option  ng-repeat="(key,value) in status" >{{value}}</option>
+          </select>
+
+        </div>
+
+    <div class="col-md-12" style="padding-right: 2em;text-align:right;padding-right: 7px;padding-left: 7px;">
+      <span style="font-size: 3em;">{{count}}</span>
+
+    </div>
+    <div class="col-md-12" style="max-height:400px;overflow-x:auto;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Date</th>
+            <th>Parlor</th>
+            <th>Service</th>
+            <th>Status</th>
+            <th>Amount</th>
+            <!-- <th>Credits Offered</th> -->
+            <th>Deserved Loyalty</th>
+            <th>Coupon Code</th>
+            <th style="white-space:nowrap">Agent-Response</th>
+            <th>Edit</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="data in filterData">
+            <td>{{data.firstName | uppercase}}</td>
+            <td>{{data.phoneNumber}}</td>
+            <td>{{data.apptDate | date: 'dd/MM/yyyy'}}</td>
+            <td>{{data.apptParlor}}</td>
+            <td>
+              <span ng-repeat="s in data.apptServices">
+                {{s}}
+              </span>
+            </td>
+            <td>
+                <span ng-if="data.apptStatus==0">In Cart</span>
+                <span ng-if="data.apptStatus==1">Booked</span>
+                <span ng-if="data.apptStatus==2">Cancelled</span>
+                <span ng-if="data.apptStatus==3">Completed</span>
+                <span ng-if="data.apptStatus==4">Booked</span>
+            </td>
+            <td>{{data.apptAmount | number:2}}</td>
+            <!-- <td>{{data.apptCreditsOffered}}</td> -->
+            <td>{{data.deservedLoyality}}</td>
+            <td>{{data.couponCode}}</td>
+            <td style="width:30%">
+              <span ng-if="$index!=hideTextarea;">{{data.agentResponse}}</span>
+              <span ng-if="$index==hideTextarea" ><textarea class="form-control" rows="2" id="comment" ng-model="data.agentResponse">{{data.agentResponse}}</textarea></span>
+
+            </td>
+            <td>
+              <button type="button" name="button" ng-click="edit($index)"  ng-if="$index!=hideTextarea">Edit</button>
+              <button type="button" name="button" ng-click="save($index)" ng-if="$index==hideTextarea" >Save</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+
+</div>
+
+<div class="row" ng-if="newSelected">
+  <div class="col-md-12">
+    <div class="col-md-3 col-md-offset-3">
+      <label style="margin-left: 1em">Select Coupon Code:</label>
+      <select class="form-control" ng-model="selectedNewCouponCode" ng-change="newCouponCodeSelected(selectedNewCouponCode)">
+        <option  ng-repeat="data in newCouponCode" >{{data}}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label style="margin-left: 1em">Select Status:</label>
+      <select class="form-control" ng-model="selectedStatusNew" ng-change="newCouponStatusChanged(selectedStatusNew)" ng-disabled="disableNewStatus">
+        <option  ng-repeat="(key,value) in status" >{{value}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-md-12" style="padding-right:3em;text-align:right;padding-left: 7px;">
+    <span style="font-size: 3em;">{{newCouponCount}}</span>
+
+  </div>
+  <div class="col-md-12" style="max-height:400px;overflow-x:auto;padding-left: 3em;overflow-y: auto;width: 97%;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Date</th>
+          <th>Parlor</th>
+          <th>Service</th>
+          <th>Status</th>
+          <th>Amount</th>
+          <th>Credits Offered</th>
+          <th>Coupon Code</th>
+          <th>Agent Response</th>
+          <th>Edit</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="data in filterDataNew">
+          <td>{{data.client.name}}</td>
+          <td>{{data.client.phoneNumber}}</td>
+          <td>{{data.apptDate | date:"dd/MM/yyyy"}}</td>
+          <td>{{data.parlorName}}</td>
+          <td>
+            <p ng-repeat="s in data.services">
+              <span ng-repeat="t in s">{{t}}<br /></span>
+            </p>
+
+          </td>
+          <td>
+            <span ng-if="data.status==0">In Cart</span>
+            <span ng-if="data.status==1">Booked</span>
+            <span ng-if="data.status==2">Cancelled</span>
+            <span ng-if="data.status==3">Completed</span>
+            <span ng-if="data.status==4">Booked</span>
+          </td>
+          <td>{{data.payableAmount}}</td>
+          <td>{{data.couponLoyalityPoints}}</td>
+          <td>{{data.couponLoyalityCode}}</td>
+          <td>
+            <span ng-if="$index!=hideTextarea;">{{data.agentResponse}}</span>
+            <span ng-if="$index==hideTextarea" ><textarea class="form-control" rows="2" id="comment" ng-model="data.agentResponse">{{data.agentResponse}}</textarea></span>
+
+          </td>
+          <td>
+            <button type="button" name="button" ng-click="editNew($index)"  ng-if="$index!=hideTextarea">Edit</button>
+            <button type="button" name="button" ng-click="saveNew($index)" ng-if="$index==hideTextarea" >Save</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

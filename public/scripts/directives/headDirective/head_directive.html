@@ -1,0 +1,22 @@
+
+
+
+<div class="row">
+    <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <label>Select Salon</label>
+        <div style="display:inline" isteven-multi-select input-model="data" output-model="output"  on-item-click="itemsSelected(this)" button-label="name" item-label="name" tick-property="isSelected" output-properties="id" ></div>
+
+    </div>
+
+    </div>
+    <div class="row rows">
+        <div class="col-md-offset-4 col-md-4">
+            <div class="form-group">
+                <label for="daterange1" >Date Range Picker</label>
+                <input date-range-picker id="daterange1" name="daterange1" class="form-control date-picker" type="text"
+                       ng-model="date"  required/>
+            </div>
+        </div>
+    </div>
+</div>

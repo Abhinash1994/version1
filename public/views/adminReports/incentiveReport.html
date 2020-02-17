@@ -1,0 +1,346 @@
+<style>
+    .multiSelect > button {
+        width: 249px;
+
+    }
+    .multiSelect .clearButton {
+        right: -7px;
+        top: -6px;
+    }
+    .sortLinkColor{
+        color: black;
+    }
+    table, th, td {
+        text-align: center;
+
+    }
+
+    .yearSelect{
+     height: 28px;
+    background: white;
+    width: 100%;
+    }
+</style>
+<div class="row">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Incentive Report</h1>
+        </div>
+    </div>
+
+    <!-- /.col-lg-12 -->
+<!--
+    <div class="row export-btn">
+        <div class="col-md-3 col-lg-3 col-md-offset-2" >
+            <h4>Select Incentive Model</h4>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <select class="form-control"  ng-model="incentiveModelSelected" ng-change="changeIncentiveModel()"  ng-options="i.value as (i.modelName) for i in incentiveModels" required>
+            </select>
+        </div>
+    </div>
+-->
+
+    <div class="row ">
+        <div class="col-md-3 col-lg-3 col-md-offset-2">
+            <h4>Select Salon</h4>
+        </div>
+        <div class="col-md-4 col-lg-2">
+<!--            <select class="form-control" ng-options="i.parlorId as i.name for i in parlorList" ng-model="selectedParlor"></select>-->
+            <div style="display:inline;width:248px" isteven-multi-select input-model="parlorList" output-model="parlorsSelected" button-label="name" item-label="name" tick-property="isSelected" output-properties="parlorId" on-close="changeParlor()" ></div>
+        </div>
+    </div>
+    <div class="row">
+  <!--   <div class="col-md-2 col-md-offset-3">
+            <h4>Select Salon Type For Model</h4>
+    </div> -->
+    <!-- <div class="col-md-3">
+
+                    <select class="form-control" ng-model="parlorTypes.selected" ng-change="optionChanged()"   ng-options=" i.value as i.name for i in parlorType">
+                            
+
+                    </select>
+
+    </div> -->
+
+
+    </div>
+        <div class="row">
+                <div class="col-md-3 col-md-offset-2">
+                    <h4>Select Year</h4>
+                </div>
+            <div class="col-md-3">
+               <select class="yearSelect"   ng-model="item1"  ng-options="item1 for item1 in year">
+        </select>
+            </div>
+
+
+        </div>
+
+    <div class="row">
+        <div class="col-md-3 col-lg-3 col-md-offset-2">
+            <h4>Select Month</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+            <select class="form-control"  ng-model="monthSelected"  ng-options="k.value as (k.monthName) for k in monthsArray" required>
+            </select>
+            <!-- <input type="text" class="form-control" ng-change="updateDateTime()"   ng-model="monthselected" uib-datepicker-popup="MM/yyyy" is-open="popup1.open1"  ng-required="true"  min-mode="month" datepicker-options="{minMode: 'month'}" datepicker-mode="'month'" close-text="Close" />
+            <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-md-offset-2">
+            <button class="btn btn-primary" id="apply-btn" ng-click="apply()">Apply</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+        <div class="form-inline row col-md-12 col-lg-12 col-md-offset-4" >
+            <input type="text" ng-model="searchKey" class="form-control" id="focusedInput" placeholder="Search" style="margin-left: -10px">
+            <button class="btn btn-link btn-md" ng-click="exportToExcel('#tableToExport')" style="margin-left: -10px;border: 0;">
+                    <span class="glyphicon glyphicon-share"></span>
+                    Export to Excel
+            </button>
+        </div>
+</div>
+<div class="card" >
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <table  class="table table-striped table-hover" >
+                <thead>
+                <tr>
+                    <!--<th rowspan="2">
+                        <span>Parlor Name</span>
+                    </th>-->
+                    <th colspan="2" style="background-color: #FAE596;" ng-repeat="incentiveModelHeading in incentiveModelData">
+                        <span>{{incentiveModelHeading.name}}</span>
+                    </th>
+                </tr>
+                <tr>
+                    <th  ng-repeat-start="incentiveModelSubHeading in incentiveModelData">
+                        <span>Revenue1111</span>
+                    </th>
+                    <th  ng-repeat-end>
+                        <span>Incentive</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody >
+                <tr >
+                    <td ng-repeat-start="incentiveModelSubHeading1 in incentiveModelData">
+                            <span>{{incentiveModelSubHeading1}}</span>
+                          
+                    </td>
+                    <td ng-repeat-end>
+                              {{incentiveModelSubHeading1}}
+                    </td>
+                </tr>
+                <tr>
+                    <td ng-repeat-start="user2  in incentiveModelData">
+                         {{user2.incentive[1].range|number:0}}
+                    </td>
+                    <td ng-repeat-end>
+                       {{user2.incentive[1].incentive|number:0}}
+                    </td>
+                </tr>
+                <tr>
+                    <td ng-repeat-start="user3  in incentiveModelData">
+                       {{user3.incentive[2].range|number:0}}
+                    </td>
+                    <td ng-repeat-end>
+                         {{user3.incentive[2].incentive|number:0}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="card" >
+    <div class="container-fluid">
+        <div class="table-responsive" style="height: 600px;width:100%">
+            <table  class="table table-striped table-hover" id="tableToExport">
+                <thead>
+                <tr>
+                    <th id="firstRowZeroCell" rowspan="2" style="background-color: #FAE596;" >
+                        <span>S.No</span>
+                    </th>
+                    <th rowspan="2" id="firstRowFirstCell" style="background-color: #FAE596;">
+                        <a href="#" class="sortLinkColor" ng-click="changeSortType('name')"><span>Name</span><span ng-show="sortType == 'name'" class="fa fa-caret-down"></span><span ng-show="sortType != 'name'" class="fa fa-caret-up"></span></a>
+                    </th>
+                    <th rowspan="2" id="firstRowSecondCell" style="background-color: #FAE596;">
+                        <a href="#" class="sortLinkColor" ng-click="changeSortType('position')"><span>Position</span><span ng-show="sortType == 'position'" class="fa fa-caret-down"></span><span ng-show="sortType != 'position'" class="fa fa-caret-up"></span></a>
+                    </th>
+                    <th rowspan="2" style="background-color: #FAE596;" >
+                        <a href="#" class="sortLinkColor" ng-click="changeSortType('parlorName')"><span>Parlor Name-Parlor Address</span><span ng-show="sortType == 'parlorName'" class="fa fa-caret-down"></span><span ng-show="sortType != 'parlorName'" class="fa fa-caret-up"></span></a>
+                    </th>
+                    <th rowspan="2" style="background-color: #FAE596;">
+                        <a href="#" class="sortLinkColor" ng-click="changeSortType('totalAppointments')"><span>Total Appointments</span><span ng-show="sortType == 'totalAppointments'" class="fa fa-caret-down"></span><span ng-show="sortType != 'totalAppointments'" class="fa fa-caret-up"></span></a>
+                    </th>
+                    <th rowspan="2" style="background-color: #FAE596;">
+                        <a href="#" class="sortLinkColor" ng-click="changeSortType('totalRevenueEmp')"><span>Total Revenue Emp</span><span ng-show="sortType == 'totalRevenueEmp'" class="fa fa-caret-down"></span><span ng-show="sortType != 'totalRevenueEmp'" class="fa fa-caret-up"></span></a>
+                    </th>
+                    <th rowspan="2" style="background-color: #FAE596;">
+                        <a href="#" class="sortLinkColor" ng-click="changeSortType('totalProductRevenueEmp')"><span>Product Revenue Emp</span><span ng-show="sortType == 'totalProductRevenueEmp'" class="fa fa-caret-down"></span><span ng-show="sortType != 'totalProductRevenueEmp'" class="fa fa-caret-up"></span></a>
+                    </th>
+                    <th rowspan="2" style="background-color: #FAE596;">
+                        <a href="#" class="sortLinkColor" ng-click="changeSortType('empSalary')"><span>Salary</span><span ng-show="sortType == 'empSalary'" class="fa fa-caret-down"></span><span ng-show="sortType != 'empSalary'" class="fa fa-caret-up"></span></a>
+                    </th>
+                    <th colspan="2"  ng-repeat='data in tableData[0].dep' style="background-color: #FAE596;">
+                        <span>{{data.unit}}</span>
+                    </th>
+                    <th colspan="2" style="background-color: #FAE596;">
+                        <span>Product</span>
+                    </th>
+                    <th rowspan="2" style="background-color: #FAE596;">
+                        <span>Total Incentive</span>
+                    </th>
+                </tr>
+                <tr>
+                    <th ng-repeat-start="depList in tableData[0].dep">
+                        <span>Revenue</span>
+                    </th>
+                    <th ng-repeat-end>
+                        <span>Incentive</span>
+                    </th>
+                    <th>
+                        <span>Revenue</span>
+                    </th>
+                    <th>
+                        <span>Incentive</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in tableData | orderBy:sortType:sortFlag | filter:searchKey" >
+                    <td>
+                        <span >{{$index+1}}</span>
+                    </td>
+                    <td>
+                        <span >{{user.name}}</span>
+                    </td>
+                    <td>
+                        <span >{{user.position}}</span>
+                    </td>
+                    <td style="width:50%;white-space: nowrap;">
+                        <span >{{user.parlorName}}-{{user.parlorAddress}}</span>
+                    </td>
+                    <td>
+                        <span >{{user.totalAppointments}}</span>
+                    </td>
+                    <td>
+                        <span >{{user.totalRevenueEmp|number:0}}</span>
+                    </td>
+                    <td>
+                        <span >{{user.totalProductRevenueEmp|number:0}}</span>
+                    </td>
+                    <td>
+                        <span >{{user.empSalary|number:0}}</span>
+                    </td>
+                    <td  ng-repeat-start="depList in user.dep" >
+                        <span >{{depList.totalRevenue|number:0}}</span>
+                    </td>
+                    <td ng-repeat-end>
+                        <span >{{depList.totalIncentive}}</span>
+                    </td>
+                    <td  >
+                        <span >{{user.product.productRevenue|number:0}}</span>
+                    </td>
+                    <td >
+                        <span >{{user.product.productIncentive|number:0}}</span>
+                    </td>
+                    <td>
+                        {{user.grandtotalIncentive + user.product.productIncentive|number:0}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--
+<table  class="table table-striped table-hover" >
+    <thead>
+    <tr>
+        <th rowspan="2">
+            <span>Parlor Name</span>
+        </th>
+        <th colspan="2" style="background-color: #FAE596;" ng-repeat="incentiveModelHeading in incentiveModelData">
+            <span>{{incentiveModelHeading.name}}</span>
+        </th>
+    </tr>
+    <tr>
+        <th  ng-repeat-start="incentiveModelSubHeading in incentiveModelData">
+            <span>Revenue</span>
+        </th>
+        <th  ng-repeat-end>
+            <span>Incentive</span>
+        </th>
+    </tr>
+    </thead>
+    <tbody ng-repeat="user12  in incentiveModelData">
+    <tr>
+        <td rowspan="4">
+            <span>{{user12.incentive[$index].name}}</span>
+        </td>
+    </tr>
+    <tr >
+        <td ng-repeat-start="user1  in incentiveModelData">
+            {{user1.incentive[$index].incentives[0].incentive}}
+        </td>
+        <td ng-repeat-end>
+            {{user1.incentive[$index].incentives[0].range}}
+        </td>
+    </tr>
+    <tr>
+        <td ng-repeat-start="user1  in incentiveModelData">
+            {{user1.incentive[$index].incentives[1].incentive}}
+        </td>
+        <td ng-repeat-end>
+            {{user1.incentive[$index].incentives[1].range}}
+        </td>
+    </tr>
+    <tr>
+        <td ng-repeat-start="user1  in incentiveModelData">
+            {{user1.incentive[$index].incentives[2].incentive}}
+        </td>
+        <td ng-repeat-end>
+            {{user1.incentive[$index].incentives[2].range}}
+        </td>
+    </tr>
+    &lt;!&ndash;<tr   ng-repeat-start="user1  in incentiveModelData">
+        <td   ng-repeat-start="depList1 in user1.incentive[0]" >
+            <span >{{depList1.range}}</span>
+        </td>
+        <td ng-repeat-end>
+            <span >{{depList1.incentive}}</span>
+        </td>
+    </tr >
+    <tr>
+        <td   ng-repeat-start="depList1 in user1.incentive[0]">
+            <span >{{depList1[1].range}}</span>
+        </td>
+        <td ng-repeat-end>
+            <span >{{depList1[1].incentive}}</span>
+        </td>
+    </tr>
+    <tr ng-repeat-end>
+        <td   ng-repeat-start="depList1 in user1.incentive[0]">
+            <span >{{depList1[2].range}}</span>
+        </td>
+        <td  ng-repeat-end>
+            <span >{{depList1[2].incentive}}</span>
+        </td>
+    </tr>&ndash;&gt;
+    &lt;!&ndash; <tr>
+         <td></td>
+     </tr>
+     <tr>
+         <td></td>
+     </tr>&ndash;&gt;
+    </tbody>
+</table>-->

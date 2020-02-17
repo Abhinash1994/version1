@@ -1,0 +1,90 @@
+<div class="row">
+    
+        <h3>Month Ledger</h3>
+    </div>
+          <div class="row" style="margin:4px; padding-top:1%;text-align: right;" >
+        <div class="col-md-4">Select Month</div> 
+        <div class="col-md-4">
+             <select class="setelment-report" style="width: 72%;height: 30px;background: #fff;"  ng-model="item"  ng-options="item.value as item.name for item in month">
+            </select>
+        </div>
+     </div>
+     <div  class="row" style="margin:4px; padding-top: 1%;text-align: right;">
+        <div class="col-md-4">Select Year</div>
+          <div class="col-md-4">
+            <select class="setelment-report monthselect"  style="width: 72%;height: 30px;background: #fff;" ng-model="item1"  ng-options="item1 for item1 in year">
+            </select>
+        </div>
+      </div>
+        <div class="row" style="margin:4px;text-align: right;"  ng-if="userType=='1'">
+        <div class="col-md-4">Select Salon</div>
+        <div class="col-md-4">
+            <select class="setelment-report" style="width: 72%;height: 30px;background: #fff;" ng-model="selectedParlor" ng-options="parlor.parlorId as parlor.name for parlor in parlors |orderBy:'name'"  ng-change="changeParlor(selectedParlor)">
+            </select>
+        </div>
+     
+          
+        </div>
+    
+        <div class="row" style="padding-left:21%;">  <button  class="btn btn-md" style="width: 12%;" ng-click="getLedger()">Submit</button>
+        </div>
+        <div class="card">
+            <div class="container-fluid">
+                    <h2>Total Dues</h2>
+                <div class="col-lg-12 col-md-12">
+                    <div class="table-responsive" style="height: 200px;">
+                        <table class="table table-striped table-hover" id="tableToExport">
+                            <thead>
+                                <tr>
+                                    <th id="firstRowFirstCell" class="head-color-universal" style="text-align:center"></th>
+                                    <th id="firstRowSecondCell" class="head-color-universal" style="text-align:center">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Previous Dues</td>
+                                    <td>{{data.previousDues}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Royalty Amount for Previous Month</td>
+                                    <td>{{data.previousMonthRoyalty}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Total Recoverable</b>  </td>
+                                    <td><b>{{data.previousMonthRoyalty+data.previousDues}}</b> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+ 
+                </div>
+                <h2>Total Adjustments</h2>
+                <div class="col-lg-12 col-md-12">
+                    <div class="table-responsive" style="height: 600px;">
+                        <table class="table table-striped table-hover" id="tableToExport">
+                            <thead>
+                                <tr>
+                                    <th id="firstRowFirstCell" class="head-color-universal" style="text-align:center"></th>
+                                    <th id="firstRowSecondCell" class="head-color-universal" style="text-align:center">Amount Adjusted</th>
+                                    <th id="firstRowSecondCell" class="head-color-universal" style="text-align:center">Amount paid to Salon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in data.monthWiseDetail">
+                                    <td>{{row.name}}</td>
+                                    <td>{{row.amountAdjustedInThisSettlement}}</td>
+                                    <td>{{row.amountPaidToSalon}}</td>
+                                </tr>
+                                <tr>
+                                        <td><b>Total</b></td>
+                                        <td><b>{{totalAmountAdjusted}}</b></td>
+                                        <td><b>{{totalAmountPaid}}</b></td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+              

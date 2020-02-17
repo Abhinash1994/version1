@@ -1,0 +1,102 @@
+<style type="text/css">
+  .beuClientsRevenue input{
+        background: #fff;
+    height: 34px;
+    width: 100%;
+  }
+</style>
+<div class="row"  style="margin:2em;">
+    <div class="col-md-12"><h3 style="text-align: center;">Relevance Report</h3></div>
+</div>
+<div class="row">
+  <div class="col-md-4  col-md-offset-3"> <h4>Select City:</h4> 
+    <select class="form-control" ng-change="selectorChanged(selectedCity,category)" ng-model="selectedCity">
+    <option disabled selected value>-- select an option --</option>
+    <option value="4">All Cities</option>
+      <option value="1">Delhi</option>
+      <option value="3">Pune</option>
+      <option value="2">Banglore</option>
+  </select></div>
+</div>
+
+<div class="row">
+  <div class="col-md-4  col-md-offset-3"> <h4>Select Catergory:</h4> 
+    <select class="form-control" ng-change="selectorChanged(selectedCity,category)" ng-model="category">
+    <option disabled selected value>-- select an option --</option>
+    <option value="5">All Salons</option>
+      <option value="1">Be U</option>
+      <option value="4">Affiliate</option>
+      
+  </select></div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <select ng-options="item as item.name for item in items track by item._id" ng-model="selected"></select>
+  </div>
+</div>
+<div>
+    <div  class="col-md-3 col-lg-3 col-md-offset-2">
+            <h4>Select Date</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+            <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+                   ng-model="dateRangeSelected" ng-change="dateSelected()">
+        </div>
+    </div>
+<div class="row">
+<!--     <div class="col-md-4  col-md-offset-4">
+      <p class="input-group">
+        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </p>
+    </div> -->
+    <button ng-click="buttonclick()">Submit</button>
+</div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+
+          <table class="table bordered">
+
+              <tr>
+                  <th style="text-align:center">Salon Name</th>
+                  <th style="text-align:center">Salon Royality</th>
+                   <th style="text-align:center">Salon Live Date</th>
+                  <th style="text-align:center">Revenue from clients less than 100m</th>
+                  <th style="text-align:center">Revenue from clients more than 100m</th>
+                  <th style="text-align:center">Revenue from client less than 100m first time customers</th>
+                  <th style="text-align:center">Revenue from client more than 100 first time customers</th>
+                  <th style="text-align:center">Beu Clients Revenue </th>
+                  <th style="text-align:center">Total Revenue of Salon</th>
+                  <th style="text-align:center">Total Revenue From App <Applet></Applet></th>
+                  <th style="text-align:center">Clients from App</th>
+                  <th style="text-align:center">Clients from Near Buy</th>
+                  <th style="text-align:center">Days </th>
+                  <th style="text-align:center">Start Date</th>
+                  <th style="text-align:center">End Date</th>
+              </tr>
+              <tr ng-repeat="salonData in data track by $index">
+                  <td>{{salonData.salonName}}</td>
+                  <td>{{salonData.avgRoyalityAmount}}</td>
+                   <td>{{salonData.liveDate  | date : "mediumDate" }}</td>
+                  <td>{{salonData.appRevenue-salonData.distanceRevenue | number:0}}</td>
+                  <td>{{salonData.distanceRevenue | number:0}}</td>
+                  <td>{{salonData.appRevenueFirstTime- salonData.distanceRevenueFirstTime | number:0}}</td>
+                  <td>{{salonData.distanceRevenueFirstTime | number:0}}</td>
+                  <td>{{salonData.beuClientsRevenue}}</td>
+                  <td>{{salonData.totalRevenue  | number:0}}</td>
+                  <td>{{salonData.appRevenue  | number:0}}</td>
+                  <td>{{salonData.countOfPeople}}</td>
+                  <td>{{salonData.revenureFromNearBuy}}</td>
+                  <td>{{salonData.days}}</td>
+                  <td>{{salonData.startDate | date:'longDate'}}</td>
+                  <td>{{salonData.endDate | date:'longDate'}}</td>
+              </tr>
+          </table>
+
+      </div>
+    </div>
+  </div>

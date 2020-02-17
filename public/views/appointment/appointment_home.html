@@ -1,0 +1,28 @@
+<div>
+	<div class="row">
+			<div class="col-lg-12">
+					<h1 class="page-header">Appointment Home</h1>
+			</div>
+			<!-- /.col-lg-12-->
+	</div>
+	<!-- /.row -->
+	<div class="container-fluid">
+		<div class="row padding-t20">
+
+        <stats number="{{data.todayTotalAppointments}}" comments="Today's Appointments" colour="lightblue" type="comments"></stats>
+        <stats number="{{data.todayTotalBilling ? data.todayTotalBilling.toFixed(0) : 0}}" comments="Today's Total Billing(Rs.)" colour="lightsalmon" type="shopping-cart"></stats>
+		<stats number="{{data.lastWeekTotalAppointments}}" comments="Last week Appointments" colour="lightyellow" type="user"></stats>
+        <stats number="{{data.lastWeekTotalBilling ? data.lastWeekTotalBilling.toFixed(0) : 0}}" comments="Last week Billing(Rs.)" colour="darkseagreen" type="support"></stats>
+  	</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+				<div class="graph-container">
+					<h2>Daily Appointment Trends</h2>
+					<nvd3 options="EAoptions" data="EAdata"></nvd3>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>

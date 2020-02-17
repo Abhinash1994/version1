@@ -1,0 +1,44 @@
+<style>
+    .row {
+        padding:10px;
+    }
+    th {
+        text-align:center;
+    }
+
+</style>
+
+<h1><center>Search Otp </center>  </h1>
+<div class="row">
+        <div class="col-md-12">
+
+                <div class="form-group">
+
+                    <label>Enter Your Phone No.</label>
+                    <input type="number"  ng-model="phoneNumber" />
+                    <button class="btn btn-primary" ng-click="searchOtp()">Search Otp</button>
+                </div>
+
+        </div>
+</div>
+
+<table class="table " >
+        <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Otp</th>
+                </tr>
+        </thead>
+        <tbody ng-if="otpData!=null">
+                    <tr >
+                            <td >{{otpData.date | date}}</td>
+                            <td ng-if="otpData.status==0">Unused</td>
+                             <td ng-if="otpData.status==1">Used</td>
+                            <td>{{otpData.otp}}</td>
+
+
+                    </tr>
+
+        </tbody>
+</table>

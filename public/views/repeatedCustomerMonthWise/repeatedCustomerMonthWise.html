@@ -1,0 +1,79 @@
+<style>
+		h3{
+			text-align: center;
+		}
+
+    svg.nvd3-svg{
+    	overflow:visible;
+    }
+
+    .nv-x>g>g>g>text {
+    transform: rotateZ(-90deg);
+}
+
+.row{
+	background-color: white;
+	padding:30px;
+	overflow-y:scroll;
+	overflow:visible;
+}
+
+.nv-x.nv-axis.nvd3-svg {
+    transform: translate(0,400px);
+}
+
+th{
+	text-align:center;
+}
+
+</style>
+
+<div class="container">
+<h3>Repeated Customer Monthwise</h3>
+
+<div class ="row">
+	<nvd3 options="options" data="data"></nvd3>
+</div>
+
+
+	<div class="row">
+				<div class="col-md-offset-7">
+
+							<button class="btn btn-primary" ng-click="exportToExcel('#tableToExport')"> <span class="glyphicon glyphicon-share"></span>Export To Excel</button>
+				</div>
+
+	</div>
+
+	<div class="row" >
+
+
+
+				<table  id="tableToExport" class="table">
+						<thead>
+								<tr>
+									<th>Month</th>
+									<th ng-repeat="record in data[0].values ">{{record.label}}</th>
+								</tr>
+						</thead>
+						<tbody>
+								<tr ng-repeat="records in  data">
+											<td>{{records.key}}</td>
+											<td ng-repeat="m in records.values">{{m.value}}</td>
+										
+
+								</tr>
+
+
+						</tbody>
+
+
+
+				</table>
+	</div>
+
+
+
+
+</div>
+
+ 

@@ -1,0 +1,121 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">Free Hair Cut Service</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-lg-3 col-md-offset-3" style=""> <h4 >Select Salon</h4></div>
+    <div class="col-md-6 col-lg-3" style="text-align:left">
+    <div style="display:inline" isteven-multi-select input-model="parlors" output-model="selectedParlor" button-label="name" item-label="name" tick-property="isSelected" output-properties="parlorId" on-close="changeParlor()" ></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-lg-3 col-md-offset-3">
+        <h4>Select Date Range</h4>
+    </div>
+    <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+        <input date-range-picker  name="daterange1" class="date-picker " type="text" id="inputbox-servicereport1" ng-model="dateRangeSelected"  required/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-lg-12 col-md-offset-2"><button class="btn btn-primary" id="apply-btnservice"  ng-click="applyFilter()">Apply Filter</button></div>
+</div>
+
+
+
+<div class="card" >
+    <div class="container-fluid" >
+        <div class="table-responsive" id="table-container" >
+            <table  class="table table-striped table-hover" id="tableToExport">
+                <thead>
+                <tr>
+                    <th rowspan="3" class="head-color-universal">
+                        <span>Date</span>
+                    </th>
+                    <th colspan="8" ng-repeat="parlorNameList in datas[0].parlors" class="head-color-universal">
+                        <span>{{parlorNameList.name}}</span>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="head-color-universal"  colspan="2" ng-repeat-start="depList in datas[0].parlors">
+                                            Free Hair Cut
+                    </th>
+                    <th class="head-color-universal" colspan="2">Free Waxing</th>
+                    <th class="head-color-universal" colspan="2">Free Threading</th>
+                     <th class="head-color-universal" colspan="2" ng-repeat-end>Other Services</th>
+                   
+                </tr>
+                <tr>
+                            
+                            <th ng-repeat-start="parlorNameList in datas[0].parlors" >Count</th>
+                            <th>Amount</th>
+                            <th>Count</th>
+                            <th>Amount</th>
+                            <th>Count</th>
+                            <th>Amount</th>
+                            <th>Count</th>
+                            <th ng-repeat-end>Amount</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                         <tr ng-repeat = "data in datas">
+                            <td>{{data.date | date:'fullDate'}}</td>
+                            <td ng-repeat-start="d in data.parlors">
+                                {{d.serviceCount[0].number}}
+                            </td>
+                            <td>
+                                     {{d.serviceCount[0].amount |number:0}}
+                            </td>
+                            <td>
+                                         {{d.serviceCount[1].number |number:0}}
+                            </td>
+                            <td>
+                                     {{d.serviceCount[1].amount |number:0}}
+                            </td>
+                            <td>
+                                     {{d.serviceCount[2].number |number:0}}
+                            </td>
+                            <td>
+                                     {{d.serviceCount[2].amount |number:0}}
+                            </td>
+                            <td>
+                                     {{d.serviceCount[3].number |number:0}}
+                            </td>
+                            <td ng-repeat-end>
+                                     {{d.serviceCount[3].amount |number:0}}
+                            </td>
+                           
+                            <!--  <td>{{data.date| date:'fullDate'}}</td>
+                            <td ng-repeat-start = "data1 in data.parlors">
+                                <span>{{data1.freeHairCutCount|0}}</span>
+                            </td>
+                             <td>
+                                <span>{{data1.otherServicesCount|0}}</span>
+                             </td>
+                             <td>
+                                <span>{{data1.freeHairCutRevenue|0}}</span>
+                             </td>
+                            <td ng-repeat-end>
+                                <span>{{data1.otherServicesRevenue|0}}</span>
+                            </td> -->
+                        </tr>
+                        <tr >
+                            <td>Total</td>
+                            <td ng-repeat-start="dat in temp ">{{dat.totalFreeCount}}</td>
+                            <td>{{dat.totalFreeAmount |number:0}}</td>
+                            <td>{{dat.paidTotalCount |number:0}}</td>
+                            <td>{{dat.paidTotalAmount |number:0}}</td>
+                            <td>{{dat.threadingCount |number:0}}</td>
+                            <td>{{dat.threadingAmount |number:0}}</td>
+                            <td>{{dat.otherTotalCount |number:0}}</td>
+                            <td ng-repeat-end>{{dat.OtherTotalAmount |number:0}}</td>
+                           
+                        </tr>
+                </tbody>
+                
+            </table>
+            
+        </div>
+        </div>
+    </div>

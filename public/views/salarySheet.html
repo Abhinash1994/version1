@@ -1,0 +1,54 @@
+<div class="row"  style="margin:2em;">
+    <div class="col-md-12"><h3>Salary Sheet</h3></div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <select ng-options="item as item.name for item in items track by item._id" ng-model="selected"></select>
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-4  col-md-offset-4">
+      <p class="input-group">
+        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </p>
+    </div>
+</div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+
+          <table class="table bordered">
+
+              <tr>
+                  <th style="text-align:center">Employee ID</th>
+                  <th style="text-align:center">Employee Name</th>
+                  <th style="text-align:center">Date of Joining</th>
+                  <th style="text-align:center">Designation</th>
+                  <th style="text-align:center">IFSC Code</th>
+                  <th style="text-align:center">Working Days</th>
+                  <th style="text-align:center">Pay Days</th>
+                  <th style="text-align:center">Salary</th>
+
+              </tr>
+              <tr ng-repeat="data in salaryData">
+                  <td>{{data.employeeId}}</td>
+                  <td>{{data.employeeName}}</td>
+                  <td>{{data.dateOfJoining | date:'dd/MM/yyyy'}}</td>
+                  <td>{{data.designation}}</td>
+                  <td>{{data.ifscCode}}</td>
+                  <td>{{data.workingDays}}</td>
+                  <td>{{data.payDays}}</td>
+                  <td>{{data.salary}}</td>
+
+
+              </tr>
+
+          </table>
+
+      </div>
+    </div>
+  </div>

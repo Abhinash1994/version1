@@ -1,0 +1,89 @@
+<style type="text/css">
+  .table-responsive{
+    margin: 10px;
+    background-color: #098d9e;
+  }
+  #phoneNumber{
+    width: 10%;
+  }
+  #name{
+    width: 10%;
+  }
+  #LastAppointemntDate{
+    width: 20%;
+  }
+  #Services{
+    width: 30%;
+  }
+  #Rating{
+    width: 5%;
+  }
+  #Review{
+    width: 25%;
+     text-align: justify;
+  }
+table .item_center th{
+    text-align: center;
+  }
+  .customerno{
+    font-weight: 700;
+    text-align: center;
+    color:#fff;
+  }
+  .line1{
+    margin: 10px auto;
+    width: 40%;
+    border: 0.3px solid #19181814;
+    position:relative;
+    text-align:cente
+  }
+  .setelment-report{
+        height: 40px;
+        background:#fff;
+    }
+    .id1{
+      text-align: center;
+      margin-left: -85px;
+    }
+    label{
+      color:#fff;
+      font-weight: 400;
+    }
+    #productSizes{
+      margin-top: 62px;
+    }
+</style>
+<div class="table-responsive">
+    <table id="productSizes" class="table">
+        <h3 class="customerno"> Last 3 month Customer No Show</h3>
+          <div class="line1"></div>
+
+           <div class="col-md-12 id1" ng-if="role == 7">
+                <label> Select Salon : </label>
+                        <select  class="setelment-report selectsalon"  ng-model="selectedParlorId"  ng-options="parlor.parlorId as (parlor.name + ' '+parlor.address1) for parlor in allParlors |orderBy:'name'" ng-change="changeParlor(selectedParlorId)">
+                        </select>
+          </div>
+
+        <thead>
+            <tr class="item_center">
+                <th id="name">Name</th>
+                <th id="phoneNumber">PhoneNumber</th>
+                <th id="LastAppointemntDate">Last Appointemnt Date</th>
+                <th id="Services">Services</th>
+                <th id="Rating">Rating</th>
+                <th id="Review">Review</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="customer in customersNoShow">
+                
+                <td>{{customer.name}}</td>
+                <td>{{customer.phoneNumber}}</td>
+                <td>{{customer.lastAppointmentDate  | date:'MMMM d, y h:mm:ss a'}}</td>
+                <td>{{service(customer.services)}}</td>
+                <td>{{customer.rating}}</td>
+                <td>{{customer.review}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

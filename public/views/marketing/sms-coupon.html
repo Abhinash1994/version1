@@ -1,0 +1,80 @@
+<style>
+.field{
+	margin-top:10px;
+}
+
+
+</style>
+
+
+<div class="row">
+	<div class="col-md-12">
+			<h3>SMS Coupon</h3>
+			<!--<div  style="height:30px;margin-bottom: 20px;">-->
+				<!--Select salon data-->
+				<!--<select ng-model="messageParlor" ng-options="parlor.parlorId as parlor.name for parlor in parlors"  style="height:30px;margin-bottom: 20px;" ></select>-->
+			<!--</div>-->
+
+			<div class="col-md-12 well">
+				<div class="col-md-10"><form accept-charset="UTF-8">
+					<textarea type="text" rows="5" class="form-control" ng-change="messagecount()"  placeholder="Message" ng-trim="false" ng-model="sms.message" required/>
+					<h6 class="pull-right"></h6>
+<!--					<button class="btn btn-info" type="submit">Send SMS</button>-->
+				</form>
+				</div>
+				<div class="col-md-2">
+				<div ng-model="chCount" >Character Count {{sms.message.length}}</div>
+				<div ng-model="messageCount" >Message Count {{mc}}</div>
+				</div>
+
+			</div>
+		<!--<div ng-show = "IsVisible" ng-model="sms.message">{{sms.message}}</div>-->
+	</div>
+</div>
+<div class="row">
+
+<div class="col-md-offset-1 col-md-2 field">
+		<label>Testing Phone Number</label>
+
+</div>
+<div class="col-md-5">
+			<input type="number" min="0" class="form-control"  style="background-color:white;" ng-model="testingNumber"/>
+
+</div>
+
+</div>
+
+
+
+<div>
+<div class="col-md-3" ng-hide="result.customerTarget == null" > Targeting {{result.customerTarget}} Customers</div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-3 control-label">App Activity</label>
+    <div class="col-sm-3 col-sm-offset-1">
+        <select ng-model="appActivity" class="form-control" ng-options="activity.value as activity.name for activity in activities"></select>
+    </div>
+</div>
+
+
+
+<div class="row">
+
+
+	<div class="col-md-offset-3 col-md-4 ">
+		<label>Select Salon
+			Data</label>
+	<div class="display:inline"  isteven-multi-select input-model="parlors" output-model="salons" button-label="name" item-label="name" tick-property="ticked" output-properties="parlorId"></div>
+	<button class="btn btn-primary" ng-click="send()">Submit</button>
+	</div>
+        </div>
+
+            
+
+	</form>
+
+ 
+
+	</div>
+</div>
+

@@ -1,0 +1,78 @@
+<style>h3{text-align: center;}
+		td{text-align: center;}
+		th{text-align: center;}
+	
+ .setelment-report{
+        height: 40px;
+    }
+</style>
+<h3>Invoice Wise Collection Report</h3>
+<div class="row">
+<div class="col-md-9 dailysummary">
+      <div class="col-md-3  col-lg-3 col-md-offset-2">
+        <h4>Select Date Range</h4>
+      </div>
+      <div class="col-md-6 col-lg-3">
+              <input date-range-picker id="daterange1" name="daterange1" class="date-picker revenue-report-page-inputdate form-control" type="text" ng-model="filter.date" required/>
+      </div>
+    </div>
+   <div class="col-md-3">
+   			<button class="btn btn-primary" ng-click="exportToExcel('.table')">Export To Excel</button>
+   </div>
+  </div>
+
+    <div class="col-md-9">
+      <div class="col-md-3  col-lg-3 col-md-offset-2">
+        <h4>Select Salon</h4>
+      </div>
+      <div class="col-md-6 col-lg-3">
+             <select  class="setelment-report selectsalon"  ng-model="selectedParlorId"  ng-options="parlor.parlorId as (parlor.name + ' '+parlor.address1) for parlor in allParlors |orderBy:'name'" ng-change="changeParlor(selectedParlorId)">
+              </select
+      </div>
+    </div>
+   
+  </div>
+
+
+<div style="height:auto;">
+ <table class="table">
+ 	<thead>
+ 		<tr>	
+ 				<th>S.No</th>
+ 				<th>Month</th>
+ 				<th>Invoice No.</th>
+ 				<th>Date</th>
+ 				<th>Client Name</th>
+ 				<th>Service/Product</th>
+ 				<th>Price</th>
+ 				<th>Loyalty Redemption <span style="font-size:0.8em;">(This is 50% of the Total Freebie Points)</span></th>
+        <th>Membership Redemption</th>
+        <th>Advance Redemption</th>
+ 				<th>NET</th>
+ 				<th>GST</th>
+ 				<th>Total</th>
+ 				<th>Payment Mode</th>
+
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+ 		<tr ng-repeat=" record in data">
+ 			<td>{{$index+1}}</td>
+ 			<td>{{record.month-1|monthName}}</td>
+ 			<td>{{record.invoiceId}}</td>
+ 			<td>{{record.date}}</td>
+ 			<td>{{record.name}}</td>
+ 			<td><span ng-if="record.service>0">Service</span><span ng-if="record.product>0">Product</span></td>
+ 			<td>{{record.price}}</td>
+      <td>{{record.loyality}}</td>
+      <td>{{record.membership}}</td>
+ 			<td>{{record.advanceCredits}}</td>
+ 			<td>{{record.net}}</td>
+ 			<td>{{record.net*.18 |number:2}}</td>
+ 			<td>{{record.total|number:2 }}</td>
+ 			<td ><span ng-repeat="m in record.paymentMode"><span>{{m.name}}</span><span ng-if="record.paymentMode.length!=$index+1">+</span></span><span ng-if="record.paymentMode.length==0 ">{{record.type}}</span></td>
+ 		</tr>
+ 	</tbody>
+
+ </table>
+</div>

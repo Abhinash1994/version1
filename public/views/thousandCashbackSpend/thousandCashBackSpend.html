@@ -1,0 +1,61 @@
+<style>
+		h3{
+			text-align: center;
+		}
+
+    svg.nvd3-svg{
+    	overflow:visible;
+    }
+
+    .nv-x>g>g>g>text {
+    transform: rotateZ(-90deg);
+}
+
+.row{
+	background-color: white;
+	padding:30px;
+	overflow-y:scroll;
+	overflow:visible;
+}
+
+.nv-x.nv-axis.nvd3-svg {
+    transform: translate(0,400px);
+}
+
+th{
+	text-align: center;
+}
+
+
+</style>
+
+<div class="container">
+<h3>Thousand CashBack Spend</h3>
+
+<div class ="row">
+			    <table class="scroll table table-hover table-striped">
+        <thead>
+        <tr>
+                <th  ng-repeat="a in data">{{a.key}}</th>
+                
+        </tr>
+        </thead>
+        <tbody>
+                    <tr >
+                        <td ng-repeat="a in data">{{a.count}}</td>
+                       
+                    </tr>
+
+        </tbody>
+
+
+
+    </table>	
+
+
+</div>
+
+
+
+
+</div>

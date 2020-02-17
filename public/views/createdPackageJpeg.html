@@ -1,0 +1,329 @@
+<style>
+	#ruler { visibility: hidden; white-space: nowrap; }
+	td th{
+		height: 13px;
+	}
+    
+    b{
+        line-height: 25px;
+    }
+   
+   .content{
+   					font-size: 13px;
+   }
+
+   .head{
+   	font-size:15px;
+   }
+
+   .image{
+   height:100%;
+   }
+   @media print
+{
+    * {-webkit-print-color-adjust:exact;}
+}
+
+
+.row{
+	margin:0px;
+}
+    .cutprice{
+    border-top: 1px solid red;
+    margin-top: 9px;
+    position: absolute;
+    width: 8%;
+    }
+
+    .toptext{text-align: center;font-size:15px;color: red;}  
+    .persentage{border:1px solid red;}
+    .menuprice{margin-left:5px;}
+    .dealprice{margin: 5px;}
+    .contentText{width: 18%;padding-left: 1%;float: left;}
+    .contentTextLast{width: 18%;padding-left: 1%;float: left;margin-right: 1%}
+    .stamp{position: absolute;right: 9%;top: 2%;width: 13%;}
+</style>
+
+
+	<span id="ruler"></span>
+<div class="container">
+	<div class="row" id="my-node1">
+		<div class="col-md-12 col-lg-12">
+			<!-- <button ng-click="generateJpeg()"></button> -->
+			<button ng-click="generateJpeg()" id="btn-Convert-Html2Image" style="padding-top:1%;padding-bottom:1%;">Generate Jpg </button>
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+<div id="my-node">
+
+	<div class="abc" style="background-color: transparent; position: absolute;z-index: 0;"  >
+ 	<img class="image" style="width:100%;height: 100%; z-index:-100;position:absolute;margin:0px;" src='/img/{{backGroundImage}}.jpg' alt="text" class="image" />
+
+ 
+        
+        <div class="row" style="padding-top: 1%;">
+            <div class="col-md-10">
+                <div class="toptext" ng-style="{'color':headcolor}"><h1 ng-style="{'color':headcolor}" class="para2 cutomise"><u ng-style="{'color':headcolor}" class="para2 cutomise">CUSTOMISE YOUR PACKAGE</u></h1></div>
+                <div class="toptext" ><span ng-style="{'color':topcommon}" class="topcommon">SAVE MORE & AVAIL your package services in multiple visits</span></div>
+                <div class="toptext"><span ng-style="{'color':headcolor}" class="para2">ADDITIONAL PACKAGE BENEFITS</span></div>
+                <div class="toptext">
+                   <span ng-style="{'color':headcolor}" class="para2">Shop Worth 800 - 5,000 (MIN. 4 SERVICES) </span> <span class="topcommon" ng-style="{'color':topcommon}"> Additional 5% Package Discount* </span>
+                    <span ng-style="{'color':ValidityColor}" class="validity"><i  ng-style="{'color':ValidityColor}" class="validity"> Validity: 1 month</i></span>
+                </div>
+                <div class="toptext">
+                    <span  ng-style="{'color':headcolor}" class="para2">Shop Worth  5,000 - 10,000 </span><span ng-style="{'color':topcommon}" class="topcommon">Additional 7% Package Discount*</span>
+                    <span ng-style="{'color':ValidityColor}" class="validity"> <i  ng-style="{'color':ValidityColor}" class="validity">Validity: 3 months</i></span> 
+                </div>
+                <div class="toptext">
+                    <span ng-style="{'color':headcolor}" class="para2">Shop Above 10,000 </span><span  ng-style="{'color':topcommon}" class="topcommon" >Additional 10% Package Discount*</span> 
+                    <span ng-style="{'color':ValidityColor}" class="validity"> <i  ng-style="{'color':ValidityColor}" class="validity">Validity: 6 months</i></span>
+                </div>
+            </div>
+            <div class="col-m-2"><img src="/img/{{stamp}}.png" class="stamp"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-3" style="padding-top: 3%;margin-left:3%;" ng-style="{'border-bottom':straightLineColor}"></div>
+            <div class="col-md-3 col-sm-3"><p style="padding-top:7%;font-family :Roboto-Light;text-align:center;" ng-style="{'color': departmentHeadingsColor,'font-size':'25px'}"><b class="para" style="font-family :sans-serif">3 Services Package</b></p></div>
+            <div class="col-md-4 col-sm-3" style="padding-top: 3%;" ng-style="{'border-bottom':straightLineColor}"></div>
+        </div>
+
+		
+		<div class="row pad">
+            
+          <div class="contentText" ng-if="dealObject.update1.name">
+              <h3 ng-style="{'color': departmentHeadingsColor,'font-size':'25px'}" class="para">{{dealObject.update1.name}}</h3>
+             
+              <p>{{dealObject.update1.description}}</p>
+            <div> 
+               <span class="persentage">Save {{(1-(dealObject.update1.dealPrice/dealObject.update1.menuPrice))*100 |number:0}}%</span>  <strike style="color: red;"><span class="dealprice" style="color:#6e5654!important;">{{dealObject.update1.menuPrice}}</span></strike><span class="menuprice greenmenu">{{dealObject.update1.dealPrice |number:0}}</span>
+            </div>
+        </div>
+         
+          <div class="contentText" ng-if="dealObject.update2.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update2.name}}</h3>
+            
+            <p>{{dealObject.update2.description}}</p>
+              <div><span class="persentage">Save {{(1-(dealObject.update2.dealPrice/dealObject.update2.menuPrice))*100 |number:0}}%</span> <span class="dealprice"><strike><span style="color:#6e5654!important;">{{dealObject.update2.menuPrice}}</span></strike></span><span class="dealprice greenmenu">{{dealObject.update2.dealPrice |number:0}}</span></div>
+          </div>
+          <div class="contentText" ng-if="dealObject.update3.name">
+              <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update3.name}}</h3>
+             
+              <p>{{dealObject.update3.description}}</p>
+              <div> 
+                  <span class="persentage">Save {{(1-(dealObject.update3.dealPrice/dealObject.update3.menuPrice))*100 |number:0}}%</span> <span><strike><span class="dealprice" style="color:#6e5654!important;">{{dealObject.update3.menuPrice}}</span></strike></span>
+                 <span class="dealprice greenmenu">{{dealObject.update3.dealPrice |number:0}}</span>
+              </div>
+          </div>
+          <div class="contentText" ng-if="dealObject.update4.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update4.name}}</h3>
+           
+            <p>{{dealObject.update4.description}}</p> 
+               <div> <span class="persentage">Save {{(1-(dealObject.update4.dealPrice/dealObject.update4.menuPrice))*100 |number:0}}%</span> <strike><span class="dealprice" style="color:#6e5654!important;">{{dealObject.update4.menuPrice}}</span></strike><span class="dealprice greenmenu">{{dealObject.update4.dealPrice}}</span></div>
+          </div>
+          <div class="contentText contentTextLast" ng-if="dealObject.update5.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update5.name}}</h3>
+           <p>{{dealObject.update5.description}}</p>
+            <div> 
+                <span class="persentage">Save {{(1-(dealObject.update5.dealPrice/dealObject.update5.menuPrice))*100 |number:0}}%</span> <strike><span class="dealprice" style="color:#6e5654!important;">{{dealObject.update5.menuPrice}}</span></strike>
+                <span class="dealprice greenmenu">{{dealObject.update5.dealPrice |number:0}}</span>
+            </div>
+          </div>
+            
+        </div>
+        <!--stop first section ---->
+      <div class="row">
+            <div class="col-md-4 col-sm-3" style="padding-top: 3%;margin-left:3%;" ng-style="{'border-bottom':straightLineColor}"></div>
+            <div class="col-md-3 col-sm-3"><p style="padding-top:7%;font-family :Roboto-Light;text-align:center;" ng-style="{'color': departmentHeadingsColor,'font-size':'25px'}"><b class="para" style="font-family :sans-serif">5 Services Package</b></p></div>
+            <div class="col-md-4 col-sm-3" style="padding-top: 3%;" ng-style="{'border-bottom':straightLineColor}"></div>
+        </div>
+        <div class="row pad">
+            
+          <div class="contentText" ng-if="dealObject.update6.name">
+              <h3  ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para" >{{dealObject.update6.name}}</h3>
+            
+              <p>{{dealObject.update6.description}}</p>
+               <div><span class="persentage">Save {{(1-(dealObject.update6.dealPrice/dealObject.update6.menuPrice))*100 |number:0}}%</span> <strike><span class="dealprice" style="color:#6e5654!important;">{{dealObject.update6.menuPrice}}</span></strike><span class="dealprice greenmenu">{{dealObject.update6.dealPrice |number:0}}</span></div>
+          </div>
+          <div class="contentText" ng-if="dealObject.update7.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update7.name}}</h3>
+           
+            <p>{{dealObject.update7.description}}</p>
+               <div><span class="persentage">Save {{(1-(dealObject.update7.dealPrice/dealObject.update7.menuPrice))*100 |number:0}}%</span> <span class="dealprice"><strike><span style="color:#6e5654!important;">{{dealObject.update7.menuPrice}}</span></strike></span><span class="dealprice greenmenu">{{dealObject.update7.dealPrice |number:0}}</span></div>
+          </div>
+             <div class="contentText" ng-if="dealObject.update8.name">
+              <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update8.name}}</h3>
+            
+              <p>{{dealObject.update8.description}}</p>
+                  <div> <span class="persentage">Save {{(1-(dealObject.update8.dealPrice/dealObject.update8.menuPrice))*100 |number:0}}%</span> <span class="dealprice"><strike><span style="color:#6e5654!important;">{{dealObject.update8.menuPrice}}</span></strike></span>
+                 <span class="dealprice greenmenu">{{dealObject.update8.dealPrice |number:0}}</span></div>
+          </div>
+          <div class="contentText" ng-if="dealObject.update9.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update9.name}}</h3>
+           
+            <p>{{dealObject.update9.description}}</p> 
+               <div> <span class="persentage">Save {{(1-(dealObject.update8.dealPrice/dealObject.update9.menuPrice))*100 |number:0}}%</span><strike> <span class="dealprice" style="color:#6e5654!important;">{{dealObject.update9.menuPrice}}</span></strike><span class="dealprice greenmenu">{{dealObject.update9.dealPrice |number:0}}</span></div>
+          </div>
+               <div class="contentTextLast" ng-if="dealObject.update10.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update10.name}}</h3>
+           
+            <p>{{dealObject.update10.description}}</p> 
+                    <div><span class="persentage">Save {{(1-(dealObject.update10.dealPrice/dealObject.update10.menuPrice))*100 |number:0}}%</span> <strike><span class="dealprice" style="color:#6e5654!important;">{{dealObject.update10.menuPrice}}</span></strike><span class="dealprice greenmenu">{{dealObject.update10.dealPrice |number:0}}</span></div>
+          </div>
+            
+        </div>
+        <!--stop first section ---->
+          <div class="row">
+            <div class="col-md-4 col-sm-3" style="padding-top: 3%;margin-left:3%;" ng-style="{'border-bottom':straightLineColor}"></div>
+            <div class="col-md-3 col-sm-3"><p style="padding-top:7%;font-family :Roboto-Light;text-align:center;" ng-style="{'color': departmentHeadingsColor,'font-size':'25px'}"><b class="para" style="font-family :sans-serif">7 Services Package</b></p></div>
+            <div class="col-md-4 col-sm-3" style="padding-top: 3%;" ng-style="{'border-bottom':straightLineColor}"></div>
+        </div>
+  
+        <div class="row pad">
+            
+          <div class="contentText" ng-if="dealObject.update11.name">
+              <h3  ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update11.name}}</h3>
+            
+              <p>{{dealObject.update11.description}}</p>
+               <div> <span class="persentage">Save {{(1-(dealObject.update11.dealPrice/dealObject.update11.menuPrice))*100 |number:0}}%</span> <strike><span class="dealprice" style="color:#6e5654!important;">{{dealObject.update11.menuPrice}}</span></strike><span class="dealprice greenmenu">{{dealObject.update11.dealPrice |number:0}}</span></div>
+          </div>
+          <div class="contentText" ng-if="dealObject.update12.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update12.name}}</h3>
+           
+            <p>{{dealObject.update12.description}}</p> 
+               <div> <span class="persentage">Save {{(1-(dealObject.update12.dealPrice/dealObject.update12.menuPrice))*100 |number:0}}%</span> <span class="dealprice"><strike><span style="color:#6e5654!important;">{{dealObject.update12.menuPrice}}</span></strike></span><span class="dealprice greenmenu">{{dealObject.update12.dealPrice |number:0}}</span></div>
+          </div>
+             <div class="contentText" ng-if="dealObject.update13.name">
+              <h3  ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update13.name}}</h3>
+             
+              <p>{{dealObject.update13.description}}</p>
+                 <div> <span class="persentage">Save {{(1-(dealObject.update13.dealPrice/dealObject.update13.menuPrice))*100 |number:0}}%</span> <span class="dealprice"><strike><span style="color:#6e5654!important;">{{dealObject.update13.menuPrice}}</span></strike></span>
+                 <span class="dealprice greenmenu">{{dealObject.update13.dealPrice |number:0}}</span></div>
+          </div>
+          <div class="contentText" ng-if="dealObject.update14.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update14.name}}</h3>
+           
+            <p>{{dealObject.update14.description}}</p> 
+               <div> <span class="persentage">Save {{(1-(dealObject.update14.dealPrice/dealObject.update14.menuPrice))*100 |number:0}}%</span><strike> <span class="dealprice" style="color:#6e5654!important;">{{dealObject.update14.menuPrice}}</span></strike><span class="dealprice greenmenu">{{dealObject.update14.dealPrice |number:0}}</span></div>
+          </div>
+               <div class="contentTextLast" ng-if="dealObject.update15.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update15.name}}</h3>
+          
+            <p>{{dealObject.update15.description}}</p> 
+                     <div><span class="persentage">Save {{(1-(dealObject.update15.dealPrice/dealObject.update15.menuPrice))*100 |number:0}}%</span> <strike><span class="dealprice" style="color:#6e5654!important;">{{dealObject.update15.menuPrice}}</span></strike><span class="dealprice greenmenu">{{dealObject.update15.dealPrice |number:0}}</span></div>
+          </div>
+            
+        </div>
+        <!--stop first section ---->
+   <!--      <div class="row">
+            <div class="col-md-4 col-sm-3" style="padding-top: 3%;margin-left:3%;" ng-style="{'border-bottom':straightLineColor}"></div>
+            <div class="col-md-3 col-sm-3"><p style="padding-top:7%;font-family :Roboto-Light;text-align:center;" ng-style="{'color': departmentHeadingsColor,'font-size':'25px'}"><b class="para" style="font-family :sans-serif">10 Services Package</b></p></div>
+            <div class="col-md-4 col-sm-3" style="padding-top: 3%;" ng-style="{'border-bottom':straightLineColor}"></div>
+        </div>
+        <div class="row pad">
+            
+          <div class="contentText" ng-if="dealObject.update16.name">
+              <h3  ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update16.name}}</h3>
+            
+              <p>{{dealObject.update16.description}}</p>
+               <div> <span class="persentage">Save {{(1-(dealObject.update16.dealPrice/dealObject.update16.menuPrice))*100 |number:0}}%</span> <strike><span class="dealprice" style="color:#6e5654!important;">{{dealObject.update16.menuPrice}}</span></strike><span class="dealprice greenmenu">{{dealObject.update16.dealPrice |number:0}}</span></div>
+          </div>
+          <div class="contentText" ng-if="dealObject.update17.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update17.name}}</h3>
+          
+            <p>{{dealObject.update17.description}}</p> 
+                <div> <span class="persentage">Save {{(1-(dealObject.update17.dealPrice/dealObject.update17.menuPrice))*100 |number:0}}%</span> <span class="dealprice"><strike><span style="color:#6e5654!important;">{{dealObject.update17.menuPrice}}</span></strike></span><span class="dealprice greenmenu">{{dealObject.update17.dealPrice |number:0}}</span></div>
+          </div>
+        <div class="contentText" ng-if="dealObject.update18.name">
+              <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update18.name}}</h3>
+           
+              <p>{{dealObject.update18.description}}</p>
+                   <div> <span class="persentage">Save {{(1-(dealObject.update18.dealPrice/dealObject.update18.menuPrice))*100 |number:0}}%</span> <span class="dealprice"><strike><span style="color:#6e5654!important;">{{dealObject.update18.menuPrice}}</span></strike></span>
+                 <span class="dealprice greenmenu">{{dealObject.update18.dealPrice |number:0}}</span></div>
+          </div>
+          <div class="contentText" ng-if="dealObject.update19.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update19.name}}</h3>
+           
+            <p>{{dealObject.update19.description}}</p> 
+               <div> <span class="persentage">Save {{(1-(dealObject.update19.dealPrice/dealObject.update19.menuPrice))*100 |number:0}}%</span> <strike><span class="dealprice" style="color:#6e5654!important;">{{dealObject.update19.menuPrice}}</span></strike><span class="dealprice greenmenu">{{dealObject.update19.dealPrice |number:0}}</span></div>
+          </div>
+         <div class="contentTextLast" ng-if="dealObject.update20.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update20.name}}</h3>
+           
+            <p>{{dealObject.update20.description}}</p> 
+                    <div><span class="persentage">Save {{(1-(dealObject.update20.dealPrice/dealObject.update20.menuPrice))*100 |number:0}}%</span> <strike><span class="dealprice" style="color:#6e5654!important;">{{dealObject.update20.menuPrice}}</span></strike><span class="dealprice greenmenu" >{{dealObject.update20.dealPrice |number:0}}</span></div>
+          </div>
+            
+        </div> -->
+        <!--stop first section ---->
+   <!--        <div class="row">
+            <div class="col-md-4 col-sm-3" style="padding-top: 3%;margin-left:3%;" ng-style="{'border-bottom':straightLineColor}"></div>
+            <div class="col-md-3 col-sm-3"><p style="padding-top:7%;font-family :Roboto-Light;text-align:center;" ng-style="{'color': departmentHeadingsColor,'font-size':'25px'}"><b class="para" style="font-family :sans-serif"> 15 Services Package</b></p></div>
+            <div class="col-md-4 col-sm-3" style="padding-top: 3%;" ng-style="{'border-bottom':straightLineColor}"></div>
+        </div>
+        <div class="row pad">
+            
+          <div class="contentText" ng-if="dealObject.update21.name">
+              <h3  ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para" >{{dealObject.update21.name}}</h3>
+            
+              <p>{{dealObject.update21.description}}</p>
+               <div> <span class="persentage">Save {{(1-(dealObject.update21.dealPrice/dealObject.update21.menuPrice))*100 |number:0}}%</span> <strike><span claas="dealprice" style="color:#6e5654!important;">{{dealObject.update21.menuPrice}}</span></strike><span class="dealprice greenmenu" >{{dealObject.update21.dealPrice |number:0}}</span></div>
+          </div>
+          <div class="contentText" ng-if="dealObject.update22.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update22.name}}</h3>
+            
+            <p>{{dealObject.update22.description}}</p> 
+              <div> <span class="persentage">Save {{(1-(dealObject.update22.dealPrice/dealObject.update22.menuPrice))*100 |number:0}}%</span> <span class="dealprice"><strike><span style="color:#6e5654!important;">{{dealObject.update22.menuPrice}}</span></strike></span><span class="dealprice greenmenu" >{{dealObject.update22.dealPrice |number:0}}</span></div>
+          </div>
+             <div class="contentText" ng-if="dealObject.update23.name">
+              <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update23.name}}</h3>
+            
+              <p>{{dealObject.update23.description}}</p>
+                  <div> <span class="persentage">Save {{(1-(dealObject.update23.dealPrice/dealObject.update23.menuPrice))*100 |number:0}}%</span> <span class="dealprice"><strike><span style="color:#6e5654!important;">{{dealObject.update23.menuPrice}}</span></strike></span>
+                 <span class="dealprice greenmenu">{{dealObject.update23.dealPrice |number:0}}</span></div>
+          </div>
+          <div class="contentText" ng-if="dealObject.update24.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update24.name}}</h3>
+            
+            <p>{{dealObject.update24.description}}</p> 
+              
+            <div> <span class="persentage">Save {{(1-(dealObject.update24.dealPrice/dealObject.update24.menuPrice))*100 |number:0}}%</span> <strike> <span class="dealprice" style="color:#6e5654!important;">{{dealObject.update24.menuPrice}}</span></strike><span class="dealprice greenmenu">{{dealObject.update24.dealPrice |number:0}}</span></div>
+          </div>
+            <div class="contentTextLast" ng-if="dealObject.update25.name">
+            <h3 ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" class="para">{{dealObject.update25.name}}</h3>
+           
+            <p>{{dealObject.update25.description}}</p> 
+            <div> <span class="persentage">Save {{(1-(dealObject.update25.dealPrice/dealObject.update25.menuPrice))*100 |number:0}}%</span> <strike><span class="dealprice" style="color:#6e5654!important;">{{dealObject.update25.menuPrice}}</span></strike><span class="dealprice greenmenu">{{dealObject.update25.dealPrice |number:0}}</span></div>
+          </div>
+            
+        </div> -->
+        <!--stop first section ---->
+               <div class="row">
+			<div class="col-lg-12 col-md-12" style="padding-top:1%;">
+				<div class="row">
+					<div class=" col-md-12 col-lg-12"  style="text-align:center;">
+						<img   style='width:100px;' class="log" src="/img/{{logo}}.png" alt="logo" >
+					</div>
+				</div>
+<!--
+				<div class="row">
+					<div class="col-lg-12 col-md-12" style="text-align:center;"  ng-style="{'color':dealMenuSecondHeading,'font-size':'25px'}" ><b style="font-family :sans-serif">Package MENU</b></div>
+				</div>
+-->
+			</div>
+		</div>
+      
+         
+      
+       
+    
+	</div>
+</div>
+</div>
+
+
+
+
+

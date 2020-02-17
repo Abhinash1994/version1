@@ -1,0 +1,236 @@
+<style media="screen">
+  th{
+    text-align:center;
+  }
+  .hiddenRow {
+    padding: 0 !important;
+}
+.nav-tabs {
+     border-bottom: none;
+}
+
+
+</style>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2 id="tables">Converted Clients</h2>
+    </div>
+
+    <!-- <div class="alert alert-success col-md-6 col-md-offset-6" ng-if="success" dismiss-on-timeout="2000" close="closeAlert()">
+      <strong>Success!</strong> This alert box could indicate a successful or positive action.
+    </div> -->
+    <div class="col-md-12" justified="true">
+      <uib-tabset>
+        <uib-tab  ng-click='categoryButton("Not Contacted")' index="0" heading="Not Contacted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Contacted")' index="1" heading="Contacted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Converted")' index="2"  active="true" heading="Converted"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Reports")'  index="3" heading="Reports"></uib-tab>
+        <uib-tab  ng-click='categoryButton("divasAndMachosCustomers")'  index="4" heading="Divas and Machos"></uib-tab>
+        <uib-tab  ng-click='categoryButton("afterThreeMonths")' index="4" heading="After Three Months"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Website Queries")' index="4" heading="Website Queries"></uib-tab>
+        <uib-tab  ng-click='categoryButton("Subscription Queries")' index="4" heading="Subscription Queries"></uib-tab>
+        <uib-tab  ng-click='categoryButton("razorPayNonSubscriber")' index="4" heading="RazorPay Non-Subscribers"></uib-tab>
+
+      </uib-tabset>
+    </div>
+    <div class="col-md-12" style="margin-bottom:1em;">
+        <div class="col-md-3 col-md-offset-1">
+          <label style="margin-left: 1em">Select Previous Parlor:</label>
+          <select  class="form-control" ng-options="item as item.name for item in parlors" ng-model="parlorListPrevious.selected" ng-change="parlorSelection()"></select>
+        </div>
+        <div class="col-md-3">
+          <label style="margin-left: 1em">Select Last Parlor:</label>
+          <select  class="form-control" ng-options="item as item.name for item in parlors" ng-model="parlorListLast.selected" ng-change="parlorSelection()"></select>
+        </div>
+        <div class="col-md-3">
+          <label style="margin-left: 1em">Select Medium:</label>
+          <select class="form-control" ng-model="selectedMedium" ng-change="mediumSelectedFun()">
+            <option  ng-repeat="data in medium">{{data}}</option>
+          </select>
+        </div>
+    </div>
+    <div class="col-md-12" style="padding-right: 2em;text-align:right;">
+      <span style="font-size: 3em;">{{total_count}}</span>
+    </div>
+      <div style="text-align:center;">
+        <dir-pagination-controls
+          max-size="8"
+          direction-links="true"
+          boundary-links="true"
+          on-page-change="getData(newPageNumber)">
+        </dir-pagination-controls>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Customer Care Name</th>
+            <th>Client Name</th>
+            <th>Previous Parlor</th>
+            <th>Latest Visited Date</th>
+            <th>Latest Visited Parlor</th>
+            <th>Phone Number</th>
+            <th>View Services</th>
+            <th>Contact History</th>
+            <!-- <th>Edit</th> -->
+          </tr>
+        </thead>
+        <tbody ng-if="fromWhere==0">
+
+            <tr ng-if="noData==false" ng-show="users.length <= 0"><td colspan="6" style="text-align:center;">Loading Clients!!</td></tr>
+            <tr ng-if="noData"><td colspan="8" style="text-align:center;">No Data Available</td></tr>
+            <tr dir-paginate="user in users|itemsPerPage:itemsPerPage" total-items="total_count">
+              <td>{{user.lastContactedBy | uppercase}}</td>
+              <td>{{user.clientName | uppercase}}</td>
+              <td ng-if="user.lastParlorActive==false" style="background: #c0392b;color:white">{{user.lastVisitedParlorName | uppercase}}</td>
+              <td ng-if="user.lastParlorActive==true">{{user.lastVisitedParlorName | uppercase}}</td>
+              <td>{{user.lastVisitedDate | date: 'dd/MM/yyyy'}}</td>
+              <td ng-if="user.latestParlorActive==false" style="background: #c0392b;color:white">{{user.latestParlor | uppercase}}</td>
+              <td ng-if="user.latestParlorActive==true">{{user.latestParlor | uppercase}}</td>
+              <td>{{user.clientPhoneNumber}}</td>
+              <td>
+                <button type="button" name="button" ng-click="user.checkIt=true;services($index)" data-toggle="modal" data-target="#myModal2">Services</button>
+              </td>
+              <td>
+                <button type="button" name="button" ng-click="user.checkIt=true;history($index)" data-toggle="modal" data-target="#myModal1">History</button>
+              </td>
+              <!-- <td>
+                <button type="button" name="button" ng-click="user.checkIt=true;editButton($index)" data-toggle="modal" data-target="#myModal">Edit</button>
+              </td> -->
+            </tr>
+        </tbody>
+        <tbody ng-if="fromWhere==undefined || fromWhere==1">
+          <tr dir-paginate="user in users|itemsPerPage:itemsPerPage" total-items="total_count">
+            <td>{{user.contactHistory[user.contactHistory.length-1].customerCareName}}</td>
+            <td>
+              <span>{{user.clientName}}</span>
+              <span ng-if="fromWhere==1;user.couponUsedDate!=undefined"> - </span>
+              <span ng-if="fromWhere==1;user.couponUsedDate!=undefined" >{{user.couponUsedDate | date: 'dd/MM/yyyy'}}</span>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{user.clientPhoneNumber}}</td>
+            <td>
+              <button type="button" name="button" ng-click="user.checkIt=true;services($index)" data-toggle="modal" data-target="#myModal2">Services</button>
+            </td>
+            <td>
+              <button type="button" name="button" ng-click="user.checkIt=true;history($index)" data-toggle="modal" data-target="#myModal1">History</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+        <div class="modal fade" id="myModal1" role="dialog">
+            <div class="modal-dialog" style="width:60%">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">{{historyRow.clientName}}</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-4">
+                      {{historyRow.clientPhoneNumber}}
+                    </div>
+                    <div class="col-md-4">
+                      {{historyRow.lastVisitedParlorName}}
+                    </div>
+                    <div class="col-md-4">
+                      {{historyRow.lastVisited | date: 'dd/MM/yyyy'}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+
+                    <table>
+                      <thead>
+                        <th>Contacted/Queried On</th>
+                        <th>Expected On</th>
+                        <th>Remark</th>
+                        <th>Call Status</th>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="i in historyRow.contactHistory">
+                          <td>{{i.contactedOn | date: 'dd/MM/yyyy'}}</td>
+                          <td>{{i.expectedOn | date: 'dd/MM/yyyy'}}</td>
+                          <td>{{i.remark}}</td>
+                          <td>{{i.callStatus}}</td>
+                        </tr>
+                      </tbody>
+
+
+                    </table>
+
+                  </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default closeButton" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="modal fade" id="myModal2" role="dialog">
+            <div class="modal-dialog" style="width:60%">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">{{clientName}}</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-4">
+                      Contact: {{clientPhoneNumber}}
+                    </div>
+                    <div class="col-md-4">
+                      Last Visited Parlor: {{lastVisitedParlorName}}
+                    </div>
+                    <div class="col-md-4">
+                      Last Visited Date: {{lastVisited | date: 'dd/MM/yyyy'}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+
+                    <table>
+                      <thead>
+                        <th>Service Name</th>
+                        <th>Service Price</th>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="i in servicesRow">
+                          <td>{{i.serviceName}}</td>
+                          <td>{{i.servicePrice}}</td>
+
+                        </tr>
+                      </tbody>
+
+
+                    </table>
+
+                  </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default closeButton" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+
+            </div>
+        </div>
+
+
+
+  </div>
+</div>

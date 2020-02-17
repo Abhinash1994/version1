@@ -1,0 +1,16 @@
+[{
+	"client" : {"id" : "gygyyg",
+	 "name" : "robbin",
+	  "phone" : "9695748822", 
+	  "gender": "M", 
+	  "address" : "addds"}, 
+	  "receptionist" : { "name" : "tytt", "id" : "hjgjjgg"} ,
+	   "appointmentStartTime": "Thu Jun 16 2016 03:20:29", 
+	   "estimatedTime" : 120,
+	   "services" : [{"id" : "dssdadas", "name" : "dadssdasd", "price" : 450, "commission" : 10}, 
+	   {"id" : "dssdfeadas", "name" : "dadssdsdfsdfasd", "price" : 150, "commission" : 0}], "employees" : [{"id" : "dsadsa", "name" : "sdasdasda addsa"}, {"id" : "dsadsa", "name" : "sdasdasda addsa"}]
+
+
+}]
+  
+

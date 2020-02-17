@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Inventory Categories</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#addCategory">
+            Add New Category
+        </button>
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Current Categories
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered" ng-table="tableParams" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="" ng-repeat="i in filledData">
+                                <td>{{i.name}}</td>
+                                <td> <button ng-click="removeCategory(i._id)" >Remove</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Add New Category</h4>
+                              </div>
+                              <form role="form" ng-submit="addNewCategory()">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-12">
+                                              <div class="form-group">
+                                                  <label>Name</label>
+                                                  <input ng-model="cat.name" class="form-control" required>
+                                              </div>
+                                          </div>
+                                         
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Add</button>
+                              </div>
+                          </form>
+                          </div>
+                      </div>
+                  </div>

@@ -1,0 +1,441 @@
+
+<style>
+  md-radio-button {
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: 0px;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .subscription-backg {
+
+    background-color: #b98d00;
+  }
+
+  .subscription-font {
+    color: #fff;
+    text-align: center;
+    font-size: 1.2em;
+
+  }
+
+
+  .add {
+    font-size: 18px;
+  }
+
+  .progressBar {
+
+    justify-content: center;
+
+    justify-content: center;
+    . top: 53%;
+    . left: 45%;
+    z-index: 10;
+  }
+md-radio-button .md-off, md-radio-button .md-on {
+
+    width: 15px;
+    height: 15px;
+
+}
+
+
+  .vAccordion--default v-pane-header {
+    padding: 5px 0;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #b98d00;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+  }
+
+  .fontcolorsame {
+    color: #58595b;
+  }
+
+  .md-on,
+  md-radio-button:not([disabled]).md-primary .md-on {
+    background-color: #b98d00;
+  }
+
+  md-radio-button:not([disabled]).md-primary.md-checked .md-off {
+    border-color: #b98d00;
+  }
+
+  .md-primary:hover {
+    background-color: #fff;
+  }
+
+  .phoneCall {
+    min-width: 38px;
+    padding: 2%;
+    background-color: blue;
+
+  }
+
+md-radio-button .md-label {
+
+    margin-left: 20px;
+
+}
+  .fa-phone {
+    font-size: 1.3em;
+    margin: 3px;
+  }
+
+  .fa-whatsapp {
+    font-size: 1.3em;
+    margin: 3px;
+  }
+
+  .btn {
+    background-color: #9b9b9b !important;
+    color: white !important;
+  }
+
+  button.phone:hover {
+    background-color: #9b9b9b !important;
+
+  }
+
+  button.whatsApp:hover {
+    background-color: #9b9b9b !important;
+
+  }
+  .md-on, md-radio-button:not([disabled]).md-primary .md-on {
+    background-color:#64a422; 
+}
+::placeholder {
+   color:#9e9a97;
+    opacity: 1; 
+}
+
+md-card {
+
+    box-shadow: 0 -2px 20px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 17px -1px rgba(0,0,0,.12);
+}
+md-card.md-default-theme, md-card {
+    color: rgba(0,0,0,0.87);
+    background-color: rgb(255,255,255);
+    border-radius: 10px;
+}
+.md-button {
+
+    line-height: 31px;
+
+}
+
+</style>
+
+
+
+<div ng-cloak>
+<update-title title="Be U Salons Subscription| Premium salon chain in Delhi|NCR & Bengalore"></update-title>
+<update-meta name="description" content=" Be u salons,only salon chain in India providing salon subscription starting in just Rs899 for silver subscription and Rs1699 for Gold subscription where you can enjoy services worth Rs200/month and Rs500/month free for 1 full year/every month respectively. Use Be U subscription for Hair rebonding deals, Hair straightening deals, Hair keratin deals, Facial Deals, Hair Spa deals at 80+ outlets all over Delhi-Ncr & Bangalore."></update-meta>
+<update-meta property="og:title" content="Best and low price Subscription for both Men & Women by Be U Salons with 80+ outlets in Delhi NCR and Bengalore."></update-meta>
+
+  <div class="progressBar" layout-padding layout-wrap ng-if="loader">
+    <div layout="row" layout-sm="column" layout-align="space-around">
+      <md-progress-circular ng-disabled="false" class="md-accent bufferColor" md-diameter="70"></md-progress-circular>
+    </div>
+
+  </div>
+
+  <md-content style="background-color:#eef3fa" ng-if="!loader">
+
+
+
+
+    <md-content flex-xs="100" flex-offset-xs="0" flex-sm="60" flex="40" flex-offset="30" class="main-container-sub-d">    
+      <div layout="row">
+        <img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1529566070/Salon_subscription_header_-_website_o7r6v4.png" alt="subscription" style="width: 100%;height: 90%;">
+
+      </div>
+   <!--    <div layout="row" style="padding-bottom:0px;" flex="100">
+
+        <div flex="100" style="text-align: center;color: #a1192e;font-weight: 900;font-size:20px">One Subscription,All Salon</div>
+
+      </div>
+      <div layout="row" style="padding-bottom:0px;" flex="100">
+        <div flex="100" style="text-align: center;font-weight: bold">Pay Once & Enjoy</div>
+      </div>
+      <div layout="row" style="padding-bottom:0px;" flex="100">
+        <div flex="100" style="text-align: center;font-weight: bold">HandsFree Salon Experience</div>
+      </div>
+      <div layout="row" style="padding-bottom:5%;" flex="100">
+        <div flex="100" style="text-align: center;font-weight: bold">Every Month Across 90+ Salon for 1 Year</div>
+      </div>
+ -->
+
+
+
+
+      <div ng-if="card1" layout="row" class="card-container">
+
+        <md-radio-group flex ng-model="selectedSub">
+
+          <div layout="row" layout-xs="column">
+            <div flex>
+            <div layout="row">
+              <div style="text-align:center;color:#000;font-weight:bold;padding-bottom:0px;font-size:1em;" flex="100">Buy Your Subscription
+              </div>
+            </div>
+            <div layout="row" flex-xs="100" flex="100" ng-repeat="subCard in data.data.selectSubscription.tile">
+
+              <md-card flex="100" class="subscription-card-p">
+
+                <md-card-title-text>
+                  <div layout="row">
+                    <div flex="80">
+                      <div><span class="span-gold">{{subCard.heading1}} <span class="span-gold">{{subCard.heading2}} </span></span>
+                      </div>
+                      <div layout="row" ng-repeat="desc in subCard.points">
+                        <div flex="5"><img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1516693888/subscription_bullet_nlaw9h.png"
+                            alt="icon" style="margin-left:2px;width:55%;"></div>
+                        <div flex="90" class="subscription-desc-1">{{desc}}</div>
+
+                      </div>
+
+                    </div>
+                    <div flex='20' style="padding-right:0%;">
+                      <div ng-class="subCard.title=='GOLD'?'ifClass':'elseClass'"></div>
+                      <!-- {{subCard.title}} -->
+                      <div style="font-size: 7px;text-align: right;font-style: italic;padding-right: 13%;color: darkgray;padding-top: 3%;">
+                        <div>Introductory</div>
+                        <div>Offer</div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </md-card-title-text>
+                <!-- <md-radio-button ng-value="subCard" class="md-primary"></md-radio-button> -->
+                <div ng-click="subscriptionCheck(subCard);" style="cursor:pointer;">
+
+
+                  <div layout="row" style="border-top: 2px solid #f2f2f2;padding: 2% 3% 2% 1%;margin-top: 2%;">
+                
+                    <div flex-offset="45" flex="55" class="card-btn-sub" style="text-transform: uppercase;" ng-click="buySubscription($index)">Buy <span>{{subCard.title}} Subscription </span>
+                    </div>
+                  </div>
+                </div>
+              </md-card>
+
+            </div>
+          </div>
+        </div>
+        </md-radio-group>
+      </div>
+      <form id="paytm" name="paytm" action="https://secure.paytm.in/oltp-web/processTransaction" method="post"></form>
+
+      <div ng-if="card2" layout="row" class="card-container">
+        <md-radio-group flex ng-model="selectedSub">
+        
+            <div layout="row" ng-click="buySubscription(0)">
+              <div flex="5" class="back-subpage">
+                <img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1529576878/Arrow_2x_d3du9u.png" alt="" style="width:70%">
+              </div>
+              <div flex="15" class="back-subpage-btn"><span>Back</span></div>
+            </div>
+        
+            <div layout="row" style="padding: 3% 1% 4% 1%;margin-top: 1%;">
+              <div flex="60" flex-xs="45" style="padding-left: 2%;font-weight: 600;">Grand Total</div>
+              <div flex="10" flex-xs="15" >
+                <span><strike style="font-size: 13px;color: #555;">&#8377;{{selectedSubscription.cutPrice}} </strike></span>
+              </div>
+              <div flex="15" flex-xs="20">
+                <span style="border: 1px solid #d2232a;    padding: 1% 3% 1% 3%;color: #b2b2b2;border-radius: 3px;font-size: 11px;">Save &#x20B9;{{selectedSubscription.cutPrice-selectedSubscription.amount}}
+                </span>
+              </div>
+              <div flex="10" flex-xs="15" style="text-align: right;margin-top: -3px;">
+                <span style="color:#447514;font-weight: 900;font-size: 20px;">&#8377;{{selectedSubscription.amount-discount}}</span>
+              </div>
+
+            </div>
+
+
+       
+          <div layout="row" flex-xs="100" flex="100">
+
+            <md-card flex="100" style="padding-top: 3%;padding-bottom: 0%;padding-left:0%;">
+              <div layout="row" class="paymenr-option">
+                              Payment Option
+              
+              </div>
+         
+              <md-radio-group ng-model="paymentMethod" flex >
+                <div layout="row" class="digital-main">
+                  <div flex='50' style="padding-top:3%;">
+                    <md-radio-button value="razor" class="md-primary">
+                        <div style="margin-top: -8px;">Digital Payment</div>
+                    </md-radio-button>
+                  </div>
+                  <div flex='50'>
+                    <md-radio-button value="paytm" class="md-primary">
+                      <div class="radio-subpages">
+                        <img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1528971193/paytm-512_yl3enm.png" alt="Paytm" style="width:82%">
+                      
+                      </div>
+                      <div class="fgh"> Payment</div>
+
+                    </md-radio-button>
+                  </div>
+                </div>
+              </md-radio-group>
+     
+              <div layout="row" class="paynow-main">
+
+                <div flex="100" style="border-bottom-left-radius: 5px 5px;border-bottom-right-radius: 5px 5px;height:40px;font-size:16px;background-color: #64a422;text-align: center;line-height:40px;color: #fff;text-transform: uppercase;cursor:pointer;"
+                  ng-click="paymentOptionApply($event,paymentMethod)">Pay Now
+                </div>
+              </div>
+            </md-card>
+          </div>
+          <div layout="row" style="padding-top: 2%;">
+            <div flex-offset="50" flex="40" class="cuopon-codeapp">Use Coupon Code</div>
+            <div flex="10" ng-click="subCode()" class="subCode-page"> <img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1529577340/right_coupon_arrow_3x_apcpat.png" alt="" style="width:34%"></div>
+
+          </div>
+              <div layout="row" style="padding-top: 2%;" ng-if="tFlag">
+                <div flex='40' flex-offset="35">
+                  <input type="text" name="name " ng-model="couponCode.couponCode" class="enter-coupon" placeholder="Enter Coupon Code"  onkeyup='this.value=this.value.toUpperCase()'>
+                </div>
+                <div flex="15" ng-click="applyCouponCode()" style="margin-left:2%;border:2px solid #64a422;text-align: center;color: #000;border-radius:2px;cursor: pointer;">Apply</div>
+
+            </div>
+        </md-radio-group>
+      </div>
+
+        <div style="background-color: rgb(238, 243, 250);">
+        <md-content layout-padding layout-wrap flex-sm="100" flex="100" flex-xs="100" flex-offset-xs="0" style="padding-bottom:2%;padding:0px;">
+          <div layout="row">
+            <div style="text-align: left;margin-top: 2%;font-size: 16px;padding: 0% 10% 0% 11%;" flex="100">Buy your subscription on call. Just fill your details below and rest be u team will do for you. </div>
+          </div>
+           <form name="myForm" ng-submit="myForm.$valid && contactMe()">
+          <div layout="row" style="padding-bottom:3%;" layout-align="center">
+           
+            <div flex="40">
+              <md-input-container>
+                <input type="text" ng-model="user.name" placeholder="Enter name" required>
+              </md-input-container>
+            </div>
+            <div flex="40">
+                <md-input-container>
+                <input type="number" ng-model="user.number" placeholder="Enter mobile number" name="number"   ng-minlength="10" 
+                   ng-maxlength="10" ng-required="true">
+
+              </md-input-container>
+
+            </div>
+           
+          </div>
+          <div layout="row" >
+             <div flex="50" flex-offset="30" style="margin-top: -7%;">
+             <!--  <div style="background: #9b9b9b;margin-top: -16%; width: 65%;padding:2% 1% 2% 1%;text-align: center;color: #fff;border-radius: 3px;cursor: pointer;" ng-click="contactMe()">submit</div> -->
+              <input type="submit" name="" value="Submit" style="background: #9b9b9b;width: 65%;padding:3% 1% 3% 1%;text-align: center;color: #fff;border-radius: 3px;cursor: pointer;border:none;">
+
+
+            </div>
+          </div>
+        </form>
+        </md-content>
+      </div>
+
+       <div style="background-color: rgb(238, 243, 250);">
+        <md-content layout-padding layout-wrap flex-sm="100" flex="100" flex-xs="100" flex-offset-xs="0" style="padding-bottom:2%;padding:0px;">
+          <div layout="row">
+            <div style="text-align: center;margin-top:2%;" flex="100">For detailed assistance,</div>
+          </div>
+          <div layout="row" style="padding-bottom:3%;" layout-align="center">
+
+            <div flex="40">
+
+
+             
+               <a href="https://api.whatsapp.com/send?phone=919667510590&text=I%20want%20to%20know%20more%20about%20your%20subscription%20plan?">
+                <md-button class="md-raised  whatsApp btn" style="width: 94%;"><!-- <i class="fa fa-whatsapp" aria-hidden="true"></i> --><span style="font-size: 0.8em">Whatsapp Us</span></md-button>
+              </a>
+            </div>
+            <div flex="40">
+              <a href="tel:+91-9667510590">
+                <md-button class="md-raised  phone btn" style="width: 94%;"> <!-- <i class="fa fa-phone" aria-hidden="true"></i>  --><span style="font-size: 0.8em">Call Us</span></md-button>
+              </a>
+            </div>
+          </div>
+        </md-content>
+      </div>
+
+
+      
+      <div style="background-color: rgb(238, 243, 250);">
+        <md-content layout-padding layout-wrap flex-sm="100" flex="100" flex-xs="100" flex-offset-xs="0" flex-offset="0" style="padding-bottom:2%;padding:0px;border-top: 2px solid #b98d00;">
+          <div layout="row" flex="100" style="background:#fff;">
+            <div style="text-align:center;color:#58595b;font-weight:bold;padding-bottom:0px" flex="100">{{s}}</div>
+          </div>
+          <div layout="row" flex="100" style="background:#fff;padding:0px;">
+            <div style="text-align:center;color:#58595b;font-weight:bold;padding-bottom:0px;margin-top: -9px;" flex="100">{{haf}}</div>
+          </div>
+          <div layout="row" flex="100" style="background:#fff;padding-bottom:2%;" ng-repeat="z in availSteps.steps track by $index">
+            <div flex='20'>
+              <div><img src="{{z.icon}}" alt="icom" style="width: 60%;"></div>
+            </div>
+            <div flex='80'>
+              <div style="color:#b98d00;font-weight:bold;">{{z.title}}</div>
+              <div style="color:#58595b;font-size: 12px;">{{z.content}}</div>
+            </div>
+          </div>
+        </md-content>
+      </div>
+      <div style="background-color: rgb(238, 243, 250);">
+        <md-content layout-padding layout-wrap flex-sm="100" flex="100" flex-xs="100" flex-offset-xs="0" flex-offset="0" style="background-color:#fff;padding:0px;">
+          <div layout="row" style="background-color: gainsboro;">
+            <div flex="100" style="text-align: center;padding-top: 2%;padding-bottom: 2%;color: #000;text-transform: uppercase;">{{faq}} </div>
+          </div>
+          <md-content style="background-color:#fff;padding-bottom:2%;padding:16px;">
+
+
+            <v-accordion class="vAccordion--default" control="accordion" onexpand="expandCallback(index, id)" oncollapse="collapseCallback(index)">
+              <v-pane ng-repeat="pane in panes">
+                <v-pane-header>
+                  <div layout="row">
+                    <div flex="5" style="margin-top:1%;">
+                      <img src="images/plus.png" ng-if="!pane.flag" style="width: 0.9em" />
+                      <img src="images/minus.png" ng-if="pane.flag" style="width: 0.9em" />
+                    </div>
+
+                    <div class="subscription-pane">{{pane.question}}</div>
+                  </div>
+
+
+                </v-pane-header>
+
+                <v-pane-content>
+
+                  <div style="margin-left:4%;font-size:11px;color:#58595b;">
+                    {{pane.answer}}
+                  </div>
+                </v-pane-content>
+
+              </v-pane>
+
+
+
+            </v-accordion>
+
+            <div layout="row">
+              <div flex="100" style="text-align:center;font-size:11px;padding-top:2%;padding-bottom:2%;">* Above FAQs are explaining an example of the &#x20B9;1699 subscription plan</div>
+            </div>
+
+
+      </div>
+
+      </md-content>
+</div>
+
+
+</md-content>
+</md-content>
+
+</div>

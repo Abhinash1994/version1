@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">All Parlour Data</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="container-fluid">
+	<div class="row padding-t20">
+	</div>
+	<div>
+	<!-- <select class="form-control" id="sel1">
+        <option>Yesterday</option>
+        <option>This Week</option>
+        <option>This Month</option>
+      </select> -->
+		</div>
+
+		<div class="col-md-12">
+			<div class="graph-container">
+				<div class='page-header'>
+					<div class='row' style="text-align:right">
+						<div class="col-md-4 col-md-offset-4">
+							<h2>{{graph.heading}}</h2>
+						</div>
+						<div class="col-md-4">
+							<button type='button' data-toggle="collapse" data-target="#editGraph" class='btn'>Edit Graph</button>
+						</div>
+					</div>
+				</div>
+				<nvd3 options="options" data="data"></nvd3>
+			</div>
+		</div>
+</div>
+<div class="col-md-12 container-fluid card collapse" id="editGraph" style="min-height:500px; overflow:hidden">
+	<uib-tabset active="active">
+		<uib-tab index="1" heading="General">
+			<div class="form-group padding-t20">
+				<div class="col-md-2">
+					<label class="control-label">Graph Heading</label>
+			</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" ng-model="graph.heading">
+					</div>
+			</div>
+		</uib-tab>
+		<uib-tab index="2" heading="Axis">
+			<div class="padding-t20">
+				<table class="col-md-4">
+					<tr >
+						<td>X Axis</td>
+						<td> <select class="form-control" ng-model="graph.z_axis" ng-change="change()" ng-options="z.value as z.key for z in z_values"/> </td>
+					</tr>
+					<tr >
+						<td>Compare By</td>
+						<td> <select class="form-control" ng-model="graph.y_axis" ng-change="change()" ng-options="x.value as x.key for x in x_values"/> </td>
+					</tr>
+
+				</table>
+				<table class="col-md-4">
+					<tr >
+						<td>Y Axis</td>
+						<td><select class="form-control" ng-model="graph.x_axis" ng-change="change()" ng-options="y.value as y.key for y in y_values"/></td>
+					</tr>
+					<tr >
+						<td>Metrics</td>
+						<td>
+							<label>
+								<input type="radio"  class="form-check-input" ng-model="graph.op" ng-change="change()" value="count">
+								Count
+							</label>
+							<label>
+								<input type="radio" class="form-check-input" ng-model="graph.op" ng-change="change()" value="revenue">
+								Revenue
+							</label>
+						</td>
+					</tr>
+				</table>
+				<div class="col-md-4">
+					Sort By
+					<div class="form-check-inline">
+					<label class="form-check-label">
+						<input class="form-check-input" ng-change="change()" type="radio" name="sorttype" ng-model="graph.sort"  value="asc" checked>
+						Ascending
+					</label>
+					<label class="form-check-label">
+						<input class="form-check-input" ng-change="change()" type="radio" name="sorttype" ng-model="graph.sort" value="desc">
+						Descending
+					</label>
+					</div>
+				</div>
+			</div>
+		</uib-tab>
+		<uib-tab index="4" heading="Filters">
+			<div class="padding-t20">
+				<table class="col-md-8">
+					<tr ng-repeat="selectedfilter in graph.filters">
+							<td>Filter By</td>
+							<td> {{selectedfilter.key}} </td>
+							<td>{{selectedfilter.value}}</td>
+							<td ng-click="filtercancel1($index)">cancel</td>
+					</tr>
+					<tr>
+						<td>Filter By</td>
+						<td><select class="form-control" ng-model="mainfilter.name" ng-change="mfilterSelected()" ng-options="mfilter.value as mfilter.key for mfilter in mfilters" /></td>
+						<td class="col-md-3" ng-hide="mainfilter.name=='date'">
+							<div
+								isteven-multi-select
+								input-model="l1filters"
+								output-model="l1filter.value"
+								button-label="name"
+								item-label="name"
+								tick-property="ticked" output-properties="name" on-close="l1filterSelected()" group-property="group" orientation="horizontal">
+
+							</div>
+						</td class="col-md-3">
+						<td>
+							<div class="form-group" ng-show="mainfilter.name=='date'">
+								<label for="daterange1" class="control-label">Select Date Range</label>
+                <input date-range-picker id="daterange1" name="daterange1" ng-change="mfilterSelected()" class="form-control date-picker" type="text"
+									ng-model="date" required/>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</uib-tab>
+    </uib-tabset>
+</div>

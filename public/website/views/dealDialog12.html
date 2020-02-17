@@ -1,0 +1,298 @@
+<style>
+
+md-radio-button .md-off, md-radio-button .md-on {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+md-radio-group.layout-column md-radio-button, md-radio-group.layout-gt-lg-column md-radio-button, md-radio-group.layout-gt-md-column md-radio-button, md-radio-group.layout-gt-sm-column md-radio-button, md-radio-group.layout-gt-xs-column md-radio-button, md-radio-group.layout-lg-column md-radio-button, md-radio-group.layout-md-column md-radio-button, md-radio-group.layout-sm-column md-radio-button, md-radio-group.layout-xl-column md-radio-button, md-radio-group.layout-xs-column md-radio-button {
+    margin-bottom: 4px;
+}
+md-radio-button {
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+    font-size: 12px;
+}
+md-radio-button .md-label{
+  margin-top: -4px;
+  margin-left: 20px;
+}
+.service-dio{
+  padding: 10px 1px 0px 10px;
+  color: #000;
+  font-weight: 700;
+}
+.descript-dio{
+  padding: 8px 1px 11px 10px;
+  font-size: 12px;
+  color: #b5b5b5;
+}
+.selec-flow{
+  color: #5f6062;
+  background: #ecf0f1;
+  font-weight: bold;
+  font-size: 0.8em;
+  padding: 5px 1px 5px 10px;
+}
+.step-dio{
+      padding: 10px 1px 1px 10px;
+}
+.step-flow-1{
+      padding: 5px 1px 5px 1px;
+}
+.step-flow-12{
+      padding: 5px 1px 5px 10px;
+}
+
+</style>
+
+
+
+ <md-dialog  class="diolog-12-w">
+  <form ng-cloak  name="myForm" ng-submit="myForm.$valid && submit()" >
+      <md-dialog-content>
+          <div>
+            <div layout="row">
+                <div flex class="service-dio">
+                     {{temporaryObject.name}}
+                </div>
+            </div>
+            <div layout="row">
+                <div class="descript-dio">
+                     {{temporaryObject.description}}
+                </div>
+            </div>
+
+            <div class="selec-flow">
+              <span flex>Select From The Following</span>
+            </div>
+
+        <div>
+           <div ng-if="temporaryObject.selectors[0].type=='service'"  class="step-dio" style="padding-top: 0;">
+
+
+            <md-content ng-if="levels.levelOne.length>0" style="padding: 0.5em;padding-top: 0;">
+                   <div layout="row" class="step-flow-12" style="padding-left:0; padding-bottom: 0;">
+                     <span style="color:color: #5f6062;font-size: 0.8em;">Step 1 of {{levels.levelRange}}</span>
+                   </div>
+                   <div layout="row" class="step-flow-12" style="padding-left:0;padding-top: 0;padding-bottom: 0.7em;">
+                     <span style="color: #b5b5b5;font-size:12px;">Please Select One Option</span>
+                   </div>
+                  <md-radio-group ng-model="data.group1" ng-required="true">
+                    <div layout="row" ng-repeat="level in levels.levelOne" >
+                        <div layout="row">
+                          <md-radio-button  ng-value="level.serviceCode" class="md-primary" >{{level.name}}</md-radio-button>
+                        </div>
+                          <div ng-if="levels.levelTwo.length==0">
+
+                              <div layout="row" layout-align="center center" >
+                                <div flex="33" layout layout-align="center center" ng-repeat="parlors in level.parlorTypes" >
+                                  <span ng-if="parlors.type==0" style="margin-left: -25%;">  <img src="/images/Be U Premium red badge.png" style="width: 70%;height:18px;padding-top: 5px;"/></span>
+                                  <span ng-if="parlors.type==1">  <img src="/images/Be U Standard Blue badge.png" style="width: 70%;height:18px;padding-top: 5px;"/></span>
+                                  <span ng-if="parlors.type==2">  <img src="/images/Be U Budget green badge.png" style="width: 70%;height:18px;padding-top: 5px;"/></span>
+                                  <span style="border: 1px solid red;font-size: 10px;padding: 1px 7px 1px 4px;" ng-if="parlors.percent!=undefined"><span ng-if="parlors.percent==undefined"> - </span>Save <span>{{parlors.percent}}%</span></span>
+                                  <span style="font-size:10px;padding-left:10%;color:green" ng-if="parlors.startAt">&#x20B9;{{parlors.startAt}}</span><span ng-if="parlors.startAt==undefined"></span>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+
+                  </md-radio-group>
+              </md-content>
+
+
+
+
+              <md-content  ng-if="levels.levelTwo.length>0" style="padding: 0.5em;padding-bottom:0;">
+                    <div layout="row" class="step-flow-12" style="padding-left:0; padding-bottom: 0;">
+                      <span style="padding-left:0;color:color: #5f6062;font-size: 0.8em;margin-bottom: 0;margin-top: 0;">Step <span ng-if="levels.levelOne.length>1"> 2</span><span ng-if="levels.levelOne.length==0">1</span>  of {{levels.levelRange}}</span>
+                    </div>
+                    <div layout="row" class="step-flow-12" style="padding-left:0;padding-top: 0;">
+                      <span style="color: #b5b5b5;font-size:12px;">Please Select One Option</span>
+                    </div>
+                <md-radio-group ng-model="data.group2" ng-required="true"  ng-change="data.group3=undefined">
+                    <div ng-repeat="level in levels.levelTwo" >
+                        <div layout="row">
+                            <div flex="60" class="step-flow-1" style="padding-top: 0.5em;padding-bottom: 0.5em;">
+                                  <md-radio-button  ng-value="level.brandId" class="md-primary" >{{level.brandName}}</md-radio-button>
+                            </div>
+                            <div ng-if="level.lowest==false" lex="25" style="font-size: 12px;text-align:right;font-style:italic;">
+                                <span>Lowest price</span>
+                            </div>
+                            <div ng-if="level.lowest==false" flex="15" style="color:green;font-size: 12px;text-align:center;font-style:italic;"><span>&#x20B9;{{level.lowest}}</span></div>
+                        </div>
+                        <div ng-if="levels.levelThree.length==0 ">
+                            <div layout="row" layout-align="center center" style="border:1px #a9a9ab dotted;margin-bottom:0.5em" >
+                              <div flex="30" layout layout-align="center center" ng-repeat="parlors in level.parlorTypes" >
+                                <div flex="20" flex-xs="30" ng-style="($first && {'margin-left':'0'}) || (!$first && {'margin-left':'0.5em'})">
+                                  <span ng-if="parlors.type==0">  <img src="/images/Be U Premium red badge.png" style="width: 100%;height:18px;padding-top: 5px;"/></span>
+                                  <span ng-if="parlors.type==1">  <img src="/images/Be U Standard Blue badge.png" style="width: 100%;height:18px;padding-top: 5px;"/></span>
+                                  <span ng-if="parlors.type==2">  <img src="/images/Be U Budget green badge.png" style="width: 100%;height:18px;padding-top: 5px;"/></span>
+                                </div>
+                                <div flex="50" style="text-align: center" ng-if="parlors.percent" hide-xs>
+                                  <span style="border: 1px solid red;font-size:10px;padding: 1px 7px 1px 4px;">Save {{parlors.percent}}%</span>
+                                </div>
+                                <div flex="80" ng-if="!parlors.percent  && !parlors.startAt" ng-style="!$last && {'border-right':'1px solid green'}"  style="text-align: center">
+                                  <span>-</span>
+                                </div>
+                                <div flex="80" flex-xs="70" ng-style="!$last && {'border-right':'1px solid green'}" ng-if="!parlors.percent  && parlors.startAt" style="text-align:right;">
+                                  <span style="font-size:12px;color:green;padding-right: 1em;font-weight: 900;" >&#x20B9;{{parlors.startAt}}</span>
+                                </div>
+                                <div flex="30" flex-xs="70" ng-style="!$last && {'border-right':'1px solid green'}" ng-if="parlors.percent  && parlors.startAt" style="text-align:center;">
+                                  <span style="font-size:12px;color:green;font-weight: 900;" >&#x20B9;{{parlors.startAt}}</span>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+
+
+                      </div>
+                 </md-radio-group>
+            </md-content>
+
+
+            <md-content ng-if="levels.levelThree.length>0" style="padding: 0.5em;padding-top:0;">
+              <div layout="row" class="step-flow-12" style="padding-left:0; padding-bottom: 0;padding-top: 0;">
+                <span style="padding-top: 0;padding-left:0; padding-bottom: 0;">Step <span ng-if="levels.levelOne.length>0">3</span><span ng-if="levels.levelOne.length==0">2</span> of {{levels.levelRange}}</span>
+              </div>
+              <div layout="row" class="step-flow-12" style="padding-left:0;padding-top: 0;">
+                <span style="color: #b5b5b5;font-size:12px;">Please Select One Option</span>
+              </div>
+               <md-radio-group ng-model="data.group3" layout="column" ng-required="true" >
+                   <div ng-repeat="level in levels.levelThree" ng-show="filterProduct(data.group2,level,levels.levelTwo)">
+                       <div layout="row">
+                          <md-radio-button  ng-value="level.productId" class="md-primary" >{{level.productName}}</md-radio-button>
+                        </div>
+
+                           <div layout="row" layout-align="center center"  style="border:1px #a9a9ab dotted;margin-bottom:0.5em" >
+                                   <div flex="30" layout layout-align="center center" ng-repeat="parlors in level.parlorTypes" >
+                                     <div flex="20" flex-xs="30" ng-style="($first && {'margin-left':'0'}) || (!$first && {'margin-left':'0.5em'})">
+                                       <span ng-if="parlors.type==0" style="margin-left: -25%;">  <img src="/images/Be U Premium red badge.png" style="width: 70%;height:18px;padding-top: 5px;"/></span>
+                                       <span ng-if="parlors.type==1">  <img src="/images/Be U Standard Blue badge.png" style="width: 70%;height:18px;padding-top: 5px;"/></span>
+                                       <span ng-if="parlors.type==2">  <img src="/images/Be U Budget green badge.png" style="width: 70%;height:18px;padding-top: 5px;"/></span>
+                                     </div>
+                                     <div flex="50" style="text-align: center" ng-if="parlors.percent" hide-xs>
+                                       <span hide-xs style="border: 1px solid red;font-size: 10px;padding: 1px 7px 1px 4px;" ng-if="parlors.percent">Save {{parlors.percent}}%</span><span ng-if="parlors.percent==undefined">-</span>
+                                     </div>
+                                     <div flex="80" ng-if="parlors.percent==undefined" ng-style="!$last && {'border-right':'1px solid green'}"  style="text-align: center">
+                                       <span>-</span>
+                                     </div>
+                                     <div flex="30" flex-xs="70" ng-style="!$last && {'border-right':'1px solid green'}" ng-if="parlors.startAt" style="text-align:center;">
+                                       <span style="font-size:10px;padding-left:10%;color:green" ng-if="parlors.startAt">&#x20B9;{{parlors.startAt}}</span><span ng-if="parlors.startAt==undefined"></span>
+                                     </div>
+                                   </div>
+                                   <!-- <div flex="30" layout layout-align="center center" >
+                                           <img src="Badge%20icons_2.png" style="width: 70%;"/>
+                                   </div>
+                                   <div flex="30" layout layout-align="center center" >
+                                       <img src="Badge%20icons_3.png" style="width: 70%;"/>
+                                   </div> -->
+                           </div>
+
+
+
+
+                     </div>
+                </md-radio-group>
+            </md-content>
+
+
+               </div>
+
+
+          <md-content  ng-if="temporaryObject.selectors[0].type=='subCategory'" style="padding: 1em;">
+
+              <div ng-if="levels.levelTwo.length>0">
+                <div layout="row" class="step-flow-12" style="padding-left:0; padding-bottom: 0;padding-top: 0;">
+                    <span style="padding-left:0;color:color: #5f6062;font-size: 0.8em;margin-bottom: 0;margin-top: 0;">Step 1 Of {{levels.levelRange}}</span>
+                </div>
+                <div layout="row" class="step-flow-12" style="padding-left:0;padding-top: 0;">
+                  <span style="color: #b5b5b5;font-size:12px;">Please Select One Option</span>
+                </div>
+                  <md-radio-group ng-model="data.group2" ng-change="data.group1=undefined;onBrandChange(levels.levelTwo,data.group2);" ng-required="true">
+                      <div ng-repeat="level in levels.levelTwo" >
+                        <div layout="row">
+                            <div flex="45" class="step-flow-12" style="padding-left: 0;">
+                                  <md-radio-button  ng-value="level.brandId" class="md-primary" >{{level.brandName}}</md-radio-button>
+                            </div>
+                            <div flex="15" style="font-size: 12px;text-align:left;font-style:italic;">
+                                <span ng-if="level.maxSaving==true" style="background: green;padding: 2% 8% 4% 3%;color: #fff;border-radius: 3px;">Max Saving</span>
+                            </div>
+
+                            <div flex="25" style="font-size: 12px;text-align:right;font-style:italic;">
+                                <span>Lowest price</span>
+                            </div>
+                            <div flex="15" style="color:green;font-size: 12px;text-align:center;font-style:italic;"><span>&#x20B9;{{level.lowest}}</span></div>
+
+                        </div>
+                      </div>
+
+
+                  </md-radio-group>
+              </div>
+
+
+              <div ng-if="levels.levelThree.length>0" >
+                <div layout="row" class="step-flow-12" style="padding-left:0; padding-bottom: 0;padding-top: 0;">
+                    <span class="step-flow-1" style="padding-left:0;color:color: #5f6062;font-size: 0.8em;margin-bottom: 0;margin-top: 0;">Step 2 Of  {{levels.levelRange}}</span>
+                </div>
+                <div layout="row" class="step-flow-12" style="padding-left:0;padding-top: 0;">
+                  <span style="color: #b5b5b5;font-size:12px;">Please Select One Option</span>
+                </div>
+                <md-radio-group ng-model="data.group3" ng-required="true">
+                     <md-radio-button   ng-value="level.productId" class="md-primary" ng-repeat="level in levels.levelThree">{{level.productName}}</md-radio-button>
+
+                </md-radio-group>
+
+              </div>
+               <div ng-if="levels.levelOne.length>0">
+                 <div layout="row" class="step-flow-12" style="padding-left:0; padding-bottom: 0;">
+                   <span style="padding-left:0;color:color: #5f6062;font-size: 0.8em;margin-bottom: 0;margin-top: 0;">Step <span ng-if="levels.levelThree.length>0">3</span><span ng-if="levels.levelThree.length==0">2</span>  Of {{levels.levelRange}}</span>
+                 </div>
+                 <div layout="row" class="step-flow-12" style="padding-left:0;padding-top: 0;padding-bottom: 0.7em;">
+                   <span style="color: #b5b5b5;font-size:12px;">Please Select One Option</span>
+                 </div>
+                    <md-radio-group ng-model="data.group1" layout="column" ng-required="true">
+                        <div ng-repeat="level in levels.levelOne" ng-show="level.flag" >
+                            <div flex layout="row">
+
+                                      <md-radio-button  ng-value="level.serviceCode" class="md-primary" >{{level.name}}</md-radio-button>
+                            </div>
+
+                              <div layout="row" layout-align="center center" >
+                                <div flex="30" layout layout-align="center center" ng-repeat="parlors in level.parlorTypes" >
+
+                                  <span ng-if="parlors.type==0" style="margin-left: -25%;">  <img src="/images/Be U Premium red badge.png" style="width: 70%;height:18px;padding-top: 5px;"/></span>
+                                  <span ng-if="parlors.type==1">  <img src="/images/Be U Standard Blue badge.png" style="width: 70%;height:18px;padding-top: 5px;"/></span>
+                                  <span ng-if="parlors.type==2">  <img src="/images/Be U Budget green badge.png" style="width: 70%;height:18px;padding-top: 5px;"/></span>
+
+                                  <span hide-xs style="border: 1px solid red;font-size: 10px;padding: 1px 7px 1px 4px;" ng-if="parlors.percent">Save {{parlors.percent}}%</span><span ng-if="parlors.percent==undefined">-</span>
+                                  <span style="font-size:10px;padding-left:10%;color:green" ng-if="parlors.startAt==undefined">&#x20B9;{{parlors.startAt}}</span><span ng-if="parlors.startAt==undefined"></span>
+
+                                </div>
+                              </div>
+                            </div>
+                    </md-radio-group>
+                </div>
+           </md-content>
+         </div>
+        </div>
+    </md-dialog-content>
+
+
+    <md-dialog-actions layout="row">
+      <md-button class="md-raised" ng-if="temporaryObject.flag==1" type="submit" style="background: #D2232A;color: white;height:30px;font-size:12px">ADD</md-button>
+      <md-button class="md-raised" ng-if="temporaryObject.flag==0" type="submit" style="background: #D2232A;color: white;height:30px;font-size:12px">Remove</md-button>
+    </md-dialog-actions>
+    <!-- <md-button class="md-raised"  ng-click="closeDialog()">Button</md-button>
+    <md-button class="md-raised"  ng-click="submit()">ADD</md-button> -->
+    </form>
+</md-dialog>

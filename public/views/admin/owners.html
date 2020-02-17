@@ -1,0 +1,92 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 ">
+        <h1 class="page-header">Owners</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#addOwner">
+            Add new Owner
+        </button>
+        <br />
+        <div class="row">
+                    <div class="col-lg-4" ng-repeat="owner in owners" ng-click="gotoServices(category.categoryId, category.name)">
+                        <div class="jumbotron">
+                            <h1>{{owner.name}}</h1>
+                            <h4>{{owner.phoneNumber}} (Password: {{owner.password}})</h4>
+                            <h4> No of Parlors: {{owner.noOfParlors}}</h4>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+<div class="modal fade" id="addOwner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Add New Owner</h4>
+                              </div>
+                              <form role="form" ng-submit="addOwner()">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>First Name</label>
+                                                  <input ng-model="user.firstName" class="form-control" required>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Last Name</label>
+                                                  <input ng-model="user.lastName" class="form-control" required>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Email Id</label>
+                                                  <input ng-model="user.emailId" class="form-control" required>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Phone Number</label>
+                                                  <input ng-model="user.phoneNumber" class="form-control" required>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Password</label>
+                                                  <input ng-model="user.password" class="form-control" required>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Gender</label>
+                                                  <select class="form-control" ng-model="user.gender" name="gender" required>
+                                                      <option value="M">Male</option>
+                                                      <option value="F">Female</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Add</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>

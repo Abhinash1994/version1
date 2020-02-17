@@ -1,0 +1,137 @@
+<style>
+
+    md-radio-button .md-off, md-radio-button .md-on {
+        box-sizing: border-box;
+
+        width:10px;
+        height:10px;
+        border-radius: 50%;
+        margin-top: 5px;
+        border-width: 1px;
+
+    }
+
+    /* md-progress-circular.md-default-theme.md-accent path, md-progress-circular.md-accent path {
+        stroke: rgb(255,64,129);
+    }*/
+</style>
+<md-dialog layout="column" ng-cloak="" style="" class="filter-dialog-container">
+
+    <md-content  flex="100"  class="filter-search-container">
+
+        <div layout="row"  flex style="" class="filter-service-container">
+
+                <div flex="95" layout="row"><span class="fiter-radion-deading"><b>Services</b></span></div>
+            <div layout="row" flex="5" class="filter-crs-icon"><!--<i class="material-icons" ng-click="hide()">&#xE14C;</i>--><ng-md-icon icon="close" style="fill: #d2d4d5" size="20" ng-click="hide()"></ng-md-icon></div>
+
+        </div>
+
+        <div  flex>
+            <div layout="row" flex="100" layout-xs="column" class="service-border">
+                <div layout="column" flex ng-repeat="list in depts" flex-xs="100">
+                    <span class="filter-search-header">{{list.name}}  <!--<i class="fa fa-sort-desc" aria-hidden="true"></i>--></span>
+                    <span ng-repeat="list2 in list.categories" class="filter-search-option"><md-checkbox   ng-checked="exists(list2.categoryId,filterParlorListObject.services)"  ng-click="filterServices(list2.categoryId, filterParlorListObject.services)"   class="md-warn md-align-top-left checkBoxTickColor checkBoxTickPostion" flex/>{{list2.name}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div flex class="checkbox-smdevice" style=" margin-top: 16px;">
+            <span class="fiter-radion-deading"><b>Budget</b><!--<i class="fa fa-sort-desc" aria-hidden="true"></i>--></span>
+        <!--</div>-->
+
+        <div layout="row" class="filter-radio-container" layout-xs="column" flex-xs="100" flex>
+          <!-- <span class="radioValue" style=""> {{ radiodata.Budget }}</span>-->
+            <md-radio-group  ng-model="radiodata.Budget" style="display: inline-flex;width:100%;">
+                <div layout="row" flex-xs="20"  flex="20">
+                    <md-radio-button class="innerCircleRadioButton radioButtonBorderColor filter-radio-btn radioButtonTextGap listing-dialog-filter" value="1">
+                        >  500<!--<img src="../images/all 1 green rupee.png" alt="text"  class="dialobox-b"/>-->
+                    </md-radio-button>
+                </div>
+                <div layout="row" flex-xs="20"  flex="20">
+                    <md-radio-button class="innerCircleRadioButton radioButtonBorderColor filter-radio-btn radioButtonTextGap" value="2"  >
+                       >  2000<!-- <img src="../images/all 2 green rupee.png" alt="text" class="dialobox-b"/>-->
+                    </md-radio-button>
+                </div>
+                <div layout="row" flex-xs="20"  flex="20">
+                    <md-radio-button class="innerCircleRadioButton radioButtonBorderColor filter-radio-btn radioButtonTextGap" value="3"  >
+                        >  3000<!--<img src="../images/all 3 green rupee.png" alt="text"  class="dialobox-b"/>-->
+                    </md-radio-button>
+                </div>
+                <div layout="row" flex="20">
+                    <md-radio-button class="innerCircleRadioButton radioButtonBorderColor filter-radio-btn radioButtonTextGap" value="4">
+                        >  4000
+                        <!--<img src="../images/all 4 green rupee.png" alt="text"  class="dialobox-b"/>-->
+                    </md-radio-button>
+                </div>
+                <div layout="row" flex-xs="20"  flex="20">
+                    <md-radio-button class="innerCircleRadioButton radioButtonBorderColor filter-radio-btn radioButtonTextGap" value="5">
+                      >  5000 <!-- <img src="../images/all 5 green rupee.png" alt="text"  class="dialobox-b"/>-->
+                    </md-radio-button>
+                </div>
+            </md-radio-group>
+        </div>
+
+        <div  flex>
+            <span class="fiter-radion-deading "><b>Gender</b> <!--<i class="fa fa-sort-desc" aria-hidden="true"></i>--></span>
+        </div>
+
+        <div layout="row" class="filter-radio-container" flex>
+          <!-- <span class="radioValue" style="">{{ radiodata.Gender }}</span>-->
+            <md-radio-group class="" ng-model="radiodata.Gender" style="display: inline-flex;width:100%;">
+                <div layout="column" flex="20"><md-radio-button value="M" class="filter-radio-btn radioButtonTextGap innerCircleRadioButton radioButtonBorderColor">
+                    Male
+                    <!--<img src="../images/Red Male.png" alt="text" width="20" height="20"/>-->
+                </md-radio-button></div>
+                <div layout="column" flex="20"><md-radio-button value="F" class="filter-radio-btn radioButtonTextGap innerCircleRadioButton radioButtonBorderColor">
+                    Female<!--<img src="../images/Red Female.png" alt="text" width="20" height="20"/>-->
+                </md-radio-button></div>
+                <div layout="column" flex="50">
+                    <md-radio-button value="UNISEX" class="filter-radio-btn radioButtonTextGap innerCircleRadioButton radioButtonBorderColor">
+                        unisex
+                       <!-- <img src="../images/Red Female.png" alt="text" width="20" height="20"/>
+                        <img src="../images/Red Male.png" alt="text" width="20" height="20" style="margin-left:10px;background:transparent;"/>
+                        -->
+
+                    </md-radio-button></div>
+            </md-radio-group>
+        </div>
+        <div  flex>
+            <span class="fiter-radion-deading"><b>Rating</b>   <!-- <i class="fa fa-sort-desc" aria-hidden="true"></i>--></span>
+        </div>
+        <div layout="row" class="filter-radio-container" flex>
+           <!-- <span class="radioValue" style="">{{ radiodata.Rating }}</span>-->
+            <md-radio-group ng-model="radiodata.Rating" style="display: inline-flex;width:100%;">
+                <div layout="column" flex-xs="15" flex="20"><md-radio-button value="1" class="filter-radio-btn radioButtonTextGap innerCircleRadioButton radioButtonBorderColor">Blah<!--<img src="../images/verybad.png" alt="text" width="35" height="35"/>--></md-radio-button></div>
+                <div layout="column" flex-xs="20"  flex="20"><md-radio-button value="2" class="filter-radio-btn radioButtonTextGap  innerCircleRadioButton radioButtonBorderColor">Not Bad<!--<img src="../images/notbad.png" alt="text" width="35" height="35"/>--></md-radio-button></div>
+                <div layout="column" flex-xs="15"  flex="20"><md-radio-button value="3" class="filter-radio-btn radioButtonTextGap innerCircleRadioButton radioButtonBorderColor">Decent<!--<img src="../images/greyDecent3.png" alt="text" width="35" height="35"/>--></md-radio-button></div>
+                <div layout="column" flex-xs="20"   flex="20"><md-radio-button value="4" class="filter-radio-btn radioButtonTextGap innerCircleRadioButton radioButtonBorderColor">Awesome<!--<img src="../images/Awesomegrey.png" alt="text" width="35" height="35"/>--></md-radio-button></div>
+                <div layout="column" flex-xs="30"  flex="20"><md-radio-button value="5" class="filter-radio-btn radioButtonTextGap innerCircleRadioButton radioButtonBorderColor" >Super Awesome<!--<img src="../images/SuperAwesome.png" alt="text" width="35" height="35"/>--></md-radio-button></div>
+            </md-radio-group>
+        </div>
+        <div  flex>
+            <span class="fiter-radion-deading" ><b>Distance</b>  <!--<i class="fa fa-sort-desc" aria-hidden="true"></i>--></span>
+        </div>
+        <div layout="row" class="filter-radio-container" flex>
+           <!--<span class="radioValue" style="">{{ radiodata.Distance }}</span>-->
+            <md-radio-group  ng-model="radiodata.Distance " style="display: inline-flex;width: 100%;">
+                <div layout="column" flex-xs="20"  flex="20"><md-radio-button value="0" class="filter-radio-btn radioButtonTextGap innerCircleRadioButton radioButtonBorderColor">0-5 kms</md-radio-button></div>
+                <div layout="column" flex-xs="20"  flex="20"><md-radio-button value="5" class="filter-radio-btn radioButtonTextGap innerCircleRadioButton radioButtonBorderColor">5-10 kms</md-radio-button></div>
+                <div layout="column" flex-xs="20"  flex="20"><md-radio-button value="10" class="filter-radio-btn radioButtonTextGap innerCircleRadioButton radioButtonBorderColor">10-15 kms</md-radio-button></div>
+                <div layout="column" flex-xs="20"  flex="20"><md-radio-button value="15" class="filter-radio-btn radioButtonTextGap innerCircleRadioButton radioButtonBorderColor">15-20 kms</md-radio-button></div>
+                <div layout="column" flex-xs="20"  flex="20"><md-radio-button value="20" class="filter-radio-btn radioButtonTextGap innerCircleRadioButton radioButtonBorderColor">20-25 kms</md-radio-button></div>
+            </md-radio-group>
+        </div>
+        <div layout="row" flex   ng-if="bufferFlag">
+            <md-progress-circular ng-disabled="false" class="md-accent bufferColor" md-diameter="80" style="position: absolute;z-index: 2;top: 50%;left: 46%;"></md-progress-circular>
+        </div>
+        <div  layout="row" flex="100" layout-align="end">
+           <!-- <div   flex="15" style="margin-bottom: 0px;">
+                <button  class="md-no-underline" id="listing-filter-1" ng-click="filterParlorList()" style="">Apply Filters</button>
+            </div>-->
+            <button   class="md-no-underline" id="listing-filter-1"  ng-click="filterParlorList()" style="">Apply Filters</button>
+        </div>
+        </div>
+    </md-content>
+
+</md-dialog>
+

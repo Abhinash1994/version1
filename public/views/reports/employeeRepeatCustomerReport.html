@@ -1,0 +1,69 @@
+<style type="text/css">
+  .table-responsive{
+    margin: 10px;
+    background-color: #098d9e;
+  }
+  #productSizes{
+  	margin-top: 10px;
+  }
+ .customerno{
+ 	 font-weight: 700;
+    text-align: center;
+    color:#fff;
+ }
+table .item_center th{
+    text-align: center;
+  }
+  .line1{
+    margin: 10px auto;
+    width: 40%;
+    border: 0.3px solid #19181814;
+    position:relative;
+    text-align:center
+  }
+   .setelment-report{
+        height: 30px;
+        background-color: white;
+    }
+    label{
+    	color:#fff;
+    	font-weight: 400;
+    }
+</style>
+ <div class="col-lg-2 col-md-2"></div> 
+
+	<div class="col-lg-8 col-md-8 col-offset-2 table-responsive">
+		<h3 class="customerno"> Employee Customer Repeat Report</h3>
+	          <div class="line1"></div>
+		<div class="row row1" ng-if="role == 7">
+			<div class="col-md-offset-2 col-md-2">
+				<label>Select salon</label>
+			</div>
+			<div class="col-md-4">
+					 <select  class="setelment-report selectsalon"  ng-model="selectedParlorId"  ng-options="parlor.parlorId as (parlor.name + ' '+parlor.address1) for parlor in allParlors |orderBy:'name'" ng-change="changeParlor(selectedParlorId)">
+                    </select>
+			</div>
+		</div>
+	    <table id="productSizes" class="table">
+	        <thead>
+	            <tr class="item_center">
+	                <th id="name">Employee Name</th>
+	                <th id="unique">Unique Customer Served (3 Months) </th>
+	                <th id="repeat">Repeat Customers</th>
+	                <th id="repeat">Percentage Repeat</th>
+	                
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr ng-repeat="customer in report">
+	              <td>{{customer.name}}</td>
+	              <td>{{customer.oldCustomerCounts}}</td>
+	              <td>{{customer.repeatCustomerCounts}}</td>
+	              <td>{{((customer.repeatCustomerCounts/customer.oldCustomerCounts)*100) | number:0}}%</td>
+	            </tr>
+	        </tbody>
+	    </table>
+</div>
+
+<div class="col-lg-2 col-md-2"></div>
+

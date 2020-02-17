@@ -1,0 +1,35 @@
+
+<style>
+    map, div[map] {display:block; width:600px; height:600px;}
+  </style>
+<div class="col-lg-12">
+    <h2 class="page-header">Plot Map</h2><br/>
+    <div>
+</div>
+<form name="myForm" ng-submit="loginform.$valid && login.submit()">
+    <label>
+      <input type="radio" ng-model="selectedRadio" value="app">
+      Past 6 Months App Users
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="selectedRadio" value="subscribers">
+      Subscribers
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="selectedRadio" value="aalenes">
+      Aalenes
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="selectedRadio" value="salons">
+      Salons
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="selectedRadio" value="markets">
+      Salons In Market
+    </label><br/>
+    <button ng-click="fetchUsers($event)" class="btn btn-primary">Draw Map</button>
+   </form>
+
+<div>
+<ng-map zoom="3" center="[22.955346, 78.145985]"></ng-map>
+</div>

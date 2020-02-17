@@ -1,0 +1,66 @@
+<div layout="row" flex="50" class="myReviews-page-container">
+    <h3 style="" class="myReviews-page-MyReviews">My Reviews</h3>
+</div>
+<md-content layout="column" >
+
+    <!--===================================NULL REVIEWS=====================start==================-->
+    <md-card ng-if="userReviewedSalons==''" md-theme-watch >
+        <md-card-content layout="row" >
+            <div layout="column" flex="100">
+                <md-card-content>
+                    <div layout="row" flex="100" layout-align="center">
+                      <span>No reviews added</span>
+                    </div>
+                </md-card-content>
+            </div>
+        </md-card-content>
+    </md-card>
+    <!--===================================NULL REVIEWS=====================start==================-->
+
+
+
+    <!--===================================View when reviews are not null=====================start==================-->
+    <md-card md-theme-watch  ng-repeat="list in userReviewedSalons">
+        <md-card-content layout="row" >
+            <div layout="column" flex="100">
+            <md-card-content>
+                <div layout="row" flex="100" layout-align="center">
+                    <div layout="row" flex="100">
+                        <div layout="column" flex="10" >
+                            <span><img src="../images/profilePicture.png" class="user-review-img"></span>
+                        </div>
+                        <div layout="column" flex="50" class="myReviews-page-name">
+
+                            <span><b>{{list.name}}</b></span>
+                            <span>{{list.address}}</span>
+                        </div>
+                    </div>
+                </div>
+            <div layout="row" flex="100" layout-align="center">
+                <div layout="column" flex="100">
+                    <div layout="row" flex="80" class="myReviews-page-reviewPostDate">
+                        <div layout="column" flex="40">
+                            <span class="user-review">{{list.reviewPostDate}}</span>
+                        </div>
+                        <div layout="row" flex="60" layout-align="end">
+                            <span class="user-review">RATED</span>
+                            <span class="user-review">{{list.ratingByUser}}</span>
+                        </div>
+                    </div>
+
+                            <span style="" class="myReviews-page-reviewContent">{{list.reviewContent | limitTo:list.contentLength}}</span>
+
+                    <div layout="row" flex="100" class="myReviews-page-showReadMore" ng-if="list.showReadMoreFlag">
+                        <span class="myReviews-page-Readmore" ng-click="readMoreReviewContent($index)">Read more</span>
+                    </div>
+                </div>
+            </div>
+                </md-card-content>
+        </div>
+        </md-card-content>
+    </md-card>
+    <!--===================================View when reviews are not null=====================stop==================-->
+
+
+
+</md-content>

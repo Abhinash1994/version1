@@ -1,0 +1,46 @@
+
+<style type="text/css">
+     h3{
+        text-align: center;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+                <br />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+               <h3> Edit Finance Amount in Salons </h3>
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Salon Name</th>
+                                <th>Mail Minimum Guarantee</th>
+                                <th>For Salon Support Report</th>
+                                <th>Salon Minimum Gurantee</th>
+                                <th>3 X Model</th>
+                                <th>Save</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="" ng-repeat="list in salonData">
+                                <td>{{list.name}}-{{list.address2}}</td>
+                                <td><input type="number" ng-model="list.mainMinimumGuarantee"/></td>
+                                <td><input type="number" ng-model="list.avgRoyalityAmount"/></td>
+                                <td>{{list.minimumGuarantee}}</td>
+                                <td><input type="checkbox" ng-model="list.threeXModel"></td>
+                                <td><button ng-click=saveSalon(list.avgRoyalityAmount,list._id,list.mainMinimumGuarantee,list.threeXModel)>Edit Salon</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>

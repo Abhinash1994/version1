@@ -1,0 +1,222 @@
+<style>
+    .heading{
+        text-align: center;
+    }
+    .row{
+        margin:0px;
+    }
+    .label{
+        text-align: right;
+        color:#000;
+    }
+    .label-1{
+        padding-top: 3%;
+        font-size: 13px;
+    }
+</style>
+<h3 class="heading">Subscription Sales</h3>
+<div class="row">
+    <div class="col-md-4 label">
+        <label class="label-1">Select Subscription Type</label>
+    </div>
+    <div class=" col-md-4">
+        
+            <select class="form-control" ng-model="dropdown.selected" ng-change="assign()" ng-options="a.name as a.name for a in dropdown.options">
+            </select>
+    </div>
+</div>
+<div class="row">
+    <div class=" col-md-4 label">
+        <label class="label-1">Select Payment Type</label>
+    </div>
+    <div class=" col-md-4">
+        
+            <select class="form-control" ng-model="paymentType.selected" ng-options="item.name as item.name for item in paymentType.options">
+            </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-lg-4 label">
+        <label class="label-1">Select Date Range</label>
+    </div>
+    <div class="col-md-6 col-lg-4" style="display: inline-flex;">
+        <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport1" ng-model="dateRangeSelected"  required/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-lg-4 label">
+        <label class="label-1">Select Gift : </label>
+    </div>
+    <div class="col-md-6 col-lg-4" style="display: inline-flex;">
+        <input type="checkbox" ng-model="checkGifted.value"> <span style="padding-top: 7px"> Gifted only </span><br>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-lg-12 col-md-offset-2"><button class="btn btn-primary" id="apply-btnservice"  ng-click="applyFilter()">Apply Filter</button></div>
+</div>
+<div class="row">
+    <div class="col-md-4 label">
+            <label class="label-1">Filter By Phone Number</label>
+           
+    </div>
+    <div class="col-md-4">
+         <input type="number" ng-model="obj.phoneNumber" class="form-control" ng-change="phoneNumberFilter()" />
+    </div>
+</div>
+<!--     <div class="row">
+        <div class="col-md-3 col-lg-3 col-md-offset-2">
+            <h4>Select Date Range</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+            <input date-range-picker name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport" ng-model="date.dateRangeSelected" />
+        </div>
+
+    </div> -->
+
+
+<div class="row">
+        <div class="form-inline row col-md-12 col-lg-12 col-md-offset-4" >
+      
+            <button class="btn btn-link btn-md" ng-click="exportToExcel('#tableToExport')" style="margin-left: -10px;border: 0;">
+                    <span class="glyphicon glyphicon-share"></span>
+                    Export to Excel
+            </button>
+        </div>
+</div>
+<div class="row ">
+
+    <div class="col-md-2">
+        <span style="font-weight: bold">Gold: </span><span style="font-weight: bold;">{{goldCount}}</span>
+    </div>
+
+    <div class="col-md-2">
+        <span style="font-weight: bold">Silver:</span><span style="font-weight: bold;">{{silverCount}}</span>
+    </div>
+
+    <div class="col-md-2">
+        <span style="font-weight: bold">Online:</span><span style="font-weight: bold;">{{onlineCount}}</span>
+    </div>
+
+    <div class="col-md-2">
+        <span style="font-weight: bold">Cash:</span><span style="font-weight: bold;">{{cashCount}}</span>
+    </div>
+
+    <div class="col-md-2">
+        <span style="font-weight: bold">Male:</span><span style="font-weight: bold;">{{maleCount}}</span>
+    </div>
+
+    <div class="col-md-2">
+        <span style="font-weight: bold">Female:</span><span style="font-weight: bold;">{{femaleCount}}</span>
+    </div>
+
+    <div class="col-md-2">
+        <span style="font-weight: bold">Total Count: </span><span style="font-weight: bold;">{{totalCount}}</span>
+    </div>
+</div>
+<div  class="table-responsive">
+<table class="table" id="tableToExport" style="margin:5px;">
+    <thead>
+            <tr>
+                <th >Subscription Id</th>
+                <th >Subscription Type</th>
+                <th >Purchase Date</th>
+                 <th >Source</th>
+                 <th >Gifts Left</th>
+                <th >Coupon Code</th>
+                <th >Gift Left</th>
+                <th > Price</th>
+                 <th >Whats App </th>
+                <th > Actual Price Paid</th>
+                <th >Payment Method</th>
+                <th >Cash Salon Id</th>
+                <th >Cash Salon</th>
+                <th >ClientName</th>
+                <th >Appointment Salon</th>
+                <th >Appointment Date</th>
+                <th >Redeemed Subscription</th>
+                <th >Services Taken</th>
+                <th >Appointments Till Now</th>
+                <th >Free Services</th>
+                <th >Appointment 1 Date</th>
+                <th >Appointment 1 Revenue</th>
+                <th >Appointment 2 Date</th>
+                <th >Appointment 2 Revenue</th>
+                <th >Revenue In January 2018</th>
+                <th >Revenue In Feburay 2018</th>
+                <th >Revenue In March 2018</th>
+                <th >Revenue In April 2018</th>
+                <th >Revenue In May 2018</th>
+                <th >Revenue In June 2018</th>
+                <th >Revenue In July 2018</th>
+                <th >Revenue In August 2018</th>
+                <th >Revenue In September 2018</th>
+                <th >Revenue In October 2018</th>
+                <th >Revenue In November 2018</th>
+                <th >Revenue In December 2018</th>
+
+                <th >Revenue In January 2019</th>
+                <th >Revenue In Feburay 2019</th>
+                <th >Revenue In March 2019</th>
+                <th >Revenue In April 2019</th>
+                <th >Revenue In May 2019</th>
+                <th >Revenue In June 2019</th>
+                <th >Revenue In July 2019</th>
+                <th >Revenue In August 2019</th>
+                <th >Revenue In September 2019</th>
+                <th >Revenue In October 2019</th>
+                <th >Revenue In November 2019</th>
+                <th >Revenue In December 2019</th>
+            </tr>
+
+    </thead>
+    <tbody>
+        <tr ng-repeat="datas in copyingArray">
+            <td>{{datas._id}}</td>
+            <td>{{datas.subscriptionType}}</td>
+            <td>{{datas.createdAt| date : "dd.MM.y"}}</td>
+            <td >{{datas.source}}</td>
+            <td>{{datas.couponCode}}</td>
+            <td>{{datas.giftLeft}}</td>
+            <td>{{datas.price}}</td>
+            <td><a class="btn btn-primary"  ng-href="https://api.whatsapp.com/send?phone=91{{datas.phoneNumber}}&text=
+Hi%2C%0AWe%20see%20that%20you%20have%20recently%20bought%20Be%20U%20Salon%E2%80%99s%20annual%20subscription%20and%20have%20not%20availed%20your%20free%20service%20worth%20Rs%20500%20yet.%0A%0ALet%20us%20know%20if%20you%20need%20any%20help%20with%20your%20appointment%20at%20any%20of%20our%20140%20outlets.%0A%0ARegards%2C%0ACustomer%20Service%2C%20Be%20U%20Salons" target="_blank">Send Whatsapp</a></td>
+            <td>{{datas.actualPricePaid}}</td>
+            <td>{{datas.paymentMethod}}</td>
+            <td>{{datas.cashSalonId}}</td>
+            <td>{{datas.cashSalon}}</td>
+            <td>{{datas.clientName}}<br>{{datas.phoneNumber}}<br><span style="font-weight: bold">{{datas.gender}}</span></td>
+            <td>{{datas.parlorname}}</td>
+            <td>{{datas.appointmentDate}}</td>
+            <td>{{datas.subscriptionAmountUsed}}</td>
+            <td>{{datas.services}}</td>
+            <td>{{datas.clientAppointmentTillNow }}  <span  ng-if="datas.clientAppointmentTillNow==undefined">0</span></td>
+            <td>{{datas.freeServiceTaken |number :0}} <span  ng-if="datas.freeServiceTaken==undefined">0</span></td>
+            <td><span ng-if="datas.clientAppointments.length>0">
+                <span  ng-if="datas.clientAppointments.length>1">{{datas.clientAppointments[datas.clientAppointments.length-2].appointmentDate}}</span>
+                <span  ng-if="datas.clientAppointments.length==1">{{datas.clientAppointments[0].appointmentDate}}</span>
+
+            </span><span ng-if="datas.clientAppointments.length==0">0</span></td>
+            <td><span ng-if="datas.clientAppointments.length>0"><span  ng-if="datas.clientAppointments.length>1">{{datas.clientAppointments[datas.clientAppointments.length-2].revenue |number:0}}</span>
+                <span  ng-if="datas.clientAppointments.length==1">{{datas.clientAppointments[0].revenue|number:0}}</span></span><span ng-if="datas.clientAppointments.length==0">0</span></td>
+            <td><span ng-if="datas.clientAppointments.length>0">
+                  <span  ng-if="datas.clientAppointments.length>1">{{datas.clientAppointments[datas.clientAppointments.length-1].appointmentDate}}</span>
+                <span  ng-if="datas.clientAppointments.length==1">0</span>
+            </span><span ng-if="datas.clientAppointments.length==0">0</span></td>
+            <td><span ng-if="datas.clientAppointments.length>0">
+                      <span  ng-if="datas.clientAppointments.length>1">{{datas.clientAppointments[datas.clientAppointments.length-1].revenue |number:0}}</span>
+                <span  ng-if="datas.clientAppointments.length==1">0</span>
+
+
+            </span><span ng-if="datas.clientAppointments.length==0">0</span></td>
+            <td ng-repeat="myData in datas.clientRevenueTillNow1 " >{{myData.revenue}}
+        </td>
+         
+        
+        </tr>
+        <tr>
+            
+        </tr>
+    
+    </tbody>
+</table>
+</div>

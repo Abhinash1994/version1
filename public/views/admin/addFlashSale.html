@@ -1,0 +1,279 @@
+<style type="text/css">
+    .rating ul li{
+        list-style: none;
+        display: inline;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Edit Flash Sale</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-default btn-lg btn-block" ng-click="addFlashModal()" >Add New Flash Sale</a>
+            <br />
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Current Service Brand
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>Coupon Title</th>
+                                    <th>Price</th>
+                                    <th>Current Quantity</th>
+                                    <th>Edit Salons</th>>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="" ng-repeat="list in flashSales">
+                                    <td>{{list.couponTitle}}</td>
+                                    <td>{{list.serviceCodes[0].price}}</td>
+                                    <td>{{list.currentCount}}</td>
+                                    <td><button ng-click="editSalons($index)">Edit Salons</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <a class="btn btn-default btn-lg btn-block" ng-click="addNewServiceProduct()">Add New Service Brand</a>
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Flash Sale Salons
+            </div>
+            <!-- /.panel-heading -->
+            <div class="row">
+
+                <div class="col-md-offset-2 col-md-3">
+
+                    <label>Select  Parlors</label>
+                </div>
+                <div class=" col-md-4">
+
+                    <select class='form-control' ng-change="check()" ng-model='selected.parlor' ng-options='b as b.name + " , Rating = "+ b.ambienceRating for b in parlors track by b.parlorId'></select>
+                </div>
+                <div><button ng-click="addSalon(selected.parlor)">Add Salon</button></div>
+
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Salon Name</th>
+                                <th>Salon Max Count</th>
+                                <th>Salon Current Count</th>
+                                <th>Remove Salon</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="" ng-repeat="list in salonData">
+                                <td>{{list.name}}</td>
+                                <td><input type="number" ng-model="list.maximumCount" /></td>
+                                <td><input type="number" ng-model="list.currentCount" /></td>
+                                <td><button ng-click=removeSalon($index)>Remove Salon</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button ng-click="editSalonInFlash(salonData)">Edit Salons</button>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+
+<div class="modal fade" id="addFlash" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Add new Service Brand</h4>
+            </div>
+            <form role="form" ng-submit="submitNewServiceProduct()" name="customerDetails">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group" class="col-md-6">
+                                <label>Flash Sale Title</label>
+                                <input ng-model="flash.couponTitle" class="form-control">
+                            </div>
+                            <div class="form-group" class="col-md-6">
+                                <label>Flash Sale Description</label>
+                                <input ng-model="flash.description" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                                <div class="form-group" class="col-md-6">
+                                    <label>Menu Price</label>
+                                    <input type="number" ng-model="flash.menuPrice" class="form-control">
+                                </div>
+                                <div class="form-group" class="col-md-6">
+                                        <label>Flash Code</label>
+                                        <input ng-model="flash.code" class="form-control">
+                                    </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group" class="col-md-6">
+                                    <label>Deal Price</label>
+                                    <input type="number" ng-model="flash.dealPrice" class="form-control">
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-12">
+                                    <div class="form-group" class="col-md-6">
+                                        <label>Offer Percentage</label>
+                                        <input type="number" ng-model="flash.offPercentage" class="form-control">
+                                    </div>
+                                        <div class="form-group" class="col-md-6">
+                                            <label>Image URL</label>
+                                            <input ng-model="flash.imageUrl" class="form-control">
+                                        </div>
+                                        <div class="form-group" class="col-md-6">
+                                            <label>Website Image URL</label>
+                                            <input ng-model="flash.websiteImageUrl" class="form-control">
+                                        </div>
+                                </div>
+                                <div class="col-md-12">
+                                        <div class="form-group" class="col-md-6">
+                                            <label>Maximum Count</label>
+                                            <input type=number ng-model="flash.maximumCount" class="form-control">
+                                        </div>
+                                        <div class="form-group" class="col-md-6">
+                                                <label>Current Count</label>
+                                                <input type=number ng-model="flash.currentCount" class="form-control">
+                                            </div>
+                                </div>
+                                  <div class="col-md-12">
+                                      
+                                        <div class="form-group">
+                                         <label>Selet Gender</label>
+                                          <select class="form-control" ng-model="flash.gender">
+                                            <option value="M">Male</option>
+                                            <option value="F">Female</option>
+                                          </select>
+                                        </div>
+
+                     
+                                </div>
+
+                                 <div class="col-md-12">
+                                      
+                                        <div class="form-group">
+                                         <label>Status</label>
+                                          <select class="form-control" ng-model="flash.active">
+                                            <option value="true">Active</option>
+                                            <option value="false">Inactive</option>
+                                          </select>
+                                        </div>
+
+                                </div>
+                                <div class="col-lg-12">
+                                        <div class="form-group" class="col-md-6">
+                                            <label>Price</label>
+                                            <input type=number ng-model="flash.price" class="form-control">
+                                        </div>
+                                </div>
+                                <div class="col-lg-12">
+                                        <label>Ambience Rating</label>
+                                        <div class="form-group rating" class="col-md-12">
+                                           <ul style="margin-left: -40px">
+                                            <li><input type="checkbox" ng-model="ambienceRating1" ng-true-value="true" ng-false-value="false"> 1</li>
+                                            <li><input type="checkbox" ng-model="ambienceRating2"
+                                                ng-true-value="true" ng-false-value="false">2</li>
+                                            <li><input type="checkbox" ng-model="ambienceRating3"
+                                                ng-true-value="true" ng-false-value="false">3</li>
+                                            <li><input type="checkbox" ng-model="ambienceRating4"
+                                                ng-true-value="true" ng-false-value="false">4</li>
+                                            <li><input type="checkbox" ng-model="ambienceRating5"
+                                                ng-true-value="true" ng-false-value="false"
+                                               >5</li>
+                                           </ul>
+                                        </div>
+                                </div>
+                                <div class="col-md-12">
+                                        <div class="col-md-6 col-md-offset-2">
+                                            <p class="input-group">
+                                                <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="flash.starts_at"  is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                </span>
+                                            </p>
+                                        </div>
+                                </div>
+                                <div class="col-md-12">
+                                        <div class="col-md-6 col-md-offset-2">
+                                <!--        <div class="col-md-3" >-->
+                                            <p class="input-group">
+                                                <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="flash.expires_at"  is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    
+                    </div>
+                    <div class="row">
+                        <div class="table-responsive" style="display:inline">
+                            <div class="table-responsive" style="display:inline">
+                                <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+                                    <tr name="productDetails">
+                                        <td title="'Category'">
+                                            <select name="mySelect" ng-options="option.categoryId as option.name for option in categories " ng-model="row.categoryId"
+                                                ng-change="categoryChanged(row.categoryId)"></select>
+                                        </td>
+                                        <td title="'Services'">
+                                                <select name="mySelect" ng-options="service as (service.name + ' - ' + service.gender + '(' + service.serviceCode+')') for service in services" ng-model="row.service"
+                                                ng-change="serviceChanged(row.service)"> </select>
+                                        </td>
+                                        <td title="'Brand'">
+                                                <select name="mySelect" ng-options="brand as brand.name for brand in brands " ng-model="row.brand"
+                                                ></select>
+                                        </td>
+                                        <td title="'Product'">
+                                                <select name="mySelect" ng-options="product.productId as product.name for product in row.brand.products " ng-model="row.productId"
+                                                ></select>
+                                        </td>
+                                        <td title="'Action'">
+                                            <input type="button" class="btn btn-primary" style="background-color: #337ab7" ng-click="addSer(row)" value="Add">
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" ng-click="addFlashSale()">Add</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,169 @@
+  <style>
+            h2 {
+                text-align:center;
+            }
+
+  </style>
+
+
+
+  <h2>Profit and Loss</h2>
+
+
+
+   <div >
+                <div class="row">
+                <div class="col-md-6">
+                    <p class="input-group">
+                        <input type="text" show-weeks="false" show-button-bar="false" class="form-control" datepicker-popup="{{format}}" ng-model="dt.dt " ng-change="test()" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" min-mode="'month'" max-mode="'month'" />
+                        <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+                    </p>
+                </div>
+                <div class="col-md-6" ><button class="btn" ng-click="dataByDate()">Apply</button></div>
+            </div>
+
+
+        <div class="card">
+            <div class="container-fluid">
+                <div class="table-responsive">
+                    <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+                        <thead>
+                        <tr>
+                            <th>Particulars</th>
+                            <th>Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left" style="font-weight: bold">REVENUE</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left" >Service Revenue</td>
+                            <td align="left" >{{service| number:0}}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">Sale of Product</td>
+                            <td align="left" >{{product| number:0}}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;font-weight: bold" >Gross Revenue</td>
+                            <td align="left"  style="font-weight: bold">{{gross| number:0}}</td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" style="font-weight: bold">DIRECT EXPENSES</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">Cost of Goods Consumed
+                            </td>
+                            <td align="left" >{{goodsConsumed | number:0}}</td>
+                        </tr>
+                        <!-- <tr>
+                            <td style="text-align: left">Be U Revenue Share
+
+                            </td>
+                            <td align="left" >{{ beushare | number:0}}</td>
+                        </tr> -->
+                        <tr>
+                            <td style="font-weight: bold;text-align: left" >Total Direct Cost
+
+                            </td>
+                            <td align="left" style="font-weight: bold" >{{directCost| number:0}}</td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="font-weight: bold;text-align: left" >GROSS PROFIT
+                            </td>
+                            <td align="left" style="font-weight: bold" >{{grosProfit | number:0}}</td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" style="font-weight: bold;text-align: left" >Gross Profit Margin(%)
+                            </td>
+                            <td align="left" style="font-weight: bold" >{{grosProfitMargin | number:0}}%</td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" style="font-weight: bold">INDIRECT COST
+                            </td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" style="text-align: left" >Salary
+
+                            </td>
+                            <td align="left" >{{salary | number:0}}</td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="text-align: left" >Incentive
+
+                            </td>
+                            <td align="left" >{{incentive | number:0}}</td>
+                        </tr>
+                        <tr ng-repeat="d in indirect">
+                            <td align="left" style="text-align: left" >{{d._id}}
+
+                            </td>
+                            <td align="left" >{{d.sum| number:0}}</td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" style="text-align: left; font-weight: bold" >Total Indirect Cost
+
+                            </td>
+                            <td align="left" >{{totalIndirect| number:0}}</td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="text-align: left" >Net Profit
+
+                            </td>
+                            <td align="left" >{{costMargin| number:0}}</td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="text-align: left;font-weight: bold" >Net Profit %
+
+                            </td>
+                            <td align="left" style="font-weight: bold" >{{marginPrc| number:0}} %</td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" style="font-weight: bold">COGS Consumed as per Inventory Module</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" style="text-align: left;font-weight: bold" >Opening Stock as on {{dt.dt| date:"mediumDate"}}
+
+                            </td>
+                            <td align="left" style="font-weight: bold" >{{itemOnFirstDay| number:0}}</td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="text-align: left;font-weight: bold" >(+) Purchases during the month
+
+
+                            </td>
+                            <td align="left" style="font-weight: bold" >{{monthPurchase| number:0}}</td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="text-align: left;font-weight: bold" >(-) Closing Stock of the month
+
+
+                            </td>
+                            <td align="left" style="font-weight: bold" >{{consumedMonth| number:0}}</td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" style="text-align: left;font-weight: bold" >Stock Consumed
+
+                            </td>
+                            <td align="left" style="font-weight: bold" >{{stockConsumed| number:0}}</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>

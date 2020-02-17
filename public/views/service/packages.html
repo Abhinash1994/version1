@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Packages</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="container-fluid">
+      <div class="form-inline row" style="text-align:right">
+          <input type="text" ng-model="query" class="form-control" placeholder="Search here">
+
+        <button type="button" class="btn" ng-csv="makeCSVData()" filename="data.csv">Export as CSV</button>
+      </div>
+
+    <div class="card">
+      <div class="container-fluid">
+        <div class="table-responsive">
+          <table ng-table="tableParams" class="table" show-filter="false">
+            <tr ng-repeat="c in packages | filter : query" ng-click="openPackageDetail(c.id)">
+                <td title="'Id'" filter="{ name: 'text'}" sortable="'name'">
+                        {{c.packageId}}</td>
+                <td title="'Name'" filter="{ id: 'number'}" sortable="'id'">
+                        {{c.name}}</td>
+					      <td title="'Services'" filter="{ sp: 'number'}"  sortable="'sp'">
+                        {{getServiceInText(c.services)}}</td>
+					      <td title="'Price'">
+                        {{c.price}}</td>
+                        <td title="'Action'">
+                            <button type="submit" class="btn btn-primary" ng-click="openUpdatePackage($index)">Update</button>
+                      </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="text-align:center">
+      <button class="btn btn-lg" data-toggle="modal" ng-click="openAddPackage()">
+          Add New Package
+      </button>
+    </div>
+
+</div>
+
+
+
+<div class="modal fade" id="addNewPackage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">{{addDialog ? "Add new Package" : "Update Package"}}</h4>
+                              </div>
+                              <form role="form" ng-submit="addPackage()" name="customerDetails">
+                              <div class="modal-body">
+                                  <div class="row">
+                                      <div class="form-group col-md-12">
+										  <div isteven-multi-select input-model="categories" output-model="category" button-label="name" tick-property="isSelected" item-label="name" on-close="cate()"> </div>
+                                              <label class="checkbox-inline" ng-repeat="s in ser">
+                                                  <input type="checkbox" class="btn-primary" ng-change="updateTotalPrice()" ng-model="s.isSelected">{{s.name}} ({{s.prices[0].price}})
+                                              </label>
+                                              <hr />
+                                      <hr />
+                                  </div>
+                                  Total real price Rs{{newPackageTotalPrice}}
+                                      <!-- /.col-lg-6 (nested) -->
+
+                                      <div class="col-lg-12">
+                                          <div class="row">
+                                              <div class="col-lg-6">
+                                                  <div class="form-group">
+                                                      <label>Package Name</label>
+                                                      <input ng-model="newPackageName" type="text" class="form-control" placeholder="package name" name="price" ng-minlength="1" required>
+                                                  </div>
+                                              </div>
+
+                                              <div class="col-lg-6">
+                                                  <div class="form-group">
+                                                      <label>Package Price</label>
+                                                      <input ng-model="newPackagePrice" type="number" class="form-control" placeholder="package price" name="price" ng-minlength="1" required>
+                                                  </div>
+                                              </div>
+                                          </div>
+
+                                      </div>
+
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">{{addDialog ? "Add" : "Update"}}</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>

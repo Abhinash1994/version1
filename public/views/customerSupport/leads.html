@@ -1,0 +1,361 @@
+<style type="text/css">
+  th, td {
+    padding: 7px !important;
+    color: black;
+}
+	.table-responsive{
+    overflow: hidden;
+  }
+	h2{
+		text-align: center;
+	}
+  h4{
+    font-size: 20px;
+    text-align: center; 
+  }
+  ul{
+    text-align: -webkit-center;
+    padding-top: 10px;
+  }
+  ul li{
+    display: inline-block;
+    list-style: none;
+
+  }
+ div.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+.main-container{
+    background: blanchedalmond;
+    margin-top: 5%;
+}
+</style>
+
+
+
+<div class="row" style="background: #fff">
+  <h2 class="website">Leads</h2>
+</div>
+<div class="" style="text-align: right;">
+    <button type="submit" class="btn btn-primary" ng-click="addCustomer()">Add User</button>
+  <button type="submit" class="btn btn-primary" ng-click="refreshQuery()">Refresh</button>
+</div>
+<div class="row row1">
+
+    <div class="col-md-3 ">
+       <div class="card"> 
+          <h4> Today Lead </h4>
+          <h4 style="padding-bottom: 20px">{{stats.todaysLeads}}</h4>
+       </div>   
+    </div>
+
+  <div class="col-md-3">
+     <div class="card"> 
+        <h4>Pending Lead</h4>
+        <h4 style="padding-bottom: 20px">{{stats.totalPendingLeads}}</h4>
+    </div>
+  </div>
+  <div class="col-md-3 ">
+     <div class="card"> 
+        <h4>Today's Follow Up</h4>
+        <h4 style="padding-bottom: 20px">{{stats.totalfollowUpLeads}}</h4>
+     </div>
+  </div>
+  <div class="col-md-3 ">
+       <div class="card"> 
+          <h4>Today {{customerCareUserType=="3"?"Revenue Booked":"Subscription Link Sent"}}</h4>
+          <h4 style="padding-bottom: 20px"> {{stats.totalRevenueBooked}} ({{stats.totalTodayRevenueBookedAppointments}}) </h4>
+       </div>
+  </div>
+
+</div>
+<div class="row row1">
+  
+      <div class="col-md-3 ">
+         <div class="card"> 
+            <h4> Total Leads This Month </h4>
+            <h4 style="padding-bottom: 10px">{{stats.thisMonthLeads}}</h4>
+         </div>   
+      </div>
+  
+    <div class="col-md-3">
+       <div class="card"> 
+          <h4>{{customerCareUserType=="3"?"This Month Completed Appointments":"Subscription Sold This Month"}}</h4>
+          <h4 style="padding-bottom: 10px">{{stats.thisMonthCompletedLeads}}</h4>
+      </div>
+    </div>
+    <div class="col-md-3 ">
+       <div class="card"> 
+          <h4>Target</h4>
+          <h4 style="padding-bottom: 10px">{{stats.target}}</h4>
+       </div>
+    </div>
+    <div class="col-md-3 ">
+         <div class="card"> 
+            <h4>Per Day Average Required</h4>
+            <h4 style="padding-bottom: 10px"> {{(stats.target-stats.thisMonthCompletedLeads)/(daysRemaining)  | number:0}}</h4>
+         </div>
+    </div>
+  
+  </div>
+
+
+<div class="container-fluid main-container">
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Pending Leads </h4>
+        <div  class="table-responsive">
+                <table>
+                          <tr>
+                            <th><center>Name</center></th>
+                            <th><center>Phone Number</center></th>
+                            <th><center>Allot Date</center></th>
+                            <th><center>Send SMS</center></th>
+                            <th><center>Whats App</center></th>
+                            <th><center>Action</center></th>
+                          </tr>
+                          <tr ng-repeat="data in stats.pendingLeads">
+                            <td>{{data.name}}({{data.source}})</td>
+                            <td>{{data.phoneNumber}}</td>
+                            <td ng-if="customerCareUserType==2">{{data.subscriptionTeam.allotDate  | date:'fullDate' }}</td>
+                             <td ng-if="customerCareUserType==3">{{data.appointmentTeam.allotDate  | date:'fullDate' }}</td>
+                            <td >
+                              <button type="button" class="btn btn-success" ng-click="sendGreetingMessage(data.phoneNumber,data._id)">Send SMS</button>
+                            </td>
+                            <td><a class="btn btn-primary"  ng-href="https://api.whatsapp.com/send?phone=91{{data.phoneNumber}}&text=Hi%20%0AThis%20side%20{{userName}}%20from%20Be%20U%20Salons.%0AYou%20have%20filled%20up%20a%20form%20online%20regarding%20deals%20on%20Keratin%2FSmoothening%2F%20Highlights%2FGlobal%20Color.%20%0APlease%20help%20me%20with%20your%20location%2C%20so%20that%20I%20can%20help%20you%20with%20the%20service%20details%20and%20book%20an%20appointment%20at%20the%20closest%20outlet%20to%20you." target="_blank">Send Whatsapp</a></td>
+                            <td>
+                              <button type="button" class="btn btn-success" ng-click="openModal(data)">Submit Status</button>
+                            </td>                         
+                          </tr>  
+                           
+                    </table>
+                   
+              </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Today Follow Up</h4>
+      <div class="row">
+        <input ng-model="searchNumber" type="text"/>
+        <button ng-click="searchUser(searchNumber)">Search</button>
+      </div>
+       <div  class="table-responsive">
+                <table>
+                          <tr>
+                            <th><center>Name</center></th>
+                            <th ><center>Phone Number</center></th>
+                            <th><center>Follow Up Time</center></th>
+                            <th><center>Comments</center></th> 
+                            <th><center>Status</center></th> 
+                            <th><center>Action</center></th> 
+
+
+                          </tr>
+                          <tr ng-repeat="data in stats.followUpLeads">
+                            <td>{{data.name}}</td>
+                            <td >{{data.phoneNumber}}</td>
+                            <td>{{data.followUpTime | date:'medium'}}</td>
+                            <td>{{data.comments?data.comments[data.comments.length-1]:"No Comment Added"}}</td>
+                            <td>{{data.statusString}}</td> 
+                            <td>
+                                <button type="button" class="btn btn-success" ng-click="openModal(data)">Submit Status</button>
+                            </td> 
+                            
+                          </tr>
+
+                    </table>
+                   
+              </div>
+    </div>
+  </div>
+
+  <div class="row row2">
+  <div class="col-md-6">
+    <ul>
+      <li>
+          <h4 className="appointment_show">Today's {{customerCareUserType=="3"?"Appointment":"Subscription Sold"}}</h4>
+      </li>
+      <li>
+         <button type="submit" class="btn btn-primary" ng-click="refreshAppointment()">Refresh Conversion</button>
+
+      </li>
+    </ul>
+  
+     <div  class="table-responsive" ng-if="customerCareUserType!=2">
+              <table>
+                        <tr>
+                          <th><center>Services</center></th>
+                          <th><center>Name</center></th>
+                          <th><center>Phone Number</center></th>
+                          
+                          <th><center>status</center></th>
+                          <th><center>Total</center></th> 
+                          <th><center>Send SMS</center></th> 
+                        </tr>
+                        <tr ng-repeat="data in stats.todayAppointments">
+                          <td >
+                             <span ng-repeat="x in data.services">{{x.name}},</span> 
+                          </td>
+                          <td>{{data.client.name}}</td>
+                          <td>{{data.client.phoneNumber}}</td>
+                         
+                          <td>
+                              <span ng-if="data.status==1">Pending</span>
+                              <span ng-if="data.status==2">Cancelled</span>
+                              <span ng-if="data.status==3">Completed</span>
+                          </td>
+                          <td>{{data.subtotal}}</td>
+                          <td>
+                            <button type="button" class="btn btn-success" ng-click="todaysAppointmentMessage(data.client.name,data.client.phoneNumber,data._id)">Send Message</button>
+                        </td> 
+                        </tr>
+
+                  </table>
+                 
+            </div>
+
+             <div  class="table-responsive" ng-if="customerCareUserType==2">
+              <table>
+                        <tr>
+                         
+                          <th><center>Name</center></th>
+                          <th><center>Phone Number</center></th>
+                          <th><center>Payment Link</center></th>
+                          <th><center>Comments</center></th>
+                          <th><center>status</center></th>
+                         
+                        </tr>
+                        <tr ng-repeat="data in stats.todayAppointments">
+                          
+                          <td>{{data.name}}</td>
+                          <td>{{data.phoneNumber}}</td>
+                          <td>{{data.paymentLinkUrl}}</td>
+                          <td>
+                            <span ng-repeat="x in data.comments">
+                              {{x}},
+                            </span>
+                          </td>
+                          <td>
+                            {{data.statusString}}
+                             
+                          </td>
+                         
+                          
+                        </tr>
+
+                  </table>
+                 
+            </div>
+
+        </div>
+        <div class="col-md-6" >
+          <h4>{{customerCareUserType=="3"?"Appointment Done But Client Didnt Go":"Link Shared but No Subscription"}}</h4>
+          <div  class="table-responsive">
+            <table>
+                      <tr>
+                       
+                        <th><center>Name</center></th>
+                        <th><center>Phone Number</center></th>
+                        <th><center>Comments</center></th>
+                        <th><center>Send SMS</center></th>
+                       
+                      </tr>
+                      <tr ng-repeat="data in stats.sentButNotCompleted">
+                        
+                        <td>{{data.name}}</td>
+                        <td>{{data.phoneNumber}}</td>
+                        <td>
+                          <span ng-repeat="x in data.comments">
+                            {{x}},
+                          </span>
+                        </td>
+                        <td>
+                          <button type="submit" class="btn btn-primary" ng-click="sendReminderMessage(data.phoneNumber,data._id,data.appointmentId)">Send SMS</button>
+                           
+                        </td>
+                       
+                        
+                      </tr>
+
+                </table>
+               
+          </div>
+        </div>
+      </div>
+
+</div>
+
+
+ <!-- Modal -->
+  <div class="modal fade" id="updateQuery" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+                <form>
+                      <div class="form-group">
+                         <label >Status : </label>
+                          <select class="form-control"  ng-model="selectedStatus" ng-options="item as item.name for item in statusvalue">
+                         </select>
+                     </div>
+                      <div class="form-group">
+                        <label >Comment : </label>
+                          <textarea ng-model="response.comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> 
+                      </div>
+                       <div class="form-group" ng-if="selectedStatus.name=='Follow Up'">
+                        <label >Follow of Date  </label>
+                        <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="picker.date" is-open="picker.isOpen"  />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openCalendar($event)"><i class="fa fa-calendar"></i></button>
+                        </span>
+                      </div>
+                       <div class="form-group" ng-if="selectedStatus.name=='Appointment Booked'">
+                         <label >Appointment Id : </label>
+                          <input ng-model="response.appointmentId" type="text" class="form-control">  
+                      </div>
+                      <div class="form-group" ng-if="selectedStatus.name=='Subscription Sold'">
+                          <label >Select Amount </label>
+                        <button type="submit" ng-click="populateAmount(modalQuery.phoneNumber)" class="btn btn-primary">Populate Amount</button>
+                        <select class="form-control"  ng-model="response.amount" ng-options="item for item in subscriptionAmount">  </select>
+                     </div>
+                      
+                      <button type="submit" ng-click="submitQuery()" class="btn btn-primary">Submit</button>
+              </form>
+
+
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+
+   <!-- Modal -->
+   <div class="modal fade" id="addCust" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+                  <form>
+                      <div class="form-group" >
+                          <label >Name : </label>
+                           <input ng-model="newClient.name" type="text" class="form-control">  
+                       </div>
+
+                         <div class="form-group" >
+                           <label >Phone Number : </label>
+                            <input ng-model="newClient.phoneNumber" type="text" class="form-control">  
+                        </div>
+                        
+                        <button type="submit" ng-click="addCustomerFunction()" class="btn btn-primary">Submit</button>
+                </form>
+  
+  
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>

@@ -1,0 +1,54 @@
+
+<md-dialog aria-label="Mango (Fruit)">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Filter</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+   <div class="row">
+       <div flex="100">
+           Sort By
+       </div>
+      
+   </div>
+      <div layout="row">
+            <div flex="50">
+             <div>Popularity</div>
+                 <md-divider ng-if="!$last"></md-divider>
+             <div>Price Range</div>
+                 <md-divider></md-divider>
+             <div>Price Range</div>
+                 <md-divider ng-if="!$last"></md-divider>
+             <div>Distance</div>
+            </div>
+           <div flex="50">
+             <div>{{name}}</div>
+                <md-divider ></md-divider>
+             <div>Low to High</div>
+                <md-divider></md-divider>
+             <div>High to Low</div>
+                <md-divider ng-if="!$last"></md-divider>
+             <div>Near You</div>
+          
+           </div>
+      </div>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="cancel()">
+        More on Wikipedia
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="cancel()" >
+        Not Useful
+      </md-button>
+      <md-button ng-click="cancel()" style="margin-right:20px;" >
+        Useful
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

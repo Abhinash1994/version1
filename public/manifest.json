@@ -1,0 +1,35 @@
+{
+  "short_name": "Be U Salon",
+  "name": "Be U Salon App",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+   {
+      "src": "96image.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "144image.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "192image.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "512image.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#ff0000",
+  "background_color": "#ffffff"
+}

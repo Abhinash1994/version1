@@ -1,0 +1,66 @@
+<style type="text/css">
+	table{
+		text-align: center;
+    overflow: scroll;
+	}
+	.newcustomer{
+		padding-left: 30px;
+	}
+	h3{
+		text-align: center;
+	}
+ 	h4{
+ 		    margin-left: 139px;
+   			 margin-top: 19px;
+ 	}
+</style>
+
+
+
+<div class="row">
+	<h3 class="website">Prime Customer</h3>
+	<div class="col-md-12">
+        <div  class="col-md-3 col-lg-3 col-md-offset-2">
+            	<h4>Select Date</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+
+            <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+                   ng-model="dateRangeSelected" ng-change="dateSelected()"/>
+        </div>
+        <button class="btn btn-primary" id="apply-btn" ng-click="primecustomer()">Apply</button>
+    </div
+</div>
+<div class="row">
+	
+<div class="col-md-12">
+	<div  class="table-responsive">
+	 <table>
+                          <tr>
+                            <th><center>Salon Name</center></th>
+                            <th><center>Salon Addres</center></th>
+                            <th><center>Client Name</center></th>
+                            <th><center>Phone Number</center></th>
+                            <th><center>Date</center></th>
+                            <th><center>Services</center></th>
+                            <th><center>Payable Amount</center></th>
+                            <th>Total</th>
+                          </tr>
+                          <tr ng-repeat="customer in stats">
+                            <td>{{customer.parlorName}}</td>
+                            <td>{{customer.parlorAddress}}</td>
+                            <td>{{customer.name}}</td>
+                            <td>{{customer.phoneNumber}}</td>
+                            <td>{{customer.appointmentStartTime | date:"medium"}}</td>
+                            <td>
+                               {{customer.services[0].name+","+customer.services[1].name+","+customer.services[2].name+","+customer.services[3].name}}
+                            </td> 
+                            <td>&#8377 {{customer.payableAmount}}</td>
+                            <td>&#8377 {{customer.subtotal | number:3}}</td>                                
+                          </tr>
+                    </table>
+                   
+</div>
+</div>
+
+</div>

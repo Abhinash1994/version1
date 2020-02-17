@@ -1,0 +1,161 @@
+<style media="screen">
+    th{
+      text-align:center;
+    }
+    .hiddenRow {
+      padding: 0 !important;
+  }
+  .nav-tabs {
+    border-bottom:none;
+  }
+  </style>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h2 id="tables">Items in Cart</h2>
+      </div>
+  
+      <!-- <div class="alert alert-success col-md-6 col-md-offset-6" ng-if="success" dismiss-on-timeout="2000" close="closeAlert()">
+        <strong>Success!</strong> This alert box could indicate a successful or positive action.
+      </div> -->
+      <div class="col-md-12" justified="true">
+          <uib-tabset>
+            <uib-tab  ng-click='categoryButton("Not Contacted")' index="0" active="true" heading="Not Contacted"></uib-tab>
+            <uib-tab  ng-click='categoryButton("Contacted")' index="1" heading="Contacted"></uib-tab>
+            <uib-tab  ng-click='categoryButton("Converted")' index="2" heading="Converted"></uib-tab>
+            <uib-tab  ng-click='categoryButton("Reports")' index="2" heading="Reports"></uib-tab>
+            <uib-tab  ng-click='categoryButton("divasAndMachosCustomers")'  index="4" heading="Divas and Machos"></uib-tab>
+            <uib-tab  ng-click='categoryButton("afterThreeMonths")' index="4" heading="After Three Months"></uib-tab>
+            <uib-tab  ng-click='categoryButton("Website Queries")' index="4" heading="Website Queries"></uib-tab>
+            <uib-tab  ng-click='categoryButton("Subscription Queries")' index="4" heading="Subscription Queries"></uib-tab>
+            <uib-tab  ng-click='categoryButton("razorPayNonSubscriber")' index="4" heading="RazorPay Non-Subscribers"></uib-tab>
+            <uib-tab  ng-click='categoryButton("itemsInCart")' index="5" heading="Items In Cart"></uib-tab>
+          </uib-tabset>
+      </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Client Name</th>
+              <th>Phone Number</th>
+              <th>Salon Name</th>
+              <th>Services</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="user in users" >
+                <td>{{user.clientName | uppercase}}</td>
+                <td>{{user.phoneNumber }}</td>
+                <td>{{user.parlorName}}</td>
+                <td>
+                  <span ng-repeat="ser in user.services">{{ser}}</span>
+                </td>
+                <td> {{user.lastServiceAddTime | date:'medium'}}</td>
+              </tr>
+          </tbody>
+        </table>
+          <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog" style="width:60%">
+  
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{editRow.clientName | uppercase}}</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-3">
+                        {{editRow.parlorName}}
+                      </div>
+                      <div class="col-md-3">
+                        {{editRow.phoneNumber}}
+                      </div>
+                    </div>
+                    <form>
+                      <div class="form-group">
+                        <label>Remark:</label>
+                        <textarea type="text" class="form-control" id="email" ng-model="remark"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label>Expected Date:</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control"  ng-init="popup1.opened=false;" uib-datepicker-popup="{{format}}" ng-change="buttonclick()" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="popup1.opened=true"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Call Status:</label>
+                        <select class="form-control" ng-model="selected" ng-model="selected">
+                        <option  ng-repeat="(key,value) in callStatus" >{{value}}</option>
+                      </select>
+                      </div>
+                      <button type="submit" class="btn btn-default" ng-click="saveButton($index);disabled=true">Save</button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default closeButton" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+  
+              </div>
+          </div>
+          <div class="modal fade" id="servicesModal" role="dialog">
+              <div class="modal-dialog" style="width:60%">
+  
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{clientName}}</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-4">
+                        Contact: {{clientPhoneNumber}}
+                      </div>
+                      <div class="col-md-4">
+                        Parlor: {{lastVisitedParlorName}}
+                      </div>
+                      <div class="col-md-4">
+                        Date: {{lastVisited | date: 'dd/MM/yyyy'}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-10 col-md-offset-1">
+  
+                      <table>
+                        <thead>
+                          <th>Service Name</th>
+                          <th>Service Price</th>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="i in servicesRow">
+                            <td>{{i.serviceName}}</td>
+                            <td>{{i.servicePrice}}</td>
+  
+                          </tr>
+                        </tbody>
+  
+  
+                      </table>
+  
+                    </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default closeButton" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+  
+              </div>
+          </div>
+  
+  
+  
+    </div>
+  </div>
+  

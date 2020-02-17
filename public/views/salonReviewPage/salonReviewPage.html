@@ -1,0 +1,96 @@
+<style media="screen">
+ .table-dark{
+    width: 100%;
+ }
+ td{
+    text-align: justify;
+ }
+ #name{
+  width: 15%;
+ }
+ #rating{
+  width: 15%;
+ }
+ #review{
+  width: 34%;
+  text-align: center;
+ }
+ #reply{
+  width: 35%;
+  text-align: center;
+  cursor: pointer;
+ }
+  .reply{
+  cursor: pointer;
+ }
+ textarea{
+  margin:0px;
+  padding: 5px;
+  width: 100%;
+ }
+</style>
+
+<div  class="row">
+  <div class="col-lg-1 col-md-1"></div>
+  <div class="col-lg-10 col-md-10 col-sm-6 col-xs-12"
+    style="border-radius:4px;margin: 20px;background-color: #185149d6">
+        <h3 style="color:white;font-weight: 400;text-align: center;">Salon Review Page</h3>
+        <div class="line"style="border:0.5px solid #00000021;width: 100%"></div>
+
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col"id="name">Client Name</th>
+            <th scope="col"id="name">Time</th>
+            <th scope="col" id="rating">Rating</th>
+            <th scope="col"id="review">Review</th>
+            <th scope="col"id="reply">Reply</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="customer in report">
+            <td>{{customer.userName}}</td>
+            <td>{{customer.time}}</td>
+            <td>{{customer.rating}}</td>
+            <td>{{customer.text}}</td>
+            <td class="reply">
+              {{customer.reply}}
+              <button ng-if="customer.reply.length==0" class="btn btn-primary right" 
+              ng-click="add(customer.appointmentId)"> Add Comment</button>
+           </td>
+          </tr>
+       
+        </tbody>
+      </table>
+          <!-- <div class="reply" ng-if="checked">
+               <textarea ng-model="appointmentId"  placeholder="add some comment"></textarea>
+               <button type="button" class="btn btn-primary">ADD</button>
+              </div> -->
+            <div class="modal fade" id="tip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <form role="form">
+                              <div class="modal-body">
+                                  <div class="form-group">
+                                          <lable> Message :  </lable>
+                                          <textarea class="form-control form-control-sm" ng-model="reply"  placeholder="add some comment"></textarea>
+                                  </div>  
+                              </div>
+                               <div class="modal-footer">
+                                  <button type="submit" ng-click="addComment()" class="btn btn-primary">Submit</button>
+                              </div>
+                              </div>
+                          </form>
+                          </div>
+                         
+                      </div>
+                    
+                  </div> 
+
+
+
+  </div>
+
+  <div class="col-lg-1 col-md-1 col-sm-10 col-xs-12"></div>
+
+</div>

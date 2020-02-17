@@ -1,0 +1,131 @@
+<style>
+    .footer-border-line{
+
+        color:#fff;
+        padding-left:5px;
+        font-family: latoRegular;
+
+    }
+    .footer-container ul li:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+</style>
+<footer ng-cloak class="footer-container" id="footer-page-main" flex>
+             <div layout="row"  style="background-color: #111;color: #fff;font-size: 12px;padding-top: 2%;" layout-align="center center">
+                <div layout="row" layout-xs="column" flex="75" >
+                    <div flex-xs="100" flex="25">
+                         <ul class="">
+
+                            <li ng-click="goToDeals()" >
+                                Top hair salons in Delhi-NCR
+                            </li>
+                            <li ng-click="goToDeals()" >
+                              Hair highlights price in Delhi-NCR
+                            </li>
+                            <li ng-click="goToDeals()" >
+                              Top 5 hair salons in Delhi-NCR
+                            </li>
+                             <li ng-click="goToDeals()" >Hair service deals in Delhi-NCR</li>
+
+                        </ul>
+                    </div>
+                    <div flex-xs="100" flex="25">
+                         <ul class="">
+
+                             <li ng-click="goToDeals()" >
+                              Facials near me
+                            </li>
+                            <li ng-click="goToDeals()" >
+                              Beauty  salon  near  me
+                            </li>
+                            <li ng-click="goToDeals()" >
+                              Ladies  beauty  parlor  near  me
+                            </li>
+                            <li ng-click="goToDeals()">
+                             Best  pedicure  near  me
+                           </li>
+                        </ul>
+                    </div>
+                    <div flex-xs="100" flex="25">
+                        <ul>
+                            <li ng-click="goToDeals()" >Mens  hair  salon  near  me
+                            </li>
+                            <li ng-click="goToDeals()" > Facial  treatment  near  me</li>
+                            <li ng-click="goToDeals()" > Haircut  deals  near  me</li>
+                            <li ng-click="goToDeals()" >Manicure  and  pedicure  deals  near  me</li>
+                        </ul>
+
+                    </div>
+                     <div flex-xs="100" flex="25">
+                         <ul>
+                              <li ng-click="goToDeals()" > Beauty treatments near me</li>
+                              <li ng-click="goToDeals()" > Haircut specials near me</li>
+                              <li ng-click="goToDeals()" > Hair and  makeup  salon  near  me</li>
+                              
+                         </ul>
+                    </div>
+
+
+            </div>
+
+        </div>
+
+          <div   class="specTwo" style="background-color: #111;color: #fff;font-size: 12px;">
+            <div layout="row" layout-align="center center" flex-xs="100" flex-sm="100" flex-md="100" flex-lg="100" flex-xl="100" style="padding-top:0%">
+              <p style=";margin-bottom:0;margin-top:-15px;font-size: 20px">More On Be U</p>
+            </div>
+            <div show-xs show-sm hide-md hide-lg hide-xl layout="row" layout-align="center center" flex-xs="100" flex-sm="100" flex-md="100" flex-lg="100" flex-xl="100">
+              <div style="width:25%;border-top:1px solid #FF4B4B;padding-bottom:0.5em;"></div>
+            </div>
+            <div hide-xs hide-sm show-md show-lg show-xl layout="row" layout-align="center center" flex-xs="100" flex-sm="100" flex-md="100" flex-lg="100" flex-xl="100">
+              <div style="width:8%;border-top:1px solid #FF4B4B;"></div>
+            </div>
+          </div>
+
+            <div layout="row" layout-align="center center" style="background-color: #111;color: #fff;font-size: 12px;padding:0%;">
+                <div flex-xs="100" flex="15">
+                    <span ><a href="https://www.facebook.com/BeUsalons/" target="_blank"><img src="../website/images/o15.png" width="20" height="20" alt="footer logo"></a></span>
+                    <span class="icon-padding"> <a href="https://plus.google.com/100683126750126363146" target="_blank"><img src="../website/images/o16.png"  alt="footer logo"></a></span>
+                    <span class="icon-padding"><a href="https://www.linkedin.com/company/be-u-salons" target="_blank"><img src="../website/images/in.png" alt="footer logo" width="20" height="20" ></a></span>
+                    <span class="icon-padding"><a href="https://twitter.com/BeUsalons" target="_blank"><img src="../images/twi.png" alt="footer logo" width="20" height="20"></a></span>
+                </div>
+            </div>
+
+            <div layout="row"  layout-align="center" flex ng-hide='hideFooterFlag' style="background-color: #111;color: #fff;font-size: 12px; padding-bottom:0%;">
+                <ul layout="row" flex="80" layout-align="center" layout-wrap>
+                  <div>
+                      <li ng-click="goToAboutUs()" style="cursor: pointer;padding-left: 0px;"><span class="footer-border-line">About Us</span></li>
+                  </div>
+                    <div >
+                        <li ng-click="goToContactUs()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="footer-border-line">Contact Us</span></li>
+                    </div>
+                    <div >
+                        <li ng-click="goToDisclaimer()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="footer-border-line">Disclaimer</span></li>
+                    </div>
+                    <div>
+                        <li ng-click="goToPrivacyPolicy()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="footer-border-line">Privacy & Policy</span></li>
+                    </div>
+                    <div >
+                        <li ng-click="goToReturnRefund()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="footer-border-line">Return & Refund Policy</span> </li>
+                    </div>
+                    <div >
+                        <li ng-click="goToTermsCondiions()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="footer-border-line">Terms & Condition</span></li>
+                    </div>
+                    <div >
+                        <li ng-click="goToFaq()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="footer-border-line">FAQ</span></li>
+                    </div>
+                      <div >
+                        <li ng-click="goToNews()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="footer-border-line">News & Media</span></li>
+                    </div>
+                    <div >
+                      <li ng-click="goToServiceDetails()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="footer-border-line">Services</span></li>
+                    </div>
+                     <div >
+                      <li ng-click="goToSubmitfrenchiseEnquery()" style="cursor: pointer;padding-left: 0px;"><span class="footer-page-listingpadding">|</span><span class="footer-border-line">Franchise Enquiry</span></li>
+                    </div>
+                </ul>
+            </div>
+
+</footer>

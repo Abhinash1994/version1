@@ -1,0 +1,92 @@
+<style>
+    .finalData{
+        background-color:gainsboro;
+        color:grey;
+        padding:4px;
+        font-family: LatoRegular;
+    }
+    .btn{
+            padding: 4px;
+            text-align: center;
+            margin: 3px;
+            border-style: solid;
+            border-width: thin;
+            border-radius: 4px;
+            border-color: #D2232A;
+    }
+</style>
+<md-content style="background-color:white;padding-top:12em;">
+    <div layout="row" flex="80" flex-offset="10" layout-align="center">
+        <div flex="100" style="text-align: center;padding-top: 2%;padding-bottom: 2%;font-family:LatoRegular;">
+            Booking Summary
+        </div>
+   </div>
+   <div layout="row" flex-xs="100"  flex-offset-xs="0" flex="80" flex-offset="10" class="finalData padd-bill">
+     <div flex="90">
+            <div style="color:#000;font-weight:bold;font-family:LatoRegular;">{{finalData.name}}</div>
+            <div style="font-size:11px; font-family: initial;font-family:LatoRegular;">{{finalData.address1}}</div>
+            <div style="font-size:11px;font-family: initial;font-family:LatoRegular;">{{finalData.address2}}</div>
+            <div flex style="font-size:11px;font-family: initial;font-family:LatoRegular;">{{finalData.date | date:"EEEE,MMM d" }}&nbsp;&nbsp;{{finalData.date |date:"HH:mm a"}}</div>
+     </div>
+       <div flex="10"  style="padding-top: 1%;" ><span style="background: green;color: #fff;padding: 6% 15% 6% 13%;border-radius: 3px;">{{finalData.rating |number:1}}</span></div>
+   </div>
+
+
+
+        <div layout="row" flex-xs="100" flex-offset-xs="0" flex="80" flex-offset="10" style="margin-top: 3%;" class="padd-bill">
+
+                <div flex-xs="40" flex="50">
+                  <div style="color:red;font-weight:700;">Total Price</div>
+                </div>
+                <div flex-xs="20" flex="15"> <strike style="color:#58595b"> <span> &#x20B9;{{finalData.menuPrice}}</span></strike></div>
+                <div flex-xs="20" flex="15"> <span style="border:1px solid #d2232a;border-radius:2px;font-size: 11px;padding: 1% 6% 3% 6%;">Save {{finalData.save |number:0}} % </span></div>
+                <div flex-xs="20" flex="15"><span style="color:green;font-weight:bold">&#x20B9; {{finalData.dealPrice}}</span></div>
+
+          </div>
+
+        <div  ng-repeat="temp in finalData.services">
+            <div>
+            <div  layout="row" flex-xs="100" flex-offset-xs="0" flex="80" flex-offset="10" class="padd-bill">
+
+              <div flex="100" style="font-size:11px;">{{temp.name}}</div>
+           </div>
+              <div layout="row" flex-xs="100" flex-offset-xs="0" flex="80" flex-offset="10" class="padd-bill">
+              <div flex-xs="15" flex="10">
+                <div  layout="row" style="font-size:.8em;border:1px solid green;border-radius:10px;border-radius: 6px;text-align: center;">
+                  <div flex="33">  <span><ng-md-icon icon="remove" style="fill: #3e780a"  size="15"ng-click="finalDataManiPulation.removeFromCart($index)"></ng-md-icon></span></div>
+                  <div flex="33" style="background:green;color:#fff;">{{temp.quantity}}</div>
+                    <div  flex="33"><span flex="10"><ng-md-icon icon="add" style="fill: #3e780a" size="15" ng-click="finalDataManiPulation.addTocart($index)"></ng-md-icon></span>
+                </div>
+              </div>
+            </div>
+                <!-- <div flex="15" style="font-size:.8em;border:1px solid green;border-radius:10px;border-radius: 6px;text-align: center;">
+
+
+                    <span><ng-md-icon icon="remove" style="fill: #3e780a"  size="15" ng-click="finalDataManiPulation.removeFromCart($index)"></ng-md-icon></span>
+                    <span style="background: green;padding-left: 12%;padding-right: 12%;color: #fff;">{{temp.quantity}}</span>
+                    <span><ng-md-icon icon="add" style="fill: #3e780a" size="15" ng-click="finalDataManiPulation.addTocart($index)"></ng-md-icon></span>
+
+
+                </div> -->
+                  <div flex-xs="25" flex="40" ><span style="padding-left: 4%;"><span style="font-size:0.7em;">&#9587;</span> &#x20B9; {{temp.price}}</span></div>
+
+                <div flex="15" flex-xs='20'> <strike style="color:#58595b"><span >&#x20B9; {{temp.menuPrice * temp.quantity}}</span></strike></div>
+
+
+                <div flex-xs="25" flex="15" > <span style="border:1px solid #d2232a;border-radius:2px;font-size: 11px;padding: 1% 6% 3% 6%;">Save {{((temp.menuPrice-temp.price)/temp.menuPrice)*100 |number:0}}% </span></div>
+
+
+                <div flex-xs="15" flex="15"> <span style="color:green;font-weight:bold;">&#x20B9; {{temp.price * temp.quantity}}</span></div>
+              </div>
+            </div>
+              </div>
+    <div layout="row" layout-align="center center" style="margin:5px;">
+
+
+    <div flex="50"  flex-offset-xs="10" flex-offset="3s0">
+        <md-button id="cnf-btn" ng-click='confirmPage()' >Confirm Booking</md-button>
+
+    </div>
+ </div>
+
+</md-content>

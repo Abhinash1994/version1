@@ -1,0 +1,64 @@
+<style type="text/css">
+	table,th,td{
+		text-align: center;
+	}
+</style>
+<div class="row">
+	<h4>Training Session Report</h4>
+</div>
+
+	
+<div class="row">
+    <div class="col-md-3 col-lg-3 col-md-offset-2"> <h4>Select Salon</h4></div>
+    <div class="col-md-6 col-lg-3" >
+    <div style="display:inline" isteven-multi-select input-model="parlors" output-model="selectedParlor" button-label="name" item-label="name" tick-property="isSelected" output-properties="parlorId" on-close="changeParlor(selectedParlor)" ></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-lg-3 col-md-offset-2">
+        <h4>Select Date Range</h4>
+    </div>
+    <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+        <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport1" ng-model="dateRangeSelected"  required/>
+    </div>
+</div>
+<div class="row">
+	<button ng-click="submitParlor()">Submit</button>
+	
+</div>
+<div class="row">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>
+					Training Name
+				</th>
+				<th>
+					Salon Name
+				</th>
+				<th>
+					Chapter Name
+				</th>
+				<th>
+					Sub Category Name
+				</th>
+				<th>
+					Super Category Name
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+			<tr ng-repeat="trained in traingData">
+				
+				<td>{{trained.trainerName}}</td>
+				<td>{{trained.parlorName}}</td>
+				<td>{{trained.chapterName}}</td>
+				<td>{{trained.subCategoryName}}</td>
+				<td>{{trained.superCategoryName}}</td>
+			</tr>
+
+		</tbody>
+		
+	</table>
+</div>

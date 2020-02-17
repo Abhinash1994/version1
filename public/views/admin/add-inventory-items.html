@@ -1,0 +1,308 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Inventory</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<uib-tabset active="active">
+    <uib-tab index="0" heading="Inventory Items" active="tabs[0].active" ng-click="refresh()">
+        <div class="row">
+            <div class="col-lg-12">
+                <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#addInventoryItem">
+            Add New Item
+        </button>
+                <br />
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Current Items
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="dataTable_wrapper">
+                            <table class="table table-striped table-bordered" ng-table="tableParams" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Selling Price</th>
+                                        <th>Item Id</th>
+                                        <th>Best Before</th>
+                                        <th>Capacity</th>
+                                        <th>Active</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="" ng-repeat="i in items">
+                                        <td>{{i.name}}</td>
+                                        <td>{{i.categoriesName}}</td>
+                                        <td>{{i.sellingPrice|number:0}}</td>
+                                        <td>{{i.itemId}}</td>
+                                        <td>{{i.bestBefore}}</td>
+
+                                        <td>{{i.capacity}}</td>
+                                        <td><input type="checkbox" name="" value="true" ng-model="i.active" ng-click="changeStatus(i)">
+                                        </td>
+                                        <td>
+                                            <button ng-click="editOnItem(i)" data-toggle="modal" data-target="#editInventoryItem">Edit</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+
+
+
+        <div class="modal fade" id="addInventoryItem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Add New Item to Inventory</h4>
+                    </div>
+                    <form role="form" ng-submit="addCustomer()">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input ng-model="item.name" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Selling Price</label>
+                                        <input type="number" step="any" ng-model="item.sellingPrice" class="form-control" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Best Before</label>
+                                        <input type="number" ng-model="item.bestBefore" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Filter:</label>
+
+                                        <input type="text" class="form-control" ng-model="selectFilter">
+                                        <label>Categories</label>
+                                        <select ng-model="item.categoriesId" class="form-control" ng-options="cat._id as cat.name for cat in cats | filter: {name:selectFilter}" required></select>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <div class="modal fade" id="editInventoryItem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="container">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Edit Item to Inventory</h4>
+                        </div>
+                        <form role="form" ng-submit="UpdateOnItem()">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input ng-model="editItemsobj.name" class="form-control" ng-readonly="true">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Selling Price</label>
+                                            <input type="number" step="any" ng-model="editItemsobj.sellingPrice" class="form-control">
+                                        </div>
+                                    </div>
+<div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>One Unit Quantity</label>
+                                            <input type="number" step="any" ng-model="editItemsobj.oneUnitQuantity" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Categories</label>
+                                            <select ng-model="editItemsobj.categoriesId" class="form-control" ng-options="cat._id as cat.name for cat in cats" style="width:50%; margin-left:25%"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </uib-tab>
+    <uib-tab index="1" heading="Inventory Categories" active="tabs[1].active" ng-click="showCategories()">
+        <div class="row">
+            <div class="form-inline row col-md-12 col-lg-12 col-md-offset-4">
+                <input type="text" ng-model="searchKey" class="form-control" id="focusedInput" placeholder="Search" style="margin-left: -10px" ng-change="searchMethod()">
+                <button class="btn btn-link btn-md" ng-click="exportToExcel('#selector')" style="margin-left: -10px;border: 0;">
+                    <span class="glyphicon glyphicon-share"></span>
+                    Export to Excel
+            </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#addCategory" ng-click='refreshAddCategorArray()'>
+            Add New Category
+        </button>
+                <br />
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Current Categories
+                    </div>
+                    <div class="panel-body">
+                        <div class="dataTable_wrapper">
+                            <table class="table table-striped table-bordered" ng-table="tableParams" id="selector">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Salon Types</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="" ng-repeat="i in filledData">
+                                        <td>{{i.name}}</td>
+                                        <td><span ng-repeat="salons in i.salonType">{{getSalonTypeName(salons)}}<span ng-if='!$last'>,</span></span>
+                                        </td>
+                                        <td><button ng-click="showEditCategoryModal(i)">Add Salon Type</button><button ng-click="showRemoveCategoryPopUp($index)">Remove</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Add New Category</h4>
+                    </div>
+                    <form role="form" ng-submit="addNewCategory()">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input ng-model="cat.name" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Image URL</label>
+                                            <input ng-model="cat.image" class="form-control">
+                                        </div>
+                                    </div>
+
+                            </div>
+                            <div>
+                                <div style="display:inline" isteven-multi-select input-model="salonTypeArray" output-model="selectedSalonType1.data" on-item-click="itemsSelected()" button-label="name" item-label="name" tick-property="isSelected" output-properties="id"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="editCategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Add New Category</h4>
+                    </div>
+                    <form role="form" ng-submit="editCategory()">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input ng-model="editCategoryModalObject.name" class="form-control" ng-disabled='true' required>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div>
+                                <div style="display:inline" isteven-multi-select input-model="editCategoryModalObject.allSalonTypes" output-model="selectedSalonType.data" on-item-click="itemsSelected()" button-label="name" item-label="name" tick-property="isSelected" output-properties="id"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="modal fade" id="removeCategoryPopUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Confirm Remove Category</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <span>Confirm remove <b> {{filledData[indexFillData].name}} </b> category ?</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click='removeCategory(indexFillData)'>Yes</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+    </uib-tab>
+
+</uib-tabset>

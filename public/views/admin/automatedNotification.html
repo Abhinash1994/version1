@@ -1,0 +1,172 @@
+   <h2> Notification for Female</h2>
+   <button class="btn btn-primary buttonForAdding" data-toggle="modal" data-target="#myModal" ng-click="add.gender='F'">Add Now</button>
+        <div class="modal fade" id="myModal" role="dialog">
+        <form ng-submit="insert(gender)">
+            <div class="modal-dialog">
+             <div class="modal-content">
+                <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+        <div class="modal-body">
+         
+                
+                 <div class="form-group">
+                      
+                         <input type="text" class="form-control" ng-model="add.dealId" uib-typeahead="deal.dealIdParlor as (deal.name) for deal in deals | filter:{name:$viewValue} | limitTo:15" placeholder="Offer(Female)"  required/>
+                </div>
+                
+                
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="add.titleRed" placeholder="Title Red" required />
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="add.textRed"  placeholder="Notifications Red" required/>
+                </div>
+                 <div class="form-group">
+                         <input type="text" class="form-control" ng-model="add.titleBlue" placeholder="titleBlue" required/>
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="add.textBlue"  placeholder="Notification Blue" required/>
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="add.titleGreen" placeholder="Title Green" required/>
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="add.textGreen"  placeholder="Notifications Green" required/>
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="add.titleUndefined" placeholder="Title Undefined" required/>
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="add.textUndefined"  placeholder="Undefined" required/>
+                </div>
+                          
+
+        </div>
+                    <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value="Insert">
+                            <button  class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+      </div>
+      
+    </div>
+   </form>
+  </div>
+            
+                <table class="table table-hover">
+                            <tr>
+                                    <thead>
+                                                <th>S.No</th>
+                                                <th>Offer(Female)</th>
+                                                <th>Title Red</th>
+                                                <th>Notifications Red</th>
+                                                <th>Title Blue</th>
+                                                <th>Notification Blue</th>
+                                                <th>Title Green</th>
+                                                <th>Notifications Green</th>
+                                                <th>Title Of Undefined</th>
+                                                <th>Undefined</th>
+                                        
+                                    </thead>
+                            </tr>
+                            <tr ng-repeat="tabRecord in dataArray">
+                                    <td>{{$index+1}}</td>
+                                    <td>{{tabRecord.dealId}}</td>
+                                    <td>{{tabRecord.titleRed}}</td>
+                                    <td>{{tabRecord.textRed}}</td>
+                                     <td>{{tabRecord.titleBlue}}</td>
+                                    <td>{{tabRecord.textBlue}}</td>
+                                    <td>{{tabRecord.titleGreen}}</td>
+                                    <td>{{tabRecord.textGreen}}</td>
+                                      <td>{{tabRecord.titleUndefined}}</td>
+                                    <td>{{tabRecord.textUndefined}}</td>
+     <td><button class="btn btn-primary" data-toggle="modal" data-target="#editModal" ng-click="edit($index)">Edit</button></td>
+                                        
+                            </tr>
+            
+                </table>
+            <div class="modal fade" id="editModal" role="dialog">
+            <div class="modal-dialog">
+             <div class="modal-content">
+                <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+        <div class="modal-body">
+                
+               
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="editObject.dealId"  placeholder="Offer(Female)"  />
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="editObject.titleRed" placeholder="Title Red"/>
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="editObject.textRed"  placeholder="Notifications Red"/>
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control" ng-model="editObject.titleBlue" placeholder="Title Blue"/>
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="editObject.textBlue"  placeholder="Notification Blue"/>
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="editObject.titleGreen" placeholder="titleGreen"/>
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="editObject.textGreen"  placeholder="Notifications notificationGreen"/>
+                </div>
+                 <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="editObject.titleUndefined" placeholder="Title Undefined">
+                </div>
+                <div class="form-group">
+                         <input type="text" class="form-control"   ng-model="editObject.textUndefined"  placeholder="Undefined"/>
+                </div>
+                    
+                    
+        </div>
+                    <div class="modal-footer">
+                            <button class="btn btn-primary" data-dismiss="modal" ng-click="makeChanges()">Edit</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+      </div>
+      
+            </div>
+  </div>
+<h2> Notification for Male</h2>
+ <button class="btn btn-primary buttonForAdding" data-toggle="modal" data-target="#myModal" ng-click="add.gender='M'">Add Now</button>
+  <table class="table table-hover">
+                            <tr>
+                                    <thead>
+                                                <th>S.No</th>
+                                                <th>Offer(Female)</th>
+                                                <th>Title Red</th>
+                                                <th>Notifications Red</th>
+                                                <th>Title Blue</th>
+                                                <th>Notification Blue</th>
+                                                <th>Title Green</th>
+                                                <th>Notifications Green</th>
+                                                <th>Title Of Undefined</th>
+                                                <th>Undefined</th>
+                                        
+                                    </thead>
+                            </tr>
+                            <tr ng-repeat="tabRecord in dataArray">
+
+                                    <td>{{$index+1}}</td>
+                                    <td>{{tabRecord.dealId}}</td>
+                                    <td>{{tabRecord.titleRed}}</td>
+                                    <td>{{tabRecord.textRed}}</td>
+                                     <td>{{tabRecord.titleBlue}}</td>
+                                    <td>{{tabRecord.textBlue}}</td>
+                                    <td>{{tabRecord.titleGreen}}</td>
+                                    <td>{{tabRecord.textGreen}}</td>
+                                      <td>{{tabRecord.titleUndefined}}</td>
+                                    <td>{{tabRecord.textUndefined}}</td>
+     <td><button class="btn btn-primary" data-toggle="modal" data-target="#editModal" ng-click="edit($index)">Edit</button></td>
+                                        
+                            </tr>
+            
+                </table>
+

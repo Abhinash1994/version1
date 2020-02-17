@@ -1,0 +1,793 @@
+<style>
+	#ruler { visibility: hidden; white-space: nowrap; }
+	td th{
+		height: 13px;
+	}
+
+    b{
+        line-height: 20px;
+    }
+
+   .content{
+   					font-size: 13px;
+   }
+
+   .head{
+   	font-size:15px;
+   }
+
+   .image{
+   height:100%;
+   }
+   @media print
+{
+    * {-webkit-print-color-adjust:exact;}
+}
+
+
+.row{
+	margin:0px;
+}
+
+
+</style>
+
+
+	<span id="ruler"></span>
+<div class="container">
+	<div class="row" id="my-node1">
+		<div class="col-md-12 col-lg-12">
+			<!-- <button ng-click="generateJpeg()"></button> -->
+			<button ng-click="generateJpeg()" id="btn-Convert-Html2Image" style="padding-top:1%;padding-bottom:1%;">Generate Jpg </button>
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+<div id="my-node">
+
+	<div class="abc" style="background-color: transparent; position: absolute;z-index: 0;"  >
+ 	<img class="image" style="width:100%;z-index:-100;position:absolute;margin:0px;" src='/img/{{backGroundImage}}.jpg'  class="image" />
+
+
+
+
+		<div class="row">
+			<div class="col-lg-12 col-md-12" style="padding-top: 4%;">
+				<div class="row">
+					<div class=" col-md-12 col-lg-12"  style="text-align:center;">
+						<img   style='width:100px;' src="/img/{{logo}}.png" alt="logo" >
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12" style="text-align:center;"  ng-style="{'color':dealMenuSecondHeading,'font-size':'27px'}" ><b style="font-family :sans-serif">DEAL MENU</b></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-1 col-lg-1">&nbsp</div>
+			<div class="col-md-10 col-lg-10 ">
+				<div class="row">
+
+					<!-- ------------------------------Hair starts -->
+					<div class="col-lg-12  col-md-12">
+						<div class="row">
+							<div class="col-md-5 col-sm-3" style="padding-top: 4%;" ng-style="{'border-bottom':straightLineColor}"></div>
+							<div class="col-md-2 col-sm-3"><p style="padding-top: 18%;font-family :Roboto-Light;text-align:center;" ng-style="{'color': departmentHeadingsColor,'font-size':'25px'}"><b class="para" style="font-family :sans-serif">HAIR*</b></p></div>
+							<div class="col-md-5 col-sm-3" style="padding-top: 4%;" ng-style="{'border-bottom':straightLineColor}"></div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 col-lg-6">
+								<div class="row">
+									<div class="col-md-12 col-lg-12" >
+										<div class="row">
+											<div class="col-lg-12 col-md-12" style='text-align: left;padding-left:0;'>
+												<span style="text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'17px'}"><b style="text-transform: uppercase;font-family :sans-serif" class="para">{{dealObject.hair.hairCat11.name}}</b></span>
+												<span ng-repeat='brandList in dealObject.hair.hairCat11.selectedServices[0].brands' ng-if='dealObject.hair.hairCat11.selectedServices[0].brands.length' style='font-size: 14px;'>
+								<span ng-if='$first'>(</span>
+								<span style="font-family :sans-serif">{{brandList.name}}</span>
+								<span ng-if='!$last'>/</span>
+								<span ng-if='$last'>)</span>
+							</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12 col-lg-12" style="padding-left:0;">
+												<table style="width:100%">
+													<tr ng-repeat="list in dealObject.hair.hairCat11.selectedServices">
+														<td  class="content" style="background-color:transparent!important;text-align: left;height:14px;width: 40%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.name}}</b>
+														</td>
+														<td class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%;position: relative;'>
+															<div class='row'>
+																<div class='col-lg-12' style='position: relative;'  ng-style="list.brands.length==1 && {'text-align':'right'}">
+
+										<span ng-repeat='bList in list.brands'  style="position: relative;display: inline-block;">
+
+								<div style="position: absolute;height: 2px;top: 45%;width:100%;background-color: #d2232a;"  class="col-md-5" ng-style="{'border-bottom':straightLineColor}"></div>
+
+											<span style="color:#000;font-size:14px;"><b style="font-family :sans-serif">{{list.menuPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span></span>
+										</span>
+																</div>
+															</div>
+														</td>
+														<td  class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%'  ng-style="{'color': textServicesDealPriceColor}">
+															<div class='row'>
+																<div class='col-lg-12' style='padding-top: 3px;text-align:right;'>
+										<span ng-repeat='bList in list.brands' >
+											<b style="font-family :sans-serif">{{list.dealPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span>
+										</span>
+																</div>
+															</div>
+														</td>
+														<td class="content" ng-if='list.brands.length==0' style="position:relative;height:14px;background-color:transparent!important;text-align: right;padding-right: 0%;width: 30%;font-family :Roboto-Regular">
+															<div class="row">
+																<div class='col-lg-12' style="position:relative;text-align:right;">
+
+																	<span style="color:#000;font-size:14px;position: relative;display: inline-block;"><div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%;right: 8%;"  ng-style="{'border-bottom':straightLineColor}" ></div><b style="font-family :sans-serif">{{list.menuPrice  | number :0}}</b></span>
+																</div>
+															</div>
+														</td>
+														<td class="content" ng-if='list.brands.length==0' style="height:14px;background-color:transparent!important;text-align:right;width: 30%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.dealPrice}}</b>
+														</td>
+													</tr>
+
+												</table>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="row" style="padding-top:1%;">
+									<div class="col-md-12 col-lg-12">
+										<div class="row">
+											<!-- <div class="col-md-12 col-md-12" style="text-align: left; text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'14px'}"><b>{{dealObject.hair.hairCat21.name}}</b></div> -->
+											<div class="col-lg-12 col-md-12" style='text-align: left;padding-left:0px;padding-top:5px;'>
+												<span style="text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'17px'}"><b class="para" style="font-family :sans-serif">{{dealObject.hair.hairCat21.name}}</b></span>
+												<span ng-repeat='brandList in dealObject.hair.hairCat21.selectedServices[0].brands' ng-if='dealObject.hair.hairCat21.selectedServices[0].brands.length' style='font-size: 14px;'>
+								<span ng-if='$first'>(</span>
+								<span style="font-family :sans-serif">{{brandList.name}}</span>
+								<span ng-if='!$last'>/</span>
+								<span ng-if='$last'>)</span>
+							</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-12 col-md-12" style="padding-left:0;">
+												<table style="width:100%">
+													<tr ng-repeat="list in dealObject.hair.hairCat21.selectedServices">
+														<td class="content" style="background-color:transparent!important;text-align: left;height:14px;width: 40%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.name}}</b>
+														</td>
+														<td class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%;position: relative;'>
+															<div class='row'>
+																<div class='col-lg-12' style='position: relative;'  ng-style="list.brands.length==1 && {'text-align':'right'}">
+
+										<span ng-repeat='bList in list.brands'  style="position: relative;display: inline-block;">
+											<div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%" ng-style="{'border-bottom':straightLineColor}" ></div>
+											<span style="color:#000;font-size:14px;"><b style="font-family :sans-serif">{{list.menuPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span></span>
+										</span>
+																</div>
+															</div>
+														</td>
+														<td class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%'  ng-style="{'color': textServicesDealPriceColor}">
+															<div class='row'>
+																<div class='col-lg-12' style='padding-top: 3px;text-align:right;'>
+										<span ng-repeat='bList in list.brands' >
+											<b style="font-family :sans-serif">{{list.dealPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span>
+										</span>
+																</div>
+															</div>
+														</td>
+														<td class="content" ng-if='list.brands.length==0' style="position:relative;height:14px;background-color:transparent!important;text-align: right;padding-right: 0%;width: 30%;font-family :Roboto-Regular">
+															<div class="row">
+																<div class='col-lg-12' style="position:relative;text-align: right;">
+
+																	<span style="color:#000;font-size:14px;position: relative;display: inline-block;"><div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%;right: 8%;"  ng-style="{'border-bottom':straightLineColor}"></div>{{list.menuPrice}}</span>
+																</div>
+															</div>
+														</td>
+														<td class="content" ng-if='list.brands.length==0' style="height:14px;background-color:transparent!important;text-align:right;font-size:13px;width: 30%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.dealPrice}}</b>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row" style="margin-right: 1px;">
+									<div class="col-md-12 col-lg-12" style="border:1px solid rgb(99, 42, 13);border-radius:10px;margin-top:15px;padding-top:1%;padding-bottom: 3%;" ng-style="{'border-color':categoryHeadingsColor}">
+										<div class="row">
+											<!-- <div class="col-md-12 col-lg-12" style="text-align: left; text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'13px'}"><span><b>{{dealObject.hair.hairCat31.name}}</b></span></div> -->
+											<div class="col-lg-12 col-md-12" style='text-align: left;'>
+												<span style="text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'17px'}"><b class="para" style="font-family :sans-serif">{{dealObject.hair.hairCat31.name}}</b></span>
+												<span ng-repeat='brandList in dealObject.hair.hairCat31.selectedServices[0].brands' ng-if='dealObject.hair.hairCat31.selectedServices[0].brands.length' style='font-size: 14px;'>
+								<span ng-if='$first'>(</span>
+								<span style="font-family :sans-serif">{{brandList.name}}</span>
+								<span ng-if='!$last'>/</span>
+								<span ng-if='$last'>)</span>
+							</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-12 col-md-12" style="padding-right:0px;">
+												<table style="width: 100%;">
+													<tr ng-repeat="list in dealObject.hair.hairCat31.selectedServices">
+														<td class="content" style="height:17px;background-color:transparent!important;text-align: left;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.name}}</b></td>
+														<td class="content" style="background-color:transparent!important;text-align: left;font-family :Roboto-Light" ng-if='list.dealType.name=="frequency"' ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :Roboto-Light">Buy {{list.dealType.frequencyRequired}} get {{list.dealType.frequencyFree}} free</b>
+														</td>
+														<td class="content" ng-if='list.dealType.name!="frequency"' style="height:14px;background-color:transparent!important;text-align: left;font-family :Roboto-Light" ><div style="position: relative;background-color: #d2232a;height: 2px;top:16px;width:80%;" ng-style="{'border-bottom':straightLineColor,'width': list.width}"></div><span style="color:#d2232a;"><span style="color:#000;font-size:14px;"><b style="font-family :sans-serif">{{list.menuPrice}}</b></span>
+														</td>
+														<td class="content" ng-if='list.dealType.name!="frequency"' style="height:14px;background-color:transparent!important;text-align: left;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.dealPrice}}</b>
+														</td>
+													</tr>
+
+												</table>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12 col-md-12">
+<!--												<p style="font-size: 10px;text-align: right;font-family :Roboto-Light"><b>Validity 3 months and for 1 person</b></p>-->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<div class="row">
+									<div class="col-md-12 col-lg-12">
+										<div class="row">
+											<!-- <div class="col-lg-12 col-md-12" style="text-align: left; text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'13px'}"><b>{{dealObject.hair.hairCat12.name}}</b></div> -->
+											<div class="col-lg-12 col-md-12" style='text-align: left;'>
+												<span style="text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'17px'}"><b class="para" style="font-family :sans-serif">{{dealObject.hair.hairCat12.name}}</b></span>
+												<span ng-repeat='brandList in dealObject.hair.hairCat12.selectedServices[0].brands' ng-if='dealObject.hair.hairCat12.selectedServices[0].brands.length' style='font-size: 14px;'>
+								<span ng-if='$first'>(</span>
+								<span style="font-family :sans-serif">{{brandList.name}}</span>
+								<span ng-if='!$last'>/</span>
+								<span ng-if='$last'>)</span>
+							</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12 col-lg-12" style="padding-right:0px;">
+												<table style="width:100%">
+													<tr ng-repeat="list in dealObject.hair.hairCat12.selectedServices">
+														<td class="content" style="background-color:transparent!important;text-align: left;height:14px;width:46%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.name}}</b>
+														</td>
+														<td class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%;position: relative;'>
+															<div class='row'>
+																<div class='col-lg-12' style='position: relative;'  ng-style="list.brands.length==1 && {'text-align':'right'}">
+
+										<span ng-repeat='bList in list.brands'  style="position: relative;display: inline-block;">
+											<div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%" ng-style="{'border-bottom':straightLineColor}"></div>
+											<span style="color:#000;font-size:14px;"><b style="font-family :sans-serif">{{list.menuPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span></span>
+										</span>
+																</div>
+															</div>
+														</td>
+														<td class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%'  ng-style="{'color': textServicesDealPriceColor}">
+															<div class='row'>
+																<div class='col-lg-12' style='padding-top: 3px;text-align:right;'>
+										<span ng-repeat='bList in list.brands' >
+											<b style="font-family :sans-serif">{{list.dealPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span>
+										</span>
+																</div>
+															</div>
+														</td>
+														<td class="content" ng-if='list.brands.length==0' style="position:relative;height:14px;background-color:transparent!important;text-align: right;padding-right: 0%;width: 30%;font-family :Roboto-Regular">
+															<div class="row">
+																<div class='col-lg-12' style="position:relative;text-align: right;">
+
+																	<span style="color:#000;font-size:14px;position: relative;display: inline-block;"><div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%;right: 8%;" ng-style="{'border-bottom':straightLineColor}"></div><b>{{list.menuPrice}}</b></span>
+																</div>
+															</div>
+														</td>
+														<td class="content" ng-if='list.brands.length==0' style="height:14px;background-color:transparent!important;text-align:right;width: 30%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.dealPrice}}</b>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+                                        <div class="row" style="padding-right:0px;">
+										<div class="col-lg-12 col-md-12" style="font-size:12px;text-align: right;font-family :Roboto-Light;padding-right:0px;"><b style="font-family :sans-serif"> * Valid for 1 person</b></div>
+                                            </div>
+
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 col-lg-12" style="padding-bottom: 3%;">
+										<div class="row">
+											<div class="col-lg-12 col-md-12">
+												<!-- <div style="background-color:transparent!important;text-align: left; text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'13px'}"><b>{{dealObject.hair.hairCat22.name}}</b></div> -->
+												<div class="col-lg-12 col-md-12" style='text-align: left;padding-left: 0px;'>
+													<span style="text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'17px'}"><b class="para" style="font-family :sans-serif">{{dealObject.hair.hairCat22.name}}</b></span>
+													<span ng-repeat='brandList in dealObject.hair.hairCat22.selectedServices[0].brands' ng-if='dealObject.hair.hairCat22.selectedServices[0].brands.length' style='font-size: 14px;'>
+									<span ng-if='$first'>(</span>
+									<span >{{brandList.name}}</span>
+									<span ng-if='!$last'>/</span>
+									<span ng-if='$last'>)</span>
+								</span>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12 col-md-12" style="padding-right:0px;">
+												<table style="width:100%">
+													<tr ng-repeat="list in dealObject.hair.hairCat22.selectedServices">
+														<td class="content" style="background-color:transparent!important;text-align: left;height:14px;width: 54%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.name}}</b>
+														</td>
+														<td class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%;position: relative;'>
+															<div class='row'>
+																<div class='col-lg-12' style='position: relative;'  ng-style="list.brands.length==1 && {'text-align':'right'}">
+
+										<span ng-repeat='bList in list.brands'  style="position: relative;display: inline-block;">
+											<div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%" ng-style="{'border-bottom':straightLineColor}" ></div>
+											<span style="color:#000;"><b style="font-family :sans-serif;font-weight:200;" class="cv">{{list.menuPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span></span>
+										</span>
+																</div>
+															</div>
+														</td>
+														<td class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%'  ng-style="{'color': textServicesDealPriceColor}">
+															<div class='row'>
+																<div class='col-lg-12' style='padding-top: 3px;text-align:right;'>
+										<span ng-repeat='bList in list.brands' >
+											<b style="font-family :sans-serif">{{list.dealPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span>
+										</span>
+																</div>
+															</div>
+														</td>
+														<td ng-if='list.brands.length==0' style="position:relative;height:14px;background-color:transparent!important;text-align: right;padding-right: 0%;width: 30%;font-family :Roboto-Regular">
+															<div class="row">
+																<div class='col-lg-12' style="position:relative;text-align: right;">
+
+																	<span style="color:#000;font-size:14px;position: relative;display: inline-block;font-weight: 200;"><div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%;right: 8%;" ng-style="{'border-bottom':straightLineColor}" ></div><b>{{list.menuPrice}}</b></span>
+																</div>
+															</div>
+														</td>
+														<td class="content" ng-if='list.brands.length==0' style="height:14px;background-color:transparent!important;text-align:right;width: 30%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.dealPrice}}</b>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+
+
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 col-lg-12">
+										<div class="row">
+											<div class="col-lg-12 col-md-12">
+												<!-- <div style="background-color:transparent!important;text-align: left; text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'13px'}"><b>{{dealObject.hair.hairCat32.name}}</b></div> -->
+												<div class="col-lg-12 col-md-12" style='text-align: left;padding-left: 0px;'>
+													<span style="text-transform: uppercase;" ng-style="{'color': categoryHeadingsColor,'font-size':'17px'}"><b class="para" style="">{{dealObject.hair.hairCat32.name}}</b></span>
+													<span ng-repeat='brandList in dealObject.hair.hairCat32.selectedServices[0].brands' ng-if='dealObject.hair.hairCat32.selectedServices[0].brands.length' style='font-size: 14px;'>
+									<span ng-if='$first'>(</span>
+									<span style="font-family :sans-serif">{{brandList.name}}</span>
+									<span ng-if='!$last'>/</span>
+									<span ng-if='$last'>)</span>
+								</span>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12 col-lg-12" style="padding-right:0px;">
+												<table style="width:100%">
+
+													<tr ng-repeat="list in dealObject.hair.hairCat32.selectedServices">
+														<td class="content" style="background-color:transparent!important;text-align: left;height:14px;width: 54%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.name}}</b>
+
+														</td>
+														<td class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%;position: relative;'>
+															<div class='row'>
+																<div class='col-lg-12' style='position: relative;'  ng-style="list.brands.length==1 && {'text-align':'right'}">
+
+												<span ng-repeat='bList in list.brands'  style="position: relative;display: inline-block;">
+													<div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%" ng-style="{'border-bottom':straightLineColor}" ></div>
+													<span style="color:#000;font-size:14px;"><b style="font-family :sans-serif">{{list.menuPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span></span>
+												</span>
+																</div>
+															</div>
+														</td>
+														<td class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%'  ng-style="{'color': textServicesDealPriceColor}">
+															<div class='row'>
+																<div class='col-lg-12' style='padding-top: 3px;text-align:right;'>
+												<span ng-repeat='bList in list.brands' >
+													<b style="font-family :sans-serif">{{list.dealPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span>
+												</span>
+																</div>
+															</div>
+														</td>
+														<td ng-if='list.brands.length==0' style="position:relative;height:14px;background-color:transparent!important;text-align: right;padding-right: 0%;width: 30%;font-family :Roboto-Regular">
+															<div class="row">
+																<div class='col-lg-12' style="position:relative;text-align: right;">
+
+																	<span style="color:#000;font-size:14px;position: relative;display: inline-block;"><div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%;right: 8%;"  ng-style="{'border-bottom':straightLineColor}" ></div>{{list.menuPrice}}</span>
+																</div>
+															</div>
+														</td>
+														<td class="content" ng-if='list.brands.length==0' style="height:14px;background-color:transparent!important;text-align:right;width: 30%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.dealPrice}}</b>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12 col-md-12" style="padding-right:0px;">
+												<p style="font-size: 12px;text-align: right;font-family :sans-serif"><b>*Upto XXL hair length</b></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+
+				</div><!--row1-->
+				<!-- --------------------------------------hair stops -->
+
+				<!-- --------------------------------------beauty starts -->
+				<div class="row">
+					<div class="col-lg-12 col-lg-12">
+						<div class="row">
+							<div class="col-md-5" style="padding-top: 4%;" ng-style="{'border-bottom':straightLineColor}"></div>
+							<div class="col-md-2"><p style="padding-top: 18%;font-family :Roboto-Light;text-align:center;" ng-style="{'color': departmentHeadingsColor,'font-size':'25px'}"><b class="para" style="font-family :sans-serif">BEAUTY</b></p></div>
+							<div class="col-md-5" style="padding-top: 4%;" ng-style="{'border-bottom':straightLineColor}"></div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-md-12">
+								<div class="row">
+									<div class="col-md-12 col-lg-12">
+
+										<div class="row" style="padding-left: 0%;padding-right: 0%;">
+
+
+											<div class="col-md-12 col-lg-12"  style="width:100%;border:1px solid rgb(99, 42, 13);border-radius:10px;margin-top:15px;padding-top:2%;" ng-style="{'border-color':categoryHeadingsColor}">
+												<div class="row">
+													<!-- <div class="col-md-12 col-md-12" style=" text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'13px'}"><b>{{dealObject.beauty.beautyCat11.name}}</b></div>
+                                                    </div> -->
+													<div class="col-lg-12 col-md-12" style='text-align: center;'>
+														<span style="text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'17px'}"><b class="para" style="font-family :sans-serif">{{dealObject.beauty.beautyCat11.name}}</b></span>
+															<span ng-repeat='brandList in dealObject.beauty.beautyCat11.selectedServices[0].brands' ng-if='dealObject.beauty.beautyCat11.selectedServices[0].brands.length' style='font-size: 14px;'>
+															<span ng-if='$first'></span>
+<!--															<span style="font-family :Roboto-Light">{{brandList.name}}</span>-->
+															<span ng-if='!$last'></span>
+															<span ng-if='$last'></span>
+														</span>
+													</div>
+													<div class="row">
+														<div class="col-md-12 col-md-12" style="padding-bottom: 1%;padding-left: 2.5%;">
+
+															<table style="width:100%;">
+																<tr ng-repeat="list in dealObject.beauty.beautyCat11.selectedServices">
+																	<td class="content" style="background-color:transparent!important;text-align: left;height:14px;width: 60%;font-family :Roboto-Light;padding-left: 10px;" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.name}}</b>
+																	</td>
+																	<td class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 24%;position: relative;'>
+																		<div class='row'>
+																			<div class='col-lg-12' style='position: relative;text-align:right'  ng-style="list.brands.length==1 && {'text-align':'right'}">
+
+														<span ng-repeat='bList in list.brands'  style="position: relative;display: inline-block;">
+															<div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%" ng-style="{'border-bottom':straightLineColor}"></div>
+															<span style="color:#000;font-size:14px;"><b style="font-family :sans-serif">{{list.menuPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span></span>
+														</span>
+																			</div>
+																		</div>
+																	</td>
+																	<td class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 20%'  ng-style="{'color': textServicesDealPriceColor}">
+																		<div class='row'>
+																			<div class='col-lg-12' style='padding-top: 3px;padding-right: 0px;text-align:center;'>
+														<span ng-repeat='bList in list.brands' >
+															<b style="font-family :sans-serif">{{list.dealPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span>
+														</span>
+																			</div>
+																		</div>
+																	</td>
+																	<td class="content" ng-if='list.brands.length==0' style="position:relative;height:14px;background-color:transparent!important;text-align: right;padding-right: 0%;width: 20%;font-family :Roboto-Regular">
+																		<div class="row">
+																			<div class='col-lg-12' style="position:relative;text-align:right">
+
+																				<span  style="color:#000;position: relative;display: inline-block;"><div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%;right: 8%;" ng-style="{'border-bottom':straightLineColor}" ></div><b style="font-family :sans-serif">{{list.menuPrice}}</b></span>
+																			</div>
+																		</div>
+																	</td>
+																	<td class="content" ng-if='list.brands.length==0' style="height:14px;background-color:transparent!important;text-align:center;width: 40%;font-family :sans-serif" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.dealPrice}}</b>
+																	</td>
+																</tr>
+															</table>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6 col-lg-6">
+											<div class="row">
+												<!-- <div class="col-md-12 col-md-12" style="padding-top: 3%;padding-bottom: 3%;text-align: left; text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'13px'}"><b>{{dealObject.beauty.beautyCat21.name}}</b></div> -->
+												<div class="col-lg-12 col-md-12" style='padding-top:3%;padding-bottom: 3%;text-align: left;'>
+													<span style="text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'17px'}"><b class="para" style="font-family :sans-serif">{{dealObject.beauty.beautyCat21.name}}</b></span>
+													<span ng-repeat='brandList in dealObject.beauty.beautyCat21.selectedServices[0].brands' ng-if='dealObject.beauty.beautyCat21.selectedServices[0].brands.length' style='font-size: 14px;'>
+									<span ng-if='$first'>(</span>
+									<span>{{brandList.name}}</span>
+									<span ng-if='!$last'>/</span>
+									<span ng-if='$last'>)</span>
+								</span>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12 col-lg-12">
+													<table style="width:100%">
+
+														<tr ng-repeat="list in dealObject.beauty.beautyCat21.selectedServices">
+															<td  class="content" style="background-color:transparent!important;text-align: left;height:14px;width: 40%;font-family :sans-serif" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.name}}</b>
+															</td>
+															<td class="content" ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%;position: relative;'>
+																<div class='row'>
+																	<div class='col-lg-12' style='position: relative;text-align:right'  ng-style="list.brands.length==1 && {'text-align':'right'}">
+
+														<span ng-repeat='bList in list.brands'  style="position: relative;display: inline-block;">
+															<div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%" ng-style="{'border-bottom':straightLineColor}"  ></div>
+															<span style="color:#000;font-size:14px;"><b style="font-family :sans-serif">{{list.menuPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span></span>
+														</span>
+																	</div>
+																</div>
+															</td>
+															<td class="content"  ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%'  ng-style="{'color': textServicesDealPriceColor}">
+																<div class='row'>
+																	<div class='col-lg-12' style='padding-top: 3px;text-align:right;'>
+														<span ng-repeat='bList in list.brands' >
+															<b style="font-family :sans-serif">{{list.dealPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span>
+														</span>
+																	</div>
+																</div>
+															</td>
+															<td class="content"  ng-if='list.brands.length==0' style="position:relative;height:14px;background-color:transparent!important;text-align: right;padding-right: 0%;width: 30%;font-family :Roboto-Regular">
+																<div class="row">
+																	<div class='col-lg-12' style="position:relative;text-align: right;">
+
+																		<span style="color:#000;font-size:14px;position: relative;display: inline-block;"><div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%;right: 8%;" ng-style="{'border-bottom':straightLineColor}" ></div><b style="font-family :sans-serif">{{list.menuPrice}}</b></span>
+																	</div>
+																</div>
+															</td>
+															<td class="content"  ng-if='list.brands.length==0' style="height:14px;background-color:transparent!important;text-align:right;width: 30%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.dealPrice}}</b>
+															</td>
+														</tr>
+
+													</table>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6 col-lg-6">
+											<div class="row">
+												<!-- <div class="col-md-12 col-lg-12" style="padding-top: 3%;padding-bottom: 3%;text-align: left; text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor}"><b>{{dealObject.beauty.beautyCat22.name}}</b></div> -->
+												<div class="col-lg-12 col-md-12" style='padding-top:3%;padding-bottom: 3%;text-align: left;'>
+													<span style="text-transform: uppercase;font-family :Roboto-Light" ng-style="{'color': categoryHeadingsColor,'font-size':'17px'}"><b class="para" style="font-family :sans-serif">{{dealObject.beauty.beautyCat22.name}}</b></span>
+													<span ng-repeat='brandList in dealObject.beauty.beautyCat22.selectedServices[0].brands' ng-if='dealObject.beauty.beautyCat22.selectedServices[0].brands.length' style='font-size: 17px;'>
+										<span ng-if='$first'>(</span>
+										<span style="font-family :Roboto-Light">{{brandList.name}}</span>
+										<span ng-if='!$last'>/</span>
+										<span ng-if='$last'>)</span>
+									</span>
+												</div>
+											</div>
+											<div class="col-md-12 col-lg-12" style="position: relative;">
+								<span>
+								<img src="/img/For system_2.png" alt="logo" style="width: 13%;position: absolute;right: 2px;top: -52px;">
+								</span>
+
+											</div>
+											<div class="row">
+												<div class="col-md-12 col-lg-12">
+													<table style="width:100%" id="my-node2">
+														<tr ng-repeat="list in dealObject.beauty.beautyCat22.selectedServices">
+															<td class="content"  style="background-color:transparent!important;text-align: left;height:14px;width: 46%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.name}}</b>
+															</td>
+															<td class="content"  ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%;position: relative;'>
+																<div class='row'>
+																	<div class='col-lg-12' style='position: relative;'  ng-style="list.brands.length==1 && {'text-align':'right'}">
+
+														<span ng-repeat='bList in list.brands'  style="position: relative;display: inline-block;">
+															<div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%"  ng-style="{'border-bottom':straightLineColor}" ></div>
+															<span style="color:#000;font-size:14px;"><b style="font-family :sans-serif">{{list.menuPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span></span>
+														</span>
+																	</div>
+																</div>
+															</td>
+															<td class="content"  ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%'  ng-style="{'color': textServicesDealPriceColor}">
+																<div class='row'>
+																	<div class='col-lg-12' style='padding-top: 3px;text-align:right;'>
+														<span ng-repeat='bList in list.brands' >
+															<b style="font-family :sans-serif">{{list.dealPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span>
+														</span>
+																	</div>
+																</div>
+															</td>
+															<td ng-if='list.brands.length==0' style="position:relative;height:14px;background-color:transparent!important;text-align: right;padding-right: 0%;width: 30%;font-family :Roboto-Regular">
+																<div class="row">
+																	<div class='col-lg-12' style="position:relative;text-align: right;">
+
+																		<span style="color:#000;font-size:14px;position: relative;display: inline-block;"><div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%;right: 8%;" ng-style="{'border-bottom':straightLineColor}" ></div><b style="font-family :sans-serif;font-weight:200" class="cv">{{list.menuPrice}}</b></span>
+																	</div>
+																</div>
+															</td>
+															<td class="content"  ng-if='list.brands.length==0' style="height:14px;background-color:transparent!important;text-align:right;width: 30%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.dealPrice}}</b>
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--row2-->
+
+					<!-- --------------------------------------beauty stops -->
+
+
+					<!-- --------------------------------------spa starts -->
+					<!-- <div class="row">
+						<div class="col-lg-12 col-md-12'">
+							<div class="row" style="margin-left: 1px;margin-right: 1px;">
+								<div class="col-md-5" style="padding-top: 4%;" ng-style="{'border-bottom':straightLineColor}"></div>
+								<div class="col-md-2"><p style="padding-top: 18%;font-family :Roboto-Light" ng-style="{'color': departmentHeadingsColor,'font-size':'17px'}"><b>SPA</b></p></div>
+								<div class="col-md-5" style="padding-top: 4%;" ng-style="{'border-bottom':straightLineColor}"></div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-lg-12">
+									<div class="row"><div class="col-md-12 col-lg-12">
+										<p style="font-size: 14px;font-weight: 400;color: #000; text-transform: uppercase;font-family :Roboto-Light"><b>{{dealObject.spa.spaTextFirstLine}}</b></p>
+									</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 col-lg-12">
+											<p style=" margin-bottom: 0px;font-family :Roboto-Light"><b>{{dealObject.spa.spaTextSecondLine}}</b></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> -->
+
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+							<div class="row" style="margin-left: 1px;margin-right: 1px;">
+								<div class="col-md-5" style="padding-top: 4%;" ng-style="{'border-bottom':straightLineColor}"></div>
+								<div class="col-md-2"><p style="padding-top: 18%;font-family :Roboto-Light;text-align:center;" ng-style="{'color': departmentHeadingsColor,'font-size':'25px'}"><b class="para" style="font-family :sans-serif">SPA</b></p></div>
+								<div class="col-md-5" style="padding-top: 4%;" ng-style="{'border-bottom':straightLineColor}"></div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-lg-12">
+									<table style="width:100%;">
+										<tr ng-repeat="list in dealObject.spa.spaCat11.selectedServices">
+											<td class="content"  style="background-color:transparent!important;text-align: left;height:14px;width: 58%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.name}}</b>
+											</td>
+											<td class="content"  ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%;position: relative;'>
+												<div class='row'>
+													<div class='col-lg-12' style='position: relative;text-align:right;'  ng-style="list.brands.length==1 && {'text-align':'right'}">
+
+														<span ng-repeat='bList in list.brands'  style="position: relative;display: inline-block;">
+															<div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%"  ng-style="{'border-bottom':straightLineColor}" ></div>
+															<span style="color:#000;font-size:14px;"><b style="font-family :sans-serif">{{list.menuPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span></span>
+														</span>
+													</div>
+												</div>
+											</td>
+											<td class="content"  ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%'  ng-style="{'color': textServicesDealPriceColor}">
+												<div class='row'>
+													<div class='col-lg-12' style='padding-top: 3px;text-align:right;'>
+														<span ng-repeat='bList in list.brands' >
+															<b style="font-family :sans-serif">{{list.dealPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span>
+														</span>
+													</div>
+												</div>
+											</td>
+											<td class="content"  ng-if='list.brands.length==0' style="position:relative;height:14px;background-color:transparent!important;text-align: right;padding-right: 0%;width: 30%;font-family :Roboto-Regular">
+												<div class="row">
+													<div class='col-lg-12' style="position:relative;text-align: right;">
+
+														<span style="color:#000;position: relative;display: inline-block;"><div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%;right: 8%;" ng-style="{'border-bottom':straightLineColor}" ></div><b style="font-family :sans-serif">{{list.menuPrice}}</b></span>
+													</div>
+												</div>
+											</td>
+											<td class="content"  ng-if='list.brands.length==0' style="height:14px;background-color:transparent!important;text-align:right;width: 30%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.dealPrice}}</b>
+											</td>
+										</tr>
+									</table>
+
+								</div>
+								<!-- <div class="col-md-6 col-lg-6">3000</div> -->
+							</div>
+						</div>
+
+					</div><!--row3-->
+
+					<!-- --------------------------------------spa ends -->
+					<!-- --------------------------------------makeup starts -->
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+							<div class="row" style="margin-left: 1px;margin-right: 1px;">
+								<div class="col-md-5" style="padding-top: 4%;" ng-style="{'border-bottom':straightLineColor}"></div>
+								<div class="col-md-2"><p style="padding-top: 18%;font-family :Roboto-Light;text-align:center;" ng-style="{'color': departmentHeadingsColor,'font-size':'25px'}"><b class="para" style="font-family :sans-serif">MAKEUP</b></p></div>
+								<div class="col-md-5" style="padding-top: 4%;" ng-style="{'border-bottom':straightLineColor}"></div>
+							</div>
+							<div class="row" style="padding-bottom: 15%;">
+								<div class="col-md-12 col-lg-12">
+									<table style="width:100%;">
+										<tr ng-repeat="list in dealObject.makeUp.makeUpCat11.selectedServices">
+											<td class="content"  style="background-color:transparent!important;text-align: left;height:14px;width:58%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.name}}</b>
+											</td>
+											<td class="content"  ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%;position: relative;'>
+												<div class='row'>
+													<div class='col-lg-12' style='position: relative;text-align:right;'  ng-style="list.brands.length==1 && {'text-align':'right'}">
+
+														<span ng-repeat='bList in list.brands'  style="position: relative;display: inline-block;">
+															<div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%" ng-style="{'border-bottom':straightLineColor}" ></div>
+															<span style="color:#000;font-size:14px;"><b style="font-family :sans-serif">{{list.menuPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span></span>
+														</span>
+													</div>
+												</div>
+											</td>
+											<td class="content"  ng-if='list.brands.length>0' style='height:14px;background-color:transparent!important;text-align:right;font-family :Roboto-Light;width: 30%'  ng-style="{'color': textServicesDealPriceColor}">
+												<div class='row'>
+													<div class='col-lg-12' style='padding-top: 3px;text-align:right;'>
+														<span ng-repeat='bList in list.brands' >
+															<b style="font-family :sans-serif">{{list.dealPrice*bList.ratio | number :0}}</b><span ng-if='!$last'>/</span>
+														</span>
+													</div>
+												</div>
+											</td>
+											<td class="content"  ng-if='list.brands.length==0' style="position:relative;height:14px;background-color:transparent!important;text-align: right;padding-right: 0%;width: 30%;font-family :Roboto-Regular">
+												<div class="row">
+													<div class='col-lg-12' style="position:relative;text-align: right;">
+
+														<span style="color:#000;position: relative;display: inline-block;"><div style="position: absolute;background-color: #d2232a;height: 2px;top: 45%;width:100%;right: 8%;" ng-style="{'border-bottom':straightLineColor}" ></div><b style="font-family :sans-serif">{{list.menuPrice}}</b></span>
+													</div>
+												</div>
+											</td>
+											<td  ng-if='list.brands.length==0' style="height:14px;background-color:transparent!important;text-align:right;width: 30%;font-family :Roboto-Light" ng-style="{'color': textServicesDealPriceColor}"><b style="font-family :sans-serif">{{list.dealPrice}}</b>
+											</td>
+										</tr>
+									</table>
+
+								</div>
+								<!-- <div class="col-md-6 col-lg-6">3000</div> -->
+							</div>
+						</div>
+
+					</div><!--row4-->
+					<!-- --------------------------------------makeup end -->
+
+
+				</div>
+
+			</div>
+			<div class="col-md-1 col-lg-1">
+				<div style="margin-top:120px;margin-left: 25px;height:1000px;">
+
+					<img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1505720494/side_t_c_for_deal_menu_1_j7r371.png" alt="p" style="height: 100%;">
+				</div>
+<!--
+				<div style="height:140px;margin-left: 25px;">
+					<img src="/img/Condions-appl.png" alt="p" style="height: 100%;">
+				</div>
+				<div style="height:170px;margin-left: 25px;">
+					<img src="/img/Taxes-as-applicalbe.png" alt="p" style="height: 100%;">
+				</div>
+				<div style="height:250px;margin-left: 25px;">
+					<img src="/img/All-prices-are-exclisive-of-taxes.png" alt="p" style="height: 100%;">
+				</div>
+				<div style="height:346px;margin-left: 21px;">
+					<img src="/img/Mentioned-rates-are-applicable-within-the-salon.png" alt="p" style="height: 100%;">
+				</div>
+-->
+			</div>
+		</div>
+
+	</div>
+</div>
+</div>

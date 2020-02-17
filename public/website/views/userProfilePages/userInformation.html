@@ -1,0 +1,32 @@
+<div layout="column" class="userinformation-container">
+    <div flex >
+	<div layout="row" flex="100" class="information-pageheading"><h3>My Profile</h3></div>
+	<div layout="row" flex="100" class="user-information-1">
+		 <md-input-container flex="100" class="userpro">
+          <label> First name</label>
+          <input ng-model="user.firstName" class="information-page-firstName">
+         </md-input-container>
+	</div>
+	<div layout="row" flex="100" class="user-information">
+		 <md-input-container flex="100" class="userpro">
+          <label>Phone no.</label>
+          <input ng-model="user.phoneNumber" style="" class="parlor-userinformation information-page-Number ">
+         </md-input-container>
+	</div>
+	<div layout="row" flex="100" class="user-information">
+		 <md-input-container flex="100" >
+          <label>Gender</label>
+          <md-select  ng-model="user.gender" ng-change="checkingGender(user.gender)"  class="userpro">
+              <md-option value="M">Male</md-option>
+              <md-option value="F">Female</md-option>
+          <!--  <md-option ng-repeat="state in ctrl.states" ng-value="state.abbrev" ng-disabled="$index === 1">
+                {{state.abbrev}}
+            </md-option>-->
+          </md-select>
+        </md-input-container>
+	</div>
+	<div layout="row" layout-align="center" flex="100" class="user-informarion-btn information-page-Save">
+		<md-button id="user-information-sv-btn" class="user-information-sv-btn" ng-click="saveUserProfileInformation()">Save</md-button>
+	</div>
+    </div>
+</div>

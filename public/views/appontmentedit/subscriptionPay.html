@@ -1,0 +1,93 @@
+<style type="text/css">
+	h1{
+		text-align: center;
+	}
+	.row1{
+	
+		display: flex;
+  justify-content: center;
+	}
+</style>
+<div class="row">
+	
+	<h1>Add Subscription via Payment Link</h1>
+</div><br><br>
+<div class="row">
+
+	<div class="col-md-3 col-md-offset-4">
+		<label>Select Payment Type </label>
+		<select class="form-control" ng-model="data.selected">
+			<option value="1">Paytm</option>
+			<option value="2">Razor pay</option>
+			<option value="3">Buy One Get One</option>
+			<option value="4">Razer Payment Appointment</option>
+		</select>
+
+	</div>
+</div>
+<div class="row" ng-if='data.selected==2'>
+	<div class="col-md-3 col-md-offset-4">
+		<label>Razor Pay Id</label>
+
+		<input  class="form-control" type="text" name="name" ng-model="data.name" ng-required="true">
+	</div>
+</div>
+
+<div class="row" ng-if='data.selected==1'>
+	<div class="col-md-3 col-md-offset-4">
+		<label>Order Id</label>
+		<input  class="form-control" type="text" name="name" ng-model="data.ORDER_ID" ng-required="true">
+	</div>
+</div>
+
+<div class="row" ng-if='data.selected==1'>
+	<div class="col-md-3 col-md-offset-4">
+		<label>Client Phone Number</label>
+		<input  class="form-control" type="text" name="name" ng-model="data.phoneNumber" ng-required="true">
+	</div>
+</div>
+
+<div class="row" ng-if='data.selected==3'>
+	<div class="col-md-3 col-md-offset-4">
+		<label>Subscriber Phone Number</label>
+		<input  class="form-control" type="text" name="name" ng-model="data.existNumber" ng-required="true">
+		<label>Phone Number</label>
+		<input  class="form-control" type="text" name="name" ng-model="data.subsNumber" ng-required="true">
+		<button style="padding:7px;font-size: 16px;width: 133px;" ng-click='submitSubscriber()'>Submit</button>
+	</div>
+</div>
+
+<div class="row" ng-if='data.selected==4'>
+	<div class="col-md-3 col-md-offset-4">
+		<label>Payment Id : </label>
+		<input  class="form-control" type="text" name="name" ng-model="data.paymentAppointment" ng-required="true">
+		
+		<button style="padding:7px;font-size: 16px;width: 133px;" ng-click='razerAppointment()'>Submit</button>
+	</div>
+</div>
+<div class="row" ng-if='data.selected==1'>
+	<div class="col-md-3 col-md-offset-4">
+		<label>Amount</label>
+		<input  class="form-control" type="number" name="amount" ng-model="data.amount" ng-required="true">
+	</div>
+</div>
+<div class="row" ng-if='data.selected==1'>
+	<div class="col-md-3 col-md-offset-4">
+		<label>Referral code</label>
+
+		<input  class="form-control" type="text" name="code" ng-model="data.referralcode" ng-required="true">
+	</div>
+</div>
+<div class="row" ng-if='data.selected==2'>
+	<div class="col-md-3 col-md-offset-4">
+		<label>Referral code</label>
+
+		<input  class="form-control" type="text" name="name" ng-model="data.referralcode" ng-required="true">
+	</div>
+</div>
+<div class="row row1">
+	
+	<button style="padding:7px;font-size: 16px;width: 133px;" ng-if='(data.selected==2 || data.selected==1 )' ng-click='submitData(selected)'>Submit</button>
+</div>
+
+

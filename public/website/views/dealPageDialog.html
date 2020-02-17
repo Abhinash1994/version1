@@ -1,0 +1,70 @@
+
+<style>
+
+
+</style>
+<md-dialog  aria-label="Mango (Fruit)"  class="DeelPagedialog-container" flex>
+    <div flex>
+
+        <md-toolbar style="" id="DeelPagedialog-toolbar" flex >
+                <div layout="row" style="" class="DeelPagedialog-container-3" flex>
+                    <div flex="90"><span style="" class="DeelPagedialog-Service">Select The Deal Service</span></div>
+                    <div flex="10"  ng-click="cancel()" style="" class="deal-cancel-icon"><ng-md-icon icon="close" style="fill: #d2d4d5" size="20"></ng-md-icon>
+                    </div>
+                </div>
+        </md-toolbar>
+        <md-dialog-content style="" class="DeelPagedialog-dialog-content" flex>
+            <div flex>
+            <div layout="column" class="filter-radio-container-1">
+                <div flex>
+                    <md-radio-group  layout="column" ng-model="dealSubServiceCode" style="display: inline-flex;width: 100%;" flex>
+                        <div flex>
+                            <div layout="row" ng-repeat="dealSubServiceList in dealPageDialogDealObject.services |filter:{gender: gend}" flex >
+                                <div style="" class="DeelPagedialog-dialog-SubServiceList" flex="100">
+                                <md-radio-button flex="100" value="{{dealSubServiceList.serviceCode}}" ng-click="passSubServiceIndex($index)" class="filter-radio-btn radioButtonTextGap deelPageDialog-btn Deelpagebtn Deelpagebtnpage " style="margin-right: 20px;margin-left: 20px;font-size: 14px;">
+                                    <div flex="100" style="" class="DeelPagedialog-dialog-name">{{dealSubServiceList.name}}</div>
+                                </md-radio-button>
+                                </div>
+                            </div>
+                        </div>
+                    </md-radio-group>
+                </div>
+            </div>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions style="padding: 0px 0px;" flex>
+            <div flex>
+             <!--   <div layout="row" layout-align="center" style="border-top:1px solid #D8D8D8;padding-top:15px; padding-bottom:4px;" flex>
+                    <div layout="row"  layout-align="center" style="border-right: 1px solid #A1A1A1;" flex>
+                        <div layout="column">
+                            <span style="font-size:13px;font-weight: 700;color:#58595b;">Menu Price</span>
+                            <span style="padding-top:10px;font-size:13px;"><img src="../images/Grey Budget.png" alt="price-con" width="10" height="10">{{serv1.prices[in3].price + serv1.prices[in3].additions[0].types[index3].additions}}</span>
+                        </div>
+                    </div>
+                    <div layout="row"  layout-align="center" flex>
+                        <div layout="column">
+                            <span style="font-size:13px;font-weight: 700;color:#58595b;">Deal Price</span>
+                            &lt;!&ndash;  <span>{{meraPrice}}</span>&ndash;&gt;
+                            <span ng-if="((serv1.prices[in3].price + serv1.prices[in3].additions[0].types[in1].additions)>(meraPrice))&&(meraPrice!=0)">{{meraPrice}}</span>
+                            <span ng-if="((serv1.prices[in3].price + serv1.prices[in3].additions[0].types[in1].additions)<(meraPrice))||(meraPrice==0)" style="font-size:13px;">Deal not applicable</span>
+                        </div>
+                    </div>
+                </div>-->
+                <!--Serive final price={{serv1.prices[in3].price + serv1.prices[in3].additions[0].types[in1].additions}}-->
+                <div layout="row"   class="DeelPagedialog-dialog-container" flex>
+                    <div layout="row"  layout-align="end end" flex class="DeelPagedialog-dialog-btn">
+                        <md-button ng-click="selectSubService(dealSubServiceCode)" style="" id="DeelPagedialog-dialog-btn-Select" flex="30">
+                            Select
+                        </md-button>
+                    </div>
+                    <!--<div layout="row"  layout-align="center" flex>-->
+                        <!--<md-button ng-click="cancel()" style="background-color:#e6e6e6;margin: 0px 0px;font-size:13px;">-->
+                            <!--Cancel-->
+                        <!--</md-button>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </md-dialog-actions>
+    </div>
+</md-dialog>

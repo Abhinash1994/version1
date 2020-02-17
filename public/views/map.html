@@ -1,0 +1,119 @@
+<style media="screen">
+  .gm-style-mtc{
+    display:none;
+  }
+.gm-svpc{
+  display:none;
+}
+.btn-group, .btn-group-vertical{
+  display:none;
+}
+</style>
+<div class="row">
+  <div class="col-md-12">
+      <div  class="col-md-3 col-lg-3 col-md-offset-2">
+          <h4>Select Date Range</h4>
+      </div>
+      <div class="col-md-6  col-lg-3" style="display: inline-flex;">
+          <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+                 ng-model="dateRangeSelected" ng-change="dateSelected()" readonly="readonly" required/>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 col-lg-3 col-md-offset-2"> <h4></h4></div>
+    <div class="col-md-6 col-lg-6 " >
+      <div style="display:inline-flex" isteven-multi-select input-model="travellerlist" output-model="selectedTravellerlist" button-label="travellerName" item-label="travellerName" tick-property="isSelected" output-properties="_id" on-close="changeTravellerlist()" ></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-md-offset-2"><button class="btn btn-primary" id="apply-btnservice"  ng-click="selectEmployee()">Select Employees</button></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">Angular Map</h2>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div id="map_canvas" >
+      <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" >
+        <ui-gmap-polyline ng-init="pathColorGeneratorfunction()" ng-repeat="data in mapData" path="data.path" stroke="data.stroke"
+                fit="false" icons='pathIcon.icons'></ui-gmap-polyline>
+
+                  <ui-gmap-marker  ng-repeat="data in mapParlors" icon= '{url:"http://res.cloudinary.com/dyqcevdpm/image/upload/c_scale,h_40,w_30/v1504786665/rsz_home_zc0jsc.png" }'  options="{title:data.name}" idKey='1' coords='data.coords'></ui-gmap-marker>
+
+                  <ui-gmap-marker ng-repeat="data in mapData" coords="data.path[data.path.length-1]"options="{title:'End: ' + data.name}"events="" idkey="$index">
+                  </ui-gmap-marker>
+
+                  <ui-gmap-marker ng-repeat="data in mapData" coords="data.path[0]" options="{title: 'Start: '+ data.name}" events="" idkey="$index">
+                  </ui-gmap-marker>
+    </ui-gmap-google-map>
+  </div>
+
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table ng-table="tableParams" class="table table-striped" style="margin-top:2em;">
+
+                <tr ng-repeat="user in $data">
+                        <td title="'Name'" sortable="'name'"  onmouseover="this.title='';">
+                                {{user.name}}
+                        </td>
+                        <td title="'Date'" onmouseover="this.title='';">
+
+                          <div ng-repeat="s in user.visitData | orderBy: '-atDate'">
+                                  <div ng-init="a=s.atDate" ng-repeat="abc in s.travelData" style="margin-bottom:10px;">
+                                      <span ng-if= "$index==0"> {{s.atDate | date:'dd-MM-yyyy'}}</span>
+                                      <br />
+
+                                  </div>
+                                    <hr ng-if="$index!=user.visitData.length-1">
+                          </div>
+                        </td>
+                        <td title="'Number of salons visited'"  onmouseover="this.title='';">
+                          <div ng-repeat="s in user.visitData | orderBy: '-atDate'">
+                                  <div ng-init="a=s.parlorsVisited" ng-repeat="abc in s.travelData" style="margin-bottom:10px;">
+                                      <span ng-if= "$index==0"> {{s.parlorsVisited}}</span>
+                                      <br />
+
+                                  </div>
+                                    <hr ng-if="$index!=user.visitData.length-1">
+                          </div>
+                        </td>
+                        <td title="'Salon Names'"  onmouseover="this.title='';">
+                              <div  ng-repeat="abc in user.visitData | orderBy: '-atDate'">
+
+                                  <p  ng-repeat="def in abc.travelData">{{def.parlorName}}</p>
+                                  <hr ng-if="$index!=user.visitData.length-1">
+                              </div>
+                        </td>
+                        <td title="'Check-In'"  onmouseover="this.title='';">
+                          <div ng-repeat="s in user.visitData | orderBy: '-atDate'">
+                          <p ng-repeat="def in s.travelData" ng-if="def.checkIn!=null" >{{def.checkIn | date:'hh:mm a'}}</p>
+                          <!-- <p ng-repeat="def in s.travelData" ng-if="def.checkIn==null">-</p> -->
+                          <hr ng-if="$index!=user.visitData.length-1">
+
+                        </div>
+                        </td>
+                        <td title="'Check-Out'"  onmouseover="this.title='';">
+                          <div ng-repeat="s in user.visitData | orderBy: '-atDate'">
+                                  <p ng-repeat="def in s.travelData"  ><span ng-if="def.checkOut">{{def.checkOut | date:'hh:mm a'}}</span><span ng-if="!def.checkOut">-</span></p>
+                               <!--  <p ng-repeat="def in s.travelData" ng-if="def.checkOut==null">-</p> -->
+                                  <hr ng-if="$index!=user.visitData.length-1">
+
+                        </div>
+                        </td>
+                        <!-- <td title="'View'" style="text-align:center">
+
+                        </td> -->
+
+
+                </tr>
+
+      </table>
+  </div>
+
+</div>

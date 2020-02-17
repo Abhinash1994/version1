@@ -1,0 +1,93 @@
+<style>
+	.multiSelect > button {
+		width:100%;
+	}
+	.revenue-report-page-inputdate{width:100%;height:30px;}
+
+	.setelment-report{
+		background: #FFF;
+        height: 40px;
+    }
+
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">Revenue Report</h2>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="container">
+	<div class="col-md-12 dailysummary">
+		<div class="col-md-4 col-md-offset-4"><h4>Filters:</h4></div>
+	</div>
+
+		<div class="col-md-12 dailysummary">
+			<div class="col-md-3">Employee</div>
+			<div class="col-md-4">
+				<div style="display:inline" isteven-multi-select input-model="employees" output-model="filter.employees" button-label="name " item-label="name" orientation="horizontal" tick-property="active"></div>
+			</div>
+		</div>
+		<div class="col-md-12 dailysummary">
+			<div class="col-md-3">Select Date Range</div>
+			<div class="col-md-4">
+            	<input date-range-picker id="daterange1" name="daterange1" class="date-picker revenue-report-page-inputdate" type="text" ng-model="filter.date" required/>
+			</div>
+		</div>
+
+		<div class="col-md-12 dailysummary">
+			<div class="col-md-3">Select Salon </div>
+			<div class="col-md-4">
+            	<select  class="setelment-report selectsalon"  ng-model="selectedParlorId"  ng-options="parlor.parlorId as (parlor.name + ' '+parlor.address1) for parlor in allParlors |orderBy:'name'" ng-change="changeParlor(selectedParlorId)">
+                </select>
+			</div>
+		</div>
+
+		<!--<div class="col-md-12 dailysummary">
+		<div class="col-md-3">Department</div>
+		<div class="col-md-4" style="display:inline" isteven-multi-select input-model="superCategory" output-model="filter.superCategory" on-close="superCat()" button-label="name " item-label="name" orientation="horizontal" tick-property="active"></div>
+		</div>
+		<div class="col-md-12 dailysummary">
+		<div  class="col-md-3" style="padding-top:15px;">Category </div>
+		<div class="col-md-4">
+			<div style="display:inline" isteven-multi-select input-model="serv" output-model="filter.categories" button-label="name " item-label="name" orientation="horizontal" tick-property="active"></div>
+		</div>
+		</div>-->
+	<div class="row">
+		<div class="col-md-12 dailysummary">
+			<div class="col-md-4 col-md-offset-4"><button class="btn btn-primary" ng-click="filterApplied()"> Apply Filters</button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="card">
+	<div class="container-fluid">
+		<div class="form-inline row" style="text-align:right">
+			<input type="text" ng-model="query" class="form-control" placeholder="Search">
+			<button type="button" class="btn" ng-csv="data" csv-column-order="order" csv-header="['Date','No of Appointments','Total Revenue', 'Total Services', 'Total Products','Total Memberships','Loyality Points']" filename="Revenue Report.csv">Export as CSV</button>
+        </div>
+		<div class="table-responsive">
+			<table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+				<tr ng-repeat="day in $data | filter : query">
+					<td title="'Date'" sortable="'name'">
+						{{day.date  | date:'mediumDate'}}</td>
+					<td title="'Appointments'" sortable="'itemId'">
+						{{day.noOfAppointments}}</td>
+					<td title="'Total Revenue'" sortable="'sellingPrice'">
+							{{day.totalRevenue| number:0}}</td>
+					<td title="'Services'">
+							{{day.totalServices | number:0}}</td>
+					<td title="'Products'"  sortable="'capacity'">
+							{{day.totalProducts | number:0}}</td>
+					<td title="'Membership Sold'" sortable="'capacity'">
+							{{day.totalMemberships | number:0}}</td>
+					<td title="'Loyality Points'"  sortable="'capacity'">
+						{{day.totalLoyalityPoints | number:0}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

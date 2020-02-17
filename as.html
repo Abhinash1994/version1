@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset=UTF-8>
+    <title>Settlement Mailer</title>
+</head>' + '
+
+<body>
+    <div style=width:60%;margin:auto>
+        <div style=background-color:#dfdfdf;height:120px>
+            <div style=float:left;width:200px;margin-top:2%;margin-left:2%;margin-bottom:2%;zoom:1.2><img alt="Beu salons" src=http://res.cloudinary.com/dyqcevdpm/image/upload/v1491484496/beu-logo_srvetg.png width=150></div>' + '
+        </div>
+        <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;width: 96%;padding:10px;margin-top:10px;margin-left: 10px;">' + '
+            <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:center">
+                <tr>
+                    <th style="width:100%;border:1px solid gray" colspan="2">SETTLEMENT REPORT</th>' + '
+                </tr>
+                <tr>
+                    <td style="width:50%;border:1px solid gray">Name of salon</td>
+                    <td style="width:50%;border:1px solid gray">'+set.parlorName+'</td>' + '
+                </tr>
+                <tr>
+                    <td style="width:50%;border:1px solid gray">Entity name</td>
+                    <td style="width:50%;border:1px solid gray">'+parlorEntityName+'</td>' + '
+                </tr>
+                <tr>
+                    <td style="width:50%;border:1px solid gray">Address</td>
+                    <td style="width:50%;border:1px solid gray">'+set.parlorAddress+'</td>' + '
+                </tr>
+                <tr>
+                    <td style="width:50%;border:1px solid gray">Date of Settlement</td>
+                    <td style=width:50%>'+set.dateEnd+'</td>
+                </tr>
+                <tr>' + '
+                    <td style="width:50%;border:1px solid gray">Period of Settlement</td>
+                    <td style="width:50%;border:1px solid gray">'+set.startDate+ "to " +set.endDate+'</td>
+                </tr>' + '
+            </table>
+        </div>
+        <!--Start of right table-->
+        <div style="width:47%;padding:10px;float:left">
+            <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;margin-top:10px;">' + '
+                <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:center">
+                    <tr>
+                        <td style="width:100%;border:1px solid gray" colspan=2>  ' + '
+                            <b>Revenue Summary</b></tr>
+                    <tr>
+                        <th style="width:50%;border:1px solid gray">Particulars</th>
+                        <th style="width:50%;border:1px solid gray">Amount</th>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;border:1px solid gray">Service Revenue</td>' + '
+                        <td style="width:50%;border:1px solid gray">'+Math.ceil(set.serviceRevenue)+'</td>
+                        <tr>
+                            <td style="width:50%;border:1px solid gray">Product Revenue</td>' + '
+                            <td style="width:50%;border:1px solid gray">'+Math.ceil(set.productRevenue)+'</td>
+                            <tr>
+                                <td style="width:50%;border:1px solid gray">Total Revenue</td>' + '
+                                <td style="width:50%;border:1px solid gray">'+Math.ceil(set.totalRevenue)+'</td>
+                </table>
+            </div>
+            <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;margin-top:10px;">' + '
+                <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:center">
+                    <tr>
+                        <td style="width:100%;border:1px solid gray" colspan="2"><b>Collection Summary</b></td>' + '
+                    </tr>
+                    <tr>
+                        <th style="width:50%;border:1px solid gray">Particulars</th>
+                        <th style="width:50%;border:1px solid gray">Amount</th>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;border:1px solid gray;text-align:left;">Collected By Salon</td>' + '
+                        <td style="width:50%;border:1px solid gray;text-align:right;">Math.ceil(set.collectionByParlor)</td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;border:1px solid gray;text-align:left;">Collected by Be U</td>' + '
+                        <td style="width:50%;border:1px solid gray;text-align:right;">Math.ceil(set.collectionByBeu)</td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;border:1px solid gray">Through App/Website</td>' + '
+                        <td style="width:50%;border:1px solid gray;padding-left:4%;text-align:right;">'+Math.ceil(set.collectedByApp)+'</td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;border:1px solid gray;padding-right:3%">Through Affiliates</td>' + '
+                        <td style="width:50%;border:1px solid gray;padding-left:4%;text-align:right;">'+Math.ceil(set.collectedByAffiliates)+'</td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;border:1px solid gray;padding-right:4%">Through Loyality</td>' + '
+                        <td style="width:50%;border:1px solid gray;padding-left:4%;text-align:right;">'+Math.ceil(set.collectedByLoyalityPoints)+'</td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;border:1px solid gray;text-align:left;padding-left:5%"><b>Total Collection</b></td>' + '
+                        <td style="width:50%;border:1px solid gray;text-align:right;">'+Math.ceil(set.totalCollection)+'</td>
+                    </tr>
+                </table>
+            </div>
+            <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;margin-top:10px;">' + '
+                <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:left">
+                    <tr>
+                        <td style="width:100%;border:1px solid gray;text-align:center;" colspan="2"><b>Final Settlement_Terms</b></td>' + '
+                    </tr>
+                    <tr>
+                        <th style="width:50%;border:1px solid gray;text-align:center;">Particulars</th>
+                        <th style="width:50%;border:1px solid gray;text-align:center;">Amount</th>' + '
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray;text-align:left;">Royalty %age_Service Revenue</td>
+                        <td style="width:30%;border:1px solid gray;text-align:right;">'+Math.ceil(set.royalityPercentageService)+'</td>' + '
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray;text-align:left;">Royalty %age_Product Sale</td>
+                        <td style="width:30%;border:1px solid gray;text-align:right;">'+Math.ceil(set.royalityPercentageProduct)+'</td>' + '
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray">Discount, if any</td>
+                        <td style="width:30%;border:1px solid gray;text-align:right;">'+Math.ceil(set.lessDiscount)+'</td>
+                    </tr>' + '
+                    <tr>
+                        <td style="width:70%;border:1px solid gray;">Minimum Guarantee</td>
+                        <td style="width:30%;border:1px solid gray;text-align:right;">parlor.minimumGuarantee</td>
+                    </tr>' + '
+                </table>
+            </div>
+        </div>
+        <!--End of right table-->
+        <!--start of right table-->
+        <div style="width:49%;float:left;margin-left:10px;margin-top:10px;">
+            <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;">' + '
+                <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:left">
+                    <tr>
+                        <td style="width:100%;border:1px solid gray" colspan=2>' + '
+                            <b>Be U Payout</b></tr>
+                    <td style="width:70%;border:1px solid gray">1. Amount Collected by Be U {A}</td>
+                    <td style="width:30%;border:1px solid gray;text-align:right;">'+Math.ceil(set.totalCollectionByBeu)+'</td>' + '
+                    <tr>
+                        <td style="width:70%;border:1px solid gray">2.Salon Benefits by Be U</td>
+                        <td style="width:30%;border:1px solid gray;text-align:right;">'+Math.ceil(set.totalCollectionByBeu)+'</td>' + '
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray;padding-left: 10px;"> a) CASH BACK</td>
+                        <td style="width:30%;border:1px solid gray;text-align:right;">'++'</td>' + '
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray;padding-left: 20px;"> -Cash Back on ERP_Revenue</td>
+                        <td style="width:30%;border:1px solid gray;text-align:right;">'+Math.ceil(set.refundOnErp)+'</td>' + '
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray;padding-left: 20px;">-Cash Back on App_Transaction</td>
+                        <td style="width:30%;border:1px solid gray;text-align:right;">Math.ceil(set.refundFirstAppDigital+set.refundAppDigitalCash+set.refundAppDigialOnline)</td>
+                    </tr>' + '
+                    <!--<tr>-->
+                        <!--<td style="width:70%;border:1px solid gray">b) Be U Purcahse Scheme Benefits</td>-->
+                        <!--<td style="width:30%;border:1px solid gray;text-align:right;">&#45;&#45;&#45;&#45;</td>' + '-->
+                    <!--</tr>-->
+                    <tr>
+                        <td style="width:70%;border:1px solid gray;">c) Freebies Benefits</td>
+                        <td style="width:30%;border:1px solid gray;text-align:right;">Math.ceil(set.collectedByLoyalityPoints)</td>
+                    </tr>' + '
+                    <tr>
+                        <td style="width:70%;border:1px solid gray;text-align:center;">Total Salon Benefits by Be U {B}</td>
+                        <td style="width:30%;border:1px solid gray;text-align:right;">Math.ceil(set.collectedByLoyalityPoints)+Math.ceil(set.refundFirstAppDigital+set.refundAppDigitalCash+set.refundAppDigialOnline)</td>' + '
+                    </tr>
+                    <!--<tr>-->
+                        <!--<td style="width:70%;border:1px solid gray;text-align:center;"><b>Grand Total {A+B}</b></td>-->
+                        <!--<td style="width:30%;border:1px solid gray;text-align:right;">&#45;&#45;&#45;&#45;</td>' + '-->
+                    <!--</tr>-->
+                </table>
+            </div>
+            <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;margin-top:5px;">
+                <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:left">' + '
+                    <tr>
+                        <td style="width:100%;border:1px solid gray" colspan="2"><b>Salons Payout</b></td>
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray">Amount payable to Be U</td>' + '
+                        <td style="width:30%;border:1px solid gray;text-align:right;">Math.ceil(set.collectedByLoyalityPoints)</td>
+                    </tr>
+                    <td style="width:70%;border:1px solid gray">Less: Discount</td>
+                    <td style="width:30%;border:1px solid gray;text-align:right;">Math.ceil(set.lessDiscount)</td>' + '
+                    <tr>
+                        <td style="width:70%;border:1px solid gray">Amount payable to Be U(After Discount)</td>
+                        <td style="width:30%;border:1px solid gray;text-align:right;">Math.ceil(set.amountPayableToBeuAfterDiscount)</td>' + '
+                    </tr>
+                    <tr>
+                        <td style="width:50%;border:1px solid gray">Add: CGST @ 9%</td>
+                        <td style="border:1px solid gray;text-align:right;">Math.ceil(set.amountPayableToBeuAfterDiscount*.09)</td>
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray">Add: CGST @ 9%</td>' + '
+                        <td style="width:30%;border:1px solid gray;text-align:right;">Math.ceil(set.amountPayableToBeuAfterDiscount*.09)</td>
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray"><b>Total Amount Payable to Be U(Incl. Taxes)</b></td>' + '
+                        <td style="width:30%;border:1px solid gray;text-align:right;">Math.ceil(set.amountPayableToBeuAfterTax)</td>
+                    </tr>
+                </table>
+            </div>
+            <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;margin-top:5px;">' + '
+                <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:left">
+                    <tr>
+                        <td style="width:70%;border:1px solid gray">Net amount payable to Salon</td>' + '
+                        <td style="width:30%;border:1px solid gray">Math.ceil(set.netPayable)</td>
+                    </tr>
+                    <tr>
+                        <td style="width:70%;border:1px solid gray">Previous balance outstanding </td>
+                        <td style="width:30%;border:1px solid gray;text-align:right;">Math.ceil(set.amountPayableToBeuAfterTax)</td>' + '
+                    </tr>
+                    <tr>
+                        <td style="width:50%;border:1px solid gray">Final Amount Payable to Salon/(Be U)</td>
+                        <td style="border:1px solid gray;text-align:right;">Math.ceil(set.netPayable)</td>
+                    </tr>
+                </table>' + '
+            </div>
+        </div>
+        <div style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;width: 96%;padding:10px;margin-top:60%;margin-left: 10px;">
+            <table style="width:100%;border:1px solid gray;border-collapse:collapse;text-align:center">' + '
+                <tr>
+                    <th style="width:100%;border:1px solid gray" colspan="2">Benefits to Salon by Be U - Summary</th>
+                </tr>
+                <tr>
+                    <td style="width:50%;border:1px solid gray">Freebies_Payout_July 2017_Till Date</td>' + '
+                    <td style="width:50%;border:1px solid gray">'+freebiesPayoutJulyTillDate+'</td>
+                </tr>
+                <td style="width:50%;border:1px solid gray">Freebies_Payout_Since Joining</td>
+                <td style="width:50%;border:1px solid gray">'+freebiesPayoutSinceJoining+'</td>
+                <tr>' + '
+                    <td style="width:50%;border:1px solid gray">Cash Back on ERP & App_Payout_July 2017_Till Date</td>
+                    <td style="width:50%;border:1px solid gray">'+cashBackErpAndAppPayoutJulyTillDate+'</td>' + '
+                </tr>
+                <!--<tr>-->
+                    <!--<td style="width:50%;border:1px solid gray">Date of Settlement</td>-->
+                    <!--<td style=width:50%>'+dateEnd+'</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td style="width:50%;border:1px solid gray">Cash Back on ERP & App_Payout_Since Joining</td>' + '
+                    <td style="width:50%;border:1px solid gray">'+cashBackErpAndAppPayoutSinceJoining+'</td>
+                </tr>
+                <!--<tr>-->
+                    <!--<td style="width:50%;border:1px solid gray">Be U Purchase Scheme Benefits_July 2017_Till Date</td>' + '-->
+                    <!--<td style="width:50%;border:1px solid gray">'+periodDate+'</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td style="width:50%;border:1px solid gray">Be U Purchase Scheme Benefits_Since Joining</td>' + '-->
+                    <!--<td style="width:50%;border:1px solid gray">'+periodDate+'</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td style="width:50%;border:1px solid gray">Grand Total_Benefits_July 17_Till Date</td>' + '
+                    <td style="width:50%;border:1px solid gray">'+Math.ceil(freebiesPayoutJulyTillDate)+Math.ceil(cashBackErpAndAppPayoutJulyTillDate)+'</td>
+                </tr>
+                <tr>
+                    <td style="width:50%;border:1px solid gray">Grand Total_Benefits_Since Joining</td>
+                    <td style="width:50%;border:1px solid gray">'+Math.ceil(freebiesPayoutSinceJoining)+Math.ceil(cashBackErpAndAppPayoutSinceJoining)+'</td>' + '
+                </tr>
+            </table>
+        </div>
+         end right table
+    </div>
+</body>
+
+</html>

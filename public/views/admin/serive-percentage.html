@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Parlor Service Percentage</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-md-12">
+        
+        <div class="panel panel-default">
+                        <!-- /.panel-heading -->
+            <div class="panel-body">
+              <select ng-options="parlor.parlorId as parlor.name for parlor in parlors" ng-model="selectedParlorId" ng-change="parlorChanged(selectedParlorId)"/>  
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+	Select Department
+	<select ng-options="dept as dept.name for dept in services" ng-model="department" ng-change="deptChanged(department)"/>  
+	<div ng-repeat="category in department.categories">
+		{{category.name}}
+		<table style="overflow-x:auto;width:500px" >
+			<thead>
+				<tr>
+					<th>Service Name</th>
+					<th>Price</th>
+					<th>Tax</th>
+					<th>Stylist</th>
+					<th>Stylist Percentage </th>
+					<th>Final Price  </th>					
+					<th>Addition Type</th>
+					
+				</tr>
+			</thead>
+			<tr ng-repeat="service in category.services">
+				<td>{{service.name}}</td>
+				<td>{{service.basePrice}}</td>
+				<td>{{service.tax}}</td>
+				<td>
+					<table>
+						<tr ng-repeat=" stylist in service.prices"><td >{{stylist.name}}</td></tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr ng-repeat=" stylist in service.prices" ng-init="base=service.basePrice"><td ><input type="text" ng-model="stylist.percentageDifference" required ng-change="stylistPer(stylist,base)"/></td></tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr ng-repeat=" stylist in service.prices"><td ><input type="text" ng-model="stylist.price" readonly/></td>	</tr>
+					</table>
+				</td>
+				<td ng-if="service.prices[0].additions.length>1">{{service.prices[0].additions[0].name}}</td>
+				<td ng-if="service.prices[0].additions.length>1">
+					<table>
+						<tr ng-repeat="stylist in service.prices" ng-init="additions(stylist);stylistIndex=$index">
+							<td ng-repeat="type1 in addition" ng-init="typeIndex=$index">
+								<input type="text" ng-model="service.prices[stylistIndex].additions[aindex].types[index].percentageDifference" ng-init="iniPer(stylist,service.prices[0].additions[0].name,stylistIndex,typeIndex)" required ng-change="additionPer(stylist,service.prices[0].additions[0].name,service.basePrice,typeIndex)"/> Price {{type1.additions+stylist.price}}
+							</td>	
+						</tr>
+					</table>
+				</td>	
+			</tr>		
+		</table>
+	</div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+
+
+
+

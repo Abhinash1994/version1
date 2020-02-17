@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="container-fluid">
+        <div class="col-lg-12 col-md-12">
+            <div class="table-responsive" style="height: 600px;">
+                <table class="table table-striped table-hover" id="tableToExport">
+                    <thead>
+                        <tr>
+                            <th id="firstRowFirstCell" class="head-color-universal" style="text-align:center">Client Name</th>
+                            <th id="firstRowSecondCell" class="head-color-universal" style="text-align:center">Client Phone Number</th>
+                            <th id="firstRowSecondCell" class="head-color-universal" style="text-align:center">Send Whats App</th>
+                            <th id="firstRowSecondCell" class="head-color-universal" style="text-align:center">Mark as Done</th>
+                            <th ng-repeat="question in questions" id="firstRowSecondCell" class="head-color-universal" style="text-align:center">{{question}}</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in answerData">
+                            <td>
+                                <span>{{user.firstName}} </span>
+                            </td>
+                            <td>{{user.phoneNumber}}</td>
+                            <td><a ng-href="https://api.whatsapp.com/send?phone=91{{user.phoneNumber}}&text=Hi" target="_blank">Send Whats App</a>    </td>
+                            <td><button ng-click="userContacted(user.phoneNumber)">Contaced</button>    </td>
+                            <td ng-repeat="answer in user.ques">{{answer}}</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

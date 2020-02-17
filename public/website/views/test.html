@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        #header{
+            height: 50px;
+            background-color: #00acc1;
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+            display: none;
+        }
+    </style>
+
+</head>
+<body style="height: 1500px;">
+    <div id="header">
+
+    </div>
+    <script>
+        (function() {
+            var $win = $(window);
+            alert("ok");
+            function checkScroll() {
+                if ($win.scrollTop() > 10) {
+                    $win.off('scroll', checkScroll);
+                    $('#header').fadeIn(2000);
+                }
+            }
+
+            $win.scroll(checkScroll);
+        })();
+    </script>
+</body>
+</html>

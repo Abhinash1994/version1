@@ -1,0 +1,108 @@
+<style media="screen">
+  .table{
+    height:250px;
+
+    overflow:auto;
+  }
+
+  th{
+    text-align:center;
+  }
+  .row{
+    margin-top:1em;
+  }
+
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2>Training Session</h2>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+  <form>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-3">
+          <label style="margin-left: 1em">Select Unit:</label>
+        </div>
+        <div class="col-md-3">
+          <select class="form-control" ng-options="item as item.unitName for item in units" ng-model="units.selected" ng-change="showChapters()" required></select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-3">
+        <label style="margin-left: 1em">Chapters:</label>
+      </div>
+      <div class="col-md-3">
+        <select class="form-control" ng-options="item as item.chapterName for item in chapters" ng-model="chapters.selected" required></select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-3">
+        <label style="margin-left: 1em">Select Parlor:</label>
+      </div>
+      <div class="col-md-3">
+        <select class="form-control" ng-options="item as item.name for item in parlors" ng-model="parlors.selected" ng-change="activeEmployees()" required></select>
+      </div>
+    </div>
+      <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-offset-2 col-md-2" style="text-align:center;margin-top:1em;padding-left:2em">
+              <label style="margin-left: 1em">Theory: </label>
+            </div>
+            <div class="col-md-1" style="margin-top:0.5em">
+              <input type="checkbox" ng-model="theory">
+            </div>
+            <div class="col-md-2" style="text-align:center;margin-top:1em;">
+              <label style="margin-left: 1em">Practical: </label>
+            </div>
+            <div class="col-md-1" style="margin-top:0.5em">
+              <input type="checkbox" ng-model="practical">
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" style="text-align:center;margin-top:1em;">
+          <label style="margin-left: 1em">Select Employee:</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" style="background:white;">
+          <table class="table table-striped table-hover" fixed-header>
+            <thead>
+              <tr>
+                <th>Employee Name</th>
+                <th>Select Employee</th>
+                <!-- <th>Theory</th>
+                <th>Practical</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="data in employeelist">
+                <td>{{data.employeeName}}</td>
+                <td><input type="checkbox" ng-model="data.selectEmployee"></td>
+                <!-- <td><input type="checkbox" ng-model="data.theory"></td>
+                <td><input type="checkbox" ng-model="data.practical"></td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- <div class="col-md-3" >
+        <div style="display:inline-flex" isteven-multi-select input-model="employeelist" output-model="selectedemployeeList" button-label="employeeName" item-label="employeeName" tick-property="isSelected" output-properties="_id" on-close="changeTravellerlist()" ></div>
+      </div> -->
+      <div class="row">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-default" ng-click="submitButton()" style="margin-top: 1em;">Submit</button>
+        </div>
+      </div>
+
+  </form>
+</div>
+</div>

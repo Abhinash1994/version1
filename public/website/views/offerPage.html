@@ -1,0 +1,265 @@
+<head>
+<title>Best Beauty & Hair Salon Offers in Delhi Gurugram | Be U Salons</title>
+<meta name="description" content="Get the best discounts and deals on hair and beauty services near your location with Be U Salons. Enjoy premium services at reasonable prices."/>
+</head>
+
+
+<style>
+
+
+
+</style>
+<div layout="column">
+    <div flex class="offerPage-container-back">
+        <div  flex="100" layout-align="center" layout-sm="row" layout-md="row" layout-lg="row" layout-xl="row" flex-xs="100" style="padding-top: 7em;">
+
+            <div layout="row"  flex="75" flex-xs="100" flex-sm="75">
+
+                <div layout="row" flex="100" layout-xs="column" layout-sm="column">
+                    <!-- start Accordion here-->
+                    <div flex="35" flex-xs="100" flex-sm="100"  class="offerPage-pages-border">
+                        <div layout="row" flex class="offerPage-pages-padding">
+                            <md-switch id="maleFemale" ng-model="gend" aria-label="Switch 2" ng-true-value="'M'" ng-false-value="'F'" ng-change="genderFilter(gend)"  class="parler-switch switchColorChangeClassMale switchColorChangeClassFemale" ng-class="{moustacheClass:gend=='M',lipClass:gend=='F'}" style="display: inline;">
+                            </md-switch>
+                            <span  class="offerPage-pages-Servicesfor"> Services for:</span> <span ng-show="gend=='F'" class="offerPage-pages-Servicesfor">Female</span><span ng-show="gend=='M'" style="color:#000;font-size:16px;font-family:latoLight;">Male</span>
+                        </div>
+                        <div layout="row" style="" class="offerPage-pagesDealsNear" flex><span>Deals Near You</span></div>
+                         <v-accordion class="vAccordion--default" id="deals-accordion"  control="accordion">
+                                        <v-pane  ng-repeat="dealsList in accordionDeals " >
+                                            <v-pane-header style="" id="offerPage-pages-dealsList">
+                                                <div flex layout="row"><div style=""> {{ ::dealsList.name }}</div>
+                                                    <div><ng-md-icon  icon="arrow_drop_down" style="fill:#58595b" size="20" ></ng-md-icon></div>
+                                                </div>
+                                            </v-pane-header>
+                                            <v-pane-content>
+                                                <div layout="row" ng-repeat="dealsServicesList in dealsList.services | filter:{gender: gend}" class="offerPage-pages-dealsServicesList">
+                                                   <div flex="70">
+                                                    <span style="">{{dealsServicesList.name}}</span>
+
+                                                    </span>
+                                                   </div>
+                                                    <div flex="30" layout="row" >
+                                                        <div layout="row" flex>
+                                                            <div flex="20">
+                                                                <span><ng-md-icon icon="remove" style="fill: #58595b"  size="15" ng-click="!((filteredSalonsArray=='')&&(dealFilterForSalons.deals!=''))&&removeDeal($event,dealsServicesList)"></ng-md-icon></span>
+                                                            </div>
+                                                            <div flex="20">
+                                                    <span ng-model="serv.quantity"  class="quantity" >
+                                                        {{dealsServicesList.quantity}}
+								                    </span>
+                                                            </div>
+                                                            <div flex="60" style="padding-left:4px">
+                                                    <span class="plus-icon"flex="5" ng-click="!((filteredSalonsArray=='')&&(dealFilterForSalons.deals!=''))&&addDeal($event,dealsServicesList)">
+									                     <ng-md-icon icon="add" style="fill: #58595b" size="15"></ng-md-icon>
+								                    </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </v-pane-content>
+                                        </v-pane>
+                                    </v-accordion>
+
+                    </div>
+                    <!-- End Accordion here-->
+                    <!-- Start deal cart here-->
+                        <div flex="75" flex-xs="100" flex-sm="100" style="padding-left:20px;">
+                        <!--======================Search Box Work=============Starts=========================-->
+                        <div layout="row" layout-align="center" flex >
+                            <div layout="column" flex>
+                                <div flex>
+                                    <div layout="row"  flex >
+                                        <div flex="30" flex-sm="30" flex-md="15" flex-lg="15" flex-xl="15">
+                                            <div ><md-button ng-click="detectUserLocation()" id="offerPage-pages-Detect">Detect<span><ng-md-icon style="position: relative;top: 3px;left:3px;fill:#b0b3b5" icon="location_searching" size="18"></ng-md-icon></span></md-button></div>
+                                        </div>
+                                        <div flex-xs="40" flex-sm="40" flex-md="70" flex-lg="70" flex-xl="70">
+                                            <place-autocomplete class="offerPageAutoComplete offerPage-pagesAutocomplate" ng-model="selectedLocation" ></place-autocomplete>
+                                        </div>
+                                        <div  flex-xs="30" flex-sm="30" flex-md="15" flex-lg="15" flex-xl="15">
+                                            <div style="" class="offerPage-pages-search-btn-container">
+                                                <md-button id="offerPage-pages-search-btn">
+                                                    <span>Search</span>
+                                                </md-button>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--======================Search Box Work=============Stops==========================-->
+
+                        <!--======================Chips Work=============Starts==============================-->
+                        <div layout="row" flex style="" class="offerPage-pages-Chips-contaner">
+                            <div flex class="offerPage-pages-Chips">
+                                <md-chips class="custom-chips removeBelowBorder removeBelowFocusBorder crossSizeMdChip mdChipsColor" ng-model="dealFilterForSalons.deals" readonly="reaonly"   md-on-remove="chipRemove($chip,$index)">
+                                    <md-chip-template class="">
+                                                <span>
+                                                    <strong style="" class="offerPage-pages-Chips-font">{{$chip.name}}</strong>
+                                                </span>
+                                    </md-chip-template>
+                                </md-chips>
+                            </div>
+                        </div>
+                        <!--======================Chips Work=============Stops===============================-->
+
+                        <!--=======================Card Work==============Starts=============================-->
+                        <div  flex layout-xs="row" layout-sm="row" layout-md="row" layout-lg="row" layout-xl="row" flex-xs="100" style="" class="offerPage-pages-cart-container">
+                            <md-card-actions flex="100" flex-xs="100" flex-sm="100">
+                                <div flex>
+                                    <md-content flex>
+                                        <div flex>
+                                            <div layout="row" flex>
+                                                <div layout="row" flex="100"  style="" class="offerPage-pages-cart-main">
+                                                    <div flex style="overflow: hidden;">
+                                                        <div  flex="100">
+                                                            <md-card class="listing-box-effect" ng-if="(filteredSalonsArray!='')" md-theme-watch ng-repeat="salon in filteredSalonsArray | orderBy: 'distance':false  " style="padding:15px;" flex="100">
+                                                                <md-card-content ng-click="goToParlorDetail(salon)"  flex class="offerPage-pages-cart-content" flex>
+                                                                    <md-card-title-media>
+
+                                                                    </md-card-title-media>
+                                                                    <div layout="row" flex>
+                                                                        <md-card-actions  class="offerPage-pages-cart-action" flex>
+                                                                            <div layout="row" flex-xs="100"  flex-sm="100" flex-md="100" flex-lg="100" flex-xl="100" class="offerPage-pages-cart-actioncontainer">
+                                                                                <!--card images start-->
+
+                                                                                <div layout="row" flex-xs="40" flex-sm="20" flex-md="30" flex-lg="30" flex-xl="30">
+                                                                                    <div class="md-unstyled-image-deal" style="height: 100%;" flex>
+                                                                                        <img src=" {{salon.parlorImage[0].imageUrl}}" alt="">
+                                                                                        <!--<img src="/website/images/4.jpg">-->
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- card right content-->
+                                                                                <div layout="row" flex-xs="60" flex-sm="80" flex-md="70" flex-lg="70" flex-xl="70" class="offerPage-pages-cart-right">
+                                                                                    <div flex>
+                                                                                        <div layout="column" >
+                                                                                            <div flex>
+                                                                                                <div layout="row" flex="100">
+                                                                                                    <div flex-xs="80" flex-sm="70" flex-md="70"flex-lg="70" flex-xl="70" >
+                                                                                                        <span class="listin-font-size-name"><b>
+                                                                                                        <span class="offerPage-pages-cart-right-name" style="color:#d2232a" ng-if='salon.parlorType==0'>Be U Premium</span>
+                                                                                                        <span class="offerPage-pages-cart-right-name" style="color:blue" ng-if='salon.parlorType==1'>Be U Standard</span>
+                                                                                                        <span class="offerPage-pages-cart-right-name" style="color:#50A956" ng-if='salon.parlorType==2'>Be U Budget</span>
+                                                                                                        - {{salon.parlorName | limitTo:21}}</b></span>
+                                                                                                    </div>
+                                                                                                    <div flex-xs="20"flex-sm="30" flex-md="30" flex-lg="30" flex-xl="30" style="" class="offerPage-pages-cart-right-plus-icon">
+                                                                                                        <span style="color:red"><ng-md-icon icon="place" style="fill: #d2232a" size="20"></ng-md-icon> </span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div flex="100" layout="row" style="">
+                                                                                                    <div flex-xs="80"flex="70" layout="column" >
+                                                                                                        <span class="listin-font-size">{{salon.parlorAddress1 | limitTo:26}}.. </span>
+                                                                                                        <span class="listin-font-size">{{salon.parlorAddress2 | limitTo:26}}.. </span>
+                                                                                                    </div>
+                                                                                                    <div flex-xs="20" flex="30" style="text-align: right;padding-right: 30px;">
+                                                                                                        <span class="salon_dis">{{salon.distance}} kms</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!--<div  class="listin-font-size" flex>
+                                                                                                    <span ><i class="fa fa-clock-o fa-lg" aria-hidden="true"></i><span> 10:00 AM</span> - <span> 10:00 PM</span></span>
+                                                                                                </div>-->
+                                                                                                <div layout="row" id="offerPage-pages-cart-right-watchicon" class="offer-pages-parlor-time" >
+                                                                                                    <div flex="60">
+                                                                                                        <div  class="listin-font-size" flex>
+                                                                                                            <span ><i class="fa fa-clock-o fa-lg" aria-hidden="true"></i><span> {{salon.openingTime}} AM</span> - <span> {{salon.closingTime}} PM</span></span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div flex="40" class="listin-font-size" style="text-align: right;padding-right:30px;">
+                                                                                                        <span style="color:#58595b;font-family: latoLight;">Rating</span>
+                                                                                                        <span ng-if="salon.rating==1">&nbsp; Blah</span>
+                                                                                                        <span ng-if="salon.rating==2">&nbsp; Not Bad</span>
+                                                                                                        <span ng-if="salon.rating==3">&nbsp; Decent</span>
+                                                                                                        <span ng-if="salon.rating==4">&nbsp; Awesome</span>
+                                                                                                        <span ng-if="salon.rating==5">&nbsp; Super Awesome</span>
+                                                                                                        <!--<span style="font-size:11px;background-color: green;color: white;padding:0.2em;#58595b;">{{salon.rating}}</span>-->
+                                                                                                        <!--<span style="font-size:11px;color:orange"><i class="fa fa-star-o" aria-hidden="true"></i> </span><span style="font-size:11px;">{{salon.rating}}</span>-->
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </md-card-actions>
+                                                                    </div>
+                                                                    <div flex class="offerPage-pages-cart-service">
+                                                                        <div layout="row" flex>
+                                                                            <div layout="column"  flex>
+                                                                                <div flex>
+                                                                                    <div layout="row"  ng-repeat="service in salon.deals" ng-if="$even" >
+                                                                                        <div flex="50" class="listing-deal-font" class="offerPage-pages-cart-service-name">
+                                                                                            {{service.name}}
+                                                                                        </div>
+                                                                                        <div flex="50" class="list-deal-r offerPage-pages-cart-service-menuprice">
+                                                                                            <strike style="color:#A1A1A1" ><span style="color:#a1a1a1a1"><i class="fa fa-inr " aria-hidden="true"></i></span> <span style="color:#a1a1a1;">{{service.menuPrice}}</span></strike>  <i class="fa fa-inr " aria-hidden="true"></i> <b>{{service.price}}</b>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div layout="column" flex>
+                                                                                <div   flex>
+                                                                                    <div layout="row" ng-repeat="service in salon.deals" ng-if="$odd">
+                                                                                        <div flex="50" class="listing-deal-font offerPage-pages-cart-salondeals" >
+                                                                                            {{service.name}}
+                                                                                        </div>
+                                                                                        <div flex="50" class="list-deal-r offerPage-pages-cart-service-menuprice">
+                                                                                            <strike style="color:#A1A1A1" ><span class="offerPage-pages-cart-sevice-price"><i class="fa fa-inr " aria-hidden="true"></i></span> <span class="offerPage-pages-cart-sevice-price">{{service.menuPrice}}</span></strike>  <i class="fa fa-inr " aria-hidden="true"></i> <b>{{service.price}}</b>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div layout="row" flex="100">
+                                                                            <div layout="row"   flex="100" style="margin-bottom:8px;padding-right: 30px;padding-top: 3%;">
+                                                                                <div flex-xs="30"flex="50" style="" class="offer-price-save">
+                                                                                    <span style="" class="offerPage-pages-cart-salondealPrice">Save {{(((salon.menuPrice-salon.dealPrice)/salon.menuPrice)*100) | limitTo: 4 | number:0}}%</span>
+                                                                                </div>
+                                                                                <div layout="row" flex-xs="70" flex="50">
+                                                                                    <div flex>
+                                                                                        <span style="" class="offerPage-pages-cart-GrandTotal">Grand Total</span>
+                                                                                    </div>
+                                                                                    <div layout="row" flex layout-align="end" style="">
+                                                                                        <strike style="color:#A1A1A1;font-size: 13px;"><span class="offerPage-pages-cart-sevice-price"><i class="fa fa-inr " aria-hidden="true"></i><span class="offerPage-pages-cart-sevice-price">{{salon.menuPrice}}</span></span></strike>&nbsp;<span style="font-size: 13px;font-family:latoLight;color:#58595b;"><i class="fa fa-inr " aria-hidden="true"></i><span>{{salon.dealPrice}}</span></span>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </md-card-content>
+                                                            </md-card>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </md-content>
+                                </div>
+                            </md-card-actions>
+                        </div>
+                        <!--========================Card Work==============Stops=============================-->
+
+                        <!--========================Buffer Work===========Starts=============================-->
+                        <!--<div layout="row" flex  ng-if="(filteredSalonsArray=='')&&(dealFilterForSalons.deals!='')" layout-align="center">
+                            <md-progress-circular ng-disabled="false" class="md-accent bufferColor" md-diameter="80" style="position: absolute;z-index: 2;top: 50%;left: 56%;"></md-progress-circular>
+                        </div>-->
+                        <div layout="row" flex ng-if="(filteredSalonsArray=='')&&(dealFilterForSalons.deals.length==0 || dealFilterForSalons.deals!='')"   layout-align="center" hide-sm hide-md hide-lg hide-xl style="padding-bottom: 80px;">
+                             <md-progress-circular ng-disabled="false" class="md-accent bufferColor" md-diameter="30" style="position: relative;z-index: 2;top: 50%;left:0%;"></md-progress-circular>
+                        </div>
+                        <div layout="row" flex ng-if="(filteredSalonsArray=='')&&(dealFilterForSalons.deals.length==0 || dealFilterForSalons.deals!='')"   layout-align="center" hide-xs style="padding-bottom: 80px;">
+                             <md-progress-circular ng-disabled="false" class="md-accent bufferColor" md-diameter="80" style="position: relative;z-index: 2;top: 50%;left:0%;"></md-progress-circular>
+                        </div>
+                        <!--<div layout="row" ng-if="dealFilterForSalons.deals==''" layout-align="center" flex>
+                            <span style="font-size: 20px;color: #cccccc;">Please select the deals first</span>
+                        </div>-->
+                        <!--========================Buffer Work===========Stops==============================-->
+                   </div>
+                    <!--  End deal cart here-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

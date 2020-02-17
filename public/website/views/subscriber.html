@@ -1,0 +1,172 @@
+<style>
+md-radio-button {
+    box-sizing: border-box;
+    display: block;
+     margin-bottom:0px;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+}
+.subscription-backg{
+
+  background-color: #b98d00;
+}
+.subscription-font{
+  color:#fff;
+  text-align: center;
+  font-size: 1.2em;
+
+  }
+
+
+    .add{
+        font-size: 18px;
+    }
+    .progressBar{
+        position: absolute;
+        justify-content: center;
+        position: absolute;
+        justify-content: center;
+        top: 53%;
+        left: 45%;
+        z-index: 10;
+    }
+
+
+
+.vAccordion--default v-pane-header {
+    padding: 5px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #b98d00;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+}
+
+.fontcolorsame{
+  color:#58595b;
+}
+.md-on, md-radio-button:not([disabled]).md-primary .md-on {
+    background-color:#b98d00;
+}
+md-radio-button:not([disabled]).md-primary.md-checked .md-off {
+    border-color: #b98d00;
+}
+.subscription-Recommended{padding-top: 1%;padding-bottom: 7%;margin-left: 32px;font-size: 10px;}
+	#contactSubmit{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    width:auto;
+    background-color: #d2232a;
+    margin-bottom: 1%;
+    color: white;
+    text-transform: capitalize;
+  }
+</style>
+<!-- <div class="progressBar" layout-padding layout-wrap > -->
+    <div layout="row" layout-sm="column" layout-align="space-around"  ng-if="loader" style="padding-top:17em;">
+        <md-progress-circular ng-disabled="false" class="md-accent bufferColor" md-diameter="70"></md-progress-circular>
+    </div>
+<!-- </div> -->
+<div ng-cloak>
+    <md-content ng-if="!loader" layout-padding layout-wrap flex-sm="60" flex="40" flex-xs="100" flex-offset-xs="0" flex-offset-sm="20" flex-offset="30" style="padding-bottom:2%;padding:0px;border-top: 2px solid #b98d00;">
+      <div layout="row" layout-align="center" style="padding-top: 5em;" ng-if="userInfo.profilePic">
+        <img src="{{userInfo.profilePic}}" alt="" style="height:6em;width:6em;border-radius:50%;">
+      </div>
+      <div layout="row" layout-align="center" style="padding-top: 5em;"  ng-if="!userInfo.profilePic">
+        <img src="/images/men.png" alt="" style="height:6em;width:6em;border-radius:50%;">
+      </div>
+      <div layout="row" layout-align="center" style="padding-top:0;padding-bottom: 0;">
+        <span style="font-weight:bold;">Hi {{userInfo.name}}</span>
+      </div>
+      <div layout="row" layout-align="center" style="padding-top:0;">
+        <span>You Are A {{userInfo.subscriptionType}} Subscriber</span>
+      </div>
+
+      <div layout="row" flex="80" flex-offset="10" flex-xs="90" flex-offset-xs="5" layout-align="center" style="padding:0;border: 2px solid #b98d00;border-radius: 7px;margin-bottom: 1em;">
+        <div layout="column" flex="100">
+          <div class="subscriberDetails" flex="50" style="text-align:center; border-right: 2px solid #b98d00;border-bottom: 2px solid #b98d00;padding-top:0.3em;padding-bottom:0.3em;">
+            <span style="font-weight:bold;">Valid From - </span><span>{{userInfo.validFrom}}</span>
+          </div>
+          <div class="subscriberDetails" flex="50" style="text-align:center;border-right: 2px solid #b98d00;padding-top:0.3em;padding-bottom:0.3em;">
+            <span style="font-weight:bold;">Annual Balance - </span><span>{{userInfo.annualBalance}}</span>
+          </div>
+        </div>
+        <div layout="column" flex="100">
+        <div class="subscriberDetails" flex="50" style="text-align:center;border-bottom: 2px solid #b98d00;padding-top:0.3em;padding-bottom:0.3em;">
+          <span style="font-weight:bold;">Valid Till - </span><span>{{userInfo.validTill}}</span>
+        </div>
+        <div class="subscriberDetails" flex="50" style="text-align:center;padding-top:0.3em;padding-top:0.3em;padding-top:0.3em;padding-bottom:0.3em;">
+          <span style="font-weight:bold;">This Month Balance - </span><span>{{userInfo.monthlyBalance}}</span>
+        </div>
+      </div>
+    </div>
+    <div layout="row" layout-align="center" style="padding-top:0;">
+        <md-button id="contactSubmit"  ng-click="newSalonDeals()">Explore Our Exciting Deals And Offers</md-button>
+    </div>
+    </md-content>
+
+  <md-content  ng-if="!loader" layout-padding layout-wrap flex-sm="60" flex="40" flex-xs="100" flex-offset-xs="0" flex-offset-sm="20" flex-offset="30" style="padding-bottom:2%;padding:0px;border-top: 2px solid #b98d00;">
+        <div layout="row" flex="100" style="background:#fff;">
+            <div style="text-align:center;color:#58595b;font-weight:bold;padding-bottom:0px" flex="100">{{s}}</div>
+          </div>
+          <div layout="row" flex="100" style="background:#fff;padding:0px;">
+            <div style="text-align:center;color:#58595b;font-weight:bold;padding-bottom:0px;margin-top: -9px;" flex="100">{{haf}}</div>
+          </div>
+        <div layout="row" flex="100" style="background:#fff;padding-bottom:2%;" ng-repeat="z in availSteps.steps track by $index">
+          <div flex='10'>
+              <div><img src="{{z.icon}}" alt="icom" style="width: 60%;"></div>
+          </div>
+          <div flex='90'>
+            <div style="color:#b98d00;font-weight:bold;">{{z.title}}</div>
+            <div style="color:#58595b;font-size: 12px;">{{z.content}}</div>
+          </div>
+          </div>
+      </md-content>
+    <md-content  ng-if="!loader"  layout-padding layout-wrap flex-sm="60" flex="40" flex-xs="100" flex-offset-xs="0" flex-offset-sm="20"  flex-offset="30"style="background-color:#fff;padding:0px;">
+    <div layout="row"   style="background-color: gainsboro;">
+        <div flex="100" style="text-align: center;padding-top: 2%;padding-bottom: 2%;color: #000;text-transform: uppercase;" >{{faq}} </div>
+    </div>
+    <md-content style="background-color:#fff;padding-bottom:2%;padding:16px;">
+
+
+            <v-accordion class="vAccordion--default" control="accordion"   onexpand="expandCallback(index, id)"  oncollapse="collapseCallback(index)">
+                <v-pane ng-repeat="pane in panes">
+                    <v-pane-header>
+                        <div layout="row">
+                            <div flex="5" style="margin-top:1%;">
+                                <img src="images/plus.png" ng-if="!pane.flag" style="width: 0.9em" />
+                                <img src="images/minus.png" ng-if="pane.flag" style="width: 0.9em" />
+                            </div>
+
+                            <div style="margin: 1%;color:#58595b;font-size: 12px;font-weight:800">{{pane.question}}</div>
+                        </div>
+
+
+                    </v-pane-header>
+
+                    <v-pane-content>
+
+                       <div style="margin-left:4%;font-size:11px;color:#58595b;">
+                           {{pane.answer}}
+                       </div>
+                    </v-pane-content>
+
+                </v-pane>
+
+
+
+            </v-accordion>
+
+
+
+        </div>
+
+
+    </md-content>
+    <div layout="row"  style="position: fixed;z-index: 999;top:91%;left: 0%;width: 100%;" hide-sm hide-md hide-lg>
+          <div flex="100" style="background-color: #64a422;text-align: center;padding-top:5%;padding-bottom:15%;color: #fff;text-transform: uppercase;" ng-click="paySubscription(selectedSub.amount,selectedSub.title)">Buy {{selectedSub.title}} Subscription @ {{selectedSub.amount}}  </div>
+    </div>
+  </md-content>
+  </md-content>
+
+</div>

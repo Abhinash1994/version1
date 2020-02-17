@@ -1,0 +1,76 @@
+<style>
+		h3{
+			text-align:center;
+		}
+		.ta{
+			width:100%;
+			height:500px;
+			overflow: scroll;
+		}
+
+		  th, td { white-space: nowrap; }
+    div .dataTables_wrapper {
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    .check{
+    	background-color: cornflowerBlue;
+    	color:white;
+    	padding:3px;
+    }
+</style>
+
+<h3>Customer Month Cohort</h3>
+<!--
+<div class="row">
+    <div class="col-md-offset-2 col-md-2">
+        
+        Select Salon
+    
+    </div>
+	<div class=" col-md-3">
+		<select  ng-model="selectedParlor" class="form-control" ng-change="filter()" ng-options="parlor._id as parlor.name for parlor in parlors">
+		</select>
+	</div>
+
+</div>
+-->
+<div class="row">
+ <div class="col-md-offset-3 col-md-4">
+    <button class="btn btn-link btn-md" ng-click="exportToExcel('#tableToExport')" style="margin-left: -10px;border: 0;">
+            <span class="glyphicon glyphicon-share"></span>
+            Export to Excel
+    </button>
+  </div>
+</div>
+
+<div style="width:100%;height:500px;overflow:scroll;">
+
+	<table class="table"  class="stripe row-border order-column"  id="tableToExport"  cellspacing="0" width="100%">
+
+		<thead>	
+				<th id="firstRowFirstCell" >Month Name</th>
+				<th id="firstRowSecondCell"  ng-repeat-start="m in monthlyCohort">{{monthNames[m.month]}} Count</th>
+				<th  >{{monthNames[m.month]}}  Revenue</th>
+                <th ng-repeat-end>{{monthNames[m.month]}}  Services</th>
+				<th>Total Count </th>
+				<th>Total Revenue</th>
+
+		</thead>
+		<tbody>
+				<tr ng-repeat=" m in monthlyCohort" ng-init="b=$index;i=0">
+						<td>{{monthNames[m.month]}}</td>
+						<td ng-repeat-start="c in monthlyCohort"><span ng-if="b==$index;" >{{c.uniqueClients |number:1}}</span><span class="check" ng-if="m.repeatedClients[0][$index].count" >{{m.repeatedClients[0][$index].count}}</span></td>
+						<td ><span ng-if="b==$index">{{c.uniqueRevenue |number:1}}</span><span class="check" ng-if="m.repeatedClients[0][$index].payableAmount"  >{{m.repeatedClients[0][$index].payableAmount |number:0}}</span></td>
+                        <td ng-repeat-end><span ng-if="b==$index">{{c.servicesLength |number:1}}</span><span class="check" ng-if="m.repeatedClients[0][$index].services"  >{{m.repeatedClients[0][$index].services |number:0}}</span></td>
+						<td>{{m.total}}</td>
+						<td>{{m.totalRevenue |number:0}}</td>
+				</tr>
+
+		</tbody>
+
+
+	</table>
+
+</div>

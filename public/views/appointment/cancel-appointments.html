@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Cancelled Appointments</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="container">
+<div class="row">
+    <div class="col-md-3 col-lg-3 col-md-offset-2">
+        <h4>Select Date Range</h4>
+    </div>
+    <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+        <input date-range-picker  name="daterange1" class="date-picker " type="text" id="inputbox-servicereport1" ng-model="filter.date"  required/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-lg-12 col-md-offset-3"><button class="btn btn-primary" id="apply-btnservice"  ng-click="applyFilter()">Apply Filter</button></div>
+</div>
+</div>
+<div class="card">
+	<div class="container-fluid">
+<div class="row">
+        <div class="form-inline row col-md-12 col-lg-12 col-md-offset-4" >
+            <input type="text" ng-model="query" class="form-control" id="focusedInput" placeholder="Search" style="margin-left: -10px">
+            <button class="btn btn-link btn-md" ng-click="exportToExcel('#tableToExport')" style="margin-left: -10px;border: 0;">
+                    <span class="glyphicon glyphicon-share"></span>
+                    Export to Excel
+            </button>
+        </div>
+</div>
+<!--
+		<div class="form-inline row" style="text-align:right">
+			<input type="text" ng-model="query" class="form-control" placeholder="Search">
+			<button type="button" class="btn" ng-csv="data" csv-column-order="order" csv-header="['Date','No of Appointments','Total Revenue', 'Total Services', 'Total Products','Total Memberships','Package','Total Tax']" filename="Revenue Report.csv">Export as CSV</button>
+        </div>
+-->
+		<div class="table-responsive">
+			<table ng-table="tableParams" class="table table-striped table-hover" show-filter="false" id="tableToExport">
+				<tr ng-repeat="appt in $data | filter : query">
+					<td title="'Parlor Name'" sortable="'name'">
+						{{appt.parlorName}}</td>
+					<td title="'Client Name'" sortable="'itemId'">
+						{{appt.client.name}}</td>
+					<td title="'Client PhoneNumber'" sortable="'itemId'">
+						{{appt.client.phoneNumber}}</td>
+					<td title="'Booked From'" sortable="'itemId'">
+						{{appt.appointmentType}}</td>
+					<td title="'Status'" sortable="'itemId'">
+						{{appt.status}}</td>
+					<td title="'Services'" sortable="'itemId'">
+						{{appt.services}}</td>
+					<td title="'Total Amount'" sortable="'sellingPrice'">
+							{{(appt.subtotal+ appt.subscriptionAmount)|number:0}}</td>
+					<td title="'Date Time'">
+							{{appt.startsAt | date :  "medium"}}</td>
+					
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,50 @@
+<style>
+    h3{
+        text-align: center;
+    }
+    th{
+        text-align:center;
+    }
+    td{
+        text-align:center;
+    }
+
+</style>
+
+
+<h3>Seller Items</h3>
+<div class="row">
+    <div class="col-md-offset-2 col-md-2">
+        <label>Select Sellers</label>
+    </div>
+    <div class="col-md-3">
+        <select  class="form-control" ng-change="getItems()" ng-model="parlor.selected" ng-options="a._id as a.name for a in  sellerData"></select>
+        
+    </div>
+<div class="col-md-offset-2 col-md-3">
+    <button type="button" name="button" class="btn btn-default" ng-click="exportToExcel('#myTable')">Export to Excel</button>
+</div>
+</div>
+<div class="row"  style="margin:10px">
+    <div class="col-md-12">
+      <table class="table" id="myTable">
+          <thead>
+              <tr>
+                <th>Item Name</th>
+                  <th>Item Id</th>
+              </tr>
+            </thead>
+          <tbody>
+                    <tr>
+                            <td colspan="2">Seller Name : {{seller.name}}</td>
+              
+                    </tr>
+                <tr ng-repeat="sellers in seller.items">
+                    <td>{{sellers.name}}</td>
+                    <td>{{sellers.itemId}}</td>
+              </tr>
+          
+          </tbody>
+        </table>      
+    </div>
+</div>

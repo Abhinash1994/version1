@@ -1,0 +1,273 @@
+<style type="text/css">
+  #mySelect{
+     padding: 3px;
+    width: 25%;
+    margin-top: 7px;
+  }
+  .yearSelect{
+      padding: 3px;
+    width: 25%;
+    margin-top: 7px;
+  }
+  h1{
+    text-align: center;
+    
+  }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Teams</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#addMember">
+            Add New Member
+        </button>
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Current Team Members
+                
+            </div>
+
+            <!-- /.panel-heading -->
+            
+              
+                <div class="dataTable_wrapper table-responsive">
+                    <table class="table table-hover table-bordered" id="tableId">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone Number</th>
+                                <th>Category</th>
+                                <th>Position</th>
+                                <th>Active</th>
+                                <th ng-if="role==7">Salon Incentive</th>
+							    <th>Check-In Time</th>
+                                <th>Today's Working Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="" ng-repeat="m in members">
+                                <td ng-click="openMemberDetail(m.userId, m.name)">{{m.name}}</td>
+                                <!-- <td ng-click="openMemberDetail(m.userId, m.name)">{{m.emailId}}</td> -->
+                                <td ng-click="openMemberDetail(m.userId, m.name)">{{m.phoneNumber}}</td>
+                                <td ng-click="openMemberDetail(m.userId, m.name)">{{m.category}}</td>
+                                <td ng-click="openMemberDetail(m.userId, m.name)">{{m.position}}</td>
+                                <!-- <td ng-click="openMemberDetail(m.userId, m.name)">{{m.type}}</td> -->
+                                <td><input type="checkbox" ng-model="m.active" name="active" value="{{m.active}}" ng-checked="m.active" ng-change="changeActive(m.userId, m.active)"></td>
+                                <th ng-if="role==7"><input type="checkbox" ng-model="m.salonIncentive" name="active" value="{{m.salonIncentive}}" ng-checked="m.salonIncentive" ng-change="changeIncentiveForSalon(m.userId, m.salonIncentive)"></th>
+                                <!-- <td><a ui-sref="dashboard.leave({userId : m.userId})">Leave</a></td> -->
+								<td>{{m.checkInTime  | date:'short' }}</td>
+								<td>{{m.todayWorkingHours}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+
+         <!-- /Download Employees Attendance -->
+
+          <div class="Attendance" style="background-color: #fff;padding:20px">
+              <h1> Download Employees Attendance </h1>
+            <div class="panel-body">
+               <div class="row" style="padding-bottom:2%;">
+                 <div class="col-md-5" style="text-align: right;font-size: 17px;padding-top: 1%">Select Month</div>
+                  <div class="col-md-7">
+                     <select name="mySelect" id="mySelect"
+                         ng-options="option.name for option in months"
+                         ng-model="data.month" >
+                    </select>
+                </div>
+             </div>
+
+              <div class="row" style="padding-bottom:2%;">
+                 <div class="col-md-5" style="font-size: 17px;padding-top: 1%;text-align: right;">
+                 Select Year</div>
+                  <div class="col-md-7">
+                    <select class="setelment-report yearSelect"  ng-model="item1" 
+                     ng-options="item1 for item1 in year">
+                    </select>
+                </div>
+
+              </div>
+          <div class="row">
+                   <button class="btn btn-primary" ng-click="submitEmp()" style="margin-left: 32%;">Submit</button>
+                   <button class="btn btn-primary" ng-csv="loadData()" csv-header='["Name","Date","From","To","CenterName"]' filename="empAttendance.csv">Export To Excel</button>
+                
+              </div>
+      </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+
+<div class="modal fade" id="addMember" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Add New Team Member</h4>
+                              </div>
+                              <form role="form" ng-submit="addMember()">
+                              <div class="modal-body">
+                                  <div class="row">
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>First Name*</label>
+                                                  <input ng-model="data.firstName" class="form-control" required>
+                                              </div>
+                                          </div>
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Last Name</label>
+                                                  <input ng-model="data.lastName" class="form-control">
+                                              </div>
+                                          </div>
+                                          <!-- <div class="col-lg-6"> -->
+                                              <!-- <div class="form-group"> -->
+                                                  <!-- <label>Email Id</label> -->
+                                                  <!-- <input ng-model="data.emailId" class="form-control"> -->
+                                              <!-- </div> -->
+                                          <!-- </div> -->
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Phone Number*</label>
+                                                  <input ng-model="data.phoneNumber" class="form-control" required>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Password*</label>
+                                                  <input ng-model="data.password" class="form-control" required>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Gender*</label>
+                                                  <select class="form-control" required ng-model="data.gender">
+                                                      <option value="M">M</option>
+                                                      <option value="F">F</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+
+                                          <!-- <div class="col-lg-6"> -->
+                                              <!-- <div class="form-group"> -->
+                                                  <!-- <label>Age</label> -->
+                                                  <!-- <input ng-model="data.age" class="form-control"> -->
+                                              <!-- </div> -->
+                                          <!-- </div> -->
+
+                                           <!-- <div class="col-lg-6"> -->
+                                              <!-- <div class="form-group"> -->
+                                                  <!-- <label>Break Interval*(in hrs)</label> -->
+                                                  <!-- <input ng-model="data.breakHr" type="number" class="form-control" ng-init="data.breakHr=1" required> -->
+                                              <!-- </div> -->
+                                          <!-- </div> -->
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Employee Category*</label>
+                                                  <select class="form-control" required ng-model="data.role" required>
+                                                      <option value="2">Manager</option>
+                                                      <option value="3">Receptionist</option>
+                                                      <option value="4">Stylist</option>
+                                                      <option value="5">Helper</option>
+                                                      <option value="6">Masseuse</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Position</label>
+                                                  <input ng-model="data.position" class="form-control" >
+                                              </div>
+                                          </div>
+
+                                             <!-- <div class="col-lg-6"> -->
+                                              <!-- <div class="form-group"> -->
+                                                  <!-- <label>Type*</label> -->
+                                                  <!-- <select class="form-control" required ng-model="data.type" required> -->
+                                                      <!-- <option value="1">Employee</option> -->
+                                                      <!-- <option value="2">Commission Based Only</option> -->
+                                                  <!-- </select> -->
+                                              <!-- </div> -->
+                                          <!-- </div> -->
+
+                                             <!-- <div class="col-lg-6"> -->
+                                              <!-- <div class="form-group"> -->
+                                                  <!-- <label>Commission if any*</label> -->
+                                                  <!-- <input ng-model="data.employeeFixedCommission" class="form-control" required> -->
+                                              <!-- </div> -->
+                                          <!-- </div> -->
+
+
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Salary*</label>
+                                                  <input ng-model="data.salary" class="form-control" required>
+                                              </div>
+                                          </div>
+
+
+                                          <!-- <div class="col-lg-6"> -->
+                                              <!-- <div class="form-group"> -->
+                                                  <!-- <label>Street Line 1</label> -->
+                                                  <!-- <input ng-model="data.streetLine1" class="form-control"> -->
+                                              <!-- </div> -->
+                                          <!-- </div> -->
+
+                                          <!-- <div class="col-lg-6"> -->
+                                              <!-- <div class="form-group"> -->
+                                                  <!-- <label>Street Line 2</label> -->
+                                                  <!-- <input ng-model="data.streetLine2" class="form-control"> -->
+                                              <!-- </div> -->
+                                          <!-- </div> -->
+
+                                          <!-- <div class="col-lg-6"> -->
+                                              <!-- <div class="form-group"> -->
+                                                  <!-- <label>City</label> -->
+                                                  <!-- <input ng-model="data.city" class="form-control"> -->
+                                              <!-- </div> -->
+                                          <!-- </div> -->
+
+                                          <div class="col-lg-6">
+                                              <div class="form-group">
+                                                  <label>Joining Date*</label>
+                                                  <input type="date" ng-model="data.joiningDate" value="2016-06-01">
+                                              </div>
+                                          </div>
+
+                                          <!-- <div class="col-lg-6"> -->
+                                              <!-- <div class="form-group"> -->
+                                                  <!-- <label>Addresss Id Proof image</label> -->
+                                                  <!-- <input type="file" ng-model="addressProofFile" accept="image/x-png, image/jpeg"> -->
+                                              <!-- </div> -->
+                                          <!-- </div> -->
+                                      <!-- /.col-lg-6 (nested) -->
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Add</button>
+                              </div>
+                          </form>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>

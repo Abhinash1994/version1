@@ -1,0 +1,64 @@
+<div class="row">
+    
+    <h3>Subscription Cohort </h3>
+</div>
+<div class="row">
+<!--
+        <select ng-model="selected.value" ng-options="item for item in selected"></select>
+    {{selected.value}}
+-->
+    <div class="col-md-4">
+    
+         <select class="form-control " ng-model="selected.selectedm"  ng-options="obj.value as obj.text for obj in selected"></select>
+        <button ng-click="submit(selectedm)">Submit</button>
+    </div>
+   
+  
+    
+    
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+            
+                <th rowspan="2" rowspan="2">
+                 Month
+                </th>
+                 <th rowspan="2" cospan="2">
+                        No. of Subs. Sold
+
+
+                </th>
+                <th></th>
+                
+                <th  colspan="4">
+                            No. of Clients visited
+                        <tr>
+                             <th rowspan="" ng-repeat="h in t">
+                                    {{h.month}}
+                            </th>
+                        </tr>
+                    
+                </th>
+             
+
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in data">
+                    <td>{{x.month}}</td>
+                    <td>{{x.subcribers}}</td>
+                    <td ng-repeat="y in x.repeatedSubscribers[0] track by $index"><br>Count:{{y.count}}<br>Total Redemption:{{y.totalRedemption}}<br>Total Revenue:{{y.totalRevenue|number:0}}</td>
+                  
+                </tr>
+                
+            
+            </tbody>
+        
+        </table>
+    
+    
+    </div>
+
+</div>

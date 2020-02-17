@@ -1,0 +1,383 @@
+
+<update-title title="Be U Salons Deals and Offers | Premium salon chain in Delhi|NCR & Bengalore"></update-title>
+<update-meta name="description" content="Be u salons, provides best salon deals on salon services at different be u salon outlets. Hair rebonding deals, Hair straightening deals, Hair keratin deals are top sellig deals of be u salons at very low prices at 80+ outlets all over Delhi-Ncr & Bangalore."></update-meta>
+
+<update-meta property="og:title" content="Best and low price deals for Men & Women by be u salons on Hair & Beauty services at your nearest BeU salon outlet. Great deals with huge discounts on facial, keratin, manicure & pedicure, smoothening, straightening, highlights in Delhi NCR and Bengalore."></update-meta>
+
+
+<style media="screen">
+  #contactSubmit{
+        width: 100%;
+  }
+.grow {
+   transition: all .2s ease-in-out;
+ }
+.grow:hover {
+   transform: scale(1.01);
+   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+*{
+  line-height:1.9em !important;
+}
+.heightAuto{
+  height:auto!important;
+}
+</style>
+<!--=========================Search==========starts=====================-->
+
+<!--=========================Search==========stops=====================-->
+<!-- Title -->
+
+  <div layout-align="center" class="specTwo " style="padding-top: 4em;padding-bottom:0;" >
+      <div layout="row" layout-align="center center" flex-xs="100" flex-sm="100" flex-md="100" flex-lg="100" flex-xl="100" class="bestParlorsTitle">
+          <p class="home-page-heading" style="margin-bottom:0;">Popular Deals</p>
+          <!-- <hr style="border: 1px solid #ccc; background: #7f8c8d;"> -->
+      </div>
+      <div show-xs show-sm hide-md hide-lg hide-xl layout="row" layout-align="center center" flex-xs="100" flex-sm="100" flex-md="100" flex-lg="100" flex-xl="100">
+          <div style="width:25%;border-top:1px solid #FF4B4B;"></div>
+      </div>
+      <div hide-xs hide-sm show-md show-lg show-xl layout="row" layout-align="center center" flex-xs="100" flex-sm="100" flex-md="100" flex-lg="100" flex-xl="100">
+          <div style="width:10%;border-top:1px solid #FF4B4B;"></div>
+      </div>
+  </div>
+
+  <!-- Title -->
+  <!--  progressbar-->
+  <div layout="column">
+        <div layout="row" flex ng-if="showProgressBar" layout-align="center" style="margin: 3em; margin-top:7em">
+            <md-progress-circular ng-disabled="false" class="md-accent bufferColor" md-diameter="80"></md-progress-circular>
+        </div>
+
+  </div>
+  <!--  progressbar-->
+
+<div layout="row" flex="90" flex-offset="5" flex-xs="90" flex-offset-xs="5" flex-gt-lg="70" flex-offset-gt-lg="15"  ng-if="!showProgressBar" ng-cloak>
+  <div  hide-xs hide-sm show-md show-xl show-lg  flex="75" flex-xs="100" flex-sm="100" flex-md="100">
+    <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap style="background: white;">
+      <div flex-gt-xs="33" flex-sm="100" layout="column"  ng-repeat="deal in deals1" style="height:397px;"  ng-class="{heightAuto:deal.checkme}">
+        <md-card class="grow" style="height: 100%;">
+          <img ng-src="{{deal.dealImage}}" class="md-card-image" alt="Washed Out" style="width: 100%;height: 182px;">
+          <md-card-title style="padding: 0;">
+            <md-card-title-text>
+              <md-card-content style="padding-bottom: 0.5em;">
+                <div layout="row" flex="100">
+                  <div flex="10" layout="column" style="margin-right: 0.3em;">
+                    <img src= {{deal.image1}} alt="" style="width:24px;">
+                  </div>
+                  <div flex="80"  layout="column" layout-align:"start center" style="font-size: 17px;font-weight: bold;">
+                     <span>{{deal.name | limitTo:23}}<span>{{deal.name.length > 20 ? '...' : ''}}</span></span>
+                  </div>
+                </div>
+              </md-card-content>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content style="padding-bottom: 5px;">
+            <div layout="row" flex="100">
+              <div flex="70" layout="column">
+                  <span style="font-size:14px">Lowest Price&nbsp<span style="font-size:14px;font-weight:bold;color:#62B462;margin-top: 0.1em;"><i class="fa fa-inr " aria-hidden="true"></i>  {{deal.cutPrice}}   </span></span>
+              </div>
+              <!-- <div flex="30"  layout="column" style="border:1px solid #D2232A;font-size: 13px;font-weight: bold;">
+                <span style="margin:0 auto;font-size: 12px;text-align:center;color:#76787a;">{{deal.discount}}</span>
+              </div> -->
+            </div>
+          </md-card-content>
+          <md-card-content style="padding-left:0; padding-right:0;padding-top:0.5em;padding-bottom:0.5em;">
+            <div layout="row" flex="100">
+              <div flex="60" layout="column"  flex-offset="5" style="background:#FFC640;" layout-align="center center"  ng-if="deal.name=='Rebonding/Straightening/ Smoothening' || deal.name=='Keratin' || deal.name=='Highlights' || deal.name=='Global Color'">
+                <span style="font-weight:bold;font-size:11px;">Flat Price For All Hair Lengths</span>
+              </div>
+              <div flex="25" flex-offset="5" layout="column" style="border:1px solid #D2232A;font-size: 13px;font-weight: bold;">
+                <span style="margin:0 auto;font-size: 12px;text-align:center;color:#76787a;">{{deal.discount}}</span>
+              </div>
+            </div>
+            <!-- <div layout="row" flex="60" flex-offset="5" style="background:#FFC640;" layout-align="center center">
+              <span style="font-weight:bold;font-size:11px;">Flat Price For All Hair Lengths</span>
+            </div> -->
+          </md-card-content>
+          <md-card-content style="padding-top:0;padding-bottom:0em">
+            <div layout="row" flex="100" style="color:#76787a">
+                <p style="margin-bottom: 0.5em;margin-top:0;font-size:11px;" ng-if="!deal.checkme"> {{deal.description | limitTo:40}}<a href="#" style="color:#3DC5F7;pointer:cursor;"><span ng-click="deal.checkme=true;">{{deal.description.length > 40 ? '...more' : ''}}</span></a></p>
+                <p style="margin-bottom: 0.5em;margin-top:0;font-size:11px;" ng-if="deal.checkme">{{deal.description}}<a href="#" style="color:#3DC5F7;pointer:cursor;"><span ng-click="deal.checkme=false;">...less</span></a></p>
+            </div>
+          </md-card-content>
+          <md-divider ></md-divider>
+          <md-card-actions layout="row" layout-align="end center">
+            <div flex="75" layout="row">
+              <div flex="10" layout="column">
+                <!-- <md-button class="md-icon-button" aria-label="Favorite" style="margin-left:0;padding-left:0;cursor:default;"> -->
+                  <md-icon  md-svg-icon="img/icons/favorite.svg"  style="color:#D2232A;min-height:18px;min-width:18px;height: 18px;width: 18px;"></md-icon>
+                <!-- </md-button> -->
+              </div>
+              <div flex="10"  layout="column">
+                <!-- <md-button class="md-icon-button"  style="margin-right: 0;padding-right: 0;cursor:default;margin-left: 0;padding-left: 0;"> -->
+                  <span style="color:#76787a;font-size: 11px;margin-left: 0.2em;margin-top: 0.2em;">{{deal.totalLikes}}</span>
+                <!-- </md-button> -->
+              </div>
+
+            </div>
+
+
+            <!-- <md-button ng-if="($index==activeButton)" class="md-icon-button" aria-label="Favorite" ng-click="heartInactive($index)">
+              <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+            </md-button> -->
+
+            <!-- <md-button> -->
+            <div flex="25">
+              <a href="/best-hair-salon-app"><button type="button" name="button" style="background:transparent;color:#62B462;border:1px solid #62B462;border-radius: 5px;padding: 0em 0.2em;font-size: 14px;" ng-click="buyNowClicked(deal.name,deal.cutPrice)">Buy Now</button></a>
+
+            </div>
+            <!-- </md-button> -->
+          </md-card-actions>
+        </md-card>
+        </div>
+    </md-content>
+  </div>
+  <div hide-xs hide-sm hide-md show-xl show-lg flex="25"  ng-if="!showProgressBar" style="margin-top: 1.5em;">
+    <md-card style="background: #ecf0f1;width:100%;margin:0">
+            <md-card-content>
+              <md-input-container class="md-icon-float chatWindowText">
+                <p style="margin: 0;font-size:12px;margin-bottom: 1em;">Kindly leave your information here, our representative will call you shortly.</p>
+              </md-input-container>
+
+                    <md-input-container class="md-icon-float md-block" style="margin:0">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Name</label>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                        <input ng-model="dialog.queryName"  type="text">
+
+                    </md-input-container>
+
+                    <md-input-container md-no-float class="md-block" style="margin:0">
+                        <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                        <input ng-model="dialog.queryPhoneNumber" type="number" placeholder="Phone Number">
+                    </md-input-container>
+
+                    <md-input-container class="md-block"  style="margin:0">
+                        <!-- Use floating placeholder instead of label -->
+                        <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+
+                        <input ng-model="dialog.queryEmail" type="email" placeholder="Email (Optional)">
+                    </md-input-container>
+                    <md-input-container class="md-block"  style="margin: 0;">
+                      <textarea ng-model="dialog.queryComment" md-maxlength="150" rows="2" md-select-on-focus placeholder="Leave Comment..."></textarea>
+                    </md-input-container>
+                    <!-- <md-input-container  class="md-block" style="margin:0;width:20em;">
+                      <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="cb" class="md-primary"></md-checkbox>
+                      <span style="font-size:12px">I authorize Be U Salons to contact me via email or phone or SMS.</span>
+                    </md-input-container> -->
+                    <md-input-container class="md-block" style="margin:0;text-align:center;width:17em;font-weight:bold;">
+                      <span style="font-size:15px;">{{message}}</span>
+                    </md-input-container>
+                    <div layout="column" flex="100" class="addReviewDialog-page-margin" layout-align="center center">
+                        <md-button id="contactSubmit"  ng-click="websiteQuerySubmit()">Send</md-button>
+                    </div>
+            </md-card-content>
+        </md-card>
+        <md-card style="margin:0; margin-top: 0.5em;">
+          <img ng-src="/images/bannerBestSalonApp2.png" class="md-card-image" alt="Washed Out">
+        </md-card>
+        <md-card style="margin:0; margin-top: 0.5em;">
+          <img ng-src="/images/bannerBestSalonApp1.png" class="md-card-image" alt="Washed Out">
+        </md-card>
+  </div>
+</div>
+
+<!-- Mobile Layout -->
+
+<div hide-lg hide-xl show-xs show-sm hide-md  layout="column" flex="80" flex-offset="10" ng-if="!showProgressBar" style="margin-bottom:1em;">
+  <div flex-sm="100"  ng-repeat="deal in deals1">
+    <md-card class="grow" ng-if="$index==0">
+      <img ng-src="{{deal.dealImage}}" class="md-card-image" alt="Washed Out" style="width: 100%;height: 182px;">
+      <md-card-title style="padding: 0;">
+        <md-card-title-text>
+          <md-card-content style="padding-bottom: 0.5em;">
+            <div layout="row" flex="100">
+              <div flex="10" layout="column" style="margin-right: 0.3em;">
+                <img src= {{deal.image1}} alt="" style="width:24px;">
+              </div>
+              <div flex="80"  layout="column" layout-align:"start center" style="font-size: 17px;font-weight: bold;">
+                 <span>{{deal.name | limitTo:23}}<span>{{deal.name.length > 20 ? '...' : ''}}</span></span>
+              </div>
+            </div>
+          </md-card-content>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content style="padding-bottom: 5px;">
+        <div layout="row" flex="100">
+          <div flex="70" layout="column">
+              <span style="font-size:14px">Lowest Price&nbsp<span style="font-size:14px;font-weight:bold;color:#62B462;margin-top: 0.1em;"><i class="fa fa-inr " aria-hidden="true"></i>  {{deal.cutPrice}}   </span></span>
+          </div>
+          <!-- <div flex="30"  layout="column" style="border:1px solid #D2232A;font-size: 13px;font-weight: bold;">
+            <span style="margin:0 auto;font-size: 12px;text-align:center;color:#76787a;">{{deal.discount}}</span>
+          </div> -->
+        </div>
+      </md-card-content>
+      <md-card-content style="padding-left:0; padding-right:0;padding-top:0.5em;padding-bottom:0.5em;">
+        <div layout="row" flex="100">
+          <div flex="60" layout="column"  flex-offset="5" style="background:#FFC640;" layout-align="center center"  ng-if="deal.name=='Rebonding/Straightening/ Smoothening' || deal.name=='Keratin' || deal.name=='Highlights' || deal.name=='Global Color'">
+            <span style="font-weight:bold;font-size:11px;">Flat Price For All Hair Lengths</span>
+          </div>
+          <div flex="25" flex-offset="5" layout="column" style="border:1px solid #D2232A;font-size: 13px;font-weight: bold;">
+            <span style="margin:0 auto;font-size: 12px;text-align:center;color:#76787a;">{{deal.discount}}</span>
+          </div>
+        </div>
+        <!-- <div layout="row" flex="60" flex-offset="5" style="background:#FFC640;" layout-align="center center">
+          <span style="font-weight:bold;font-size:11px;">Flat Price For All Hair Lengths</span>
+        </div> -->
+      </md-card-content>
+      <md-card-content style="padding-top:0;padding-bottom:0.5em">
+        <div layout="row" flex="100">
+            <p style="margin-bottom: 0.5em;margin-top:0;font-size:11px;" ng-if="($index!=indexValue)">  {{deal.description | limitTo:70}}<a href="#" style="color:#3DC5F7;pointer:cursor;"><span ng-click="moreFunc($index)">{{deal.description.length > 70 ? '...more' : ''}}</span></a></p>
+            <p style="margin-bottom: 0.5em;margin-top:0;font-size:11px;" ng-if="($index==indexValue)">{{deal.description}}<a href="#" style="color:#3DC5F7;pointer:cursor;"><span ng-click="lessFunc($index)">...less</span></a></p>
+        </div>
+      </md-card-content>
+      <md-divider ></md-divider>
+      <md-card-actions layout="row" layout-align="end center">
+        <div flex="75" layout="row">
+          <div flex="10" layout="column">
+            <!-- <md-button class="md-icon-button" aria-label="Favorite" style="margin-left:0;padding-left:0;cursor:default;"> -->
+              <md-icon  md-svg-icon="img/icons/favorite.svg"  style="color:#D2232A;min-height:18px;min-width:18px;height: 18px;width: 18px;"></md-icon>
+            <!-- </md-button> -->
+          </div>
+          <div flex="10"  layout="column">
+            <!-- <md-button class="md-icon-button"  style="margin-right: 0;padding-right: 0;cursor:default;margin-left: 0;padding-left: 0;"> -->
+              <span style="color:#76787a;font-size: 11px;margin-left: 0.2em;margin-top: 0.2em;">{{deal.totalLikes}}</span>
+            <!-- </md-button> -->
+          </div>
+
+        </div>
+
+
+        <!-- <md-button ng-if="($index==activeButton)" class="md-icon-button" aria-label="Favorite" ng-click="heartInactive($index)">
+          <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+        </md-button> -->
+
+        <!-- <md-button> -->
+        <div flex="25">
+          <a href="/best-hair-salon-app"><button type="button" name="button" style="background:transparent;color:#62B462;border:1px solid #62B462;border-radius: 5px;padding: 0.2em; font-size: 14px;" ng-click="buyNowClicked(deal.name,deal.cutPrice)">Buy Now</button></a>
+
+        </div>
+        <!-- </md-button> -->
+      </md-card-actions>
+    </md-card>
+    </div>
+
+   <div hide-lg hide-xl show-xs show-sm show-md flex="100">
+    <md-card style="background: #ecf0f1;width:95%;box-shadow: 0 10px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">
+            <md-card-content>
+              <md-input-container class="md-icon-float chatWindowText">
+                <p style="margin: 0;font-size:12px;margin-bottom: 1em;">Kindly leave your information here, our representative will call you shortly.</p>
+              </md-input-container>
+
+                    <md-input-container class="md-icon-float md-block" style="margin:0">
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Name</label>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                        <input ng-model="dialog.queryName"  type="text">
+
+                    </md-input-container>
+
+                    <md-input-container md-no-float class="md-block" style="margin:0">
+                        <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                        <input ng-model="dialog.queryPhoneNumber" type="number" placeholder="Phone Number">
+                    </md-input-container>
+
+                    <md-input-container class="md-block"  style="margin:0">
+                        <!-- Use floating placeholder instead of label -->
+                        <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+
+                        <input ng-model="dialog.queryEmail" type="email" placeholder="Email (Optional)">
+                    </md-input-container>
+                    <md-input-container class="md-block" style="margin: 0;">
+                      <textarea ng-model="dialog.queryComment" md-maxlength="150" rows="2" md-select-on-focus placeholder="Leave Comment..."></textarea>
+                    </md-input-container>
+                    <!-- <md-input-container  class="md-block" style="margin:0;width:20em;">
+                      <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="cb" class="md-primary"></md-checkbox>
+                      <span style="font-size:12px">I authorize Be U Salons to contact me via email or phone or SMS.</span>
+                    </md-input-container> -->
+                    <md-input-container class="md-block" style="margin:0;text-align:center;width:17em;font-weight:bold;">
+                      <span style="font-size:15px;">{{message}}</span>
+                    </md-input-container>
+                    <div layout="column" flex="100" class="addReviewDialog-page-margin" layout-align="center center">
+                        <md-button id="contactSubmit"  ng-click="websiteQuerySubmit()">Send</md-button>
+                    </div>
+            </md-card-content>
+        </md-card>
+  </div>
+  <div flex-gt-xs="33" flex-sm="100"  ng-repeat="deal in deals1">
+    <md-card class="grow" ng-if="$index!=0">
+      <img ng-src="{{deal.dealImage}}" class="md-card-image" alt="Washed Out" style="width: 100%;height: 182px;">
+      <md-card-title style="padding: 0;">
+        <md-card-title-text>
+          <md-card-content style="padding-bottom: 0.5em;">
+            <div layout="row" flex="100">
+              <div flex="10" layout="column" style="margin-right: 0.3em;">
+                <img src= {{deal.image1}} alt="" style="width:24px;">
+              </div>
+              <div flex="80"  layout="column" layout-align:"start center" style="font-size: 17px;font-weight: bold;">
+                 <span>{{deal.name | limitTo:23}}<span>{{deal.name.length > 20 ? '...' : ''}}</span></span>
+              </div>
+            </div>
+          </md-card-content>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content style="padding-bottom: 5px;">
+        <div layout="row" flex="100">
+          <div flex="70" layout="column">
+              <span style="font-size:14px">Lowest Price&nbsp<span style="font-size:14px;font-weight:bold;color:#62B462;margin-top: 0.1em;"><i class="fa fa-inr " aria-hidden="true"></i>  {{deal.cutPrice}}   </span></span>
+          </div>
+          <!-- <div flex="30"  layout="column" style="border:1px solid #D2232A;font-size: 13px;font-weight: bold;">
+            <span style="margin:0 auto;font-size: 12px;text-align:center;color:#76787a;">{{deal.discount}}</span>
+          </div> -->
+        </div>
+      </md-card-content>
+      <md-card-content style="padding-left:0; padding-right:0;padding-top:0.5em;padding-bottom:0.5em;">
+        <div layout="row" flex="100">
+          <div flex="60" layout="column"  flex-offset="5" style="background:#FFC640;" layout-align="center center"  ng-if="deal.name=='Rebonding/Straightening/ Smoothening' || deal.name=='Keratin' || deal.name=='Highlights' || deal.name=='Global Color'">
+            <span style="font-weight:bold;font-size:11px;">Flat Price For All Hair Lengths</span>
+          </div>
+          <div flex="25" flex-offset="5" layout="column" style="border:1px solid #D2232A;font-size: 13px;font-weight: bold;">
+            <span style="margin:0 auto;font-size: 12px;text-align:center;color:#76787a;">{{deal.discount}}</span>
+          </div>
+        </div>
+        <!-- <div layout="row" flex="60" flex-offset="5" style="background:#FFC640;" layout-align="center center">
+          <span style="font-weight:bold;font-size:11px;">Flat Price For All Hair Lengths</span>
+        </div> -->
+      </md-card-content>
+      <md-card-content style="padding-top:0;padding-bottom:0.5em">
+        <div layout="row" flex="100">
+            <p style="margin-bottom: 0.5em;margin-top:0;font-size:11px;" ng-if="($index!=indexValue)">  {{deal.description | limitTo:70}}<a href="#" style="color:#3DC5F7;pointer:cursor;"><span ng-click="moreFunc($index)">{{deal.description.length > 70 ? '...more' : ''}}</span></a></p>
+            <p style="margin-bottom: 0.5em;margin-top:0;font-size:11px;" ng-if="($index==indexValue)">{{deal.description}}<a href="#" style="color:#3DC5F7;pointer:cursor;"><span ng-click="lessFunc($index)">...less</span></a></p>
+        </div>
+      </md-card-content>
+      <md-divider ></md-divider>
+      <md-card-actions layout="row" layout-align="end center">
+        <div flex="75" layout="row">
+          <div flex="10" layout="column">
+            <!-- <md-button class="md-icon-button" aria-label="Favorite" style="margin-left:0;padding-left:0;cursor:default;"> -->
+              <md-icon  md-svg-icon="img/icons/favorite.svg"  style="color:#D2232A;min-height:18px;min-width:18px;height: 18px;width: 18px;"></md-icon>
+            <!-- </md-button> -->
+          </div>
+          <div flex="10"  layout="column">
+            <!-- <md-button class="md-icon-button"  style="margin-right: 0;padding-right: 0;cursor:default;margin-left: 0;padding-left: 0;"> -->
+              <span style="color:#76787a;font-size: 11px;margin-left: 0.2em;margin-top: 0.2em;">{{deal.totalLikes}}</span>
+            <!-- </md-button> -->
+          </div>
+
+        </div>
+
+
+        <!-- <md-button ng-if="($index==activeButton)" class="md-icon-button" aria-label="Favorite" ng-click="heartInactive($index)">
+          <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+        </md-button> -->
+
+        <!-- <md-button> -->
+        <div flex="25">
+          <a href="/best-hair-salon-app"><button type="button" name="button" style="background:transparent;color:#62B462;border:1px solid #62B462;border-radius: 5px;padding: 0.2em;font-size: 14px;" ng-click="buyNowClicked(deal.name,deal.cutPrice)">Buy Now</button></a>
+
+        </div>
+        <!-- </md-button> -->
+      </md-card-actions>
+    </md-card>
+    </div>
+  </div>

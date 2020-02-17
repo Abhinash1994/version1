@@ -1,0 +1,220 @@
+<style>
+		th{
+			text-align:center;
+		}
+
+		h3{
+			text-align: center;
+		}
+ .setelment-report{
+        height: 40px;
+    }
+</style>
+
+<h3>Weekly Report</h3>
+<div class="row">
+	<div class="col-md-offset-1 col-md-2">
+		<h4>Select Year</h4>
+	</div>
+
+	<div class="col-md-2 ">
+		<select class="weekly-selectdate form-control" ng-model="selectedYear"  ng-options="year.value as year.name for year in years">
+		</select>
+	</div>
+</div>
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-2">
+        <label>Select Daterange</label>
+    </div>
+    <div class="col-md-2">
+         <!--    <select  class="form-control" ng-model="selected.month"  ng-options="a.value as a.month  for a in months" ></select> -->
+             <input date-range-picker id="daterange1" name="daterange1" class="form-control date-picker" type="text" ng-model="dates.date" required/>
+    </div>
+</div>
+
+<div class="row"  style="padding-bottom:2%;">
+   <div class="col-md-3" style="text-align: right;font-size: 17px;padding-top: 1%">Select Salon</div>
+    <div class="col-md-4">
+        <select  class="setelment-report selectsalon"  ng-model="selectedParlor.selectedParlor"  ng-options="parlor.parlorId as parlor.name for parlor in parlorList |orderBy:'name'" ng-change="changeParlor(selectedParlor)">
+        </select>
+    </div>
+    {{parlor}}
+</div>
+
+
+<div class="row id1" ng-if="role == 7">
+	<div class="col-md-offset-1 col-md-2">
+		<h4>Select Salon</h4>
+	</div>
+
+	<div class="col-md-2 " >
+		<select  class="setelment-report selectsalon"  ng-model="selectedParlorId"  ng-options="parlor.parlorId as (parlor.name + ' '+parlor.address1) for parlor in allParlors |orderBy:'name'" ng-change="changeParlor(selectedParlorId)">
+        </select>
+	</div>
+</div>
+
+
+<div class="row" ng-if="role==3">
+	<div class="col-md-offset-1 col-md-2">
+		<h4>Select Parlor</h4>
+	</div>
+
+	<div class="col-md-2 ">
+		<select class="weekly-selectdate form-control" ng-model="selectedParlor.selected"  ng-options="item as item.name for item in parlors" ng-change="selectedParlorfunc()">
+		</select>
+	</div>
+	<div class="col-md-2" >
+			<button class="btn btn-link btn-md" ng-click="exportToExcel('#selector')" style="margin-left: -10px;border: 0;">
+							<span class="glyphicon glyphicon-share"></span>
+							Export to Excel
+			</button>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-offset-1 col-md-3">
+				<button class="btn  btn-primary"  ng-click="monthSelected()">Apply</button>
+	</div>
+
+</div>
+
+
+
+<table class="table" ng-if="salonData.length>0" id="selector">
+	<thead>
+		<tr>
+				<th>{{salonData[0].parlorName}}</th>
+				<th colspan="2" ng-repeat="m in salonData">{{m.weekDate}}</th>
+		</tr>
+		<tr>
+				<th>Parameters</th>
+				<th ng-repeat-start="m in salonData">No Of Services</th>
+				<th ng-repeat-end>Revenue</th>
+		</tr>
+</thead>
+<tbody>
+		<tr>
+				<td>No. Of Tickets</td>
+				<td colspan="2" ng-repeat="m in salonData">{{m.count}}</td>
+
+		</tr>
+		<tr>
+				<td>No. Of Services</td>
+				<td  colspan="2"  ng-repeat="m in salonData">{{m.services}}</td>
+
+
+		</tr>
+		<tr>
+				<td>Avg. Service per Bill </td>
+				<td colspan="2" ng-repeat="m in salonData">{{m.avgBill |number:0}}</td>
+
+		</tr>
+		<!-- <tr>
+				<td>Weekly Revenue Target</td>
+				<td ng-repeat="revenue in salonData" colspan="2">{{revenue.weeklyRevenueTarget |number:2}}</td>
+
+		</tr> -->
+		<tr>
+				<td>Revenue</td>
+				<td colspan="2" ng-repeat="revenue in salonData">{{revenue.serviceRevenue}}</td>
+
+		</tr>
+		<tr>
+				<td>Product Sale</td>
+				<td  colspan="2" ng-repeat="m in salonData">{{m.productRevenue |number:0}}</td>
+		</tr>
+		<!-- <tr>
+				<td>Package Count & amount /Company Level</td>
+				<td ng-repeat-start="m in salonData">{{}}</td>
+				<td ng-repeat-end></td>
+		</tr>
+		<tr>
+				<td>Family Wallet Count & amount / Company Level</td>
+				<td ng-repeat-start="m in salonData">{{m.familyWallet.count}}</td>
+				<td ng-repeat-end>{{m.familyWallet.amount}}</td>
+		</tr>
+		<tr>
+				<td>PO Count & amount /Company Level </td>
+						<td ng-repeat-start="m in salonData">{{m.purchaseOrder.count}}</td>
+				<td ng-repeat-end>{{m.purchaseOrder.amount |number:2}}</td>
+		</tr>
+		<tr>
+				<td>Lucky Draw Count  & Amount / Company</td>
+				<td ng-repeat-start="m in salonData">{{m.luckyDraw.count}}</td>
+				<td ng-repeat-end>{{m.luckyDraw.amount}}</td>
+
+		</tr> -->
+		<tr>
+				<td>Average Ticket Size </td>
+				<td  colspan="2" ng-repeat="m in salonData">{{m.avgTicketSize |number:2}}</td>
+
+		</tr>
+		<tr>
+				<td>Online Average Ticket Size </td>
+				<td colspan="2"   ng-repeat="m in salonData">{{m.appDigital.amount/m.appDigital.count |number:2}}</td>
+
+		</tr>
+		<tr>
+				<td>Online Transactions</td>
+				<td ng-repeat-start="m in salonData">{{m.appDigital.count}}</td>
+				<td ng-repeat-end>{{m.appDigital.amount |number:2}}</td>
+
+		</tr>
+		<tr>
+				<td>Online Transactions  Cash</td>
+				<td ng-repeat-start="m in salonData">{{m.appCash.count}}</td>
+				<td ng-repeat-end>{{m.appCash.amount}}</td>
+
+		</tr>
+			<!-- <tr>
+				<td>Percentage of App Transaction / Company Level</td>
+				<td ng-repeat-start="m in salonData">{{}}</td>
+				<td ng-repeat-end></td>
+
+		</tr> -->
+			<!-- <tr>
+				<td>Be U Salon Cashback</td>
+				<td colspan="2" ng-repeat="m in salonData">{{m.salonCashBack |number:0}}</td>
+			</tr>
+			<tr>
+				<td>Be U Freebies Earning</td>
+				<td colspan="2" ng-repeat="m in salonData">{{m.freeBieEarning |number:0}}</td>
+			</tr> -->
+			<tr>
+				<td>Total Earning From Be U</td>
+				<td colspan="2" ng-repeat="m in salonData">{{m.totalBeuEarning |number:0}}</td>
+			</tr>
+			<tr>
+				<td>Free Hair Cut</td>
+				<td ng-repeat-start="m in salonData">{{m.freeHairCut.count}}</td>
+				<td ng-repeat-end>{{m.freeHairCut.amount |number:2}}</td>
+			</tr>
+			<tr>
+				<td>Free Waxing</td>
+				<td ng-repeat-start="m in salonData">{{m.freeWaxing.count |number:0}}</td>
+				<td ng-repeat-end>{{m.freeWaxing.amount |number:2}}</td>
+			</tr>
+				<tr>
+				<td>New Customer</td>
+				<td ng-repeat-start="m in salonData">{{m.newCustomer.count}}</td>
+				<td ng-repeat-end>{{m.newCustomer.amount |number:2}}</td>
+			</tr>
+			<tr>
+				<td style="border-bottom:2px solid black;">Old Customer</td>
+				<td style="border-bottom:2px solid black;" ng-repeat-start="m in salonData">{{m.oldCustomer.count}}</td>
+				<td style="border-bottom:2px solid black" ng-repeat-end>{{m.oldCustomer.amount |number:2}}</td>
+			</tr>
+			<tr ng-repeat="v in salonData[0].departmentData[0]" ng-init="a=$index">
+						<td><b>{{v.supercategory}}</b></td>
+						<td ng-repeat-start="m in salonData">{{m.departmentData[0][a].count}}</td>
+						<td ng-repeat-end>{{m.departmentData[0][a].price |number:2}}</td>
+
+
+			</tr>
+
+
+
+</tbody>
+
+
+</table>

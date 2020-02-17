@@ -1,0 +1,140 @@
+<style type="text/css">
+	table,th,td{
+		text-align: center;
+	}
+	.newcustomer{
+		text-align: center;
+	}
+	.row1{
+		background: #fff;
+		padding:7px;
+		margin-bottom: 20px;
+	}
+	
+	.row2{
+		 border-right: 1px solid #00000021;
+	}
+	.row2 ul li {
+		list-style: none;
+		
+	}
+	.first_block{
+			padding-left: 15px;
+			 width: 20%;
+		    padding: 5px 10px;
+		    margin: 5px 0;
+		    border: 2px solid #444;
+		    border-radius: 5px;
+		    font-size: 1.1em;
+		    font-weight: bold;
+		    text-align: center;
+		    
+	}
+	.first_block2{
+			padding-left: 15px;
+			 width: 17%;
+		    padding: 5px 10px;
+		    margin: 5px 0;
+		    border: 2px solid #444;
+		    border-radius: 5px;
+		    font-size: 1.1em;
+		    font-weight: bold;
+		    text-align: center;
+		    margin-left: 9%;
+	}
+		.first_block3{
+			padding-left: 15px;
+			 width: 17%;
+		    padding: 5px 10px;
+		    margin: 5px 0;
+		    border: 2px solid #444;
+		    border-radius: 5px;
+		    font-size: 1.1em;
+		    font-weight: bold;
+		    text-align: center;
+		    margin-left: 9%;
+	}
+	#selectable .ui-selected {
+	  background: #F39814;
+	  color: white;
+	}
+</style>
+
+<div class="row row1">
+	<h3 class="newcustomer">Facebook Queries</h3>
+</div>
+
+<div class="col-md-12">
+        <div  class="col-md-3 col-lg-3 col-md-offset-2">
+            	<h4>Select Date</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+
+            <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+                   ng-model="dateRangeSelected" ng-change="dateSelected()"/>
+        </div>
+        <button class="btn btn-primary" id="apply-btn" ng-click="applyqueries()">Apply</button>
+    </div
+</div>
+
+  
+<div class="row">
+	
+<div class="col-md-12">
+	<div  class="table-responsive">
+	
+</div>
+
+<div class="row" style="background: #dbdbdb;color:black;text-align: center;">
+	<div class="col-md-3" >
+		<h4 >Name</h4>
+		
+	</div>
+	<div class="col-md-3">
+		<h4>Phone Number</h4>
+	</div>
+	<div class="col-md-3">
+		<h4>City</h4>
+	</div>
+	
+</div>
+
+
+		<div class="row2">
+			<ul id="selectable" selectable="selection" selectable-list="data" selectable-out="selected" selectable-events="{ stop:'selectionStop($selected)'}">
+  				<li ng-repeat="x in data">{{$index+1}}. {{x.name}}---{{x.phoneNumber}}---{{x.city}}----{{x.createdAt  | date:'fullDate'}}
+  					 <!-- <span class="row">
+  									<span class="col-md-3 first_block">
+  										{{x.name}}
+  									</span>
+  									<span class="col-md-3 first_block2">
+  										{{x.phoneNumber}}
+  									</span>
+  									<span class="col-md-3 first_block3">
+  										{{x.city}}
+  									</span>
+  					</span>	  -->
+  				</li>
+			</ul>
+					
+		</div>
+	
+
+<div class="modal fade" id="allotData" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+				<div class="modal-header">
+					Allot {{selectedCustomers.length}} Customers To
+				</div>
+				<div class="modal-body text-center">
+					<div class="row">
+						   Select Customer Care Nanme <select name="mySelect" id="mySelect"
+							ng-options="option.customerCareId as option.firstName for option in customerCareMembers"
+							ng-model="selectedCustomerCare"></select>
+					</div>
+				
+						<button ng-disabled="!selectedCustomerCare" type="submit" ng-click="allotCustomers(selectedCustomerCare)" class="btn btn-success">Submit</button>
+				</div>
+		</div>
+	</div>
+</div>

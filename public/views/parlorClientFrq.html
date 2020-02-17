@@ -1,0 +1,47 @@
+<style>
+    .common{
+        
+    width: 25%;
+    text-align: center;
+    }
+</style>
+
+<div class="row">
+    <h4>Parlor Client Frequency</h4>
+    
+</div>
+<div class="row">
+
+<div class="col-md-12">
+    <div class="table-responsive" style="height:500px;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="head-color-universal common">Parlor Name</th>
+               <th class="head-color-universal common">Range</th>
+                <th class="head-color-universal common">Count</th>
+                <th class="head-color-universal common">Revenue</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in parlorClient">
+                <td  class="common">{{x.parlorName}}</td>
+                  <td class="common">
+                  <div ng-repeat="y in x.clientCount"> {{y._id}}</div>
+                </td>
+                <td class="common">
+                  <div ng-repeat="y in x.clientCount"> {{y.count}}</div>
+                </td>
+                <td class="common"><div ng-repeat="y in x.clientCount">  {{y.serviceRevenue|number:0}}</td>
+               
+                
+            </tr>
+        </tbody>
+    
+    
+    </table>
+ </div>
+</div>
+
+</div>

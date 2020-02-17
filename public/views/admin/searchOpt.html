@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" style="padding-top: 2%;">Enter Phone number</div>
+        <div class="col-md-4"><input  type="text" name=""></div>
+        <div class="col-md-2"> <button class="btn" ng-click="removeRow">Search</button></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th style="text-align: center">OTP</th>
+                        <th style="text-align: center">status</th>
+                        <th style="text-align: center">Created At Date</th>
+                    </tr>
+                    <tr ng-repeat="x in SearchOtp">
+
+                        <td>{{x.otp}}</td>
+                        <td>{{x.status}}</td>
+                        <td>{{x.date}}</td>
+
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>

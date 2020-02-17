@@ -1,0 +1,155 @@
+<style>
+
+      .table{
+        height:500px;
+      }
+       .setelment-report{
+        height: 30px;
+        background-color: white;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header">Family Wallet Sold</h2>
+    </div>
+</div>
+<div class="row" ng-if="role==1">
+    <div class="col-md-3 col-lg-3 col-md-offset-3"> <h4>Select Salon</h4></div>
+    <div class="col-md-6 col-lg-3" style = "margin-left:-20px">
+    <div style="display:inline" isteven-multi-select input-model="parlors" output-model="parlor.selectedParlor" button-label="name" item-label="name" tick-property="isSelected" output-properties="parlorId" on-close="changeParlor()" ></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-lg-3 col-md-offset-3">
+        <h4>Select Date Range</h4>
+    </div>
+    <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+        <input date-range-picker  name="daterange1" class="date-picker " type="text" id="inputbox-servicereport1" ng-model="dateRangeSelected"  required/>
+    </div>
+</div>
+
+<div class="row" ng-if="role==7">
+    <div class="col-md-3 col-lg-3 col-md-offset-3">
+        <h4>Select Salon</h4>
+    </div>
+    <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+        <select  class="setelment-report selectsalon"  ng-model="selectedParlorId"  ng-options="parlor.parlorId as (parlor.name + ' '+parlor.address1) for parlor in allParlors |orderBy:'name'" ng-change="changeParlorId(selectedParlorId)">
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-lg-12 col-md-offset-2"><button class="btn btn-primary" id="apply-btnservice"  ng-click="applyFilter()">Apply Filter</button></div>
+</div>
+<div class="form-group col-md-12 col-lg-12 col-md-offset-9">
+    <div class="col-md-3 col-lg-3">
+      <input type="text" ng-model="searchKey" class="form-control" id="focusedInput" placeholder="Search here" style="margin-left: -10px;">
+        <!--
+            <button class="btn btn-link btn-md" ng-click="exportToExcel('#tableToExport')" style="margin-left: -10px;border: 0;">
+                    <span class="glyphicon glyphicon-share"></span>
+                    Export to Excel
+            </button>
+-->
+   </div>
+</div>
+<div class="row">
+</div>
+
+<div class="card" >
+    <div class="container-fluid">
+        <div class="table-responsive" id="table-container" style = "height:600px">
+            <table  class="table table-striped table-hover" id="tableToExport" fixed-header ng-if="datas.length>0">
+                <thead>
+                <tr>
+                    <th class="head-color-universal" style = "text-align:center">
+                      <a href="#" class="sortLinkColor" ng-click="changeSortType('clientName')"><span>Client Details</span>
+                        <span ng-show="sortType == 'clientName'" class="fa fa-caret-down"></span><span ng-show="sortType != 'clientName'" class="fa fa-caret-up"></span></a>
+                    </th>
+                    <th class="head-color-universal" style="text-align:center" id="firstRowSecondCell">Membership Purchased Amount</th>
+                    <th class="head-color-universal" style="text-align:center" id="firstRowSecondCell">Membership Credits </th>
+                  <th class="head-color-universal" style = "text-align:center" id="firstRowFirstCell">
+                        <a href="#" class="sortLinkColor" ng-click="changeSortType('parlorName')"><span>Salon</span>
+                        <span ng-show="sortType == 'parlorName'" class="fa fa-caret-down"></span><span ng-show="sortType != 'parlorName'" class="fa fa-caret-up"></span></a>
+                  </th>
+                   <th class="head-color-universal" style="text-align:center">Purchase Date</th>
+                   
+                   <th class="head-color-universal" style="text-align:center">Amount Left</th>
+                   <th class="head-color-universal" style="text-align:center">Employee Distribution</th>
+                   <th class="head-color-universal" style="text-align:center">Print Invoice</th>
+<!--              
+                   <th class="head-color-universal">Paid Amount</th>
+-->
+                   
+                </tr>
+                </thead>
+                <tbody >
+                    <tr ng-repeat  = "data in datas | orderBy:sortType:sortFlag | filter:searchKey">
+                         <td>{{data.clientName}}<br/>{{data.clientNo}}</td>
+                          <td>{{data.price|number:0}}</td>
+                          <td>{{data.credits|number:0}}</td>
+                        <td>{{data.parlorName}} - <br>{{data.parlorAddress}}</td>
+                       <td>{{data.date}}</td>
+                        <td>{{data.activeMembership[0].creditsLeft |number:0}}</td>
+                        <td><span ng-repeat="emp in data.employees">{{emp.name}}({{emp.dist}}%), </span></td>
+                       <!-- <td><button class="btn btn-primary" ng-if="!data.showMe" ng-click="openModal(data)">a</button> -->
+                        <td><button class="btn btn-primary" ng-click="printMembership(data)">Print Invoice</button>
+                       </td>
+                      
+                    </tr>
+                </tbody>
+                <thead>
+                      <tr>    
+                          <th>Total</th>
+                          <th>{{total.credits}}</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+
+                      </tr>
+
+                </thead>
+                
+            </table>
+            
+        </div>
+        </div>
+    </div>
+
+     <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Appointment Information</h4>
+        </div>
+        <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Appointment Date</th>
+                        <th>Parlor</th>
+                           <th>Services</th>
+                            <th>Amount Redeemed</th>
+                          </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="record in temp">
+                                  <td>{{record.appointmentDate | date :'fullDate'}}</td>
+                                  <td>{{record.appointmentparlor}}</td>
+                                  <td><span ng-repeat='m in record.servicesName'><span>{{m}}</span><span ng-if="$index+1<record.servicesName.length">,</span></span></td>
+                                  <td>{{record.amountRedeemed}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      

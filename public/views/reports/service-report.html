@@ -1,0 +1,91 @@
+  <style>
+      .multiSelect > button {
+          width:100%;
+      }
+      .revenue-report-page-inputdate{width:100%;height: 30px;}
+  </style>
+<div class="row">
+    <div class="col-md-12">
+      <h3 class="page-header">Service Report</h3>
+    </div>
+  </div>
+        <div class="container">
+            <div class="col-md-12"><h4 style="text-align: center;">Filters:</h4></div>
+               <div class="col-md-12 dailysummary">
+                     <div class="col-md-4">Employee</div>
+                     <div class="col-md-4" style="display:inline" isteven-multi-select input-model="employees" output-model="filter.employees" button-label="name " item-label="name" orientation="horizontal" tick-property="active"></div>
+               </div>
+            <div class="col-md-12 dailysummary">
+                   <div class="col-md-4">Select Date Range</div>
+                 <div class="col-md-4">
+                     <input date-range-picker id="daterange1" name="daterange1" class="date-picker revenue-report-page-inputdate" type="text" ng-model="filter.date" required/>
+                 </div>
+            </div>
+            <div class="col-md-12 dailysummary">
+                 <div class="col-md-4">Department</div>
+                 <div class="col-md-4" style="display:inline" isteven-multi-select input-model="superCategory" output-model="filter.superCategory" on-close="superCat()" button-label="name " item-label="name" orientation="horizontal" tick-property="active"></div>
+            </div>
+            <div class="col-md-12 dailysummary">
+            <div  class="col-md-4">Category </div>
+                <div style="display:inline" class="col-md-4" isteven-multi-select input-model="serv" output-model="filter.categories" button-label="name " item-label="name" orientation="horizontal" tick-property="active"></div>
+            </div>
+            <div class="row">
+                 <div class="col-md-4 col-md-offset-5 "> <button class="btn" id="servicepage-btn" ng-click="filterApplied()"> Apply Filters</button></div>
+            </div>
+        </div>
+        
+        
+	<div class="card">
+	<div class="container-fluid">
+		<div class="table-responsive">
+      <table ng-table="tableParams" class="table table-striped table-hover" show-filter="false">
+        <tr class="ng-table-group" ng-repeat-start="cat in data">
+          <td>
+            <a href="" ng-click="cat.$hideRows = !cat.$hideRows">
+              <span class="glyphicon" ng-class="{ 'glyphicon-chevron-right': cat.$hideRows, 'glyphicon-chevron-down': !cat.$hideRows }"></span>
+              <strong>{{ cat.name }}</strong>
+            </a>
+          </td>
+          <td><em>{{cat.count}}</em></td>
+          <td><em>{{cat.revenue}}</em></td>
+        </tr>
+        <tr ng-hide="cat.$hideRows" ng-repeat="service in cat.values">
+          <td sortable="'country'" data-title="'Name'" groupable="'name'" >
+            {{service.name}}
+          </td>
+          <td sortable="'name'" data-title="'Count'" groupable="'name'">
+            {{service.count}}
+          </td>
+		  <td sortable="'name'" data-title="'Revenue'" groupable="'name'">
+            {{service.revenue}}
+          </td>
+		  <td sortable="'name'" data-title="'Popular Employee'" groupable="'name'">
+            {{service.popularEmployee}}
+          </td>
+		  <td  data-title="'Appointment Streak <2'" groupable="'name'">
+            {{service.streak1}}
+          </td>
+		  <td  data-title="'Appointment Streak 2-5'" groupable="'name'">
+            {{service.streak2}}
+          </td>
+		  <td  data-title="'Appointment Streak 5-10'" groupable="'name'">
+            {{service.streak5}}
+          </td>
+		  <td  data-title="'Appointment Streak 10+'" groupable="'name'">
+            {{service.streak10}}
+          </td>
+        </tr>
+        <tr ng-repeat-end>
+            
+        </tr>
+        <tfoot>
+        </tfoot>
+      </table>
+	</div>
+	</div>
+	</div>
+
+
+
+
+		

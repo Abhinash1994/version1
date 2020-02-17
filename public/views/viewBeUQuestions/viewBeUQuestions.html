@@ -1,0 +1,358 @@
+<style>
+	h3
+	{
+			text-align:center;
+	}
+
+	.container
+	{
+			
+			width:100%;
+			background-color: white;
+	}	
+
+
+	.table{
+		overflow: scroll;
+	}
+
+
+	label{
+		margin-top:10px;
+	}
+
+	.changeColor{
+				background-color: #ffcdd2 !important;
+				color:black;
+	}
+
+	.change{
+				font-style: bold !important;
+	}
+
+	.practise{
+		font-size:10px;
+	}
+
+	.my-class{
+			background-color: red !important;
+	}
+
+
+	.container
+	{
+			
+			width:100%;
+			background-color: white;
+	}	
+
+
+	label{
+		margin-top:10px;
+	}
+
+	.changeColor{
+				background-color: #ffcdd2 !important;
+				color:black;
+	}
+
+	.editdeal{
+		width:718px;
+		overflow: scroll;
+	}
+
+	.change{
+				font-style: bold !important;
+	}
+
+	.practise{
+		font-size:10px;
+	}
+
+	.my-class{
+			background-color: red !important;
+	}
+</style>
+<div class="container">
+			<h3> Create / Edit Be U Questions </h3>
+  <uib-tabset active="active">
+ <uib-tab index="0" heading="Create Be U Question" active="tabs[0].active">
+ 	<div class="container">
+ 				<form ng-submit="submitQuestion()">			
+	<div class="row">
+						<div class="col-md-offset-2 col-md-3">
+									<label>Select Category</label>
+
+						</div>
+						<div class="col-md-3">
+
+								<div style="display:inline" isteven-multi-select input-model="categories" output-model="category.copiedArray" on-select-all="onselectAll()"  on-select-none="onselectNone()" on-item-click="optionsChanged(this)" button-label="name" item-label="name" tick-property="isSelected" output-properties="_id" ></div>
+
+						</div>
+						
+			</div>
+
+	<div class="row">
+		<div class="col-md-offset-2 col-md-3">
+									<label>Select roles</label>
+
+						</div>
+						<div class="col-md-3">
+
+								<div style="display:inline" isteven-multi-select input-model="roles" output-model="role.copiedRoles" on-select-all=""  on-select-none="" on-item-click="" button-label="key" item-label="key" tick-property="ticked"  output-properties="value" ></div>
+
+						</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-offset-2 col-md-3">
+									<label>Select Sort Order</label>
+
+						</div>
+						<div class="col-md-3">
+
+								<input type="number" class="form-control"  ng-model="sortOrder.sort" required  />
+
+						</div>
+	</div>
+			<div class="row" ng-if="subCategories.length>0">
+					<div class="col-md-offset-2 col-md-3">
+
+								<label>Select Subcategory</label>
+						</div>
+						<div class="col-md-3">
+								<div style="display:inline" on-select-all="selectAllSub()" on-select-none="selectNone()" isteven-multi-select input-model="subCategories" output-model="subCategory.copiedArray"  on-item-click="optionsChangedSub()" button-label="name" item-label="name" tick-property="isSelected" output-properties="_id" ></div>
+
+						</div>
+
+						
+
+			</div>
+			<div class="row" >
+					<div class="col-md-offset-2 col-md-3">
+								<label>Question Type</label>
+
+						</div>
+						<div class="col-md-3">
+								<select ng-change="radioChange()"  class="form-control" ng-options="b._value as b.name for b in formTypes track by b._value"  ng-model="formType.select" required></select>
+
+						</div>
+
+						
+
+
+			</div>
+
+
+	<!-- 						when the form type is checkbox													-->
+
+	<div class="row" ng-if="formType.select=='checkbox' || formType.select=='radio' || formType.select=='dropDown'">
+
+					<div class="row">
+								<div class="col-md-offset-2 col-md-3">
+
+									<label>Number  of Options</label>
+								</div>
+						<div class="col-md-3">
+										<input ng-change="checkBox()"  required  type="number"  class="form-control"  ng-model="Nop.select"/>
+						</div>
+					</div>
+					<div class="row"  ng-if="Nop.select>0"    >
+
+							<div class="row" ng-repeat="a in formTypes.selected.options">
+
+
+								<div class="col-md-offset-2 col-md-3">
+
+									<label>{{a.label}}</label>
+								</div>
+									<div class="col-md-3">
+										<input    type="text" required  class="form-control"  ng-model="a.value"/>
+									</div>
+
+							</div>
+
+
+				</div>
+</div>
+
+<!-- 										when the form Type is range     											 -->
+
+		<div class="row"  ng-if="formType.select=='range'"  >
+
+				<div class="row"  >
+							<div class="col-md-offset-2 col-md-3">
+
+								<label >Max Value</label>
+
+					</div>
+					<div class="col-md-3">
+
+								<input type  ="number" required class="form-control"  ng-model="formTypes.selected.max"/>
+
+					</div>
+
+				</div>
+				<div class="row"   >
+					<div class="col-md-offset-2 col-md-3">
+
+								<label >Min Value</label>
+
+					</div>
+					<div class="col-md-3">
+
+								<input type  ="number" required class="form-control"  ng-model="formTypes.selected.min"/>
+
+					</div>
+
+				</div>
+
+				
+		</div>
+
+
+		<div class="row">
+					<div class="col-md-offset-2 col-md-3">
+							<label > Question </label>
+					</div>
+					<div class="col-md-5">
+						<input type  ="text" class="form-control" required  ng-model="Question.val"/>
+
+					</div>
+
+
+
+		</div>
+
+<div class="row">
+<button type ="Submit" class="btn btn-primary form-control"  >Create Question </button>
+</div>
+
+</form>
+</div>
+ </uib-tab>
+
+        <uib-tab index="1" heading="Edit Be U Form Question" active="tabs[1].active">
+<div class="editdeal"   >
+
+
+				
+
+	<table class="table" >
+				<thead>
+							<tr>
+								<th class="head-color-universal">Category Name</th>
+								<th class="head-color-universal">Sub Category Name</th>
+								<th class="head-color-universal">Form Type</th>
+								<th class="head-color-universal">Sort Order</th>
+								<th class="head-color-universal">Role</th>
+								<th class="head-color-universal">Question</th>
+								<th class="head-color-universal">Edit</th>
+								<th class="head-color-universal">Delete</th>
+							</tr>
+				</thead>
+				<tbody>
+							<tr  ng-repeat="questDetails in data"  >
+									<td ng-class="{changeColor: questDetails.showOnApp == false};" ><p ng-repeat="q in questDetails.categories" >{{q.categoryName}}</p></td>
+									<td ng-class="{changeColor: questDetails.showOnApp == false};"><p ng-repeat="m in questDetails.categories">{{m.subCategoryName}}</p></td>
+
+									<td ng-class="{changeColor: questDetails.showOnApp == false};">{{questDetails.formType}}</td>
+									<td ng-class="{changeColor: questDetails.showOnApp == false};">{{questDetails.sortOrder}}</td>
+										<td ng-class="{changeColor: questDetails.showOnApp == false};">
+										<p ng-repeat="w in questDetails.role ">{{w}}</p></td>
+									<td ng-class="{changeColor: questDetails.showOnApp == false};">{{questDetails.question}}</td>
+									<td ng-class="{changeColor: questDetails.showOnApp == false};"><button ng-if="questDetails.showOnApp" class="edit" ng-click='editQuestion(questDetails)'>Edit</button></td>
+									<td ng-class="{changeColor: questDetails.showOnApp == false};"><button ng-if="questDetails.showOnApp" class="delete" ng-click="removeQuestion(questDetails)">Delete</button>
+									<button ng-if="questDetails.showOnApp==false" class="delete" ng-click="">Undo</button></td>
+							</tr>
+				</tbody>
+	</table>	
+
+
+	 <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Questions</h4>
+        </div>
+        <div class="modal-body">
+         					<div class="container">
+         									<div class="row">
+         													<div class="col-md-2">
+         																<label>Question</label>
+         													</div>
+         													<div class="col-md-7">
+         														<input type="text"  class="form-control"  ng-model="edit.question"/>
+         													</div>
+											</div>
+											<div class="row" ng-repeat="option in edit.options track by $index">
+         													<div class="col-md-2">
+         																	<label>Options</label>
+         													</div>
+     													<div class="col-md-7">
+         																<input type="text"  ng-model="option.option"/>
+         													</div>
+											</div>
+											<div class="row" >
+         													<div class="col-md-3">
+         																	<label>Min Range</label>
+         													</div>
+         													<div class="col-md-7">
+         																<input type="number"  ng-model="edit.minRange"/>
+         													</div>
+											</div>
+											<div class="row" >
+         													<div class="col-md-3">
+         																	<label>Max Range</label>
+         													</div>
+         													<div class="col-md-7">
+         																<input type="number"  ng-model="edit.maxRange"/>
+         													</div>
+											</div>
+												<div class="row" >
+         													<div class="col-md-3">
+         																	<label>Sort Order</label>
+         													</div>
+         													<div class="col-md-7">
+         																<input type="number"  ng-model="edit.sortOrder"/>
+         													</div>
+											</div>
+
+
+												
+											<div class="row" >
+
+												<div class="col-md-3">
+         																	<label>Roles</label>
+         													</div>
+         													<div class="col-md-7">
+         																	<div style="display:inline" isteven-multi-select input-model="chkroles" output-model="editCopiedRoles.roles"    button-label="key" item-label="key" tick-property="isSelected" output-properties="value" ></div>
+         													</div>
+
+										
+         													
+											</div>
+
+											
+
+         					</div>
+        </div>
+        <div class="modal-footer">
+        	  <button type="button" class="btn btn-primary"  ng-click="updateQuestion()">Update</button>
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>		
+
+
+
+</div>
+</uib-tab>
+ </uib-tabset>
+ </div>

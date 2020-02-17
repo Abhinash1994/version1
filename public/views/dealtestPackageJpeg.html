@@ -1,0 +1,177 @@
+<style>
+	#ruler { visibility: hidden; white-space: nowrap; }
+	td th{
+		height: 13px;
+	}
+
+    b{
+        line-height: 20px;
+    }
+
+   .content{
+   					font-size: 13px;
+   }
+
+   .head{
+   	font-size:15px;
+   }
+
+   .image{
+   height:100%;
+   }
+   @media print
+{
+    * {-webkit-print-color-adjust:exact;}
+}
+
+
+.row{
+	margin:0px;
+}
+    .cutprice{
+    border-top: 1px solid red;
+    margin-top: 9px;
+    position: absolute;
+    width: 8%;
+    }
+
+
+</style>
+
+
+	<span id="ruler"></span>
+<div class="container">
+	<div class="row" id="my-node1">
+		<div class="col-md-12 col-lg-12">
+			<!-- <button ng-click="generateJpeg()"></button> -->
+			<button ng-click="generateJpeg()" id="btn-Convert-Html2Image" style="padding-top:1%;padding-bottom:1%;">Generate Jpg </button>
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+<div id="my-node">
+
+	<div class="abc" style="background-color: transparent; position: absolute;z-index: 0;"  >
+ 	<img class="image" style="width:100%;z-index:-100;position:absolute;margin:0px;" src='/img/{{backGroundImage}}.jpg'  class="image" />
+
+
+
+
+		<div class="row">
+			<div class="col-lg-12 col-md-12" style="padding-top: 4%;">
+				<div class="row">
+					<div class=" col-md-12 col-lg-12"  style="text-align:center;">
+						<img   style='width:100px;' src="/img/{{logo}}.png" alt="logo" >
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12" style="text-align:center;"  ng-style="{'color':dealMenuSecondHeading,'font-size':'27px'}" ><b style="font-family :sans-serif">Package MENU</b></div>
+				</div>
+			</div>
+		</div>
+		<div class="row pad">
+          <div class="col-md-3">
+              <h3  ng-style="{'color':dealMenuSecondHeading,'font-size':'27px'}" >{{dealObject.update1.name}}</h3>
+             <div> <strike><span>{{dealObject.update1.menuPrice}}</span></strike><span>{{dealObject.update1.dealPrice}}</span></div>
+              <p>{{dealObject.update1.description}}</p>
+          </div>
+          <div class="col-md-3">
+            <h3>{{dealObject.update2.name}}</h3>
+            <div> <span><strike><span>{{dealObject.update2.menuPrice}}</span></strike></span><span>{{dealObject.update2.dealPrice}}</span></div>
+            <p>{{dealObject.update2.description}}</p>
+          </div>
+             <div class="col-md-3">
+              <h3>{{dealObject.update3.name}}</h3>
+             <div> <span><strike><span>{{dealObject.update3.menuPrice}}</span></strike></span>
+                 <span>{{dealObject.update3.dealPrice}}</span></div>
+              <p>{{dealObject.update1.description}}</p>
+          </div>
+          <div class="col-md-3">
+            <h3>{{dealObject.update4.name}}</h3>
+            <div> <span><strike>{{dealObject.update4.menuPrice}}</strike></span><span>{{dealObject.update4.dealPrice}}</span></div>
+            <p>{{dealObject.update4.description}}</p>
+          </div>
+        </div>
+        <!--stop first section ---->
+        <div class="row">
+          <div class="col-md-6">
+              <h3>{{dealObject.update3.name}}</h3>
+             <div> <span><strike><span>{{dealObject.update3.menuPrice}}</span></strike></span>
+                 <span>{{dealObject.update3.dealPrice}}</span></div>
+              <p>{{dealObject.update1.description}}</p>
+          </div>
+          <div class="col-md-6">
+            <h3>{{dealObject.update4.name}}</h3>
+            <div> <span><strike>{{dealObject.update4.menuPrice}}</strike></span><span>{{dealObject.update4.dealPrice}}</span></div>
+            <p>{{dealObject.update4.description}}</p>
+          </div>
+        </div>
+        <!--stop first section ---->
+        <div class="row">
+             <div class="col-md-6">
+            <h3>{{dealObject.update4.name}}</h3>
+            <div> <span><strike>{{dealObject.update4.menuPrice}}</strike></span><span>{{dealObject.update4.dealPrice}}</span></div>
+            <p>{{dealObject.update4.description}}</p>
+          </div>
+          <div class="col-md-6">
+              <h3>{{dealObject.update5.name}}</h3>
+             <div> <span><strike><span>{{dealObject.update5.menuPrice}}</span></strike></span><span>{{dealObject.update5.dealPrice}}</span></div>
+              <p>{{dealObject.update5.description}}</p>
+          </div>
+        </div>
+        <!--stop first section ---->
+         <div class="row">
+             <div class="col-md-6">
+            <h3>{{dealObject.update4.name}}</h3>
+            <div> <span><strike>{{dealObject.update4.menuPrice}}</strike></span><span>{{dealObject.update4.dealPrice}}</span></div>
+            <p>{{dealObject.update4.description}}</p>
+          </div>
+          <div class="col-md-6">
+              <h3>{{dealObject.update5.name}}</h3>
+             <div> <span><strike><span>{{dealObject.update5.menuPrice}}</span></strike></span><span>{{dealObject.update5.dealPrice}}</span></div>
+              <p>{{dealObject.update5.description}}</p>
+          </div>
+        </div>
+         <div class="row">
+             <div class="col-md-6">
+            <h3>{{dealObject.update4.name}}</h3>
+            <div> <span><strike>{{dealObject.update4.menuPrice}}</strike></span><span>{{dealObject.update4.dealPrice}}</span></div>
+            <p>{{dealObject.update4.description}}</p>
+          </div>
+          <div class="col-md-6">
+              <h3>{{dealObject.update5.name}}</h3>
+             <div> <span><strike><span>{{dealObject.update5.menuPrice}}</span></strike></span><span>{{dealObject.update5.dealPrice}}</span></div>
+              <p>{{dealObject.update5.description}}</p>
+          </div>
+        </div>
+         <div class="row">
+             <div class="col-md-6">
+            <h3>{{dealObject.update4.name}}</h3>
+            <div> <span><strike>{{dealObject.update4.menuPrice}}</strike></span><span>{{dealObject.update4.dealPrice}}</span></div>
+            <p>{{dealObject.update4.description}}</p>
+          </div>
+          <div class="col-md-6">
+              <h3>{{dealObject.update5.name}}</h3>
+             <div> <span><strike><span>{{dealObject.update5.menuPrice}}</span></strike></span><span>{{dealObject.update5.dealPrice}}</span></div>
+              <p>{{dealObject.update5.description}}</p>
+          </div>
+        </div>
+         <div class="row">
+             <div class="col-md-6">
+            <h3>{{dealObject.update4.name}}</h3>
+            <div> <span><strike>{{dealObject.update4.menuPrice}}</strike></span><span>{{dealObject.update4.dealPrice}}</span></div>
+            <p>{{dealObject.update4.description}}</p>
+          </div>
+          <div class="col-md-6">
+              <h3>{{dealObject.update5.name}}</h3>
+             <div> <span><strike><span>{{dealObject.update5.menuPrice}}</span></strike></span><span>{{dealObject.update5.dealPrice}}</span></div>
+              <p>{{dealObject.update5.description}}</p>
+          </div>
+        </div>
+
+
+	</div>
+</div>
+</div>

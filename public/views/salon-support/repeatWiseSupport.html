@@ -1,0 +1,101 @@
+<style>
+.ng-scope th,td{
+	padding:3px;
+	margin:0px;
+}
+    h2 {
+        text-align: center;
+        margin:20px;
+    }
+    #btn1{
+    	margin: 10px;
+    }
+</style>
+
+<h2>Salon Support Repeat Wise</h2>
+
+
+
+<div class="row" style="text-align: right;padding-top: 1%;">
+	<div class="col-md-4" style="padding: 15px;">Select Parlor</div>
+	<div class="col-md-3">
+		   <div style="display:inline-flex" isteven-multi-select input-model="parlors" output-model="selectedParlor" button-label="name" item-label="name" tick-property="isSelected" output-properties="parlorId"  on-close="changeParlor()"></div>
+    </div>
+    <div class="col-md-12">
+            <div class="col-md-6 col-md-offset-2">
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dts"  is-open="popup1.opened" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button id="btn1" type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+    </div>
+    <div class="col-md-12">
+            <div class="col-md-6 col-md-offset-2">
+    <!--        <div class="col-md-3" >-->
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dte"  is-open="popup2.opened" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button id="btn1" type="button" class="btn btn-default btn1" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+        
+    <!--</div>-->
+            <div class="row col-md-2" >
+                <button class="btn" id="branchfilter" ng-click = "applyFilter()">Apply</button>
+            </div>
+        </div>
+	</div>
+
+<!-- <div class="row" style="text-align: right;padding-top: 1%;">
+	<div class="col-md-4" style="padding-top: 4px;">Select Salon</div>
+	<div class="col-md-3">
+		<select class="form-control" ng-model="selectedActive.active" ng-options="item.active as item.value for item in active"></select>
+	</div>
+
+</div>
+<div class="row" style="text-align: right;padding-top: 1%;">
+	<div class="col-md-4" style="padding-top: 4px;">Select City</div>
+	<div class="col-md-3">
+		<select class="form-control" ng-model="selectedCity" ng-options="item.value as item.cityName for item in city"></select>
+	</div>
+
+</div> -->
+<!-- <div class="row">
+	<div class="col-md-3 col-md-offset-4"><button class="btn btn-md" ng-click="salonType()">Submit</button></div>
+</div> -->
+
+<div class="row">
+	<div class="table-responsive" style="padding:2%;">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Salon Name</th>
+					<th   style="border:1px solid #fff;text-align: center;" > New Clients Revenue</th>
+					<th   style="border:1px solid #fff;text-align: center;" >Loyalty</th>
+					<th   style="border:1px solid #fff;text-align: center;" ng-repeat-end >Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="salon in data">
+
+					<td>{{salon.salonName}}</td>
+					<td>{{salon.distanceRevenueFirstTime}}</td>
+					<td>{{salon.totalLoyaltyPoints}}</td>
+					<td>{{salon.totalLoyaltyPoints+salon.distanceRevenueFirstTime | number:0}}</td>
+					
+				</tr>
+				
+			
+			
+	
+		
+			</tbody>
+
+		</table>
+	
+	</div>
+
+</div>

@@ -1,0 +1,327 @@
+<style>
+    /*.jk table th,td{border-collapse: collapse;border:1px solid gray;text-align: left;}*/
+</style>
+<!--<div style="float:left;width:200px;margin-top: 2%;margin-left:2%;margin-bottom: 2%;">-->
+    <!--<img src='https://www.monsoonsalon.com/emailler/images/beu-logo.png' width='150' alt='Beu salons' />-->
+<!--</div>-->
+<!--<div style="float:right;width:200px;margin-top: 2%;margin-left:2%;margin-bottom: 2%;">-->
+    <!--<address>-->
+        <!--<p >Invoice #:436  </p>-->
+        <!--<p style="line-height:10px;">Created date </p>-->
+       <!--<p style="line-height:10px;">Invoice #:436  </p>-->
+    <!--</address>-->
+<!--</div>-->
+<!--<div style="">-->
+    <!--<table align="center" style="border-collapse: collapse;width: 100%;">-->
+        <!--<thead>-->
+            <!--<th style="text-align: center;">Amount</th>-->
+            <!--<th style="text-align:center;">Payment</th>-->
+            <!--<th style="text-align: center;">Payment</th>-->
+            <!--<th style="text-align: center;">Payment</th>-->
+            <!--<th style="text-align: center;">Payment</th>-->
+        <!--</thead>-->
+
+        <!--<tr>-->
+            <!--<td>-->
+                <!--Hello!-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--Hello!-->
+            <!--</td> <td>-->
+            <!--Hello!-->
+        <!--</td> <td>-->
+            <!--Hello!-->
+        <!--</td> <td>-->
+            <!--Hello!-->
+        <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>-->
+                <!--Hello!-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--Hello!-->
+            <!--</td> <td>-->
+            <!--Hello!-->
+        <!--</td> <td>-->
+            <!--Hello!-->
+        <!--</td> <td>-->
+            <!--Hello!-->
+        <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>-->
+                <!--Hello!-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--Hello!-->
+            <!--</td> <td>-->
+            <!--Hello!-->
+        <!--</td> <td>-->
+            <!--Hello!-->
+        <!--</td> <td>-->
+            <!--Hello!-->
+        <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>-->
+                <!--Hello!-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--Hello!-->
+            <!--</td> <td>-->
+            <!--Hello!-->
+        <!--</td> <td>-->
+            <!--Hello!-->
+        <!--</td> <td>-->
+            <!--Hello!-->
+        <!--</td>-->
+        <!--</tr>-->
+    <!--</table>-->
+<!--</div>-->
+
+
+<div class="row">
+    <input type="text" ng-model="data.name"/>
+    <button ng-click="Add()">Add</button>
+</div>
+<div class="col-md-12" id="printSectionId">
+    <div style="margin:auto;width:90%;" >
+        <div><img src='https://www.monsoonsalon.com/emailler/images/beu-logo.png' width='150' alt='Beu salons' /></div>
+        <h3 style="text-align:center;">Invoice</h3>
+
+        <div class="jk">
+        <table border="1" style="width:100%;border-collapse: collapse;border:1px solid gray;text-align: left;text-align: left">
+
+            <tr>
+                <td rowspan="" ng-model="name" style="border:1px solid gray;text-align: left">
+                    <b style="margin-top: 3%;margin-left: 5%;">Form</b>
+                    <p style="margin-top: 3%;margin-left: 5%;"><span>{{data.parlorName}}1</span><br>{{data.parlorAddress}}</br>DLF City Phase II, Gurgaon 122008,Haryana</p>
+                </td>
+                <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Invoce No:</br>Date:</td>
+                <td colspan="" style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">BEU/2016-17/0002</br>2-Feb-17</td>
+
+            </tr>
+            <tr>
+                <td  style="margin-top: 3%;padding-left:2%;text-align: left"><b style="margin-top: 3%;margin-left:0%;">To</b>
+                    <p style="margin-top: 3%;margin-left:0%;"><span>M/s Gingerpan Swapcart Pvt.Ltd.</span><br>DLF City Phase II, Gurgaon 122008,Haryana</p></td>
+                <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Service Tax No:<br>Pan:</td>
+                <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">AAGCG0658KSD001<br>AAGCG0658k</td>
+
+            </tr>
+            <tr>
+
+
+
+            </tr>
+            <tr>
+                <td  style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Sr. No.</td>
+                <td style="text-align:center;padding-left:2%;border:1px solid gray">Discription</td>
+                <td style="margin-top: 3%;padding-left:2%;border:1px solid gray">Amount in INR</td>
+
+            </tr>
+            <tr>
+                <td  style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">1</td>
+                <td style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left">Management Fees for the period form:<br>
+                    16/01/2017 to 31-01-2017<br>(as per settelment report annexed here with)
+                </td>
+                <td style="text-align:right;padding-right:2%;border:1px solid gray">{{d}} </td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td style="text-align:center;border:1px solid gray">Total</td>
+                <td style="text-align:right;padding-right:2%;border:1px solid gray">{{d}} </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right;padding-right:4%;border:1px solid gray">
+                    Add:Service Tax @ 14%<br>SB @0.5%<br>KKb@0.5%
+
+                </td>
+                <td  style="text-align:right;padding-right:2%;border:1px solid gray">{{a}}<br>{{b}}<br>{{c}}</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center;border:1px solid gray">Grand Total</td>
+                <td style="text-align:right;padding-right:2%;border:1px solid gray" ng-model="myValue"> <span ng-model="myValue">{{ amount}}</span></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="margin-top: 3%;padding-left:2%;border:1px solid gray;text-align: left" id="container" ng-model="num">Rupees<span style="padding-left:5px;">{{convertNumberToWords1(amount)}}</span></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="padding-bottom:2%;border:1px solid gray;text-align: left">
+                    <h3 style="text-decoration: underline;padding-left:2%;">Bank Details for payment </h3>
+                    <span style="margin-top: 3%;margin-left:2%;">Name</span>
+                    <span style="margin-left:145px">: GINGERPAN SWAPCART PVT LTD</span>
+                    <br>
+                    <span style="margin-top: 3%;margin-left:2%;">Current A/c No</span>
+                    <span style="margin-left: 89px;">: 50200013283420</span>
+                    <br>
+                    <span style="margin-top: 3%;margin-left:2%;">Name of bank</span>
+                    <span style="margin-left: 93px;">: HDCF Bank Ltd</span>
+                    <br>
+                    <span style="margin-top: 3%;margin-left:2%;">Bank Branch</span>
+                    <span style="margin-left: 99px;">: B-6/3,Safadarjung Encluve,New Delhi-110029</span>
+                    <br>
+                    <span style="margin-top: 3%;margin-left:2%;">IFSC Code</span>
+                    <span style="margin-left:111px">: HDFC0000503</span>
+                    <br>
+                    <span style="margin-top: 3%;margin-left:2%;">Cheque/DD must be drawn in Favour of <b>"GINGERPAN SWAPCART PVT LTD"</b></span>
+                    <br>
+                </td>
+            </tr>
+        </table>
+            </div>
+        <p>Note:All Disputes shall be subject to Delhi jurisdirection only</p>
+        <div style="text-align:right;margin-top:20px;">
+            <div><img src="http://res.cloudinary.com/dyqcevdpm/image/upload/v1490268827/Aalenes__DLF-page-001_qf2e6n.png"/></div>
+        </div>
+
+    </div>
+
+</div>
+<button ng-click="printToCart('printSectionId')" class="button">Print</button>
+<button class="btn btn-primary" ng-click="generateRevenueReport()">Invoice Report</button>
+<button class="btn btn-primary" ng-click="openPDF(index)">click</button>
+
+
+<!--<div class="row">-->
+<!--<div class="col-md-12">-->
+    <!--<h3 class="text-center">Incentive Model</h3>-->
+    <!--<div class="table-responsive">-->
+        <!--<table class="table table-bordered">-->
+            <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th>EmpCode</th>-->
+                    <!--<th>E. Code</th>-->
+                    <!--<th>Employee Name</th>-->
+                    <!--<th>Initials of Designation</th>-->
+                    <!--<th>Designation</th>-->
+                    <!--<th>Department</th>-->
+                    <!--<th>Location</th>-->
+                    <!--<th>Incentive Model</th>-->
+                    <!--<th>Primary Department</th>-->
+                    <!--<th>Comments</th>-->
+                <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+                <!--<tr>-->
+                    <!--<td>{{x.Name}}</td>-->
+                    <!--<td>{{x.Country}}</td>-->
+                    <!--<td>{{x.Country}}</td>-->
+                    <!--<td>{{x.Country}}</td>-->
+                    <!--<td>{{x.Country}}</td>-->
+                    <!--<td>{{x.Country}}</td>-->
+                    <!--<td>{{x.Country}}</td>-->
+                    <!--<td>{{x.Country}}</td>-->
+                    <!--<td>{{x.Country}}</td>-->
+                    <!--<td>{{x.Country}}</td>-->
+                <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table>-->
+    <!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<form ng-submit="submit()">-->
+    <!--Enter text and hit enter:-->
+    <!--<input type="text" ng-model="text" name="text" />-->
+    <!--<input type="submit" id="submit" value="Submit" />-->
+    <!--<pre>list={{list}}</pre>-->
+<!--</form>-->
+<!--<div >-->
+    <!--<h3>What's the next holiday?</h3>-->
+    <!--<div>-->
+        <!--<select ng-model="optionDisplay" ng-change="showOptionFunction()">-->
+            <!--<option ng-repeat="optionList in list1" value="{{optionList.name}}">{{optionList.name}}</option>-->
+        <!--</select>-->
+    <!--</div>-->
+    <!--<table class="table">-->
+        <!--<tr>-->
+            <!--<th>name</th>-->
+            <!--<th>country</th>-->
+            <!--<th>date</th>-->
+        <!--</tr>-->
+        <!--<tr ng-repeat="data in data | orderBy" ng-if="data.country==optionDisplay">-->
+            <!--<td>{{data.name}}</td>-->
+            <!--<td>{{data.country}}</td>-->
+            <!--<td>{{data.date}}</td>-->
+        <!--</tr>-->
+    <!--</table>-->
+<!--</div>-->
+<!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+        <!--<h3 class="text-center">Report</h3>-->
+        <!--<div class="" style="margin-bottom: 20px;">-->
+            <!--<select ng-model="messageParlor" ng-change="parlorId()" ng-options="parlor.parlorId as parlor.name for parlor in parlors">-->
+
+            <!--</select>-->
+        <!--</div>-->
+       <!--<div class="table-responsive">-->
+           <!--<table class="table table-bordered">-->
+               <!--<thead>-->
+                   <!--<tr>-->
+                       <!--<th ng-repeat ="heading in headings track by $index">{{heading}}</th>-->
+                   <!--</tr>-->
+               <!--</thead>-->
+               <!--<tbody>-->
+                   <!--<tr>-->
+                       <!--<td>1</td>-->
+                       <!--<td>Anna</td>-->
+                   <!--</tr>-->
+                   <!--<tr>-->
+                       <!--<td>2</td>-->
+                       <!--<td>Debbie</td>-->
+                   <!--</tr>-->
+                   <!--<tr>-->
+                       <!--<td>3</td>-->
+                       <!--<td>John</td>-->
+                   <!--</tr>-->
+               <!--</tbody>-->
+           <!--</table>-->
+       <!--</div>-->
+    <!--</div>-->
+
+<!--</div>-->
+<!--<div class="col-md-12">-->
+    <!--<div class="">-->
+        <!--Type name<input type="text" name="name" ng-model="inputText" ng-keyup="getStrLength()"  >-->
+       <!--{{inputText}}-->
+    <!--</div>-->
+
+
+<!--</div>-->
+<!--<select ng-model="selectedParlor" ng-options="parlor.parlorId as parlor.name for parlor in parlors">-->
+<!--</select>-->
+
+<!--<div> {{selectedParlor}}</div>-->
+<!--<div class="table-responsive">-->
+    <!--<table class="table">-->
+        <!--<thead>-->
+        <!--<tr ng-repeat="y in head">-->
+            <!--<th>{{y.Title}}</th>-->
+            <!--<th>{{y.Address}}</th>-->
+            <!--<th>{{y.Title}}</th>-->
+            <!--<th>{{y.Address}}</th>-->
+            <!--<th>{{y.Title}}</th>-->
+            <!--<th>{{y.Address}}</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr  ng-repeat="x in record">-->
+            <!--<td>{{x.Name}}</td>-->
+            <!--<td>{{x.Country}}</td>-->
+            <!--<td>{{x.Country}}</td>-->
+            <!--<td>{{x.Country}}</td>-->
+            <!--<td>{{x.Country}}</td>-->
+            <!--<td>{{x.Country}}</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+<!--</div>-->
+<!--<div class="container">-->
+    <!--<div class="row">-->
+
+    <!--</div>-->
+<!--</div>-->
+<div class="container">
+</div>

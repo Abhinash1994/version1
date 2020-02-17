@@ -1,0 +1,310 @@
+<style media="screen">
+  md-radio-button.md-default-theme.md-checked .md-off, md-radio-button.md-checked .md-off{
+    border-color:#52A61A;
+    background:#52A61A;
+  }
+  md-radio-button .md-off, md-radio-button .md-on{
+    width: 15px;
+    height: 15px;
+  }
+
+  md-radio-button{
+    margin-bottom: 8px;
+  }
+  md-radio-group.md-default-theme .md-checked .md-ink-ripple, md-radio-group .md-checked .md-ink-ripple {
+  color: transparent;
+}
+md-radio-button.md-default-theme .md-on, md-radio-button .md-on{
+  background:#52A61A;
+}
+p{
+  margin-top:0.5em;
+  margin-bottom:0.5em;
+}
+.show-deatails-save{
+  margin-top:1.4em;
+border: 1px solid #b2232a;
+border-radius: 3px;
+text-align: center;
+font-size: 0.5em;
+width: 66%;
+margin-left: 8px;
+padding-top: 3%;
+padding-bottom: 3%;
+
+}
+
+     .addSubstractButton{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15%;
+    background-color: #3e780a;
+    border-color: #3e780a;
+    color: white;
+    }
+
+    .serviceDetails{
+        font-size: 0.8em;
+    }
+  .progressBar{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index:39;
+}
+    .finalData{
+        padding: 4%;
+        background: gainsboro;
+    }
+</style>
+
+<div flex-xs="100" flex-offset-xs="0"  flex="80" flex-offset="20" class="billsummar-con">
+   <md-content class="salon-deal-billsummary">
+
+    <div class="progressBar"   layout-padding layout-wrap ng-if="bookedAppointment" >
+        <div layout="row" layout-sm="column" layout-align="space-around">
+            <md-progress-circular    ng-disabled="false" class="md-accent bufferColor" md-diameter="70"></md-progress-circular>
+        </div>
+
+    </div>
+
+  <div layout="row" flex="50" flex-offset="25" layout-wrap>
+
+    <div flex="100" style="text-align:center;padding-bottom: 4%;padding-top: 3%;font-weight: 600;">
+<!--      <span style="font-size: 1.5em;" ng-click="createAppointment()">-->
+        Payment Confirmation
+<!--      </span>-->
+
+    </div>
+  </div>
+ <md-content style="background-color:white;">
+
+
+      <div layout="row" flex-xs="100"  flex-offset-xs="0" flex="100" >
+          <div flex-xs='80' flex="90" style="padding-top: 1%;padding-bottom: 1%;padding-left: 3%;font-family: sans-serif;">
+              <div style="font-size:0.9em;">
+                  Booking for:{{finalData.name}}
+              </div>
+              <div style="font-size:0.7em; color:#6b6969;font-family: sans-serif;font-family:LatoRegular;">
+                {{finalData.address1}} {{finalData.address2}}
+            </div>
+              <div style="font-size:0.7em;font-family: sans-serif;font-family:LatoRegular;"></div>
+              <div flex style="font-size:11px;font-family: initial;font-family:LatoRegular;">{{finalData.date | date:"EEEE,MMM d" }}&nbsp;&nbsp;{{finalData.date |date:"HH:mm a"}}</div>
+          </div>
+
+          <div flex-xs='20' flex="10"  style="padding-top: 1%;" ><span style="background: green;color: #fff;padding: 2% 8% 3% 7%;border-radius: 3px;font-size: .7em;margin-right: 38%;">{{finalData.rating |number:1}}</span>
+          </div>
+      </div>
+        <div layout="row" flex="100" style="background: #fff;margin-top:0px;">
+        <div flex="5" style="margin-left: 0.5em;margin-top: 0.2em;cursor:pointer;" >
+            <img ng-src="/images/info.png" alt="Bill Details" style="width: 16px;height:16px">
+        </div>
+        <div flex="20" flex-xs="30" style="text-align:left;margin-left:0.5em;cursor:pointer;" ng-click="viewDetails($event)">
+            <span style="color:#22C0FD;margin-left: -0.5em;font-size:0.7em;">Service Details</span>
+        </div>
+      </div>
+  </md-content>
+     <div layout="row">
+       <h3 flex="100" style="text-align: center;font-size: 1em;font-weight: 600;">Booking Summary</h3>
+
+     </div>
+  <div layout="row" flex="100" layout-wrap style="">
+    <div flex="100" style="text-align:center;background: #F1F1F1;">
+    <md-card style="background: #F1F1F1;box-shadow:none;margin: 0;">
+      <md-card-content style="padding:0;">
+        <div layout="row" flex="100" style="background:#F1F1F1;">
+
+          <div flex-xs="35" flex="60">
+
+            <h3 style="color: #616163;font-weight: bold;font-size:.9em;text-align:left;margin-left:1em;margin-top: 2%px;margin-bottom:0px">Grand Total</h3>
+          </div>
+          <div flex-xs="15" flex="10">
+<!--              {{finalData}}-->
+            <div class="menuPrice"><span><i class="fa fa-inr " aria-hidden="true"></i></span>{{finalData.menuPrice}}</div>
+          </div>
+          <div flex-xs="25" flex="15">
+            <div  class="show-deatails-save">Saved {{finalData.save|number:0}} %</div>
+          </div>
+          <div flex-xs="25" flex="10">
+
+            <h3  ng-if="!finalData.subscriptionAmount" style="color:#6F6F71;font-size:1em;color:#3e7800;"><span ng-if="finalData.appointmentData.payableAmount"><i class="fa fa-inr "  ng-if="finalData.appointmentData.payableAmount!=undefined"  aria-hidden="true"></i></span>{{finalData.appointmentData.payableAmount}}</h3>
+            <h3 ng-if="finalData.subscriptionAmount" style="color:#6F6F71;font-size:1em;color:#3e7800;"><span><i class="fa fa-inr " aria-hidden="true"></i></span>{{finalData.subscriptionAmount + finalData.appointmentData.payableAmount}}</h3>
+
+          </div>
+        </div>
+        <div layout="row" flex="100" style="background: #F1F1F1;">
+          <div flex="5" style="margin-left: 0.5em;margin-top: 0.2em;cursor:pointer;" ng-click="showDetails($event)">
+              <img ng-src="/images/info.png" alt="Bill Details" style="width: 16px;height:16px">
+          </div>
+          <div flex="10" flex-xs="30" style="text-align:left;margin-left:0.5em;cursor:pointer;" ng-click="showDetails($event)">
+              <span style="color:#22C0FD;margin-left: -0.5em;font-size:0.7em;">Bill Details</span>
+          </div>
+        </div>
+          <md-card-content flex="80" flex-offset="10" style="padding: 0px">
+          <md-card flex="100">
+        <div layout="row"  style="background:#fff;padding-top: 2%;" flex="100" >
+          <div flex="100" style="text-align: left;">
+            <span class="payment-optiont">Payment Options</span>
+          </div>
+        </div>
+
+        <div layout="row" flex-xs="100" flex="100" style="background:#fff" layout-align="start center">
+            <md-radio-group ng-model="finalData.paymentOption" flex="80" style="margin-top:0.5em" ng-change="createAppointment(true)">
+
+              <div  layout="row " flex="100">
+                <div flex-xs="50" flex="40" style="margin-left:0.5em">
+                  <md-radio-button class="radioin" ng-value=1 style="color: #7D7D7D;font-size: 0.8em;" >Cash Payment</md-radio-button>
+
+                </div>
+                <div flex-xs="50" flex="40" flex-offset="5">
+                  <md-radio-button class="radioin" ng-value=5 style="color: #7D7D7D;font-size: 0.8em;" >Digital Payment</md-radio-button>
+                </div>
+              </div>
+            </md-radio-group>
+          </div>
+
+         <md-divider></md-divider>
+
+          <div layout="row" layout-align="center center" flex="100" style="padding-bottom: 2%;">
+            <p style="color: #45B17F;font-weight: bold;font-size: 0.7em;margin-top: 0.5em;margin-bottom: 0.5em;">{{finalData.appointmentData.discountMessage}}</p>
+          </div>
+          </md-card>
+        </md-card-content>
+
+      </md-card-content>
+       <md-card-content style="padding:0;">
+         <md-card ng-if="finalData.appointmentData.subscriptionSuggestion.subscriptionId">
+         <div layout="row" flex='100' style="margin:0px 2px 1px 2px;">
+
+            <div flex="100" style="text-align:left;color:#c19915;background: #fff;padding: 7px 1px 1px 9px;font-size: 1.2em;">
+              Annual Subscription
+
+            </div>
+         </div>
+
+          <div layout="row" flex="100"  style="margin:-6px 2px 1px 2px;background: #fff;">
+
+<!--              <img ng-src="/images/saveTag.png" alt="Bill Details" style="width: 30px;height:20px;margin-left: 0.5em;margin-top: 0.4em;margin-right: 0.5em;">-->
+              <p style="text-align: left;color:#000;font-size: 0.7em !important;padding:0px 1px 1px 9px;" flex="85" ng-bind-html="finalData.appointmentData.subscriptionSuggestion.heading1">
+            {{finalData.appointmentData.subscriptionSuggestion.heading1}}</p>
+
+<!--              <i class="material-icons" style="margin-top: 0.2em;color: #7D7D7D;cursor: pointer;">chevron_right</i>-->
+
+
+          </div>
+
+
+           <md-divider></md-divider>
+
+          <div layout="row" flex="100"  style="margin:0px 2px 1px 2px;background: #fff;"  >
+            <div flex="70">
+                    <p class="sub-t" flex="85" ng-bind-html="finalData.appointmentData.subscriptionSuggestion.heading2">
+            {{finalData.appointmentData.subscriptionSuggestion.heading2}}</p>
+            </div>
+            <div flex="30">
+              <div class="SubscribeNow" style="cursor:pointer;" ng-click="buySubscription()">Subscribe Now</div>
+            </div>
+
+
+
+<!--
+              <i class="material-icons" style="margin-top: 0.2em;color: #7D7D7D;cursor: pointer;">chevron_right</i>
+
+-->
+
+          </div>
+           </md-card>
+        </md-card-content>
+
+          <div layout="row"  style="background: #F1F1F1;" ng-if="finalData.appointmentData.usableLoyalityPoints">
+              <p style="font-weight: bold;margin-left: 0.5em;margin-bottom: 0;font-size: 0.7em;padding-bottom: 2%;">
+                You Have {{finalData.appointmentData.usableLoyalityPoints}} B-Cash.</p>
+          </div>
+        <md-card-content style="padding:0;" ng-if="finalData.appointmentData.usableLoyalityPoints" >
+          <div layout="row"  style="background: #F1F1F1;" >
+            <p style="margin-top:0px; padding-bottom: 0px; color: #53A559;font-weight: bold;margin-left: 0.5em;;text-align: left;font-size: 0.7em;" flex="90">{{finalData.appointmentData.suggestion}} <span></span></p>
+            <md-checkbox ng-model="finalData.useLoyalityPoints"  ng-true-value="1"
+              ng-false-value="0"  ng-change="createAppointment(true)"  aria-label="Checkbox 1" style="margin-top:0em;"></md-checkbox>
+          </div>
+        </md-card-content>
+            <md-divider></md-divider>
+
+
+          <!-- <div layout="row"  style="background: #F1F1F1;padding-top: 2%">
+            <div flex="10">
+              <img ng-src="/images/couponCode.png" alt="Bill Details" style="width:22px;height:15px;margin-top: 0.1em;">
+            </div>
+            <div flex="50" style="height: 64px;">
+            <p style="margin-top:0;font-weight: bold;margin-left: 0.5em;text-align: left;margin-bottom: 0;font-size: 0.7em;" flex="90">Have A Coupon Code?
+            </p>
+            <md-input-container class="md-block" flex="40" flex-offset="5" style="text-align: left;margin-bottom: 0em;margin-top:0em;font-size: 0.7em;">
+              <input ng-model="finalData.code">
+            </md-input-container>
+            </div>
+            <div flex="30">
+              <p ng-if="!finalData.code" style="cursor: pointer;color: #7D7D7D;font-style: italic;font-weight: bold;font-size:.8em;text-align: right;font-style: italic;margin-top:0;margin-bottom: 0;" flex="90" ng-click="couponCode($event)">Or Check Here</p>
+          </div>
+             <div flex="10" ng-if="!finalData.code">
+                 <i class="material-icons" style="margin-top: 0.15em;color: #7D7D7D;cursor: pointer;font-size: 1.2em;" ng-click="couponCode(ev)">chevron_right</i>
+           </div>
+
+          </div> -->
+        <md-card-content style="padding:0;"   ng-if="finalData.appointmentData.membersipCreditsLeft && finalData.appointmentData.membersipCreditsLeft!='0.00'"  >
+            <div layout="row"  style="background: #F1F1F1;" >
+                <p style="font-weight: bold;margin-left: 0.5em;margin-bottom: 0;font-size: 0.7em;">Got A Family Wallet</p>
+            </div>
+        </md-card-content>
+        <md-card-content style="padding:0;" ng-if="finalData.appointmentData.membersipCreditsLeft && finalData.appointmentData.membersipCreditsLeft!='0.00'" >
+            <div layout="row"  style="background: #F1F1F1;">
+                <p style="color: #53A559;font-weight: bold;margin-left: 0.5em;;text-align: left;font-size: 0.7em;" flex="90">Would you like to use these ? <span><i class="fa fa-inr " aria-hidden="true"></i></span></p>
+                <md-checkbox ng-model="finalData.useMembershipCredits" ng-true-value="1"
+              ng-false-value="0"  ng-change="createAppointment(true)"  aria-label="Checkbox 1" style="margin-top: -0.7em;"></md-checkbox>
+            </div>
+        </md-card-content>
+        <md-card-content style="padding:0;" ng-if="finalData.appointmentData.redeemableSubscriptionLoyality">
+            <div layout="row"  style="background: #F1F1F1;">
+                <p style="font-weight: bold;margin-left: 0.5em;margin-bottom: 0;font-size: 0.7em;">Subscription Credits</p>
+            </div>
+        </md-card-content>
+        <md-card-content style="padding:0;" ng-if="finalData.appointmentData.redeemableSubscriptionLoyality">
+            <div layout="row"  style="background: #F1F1F1;">
+                <p style="color: #53A559;font-weight: bold;margin-left: 0.5em;;text-align: left;font-size: 0.7em;" flex="90">You have <span><i class="fa fa-inr " aria-hidden="true"></i>{{finalData.appointmentData.redeemableSubscriptionLoyality
+                    }} </span>
+              </p>
+                <md-checkbox ng-model="finalData.useSubscriptionCredits"  ng-true-value="1"
+              ng-false-value="0"    ng-change="createAppointment(true)"  aria-label="Checkbox 1" style="margin-top: -0.7em;"></md-checkbox>
+            </div>
+        </md-card-content>
+          <md-divider></md-divider>
+
+
+
+          <md-divider></md-divider>
+
+</md-card>
+
+        <md-card-content hide-xs>
+        <div layout="row"  layout-align="center">
+                <md-button  class="payNowButtonBillSummary" style="color:white;width:100%;height: 40px;
+                  font-size: .7em;" ng-style="{'background-color':'#3e7800','color':'white','margin':'2%'}"  ng-click="bookAppointment()">
+                 Pay  <span  ng-if="finalData.subscriptionAmount"><i class="fa fa-inr " aria-hidden="true"></i>  {{finalData.subscriptionAmount + finalData.appointmentData.payableAmount}}</span><span ng-if="!finalData.subscriptionAmount"> <i ng-if="finalData.appointmentData.payableAmount!=undefined" class="fa fa-inr " aria-hidden="true"></i>{{finalData.appointmentData.payableAmount}}</span>  Now  
+               </md-button>
+
+
+           </div>
+        </md-card-content>
+        <md-card-content>
+          <div layout="row"  hide-sm   hide-md hide-lg hide-xl     layout-align="center" style="clear: both;">
+            <md-button  class="payout-btnfixe-small"  ng-click="bookAppointment()" style="height: 48px;">
+                 Pay  <span  ng-if="finalData.subscriptionAmount">  <i class="fa fa-inr" aria-hidden="true"></i>  {{finalData.subscriptionAmount + finalData.appointmentData.payableAmount}}</span><span ng-if="!finalData.subscriptionAmount"><i class="fa fa-inr"  ng-if="finalData.appointmentData.payableAmount!=undefined" aria-hidden="true"></i>{{finalData.appointmentData.payableAmount}}</span>   Now 
+            </md-button>
+
+
+           </div>
+        </md-card-content>
+
+
+  </div>
+</div>
+</md-content>
+</div>

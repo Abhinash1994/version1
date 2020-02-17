@@ -1,0 +1,32 @@
+<md-dialog layout="column" aria-label="Mango (Fruit)" style="" class="weekdayWeekendDiaolog-container">
+    <div flex>
+        <md-toolbar style="" class="weekdayWeekendDiaolog-Deal-message">
+            <span>Do you want to keep this Deal?</span>
+        </md-toolbar>
+        <md-dialog-content style="" class="weekdayWeekendDiaolog-content" layout="column">
+            <div flex>
+                    <span>Some of the deals you selected are just for weekdays:-</span>
+                    <div layout="row" ng-repeat="weekendCartItems in cart" >
+                        <div flex  ng-if="weekendCartItems.weekDay==0">
+                            <md-checkbox ng-model="isChecked" ng-click="keepThisWeekendItem($index)"></md-checkbox>
+                            <span>
+							{{weekendCartItems.name}} <span ng-if="weekendCartItems.detail!='' || weekendCartItems.detail != undefined">-</span> {{weekendCartItems.detail}}
+						</span>
+                        </div>
+
+                    </div>
+                    <span style="" class="weekdayWeekendDiaolog-price">Do you want to keep them (price applies same as menu price)</span>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions style="" class="weekdayWeekendDiaolog-Discard">
+            <div layout="column">
+                <div flex>
+                    <md-button ng-click="removeAllWeekendItems()">Discard All</md-button>
+                    <md-button ng-click="removeSelectedWeekendItems()">Remove Selected</md-button>
+                    <md-button ng-click="hide()">Cancel</md-button>
+                </div>
+            </div>
+        </md-dialog-actions>
+    </div>
+</md-dialog>

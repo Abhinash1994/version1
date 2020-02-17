@@ -1,0 +1,124 @@
+<style>
+	h3{
+		text-align: center;
+	}
+	th{
+		text-align: center;
+	}
+
+	td{
+		text-align: center;
+	}
+
+	h5{
+		text-align: center;
+	}
+
+	label{
+		margin-top: 9px;
+	}
+
+	.incentives{
+		height:400px;
+		overflow:scroll;
+	}
+	input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+</style>
+
+<h3>Edit Incentive</h3>
+
+<table class="table">
+	
+	<thead>
+				<tr>
+					<th>Parlor Name</th>
+					<th>Edit Incentive</th>
+				</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="parlor in parlors">
+
+				<td>
+					{{parlor.parlorName}} - {{parlor.parlorAddress}}
+				</td>
+				<td>
+						<button class="btn btn-primary"  ng-click="edit($index)">Edit</button>
+				</td>
+
+		</tr>
+
+	</tbody>
+	
+
+</table>
+
+
+  <div class="modal  fade " id="myModal" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Categories</h4>
+        </div>
+        <div class="modal-body">
+        	<div  class="incentives" >
+          			<div  ng-repeat="category in temp.categories">
+          					<div class="row"  style="margin:0px;text-align: center;color:green;">
+
+          							{{category.categoryName}}
+
+
+          					</div>
+          					
+          				<div class="row" style="margin:0px;" ng-repeat="m in category.incentives">
+          						
+
+
+				
+							<div class="col-md-3">
+									<label>Range</label>
+							</div>
+							<div class="col-md-2">
+									<input type="number"   ng-model="m.range" class="form-control"  />
+							</div>
+							<div class="col-md-3">
+									<label>Incentive (in %)</label>
+							</div>
+							<div class="col-md-2">
+										<input type="number" ng-model="m.incentive" class="form-control"  />
+							</div>
+
+				
+
+
+
+
+          			</div>
+
+
+          				</div>
+
+
+          		</div>
+					</div>
+					 <div class="modal-footer">
+
+        		 <button type="button" class="btn btn-primary" ng-click="sendIt()">Submit</button>
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>

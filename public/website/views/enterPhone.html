@@ -1,0 +1,85 @@
+<style>
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+    .labels{
+        width:auto !important;
+    }
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    border-color: #D2232A!important;
+}
+    md-input-container:not(.md-input-invalid).md-input-focused label {
+    color: #D2232A!important;
+}
+    form{
+        overflow:hidden !important;
+    }
+    md-dialog-actions{
+        padding:5px;
+    }
+    md-input-container {
+    display: inline-block;
+    position: relative;
+    padding: 2px;
+     margin:0px 0;
+    vertical-align: middle;
+}
+    #dialogContent_4{
+        overflow:hidden;
+    }
+    .loaders{
+    height: 350px;
+    position: fixed;
+    top: 36%;
+    align-self: center;
+    left: 38%;
+}
+    .dialog{
+        opacity:0.2;
+    }
+</style>
+
+
+
+<md-dialog style="width:30%;">
+  <form ng-cloak>
+<div layout="row" style="background:#d2232a;color:#fff;text-align: center;">
+          <div flex-xs="80" flex="90"><h4>Please Specify the Phone Number</h4></div>
+          <div flex-xs="10" flex="10">
+            <md-button class="md-icon-button" ng-click="cancel()">
+              <md-icon style="fill:#fff;" md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+            </md-button>
+          </div>
+  </div>
+
+      <md-dialog-content>
+
+           <div class="loaders" ng-if="loadingProgress">
+                <md-progress-circular ng-disabled="false" class="md-accent bufferColor" md-diameter="40"></md-progress-circular>
+            </div>
+
+          <div ng-class="{'dialog':loadingProgress}">
+          <div layout="row" layout-align="center center" style="padding-top:8%;">
+              <md-input-container md-no-float class="md-block" >
+                      <label class="labels">Enter Your Phone Number</label>
+                      <input ng-model="patymPhone"  type="number" >
+              </md-input-container>
+            </div>
+          </div>
+      </md-dialog-content>
+
+
+    <md-dialog-actions  layout-align="center" layout="row" ng-class="{'dialog':loadingProgress}" >
+      <div layout="row">
+        <div flex="40">
+            <md-button flex="100" style="margin:2px;color:white;width:27%;margin:0px;padding:3px;font-size:.7em;height: 20px;" ng-style="{'background-color':'#D2232A','color':'white'}"  ng-click="phoneNumberPaytm(patymPhone)">Submit</md-button>
+        </div>
+      </div>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

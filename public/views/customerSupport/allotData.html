@@ -1,0 +1,70 @@
+<style type="text/css">
+	table,th{
+		text-align: center;
+	}
+	.newcustomer{
+		padding-left: 30px;
+	}
+	h3{
+		text-align: center;
+	}
+ 	h4{
+ 		    margin-left: 139px;
+   			 margin-top: 19px;
+ 	}
+</style>
+
+
+
+<div class="row">
+	<h3 class="website">Allot Data</h3>
+	<div class="col-md-12">
+        <div  class="col-md-3 col-lg-3 col-md-offset-2">
+            	<h4>Select Date</h4>
+        </div>
+        <div class="col-md-6 col-lg-3" style="display: inline-flex;">
+
+            <input date-range-picker  name="daterange1" class="date-picker form-control" type="text" id="inputbox-servicereport"
+                   ng-model="dateRangeSelected" ng-change="dateSelected()"/>
+        </div>
+        <button class="btn btn-primary" id="apply-btn" ng-click="newCustomer()">Apply</button>
+    </div
+</div>
+<div class="row">
+	
+<div class="col-md-12">
+	<div  class="table-responsive">
+	 <table>
+                          <tr>
+                            <th><center>Salon Name</center></th>
+                           
+                            <th><center>Client Name</center></th>
+                            <th><center>Client Phonenumber</center></th>
+                            <th><center>Created Date</center></th>
+                            <th><center>Start Date</center></th>
+                            <!-- <th><center>  Status</center></th> -->
+                            <th><center>  New Status</center></th>
+                            <th><center>  Payable Amount</center></th>
+                           
+                          </tr>
+                          <tr ng-repeat="customer in stats">
+                            <td>{{customer.parlorName}}</td>
+                            <td>{{customer.client.name}}</td>
+                            <td>{{customer.client.phoneNumber}}</td>
+                            <td>{{customer.createdAt | date:"short"}}</td>
+                            <td>{{customer.startsAt | date:"short"}}</td>
+                       <!--      <td>{{customer.status}}</td> -->
+                            <td>
+                            	 <div ng-if="customer.status === 1 ">Booked</div>
+                            	 <div ng-if="customer.status === 3 ">Completed</div>
+                            </td>
+                            <td>{{customer. payableAmount}}</td>
+                          
+                           
+                          </tr>
+                    </table>
+                   
+</div>
+</div>
+
+</div>

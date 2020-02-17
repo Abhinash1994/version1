@@ -1,0 +1,22 @@
+
+<md-dialog layout="column" ng-cloak="" class="serviceNotForThisDay-page-container">
+
+    <md-content  flex="100">
+        <div layout="row" flex="100"  class="serviceNotForThisDay-page-content">
+            <div flex="90">Clear Cart?</div>
+            <!--<div flex="10" ng-click="keepMeHere()"><ng-md-icon icon="close" style="fill:gray" size="15"></ng-md-icon> </div>-->
+        </div>
+        <div layout="row" flex="100" class="serviceNotForThisDay-page-deal">
+            <div flex="100">Sorry but this <span style="color: #d2232a;">deal</span> is not valid for this selected day.</div>
+
+        </div>
+        <div layout="row" flex="100" class="serviceNotForThisDay-page-btn-container" layout-align="center">
+            <div layout="row" flex="50" class="serviceNotForThisDay-page-margin" layout-align="center">
+                <md-button ng-click="close()" style="" class="serviceNotForThisDay-page-okay">Okay</md-button>
+            </div>
+        </div>
+
+    </md-content>
+
+</md-dialog>
+

@@ -1,0 +1,103 @@
+<style>
+.ng-scope th,td{
+  padding:3px;
+  margin:0px;
+}
+    h2 {
+        text-align: center;
+        margin:20px;
+    }
+    #btn1{
+      margin: 10px;
+    }
+</style>
+
+<h2>Lucky Draw Employee Wise Report</h2>
+
+
+
+<div class="row" style="text-align: right;padding-top: 1%;">
+  <div class="col-md-4" style="padding: 15px;">Select Parlor</div>
+  <div class="col-md-6 col-lg-4" style="display: inline-flex;">
+        <select  class="setelment-report selectsalon"  ng-model="selectedParlor.selectedParlor"  ng-options="parlor.parlorId as parlor.name for parlor in parlors |orderBy:'name'" ng-change="changeParlor(selectedParlor)">
+        </select>
+    </div>
+    <div class="col-md-12">
+            <div class="col-md-6 col-md-offset-2">
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dts"  is-open="popup1.opened" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button id="btn1" type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+    </div>
+    <div class="col-md-12">
+            <div class="col-md-6 col-md-offset-2">
+    <!--        <div class="col-md-3" >-->
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="dte"  is-open="popup2.opened" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button id="btn1" type="button" class="btn btn-default btn1" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+        
+    <!--</div>-->
+            <div class="row col-md-2" >
+                <button class="btn" id="branchfilter" ng-click = "applyFilter()">Apply</button>
+            </div>
+        </div>
+  </div>
+
+<!-- <div class="row" style="text-align: right;padding-top: 1%;">
+  <div class="col-md-4" style="padding-top: 4px;">Select Salon</div>
+  <div class="col-md-3">
+    <select class="form-control" ng-model="selectedActive.active" ng-options="item.active as item.value for item in active"></select>
+  </div>
+
+</div>
+<div class="row" style="text-align: right;padding-top: 1%;">
+  <div class="col-md-4" style="padding-top: 4px;">Select City</div>
+  <div class="col-md-3">
+    <select class="form-control" ng-model="selectedCity" ng-options="item.value as item.cityName for item in city"></select>
+  </div>
+
+</div> -->
+<!-- <div class="row">
+  <div class="col-md-3 col-md-offset-4"><button class="btn btn-md" ng-click="salonType()">Submit</button></div>
+</div> -->
+
+<div class="row">
+  <div class="table-responsive" style="padding:2%;">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th   style="border:1px solid #fff;text-align: center;" > Employee Name </th>
+          <th   style="border:1px solid #fff;text-align: center;" >Claimed</th>
+          <th   style="border:1px solid #fff;text-align: center;" >Claimed Amount</th>
+          <th   style="border:1px solid #fff;text-align: center;" >Unclaimed </th>
+          <th   style="border:1px solid #fff;text-align: center;" ng-repeat-end >Unclaimed Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="salon in data">
+
+          <td>{{salon.employeeName}}</td>
+          <td>{{salon.claimed}}</td>
+          <td>{{salon.claimedAmount}}</td>
+          <td>{{salon.unclaimed}}</td>
+          <td>{{salon.unClaimedAmount}}</td>
+        </tr>
+        
+      
+      
+  
+    
+      </tbody>
+
+    </table>
+  
+  </div>
+
+</div>

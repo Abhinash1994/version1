@@ -1,0 +1,62 @@
+<style>
+#svg{
+  z-index:-1;
+}
+
+table{
+  width:auto;
+}
+
+</style>
+<div ng-controller="parlorLayoutTest">
+<div class="row">
+<div class="form-group" ng-init="initialise()">
+  
+          <label class="col-sm-2 control-label">Select Date</label>
+          <div class="col-sm-3">
+            <p class="input-group">
+                    <div class="col-md-6 col-md-offset-2">
+                            <!--        <div class="col-md-3" >-->
+                        <p class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup="fullDate" ng-model="date.date"  is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </p>
+                    </div>
+        </p>
+          </div>
+</div>
+    </div>
+  <div class="row">
+    <div class="col-md-offset-1 col-md-2">
+        <label style="margin-top:30px;">Select Time</label>
+    </div>
+   
+    <div class="col-md-2">
+        <timepicker ng-model="date.date" show-meridian="ismeridian"></timepicker>
+    </div>
+  
+  </div>
+    
+<div class="row">
+    <div class="col-md-offset-2 col-md-2">
+        <button class="btn btn-primary" ng-click="changeParlor()">Submit</button>
+    </div>
+</div>
+
+
+
+
+    <div id="grid" style="width:700px;height:700px;text-align:center;">
+
+  <svg ng-init="initialScreenSize()" my-directive custom="checkScreenWidth()"  small="mobileScreen()" ng-attr-width={{svgWidth}} height="700" xmlns="http://www.w3.org/2000/svg" id="svg" xmlns:xlink="http://www.w3.org/1999/xlink"  ng-attr-viewbox={{veiwBoxValue}}>
+
+  </svg>
+      
+  </div>
+
+
+
+  
+    </div>

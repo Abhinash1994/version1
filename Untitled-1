@@ -1,0 +1,273 @@
+<div class="row">
+    <h3>3 Services Package</h3>
+    <div class="col-md-2">
+       <select  ng-if="rewindObject1.update1.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update1"  ng-change="categorySelected();rewindObject1.update1.check=false"></select> <button ng-click="rewindObject1.update1.check=true" ng-if="!rewindObject1.update1.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update1.name}}</h2>
+        <p><strike>{{rewindObject1.update1.menuPrice}}</strike><br>{{rewindObject1.update1.dealPrice}}</p>
+        <div >{{rewindObject1.update1.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update2.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update2"  ng-change="categorySelected();rewindObject1.update2.check=false"></select>
+         <button ng-click="rewindObject1.update2.check=true" ng-if="!rewindObject1.update2.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update2.name}}</h2>
+        <p><strike>{{rewindObject1.update2.menuPrice}}</strike><br>{{rewindObject1.update2.dealPrice}}</p>
+        <div >{{rewindObject1.update2.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update3.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update3"  ng-change="categorySelected();rewindObject1.update3.check=false"></select>
+         <button ng-click="rewindObject1.update3.check=true" ng-if="!rewindObject1.update3.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update3.name}}</h2>
+        <p><strike>{{rewindObject1.update3.menuPrice}}</strike><br>{{rewindObject1.update3.dealPrice}}</p>
+        <div >{{rewindObject1.update3.description}}</div>
+    
+    </div>
+       <div class="col-md-2">
+       <select ng-if="rewindObject1.update4.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update4"  ng-change="categorySelected();rewindObject4.update1.check=false"></select>
+           <button ng-click="rewindObject1.update4.check=true" ng-if="!rewindObject1.update4.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update4.name}}</h2>
+        <p><strike>{{rewindObject1.update4.menuPrice}}</strike><br>{{rewindObject1.update4.dealPrice}}</p>
+        <div>{{rewindObject1.update4.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update5.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update5" ng-change="categorySelected();rewindObject1.update5.check=false"></select>
+         <button ng-click="rewindObject1.update5.check=true" ng-if="!rewindObject1.update5.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update5.name}}</h2>
+        <p><strike>{{rewindObject1.update5.menuPrice}}</strike><br>{{rewindObject1.update5.dealPrice}}</p>
+        <div>{{rewindObject1.update5.description}}</div>
+    
+    </div>
+    
+</div>
+
+<div class="row">
+    <h3>5 Services Package</h3>
+    <div class="col-md-2">
+       <select ng-if="rewindObject1.update6.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update6"  ng-change="categorySelected();rewindObject1.update6.check=false"></select>
+        <button ng-click="rewindObject1.update6.check=true" ng-if="!rewindObject1.update6.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update6.name}}</h2>
+        <p><strike>{{rewindObject1.update6.menuPrice}}</strike><br>{{rewindObject1.update6.dealPrice}}</p>
+        <div >{{rewindObject1.update6.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update7.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update7"  ng-change="categorySelected();rewindObject1.update7.check=false"></select>
+         <button ng-click="rewindObject1.update7.check=true" ng-if="!rewindObject1.update7.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update7.name}}</h2>
+        <p><strike>{{rewindObject1.update7.menuPrice}}</strike><br>{{rewindObject1.update7.dealPrice}}</p>
+        <div >{{rewindObject1.update7.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update8.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update8"  ng-change="categorySelected();rewindObject1.update8.check=false"></select>
+         <button ng-click="rewindObject1.update8.check=true" ng-if="!rewindObject1.update8.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update8.name}}</h2>
+        <p><strike>{{rewindObject1.update8.menuPrice}}</strike><br>{{rewindObject1.update8.dealPrice}}</p>
+        <div >{{rewindObject1.update8.description}}</div>
+    
+    </div>
+       <div class="col-md-2">
+       <select ng-if="rewindObject1.update9.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update9"  ng-change="categorySelected();rewindObject1.update9.check=false"></select>
+           <button ng-click="rewindObject1.update9.check=true" ng-if="!rewindObject1.update9.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update9.name}}</h2>
+        <p><strike>{{rewindObject1.update9.menuPrice}}</strike><br>{{rewindObject1.update9.dealPrice}}</p>
+        <div>{{rewindObject1.update9.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update10.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update10" ng-change="categorySelected();rewindObject1.update10.check=false"></select>
+         <button ng-click="rewindObject1.update10.check=true" ng-if="!rewindObject1.update10.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update10.name}}</h2>
+        <p><strike>{{rewindObject1.update10.menuPrice}}</strike><br>{{rewindObject1.update10.dealPrice}}</p>
+        <div>{{rewindObject1.update10.description}}</div>
+    
+    </div>
+    
+</div>
+
+<div class="row">
+    <h3>7 Services Package</h3>
+    <div class="col-md-2">
+       <select ng-if="rewindObject1.update11.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update11"  ng-change="categorySelected();rewindObject1.update11.check=false"></select>
+        <button ng-click="rewindObject1.update11.check=true" ng-if="!rewindObject1.update11.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update11.name}}</h2>
+        <p><strike>{{rewindObject1.update11.menuPrice}}</strike><br>{{rewindObject1.update11.dealPrice}}</p>
+        <div >{{rewindObject1.update11.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update12.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update12"  ng-change="categorySelected();rewindObject1.update12.check=false"></select>
+         <button ng-click="rewindObject1.update12.check=true" ng-if="!rewindObject1.update12.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update12.name}}</h2>
+        <p><strike>{{rewindObject1.update12.menuPrice}}</strike><br>{{rewindObject1.update12.dealPrice}}</p>
+        <div >{{rewindObject1.update12.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update13.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update13" ng-change="categorySelected();rewindObject1.update13.check=false"></select>
+         <button ng-click="rewindObject1.update13.check=true" ng-if="!rewindObject1.update13.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update13.name}}</h2>
+        <p><strike>{{rewindObject1.update13.menuPrice}}</strike><br>{{rewindObject1.update13.dealPrice}}</p>
+        <div >{{rewindObject1.update13.description}}</div>
+    
+    </div>
+       <div class="col-md-2">
+       <select  ng-if="rewindObject1.update14.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update14"  ng-change="categorySelected();rewindObject1.update14.check=false"></select>
+           <button ng-click="rewindObject1.update14.check=true" ng-if="!rewindObject1.update14.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update14.name}}</h2>
+        <p><strike>{{rewindObject1.update14.menuPrice}}</strike><br>{{rewindObject1.update14.dealPrice}}</p>
+        <div>{{rewindObject1.update14.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update15.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update15" ng-change="categorySelected();rewindObject1.update15.check=false"></select>
+         <button ng-click="rewindObject1.update15.check=true" ng-if="!rewindObject1.update15.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update15.name}}</h2>
+        <p><strike>{{rewindObject1.update15.menuPrice}}</strike><br>{{rewindObject1.update15.dealPrice}}</p>
+        <div>{{rewindObject1.update15.description}}</div>
+    
+    </div>
+    
+</div>
+
+<div class="row">
+    <h3> 10 Services Package</h3>
+    <div class="col-md-2">
+       <select ng-if="rewindObject1.update16.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update16"  ng-change="categorySelected();rewindObject1.update16.check=false"></select>
+        <button ng-click="rewindObject1.update16.check=true" ng-if="!rewindObject1.update16.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update16.name}}</h2>
+        <p><strike>{{rewindObject1.update16.menuPrice}}</strike><br>{{rewindObject1.update16.dealPrice}}</p>
+        <div >{{rewindObject1.update16.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update17.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update17" ng-change="categorySelected();rewindObject1.update17.check=false"></select>
+         <button ng-click="rewindObject1.update17.check=true" ng-if="!rewindObject1.update17.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update17.name}}</h2>
+        <p><strike>{{rewindObject1.update17.menuPrice}}</strike><br>{{rewindObject1.update17.dealPrice}}</p>
+        <div >{{rewindObject1.update17.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update18.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update18"  ng-change="categorySelected();rewindObject1.update18.check=false"></select>
+         <button ng-click="rewindObject1.update18.check=true" ng-if="!rewindObject1.update18.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update18.name}}</h2>
+        <p><strike>{{rewindObject1.update18.menuPrice}}</strike><br>{{rewindObject1.update18.dealPrice}}</p>
+        <div >{{rewindObject1.update18.description}}</div>
+    
+    </div>
+       <div class="col-md-2">
+       <select ng-if="rewindObject1.update19.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update19"  ng-change="categorySelected();rewindObject1.update19.check=false"></select>
+           <button ng-click="rewindObject1.update19.check=true" ng-if="!rewindObject1.update19.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update19.name}}</h2>
+        <p><strike>{{rewindObject1.update19.menuPrice}}</strike><br>{{rewindObject1.update19.dealPrice}}</p>
+        <div>{{rewindObject1.update19.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update20.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update20"  ng-change="categorySelected();rewindObject1.update20.check=false"></select>
+         <button ng-click="rewindObject1.update20.check=true" ng-if="!rewindObject1.update20.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update20.name}}</h2>
+        <p><strike>{{rewindObject1.update20.menuPrice}}</strike><br>{{rewindObject1.update20.dealPrice}}</p>
+        <div>{{rewindObject1.update20.description}}</div>
+    
+    </div>
+    
+</div>
+
+<div class="row">
+    <h3>15 Services Package</h3>
+    <div class="col-md-2">
+       <select ng-if="rewindObject1.update21.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update21" ng-change="categorySelected();rewindObject1.update21.check=false"></select>
+        <button ng-click="rewindObject1.update21.check=true" ng-if="!rewindObject1.update21.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update21.name}}</h2>
+        <p><strike>{{rewindObject1.update21.menuPrice}}</strike><br>{{rewindObject1.update21.dealPrice}}</p>
+        <div >{{rewindObject1.update21.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update22.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update22" ng-change="categorySelected();rewindObject1.update22.check=false"></select>
+         <button ng-click="rewindObject1.update22.check=true" ng-if="!rewindObject1.update22.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update22.name}}</h2>
+        <p><strike>{{rewindObject1.update22.menuPrice}}</strike><br>{{rewindObject1.update22.dealPrice}}</p>
+        <div >{{rewindObject1.update22.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update23.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update23" ng-change="categorySelected();rewindObject1.update23.check=false"></select>
+         <button ng-click="rewindObject1.update23.check=true" ng-if="!rewindObject1.update23.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update23.name}}</h2>
+        <p><strike>{{rewindObject1.update23.menuPrice}}</strike><br>{{rewindObject1.update23.dealPrice}}</p>
+        <div >{{rewindObject1.update23.description}}</div>
+    
+    </div>
+       <div class="col-md-2">
+       <select ng-if="rewindObject1.update24.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update24"  ng-change="categorySelected();rewindObject1.update24.check=false"></select>
+           <button ng-click="rewindObject1.update24.check=true" ng-if="!rewindObject1.update24.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update24.name}}</h2>
+        <p><strike>{{rewindObject1.update24.menuPrice}}</strike><br>{{rewindObject1.update24.dealPrice}}</p>
+        <div>{{rewindObject1.update24.description}}</div>
+    
+    </div>
+     <div class="col-md-2">
+       <select ng-if="rewindObject1.update25.check" ng-options="cat as cat.name disable when cat.isSelected for cat in categories" ng-model="rewindObject1.update25" ng-change="categorySelected();rewindObject1.update25.check=false"></select>
+         <button ng-click="rewindObject1.update25.check=true" ng-if="!rewindObject1.update25.check">Edit</button>
+        <br>
+        <br>
+        <h2>{{rewindObject1.update25.name}}</h2>
+        <p><strike>{{rewindObject1.update25.menuPrice}}</strike><br>{{rewindObject1.update25.dealPrice}}</p>
+        <div>{{rewindObject1.update25.description}}</div>
+    
+    </div>
+    
+</div>
