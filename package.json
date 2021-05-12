@@ -74,7 +74,7 @@
     "node-rest-client": "^3.1.0",
     "node-schedule": "^1.1.1",
     "node-twitter-api": "^1.7.4",
-    "nodemailer": "^2.7.0",
+    "nodemailer": "^6.4.16",
     "object-to-xml": "^1.1.0",
     "passport": "^0.3.2",
     "passport-google-oauth": "^1.0.0",
